@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
-from typing import Any, Union
+from typing import Union
 from .. import helper
 
 class BrowserType(Enum):
@@ -31,13 +31,13 @@ class BrowserObject(ABC):
         self.profile: FirefoxProfile
 
     @abstractmethod
-    def disable_images(self) -> Any:
+    def disable_images(self) -> None:
         """Method to configure web driver to disable download of images for faster browsing."""
         
         raise NotImplementedError
 
     @abstractmethod
-    def enable_headless(self) -> Any:
+    def enable_headless(self) -> None:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
 
         raise NotImplementedError
