@@ -28,13 +28,13 @@ class BrowserObject(ABC):
         self.driver: object = helper.config.set_webdriver(self.config)
 
     @abstractmethod
-    def disable_images(*args, **kwargs) -> Any:
+    def disable_images(self) -> Any:
         """Method to configure web driver to disable download of images for faster browsing."""
         
         raise NotImplementedError
 
     @abstractmethod
-    def enable_headless(*args, **kwargs) -> Any:
+    def enable_headless(self) -> Any:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
 
         raise NotImplementedError
