@@ -1,6 +1,7 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any
 from .. import helper
 
 class BrowserType(Enum):
@@ -25,3 +26,15 @@ class BrowserObject(ABC):
 
         self.config: BrowserConfig = config
         self.driver: object = helper.config.set_webdriver(self.config)
+
+    @abstractmethod
+    def disable_images(*args, **kwargs) -> Any:
+        """Method to configure web driver to disable download of images for faster browsing."""
+        
+        raise NotImplementedError
+
+    @abstractmethod
+    def enable_headless(*args, **kwargs) -> Any:
+        """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
+
+        raise NotImplementedError
