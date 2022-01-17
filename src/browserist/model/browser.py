@@ -25,7 +25,7 @@ class BrowserObject(ABC):
         """Initiates basic properties of the browser and web driver."""
 
         self.settings: BrowserSettings = settings
-        self.driver: object = helper.config.set_webdriver(self.config)
+        self.driver: object = helper.config.set_webdriver(self.settings)
 
     @abstractmethod
     def disable_images(self) -> Any:
