@@ -1,6 +1,6 @@
-__all__ = ["chrome"]
+__all__ = ["chrome", "firefox"]
 
-from . import chrome
+from . import chrome, firefox
 
 from selenium import webdriver
 from ...model.browser import BrowserSettings, BrowserType
