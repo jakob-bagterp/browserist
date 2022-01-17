@@ -1,8 +1,8 @@
 from selenium import webdriver
-from ...model.browser import BrowserConfig, BrowserType
+from ...model.browser import BrowserSettings, BrowserType
 
-def set_webdriver(config: BrowserConfig) -> object:
-    match(config.type):
+def set_webdriver(settings: BrowserSettings) -> object:
+    match(settings.type):
         case BrowserType.CHROME:
             return webdriver.Chrome
         case BrowserType.FIREFOX:

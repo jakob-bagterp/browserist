@@ -11,7 +11,7 @@ class BrowserType(Enum):
     FIREFOX = 2
 
 @dataclass    
-class BrowserConfig:
+class BrowserSettings:
     """Class to configure the browser driver."""
     
     type: BrowserType = BrowserType.CHROME
@@ -21,10 +21,10 @@ class BrowserConfig:
 class BrowserObject(ABC):
     """Abstract class that contains the web driver and its browser type and configuration."""
     
-    def __init__(self, config: BrowserConfig) -> None:
+    def __init__(self, settings: BrowserSettings) -> None:
         """Initiates basic properties of the browser and web driver."""
 
-        self.config: BrowserConfig = config
+        self.settings: BrowserSettings = settings
         self.driver: object = helper.config.set_webdriver(self.config)
 
     @abstractmethod
