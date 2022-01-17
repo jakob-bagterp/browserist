@@ -1,3 +1,7 @@
+__all__ = ["chrome"]
+
+from . import chrome
+
 from selenium import webdriver
 from ...model.browser import BrowserSettings, BrowserType
 
