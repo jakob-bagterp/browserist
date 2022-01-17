@@ -1,3 +1,4 @@
+from abc import ABC
 from dataclasses import dataclass
 from enum import Enum
 
@@ -14,3 +15,11 @@ class BrowserConfig:
     type: BrowserType
     headless: bool = False
     disable_images: bool = False
+
+class BrowserObject(ABC):
+    """Abstract class that contains the web driver and its browser type and configuration."""
+    
+    def __init__(self, config: BrowserConfig) -> None:
+        """Initiates basic properties of the browser and web driver."""
+
+        self.config: BrowserConfig = config
