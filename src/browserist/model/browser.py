@@ -1,6 +1,7 @@
 from abc import ABC
 from dataclasses import dataclass
 from enum import Enum
+from .. import helper
 
 class BrowserType(Enum):
     """Class to define browser type, e.g. Chrome, Firefox, etc."""
@@ -23,3 +24,4 @@ class BrowserObject(ABC):
         """Initiates basic properties of the browser and web driver."""
 
         self.config: BrowserConfig = config
+        self.driver: object = helper.config.set_webdriver(self.config)
