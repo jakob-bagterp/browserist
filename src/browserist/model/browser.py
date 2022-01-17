@@ -13,7 +13,7 @@ class BrowserType(Enum):
 class BrowserConfig:
     """Class to configure the browser driver."""
     
-    type: BrowserType
+    type: BrowserType = BrowserType.CHROME
     headless: bool = False
     disable_images: bool = False
 
