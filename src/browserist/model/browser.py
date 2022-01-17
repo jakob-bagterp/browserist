@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any
+from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
+from typing import Any, Union
 from .. import helper
 
 class BrowserType(Enum):
@@ -26,6 +27,8 @@ class BrowserObject(ABC):
 
         self.settings: BrowserSettings = settings
         self.driver: object = helper.config.set_webdriver(self.settings)
+        self.options: Union[ChromeOptions, FirefoxOptions]
+        self.profile: FirefoxProfile
 
     @abstractmethod
     def disable_images(self) -> Any:
