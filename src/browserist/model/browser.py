@@ -1,20 +1,16 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from enum import auto, Enum, unique
+from enum import Enum, unique
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
 from typing import Any, Union
 from .. import helper
 
-class EnumAutoName(Enum):
-    def _generate_next_value_(name: str, start: int, count: int, last_values: list[Any]) -> str:
-        return name.title()
-
 @unique
-class BrowserType(EnumAutoName):
+class BrowserType(Enum):
     """Class to define browser type, e.g. Chrome, Firefox, etc."""
     
-    CHROME = auto()
-    FIREFOX = auto()
+    CHROME = "Chrome"
+    FIREFOX = "Firefox"
 
 @dataclass    
 class BrowserSettings:
