@@ -33,6 +33,11 @@ class BrowserClass(ABC):
         """Initiates basic properties of the browser and web driver."""
 
         self.settings = settings
+        self.set_options_and_profile()
+
+    def set_options_and_profile(self) -> None:
+        self.disable_images()
+        self.enable_headless()
 
     @abstractmethod
     def disable_images(self) -> None:
