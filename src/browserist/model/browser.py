@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from enum import Enum
+from enum import Enum, auto
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
 from typing import Union
 from .. import helper
@@ -8,8 +8,8 @@ from .. import helper
 class BrowserType(Enum):
     """Class to define browser type, e.g. Chrome, Firefox, etc."""
     
-    CHROME = 1
-    FIREFOX = 2
+    CHROME = auto()
+    FIREFOX = auto()
 
 @dataclass    
 class BrowserSettings:
