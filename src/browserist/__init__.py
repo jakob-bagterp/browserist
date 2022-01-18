@@ -1,3 +1,5 @@
-__all__ = ["helper", "model"]
+__all__ = ["browser", "helper", "model"]
 
-from . import helper, model
+from . import browser, helper, model
+
+from .browser import Browser
