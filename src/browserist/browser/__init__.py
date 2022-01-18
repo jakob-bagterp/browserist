@@ -15,6 +15,8 @@ class Browser:
                 return ChromeBrowser(settings)
             case BrowserType.FIREFOX:
                 return FirefoxBrowser(settings)
+            case _:
+                raise ValueError(settings.type)
 
     def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
         self.settings = settings
