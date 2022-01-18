@@ -1,5 +1,5 @@
 from selenium import webdriver
-from ...model.browser import BrowserClass, BrowserType
+from . import BrowserClass, BrowserType
 
 class ChromeBrowser(BrowserClass):
     def ensure_browser_type(self) -> None:
