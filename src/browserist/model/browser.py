@@ -29,12 +29,20 @@ class BrowserClass(ABC):
         self.chrome_options: ChromeOptions = ChromeOptions()
         self.firefox_options: FirefoxOptions = FirefoxOptions()
         self.firefox_profile: FirefoxProfile = FirefoxProfile()
+        if settings is None:
+            self.ensure_browser_type()
         self.set_options_and_profile()
         self.driver: object = self.set_webdriver()
 
     def set_options_and_profile(self) -> None:
         self.disable_images()
         self.enable_headless()
+
+    @abstractmethod
+    def ensure_browser_type(self) -> None:
+        """Method to ensure the correct browser type if a specific browser instance is created directly from a subclass (e.g. ChromeBrowser, FirefoxBrowser, etc.) without the optional settings as argument."""
+        
+        raise NotImplementedError
 
     @abstractmethod
     def disable_images(self) -> None:

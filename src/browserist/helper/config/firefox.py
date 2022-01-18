@@ -1,7 +1,10 @@
 from selenium import webdriver
-from ...model.browser import BrowserClass
+from ...model.browser import BrowserClass, BrowserType
 
 class FirefoxBrowser(BrowserClass):
+    def ensure_browser_type(self) -> None:
+        self.settings.type = BrowserType.FIREFOX
+
     def disable_images(self) -> None:
         if self.settings.disable_images:
             self.firefox_profile.set_preference("permissions.default.image", 2)
