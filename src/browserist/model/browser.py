@@ -1,10 +1,11 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from enum import Enum, auto
+from enum import auto, Enum, unique
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
 from typing import Union
 from .. import helper
 
+@unique
 class BrowserType(Enum):
     """Class to define browser type, e.g. Chrome, Firefox, etc."""
     
