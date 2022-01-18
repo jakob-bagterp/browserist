@@ -23,13 +23,13 @@ class BrowserSettings:
 class BrowserClass(ABC):
     """Abstract class that contains the web driver based on browser type and configuration."""
 
-    settings: BrowserSettings = BrowserSettings()
     initvar_settings: InitVar[BrowserSettings]
+    settings: BrowserSettings
     chrome_options: ChromeOptions = ChromeOptions()
     firefox_options: FirefoxOptions = FirefoxOptions()
     firefox_profile: FirefoxProfile = FirefoxProfile()
     
-    def __post_init__(self, settings: BrowserSettings) -> None:
+    def __post_init__(self, settings: BrowserSettings = BrowserSettings()) -> None:
         """Initiates basic properties of the browser and web driver."""
 
         self.settings = settings
