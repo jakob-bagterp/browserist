@@ -41,7 +41,7 @@ class BrowserClass(ABC):
 
     @abstractmethod
     def ensure_browser_type(self) -> None:
-        """Method to ensure the correct browser type if a specific browser instance is created directly from a subclass (e.g. ChromeBrowser, FirefoxBrowser, etc.) without the optional settings as argument."""
+        """Method to ensure the correct browser type if a specific browser instance is created directly from a subclass (e.g. FirefoxBrowser) without the optional settings as argument, simply as Chrome is default browser."""
         
         raise NotImplementedError
 
