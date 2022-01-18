@@ -1,16 +1,12 @@
-from selenium.webdriver import FirefoxOptions, FirefoxProfile
-from ...model.browser import BrowserObject
+from selenium import webdriver
+from ...model.browser import BrowserClass
 
-class FirefoxBrowser(BrowserObject):
-    def __init__(self):
-        self.options: FirefoxOptions
-        self.profile: FirefoxProfile
-
+class FirefoxBrowser(BrowserClass):
     def disable_images(self) -> None:
         if self.settings.disable_images:
-            self.profile.set_preference('permissions.default.image', 2)
-            self.profile.set_preference('dom.ipc.plugins.enabled.libflashplayer.so', 'false')
+            self.firefox_profile.set_preference("permissions.default.image", 2)
+            self.firefox_profile.set_preference("dom.ipc.plugins.enabled.libflashplayer.so", "false")
     
     def enable_headless(self) -> None:
         if self.settings.headless:
-            self.options("--headless")
+            self.firefox_options("--headless")

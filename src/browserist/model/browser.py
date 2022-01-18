@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, InitVar
 from enum import Enum, unique
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
-from typing import Union
 from .. import helper
 
 @unique
@@ -20,16 +19,20 @@ class BrowserSettings:
     headless: bool = False
     disable_images: bool = False
 
-class BrowserObject(ABC):
-    """Abstract class that contains the web driver and its browser type and configuration."""
+@dataclass
+class BrowserClass(ABC):
+    """Abstract class that contains the web driver based on browser type and configuration."""
+
+    settings: BrowserSettings = BrowserSettings()
+    initvar_settings: InitVar[BrowserSettings]
+    chrome_options: ChromeOptions = ChromeOptions()
+    firefox_options: FirefoxOptions = FirefoxOptions()
+    firefox_profile: FirefoxProfile = FirefoxProfile()
     
-    def __init__(self, settings: BrowserSettings) -> None:
+    def __post_init__(self, settings: BrowserSettings) -> None:
         """Initiates basic properties of the browser and web driver."""
 
-        self.settings: BrowserSettings = settings
-        self.driver: object = helper.config.set_webdriver(self.settings)
-        self.options: Union[ChromeOptions, FirefoxOptions]
-        self.profile: FirefoxProfile
+        self.settings = settings
 
     @abstractmethod
     def disable_images(self) -> None:
