@@ -25,10 +25,11 @@ class BrowserClass(ABC):
     def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
         """Initiates basic properties of the browser and web driver."""
         
-        self.settings = BrowserSettings() if settings is None else settings 
         self.chrome_options: ChromeOptions = ChromeOptions()
         self.firefox_options: FirefoxOptions = FirefoxOptions()
         self.firefox_profile: FirefoxProfile = FirefoxProfile()
+
+        self.settings = BrowserSettings() if settings is None else settings
         if settings is None:
             self.ensure_browser_type()
         self.set_options_and_profile()
