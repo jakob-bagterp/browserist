@@ -10,3 +10,8 @@ class FirefoxBrowser(BrowserClass):
     def enable_headless(self) -> None:
         if self.settings.headless:
             self.firefox_options("--headless")
+
+    def set_webdriver(self) -> object:
+        return webdriver.Firefox(
+            firefox_profile = self.firefox_profile,
+            options = self.firefox_options)

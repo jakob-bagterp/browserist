@@ -1,3 +1,4 @@
+from selenium import webdriver
 from ...model.browser import BrowserClass
 
 class ChromeBrowser(BrowserClass):
@@ -9,3 +10,7 @@ class ChromeBrowser(BrowserClass):
     def enable_headless(self) -> None:
         if self.settings.headless:
             self.chrome_options.add_argument("headless")
+
+    def set_webdriver(self) -> object:
+        return webdriver.Chrome(
+            options = self.chrome_options)

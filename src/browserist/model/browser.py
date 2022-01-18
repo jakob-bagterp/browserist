@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, InitVar
 from enum import Enum, unique
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
-from .. import helper
 
 @unique
 class BrowserType(Enum):
@@ -34,6 +33,7 @@ class BrowserClass(ABC):
 
         self.settings = settings
         self.set_options_and_profile()
+        self.driver: object = self.set_webdriver()
 
     def set_options_and_profile(self) -> None:
         self.disable_images()
@@ -48,5 +48,11 @@ class BrowserClass(ABC):
     @abstractmethod
     def enable_headless(self) -> None:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
+
+        raise NotImplementedError
+
+    @abstractmethod
+    def set_webdriver(self) -> object:
+        """Method to set web driver based on settings."""
 
         raise NotImplementedError
