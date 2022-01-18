@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum, unique
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
-from typing import Any, Union
+from typing import Union
 from .. import helper
 
 @unique
