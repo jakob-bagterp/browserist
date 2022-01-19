@@ -4,6 +4,10 @@ from . import BrowserClass, BrowserType
 class ChromeBrowser(BrowserClass):
     def ensure_browser_type(self) -> None:
         self.settings.type = BrowserType.CHROME
+
+    def set_webdriver(self) -> object:
+        return webdriver.Chrome(
+            options = self.chrome_options)
       
     def disable_images(self) -> None:
         if self.settings.disable_images:
@@ -13,7 +17,3 @@ class ChromeBrowser(BrowserClass):
     def enable_headless(self) -> None:
         if self.settings.headless:
             self.chrome_options.add_argument("headless")
-
-    def set_webdriver(self) -> object:
-        return webdriver.Chrome(
-            options = self.chrome_options)

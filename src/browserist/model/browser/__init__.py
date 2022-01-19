@@ -39,15 +39,23 @@ class BrowserClass(ABC):
         self.set_options_and_profile()
         self.driver: object = self.set_webdriver()
 
-    def set_options_and_profile(self) -> None:
-        self.disable_images()
-        self.enable_headless()
-
     @abstractmethod
     def ensure_browser_type(self) -> None:
         """Method to ensure the correct browser type if a specific browser instance is created directly from a subclass (e.g. FirefoxBrowser) without the optional settings as argument, simply as Chrome is default browser."""
         
         raise NotImplementedError
+
+    @abstractmethod
+    def set_webdriver(self) -> object:
+        """Method to set web driver based on the settings."""
+
+        raise NotImplementedError
+
+    def set_options_and_profile(self) -> None:
+        """Internal task initialiser that runs the configuration methods to disable images, enable headless, etc."""
+        
+        self.disable_images()
+        self.enable_headless()
 
     @abstractmethod
     def disable_images(self) -> None:
@@ -58,11 +66,5 @@ class BrowserClass(ABC):
     @abstractmethod
     def enable_headless(self) -> None:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
-
-        raise NotImplementedError
-
-    @abstractmethod
-    def set_webdriver(self) -> object:
-        """Method to set web driver based on settings."""
 
         raise NotImplementedError
