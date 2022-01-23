@@ -1,20 +1,20 @@
 __all__ = []
 
 from typing import Union
-from ..model.browser import BrowserClass, BrowserSettings, BrowserType
-from ..model.browser.chrome import ChromeBrowser
-from ..model.browser.firefox import FirefoxBrowser
+from ..model.browser import BrowserDriver, BrowserSettings, BrowserType
+from ..model.browser.chrome import ChromeBrowserDriver
+from ..model.browser.firefox import FirefoxBrowserDriver
 
 class Browser:
-    def __new__(cls, settings: Union[BrowserSettings, None] = None) -> BrowserClass:
+    def __new__(cls, settings: Union[BrowserSettings, None] = None) -> BrowserDriver:
         if settings is None:
-            return ChromeBrowser()
+            return ChromeBrowserDriver()
         
         match(settings.type):
             case BrowserType.CHROME:
-                return ChromeBrowser(settings)
+                return ChromeBrowserDriver(settings)
             case BrowserType.FIREFOX:
-                return FirefoxBrowser(settings)
+                return FirefoxBrowserDriver(settings)
             case _:
                 raise ValueError(settings.type)
 

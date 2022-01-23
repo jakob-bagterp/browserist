@@ -1,7 +1,7 @@
 from selenium import webdriver
-from . import BrowserClass, BrowserType
+from . import BrowserDriver, BrowserType
 
-class FirefoxBrowser(BrowserClass):
+class FirefoxBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
         self.settings.type = BrowserType.FIREFOX
 
