@@ -24,10 +24,10 @@ class BrowserSettings:
     disable_images: bool = False
 
 class BrowserDriver(ABC):
-    """Abstract class that contains the web driver based on browser type and configuration."""
+    """Abstract class that contains the Selenium web driver based on browser type and configuration."""
     
     def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
-        """Initiates basic properties of the browser and web driver."""
+        """Initiates basic properties of the Selenium web driver."""
         
         self.chrome_options: ChromeOptions = ChromeOptions()
         self.firefox_options: FirefoxOptions = FirefoxOptions()
