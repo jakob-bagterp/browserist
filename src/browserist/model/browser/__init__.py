@@ -37,7 +37,7 @@ class BrowserDriver(ABC):
         if settings is None:
             self.ensure_browser_type()
         self.set_options_and_profile()
-        self.driver: object = self.set_webdriver()
+        self.webdriver: object = self.set_webdriver()
 
     @abstractmethod
     def ensure_browser_type(self) -> None:
