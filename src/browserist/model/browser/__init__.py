@@ -1,18 +1,9 @@
 __all__ = []
 
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
 from typing import Union
-from .type import BrowserType
-
-@dataclass    
-class BrowserSettings:
-    """Class to configure the browser driver."""
-    
-    type: BrowserType = BrowserType.CHROME
-    headless: bool = False
-    disable_images: bool = False
+from .settings import BrowserSettings
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
