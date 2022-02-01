@@ -1,5 +1,5 @@
 from selenium import webdriver
-from . import BrowserDriver
+from .driver import BrowserDriver
 from .type import BrowserType
 
 class ChromeBrowserDriver(BrowserDriver):
