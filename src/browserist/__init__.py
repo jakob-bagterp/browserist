@@ -1,7 +1,4 @@
-__all__ = ["browser", "helper", "model"]
-
-from . import browser, helper, model
-
+__all__ = ["Browser", "BrowserSettings", "BrowserType"]
 
 from .browser import Browser
 from .model.browser import BrowserSettings, BrowserType
