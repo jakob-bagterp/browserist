@@ -2,8 +2,8 @@ __all__ = []
 
 from typing import Union
 from .. import helper
-from ..model.browser.driver import BrowserDriver
-from ..model.browser.settings import BrowserSettings
+from ..model.browser._driver import BrowserDriver
+from ..model.browser._settings import BrowserSettings
 
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
