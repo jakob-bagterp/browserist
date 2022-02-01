@@ -2,16 +2,9 @@ __all__ = []
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from enum import Enum, unique
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
 from typing import Union
-
-@unique
-class BrowserType(Enum):
-    """Class to define browser type, e.g. Chrome, Firefox, etc."""
-    
-    CHROME = "Chrome"
-    FIREFOX = "Firefox"
+from .type import BrowserType
 
 @dataclass    
 class BrowserSettings:
