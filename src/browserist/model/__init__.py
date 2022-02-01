@@ -1,3 +1,1 @@
-__all__ = ["browser"]
-
-from . import browser
+__all__ = []

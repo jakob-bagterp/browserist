@@ -1,6 +1,4 @@
-__all__ = ["chrome", "firefox"]
-
-from . import chrome, firefox
+__all__ = []
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
