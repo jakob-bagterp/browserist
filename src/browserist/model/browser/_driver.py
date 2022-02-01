@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
 from typing import Union
-from .settings import BrowserSettings
+from ._settings import BrowserSettings
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
