@@ -1,7 +1,7 @@
 __all__ = []
 
 from typing import Union
-from .. import helper
+from ..helper import get
 from ..model.browser._driver import BrowserDriver
 from ..model.browser._settings import BrowserSettings
 
@@ -11,5 +11,5 @@ class Browser:
     def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
 
-        self.browser_driver: BrowserDriver = helper.get.browser_driver(settings)
+        self.browser_driver: BrowserDriver = get.browser_driver(settings)
         self.driver = self.browser_driver.webdriver
