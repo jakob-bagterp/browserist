@@ -1,5 +1,5 @@
 from ...helper import internet_explorer
-from . import BrowserExtension
+from .base import BrowserExtension
 
 class InternetExplorerBrowserExtension(BrowserExtension):
     def enable_images(self) -> None:
