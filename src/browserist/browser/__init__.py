@@ -13,4 +13,4 @@ class Browser:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
 
         self.browser_driver: BrowserDriver = get.browser_driver(settings)
-        self.driver = self.browser_driver.webdriver
+        self.driver: object = self.browser_driver.webdriver
