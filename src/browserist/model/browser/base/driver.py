@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
-from selenium.webdriver import ChromeOptions, FirefoxOptions, FirefoxProfile
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from typing import Union
 from .settings import BrowserSettings
 
