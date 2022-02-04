@@ -1,6 +1,7 @@
 from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
+from ...exception.headless import HeadlessNotSupportedException
 
 class InternetExplorerBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -19,4 +20,4 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         pass
 
     def enable_headless(self) -> None:
-        pass
+        raise HeadlessNotSupportedException(self.settings.type)
