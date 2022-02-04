@@ -1,4 +1,5 @@
 from selenium import webdriver
+from winreg import CloseKey, OpenKey, SetValueEx, HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
 from ...exception.headless import HeadlessNotSupportedException
@@ -17,7 +18,9 @@ class InternetExplorerBrowserDriver(BrowserDriver):
                 options = self.ie_options)
 
     def disable_images(self) -> None:
-        pass
+        key = OpenKey(HKEY_CURRENT_USER, r"Software\Microsoft\Internet Explorer\Main", 0, KEY_ALL_ACCESS)
+        SetValueEx(key, "Display Inline Images", 0, REG_SZ, "no")
+        CloseKey(key)
 
     def enable_headless(self) -> None:
         raise HeadlessNotSupportedException(self.settings.type)
