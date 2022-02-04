@@ -4,8 +4,6 @@ from .base.type import BrowserType
 from ...exception.headless import HeadlessNotSupportedException
 from ...helper import safari, set
 
-from selenium.webdriver.safari.options import Options
-
 class SafariBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
         self.settings.type = BrowserType.SAFARI
