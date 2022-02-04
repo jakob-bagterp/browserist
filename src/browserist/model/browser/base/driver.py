@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
 from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.ie.options import Options as IEOptions
 from typing import Union
 from .settings import BrowserSettings
 
@@ -12,8 +14,10 @@ class BrowserDriver(ABC):
         """Initiates basic properties of the Selenium web driver."""
         
         self.chrome_options: ChromeOptions = ChromeOptions()
+        self.edge_options: EdgeOptions = EdgeOptions()
         self.firefox_options: FirefoxOptions = FirefoxOptions()
         self.firefox_profile: FirefoxProfile = FirefoxProfile()
+        self.ie_options: IEOptions = IEOptions()
 
         self.settings = BrowserSettings() if settings is None else settings
         if settings is None:
