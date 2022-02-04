@@ -13,3 +13,6 @@ class Browser:
 
         self.browser_driver: BrowserDriver = get.browser_driver(settings)
         self.driver = self.browser_driver.webdriver
+
+    def quit(self) -> None:
+        self.driver.quit()
