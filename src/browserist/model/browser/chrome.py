@@ -1,7 +1,7 @@
 from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ...helper import chromium
+from ...helper import chromium, set
 
 class ChromeBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -23,4 +23,4 @@ class ChromeBrowserDriver(BrowserDriver):
         self = chromium.enable_headless(self)
 
     def set_page_load_strategy(self) -> None:
-        self = chromium.set_page_load_strategy(self)
+        self.chrome_options = set.page_load_strategy(self, self.chrome_options)

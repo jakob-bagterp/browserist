@@ -1,6 +1,7 @@
 from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
+from ...helper import set
 
 class EdgeBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -26,3 +27,6 @@ class EdgeBrowserDriver(BrowserDriver):
             self.edge_options.use_chromium = True
             self.edge_options.add_argument("headless")
             self.edge_options.add_argument("disable-gpu")
+
+    def set_page_load_strategy(self) -> None:
+        self.edge_options = set.page_load_strategy(self, self.edge_options)

@@ -2,7 +2,9 @@ from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
 from ...exception.headless import HeadlessNotSupportedException
-from ...helper import safari
+from ...helper import safari, set
+
+from selenium.webdriver.safari.options import Options
 
 class SafariBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -22,3 +24,6 @@ class SafariBrowserDriver(BrowserDriver):
 
     def enable_headless(self) -> None:
         raise HeadlessNotSupportedException(self.settings.type)
+
+    def set_page_load_strategy(self) -> None:
+        self.safari_options = set.page_load_strategy(self, self.safari_options)
