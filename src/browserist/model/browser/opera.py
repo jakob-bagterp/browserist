@@ -13,6 +13,6 @@ class OperaBrowserDriver(BrowserDriver):
 
     def disable_images(self) -> None:
         self = chromium.disable_images(self)
-    
+
     def enable_headless(self) -> None:
         self = chromium.enable_headless(self)

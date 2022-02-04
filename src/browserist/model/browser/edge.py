@@ -15,7 +15,7 @@ class EdgeBrowserDriver(BrowserDriver):
             self.edge_options.use_chromium = True
             preferences = {"profile.managed_default_content_settings.images": 2, "profile.default_content_settings.images": 2}
             self.edge_options.add_experimental_option("prefs", preferences)
-    
+
     def enable_headless(self) -> None:
         if self.settings.headless:
             self.edge_options.use_chromium = True
