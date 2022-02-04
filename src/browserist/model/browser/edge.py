@@ -18,4 +18,6 @@ class EdgeBrowserDriver(BrowserDriver):
     
     def enable_headless(self) -> None:
         if self.settings.headless:
-            pass
+            self.edge_options.use_chromium = True
+            self.edge_options.add_argument("headless")
+            self.edge_options.add_argument("disable-gpu")
