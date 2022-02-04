@@ -1,6 +1,7 @@
 __all__ = []
 
 from typing import Union
+
 from ..helper import get
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
