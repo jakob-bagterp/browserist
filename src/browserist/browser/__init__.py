@@ -26,6 +26,8 @@ class Browser:
             case _:
                 pass
     
+        self.open: Open = Open(self.browser_driver)
+
     def get(self, url: str) -> None:
         """Open page."""
         
