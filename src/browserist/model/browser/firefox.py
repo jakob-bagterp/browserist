@@ -1,6 +1,6 @@
 from selenium import webdriver
-from ._driver import BrowserDriver
-from ._type import BrowserType
+from .base.driver import BrowserDriver
+from .base.type import BrowserType
 
 class FirefoxBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:

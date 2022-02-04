@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from ._type import BrowserType
+from .type import BrowserType
 
 @dataclass    
 class BrowserSettings:

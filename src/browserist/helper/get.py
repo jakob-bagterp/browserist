@@ -1,7 +1,7 @@
 from typing import Union
-from ..model.browser._driver import BrowserDriver
-from ..model.browser._settings import BrowserSettings
-from ..model.browser._type import BrowserType
+from ..model.browser.base.driver import BrowserDriver
+from ..model.browser.base.settings import BrowserSettings
+from ..model.browser.base.type import BrowserType
 from ..model.browser.chrome import ChromeBrowserDriver
 from ..model.browser.firefox import FirefoxBrowserDriver
 
