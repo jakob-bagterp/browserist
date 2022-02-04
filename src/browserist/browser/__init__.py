@@ -15,18 +15,18 @@ class Browser:
     def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
 
-        self.browser_driver: BrowserDriver = get.browser_driver(settings)
-        self.driver: object = self.browser_driver.webdriver
+        self._browser_driver: BrowserDriver = get.browser_driver(settings)
+        self.driver: object = self._browser_driver.webdriver
         
-        match self.browser_driver.settings.type:
+        match self._browser_driver.settings.type:
             case BrowserType.INTERNET_EXPLORER:
-                self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self.browser_driver)
+                self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
             case BrowserType.SAFARI:
-                self.safari: SafariBrowserExtension = SafariBrowserExtension(self.browser_driver)
+                self.safari: SafariBrowserExtension = SafariBrowserExtension(self._browser_driver)
             case _:
                 pass
 
-        self.open: Open = Open(self.browser_driver)
+        self.open: Open = Open(self._browser_driver)
 
     def get(self, url: str) -> None:
         """Open page."""
