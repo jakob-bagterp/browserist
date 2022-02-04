@@ -27,4 +27,6 @@ class Browser:
                 pass
 
     def quit(self) -> None:
+        """Close web driver."""
+        
         self.driver.quit()
