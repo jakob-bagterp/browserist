@@ -4,6 +4,7 @@ from selenium.webdriver.edge.options import Options as EdgeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.ie.options import Options as IEOptions
+from selenium.webdriver.safari.options import Options as SafariOptions
 from typing import Union
 from .settings import BrowserSettings
 
@@ -18,6 +19,7 @@ class BrowserDriver(ABC):
         self.firefox_options: FirefoxOptions = FirefoxOptions()
         self.firefox_profile: FirefoxProfile = FirefoxProfile()
         self.ie_options: IEOptions = IEOptions()
+        self.safari_options: SafariOptions = SafariOptions()
 
         self.settings = BrowserSettings() if settings is None else settings
         if settings is None:
@@ -42,6 +44,7 @@ class BrowserDriver(ABC):
         
         self.disable_images()
         self.enable_headless()
+        self.set_page_load_strategy()
 
     @abstractmethod
     def disable_images(self) -> None:
@@ -52,5 +55,11 @@ class BrowserDriver(ABC):
     @abstractmethod
     def enable_headless(self) -> None:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
+
+        raise NotImplementedError
+
+    @abstractmethod
+    def set_page_load_strategy(self) -> None:
+        """Set the page load strategy to define whether the web driver should wait until all assets are downloaded (slower) or not (faster)."""
 
         raise NotImplementedError
