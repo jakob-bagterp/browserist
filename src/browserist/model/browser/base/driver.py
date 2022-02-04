@@ -60,6 +60,6 @@ class BrowserDriver(ABC):
 
     @abstractmethod
     def set_page_load_strategy(self) -> None:
-        """Set the page load strategy to define whether the web driver should wait until all assets are downloaded (slower) or not (faster)."""
+        """Method to set the page load strategy to define whether the web driver should wait until all assets are downloaded (slower) or not (faster)."""
 
         raise NotImplementedError
