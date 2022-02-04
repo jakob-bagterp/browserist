@@ -5,6 +5,7 @@ from ..model.browser.base.type import BrowserType
 from ..model.browser.chrome import ChromeBrowserDriver
 from ..model.browser.edge import EdgeBrowserDriver
 from ..model.browser.firefox import FirefoxBrowserDriver
+from ..model.browser.internet_explorer import InternetExplorerBrowserDriver
 from ..model.browser.opera import OperaBrowserDriver
 
 def browser_driver(settings: Union[BrowserSettings, None] = None) -> BrowserDriver:
@@ -18,6 +19,8 @@ def browser_driver(settings: Union[BrowserSettings, None] = None) -> BrowserDriv
             return EdgeBrowserDriver(settings)
         case BrowserType.FIREFOX:
             return FirefoxBrowserDriver(settings)
+        case BrowserType.INTERNET_EXPLORER:
+            return InternetExplorerBrowserDriver(settings)
         case BrowserType.OPERA:
             return OperaBrowserDriver(settings)
         case _:
