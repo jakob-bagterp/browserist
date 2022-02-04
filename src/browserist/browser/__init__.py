@@ -8,6 +8,7 @@ from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
 from ..model.extension.internet_explorer import InternetExplorerBrowserExtension
 from ..model.extension.safari import SafariBrowserExtension
+from .open import Open
 
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
