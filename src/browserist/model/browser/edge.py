@@ -7,9 +7,14 @@ class EdgeBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.EDGE
 
     def set_webdriver(self) -> object:
-        return webdriver.Edge(
-            options = self.edge_options)
-      
+        if self.settings.path_to_executable is None:
+            return webdriver.Edge(
+                options = self.edge_options)
+        else:
+            return webdriver.Edge(
+                executable_path = self.settings.path_to_executable,
+                options = self.edge_options)
+
     def disable_images(self) -> None:
         if self.settings.disable_images:
             self.edge_options.use_chromium = True

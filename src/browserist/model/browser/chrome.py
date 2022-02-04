@@ -8,9 +8,14 @@ class ChromeBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.CHROME
 
     def set_webdriver(self) -> object:
-        return webdriver.Chrome(
-            options = self.chrome_options)
-      
+        if self.settings.path_to_executable is None:
+            return webdriver.Chrome(
+                options = self.chrome_options)
+        else:
+            return webdriver.Chrome(
+                executable_path = self.settings.path_to_executable,
+                options = self.chrome_options)
+
     def disable_images(self) -> None:
         self = chromium.disable_images(self)
 
