@@ -25,3 +25,6 @@ class Browser:
                 self.safari: SafariBrowserExtension = SafariBrowserExtension(self.browser_driver)
             case _:
                 pass
+
+    def quit(self) -> None:
+        self.driver.quit()
