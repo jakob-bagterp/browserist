@@ -25,6 +25,26 @@ class Browser:
                 self.safari: SafariBrowserExtension = SafariBrowserExtension(self.browser_driver)
             case _:
                 pass
+    
+    def get(self, url: str) -> None:
+        """Open page."""
+        
+        self.driver.get(url)
+    
+    def back(self) -> None:
+        """Press the browser's back button."""
+        
+        self.driver.back()
+
+    def forward(self) -> None:
+        """Press the browser's forward button."""
+        
+        self.driver.forward()
+
+    def refresh(self) -> None:
+        """Refresh the current page."""
+        
+        self.driver.refresh()
 
     def quit(self) -> None:
         """Close web driver."""
