@@ -42,6 +42,7 @@ class BrowserDriver(ABC):
         
         self.disable_images()
         self.enable_headless()
+        self.set_page_load_strategy()
 
     @abstractmethod
     def disable_images(self) -> None:
@@ -52,5 +53,11 @@ class BrowserDriver(ABC):
     @abstractmethod
     def enable_headless(self) -> None:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
+
+        raise NotImplementedError
+
+    @abstractmethod
+    def set_page_load_strategy(self) -> None:
+        """Set the page load strategy to define whether the web driver should wait until all assets are downloaded (slower) or not (faster)."""
 
         raise NotImplementedError

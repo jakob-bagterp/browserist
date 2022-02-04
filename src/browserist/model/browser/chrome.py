@@ -21,3 +21,6 @@ class ChromeBrowserDriver(BrowserDriver):
 
     def enable_headless(self) -> None:
         self = chromium.enable_headless(self)
+
+    def set_page_load_strategy(self) -> None:
+        self = chromium.set_page_load_strategy(self)
