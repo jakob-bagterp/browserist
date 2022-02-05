@@ -1,3 +1,4 @@
+from .get import Get
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -9,3 +10,13 @@ class Open(DriverMethods):
         """Open page."""
 
         self._driver.get(url)
+
+    def url_if_not_current(self, url: str, ignore_trailing_slash: bool = True):
+        """Open a URL if it isn't already the current URL. Useful when doing multiple operations on a page where."""
+
+        # TODO: Evaluate without trailing slash
+        # TODO: Ignore HTTP?(S) part of URL
+        # TODO: Option to ignore parameters in URL
+        current_url = Get(self._browser_driver).current_url()     
+        if current_url != url:
+            self.url(url)

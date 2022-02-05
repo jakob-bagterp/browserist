@@ -1,6 +1,7 @@
 __all__ = []
 
 from typing import Union
+from .get import Get
 from .open import Open
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
@@ -26,13 +27,9 @@ class Browser:
             case _:
                 pass
 
+        self.get: Get = Get(self._browser_driver)
         self.open: Open = Open(self._browser_driver)
 
-    def get(self, url: str) -> None:
-        """Open page."""
-
-        self.driver.get(url)
-    
     def back(self) -> None:
         """Press the browser's back button."""
 
