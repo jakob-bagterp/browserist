@@ -5,6 +5,7 @@ from ..model.driver_methods import DriverMethods
 class OpenDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
+        self._get_methods: GetDriverMethods = GetDriverMethods(self._browser_driver) # TODO: Should probably use an interface.
 
     def url(self, url: str) -> None:
         """Open page."""
@@ -17,7 +18,7 @@ class OpenDriverMethods(DriverMethods):
         # TODO: Evaluate without trailing slash
         # TODO: Ignore HTTP?(S) part of URL
         # TODO: Option to ignore parameters in URL
-        current_url = GetDriverMethods(self._browser_driver).current_url()     
+        current_url = self._get_methods.current_url()
         if current_url != url:
             self.url(url)
 
