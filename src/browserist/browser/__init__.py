@@ -1,9 +1,9 @@
 __all__ = []
 
 from typing import Union
-from .get import Get
-from .open import Open
-from .wait import Wait
+from .get_methods import GetDriverMethods
+from .open_methods import OpenDriverMethods
+from .wait_methods import WaitDriverMethods
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
@@ -28,9 +28,9 @@ class Browser:
             case _:
                 pass
 
-        self.get: Get = Get(self._browser_driver)
-        self.open: Open = Open(self._browser_driver)
-        self.wait: Wait = Wait(self._browser_driver)
+        self.get: GetDriverMethods = GetDriverMethods(self._browser_driver)
+        self.open: OpenDriverMethods = OpenDriverMethods(self._browser_driver)
+        self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
 
     def back(self) -> None:
         """Press the browser's back button."""

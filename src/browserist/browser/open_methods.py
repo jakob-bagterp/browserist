@@ -1,8 +1,8 @@
-from .get import Get
+from .get_methods import GetDriverMethods
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
-class Open(DriverMethods):
+class OpenDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
@@ -17,7 +17,7 @@ class Open(DriverMethods):
         # TODO: Evaluate without trailing slash
         # TODO: Ignore HTTP?(S) part of URL
         # TODO: Option to ignore parameters in URL
-        current_url = Get(self._browser_driver).current_url()     
+        current_url = GetDriverMethods(self._browser_driver).current_url()     
         if current_url != url:
             self.url(url)
 
