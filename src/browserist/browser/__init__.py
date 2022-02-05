@@ -3,6 +3,7 @@ __all__ = []
 from typing import Union
 from .get import Get
 from .open import Open
+from .wait import Wait
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
@@ -29,6 +30,7 @@ class Browser:
 
         self.get: Get = Get(self._browser_driver)
         self.open: Open = Open(self._browser_driver)
+        self.wait: Wait = Wait(self._browser_driver)
 
     def back(self) -> None:
         """Press the browser's back button."""
