@@ -55,6 +55,6 @@ class Browser:
         self.driver.refresh()
 
     def quit(self) -> None:
-        """Close web driver."""
+        """Close the browser."""
 
         self.driver.quit()
