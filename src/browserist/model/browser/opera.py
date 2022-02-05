@@ -1,7 +1,7 @@
 from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ...helper import chromium, set
+from ... import helper
 
 class OperaBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -17,10 +17,10 @@ class OperaBrowserDriver(BrowserDriver):
                 options = self.chrome_options)
 
     def disable_images(self) -> None:
-        self = chromium.disable_images(self)
+        self = helper.chromium.disable_images(self)
 
     def enable_headless(self) -> None:
-        self = chromium.enable_headless(self)
+        self = helper.chromium.enable_headless(self)
 
     def set_page_load_strategy(self) -> None:
-        self.chrome_options = set.page_load_strategy(self, self.chrome_options)
+        self.chrome_options = helper.set.page_load_strategy(self, self.chrome_options)
