@@ -24,14 +24,11 @@ class Browser:
 
         self._browser_driver: BrowserDriver = helper.get.browser_driver(settings)
         self.driver: object = self._browser_driver.webdriver
-        
-        match self._browser_driver.settings.type:
-            case BrowserType.INTERNET_EXPLORER:
-                self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
-            case BrowserType.SAFARI:
-                self.safari: SafariBrowserExtension = SafariBrowserExtension(self._browser_driver)
-            case _:
-                pass
+
+        if self._browser_driver.settings.type is BrowserType.INTERNET_EXPLORER:
+            self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
+        if self._browser_driver.settings.type is BrowserType.SAFARI:
+            self.safari: SafariBrowserExtension = SafariBrowserExtension(self._browser_driver)
 
         self.check_if: CheckIfDriverMethods  = CheckIfDriverMethods(self._browser_driver)
         self.click:    ClickDriverMethods    = ClickDriverMethods(self._browser_driver)
