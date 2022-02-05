@@ -2,12 +2,12 @@ __all__ = []
 
 from typing import Union
 from ..helper import get
+from .open import Open
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
 from ..model.extension.internet_explorer import InternetExplorerBrowserExtension
 from ..model.extension.safari import SafariBrowserExtension
-from .open import Open
 
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
