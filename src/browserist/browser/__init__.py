@@ -1,14 +1,14 @@
 __all__ = []
 
 from typing import Union
-from .check_if_methods import CheckIfDriverMethods
-from .click_methods import ClickDriverMethods
-from .get_methods import GetDriverMethods
-from .open_methods import OpenDriverMethods
-from .scroll_methods import ScrollDriverMethods
-from .select_methods import SelectDriverMethods
-from .validate_methods import ValidateDriverMethods
-from .wait_methods import WaitDriverMethods
+from .check_if import CheckIfDriverMethods
+from .click import ClickDriverMethods
+from .get import GetDriverMethods
+from .open import OpenDriverMethods
+from .scroll import ScrollDriverMethods
+from .select import SelectDriverMethods
+from .validate import ValidateDriverMethods
+from .wait import WaitDriverMethods
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings

@@ -1,4 +1,4 @@
-from .get_methods import GetDriverMethods
+from .get import GetDriverMethods
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
