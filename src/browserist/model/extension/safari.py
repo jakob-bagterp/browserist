@@ -1,4 +1,4 @@
-from .base import BrowserExtension
+from . import BrowserExtension
 from ... import helper
 
 class SafariBrowserExtension(BrowserExtension):
