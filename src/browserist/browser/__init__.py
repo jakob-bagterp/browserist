@@ -1,8 +1,13 @@
 __all__ = []
 
 from typing import Union
+from .check_if_methods import CheckIfDriverMethods
+from .click_methods import ClickDriverMethods
 from .get_methods import GetDriverMethods
 from .open_methods import OpenDriverMethods
+from .scroll_methods import ScrollDriverMethods
+from .select_methods import SelectDriverMethods
+from .validate_methods import ValidateDriverMethods
 from .wait_methods import WaitDriverMethods
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
@@ -28,8 +33,13 @@ class Browser:
             case _:
                 pass
 
+        self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver)
+        self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver)
         self.get: GetDriverMethods = GetDriverMethods(self._browser_driver)
         self.open: OpenDriverMethods = OpenDriverMethods(self._browser_driver)
+        self.scroll: ScrollDriverMethods = ScrollDriverMethods(self._browser_driver)
+        self.select: SelectDriverMethods = SelectDriverMethods(self._browser_driver)
+        self.validate: ValidateDriverMethods = ValidateDriverMethods(self._browser_driver)
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
 
     def back(self) -> None:
