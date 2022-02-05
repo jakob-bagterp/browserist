@@ -1,9 +1,9 @@
 from ..model.browser.base.driver import BrowserDriver
+from ..model.driver_methods import DriverMethods
 
-class Open():
+class Open(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
-        self._browser_driver: BrowserDriver = browser_driver
-        self._driver: object = browser_driver.webdriver
+        super().__init__(browser_driver)
 
     def url(self, url: str) -> None:
         """Open page."""
