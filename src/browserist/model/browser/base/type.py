@@ -6,7 +6,7 @@ class BrowserType(Enum):
     
     CHROME = "Chrome"
     EDGE = "Edge"
-    INTERNET_EXPLORER = "Internet Explorer"
     FIREFOX = "Firefox"
+    INTERNET_EXPLORER = "Internet Explorer"
     OPERA = "Opera"
     SAFARI = "Safari"
