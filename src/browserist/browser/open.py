@@ -20,3 +20,10 @@ class Open(DriverMethods):
         current_url = Get(self._browser_driver).current_url()     
         if current_url != url:
             self.url(url)
+
+    def url_in_new_tab(self, url: str):
+        """Open a link in a new browser tab with support across browsers."""
+
+        self._driver.execute_script(f"window.open('{url}', '_blank');")
+        
+        # TODO: Should the new tab be in focus? Could be an argument, e.g. ... focus_new_tab = False).
