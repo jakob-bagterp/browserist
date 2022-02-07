@@ -11,7 +11,7 @@ class OpenDriverMethods(DriverMethods):
 
         self._driver.get(url)
 
-    def url_if_not_current(self, url: str, ignore_trailing_slash: bool = True):
+    def url_if_not_current(self, url: str, ignore_trailing_slash: bool = True) -> None:
         """Open a URL if it isn't already the current URL. Useful when doing multiple operations on a page where."""
 
         # TODO: Evaluate without trailing slash
@@ -21,7 +21,7 @@ class OpenDriverMethods(DriverMethods):
         if current_url != url:
             self.url(url)
 
-    def url_in_new_tab(self, url: str):
+    def url_in_new_tab(self, url: str) -> None:
         """Open a link in a new browser tab with support across browsers."""
 
         self._driver.execute_script(f"window.open('{url}', '_blank');")
