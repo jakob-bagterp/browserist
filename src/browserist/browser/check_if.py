@@ -18,8 +18,11 @@ def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = 5) 
 
 def check_if_is_element_enabled(driver: object, xpath: str) -> bool:
     wait_for_element(driver, xpath)
-    element = driver.find_element_by_xpath(xpath)
-    return element.is_enabled()
+    try:
+        element = driver.find_element_by_xpath(xpath)
+        return element.is_enabled()
+    except NoSuchElementException:
+        return False
 
 def check_if_is_element_disabled(driver: object, xpath: str) -> bool:
     return not check_if_is_element_enabled(driver, xpath)
