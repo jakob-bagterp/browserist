@@ -27,6 +27,13 @@ def check_if_is_element_enabled(driver: object, xpath: str) -> bool:
 def check_if_is_element_disabled(driver: object, xpath: str) -> bool:
     return not check_if_is_element_enabled(driver, xpath)
 
+def check_if_is_element_visible(driver: object, xpath: str) -> bool:
+    try:
+        element = driver.find_element_by_xpath(xpath)
+        return element.is_displayed()
+    except NoSuchElementException:
+        return False
+
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
@@ -45,3 +52,8 @@ class CheckIfDriverMethods(DriverMethods):
         """Check whether element is disabled."""
 
         return check_if_is_element_disabled(self._driver, xpath)
+
+    def is_element_visible(self, xpath: str) -> bool:
+        """Check visibility status of an element."""
+        
+        return check_if_is_element_visible(self._driver, xpath)
