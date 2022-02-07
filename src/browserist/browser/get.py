@@ -1,7 +1,7 @@
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
-def current_url(driver: object) -> str:
+def get_current_url(driver: object) -> str:
     return driver.current_url
 
 class GetDriverMethods(DriverMethods):
@@ -11,4 +11,4 @@ class GetDriverMethods(DriverMethods):
     def current_url(self) -> str:
         """Get URL of the current page."""
         
-        return current_url(self._driver)
+        return get_current_url(self._driver)

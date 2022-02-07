@@ -1,4 +1,4 @@
-from . import get
+from .get import get_current_url
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -17,7 +17,7 @@ class OpenDriverMethods(DriverMethods):
         # TODO: Evaluate without trailing slash
         # TODO: Ignore HTTP?(S) part of URL
         # TODO: Option to ignore parameters in URL
-        current_url = get.current_url(self._driver)
+        current_url = get_current_url(self._driver)
         if current_url != url:
             self.url(url)
 
