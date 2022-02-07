@@ -9,6 +9,7 @@ browser.refresh()
 
 #browser.get("https://github.com/jakob-bagterp/")
 browser.open.url("https://github.com/jakob-bagterp/")
+browser.wait.for_element("/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/a/img")
 
 browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
