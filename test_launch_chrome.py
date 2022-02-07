@@ -16,6 +16,7 @@ browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
 
 browser.open.url_in_new_tab("https://github.com/jakob-bagterp/")
+print(browser.get.current_url())
 
 time.sleep(5)
 
