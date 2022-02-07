@@ -2,7 +2,7 @@ import time, random
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
-def wait_random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
+def wait_random_time(min_seconds: int = 1, max_seconds: int = 5) -> None:
     time.sleep(random.uniform(min_seconds, max_seconds))
 
 class WaitDriverMethods(DriverMethods):
