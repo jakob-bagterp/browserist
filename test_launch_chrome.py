@@ -15,6 +15,7 @@ print(browser.check_if.is_element_clickable(xpath))
 print(browser.check_if.is_element_disabled(xpath))
 print(browser.check_if.is_element_enabled(xpath))
 print(browser.check_if.is_element_visible(xpath))
+print(browser.check_if.is_image_loaded(xpath))
 
 browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")

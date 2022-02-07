@@ -34,6 +34,17 @@ def check_if_is_element_visible(driver: object, xpath: str) -> bool:
     except NoSuchElementException:
         return False
 
+def check_if_is_image_element_loaded(driver: object, element: object) -> bool:
+    is_image_loaded = driver.execute_script(
+        "return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0;",
+        element)
+    return is_image_loaded
+
+def check_if_is_image_loaded(driver: object, xpath: str, timeout: int = 5) -> bool:
+	wait_for_element(driver, xpath, timeout)
+	element = driver.find_element_by_xpath(xpath)
+	return check_if_is_image_element_loaded(driver, element)
+
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
@@ -57,3 +68,13 @@ class CheckIfDriverMethods(DriverMethods):
         """Check visibility status of an element."""
         
         return check_if_is_element_visible(self._driver, xpath)
+
+    def is_image_loaded(self, xpath: str, timeout: int = 5) -> bool:
+        """Check is image is loaded and ready in the DOM."""
+        
+        return check_if_is_image_loaded(self._driver, xpath, timeout)
+
+    def is_image_element_loaded(self, element: object) -> bool:
+        """Check is image element is loaded and ready in the DOM."""
+        
+        return check_if_is_image_element_loaded(self._driver, element)
