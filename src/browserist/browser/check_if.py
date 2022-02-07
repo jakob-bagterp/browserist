@@ -29,7 +29,7 @@ class CheckIfDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def is_element_clickable(self, xpath: str, timeout: int = 5) -> bool:
-        """Check if element by XPath is clickable."""
+        """Check if element is clickable."""
         
         return check_if_is_element_clickable(self._driver, xpath, timeout)
 
