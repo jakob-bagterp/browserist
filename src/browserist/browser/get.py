@@ -9,4 +9,6 @@ class GetDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def current_url(self) -> str:
+        """Get URL of the current page."""
+        
         return current_url(self._driver)
