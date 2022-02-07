@@ -3,10 +3,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from .wait import wait_for_element
+from ..constant import timeout
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
-def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = 5) -> bool:
+def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
     wait_for_element(driver, xpath, timeout)
     try:
         element = WebDriverWait(driver, 0.5).until(EC.element_to_be_clickable((By.XPATH, xpath)))
@@ -40,7 +41,7 @@ def check_if_is_image_element_loaded(driver: object, element: object) -> bool:
         element)
     return is_image_loaded
 
-def check_if_is_image_loaded(driver: object, xpath: str, timeout: int = 5) -> bool:
+def check_if_is_image_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
 	wait_for_element(driver, xpath, timeout)
 	element = driver.find_element_by_xpath(xpath)
 	return check_if_is_image_element_loaded(driver, element)
@@ -49,7 +50,7 @@ class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def is_element_clickable(self, xpath: str, timeout: int = 5) -> bool:
+    def is_element_clickable(self, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element is clickable."""
         
         return check_if_is_element_clickable(self._driver, xpath, timeout)
@@ -69,7 +70,7 @@ class CheckIfDriverMethods(DriverMethods):
         
         return check_if_is_element_visible(self._driver, xpath)
 
-    def is_image_loaded(self, xpath: str, timeout: int = 5) -> bool:
+    def is_image_loaded(self, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
         """Check is image is loaded and ready in the DOM."""
         
         return check_if_is_image_loaded(self._driver, xpath, timeout)

@@ -3,12 +3,13 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from ..constant import timeout
 from ..exception.element import NoElementFoundException
 from ..exception.timeout import WaitTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
-def wait_for_element(driver: object, xpath: str, timeout: int = 5) -> None:
+def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     try:
         WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
     except TimeoutException:
@@ -16,7 +17,7 @@ def wait_for_element(driver: object, xpath: str, timeout: int = 5) -> None:
     except NoSuchElementException:
         raise NoElementFoundException(driver, xpath)
 
-def wait_random_time(min_seconds: int = 1, max_seconds: int = 5) -> None:
+def wait_random_time(min_seconds: int = 1, max_seconds: int = timeout.DEFAULT) -> None:
     time.sleep(random.uniform(min_seconds, max_seconds))
 
 class WaitDriverMethods(DriverMethods):
