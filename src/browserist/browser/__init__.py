@@ -4,6 +4,7 @@ from typing import Union
 from .check_if import CheckIfDriverMethods
 from .click import ClickDriverMethods
 from .get import GetDriverMethods
+from .input import InputDriverMethods
 from .open import OpenDriverMethods
 from .scroll import ScrollDriverMethods
 from .select import SelectDriverMethods
@@ -33,6 +34,7 @@ class Browser:
         self.check_if: CheckIfDriverMethods  = CheckIfDriverMethods(self._browser_driver)
         self.click:    ClickDriverMethods    = ClickDriverMethods(self._browser_driver)
         self.get:      GetDriverMethods      = GetDriverMethods(self._browser_driver)
+        self.input:    InputDriverMethods    = InputDriverMethods(self._browser_driver)
         self.open:     OpenDriverMethods     = OpenDriverMethods(self._browser_driver)
         self.scroll:   ScrollDriverMethods   = ScrollDriverMethods(self._browser_driver)
         self.select:   SelectDriverMethods   = SelectDriverMethods(self._browser_driver)
