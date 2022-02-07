@@ -16,6 +16,14 @@ def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = 5) 
     except NoSuchElementException:
         return False
 
+def check_if_is_element_enabled(driver: object, xpath: str) -> bool:
+    wait_for_element(driver, xpath)
+    element = driver.find_element_by_xpath(xpath)
+    return element.is_enabled()
+
+def check_if_is_element_disabled(driver: object, xpath: str) -> bool:
+    return not check_if_is_element_enabled(driver, xpath)
+
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
@@ -24,3 +32,13 @@ class CheckIfDriverMethods(DriverMethods):
         """Check if element by XPath is clickable."""
         
         return check_if_is_element_clickable(self._driver, xpath, timeout)
+
+    def is_element_enabled(self, xpath: str) -> bool:
+        """Check whether element is enabled."""
+
+        return check_if_is_element_enabled(self._driver, xpath)
+
+    def is_element_disabled(self, xpath: str) -> bool:
+        """Check whether element is disabled."""
+
+        return check_if_is_element_disabled(self._driver, xpath)
