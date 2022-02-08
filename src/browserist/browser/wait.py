@@ -31,7 +31,7 @@ class WaitDriverMethods(DriverMethods):
         super().__init__(browser_driver)
         
     def for_element(self, xpath: str) -> None:
-        """Wait until element by XPath is ready in the DOM.
+        """Wait until element is ready in the DOM and/or on the screen.
 
         Especially useful for single-page app elements handled/modified by JavaScript, but also standard HTML that doesn't load immediately, this helper function ensures that DOM elements are ready before processing."""
 
