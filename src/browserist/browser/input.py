@@ -1,7 +1,7 @@
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .wait import wait_for_element
 from ..exception.element import NoElementFoundException
-from ..exception.timeout import WaitTimeoutException
+from ..exception.timeout import WaitForElementTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -11,7 +11,7 @@ def input_clear(driver: object, input_xpath: str) -> None:
         input_field = driver.find_element_by_xpath(input_xpath)
         input_field.clear()
     except TimeoutException:
-        raise WaitTimeoutException(driver, input_xpath)
+        raise WaitForElementTimeoutException(driver, input_xpath)
     except NoSuchElementException:
         raise NoElementFoundException(driver, input_xpath)
 
@@ -22,7 +22,7 @@ def input_value(driver: object, input_xpath: str, value: str) -> None:
         input_field.clear() # Always clear input field before entering value
         input_field.send_keys(value)
     except TimeoutException:
-        raise WaitTimeoutException(driver, input_xpath)
+        raise WaitForElementTimeoutException(driver, input_xpath)
     except NoSuchElementException:
         raise NoElementFoundException(driver, input_xpath)
 

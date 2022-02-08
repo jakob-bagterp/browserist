@@ -5,7 +5,7 @@ from .wait import wait_for_element
 from .. import helper
 from ..constant import timeout
 from ..exception.element import NoElementDimensionsFoundException
-from ..exception.timeout import WaitTimeoutException
+from ..exception.timeout import WaitForElementTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -15,7 +15,7 @@ def get_dimensions_of_element(driver: object, xpath: str, timeout: int = timeout
         dimensions = driver.find_element_by_xpath(xpath).size # Returns dictionary object, e.g. {'height': 598, 'width': 479}.
         return dimensions.get("width"), dimensions.get("height")
     except TimeoutException:
-        raise WaitTimeoutException(driver, xpath)
+        raise WaitForElementTimeoutException(driver, xpath)
     except NoSuchElementException:
         raise NoElementDimensionsFoundException(driver, xpath)
 

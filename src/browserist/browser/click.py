@@ -2,7 +2,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .wait import wait_for_element
 from ..constant import timeout
 from ..exception.element import NoElementFoundException
-from ..exception.timeout import WaitTimeoutException
+from ..exception.timeout import WaitForElementTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -12,7 +12,7 @@ def click_button(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> 
         button = driver.find_element_by_xpath(xpath)
         button.click()
     except TimeoutException:
-        raise WaitTimeoutException(driver, xpath)
+        raise WaitForElementTimeoutException(driver, xpath)
     except NoSuchElementException:
         raise NoElementFoundException(driver, xpath)
 

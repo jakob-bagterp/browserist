@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from ..constant import timeout
 from ..exception.element import NoElementFoundException
-from ..exception.timeout import WaitTimeoutException, WaitForUrlTimeoutException
+from ..exception.timeout import WaitForElementTimeoutException, WaitForUrlTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -13,7 +13,7 @@ def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT)
     try:
         WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
     except TimeoutException:
-        raise WaitTimeoutException(driver, xpath)
+        raise WaitForElementTimeoutException(driver, xpath)
     except NoSuchElementException:
         raise NoElementFoundException(driver, xpath)
 
