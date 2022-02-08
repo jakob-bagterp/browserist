@@ -34,14 +34,14 @@ def wait_random_time(min_seconds: int = 1, max_seconds: int = timeout.DEFAULT) -
 class WaitDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
-        
+
     def for_element(self, xpath: str) -> None:
         """Wait until element is ready in the DOM and/or on the screen.
 
         Especially useful for single-page app elements handled/modified by JavaScript, but also standard HTML that doesn't load immediately, this helper function ensures that DOM elements are ready before processing."""
 
         wait_for_element(self._driver, xpath)
-        
+
     def until_element_disappears(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until element doesn't exist."""
 
@@ -49,7 +49,7 @@ class WaitDriverMethods(DriverMethods):
 
     def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)"""
-        
+
         wait_until_url_contains(self._driver, url, timeout)
 
     def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
