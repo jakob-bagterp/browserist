@@ -54,7 +54,7 @@ class ComboDriverMethods(DriverMethods):
 
     def login(self, login_credentials: LoginCredentials, login_form: LoginForm, wait_seconds: int = timeout.DEFAULT) -> None:
         """Standardised combination of methods to log in.
-        
+
         wait_seconds: Extra seconds in addition to timeout to make sure the login is processed and that the user is redirected succesfully."""
-        
+
         combo_login(self._driver, login_credentials, login_form, wait_seconds)
