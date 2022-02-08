@@ -3,6 +3,7 @@ __all__ = []
 from typing import Union
 from .check_if import CheckIfDriverMethods
 from .click import ClickDriverMethods
+from .combo import ComboDriverMethods
 from .get import GetDriverMethods
 from .input import InputDriverMethods
 from .open import OpenDriverMethods
@@ -33,6 +34,7 @@ class Browser:
 
         self.check_if: CheckIfDriverMethods  = CheckIfDriverMethods(self._browser_driver)
         self.click:    ClickDriverMethods    = ClickDriverMethods(self._browser_driver)
+        self.combo:    ComboDriverMethods    = ComboDriverMethods(self._browser_driver)
         self.get:      GetDriverMethods      = GetDriverMethods(self._browser_driver)
         self.input:    InputDriverMethods    = InputDriverMethods(self._browser_driver)
         self.open:     OpenDriverMethods     = OpenDriverMethods(self._browser_driver)
