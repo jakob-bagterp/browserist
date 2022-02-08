@@ -14,8 +14,8 @@ from .. import helper
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
-from ..model.extension.internet_explorer import InternetExplorerBrowserExtension
-from ..model.extension.safari import SafariBrowserExtension
+from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
+from ..model.browser.extension.safari import SafariBrowserExtension
 
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
