@@ -1,23 +1,14 @@
 import time, random
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from .check_if_does_element_exist import check_if_does_element_exist
+from .wait_for_element import wait_for_element
 from .. import helper
 from ..constant import timeout
-from ..exception.element import NoElementFoundException
-from ..exception.timeout import WaitForElementTimeoutException, WaitForUrlTimeoutException
+from ..exception.timeout import WaitForUrlTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
-
-def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
-    try:
-        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
-    except TimeoutException:
-        raise WaitForElementTimeoutException(driver, xpath)
-    except NoSuchElementException:
-        raise NoElementFoundException(driver, xpath)
 
 def wait_until_element_disappears(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     helper.driver.retry_until_condition_is_false(check_if_does_element_exist(driver, xpath), timeout)

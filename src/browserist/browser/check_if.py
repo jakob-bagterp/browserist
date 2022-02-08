@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from .check_if_does_element_exist import check_if_does_element_exist
-from .wait import wait_for_element
+from .wait_for_element import wait_for_element
 from ..constant import timeout
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods

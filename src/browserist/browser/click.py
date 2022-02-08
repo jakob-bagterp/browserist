@@ -1,5 +1,5 @@
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from .wait import wait_for_element
+from .wait_for_element import wait_for_element
 from ..constant import timeout
 from ..exception.element import NoElementFoundException
 from ..exception.timeout import WaitForElementTimeoutException

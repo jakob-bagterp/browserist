@@ -2,7 +2,8 @@ import time
 from .click import click_button
 from .input import input_value
 from .open import open_url_if_not_current
-from .wait import wait_for_element, wait_until_element_disappears, wait_until_url_contains
+from .wait import wait_until_element_disappears, wait_until_url_contains
+from .wait_for_element import wait_for_element
 from ..constant import timeout
 from ..exception.cookie_banner import CookieBannerException
 from ..exception.login import LoginException
