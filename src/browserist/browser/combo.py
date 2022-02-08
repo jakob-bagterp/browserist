@@ -3,7 +3,7 @@ from .check_if import check_if_is_element_visible
 from .click import click_button
 from .input import input_value
 from .open import open_url_if_not_current
-from .wait import wait_for_element, wait_until_url_contains
+from .wait import wait_for_element, wait_until_element_disappears, wait_until_url_contains
 from ..constant import timeout
 from ..exception.cookie_banner import CookieBannerException
 from ..exception.login import LoginException
@@ -21,10 +21,7 @@ def combo_cookie_banner(driver: object, settings: CookieBannerSettings) -> None:
             wait_for_element(driver, settings.has_loaded_xpath)
         click_button(driver, settings.button_xpath)
         time.sleep(settings.has_disappeared_wait_seconds)
-        i = 0
-        while not check_if_is_element_visible(driver, settings.button_xpath) or i < 10:
-            time.sleep(0.5)
-            i += 1
+        wait_until_element_disappears(driver, settings.button_xpath)
     except Exception:
         raise CookieBannerException()
 
