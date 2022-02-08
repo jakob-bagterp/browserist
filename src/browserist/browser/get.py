@@ -22,7 +22,7 @@ def get_dimensions_of_element(driver: object, xpath: str, timeout: int = timeout
 def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
     def get_inner_text_of_element(driver: object, xpath: str) -> str:
         return driver.find_element_by_xpath(xpath).text
-    
+
     wait_for_element(driver, xpath, timeout)
     return helper.driver.retry_and_get_text_from_element(get_inner_text_of_element(driver, xpath))
 
@@ -66,9 +66,9 @@ class GetDriverMethods(DriverMethods):
 
     def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
         """Get width and height of element in pixels. Usage:
-        
+
         width, height = browser.get.dimensions_of_element("/element/xpath")"""
-        
+
         return get_dimensions_of_element(self._driver, xpath, timeout)
 
     def text_from_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
