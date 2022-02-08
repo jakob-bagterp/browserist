@@ -1,12 +1,10 @@
 import time
 from typing import List
+from .get_current_url import get_current_url
 from .wait import wait_for_element
 from ..constant import timeout
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
-
-def get_current_url(driver: object) -> str:
-    return driver.current_url
 
 def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
     def get_inner_text_of_element(xpath: str) -> str:
