@@ -26,7 +26,7 @@ class GetDriverMethods(DriverMethods):
 
     def current_url(self) -> str:
         """Get URL of the current page."""
-        
+
         return get_current_url(self._driver)
 
     def text(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
