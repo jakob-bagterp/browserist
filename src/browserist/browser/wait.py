@@ -8,7 +8,7 @@ from .check_if_does_element_exist import check_if_does_element_exist
 from .wait_for_element import wait_for_element
 from .. import helper
 from ..constant import timeout
-from ..exception.timeout import WaitForUrlTimeoutException
+from ..exception.timeout import WaitForPageTitleToChangeTimeoutException, WaitForUrlTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -22,6 +22,12 @@ def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = tim
     wait_for_element(driver, xpath, timeout)
     elements = driver.find_elements_by_xpath(xpath)
     helper.driver.retry_until_condition_is_true(are_all_images_loaded(driver, elements), timeout)
+
+def wait_until_page_title_contains(driver: object, page_title_fragment: str, timeout = timeout.DEFAULT) -> None:
+    try:
+        WebDriverWait(driver, timeout).until(EC.title_contains(page_title_fragment))
+    except TimeoutException:
+        raise WaitForPageTitleToChangeTimeoutException(driver, page_title_fragment)
 
 def wait_until_url_contains(driver: object, url: str, timeout: int = timeout.LONG) -> None:
     try:
@@ -52,6 +58,11 @@ class WaitDriverMethods(DriverMethods):
         """Wait until element doesn't exist. The image XPath can target one or more images."""
 
         wait_until_images_have_loaded(self._driver, xpath, timeout)
+
+    def until_page_title_contains(self, page_title_fragment: str, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until the page title has changed, e.g. after a redirect or update. The input can contain both a fragment or the full page title."""
+
+        wait_until_page_title_contains(self._driver, page_title_fragment, timeout)
 
     def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""

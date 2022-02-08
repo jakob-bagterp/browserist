@@ -18,6 +18,7 @@ xpath = "/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/a/img
 browser.wait.for_element(xpath)
 browser.wait.until_element_disappears(xpath + "/test")
 browser.wait.until_images_have_loaded(xpath)
+browser.wait.until_page_title_contains(browser.get.current_page_title())
 print("current_page_title", browser.get.current_page_title())
 print("does_element_exist", browser.check_if.does_element_exist(xpath))
 print("is_element_clickable", browser.check_if.is_element_clickable(xpath))
