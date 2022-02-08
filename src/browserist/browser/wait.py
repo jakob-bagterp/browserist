@@ -15,7 +15,7 @@ from ..model.driver_methods import DriverMethods
 def wait_until_element_disappears(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     helper.driver.retry_until_condition_is_false(check_if_does_element_exist(driver, xpath), timeout)
     
-def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT):
+def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     def are_all_images_loaded(driver: object, elements: List[object]):
         return all(check_if_is_image_element_loaded(driver, element) is not False for element in elements)
 
@@ -47,8 +47,8 @@ class WaitDriverMethods(DriverMethods):
         """Wait until element doesn't exist."""
 
         wait_until_element_disappears(self._driver, xpath, timeout)
-    
-    def until_images_have_loaded(self, xpath: str, timeout: int = timeout.DEFAULT):
+
+    def until_images_have_loaded(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until element doesn't exist. The image XPath can target one or more images."""
 
         wait_until_images_have_loaded(self._driver, xpath, timeout)
