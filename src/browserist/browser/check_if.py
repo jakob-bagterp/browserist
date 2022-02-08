@@ -7,6 +7,13 @@ from ..constant import timeout
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
+def check_if_does_element_exist(driver: object, xpath: str) -> bool:
+    try:
+        element = driver.find_element_by_xpath(xpath)
+        return element is not None
+    except NoSuchElementException:
+        return False
+
 def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
     wait_for_element(driver, xpath, timeout)
     try:
@@ -49,6 +56,11 @@ def check_if_is_image_loaded(driver: object, xpath: str, timeout: int = timeout.
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
+
+    def does_element_exist(self, xpath: str,) -> bool:
+        """Check if element exists."""
+
+        return check_if_does_element_exist(self._driver, xpath)
 
     def is_element_clickable(self, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element is clickable."""
