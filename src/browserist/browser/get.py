@@ -2,6 +2,7 @@ import time
 from typing import List
 from .get_current_url import get_current_url
 from .wait import wait_for_element
+from .. import helper
 from ..constant import timeout
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
@@ -11,13 +12,7 @@ def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEF
         return driver.find_element_by_xpath(xpath).text
     
     wait_for_element(driver, xpath, timeout)
-    text = get_inner_text_of_element(driver, xpath)
-    i = 0
-    while len(text) == 0 and i < 10:
-        time.sleep(0.5)
-        text = get_inner_text_of_element(driver, xpath)
-        i += 1
-    return text
+    return helper.driver.retry_and_get_text_from_element(get_inner_text_of_element(driver, xpath))
 
 def get_texts_from_multiple_elements(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
     wait_for_element(driver, xpath, timeout)
@@ -29,13 +24,7 @@ def get_url_from_link(driver: object, xpath: str, timeout: int = timeout.DEFAULT
         return driver.find_element_by_xpath(xpath).get_attribute("href")
 
     wait_for_element(driver, xpath, timeout)
-    url = get_href_attribute_of_element(driver, xpath)
-    i = 0
-    while len(url) == 0 and i < 10:
-        time.sleep(0.5)
-        url = get_href_attribute_of_element(driver, xpath)
-        i += 1
-    return url
+    return helper.driver.retry_and_get_text_from_element(get_href_attribute_of_element(driver, xpath))
 
 def get_urls_from_multiple_links(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
     wait_for_element(driver, xpath, timeout)
