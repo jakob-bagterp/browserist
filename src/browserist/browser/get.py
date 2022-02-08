@@ -1,11 +1,24 @@
 import time
 from typing import List
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .get_current_url import get_current_url
 from .wait import wait_for_element
 from .. import helper
 from ..constant import timeout
+from ..exception.element import NoElementDimensionsFoundException
+from ..exception.timeout import WaitTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
+
+def get_dimensions_of_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
+    wait_for_element(driver, xpath, timeout)
+    try:
+        dimensions = driver.find_element_by_xpath(xpath).size # Returns dictionary object, e.g. {'height': 598, 'width': 479}.
+        return dimensions.get("width"), dimensions.get("height")
+    except TimeoutException:
+        raise WaitTimeoutException(driver, xpath)
+    except NoSuchElementException:
+        raise NoElementDimensionsFoundException(driver, xpath)
 
 def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
     def get_inner_text_of_element(driver: object, xpath: str) -> str:
@@ -39,6 +52,13 @@ class GetDriverMethods(DriverMethods):
         """Get URL of the current page."""
 
         return get_current_url(self._driver)
+
+    def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
+        """Get width and height of element in pixels. Usage:
+        
+        width, height = browser.get.dimensions_of_element("/element/xpath")"""
+        
+        return get_dimensions_of_element(self._driver, xpath, timeout)
 
     def text_from_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get text from element.
