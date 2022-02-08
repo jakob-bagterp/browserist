@@ -9,6 +9,7 @@ browser.refresh()
 
 #browser.get("https://github.com/jakob-bagterp/")
 browser.open.url("https://github.com/jakob-bagterp/")
+browser.wait.until_url_contains("jakob")
 print(browser.get.text_from_element("/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[2]/h1"))
 print(browser.get.texts_from_multiple_elements("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"))
 print(browser.get.url_from_link("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a"))

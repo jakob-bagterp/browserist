@@ -17,7 +17,7 @@ def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT)
     except NoSuchElementException:
         raise NoElementFoundException(driver, xpath)
 
-def wait_for_url(driver: object, url: str, timeout: int = timeout.LONG) -> None:
+def wait_until_url_contains(driver: object, url: str, timeout: int = timeout.LONG) -> None:
     try:
         WebDriverWait(driver, timeout).until(EC.url_contains(url))
     except TimeoutException:
@@ -37,10 +37,10 @@ class WaitDriverMethods(DriverMethods):
 
         wait_for_element(self._driver, xpath)
         
-    def for_url(self, url: str, timeout: int = timeout.LONG) -> None:
-        """Wait until URL has changed. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)"""
+    def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
+        """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)"""
         
-        wait_for_url(self._driver, url, timeout)
+        wait_until_url_contains(self._driver, url, timeout)
 
     def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
         """Randomize sleep timing to make actions look less like a bot."""

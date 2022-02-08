@@ -3,7 +3,7 @@ from .check_if import check_if_is_element_visible
 from .click import click_button
 from .input import input_value
 from .open import open_url_if_not_current
-from .wait import wait_for_element, wait_for_url
+from .wait import wait_for_element, wait_until_url_contains
 from ..constant import timeout
 from ..exception.cookie_banner import CookieBannerException
 from ..exception.login import LoginException
@@ -37,7 +37,7 @@ def combo_login(driver: object, login_credentials: LoginCredentials, login_form:
         click_button(driver, login_form.submit_button_xpath)
         time.sleep(wait_seconds)
         if login_form.post_login_url is not None:
-            wait_for_url(driver, login_form.post_login_url)
+            wait_until_url_contains(driver, login_form.post_login_url)
         if login_form.post_login_element_xpath is not None:
             wait_for_element(driver, login_form.post_login_element_xpath)
     except Exception:
