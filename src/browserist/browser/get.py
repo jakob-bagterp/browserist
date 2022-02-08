@@ -31,6 +31,18 @@ def get_texts_from_multiple_elements(driver: object, xpath: str, timeout: int = 
     elements = driver.find_elements_by_xpath(xpath)
     return [element.text for element in elements]
 
+def get_url_from_image(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+    def get_src_attribute_of_element(driver: object, xpath: str) -> str:
+        return driver.find_element_by_xpath(xpath).get_attribute("src")
+
+    wait_for_element(driver, xpath, timeout)
+    return helper.driver.retry_and_get_text_from_element(get_src_attribute_of_element(driver, xpath))
+
+def get_urls_from_multiple_images(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+    wait_for_element(driver, xpath, timeout)
+    elements = driver.find_elements_by_xpath(xpath)
+    return [element.get_attribute("src") for element in elements]
+
 def get_url_from_link(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
     def get_href_attribute_of_element(driver: object, xpath: str) -> str:
         return driver.find_element_by_xpath(xpath).get_attribute("href")
@@ -72,6 +84,20 @@ class GetDriverMethods(DriverMethods):
         Assumes that the XPath targets multiple elements."""
 
         return get_texts_from_multiple_elements(self._driver, xpath, timeout)
+
+    def url_from_image(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+        """Get URL source from image, e.g. <img> tag.
+
+        This method assumes that the image shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time)."""
+
+        return get_url_from_image(self._driver, xpath, timeout)
+
+    def urls_from_multiple_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+        """Get array of URLs from images, e.g. <img> tags.
+
+        Assumes that the XPath targets multiple images."""
+
+        return get_urls_from_multiple_images(self._driver, xpath, timeout)
 
     def url_from_link(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get URL from link, e.g. <a> tag or button.

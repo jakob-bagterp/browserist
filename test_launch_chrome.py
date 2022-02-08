@@ -21,6 +21,8 @@ print(browser.check_if.is_element_enabled(xpath))
 print(browser.check_if.is_element_visible(xpath))
 print(browser.check_if.is_image_loaded(xpath))
 print(browser.get.dimensions_of_element(xpath))
+print(browser.get.url_from_image(xpath))
+print(browser.get.urls_from_multiple_images(xpath))
 
 browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
