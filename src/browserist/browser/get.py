@@ -1,4 +1,5 @@
 import time
+from typing import List
 from .wait import wait_for_element
 from ..constant import timeout
 from ..model.browser.base.driver import BrowserDriver
@@ -20,6 +21,11 @@ def get_text(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         i += 1
     return text
 
+def get_texts_from_elements(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+    wait_for_element(driver, xpath, timeout)
+    elements = browser.find_elements_by_xpath(xpath)
+    return [element.text for element in elements]
+
 class GetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
@@ -35,3 +41,10 @@ class GetDriverMethods(DriverMethods):
         This method assumes that the text field shouldn't be empty and therefore will retry to get the text (for better support of single-page apps with extended loading time)."""
 
         return get_text(self._driver, xpath, timeout)
+
+    def multiple_texts(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+        """Get array of texts from elements.
+        
+        Assumes that the XPath targets multiple elements."""
+        
+        return get_texts_from_elements(self._driver, xpath, timeout)
