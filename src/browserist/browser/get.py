@@ -24,6 +24,19 @@ def get_texts_from_multiple_elements(driver: object, xpath: str, timeout: int = 
     elements = driver.find_elements_by_xpath(xpath)
     return [element.text for element in elements]
 
+def get_url_from_link(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+    def get_href_attribute_of_element(xpath: str) -> str:
+        return driver.find_element_by_xpath(xpath).get_attribute("href")
+
+    wait_for_element(driver, xpath, timeout)
+    url = get_href_attribute_of_element(xpath)
+    i = 0
+    while len(url) == 0 and i < 10:
+        time.sleep(0.5)
+        url = get_href_attribute_of_element(xpath)
+        i += 1
+    return url
+
 class GetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
@@ -46,3 +59,10 @@ class GetDriverMethods(DriverMethods):
         Assumes that the XPath targets multiple elements."""
         
         return get_texts_from_multiple_elements(self._driver, xpath, timeout)
+
+    def url_from_link(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+        """Get URL from link, e.g. <a> tag or button.
+
+        This method assumes that the link shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time)."""
+
+        return get_url_from_link(self._driver, xpath, timeout)
