@@ -3,6 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from .check_if_does_element_exist import check_if_does_element_exist
+from .. import helper
 from ..constant import timeout
 from ..exception.element import NoElementFoundException
 from ..exception.timeout import WaitForElementTimeoutException, WaitForUrlTimeoutException
@@ -16,6 +18,9 @@ def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT)
         raise WaitForElementTimeoutException(driver, xpath)
     except NoSuchElementException:
         raise NoElementFoundException(driver, xpath)
+
+def wait_until_element_disappears(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    helper.driver.retry_until_condition_is_false(check_if_does_element_exist(driver, xpath), timeout)
 
 def wait_until_url_contains(driver: object, url: str, timeout: int = timeout.LONG) -> None:
     try:
@@ -37,6 +42,11 @@ class WaitDriverMethods(DriverMethods):
 
         wait_for_element(self._driver, xpath)
         
+    def until_element_disappears(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until element doesn't exist."""
+
+        wait_until_element_disappears(self._driver, xpath, timeout)
+
     def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)"""
         

@@ -16,6 +16,7 @@ print(browser.get.url_from_link("/html/body/div[4]/main/div[2]/div/div[2]/div[2]
 print(browser.get.urls_from_multiple_links("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"))
 xpath = "/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/a/img"
 browser.wait.for_element(xpath)
+browser.wait.until_element_disappears(xpath + "/test")
 print("does_element_exist", browser.check_if.does_element_exist(xpath))
 print("is_element_clickable", browser.check_if.is_element_clickable(xpath))
 print("is_element_disabled", browser.check_if.is_element_disabled(xpath))
