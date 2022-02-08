@@ -23,7 +23,7 @@ def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = tim
     elements = driver.find_elements_by_xpath(xpath)
     helper.driver.retry_until_condition_is_true(are_all_images_loaded(driver, elements), timeout)
 
-def wait_until_page_title_contains(driver: object, page_title_fragment: str, timeout = timeout.DEFAULT) -> None:
+def wait_until_page_title_contains(driver: object, page_title_fragment: str, timeout: int = timeout.DEFAULT) -> None:
     try:
         WebDriverWait(driver, timeout).until(EC.title_contains(page_title_fragment))
     except TimeoutException:
