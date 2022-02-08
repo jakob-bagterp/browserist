@@ -29,6 +29,12 @@ def wait_until_page_title_contains(driver: object, page_title_fragment: str, tim
     except TimeoutException:
         raise WaitForPageTitleToChangeTimeoutException(driver, page_title_fragment)
 
+def wait_until_page_title_is(driver: object, page_title: str, timeout: int = timeout.DEFAULT) -> None:
+    try:
+        WebDriverWait(driver, timeout).until(EC.title_is(page_title))
+    except TimeoutException:
+        raise WaitForPageTitleToChangeTimeoutException(driver, page_title)
+
 def wait_until_url_contains(driver: object, url: str, timeout: int = timeout.LONG) -> None:
     try:
         WebDriverWait(driver, timeout).until(EC.url_contains(url))
@@ -63,6 +69,11 @@ class WaitDriverMethods(DriverMethods):
         """Wait until the page title has changed, e.g. after a redirect or update. The input can contain both a fragment or the full page title."""
 
         wait_until_page_title_contains(self._driver, page_title_fragment, timeout)
+
+    def until_page_title_is(self, page_title: str, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until the page title has changed, e.g. after a redirect or update. The input has to match the exact page title."""
+
+        wait_until_page_title_contains(self._driver, page_title, timeout)
 
     def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
