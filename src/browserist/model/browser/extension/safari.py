@@ -1,5 +1,5 @@
 from . import BrowserExtension
-from ... import helper
+from .... import helper
 
 class SafariBrowserExtension(BrowserExtension):
     def enable_images(self) -> None:

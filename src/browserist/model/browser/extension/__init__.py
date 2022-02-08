@@ -1,7 +1,7 @@
 __all__ = []
 
 from abc import ABC, abstractmethod
-from ..browser.base.driver import BrowserDriver
+from ..base.driver import BrowserDriver
 
 class BrowserExtension(ABC):
     """Abstract class that contains the extension methods for certain browser types."""
