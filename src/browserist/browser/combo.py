@@ -1,5 +1,4 @@
 import time
-from .check_if import check_if_is_element_visible
 from .click import click_button
 from .input import input_value
 from .open import open_url_if_not_current
