@@ -64,7 +64,7 @@ class CheckIfDriverMethods(DriverMethods):
 
     def is_element_clickable(self, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element is clickable."""
-        
+
         return check_if_is_element_clickable(self._driver, xpath, timeout)
 
     def is_element_enabled(self, xpath: str) -> bool:
@@ -79,15 +79,15 @@ class CheckIfDriverMethods(DriverMethods):
 
     def is_element_visible(self, xpath: str) -> bool:
         """Check visibility status of an element."""
-        
+
         return check_if_is_element_visible(self._driver, xpath)
 
     def is_image_loaded(self, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
         """Check is image is loaded and ready in the DOM."""
-        
+
         return check_if_is_image_loaded(self._driver, xpath, timeout)
 
     def is_image_element_loaded(self, element: object) -> bool:
         """Check is image element is loaded and ready in the DOM."""
-        
+
         return check_if_is_image_element_loaded(self._driver, element)
