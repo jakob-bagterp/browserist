@@ -53,16 +53,16 @@ class GetDriverMethods(DriverMethods):
 
     def text_from_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get text from element.
-        
+
         This method assumes that the text field shouldn't be empty and therefore will retry to get the text (for better support of single-page apps with extended loading time)."""
 
         return get_text_from_element(self._driver, xpath, timeout)
 
     def texts_from_multiple_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
         """Get array of texts from elements.
-        
+
         Assumes that the XPath targets multiple elements."""
-        
+
         return get_texts_from_multiple_elements(self._driver, xpath, timeout)
 
     def url_from_link(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
