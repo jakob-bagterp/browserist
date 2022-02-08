@@ -43,9 +43,9 @@ def check_if_is_image_element_loaded(driver: object, element: object) -> bool:
     return is_image_loaded
 
 def check_if_is_image_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
-	wait_for_element(driver, xpath, timeout)
-	element = driver.find_element_by_xpath(xpath)
-	return check_if_is_image_element_loaded(driver, element)
+    wait_for_element(driver, xpath, timeout)
+    element = driver.find_element_by_xpath(xpath)
+    return check_if_is_image_element_loaded(driver, element)
 
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
