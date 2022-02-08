@@ -54,7 +54,7 @@ class WaitDriverMethods(DriverMethods):
         wait_until_images_have_loaded(self._driver, xpath, timeout)
 
     def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
-        """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)"""
+        """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
 
         wait_until_url_contains(self._driver, url, timeout)
 
