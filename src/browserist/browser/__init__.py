@@ -9,6 +9,7 @@ from .input import InputDriverMethods
 from .open import OpenDriverMethods
 from .scroll import ScrollDriverMethods
 from .select import SelectDriverMethods
+from .tools import ToolsDriverMethods
 from .validate import ValidateDriverMethods
 from .wait import WaitDriverMethods
 from .. import helper
@@ -40,6 +41,7 @@ class Browser:
         self.open:     OpenDriverMethods     = OpenDriverMethods(self._browser_driver)
         self.scroll:   ScrollDriverMethods   = ScrollDriverMethods(self._browser_driver)
         self.select:   SelectDriverMethods   = SelectDriverMethods(self._browser_driver)
+        self.tools:    ToolsDriverMethods    = ToolsDriverMethods(self._browser_driver)
         self.validate: ValidateDriverMethods = ValidateDriverMethods(self._browser_driver)
         self.wait:     WaitDriverMethods     = WaitDriverMethods(self._browser_driver)
 
