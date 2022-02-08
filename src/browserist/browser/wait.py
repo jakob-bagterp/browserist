@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from ..constant import timeout
 from ..exception.element import NoElementFoundException
-from ..exception.timeout import WaitTimeoutException
+from ..exception.timeout import WaitTimeoutException, WaitForUrlTimeoutException
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
@@ -16,6 +16,12 @@ def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT)
         raise WaitTimeoutException(driver, xpath)
     except NoSuchElementException:
         raise NoElementFoundException(driver, xpath)
+
+def wait_for_url(driver: object, url: str, timeout: int = timeout.LONG) -> None:
+    try:
+        WebDriverWait(driver, timeout).until(EC.url_contains(url))
+    except TimeoutException:
+        raise WaitForUrlTimeoutException(driver, url)
 
 def wait_random_time(min_seconds: int = 1, max_seconds: int = timeout.DEFAULT) -> None:
     time.sleep(random.uniform(min_seconds, max_seconds))
@@ -30,6 +36,11 @@ class WaitDriverMethods(DriverMethods):
         Especially useful for single-page app elements handled/modified by JavaScript, but also standard HTML that doesn't load immediately, this helper function ensures that DOM elements are ready before processing."""
 
         wait_for_element(self._driver, xpath)
+        
+    def for_url(self, url: str, timeout: int = timeout.LONG) -> None:
+        """Wait until URL has changed. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)"""
+        
+        wait_for_url(self._driver, url, timeout)
 
     def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
         """Randomize sleep timing to make actions look less like a bot."""
