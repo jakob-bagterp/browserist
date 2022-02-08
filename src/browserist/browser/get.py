@@ -1,5 +1,6 @@
 from typing import List
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from .get_current_page_title import get_current_page_title
 from .get_current_url import get_current_url
 from .wait_for_element import wait_for_element
 from .. import helper
@@ -58,6 +59,11 @@ def get_urls_from_multiple_links(driver: object, xpath: str, timeout: int = time
 class GetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
+        
+    def current_page_title(self) -> str:
+        """Get page title of the current page."""
+
+        return get_current_page_title(self._driver)
 
     def current_url(self) -> str:
         """Get URL of the current page."""
