@@ -1,4 +1,3 @@
-import time
 from typing import List
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .get_current_url import get_current_url
