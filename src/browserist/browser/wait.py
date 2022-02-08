@@ -2,6 +2,8 @@ import time, random
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+from typing import List
+from .check_if import check_if_is_image_element_loaded
 from .check_if_does_element_exist import check_if_does_element_exist
 from .wait_for_element import wait_for_element
 from .. import helper
@@ -12,6 +14,14 @@ from ..model.driver_methods import DriverMethods
 
 def wait_until_element_disappears(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     helper.driver.retry_until_condition_is_false(check_if_does_element_exist(driver, xpath), timeout)
+    
+def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT):
+    def are_all_images_loaded(driver: object, elements: List[object]):
+        return all(check_if_is_image_element_loaded(driver, element) is not False for element in elements)
+
+    wait_for_element(driver, xpath, timeout)
+    elements = driver.find_elements_by_xpath(xpath)
+    helper.driver.retry_until_condition_is_true(are_all_images_loaded(driver, elements), timeout)
 
 def wait_until_url_contains(driver: object, url: str, timeout: int = timeout.LONG) -> None:
     try:
@@ -37,6 +47,11 @@ class WaitDriverMethods(DriverMethods):
         """Wait until element doesn't exist."""
 
         wait_until_element_disappears(self._driver, xpath, timeout)
+    
+    def until_images_have_loaded(self, xpath: str, timeout: int = timeout.DEFAULT):
+        """Wait until element doesn't exist. The image XPath can target one or more images."""
+
+        wait_until_images_have_loaded(self._driver, xpath, timeout)
 
     def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)"""
