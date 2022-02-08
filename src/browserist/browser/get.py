@@ -109,6 +109,6 @@ class GetDriverMethods(DriverMethods):
     def urls_from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
         """Get array of URLs from links, e.g. <a> tags or buttons.
 
-        Assumes that the XPath targets multiple elements."""
+        Assumes that the XPath targets multiple links."""
 
         return get_urls_from_multiple_links(self._driver, xpath, timeout)
