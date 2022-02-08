@@ -21,7 +21,7 @@ def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEF
 
 def get_texts_from_multiple_elements(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
     wait_for_element(driver, xpath, timeout)
-    elements = browser.find_elements_by_xpath(xpath)
+    elements = driver.find_elements_by_xpath(xpath)
     return [element.text for element in elements]
 
 class GetDriverMethods(DriverMethods):
