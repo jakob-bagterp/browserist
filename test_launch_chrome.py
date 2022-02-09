@@ -30,6 +30,7 @@ print("is_element_enabled", browser.check_if.is_element_enabled(xpath))
 print("is_element_visible", browser.check_if.is_element_visible(xpath))
 print("is_image_loaded", browser.check_if.is_image_loaded(xpath))
 print("dimensions_of_element", browser.get.dimensions_of_element(xpath))
+print("is_url_valid", browser.tools.is_url_valid(browser.get.current_url()))
 print(browser.get.url_from_image(xpath))
 print(browser.get.urls_from_multiple_images(xpath))
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
