@@ -17,10 +17,10 @@ class OperaBrowserDriver(BrowserDriver):
                 options = self.chrome_options)
 
     def disable_images(self) -> None:
-        self = helper.chromium.disable_images(self)
+        self = helper.factory.chromium.disable_images(self)
 
     def enable_headless(self) -> None:
-        self = helper.chromium.enable_headless(self)
+        self = helper.factory.chromium.enable_headless(self)
 
     def set_page_load_strategy(self) -> None:
         self.chrome_options = helper.set.page_load_strategy(self, self.chrome_options)

@@ -1,3 +1,3 @@
 __all__ = []
 
-from . import get
+from . import chromium, get
