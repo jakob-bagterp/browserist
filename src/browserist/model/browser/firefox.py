@@ -1,7 +1,7 @@
 from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ... import helper
+from ...helper import factory
 
 class FirefoxBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -28,4 +28,4 @@ class FirefoxBrowserDriver(BrowserDriver):
             self.firefox_options("--headless")
 
     def set_page_load_strategy(self) -> None:
-        self.firefox_options = helper.factory.set.page_load_strategy(self, self.firefox_options)
+        self.firefox_options = factory.set.page_load_strategy(self, self.firefox_options)

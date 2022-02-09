@@ -1,7 +1,7 @@
 from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ... import helper
+from ...helper import factory
 
 class ChromeBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -17,10 +17,10 @@ class ChromeBrowserDriver(BrowserDriver):
                 options = self.chrome_options)
 
     def disable_images(self) -> None:
-        self = helper.factory.chromium.disable_images(self)
+        self = factory.chromium.disable_images(self)
 
     def enable_headless(self) -> None:
-        self = helper.factory.chromium.enable_headless(self)
+        self = factory.chromium.enable_headless(self)
 
     def set_page_load_strategy(self) -> None:
-        self.chrome_options = helper.factory.set.page_load_strategy(self, self.chrome_options)
+        self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)
