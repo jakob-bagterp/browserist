@@ -9,7 +9,7 @@ from ..model.browser.internet_explorer import InternetExplorerBrowserDriver
 from ..model.browser.opera import OperaBrowserDriver
 from ..model.browser.safari import SafariBrowserDriver
 
-def browser_driver(settings: Union[BrowserSettings, None] = None) -> BrowserDriver:
+def get_browser_driver(settings: Union[BrowserSettings, None] = None) -> BrowserDriver:
     if settings is None:
         return ChromeBrowserDriver()
     

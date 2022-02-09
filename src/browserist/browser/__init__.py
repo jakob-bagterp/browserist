@@ -25,7 +25,7 @@ class Browser:
     def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
 
-        self._browser_driver: BrowserDriver = helper.get.browser_driver(settings)
+        self._browser_driver: BrowserDriver = helper.factory.get_browser_driver(settings)
         self.driver: object = self._browser_driver.webdriver
 
         if self._browser_driver.settings.type is BrowserType.INTERNET_EXPLORER:
