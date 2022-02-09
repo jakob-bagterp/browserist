@@ -4,14 +4,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from .check_if_does_element_exist import check_if_does_element_exist
 from .wait_for_element import wait_for_element
-from ..constant import timeout
+from ..constant import interval, timeout
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 
 def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
     wait_for_element(driver, xpath, timeout)
     try:
-        element = WebDriverWait(driver, 0.5).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        element = WebDriverWait(driver, interval.DEFAULT).until(EC.element_to_be_clickable((By.XPATH, xpath)))
         return element is not None
     except TimeoutException:
         return False
