@@ -1,15 +1,15 @@
 from typing import Union
-from ..model.browser.base.driver import BrowserDriver
-from ..model.browser.base.settings import BrowserSettings
-from ..model.browser.base.type import BrowserType
-from ..model.browser.chrome import ChromeBrowserDriver
-from ..model.browser.edge import EdgeBrowserDriver
-from ..model.browser.firefox import FirefoxBrowserDriver
-from ..model.browser.internet_explorer import InternetExplorerBrowserDriver
-from ..model.browser.opera import OperaBrowserDriver
-from ..model.browser.safari import SafariBrowserDriver
+from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
+from ...model.browser.base.type import BrowserType
+from ...model.browser.chrome import ChromeBrowserDriver
+from ...model.browser.edge import EdgeBrowserDriver
+from ...model.browser.firefox import FirefoxBrowserDriver
+from ...model.browser.internet_explorer import InternetExplorerBrowserDriver
+from ...model.browser.opera import OperaBrowserDriver
+from ...model.browser.safari import SafariBrowserDriver
 
-def get_browser_driver(settings: Union[BrowserSettings, None] = None) -> BrowserDriver:
+def browser_driver(settings: Union[BrowserSettings, None] = None) -> BrowserDriver:
     if settings is None:
         return ChromeBrowserDriver()
     
