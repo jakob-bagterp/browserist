@@ -1,8 +1,8 @@
-SHORT = 3
+SHORT: int = 3
 """Short timeout: 3 seconds."""
 
-DEFAULT = 5
+DEFAULT: int = 5
 """Default timeout: 5 seconds."""
 
-LONG = 10
+LONG: int = 10
 """Long timeout: 10 seconds."""
