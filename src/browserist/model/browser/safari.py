@@ -18,7 +18,7 @@ class SafariBrowserDriver(BrowserDriver):
                 options = self.safari_options)
 
     def disable_images(self) -> None:
-        helper.safari.disable_images(self)
+        helper.factory.safari.disable_images(self)
 
     def enable_headless(self) -> None:
         raise HeadlessNotSupportedException(self.settings.type)
