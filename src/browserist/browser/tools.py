@@ -22,5 +22,6 @@ class ToolsDriverMethods(DriverMethods):
         return is_url_valid(url)
 
     def count_number_of_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> int:
+        """Count number of elements."""
 
         return tool_count_number_of_elements(self._driver, xpath, timeout)
