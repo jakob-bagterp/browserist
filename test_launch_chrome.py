@@ -35,6 +35,8 @@ print(browser.get.urls_from_multiple_images(xpath))
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
 browser.select.input_field(search_field_xpath)
 time.sleep(3)
+browser.click.button_if_contains_text("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a", "browserist", ignore_case = True)
+time.sleep(3)
 
 browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
