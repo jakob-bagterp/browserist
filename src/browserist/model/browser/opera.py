@@ -23,4 +23,4 @@ class OperaBrowserDriver(BrowserDriver):
         self = helper.factory.chromium.enable_headless(self)
 
     def set_page_load_strategy(self) -> None:
-        self.chrome_options = helper.set.page_load_strategy(self, self.chrome_options)
+        self.chrome_options = helper.factory.set.page_load_strategy(self, self.chrome_options)

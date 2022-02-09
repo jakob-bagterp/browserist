@@ -4,7 +4,7 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
 from typing import Union
-from ..model.browser.base.driver import BrowserDriver
+from ...model.browser.base.driver import BrowserDriver
 
 def page_load_strategy(browser_driver: BrowserDriver, options: Union[ChromeOptions, EdgeOptions, FirefoxOptions, IEOptions, SafariOptions]) -> Union[ChromeOptions, EdgeOptions, FirefoxOptions, IEOptions, SafariOptions]:
     options.page_load_strategy = browser_driver.settings.page_load_strategy.value

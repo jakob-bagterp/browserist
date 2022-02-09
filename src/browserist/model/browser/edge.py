@@ -29,4 +29,4 @@ class EdgeBrowserDriver(BrowserDriver):
             self.edge_options.add_argument("disable-gpu")
 
     def set_page_load_strategy(self) -> None:
-        self.edge_options = helper.set.page_load_strategy(self, self.edge_options)
+        self.edge_options = helper.factory.set.page_load_strategy(self, self.edge_options)

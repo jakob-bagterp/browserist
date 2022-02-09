@@ -24,4 +24,4 @@ class SafariBrowserDriver(BrowserDriver):
         raise HeadlessNotSupportedException(self.settings.type)
 
     def set_page_load_strategy(self) -> None:
-        self.safari_options = helper.set.page_load_strategy(self, self.safari_options)
+        self.safari_options = helper.factory.set.page_load_strategy(self, self.safari_options)
