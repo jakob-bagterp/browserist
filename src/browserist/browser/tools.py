@@ -15,14 +15,14 @@ def is_url_valid(url: str) -> bool:
     return bool(re.match(regex.VALID_URL, url, re.IGNORECASE))
 
 def tool_count_number_of_elements(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> int:
-	wait_for_element(driver, xpath, timeout)
-	elements = driver.find_elements_by_xpath(xpath)
-	return len(elements)
+    wait_for_element(driver, xpath, timeout)
+    elements = driver.find_elements_by_xpath(xpath)
+    return len(elements)
 
 class ToolsDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
-        
+
     def is_input_valid(self, text: str, regex: str, ignore_case: bool = True) -> bool:
         """Check if input matches regex condition."""
 
