@@ -1,3 +1,3 @@
-__all__ = ["driver", "factory"]
+__all__ = ["driver", "browser_factory"]
 
-from . import driver, factory
+from . import driver, browser_factory

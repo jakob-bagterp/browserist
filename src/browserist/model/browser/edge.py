@@ -1,7 +1,7 @@
 from selenium import webdriver
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ...helper import factory
+from ...helper import browser_factory
 
 class EdgeBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -29,4 +29,4 @@ class EdgeBrowserDriver(BrowserDriver):
             self.edge_options.add_argument("disable-gpu")
 
     def set_page_load_strategy(self) -> None:
-        self.edge_options = factory.set.page_load_strategy(self, self.edge_options)
+        self.edge_options = browser_factory.set.page_load_strategy(self, self.edge_options)

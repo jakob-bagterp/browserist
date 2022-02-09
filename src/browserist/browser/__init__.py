@@ -12,7 +12,7 @@ from .select import SelectDriverMethods
 from .tools import ToolsDriverMethods
 from .validate import ValidateDriverMethods
 from .wait import WaitDriverMethods
-from ..helper import factory
+from ..helper import browser_factory
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
@@ -25,7 +25,7 @@ class Browser:
     def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
 
-        self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
+        self._browser_driver: BrowserDriver = browser_factory.get.browser_driver(settings)
         self.driver: object = self._browser_driver.webdriver
 
         if self._browser_driver.settings.type is BrowserType.INTERNET_EXPLORER:

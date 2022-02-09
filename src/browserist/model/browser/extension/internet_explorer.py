@@ -1,8 +1,8 @@
 from . import BrowserExtension
-from ....helper import factory
+from ....helper import browser_factory
 
 class InternetExplorerBrowserExtension(BrowserExtension):
     def enable_images(self) -> None:
         """Intended use: Revert disabled images for Internet Explorer as its web driver doesn't support a session-based configuration for Selenium, but only a global configuration that impacts normal use."""
 
-        factory.internet_explorer.enable_images(self.browser_driver)
+        browser_factory.internet_explorer.enable_images(self.browser_driver)
