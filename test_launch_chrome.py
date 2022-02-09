@@ -32,6 +32,9 @@ print("is_image_loaded", browser.check_if.is_image_loaded(xpath))
 print("dimensions_of_element", browser.get.dimensions_of_element(xpath))
 print(browser.get.url_from_image(xpath))
 print(browser.get.urls_from_multiple_images(xpath))
+search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
+browser.select.input_field(search_field_xpath)
+time.sleep(3)
 
 browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
@@ -40,10 +43,6 @@ browser.open.url_if_not_current("https://www.dr.dk/")
 
 browser.open.url_in_new_tab("https://github.com/jakob-bagterp/")
 print(browser.get.current_url())
-
-time.sleep(5)
-
-#browser.get("https://www.google.dk/")
 
 browser.open.url_if_not_current("https://www.google.dk")
 
