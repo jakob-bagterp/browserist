@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Union
 
 @dataclass
 class SearchSettings:
@@ -17,6 +16,6 @@ class SearchSettings:
 
     input_xpath: str
     button_xpath: str
-    url: Union[str, None] = None
-    await_search_results_url: Union[str, None] = None
-    await_search_results_xpath: Union[str, None] = None
+    url: str | None = None
+    await_search_results_url: str | None = None
+    await_search_results_xpath: str | None = None

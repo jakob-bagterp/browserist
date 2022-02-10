@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Union
 from ...constant import timeout
 
 @dataclass
@@ -17,7 +16,7 @@ class CookieBannerSettings:
     has_disappeared_wait_seconds: Minor grace time to make sure the cookie banner has disappeared and that the cookie information has been saved before proceeding."""
 
     button_xpath: str
-    url: Union[str, None] = None
+    url: str | None = None
     has_loaded_wait_seconds: int = timeout.DEFAULT
-    has_loaded_xpath: Union[str, None] = None
+    has_loaded_xpath: str | None = None
     has_disappeared_wait_seconds: int = timeout.SHORT

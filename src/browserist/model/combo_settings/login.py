@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from typing import Union
 from ...constant import timeout
 
 @dataclass
@@ -24,7 +23,7 @@ class LoginForm:
     username_input_xpath: str
     password_input_xpath: str
     submit_button_xpath: str
-    url: Union[str, None] = None
-    post_login_url: Union[str, None] = None
-    post_login_element_xpath: Union[str, None] = None
+    url: str | None = None
+    post_login_url: str | None = None
+    post_login_element_xpath: str | None = None
     timeout: int = timeout.DEFAULT

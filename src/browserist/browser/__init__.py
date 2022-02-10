@@ -1,6 +1,5 @@
 __all__ = []
 
-from typing import Union
 from .check_if import CheckIfDriverMethods
 from .click import ClickDriverMethods
 from .combo import ComboDriverMethods
@@ -21,7 +20,7 @@ from ..model.browser.extension.safari import SafariBrowserExtension
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
 
-    def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
+    def __init__(self, settings: BrowserSettings | None = None) -> None:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
 
         if settings is None:
