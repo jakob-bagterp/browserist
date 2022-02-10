@@ -1,5 +1,3 @@
-from ..model.browser.base.type import BrowserType
-
 class LoginException(Exception):
     def __init__(self, username: str) -> None:
         self.message = f"Something went wrong when trying to log in with username {username}. Please try again..."
