@@ -61,7 +61,7 @@ class WaitDriverMethods(DriverMethods):
         wait_until_text_contains(self._driver, xpath, regex, timeout)
 
     def until_url_changes(self, baseline_url: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the browser URL changes from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""
+        """Wait until the browser URL has changed from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""
 
         wait_until_url_changes(self._driver, baseline_url, timeout)
 
