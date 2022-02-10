@@ -1,9 +1,9 @@
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from .wait_for_element import wait_for_element
-from ..exception.element import NoElementFoundException
-from ..exception.timeout import WaitForElementTimeoutException
-from ..model.browser.base.driver import BrowserDriver
-from ..model.driver_methods import DriverMethods
+from ..wait_for_element import wait_for_element
+from ...exception.element import NoElementFoundException
+from ...exception.timeout import WaitForElementTimeoutException
+from ...model.browser.base.driver import BrowserDriver
+from ...model.driver_methods import DriverMethods
 
 def input_clear(driver: object, input_xpath: str) -> None:
     wait_for_element(driver, input_xpath)
