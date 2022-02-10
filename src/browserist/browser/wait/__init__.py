@@ -49,3 +49,8 @@ class WaitDriverMethods(DriverMethods):
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
 
         wait_until_url_contains(self._driver, url, timeout)
+
+    def until_url_is(self, url: str, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until the browser URL has changed, e.g. after a redirect. The URL is evaluated as an exact match."""
+
+        wait_until_url_is(self._driver, url, timeout)
