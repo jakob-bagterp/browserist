@@ -8,11 +8,12 @@ from .until_url_contains import wait_until_url_contains
 from .until_url_is import wait_until_url_is
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 
 class WaitDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver) -> None:
-        super().__init__(browser_driver)
+    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
+        super().__init__(browser_driver, settings)
 
     def for_element(self, xpath: str) -> None:
         """Wait until element is ready in the DOM and/or on the screen.

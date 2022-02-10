@@ -2,11 +2,12 @@ from .button import click_button
 from .button_if_contains_text import click_button_if_contains_text
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 
 class ClickDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver) -> None:
-        super().__init__(browser_driver)
+    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
+        super().__init__(browser_driver, settings)
 
     def button(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Click button."""
