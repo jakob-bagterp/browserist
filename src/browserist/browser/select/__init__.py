@@ -1,10 +1,6 @@
-from ..wait.for_element import wait_for_element
+from .input_field import select_input_field
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def select_input_field(driver: object, xpath: str) -> None:
-    wait_for_element(driver, xpath)
-    driver.find_element_by_xpath(xpath).click()
 
 class SelectDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
