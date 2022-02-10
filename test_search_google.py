@@ -10,6 +10,7 @@ browser.combo.cookie_banner(cookie_banner_settings)
 
 button_xpath_1 = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]"
 browser.wait.until_text_contains(button_xpath_1, "search")
+browser.wait.until_text_is(button_xpath_1, "Google Search")
 input_xpath_2 = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[1]/div/div[2]/input"
 button_xpath_2 = "/html/body/div[1]/div[3]/form/div[1]/div[1]/div[2]/div[2]/div[5]/center/input[1]"
 search_settings = SearchSettings(input_xpath_2, button_xpath_2, url = url)
