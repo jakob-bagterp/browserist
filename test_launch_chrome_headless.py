@@ -2,7 +2,8 @@ import time
 from src.browserist import Browser, BrowserSettings, BrowserType
 
 browser_settings = BrowserSettings(type = BrowserType.CHROME, headless = True, disable_images = True)
-browser = Browser()
+print(browser_settings)
+browser = Browser(browser_settings)
 
 browser.open.url("https://www.dr.dk/")
 print("current_page_title", browser.get.current_page_title())
