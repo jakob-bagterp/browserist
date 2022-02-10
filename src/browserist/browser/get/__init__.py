@@ -7,15 +7,10 @@ from .texts_from_multiple_elements import get_texts_from_multiple_elements
 from .url_from_image import get_url_from_image
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
-from ..wait.for_element import wait_for_element
+from .urls_from_multiple_links import get_urls_from_multiple_links
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def get_urls_from_multiple_links(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-    wait_for_element(driver, xpath, timeout)
-    elements = driver.find_elements_by_xpath(xpath)
-    return [element.get_attribute("href") for element in elements]
 
 class GetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
