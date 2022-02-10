@@ -55,7 +55,7 @@ class WaitDriverMethods(DriverMethods):
     def until_page_title_is(self, page_title: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the page title has changed, e.g. after a redirect or update. The input has to match the exact page title."""
 
-        wait_until_page_title_contains(self._driver, page_title, timeout)
+        wait_until_page_title_is(self._driver, page_title, timeout)
 
     def until_url_contains(self, url: str, timeout: int = timeout.LONG) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
