@@ -1,8 +1,8 @@
 import re
-from .wait_for_element import wait_for_element
-from ..constant import regex, timeout
-from ..model.browser.base.driver import BrowserDriver
-from ..model.driver_methods import DriverMethods
+from ..wait_for_element import wait_for_element
+from ...constant import regex, timeout
+from ...model.browser.base.driver import BrowserDriver
+from ...model.driver_methods import DriverMethods
 
 def is_input_valid(text: str, regex: str, ignore_case: bool = True) -> bool:
     if ignore_case:
