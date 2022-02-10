@@ -10,6 +10,6 @@ def input_value(driver: object, xpath: str, value: str) -> None:
         input_field.clear() # Always clear input field before entering value
         input_field.send_keys(value)
     except TimeoutException:
-        raise WaitForElementTimeoutException(driver, xpath)
+        raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
-        raise NoElementFoundException(driver, xpath)
+        raise NoElementFoundException(driver, xpath) from NoSuchElementException

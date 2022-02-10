@@ -14,6 +14,6 @@ def click_button_if_contains_text(driver: object, xpath: str, regex: str, ignore
         else:
             raise NoElementFoundWithTextConditionException(driver, xpath, regex)
     except TimeoutException:
-        raise WaitForElementTimeoutException(driver, xpath)
+        raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
-        raise NoElementFoundException(driver, xpath)
+        raise NoElementFoundException(driver, xpath) from NoSuchElementException

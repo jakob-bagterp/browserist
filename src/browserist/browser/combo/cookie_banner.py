@@ -17,4 +17,4 @@ def combo_cookie_banner(driver: object, settings: CookieBannerSettings) -> None:
         time.sleep(settings.has_disappeared_wait_seconds)
         wait_until_element_disappears(driver, settings.button_xpath)
     except Exception:
-        raise CookieBannerException()
+        raise CookieBannerException() from Exception

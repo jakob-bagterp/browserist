@@ -10,6 +10,6 @@ def click_button(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> 
         button = driver.find_element_by_xpath(xpath)
         button.click()
     except TimeoutException:
-        raise WaitForElementTimeoutException(driver, xpath)
+        raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
-        raise NoElementFoundException(driver, xpath)
+        raise NoElementFoundException(driver, xpath) from NoSuchElementException

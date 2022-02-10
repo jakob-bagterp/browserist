@@ -21,4 +21,4 @@ def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form
         if login_form.post_login_element_xpath is not None:
             wait_for_element(driver, login_form.post_login_element_xpath)
     except Exception:
-        raise LoginException(login_credentials.username)
+        raise LoginException(login_credentials.username) from Exception

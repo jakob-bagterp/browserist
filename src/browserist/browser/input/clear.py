@@ -9,6 +9,6 @@ def input_clear(driver: object, xpath: str) -> None:
         input_field = driver.find_element_by_xpath(xpath)
         input_field.clear()
     except TimeoutException:
-        raise WaitForElementTimeoutException(driver, xpath)
+        raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
-        raise NoElementFoundException(driver, xpath)
+        raise NoElementFoundException(driver, xpath) from NoSuchElementException

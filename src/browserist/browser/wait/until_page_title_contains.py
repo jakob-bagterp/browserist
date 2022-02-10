@@ -8,4 +8,4 @@ def wait_until_page_title_contains(driver: object, page_title_fragment: str, tim
     try:
         WebDriverWait(driver, timeout).until(EC.title_contains(page_title_fragment))
     except TimeoutException:
-        raise WaitForPageTitleToChangeTimeoutException(driver, page_title_fragment)
+        raise WaitForPageTitleToChangeTimeoutException(driver, page_title_fragment) from TimeoutException
