@@ -1,14 +1,9 @@
+from .count_number_of_elements import tool_count_number_of_elements
 from .is_input_valid import tools_is_input_valid
 from .is_url_valid import tools_is_url_valid
-from ..wait.for_element import wait_for_element
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def tool_count_number_of_elements(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> int:
-    wait_for_element(driver, xpath, timeout)
-    elements = driver.find_elements_by_xpath(xpath)
-    return len(elements)
 
 class ToolsDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
