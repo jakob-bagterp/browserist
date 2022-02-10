@@ -4,16 +4,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from typing import List
 from .for_element import wait_for_element
-from ..check_if.does_element_exist import check_if_does_element_exist
+from .until_element_disappears import wait_until_element_disappears
 from ..check_if.is_image_element_loaded import check_if_is_image_element_loaded
 from ... import helper
 from ...constant import timeout
 from ...exception.timeout import WaitForPageTitleToChangeTimeoutException, WaitForUrlTimeoutException
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def wait_until_element_disappears(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
-    helper.driver.retry_until_condition_is_false(check_if_does_element_exist(driver, xpath), timeout)
     
 def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     def are_all_images_loaded(driver: object, elements: List[object]):
