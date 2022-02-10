@@ -2,23 +2,13 @@ import time, random
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from typing import List
 from .for_element import wait_for_element
 from .until_element_disappears import wait_until_element_disappears
-from ..check_if.is_image_element_loaded import check_if_is_image_element_loaded
-from ... import helper
+from .until_images_have_loaded import wait_until_images_have_loaded
 from ...constant import timeout
 from ...exception.timeout import WaitForPageTitleToChangeTimeoutException, WaitForUrlTimeoutException
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-    
-def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
-    def are_all_images_loaded(driver: object, elements: List[object]):
-        return all(check_if_is_image_element_loaded(driver, element) is not False for element in elements)
-
-    wait_for_element(driver, xpath, timeout)
-    elements = driver.find_elements_by_xpath(xpath)
-    helper.driver.retry_until_condition_is_true(are_all_images_loaded(driver, elements), timeout)
 
 def wait_until_page_title_contains(driver: object, page_title_fragment: str, timeout: int = timeout.DEFAULT) -> None:
     try:
