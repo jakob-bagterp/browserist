@@ -5,7 +5,9 @@ from .type import BrowserType
 
 @dataclass    
 class BrowserSettings:
-    """Class to configure the browser driver."""
+    """Class to configure the browser driver.
+
+    headless: If enabled, note that some interactable methods, e.g. "select", aren't supported."""
     
     type: BrowserType = BrowserType.CHROME
     headless: bool = False
