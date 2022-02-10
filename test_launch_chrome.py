@@ -16,7 +16,7 @@ print(browser.get.texts_from_multiple_elements("/html/body/div[4]/main/div[2]/di
 print(browser.get.url_from_link("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a"))
 multiple_links_xpath = "/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"
 print(browser.get.urls_from_multiple_links(multiple_links_xpath))
-print("count_number_of_elements", browser.tools.count_number_of_elements(multiple_links_xpath))
+print("count_elements", browser.tools.count_elements(multiple_links_xpath))
 xpath = "/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/a/img"
 browser.wait.for_element(xpath)
 browser.wait.until_element_disappears(xpath + "/test")

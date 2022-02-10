@@ -1,4 +1,4 @@
-from .count_number_of_elements import tool_count_number_of_elements
+from .count_elements import tool_count_elements
 from .is_input_valid import tool_is_input_valid
 from .is_url_valid import tool_is_url_valid
 from ...constant import timeout
@@ -20,7 +20,7 @@ class ToolDriverMethods(DriverMethods):
 
         return tool_is_url_valid(url)
 
-    def count_number_of_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> int:
+    def count_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> int:
         """Count number of elements."""
 
-        return tool_count_number_of_elements(self._driver, xpath, timeout)
+        return tool_count_elements(self._driver, xpath, timeout)
