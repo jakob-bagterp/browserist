@@ -13,7 +13,7 @@ from ...model.search import SearchSettings
 class ComboDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
-        
+
     def cookie_banner(self, settings: CookieBannerSettings) -> None:
         """Standardised combination of methods to accept or decline cookies."""
 
