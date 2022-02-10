@@ -6,16 +6,11 @@ from .for_element import wait_for_element
 from .until_element_disappears import wait_until_element_disappears
 from .until_images_have_loaded import wait_until_images_have_loaded
 from .until_page_title_contains import wait_until_page_title_contains
+from .until_page_title_is import wait_until_page_title_is
 from ...constant import timeout
-from ...exception.timeout import WaitForPageTitleToChangeTimeoutException, WaitForUrlTimeoutException
+from ...exception.timeout import WaitForUrlTimeoutException
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def wait_until_page_title_is(driver: object, page_title: str, timeout: int = timeout.DEFAULT) -> None:
-    try:
-        WebDriverWait(driver, timeout).until(EC.title_is(page_title))
-    except TimeoutException:
-        raise WaitForPageTitleToChangeTimeoutException(driver, page_title)
 
 def wait_until_url_contains(driver: object, url: str, timeout: int = timeout.LONG) -> None:
     try:
