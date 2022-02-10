@@ -9,7 +9,7 @@ from .input import InputDriverMethods
 from .open import OpenDriverMethods
 from .scroll import ScrollDriverMethods
 from .select import SelectDriverMethods
-from .tools import ToolsDriverMethods
+from .tool import ToolDriverMethods
 from .wait import WaitDriverMethods
 from ..helper import browser_factory
 from ..model.browser.base.driver import BrowserDriver
@@ -40,7 +40,7 @@ class Browser:
         self.open:     OpenDriverMethods     = OpenDriverMethods(self._browser_driver)
         self.scroll:   ScrollDriverMethods   = ScrollDriverMethods(self._browser_driver)
         self.select:   SelectDriverMethods   = SelectDriverMethods(self._browser_driver)
-        self.tools:    ToolsDriverMethods    = ToolsDriverMethods(self._browser_driver)
+        self.tools:    ToolDriverMethods    = ToolDriverMethods(self._browser_driver)
         self.wait:     WaitDriverMethods     = WaitDriverMethods(self._browser_driver)
 
     def back(self) -> None:
