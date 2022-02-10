@@ -8,6 +8,7 @@ from .url_from_image import get_url_from_image
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
 from .urls_from_multiple_links import get_urls_from_multiple_links
+from .value_from_attribute import get_value_from_attribute
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
@@ -74,3 +75,12 @@ class GetDriverMethods(DriverMethods):
         Assumes that the XPath targets multiple links."""
 
         return get_urls_from_multiple_links(self._driver, xpath, timeout)
+
+    def get_value_from_attribute(self, xpath: str, attribute: str, timeout: int = timeout.DEFAULT) -> str:
+        """Get value from an attribute of an element. Examples:
+
+        Use "src" as attribute to get the source URL from an <img> image tag.
+
+        Use "href" as attribute to get the URL from an <a> link tag."""
+
+        return get_value_from_attribute(self._driver, xpath, attribute, timeout)
