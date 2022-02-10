@@ -20,6 +20,11 @@ class WaitDriverMethods(DriverMethods):
 
         wait_for_element(self._driver, xpath)
 
+    def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
+        """Randomize sleep timing to make actions look less like a bot."""
+
+        wait_random_time(min_seconds, max_seconds)
+
     def until_element_disappears(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until element doesn't exist."""
 
@@ -44,8 +49,3 @@ class WaitDriverMethods(DriverMethods):
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
 
         wait_until_url_contains(self._driver, url, timeout)
-
-    def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
-        """Randomize sleep timing to make actions look less like a bot."""
-
-        wait_random_time(min_seconds, max_seconds)
