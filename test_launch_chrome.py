@@ -35,7 +35,7 @@ print("is_url_valid", browser.tools.is_url_valid(browser.get.current_url()))
 print("is_input_valid", browser.tools.is_input_valid(xpath, xpath + "test"))
 print("url_from_image", browser.get.url_from_image(xpath))
 print("urls_from_multiple_images", browser.get.urls_from_multiple_images(xpath))
-print("get_value_from_attribute", browser.get.get_value_from_attribute(xpath, "src"))
+print("get_attribute_value", browser.get.get_attribute_value(xpath, "src"))
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
 browser.select.input_field(search_field_xpath)
 browser.wait.random_time(3, 5)
