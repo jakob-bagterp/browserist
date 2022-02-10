@@ -1,11 +1,11 @@
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from .check_if.element_contains_text import check_if_element_contains_text
-from .wait_for_element import wait_for_element
-from ..constant import timeout
-from ..exception.element import NoElementFoundException, NoElementFoundWithTextConditionException
-from ..exception.timeout import WaitForElementTimeoutException
-from ..model.browser.base.driver import BrowserDriver
-from ..model.driver_methods import DriverMethods
+from ..check_if.element_contains_text import check_if_element_contains_text
+from ..wait_for_element import wait_for_element
+from ...constant import timeout
+from ...exception.element import NoElementFoundException, NoElementFoundWithTextConditionException
+from ...exception.timeout import WaitForElementTimeoutException
+from ...model.browser.base.driver import BrowserDriver
+from ...model.driver_methods import DriverMethods
 
 def click_button(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     wait_for_element(driver, xpath, timeout)
