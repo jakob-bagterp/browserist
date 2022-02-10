@@ -26,7 +26,7 @@ class ComboDriverMethods(DriverMethods):
 
         combo_log_in(self._driver, login_credentials, login_form, wait_seconds)
 
-    def search(self, settings: SearchSettings) -> None:
+    def search(self, term: str, settings: SearchSettings) -> None:
         """Standardised combination of methods to perform search."""
 
-        combo_search(self._driver, settings)
+        combo_search(self._driver, term, settings)
