@@ -9,10 +9,10 @@ from .settings import BrowserSettings
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
-    
+
     def __init__(self, settings: BrowserSettings) -> None:
         """Initiates basic properties of the Selenium web driver."""
-        
+
         self.settings = settings
         self.chrome_options: ChromeOptions = ChromeOptions()
         self.edge_options: EdgeOptions = EdgeOptions()
@@ -39,7 +39,7 @@ class BrowserDriver(ABC):
 
     def set_options_and_profile(self) -> None:
         """Internal task initialiser that runs the configuration methods to disable images, enable headless, etc."""
-        
+
         self.disable_images()
         self.enable_headless()
         self.set_page_load_strategy()
@@ -47,7 +47,7 @@ class BrowserDriver(ABC):
     @abstractmethod
     def disable_images(self) -> None:
         """Method to configure web driver to disable download of images for faster browsing."""
-        
+
         raise NotImplementedError
 
     @abstractmethod
