@@ -4,8 +4,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from typing import List
 from .for_element import wait_for_element
-from ..check_if import check_if_is_image_element_loaded
 from ..check_if.does_element_exist import check_if_does_element_exist
+from ..check_if.is_image_element_loaded import check_if_is_image_element_loaded
 from ... import helper
 from ...constant import timeout
 from ...exception.timeout import WaitForPageTitleToChangeTimeoutException, WaitForUrlTimeoutException
