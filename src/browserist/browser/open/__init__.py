@@ -1,15 +1,7 @@
 from .url import open_url
-from ..get.current_url import get_current_url
+from .url_if_not_current import open_url_if_not_current
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def open_url_if_not_current(driver: object, url: str, ignore_trailing_slash: bool = True) -> None:
-    # TODO: Evaluate without trailing slash
-    # TODO: Ignore HTTP?(S) part of URL
-    # TODO: Option to ignore parameters in URL
-    current_url = get_current_url(driver)
-    if current_url != url:
-        open_url(driver, url)
 
 def open_url_in_new_tab(driver: object, url: str) -> None:
     driver.execute_script(f"window.open('{url}', '_blank');")

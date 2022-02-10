@@ -1,6 +1,6 @@
 import time
 from ..click.button import click_button
-from ..open import open_url_if_not_current
+from ..open.url_if_not_current import open_url_if_not_current
 from ..wait import wait_until_element_disappears
 from ..wait.for_element import wait_for_element
 from ...exception.cookie_banner import CookieBannerException
