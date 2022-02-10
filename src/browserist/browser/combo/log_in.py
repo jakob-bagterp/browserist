@@ -1,5 +1,5 @@
 import time
-from ..click import click_button
+from ..click.button import click_button
 from ..input import input_value
 from ..open import open_url_if_not_current
 from ..wait import wait_until_url_contains

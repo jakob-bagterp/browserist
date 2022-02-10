@@ -1,5 +1,5 @@
 import time
-from ..click import click_button
+from ..click.button import click_button
 from ..open import open_url_if_not_current
 from ..wait import wait_until_element_disappears
 from ..wait.for_element import wait_for_element
