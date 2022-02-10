@@ -1,3 +1,6 @@
+BYPASS: int = 0
+"""No timeout."""
+
 SHORT: int = 3
 """Short timeout: 3 seconds."""
 
