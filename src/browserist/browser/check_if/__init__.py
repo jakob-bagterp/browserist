@@ -2,20 +2,12 @@ from selenium.common.exceptions import NoSuchElementException
 from .does_element_exist import check_if_does_element_exist
 from .element_contains_text import check_if_element_contains_text
 from .is_element_clickable import check_if_is_element_clickable
+from .is_element_enabled import check_if_is_element_enabled
 from .is_image_element_loaded import check_if_is_image_element_loaded
 from .is_image_loaded import check_if_is_image_loaded
-from ..wait.for_element import wait_for_element
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def check_if_is_element_enabled(driver: object, xpath: str) -> bool:
-    wait_for_element(driver, xpath)
-    try:
-        element = driver.find_element_by_xpath(xpath)
-        return element.is_enabled()
-    except NoSuchElementException:
-        return False
 
 def check_if_is_element_disabled(driver: object, xpath: str) -> bool:
     return not check_if_is_element_enabled(driver, xpath)
