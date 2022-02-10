@@ -5,6 +5,7 @@ from .until_images_have_loaded import wait_until_images_have_loaded
 from .until_page_title_contains import wait_until_page_title_contains
 from .until_page_title_is import wait_until_page_title_is
 from .until_url_contains import wait_until_url_contains
+from .until_url_is import wait_until_url_is
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
