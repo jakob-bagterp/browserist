@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from typing import Union
-from ..constant import timeout
+from ...constant import timeout
 
 @dataclass
 class LoginCredentials:

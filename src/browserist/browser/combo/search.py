@@ -4,7 +4,7 @@ from ..open.url_if_not_current import open_url_if_not_current
 from ..wait.for_element import wait_for_element
 from ..wait.until_url_contains import wait_until_url_contains
 from ...exception.search import SearchException
-from ...model.search import SearchSettings
+from ...model.combo_settings.search import SearchSettings
 
 def combo_search(driver: object, settings: SearchSettings) -> None:
     try:

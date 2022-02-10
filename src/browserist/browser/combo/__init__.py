@@ -5,10 +5,10 @@ from .log_in import combo_log_in
 from .search import combo_search
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
-from ...model.cookie_banner import CookieBannerSettings
 from ...model.driver_methods import DriverMethods
-from ...model.login import LoginCredentials, LoginForm
-from ...model.search import SearchSettings
+from ...model.combo_settings.cookie_banner import CookieBannerSettings
+from ...model.combo_settings.login import LoginCredentials, LoginForm
+from ...model.combo_settings.search import SearchSettings
 
 class ComboDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:

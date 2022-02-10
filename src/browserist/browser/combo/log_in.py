@@ -6,7 +6,7 @@ from ..wait import wait_until_url_contains
 from ..wait.for_element import wait_for_element
 from ...constant import timeout
 from ...exception.login import LoginException
-from ...model.login import LoginCredentials, LoginForm
+from ...model.combo_settings.login import LoginCredentials, LoginForm
 
 def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form: LoginForm, wait_seconds: int = timeout.DEFAULT) -> None:
     try:
