@@ -7,4 +7,4 @@ def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEF
         return driver.find_element_by_xpath(xpath).text
 
     wait_for_element(driver, xpath, timeout)
-    return helper.driver.retry_and_get_text_from_element(get_inner_text_of_element(driver, xpath))
+    return helper.retry.get_text_from_element(get_inner_text_of_element(driver, xpath))

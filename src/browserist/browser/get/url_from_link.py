@@ -9,4 +9,4 @@ def get_url_from_link(driver: object, xpath: str, timeout: int = timeout.DEFAULT
         return get_attribute_value(driver, xpath, "href", constant.timeout.BYPASS)
 
     wait_for_element(driver, xpath, timeout)
-    return helper.driver.retry_and_get_text_from_element(get_href_attribute_of_element(driver, xpath))
+    return helper.retry.get_text_from_element(get_href_attribute_of_element(driver, xpath))
