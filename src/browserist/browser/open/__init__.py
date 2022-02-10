@@ -1,6 +1,6 @@
-from .get.current_url import get_current_url
-from ..model.browser.base.driver import BrowserDriver
-from ..model.driver_methods import DriverMethods
+from ..get.current_url import get_current_url
+from ...model.browser.base.driver import BrowserDriver
+from ...model.driver_methods import DriverMethods
 
 def open_url(driver: object, url: str) -> None:
     driver.get(url)
