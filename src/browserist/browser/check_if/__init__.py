@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from .does_element_exist import check_if_does_element_exist
 from .element_contains_text import check_if_element_contains_text
 from .is_image_element_loaded import check_if_is_image_element_loaded
+from .is_image_loaded import check_if_is_image_loaded
 from ..wait.for_element import wait_for_element
 from ...constant import interval, timeout
 from ...model.browser.base.driver import BrowserDriver
@@ -37,11 +38,6 @@ def check_if_is_element_visible(driver: object, xpath: str) -> bool:
         return element.is_displayed()
     except NoSuchElementException:
         return False
-
-def check_if_is_image_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
-    wait_for_element(driver, xpath, timeout)
-    element = driver.find_element_by_xpath(xpath)
-    return check_if_is_image_element_loaded(driver, element)
 
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
