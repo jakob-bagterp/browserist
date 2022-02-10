@@ -1,21 +1,14 @@
-from selenium.common.exceptions import NoSuchElementException
 from .does_element_exist import check_if_does_element_exist
 from .element_contains_text import check_if_element_contains_text
 from .is_element_clickable import check_if_is_element_clickable
 from .is_element_disabled import check_if_is_element_disabled
 from .is_element_enabled import check_if_is_element_enabled
+from .is_element_visible import check_if_is_element_visible
 from .is_image_element_loaded import check_if_is_image_element_loaded
 from .is_image_loaded import check_if_is_image_loaded
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def check_if_is_element_visible(driver: object, xpath: str) -> bool:
-    try:
-        element = driver.find_element_by_xpath(xpath)
-        return element.is_displayed()
-    except NoSuchElementException:
-        return False
 
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
