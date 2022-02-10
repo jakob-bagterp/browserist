@@ -5,15 +5,15 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
-from typing import Union
 from .settings import BrowserSettings
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
     
-    def __init__(self, settings: Union[BrowserSettings, None] = None) -> None:
+    def __init__(self, settings: BrowserSettings) -> None:
         """Initiates basic properties of the Selenium web driver."""
         
+        self.settings = settings
         self.chrome_options: ChromeOptions = ChromeOptions()
         self.edge_options: EdgeOptions = EdgeOptions()
         self.firefox_options: FirefoxOptions = FirefoxOptions()
@@ -21,9 +21,7 @@ class BrowserDriver(ABC):
         self.ie_options: IEOptions = IEOptions()
         self.safari_options: SafariOptions = SafariOptions()
 
-        self.settings = BrowserSettings() if settings is None else settings
-        if settings is None:
-            self.ensure_browser_type()
+        self.ensure_browser_type()
         self.set_options_and_profile()
         self.webdriver: object = self.set_webdriver()
 

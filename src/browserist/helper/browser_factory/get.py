@@ -1,4 +1,3 @@
-from typing import Union
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.browser.base.type import BrowserType
@@ -9,10 +8,7 @@ from ...model.browser.internet_explorer import InternetExplorerBrowserDriver
 from ...model.browser.opera import OperaBrowserDriver
 from ...model.browser.safari import SafariBrowserDriver
 
-def browser_driver(settings: Union[BrowserSettings, None] = None) -> BrowserDriver:
-    if settings is None:
-        return ChromeBrowserDriver()
-    
+def browser_driver(settings: BrowserSettings) -> BrowserDriver:
     match(settings.type):
         case BrowserType.CHROME:
             return ChromeBrowserDriver(settings)
