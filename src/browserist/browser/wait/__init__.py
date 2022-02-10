@@ -4,6 +4,7 @@ from .until_element_disappears import wait_until_element_disappears
 from .until_images_have_loaded import wait_until_images_have_loaded
 from .until_page_title_contains import wait_until_page_title_contains
 from .until_page_title_is import wait_until_page_title_is
+from .until_text_changes import wait_until_text_changes
 from .until_url_changes import wait_until_url_changes
 from .until_url_contains import wait_until_url_contains
 from .until_url_is import wait_until_url_is
@@ -47,6 +48,11 @@ class WaitDriverMethods(DriverMethods):
         """Wait until the page title has changed, e.g. after a redirect or update. The input has to match the exact page title."""
 
         wait_until_page_title_is(self._driver, page_title, timeout)
+
+    def until_text_changes(self, xpath: str, baseline_text: str, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until the text of an element changes from a baseline text, e.g. after a form action. The text is evaluated as an exact match."""
+
+        wait_until_text_changes(self._driver, xpath, baseline_text, timeout)
 
     def until_url_changes(self, baseline_url: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the browser URL changes from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""
