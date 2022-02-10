@@ -1,24 +1,12 @@
 from typing import List
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .current_page_title import get_current_page_title
 from .current_url import get_current_url
+from .dimensions_of_element import get_dimensions_of_element
 from ..wait.for_element import wait_for_element
 from ... import helper
 from ...constant import timeout
-from ...exception.element import NoElementDimensionsFoundException
-from ...exception.timeout import WaitForElementTimeoutException
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def get_dimensions_of_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
-    wait_for_element(driver, xpath, timeout)
-    try:
-        dimensions = driver.find_element_by_xpath(xpath).size # Returns dictionary object, e.g. {'height': 598, 'width': 479}.
-        return dimensions.get("width"), dimensions.get("height")
-    except TimeoutException:
-        raise WaitForElementTimeoutException(driver, xpath)
-    except NoSuchElementException:
-        raise NoElementDimensionsFoundException(driver, xpath)
 
 def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
     def get_inner_text_of_element(driver: object, xpath: str) -> str:
