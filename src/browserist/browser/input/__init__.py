@@ -7,12 +7,12 @@ class InputDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
     
-    def clear(self, input_xpath: str) -> None:
+    def clear(self, xpath: str) -> None:
         """Clear input form field."""
 
-        input_clear(self._driver, input_xpath)
+        input_clear(self._driver, xpath)
 
-    def value(self, input_xpath: str, value: str) -> None:
+    def value(self, xpath: str, value: str) -> None:
         """Input value into form field."""
 
-        input_value(self._driver, input_xpath, value)
+        input_value(self._driver, xpath, value)
