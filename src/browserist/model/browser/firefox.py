@@ -25,7 +25,7 @@ class FirefoxBrowserDriver(BrowserDriver):
     
     def enable_headless(self) -> None:
         if self.settings.headless:
-            self.firefox_options("--headless")
+            self.firefox_options.add_argument("--headless")
 
     def set_page_load_strategy(self) -> None:
         self.firefox_options = browser_factory.set.page_load_strategy(self, self.firefox_options)

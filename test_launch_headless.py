@@ -1,7 +1,7 @@
 import time
 from src.browserist import Browser, BrowserSettings, BrowserType
 
-browser_settings = BrowserSettings(type = BrowserType.CHROME, headless = True, disable_images = True)
+browser_settings = BrowserSettings(type = BrowserType.FIREFOX, headless = True, disable_images = True)
 print(browser_settings)
 browser = Browser(browser_settings)
 
