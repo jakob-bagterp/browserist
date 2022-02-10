@@ -5,8 +5,6 @@ from typing import Union
 class SearchSettings:
     """Object with data needed to accept or decline cookies from a banner.
 
-    term: Which terms to input in the search field.
-
     input_xpath: XPath for the search input field.
 
     button_xpath: XPath for the search button.
@@ -17,7 +15,6 @@ class SearchSettings:
 
     await_search_results_xpath: Optional wait for a search result element to be ready."""
 
-    term: str
     input_xpath: str
     button_xpath: str
     url: Union[str, None] = None
