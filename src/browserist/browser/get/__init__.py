@@ -5,16 +5,12 @@ from .dimensions_of_element import get_dimensions_of_element
 from .text_from_element import get_text_from_element
 from .texts_from_multiple_elements import get_texts_from_multiple_elements
 from .url_from_image import get_url_from_image
+from .urls_from_multiple_images import get_urls_from_multiple_images
 from ..wait.for_element import wait_for_element
 from ... import helper
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def get_urls_from_multiple_images(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-    wait_for_element(driver, xpath, timeout)
-    elements = driver.find_elements_by_xpath(xpath)
-    return [element.get_attribute("src") for element in elements]
 
 def get_url_from_link(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
     def get_href_attribute_of_element(driver: object, xpath: str) -> str:
