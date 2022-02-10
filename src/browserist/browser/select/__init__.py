@@ -1,4 +1,5 @@
 from .input_field import select_input_field
+from ...exception.headless import MethodNotSupportedInHeadlessModeException
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -9,5 +10,8 @@ class SelectDriverMethods(DriverMethods):
 
     def input_field(self, xpath: str) -> None:
         """Select input field, similar to clicking the mouse on a form field."""
+
+        if self._settings.headless:
+            raise MethodNotSupportedInHeadlessModeException("select.input_field", "headless mode doesn't support interacions")
 
         select_input_field(self._driver, xpath)
