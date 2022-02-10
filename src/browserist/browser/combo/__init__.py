@@ -2,11 +2,13 @@ __all__ = []
 
 from .cookie_banner import combo_cookie_banner
 from .log_in import combo_log_in
+from .search import combo_search
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.cookie_banner import CookieBannerSettings
 from ...model.driver_methods import DriverMethods
 from ...model.login import LoginCredentials, LoginForm
+from ...model.search import SearchSettings
 
 class ComboDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
@@ -23,3 +25,8 @@ class ComboDriverMethods(DriverMethods):
         wait_seconds: Extra seconds in addition to timeout to make sure the login is processed and that the user is redirected succesfully."""
 
         combo_log_in(self._driver, login_credentials, login_form, wait_seconds)
+
+    def search(self, settings: SearchSettings) -> None:
+        """Standardised combination of methods to perform search."""
+
+        combo_search(self._driver, settings)
