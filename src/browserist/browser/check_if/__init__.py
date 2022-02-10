@@ -2,12 +2,12 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from .check_if_does_element_exist import check_if_does_element_exist
-from .check_if_element_contains_text import check_if_element_contains_text
-from .wait_for_element import wait_for_element
-from ..constant import interval, timeout
-from ..model.browser.base.driver import BrowserDriver
-from ..model.driver_methods import DriverMethods
+from .does_element_exist import check_if_does_element_exist
+from .element_contains_text import check_if_element_contains_text
+from ..wait_for_element import wait_for_element
+from ...constant import interval, timeout
+from ...model.browser.base.driver import BrowserDriver
+from ...model.driver_methods import DriverMethods
 
 def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
     wait_for_element(driver, xpath, timeout)
@@ -55,7 +55,7 @@ class CheckIfDriverMethods(DriverMethods):
     def element_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
-        check_if_element_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        return check_if_element_contains_text(self._driver, xpath, regex, ignore_case, timeout)
 
     def does_element_exist(self, xpath: str,) -> bool:
         """Check if element exists."""
