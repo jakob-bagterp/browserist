@@ -18,6 +18,7 @@ def until_condition_is_true(func: Callable[[object, Union[str, List[object]]], b
     while func is False and i < retries:
         time.sleep(wait_interval_seconds)
         i += 1
+        # TODO: Raise exception if it times out/runs out of retries.
 
 def until_condition_is_false(func: Callable[[object, Union[str, List[object]]], bool], timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
     i = 0
@@ -25,3 +26,4 @@ def until_condition_is_false(func: Callable[[object, Union[str, List[object]]], 
     while func is True and i < retries:
         time.sleep(wait_interval_seconds)
         i += 1
+        # TODO: Raise exception if it times out/runs out of retries.
