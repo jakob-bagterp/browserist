@@ -12,6 +12,6 @@ class SelectDriverMethods(DriverMethods):
         """Select input field, similar to clicking the mouse on a form field."""
 
         if self._settings.headless:
-            raise MethodNotSupportedInHeadlessModeException("select.input_field", "headless mode doesn't support interacions")
+            raise MethodNotSupportedInHeadlessModeException("select.input_field", "headless mode doesn't support interactions")
 
         select_input_field(self._driver, xpath)
