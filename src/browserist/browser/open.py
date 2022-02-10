@@ -1,4 +1,4 @@
-from .get_current_url import get_current_url
+from .get.current_url import get_current_url
 from ..model.browser.base.driver import BrowserDriver
 from ..model.driver_methods import DriverMethods
 

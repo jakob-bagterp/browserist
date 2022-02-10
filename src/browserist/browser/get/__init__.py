@@ -1,14 +1,14 @@
 from typing import List
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from .get_current_page_title import get_current_page_title
-from .get_current_url import get_current_url
-from .wait_for_element import wait_for_element
-from .. import helper
-from ..constant import timeout
-from ..exception.element import NoElementDimensionsFoundException
-from ..exception.timeout import WaitForElementTimeoutException
-from ..model.browser.base.driver import BrowserDriver
-from ..model.driver_methods import DriverMethods
+from .current_page_title import get_current_page_title
+from .current_url import get_current_url
+from ..wait_for_element import wait_for_element
+from ... import helper
+from ...constant import timeout
+from ...exception.element import NoElementDimensionsFoundException
+from ...exception.timeout import WaitForElementTimeoutException
+from ...model.browser.base.driver import BrowserDriver
+from ...model.driver_methods import DriverMethods
 
 def get_dimensions_of_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
     wait_for_element(driver, xpath, timeout)
