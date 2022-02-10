@@ -11,11 +11,12 @@ from .urls_from_multiple_links import get_urls_from_multiple_links
 from .value_from_attribute import get_value_from_attribute
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 
 class GetDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver) -> None:
-        super().__init__(browser_driver)
+    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
+        super().__init__(browser_driver, settings)
         
     def current_page_title(self) -> str:
         """Get page title of the current page."""
