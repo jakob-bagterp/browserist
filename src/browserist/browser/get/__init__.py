@@ -2,7 +2,7 @@ from typing import List
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from .current_page_title import get_current_page_title
 from .current_url import get_current_url
-from ..wait_for_element import wait_for_element
+from ..wait.for_element import wait_for_element
 from ... import helper
 from ...constant import timeout
 from ...exception.element import NoElementDimensionsFoundException

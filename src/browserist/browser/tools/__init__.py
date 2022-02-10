@@ -1,5 +1,5 @@
 import re
-from ..wait_for_element import wait_for_element
+from ..wait.for_element import wait_for_element
 from ...constant import regex, timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods

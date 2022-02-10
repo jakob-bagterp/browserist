@@ -3,7 +3,7 @@ from ..click import click_button
 from ..input import input_value
 from ..open import open_url_if_not_current
 from ..wait import wait_until_url_contains
-from ..wait_for_element import wait_for_element
+from ..wait.for_element import wait_for_element
 from ...constant import timeout
 from ...exception.login import LoginException
 from ...model.login import LoginCredentials, LoginForm

@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from .does_element_exist import check_if_does_element_exist
 from .element_contains_text import check_if_element_contains_text
-from ..wait_for_element import wait_for_element
+from ..wait.for_element import wait_for_element
 from ...constant import interval, timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
