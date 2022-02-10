@@ -3,16 +3,12 @@ from .current_page_title import get_current_page_title
 from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
 from .text_from_element import get_text_from_element
+from .texts_from_multiple_elements import get_texts_from_multiple_elements
 from ..wait.for_element import wait_for_element
 from ... import helper
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def get_texts_from_multiple_elements(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-    wait_for_element(driver, xpath, timeout)
-    elements = driver.find_elements_by_xpath(xpath)
-    return [element.text for element in elements]
 
 def get_url_from_image(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
     def get_src_attribute_of_element(driver: object, xpath: str) -> str:
