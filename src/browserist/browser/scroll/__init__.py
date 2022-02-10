@@ -1,5 +1,5 @@
-from ..model.browser.base.driver import BrowserDriver
-from ..model.driver_methods import DriverMethods
+from ...model.browser.base.driver import BrowserDriver
+from ...model.driver_methods import DriverMethods
 
 class ScrollDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
