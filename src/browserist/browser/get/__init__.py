@@ -2,18 +2,12 @@ from typing import List
 from .current_page_title import get_current_page_title
 from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
+from .text_from_element import get_text_from_element
 from ..wait.for_element import wait_for_element
 from ... import helper
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def get_text_from_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
-    def get_inner_text_of_element(driver: object, xpath: str) -> str:
-        return driver.find_element_by_xpath(xpath).text
-
-    wait_for_element(driver, xpath, timeout)
-    return helper.driver.retry_and_get_text_from_element(get_inner_text_of_element(driver, xpath))
 
 def get_texts_from_multiple_elements(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
     wait_for_element(driver, xpath, timeout)
