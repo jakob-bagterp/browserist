@@ -1,22 +1,13 @@
 import time, random
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from .for_element import wait_for_element
 from .until_element_disappears import wait_until_element_disappears
 from .until_images_have_loaded import wait_until_images_have_loaded
 from .until_page_title_contains import wait_until_page_title_contains
 from .until_page_title_is import wait_until_page_title_is
+from .until_url_contains import wait_until_url_contains
 from ...constant import timeout
-from ...exception.timeout import WaitForUrlTimeoutException
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def wait_until_url_contains(driver: object, url: str, timeout: int = timeout.LONG) -> None:
-    try:
-        WebDriverWait(driver, timeout).until(EC.url_contains(url))
-    except TimeoutException:
-        raise WaitForUrlTimeoutException(driver, url)
 
 def wait_random_time(min_seconds: int = 1, max_seconds: int = timeout.DEFAULT) -> None:
     time.sleep(random.uniform(min_seconds, max_seconds))
