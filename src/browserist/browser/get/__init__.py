@@ -4,18 +4,12 @@ from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
 from .text_from_element import get_text_from_element
 from .texts_from_multiple_elements import get_texts_from_multiple_elements
+from .url_from_image import get_url_from_image
 from ..wait.for_element import wait_for_element
 from ... import helper
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-
-def get_url_from_image(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> str:
-    def get_src_attribute_of_element(driver: object, xpath: str) -> str:
-        return driver.find_element_by_xpath(xpath).get_attribute("src")
-
-    wait_for_element(driver, xpath, timeout)
-    return helper.driver.retry_and_get_text_from_element(get_src_attribute_of_element(driver, xpath))
 
 def get_urls_from_multiple_images(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
     wait_for_element(driver, xpath, timeout)
