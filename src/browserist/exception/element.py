@@ -21,7 +21,7 @@ class NoElementFoundWithTextConditionException(Exception):
 class NoElementDimensionsFoundException(Exception):
     def __init__(self, driver: object, xpath: str) -> None:
         current_url = get_current_url(driver)
-        self.message = f"On page {current_url}, no such element found trying to get element dimensions: {xpath}"
+        self.message = f"On page {current_url}, no such element found while trying to get element dimensions: {xpath}"
         super().__init__(self.message)
 
     def __str__(self) -> str:
