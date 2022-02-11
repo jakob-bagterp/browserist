@@ -1,5 +1,6 @@
 from typing import List
 from .attribute_value import get_attribute_value
+from .attribute_values_from_multiple_elements import get_attribute_values_from_multiple_elements
 from .current_page_title import get_current_page_title
 from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
@@ -26,6 +27,15 @@ class GetDriverMethods(DriverMethods):
         Use "href" as attribute to get the URL from an <a> link tag."""
 
         return get_attribute_value(self._driver, xpath, attribute, timeout)
+
+    def attribute_values_from_multiple_elements(self, xpath: str, attribute: str, timeout: int = timeout.DEFAULT) -> List[str]:
+        """Get values from an attribute of multiple elements. Assumes that the XPath targets multiple links. Examples:
+
+        Use "src" as attribute to get the source URL from an <img> image tag.
+
+        Use "href" as attribute to get the URL from an <a> link tag."""
+
+        return get_attribute_values_from_multiple_elements(self._driver, xpath, attribute, timeout)
 
     def current_page_title(self) -> str:
         """Get page title of the current page."""
