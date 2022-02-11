@@ -6,6 +6,7 @@ from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
 from .settings import BrowserSettings
+from .type import BrowserType
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
@@ -14,12 +15,19 @@ class BrowserDriver(ABC):
         """Initiates basic properties of the Selenium web driver."""
 
         self.settings = settings
-        self.chrome_options: ChromeOptions = ChromeOptions()
-        self.edge_options: EdgeOptions = EdgeOptions()
-        self.firefox_options: FirefoxOptions = FirefoxOptions()
-        self.firefox_profile: FirefoxProfile = FirefoxProfile()
-        self.ie_options: IEOptions = IEOptions()
-        self.safari_options: SafariOptions = SafariOptions()
+
+        match(self.settings.type):
+            case BrowserType.CHROME | BrowserType.OPERA:
+                self.chrome_options: ChromeOptions = ChromeOptions()
+            case BrowserType.EDGE:
+                self.edge_options: EdgeOptions = EdgeOptions()
+            case BrowserType.FIREFOX:
+                self.firefox_options: FirefoxOptions = FirefoxOptions()
+                self.firefox_profile: FirefoxProfile = FirefoxProfile()
+            case BrowserType.INTERNET_EXPLORER:
+                self.ie_options: IEOptions = IEOptions()
+            case BrowserType.SAFARI:
+                self.safari_options: SafariOptions = SafariOptions()
 
         self.ensure_browser_type()
         self.set_options_and_profile()
@@ -28,7 +36,7 @@ class BrowserDriver(ABC):
     @abstractmethod
     def ensure_browser_type(self) -> None:
         """Method to ensure the correct browser type if a specific browser instance is created directly from a subclass (e.g. FirefoxBrowserDriver) without the optional settings as argument, simply as Chrome is default browser."""
-        
+
         raise NotImplementedError
 
     @abstractmethod
