@@ -6,6 +6,7 @@ browser = Browser()
 browser.open.url("https://www.dr.dk/")
 print("current_page_title", browser.get.current_page_title())
 browser.refresh()
+browser.scroll.into_view("//footer")
 
 #browser.get("https://github.com/jakob-bagterp/")
 browser.open.url("https://github.com/jakob-bagterp/")
