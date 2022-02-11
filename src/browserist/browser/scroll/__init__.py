@@ -1,4 +1,5 @@
 from .into_view import scroll_into_view
+from .into_view_if_not_visible import scroll_into_view_if_not_visible
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
@@ -12,3 +13,8 @@ class ScrollDriverMethods(DriverMethods):
         """Find element and scroll up or down until element is visible."""
 
         scroll_into_view(self._driver, xpath, timeout)
+
+    def into_view_if_not_visible(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+        """If not visilbe, find element and scroll up or down until element is visible."""
+
+        scroll_into_view_if_not_visible(self._driver, xpath, timeout)

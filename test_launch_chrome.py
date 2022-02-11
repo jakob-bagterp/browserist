@@ -7,6 +7,8 @@ browser.open.url("https://www.dr.dk/")
 print("current_page_title", browser.get.current_page_title())
 browser.refresh()
 browser.scroll.into_view("//footer")
+browser.scroll.into_view_if_not_visible("//footer")
+browser.scroll.into_view_if_not_visible("/html/body/div[2]/div/div[3]/div/main/div[1]/div/div/section/div[2]/div/div/ul")
 
 #browser.get("https://github.com/jakob-bagterp/")
 browser.open.url("https://github.com/jakob-bagterp/")
