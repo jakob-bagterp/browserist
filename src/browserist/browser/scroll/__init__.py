@@ -9,6 +9,6 @@ class ScrollDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
 
     def into_view(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
-        """Find element and scroll up/down until element is visible."""
+        """Find element and scroll up or down until element is visible."""
 
         scroll_into_view(self._driver, xpath, timeout)
