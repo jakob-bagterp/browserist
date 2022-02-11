@@ -66,9 +66,7 @@ class GetDriverMethods(DriverMethods):
         return get_url_from_image(self._driver, xpath, timeout)
 
     def urls_from_multiple_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-        """Get array of URLs from images, e.g. <img> tags.
-
-        Assumes that the XPath targets multiple images."""
+        """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
 
         return get_urls_from_multiple_images(self._driver, xpath, timeout)
 
@@ -80,8 +78,6 @@ class GetDriverMethods(DriverMethods):
         return get_url_from_link(self._driver, xpath, timeout)
 
     def urls_from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-        """Get array of URLs from links, e.g. <a> tags or buttons.
-
-        Assumes that the XPath targets multiple links."""
+        """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
 
         return get_urls_from_multiple_links(self._driver, xpath, timeout)
