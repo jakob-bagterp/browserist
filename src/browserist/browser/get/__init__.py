@@ -1,4 +1,5 @@
 from typing import List
+from .attribute_value import get_attribute_value
 from .current_page_title import get_current_page_title
 from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
@@ -8,7 +9,6 @@ from .url_from_image import get_url_from_image
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
 from .urls_from_multiple_links import get_urls_from_multiple_links
-from .attribute_value import get_attribute_value
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
