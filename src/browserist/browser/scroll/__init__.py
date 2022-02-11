@@ -1,6 +1,7 @@
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
 from .to_end_of_page import scroll_to_end_of_page
+from .to_top_of_page import scroll_to_top_of_page
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
@@ -24,3 +25,7 @@ class ScrollDriverMethods(DriverMethods):
         """Scroll to end of page."""
 
         scroll_to_end_of_page(self._driver)
+
+    def to_top_of_page(self) -> None:
+
+        scroll_to_top_of_page(self._driver)
