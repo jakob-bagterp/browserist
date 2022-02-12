@@ -8,7 +8,8 @@ Extend the Python version of the Selenium web driver with Browserist and make yo
 Main features of Browserist:
 
 * Improves stability and speed
-* Extended library of browser automation functions and tools
+* Simple syntax
+* Extended library of browser automation functions and tools without elaborate code
 * Hassle-free setup that works across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
 ## Prerequisites
