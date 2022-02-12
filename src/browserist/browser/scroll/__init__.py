@@ -33,5 +33,6 @@ class ScrollDriverMethods(DriverMethods):
         scroll_to_position(self._driver, x, y)
 
     def to_top_of_page(self) -> None:
+        """Scroll to top of page."""
 
         scroll_to_top_of_page(self._driver)
