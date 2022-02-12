@@ -1,0 +1,2 @@
+CURRENT: str = "./"
+"""Current directory: \"./\""""
