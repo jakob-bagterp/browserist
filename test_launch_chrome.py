@@ -21,6 +21,7 @@ browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3
 browser.open.url("https://github.com/jakob-bagterp/")
 browser.wait.until_url_contains("jakob")
 browser.scroll.to_end_of_page()
+browser.scroll.to_position(100, 100)
 browser.scroll.to_top_of_page()
 browser.wait.until_url_is(browser.get.current_url())
 print(browser.get.text_from_element("/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[2]/h1"))
