@@ -10,6 +10,7 @@ from .url_from_image import get_url_from_image
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
 from .urls_from_multiple_links import get_urls_from_multiple_links
+from .window_size import get_window_size
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
@@ -91,3 +92,10 @@ class GetDriverMethods(DriverMethods):
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
 
         return get_urls_from_multiple_links(self._driver, xpath, timeout)
+
+    def window_size(self) -> tuple[int, int]:
+        """Get width and height browser window in pixels. Usage:
+
+        width, height = browser.get.window_size()"""
+
+        return get_window_size(self._driver)
