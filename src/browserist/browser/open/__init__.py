@@ -11,7 +11,7 @@ class OpenDriverMethods(DriverMethods):
 
     def url(self, url: str) -> None:
         """Open web page by URL."""
-        
+
         open_url(self._driver, url)
 
     def url_if_not_current(self, url: str, ignore_trailing_slash: bool = True) -> None:
