@@ -4,6 +4,7 @@ from .attribute_values_from_multiple_elements import get_attribute_values_from_m
 from .current_page_title import get_current_page_title
 from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
+from .screenshot import get_screenshot
 from .text_from_element import get_text_from_element
 from .texts_from_multiple_elements import get_texts_from_multiple_elements
 from .url_from_image import get_url_from_image
@@ -53,6 +54,11 @@ class GetDriverMethods(DriverMethods):
         width, height = browser.get.dimensions_of_element("/element/xpath")"""
 
         return get_dimensions_of_element(self._driver, xpath, timeout)
+
+    def screenshot(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
+        """Take screenshot and save as PNG image. Default destination directory is from where the script is executed."""
+
+        get_screenshot(self._driver, file_name, destination_dir)
 
     def text_from_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get text from element.
