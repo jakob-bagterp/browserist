@@ -4,6 +4,7 @@ from .check_if import CheckIfDriverMethods
 from .click import ClickDriverMethods
 from .combo import ComboDriverMethods
 from .get import GetDriverMethods
+from .hover import HoverDriverMethods
 from .input import InputDriverMethods
 from .open import OpenDriverMethods
 from .scroll import ScrollDriverMethods
@@ -37,6 +38,7 @@ class Browser:
         self.check_if: CheckIfDriverMethods  = CheckIfDriverMethods(self._browser_driver, settings)
         self.click:    ClickDriverMethods    = ClickDriverMethods(self._browser_driver, settings)
         self.combo:    ComboDriverMethods    = ComboDriverMethods(self._browser_driver, settings)
+        self.hover:    HoverDriverMethods    = HoverDriverMethods(self._browser_driver, settings)
         self.get:      GetDriverMethods      = GetDriverMethods(self._browser_driver, settings)
         self.input:    InputDriverMethods    = InputDriverMethods(self._browser_driver, settings)
         self.open:     OpenDriverMethods     = OpenDriverMethods(self._browser_driver, settings)
