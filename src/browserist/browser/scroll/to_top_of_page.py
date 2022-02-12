@@ -1,6 +1,4 @@
-import time
-from ...constant import timeout
+from .to_position import scroll_to_position
 
 def scroll_to_top_of_page(driver: object) -> None:
-    driver.execute_script("window.scrollTo(0, 0);")
-    time.sleep(timeout.VERY_SHORT) # Small delay to ensure the view is updated.
+    scroll_to_position(driver, 0, 0)
