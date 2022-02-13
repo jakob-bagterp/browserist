@@ -9,7 +9,7 @@ class WindowGetDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
 
     def position(self) -> tuple[int, int]:
-        """Get coordinate position of browser window on the screen in pixels. Usage:
+        """Get the coordinates of the top left corner of the browser window on the screen. Usage:
 
         x, y = browser.window.get.position()"""
 
