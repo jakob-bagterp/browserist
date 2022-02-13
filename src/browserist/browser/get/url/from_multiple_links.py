@@ -1,8 +1,6 @@
 from typing import List
-from ...wait.for_element import wait_for_element
+from ..attribute.value_from_multiple_elements import get_attribute_value_from_multiple_elements
 from ....constant import timeout
 
 def get_url_from_multiple_links(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-    wait_for_element(driver, xpath, timeout)
-    elements = driver.find_elements_by_xpath(xpath)
-    return [element.get_attribute("href") for element in elements]
+    return get_attribute_value_from_multiple_elements(driver, xpath, "href", timeout)
