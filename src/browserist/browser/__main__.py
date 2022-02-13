@@ -7,6 +7,7 @@ from .input.__main__ import InputDriverMethods
 from .open.__main__ import OpenDriverMethods
 from .scroll.__main__ import ScrollDriverMethods
 from .select.__main__ import SelectDriverMethods
+from .switch_to.__main__ import SwitchToDriverMethods
 from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
@@ -45,6 +46,7 @@ class Browser:
         self.open:     OpenDriverMethods     = OpenDriverMethods(self._browser_driver, settings)
         self.scroll:   ScrollDriverMethods   = ScrollDriverMethods(self._browser_driver, settings)
         self.select:   SelectDriverMethods   = SelectDriverMethods(self._browser_driver, settings)
+        self.switch_to: SwitchToDriverMethods = SwitchToDriverMethods(self._browser_driver, settings, self._original_window_handle)
         self.tools:    ToolDriverMethods     = ToolDriverMethods(self._browser_driver, settings)
         self.wait:     WaitDriverMethods     = WaitDriverMethods(self._browser_driver, settings)
         self.window:   WindowDriverMethods   = WindowDriverMethods(self._browser_driver, settings)
