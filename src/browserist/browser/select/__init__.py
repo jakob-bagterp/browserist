@@ -1,3 +1,5 @@
+__all__ = []
+
 from .input_field import select_input_field
 from ...exception.headless import MethodNotSupportedInHeadlessModeException
 from ...model.browser.base.driver import BrowserDriver

@@ -1,3 +1,5 @@
+__all__ = []
+
 from .current import get_current_url
 from .from_image import get_url_from_image
 from ....model.browser.base.driver import BrowserDriver

@@ -1,3 +1,5 @@
+__all__ = []
+
 from typing import List
 from .from_element import get_text_from_element
 from .from_multiple_elements import get_text_from_multiple_elements

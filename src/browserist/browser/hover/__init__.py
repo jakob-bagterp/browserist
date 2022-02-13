@@ -1,3 +1,5 @@
+__all__ = []
+
 from .mouse_to_element import hover_mouse_on_element
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver

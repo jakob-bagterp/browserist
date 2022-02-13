@@ -1,3 +1,5 @@
+__all__ = []
+
 from .clear import input_clear
 from .value import input_value
 from ...model.browser.base.driver import BrowserDriver
