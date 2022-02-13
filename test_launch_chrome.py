@@ -5,6 +5,8 @@ browser = Browser()
 
 browser.open.url("https://www.dr.dk/")
 print("page_title", browser.get.page_title())
+image_elements = browser.get.all_elements_by_tag("img")
+print("image_elements", len(image_elements), image_elements)
 browser.refresh()
 browser.scroll.into_view("//footer")
 browser.scroll.into_view_if_not_visible("//footer")

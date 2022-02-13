@@ -1,3 +1,5 @@
+from typing import List
+from .all_elements_by_tag import get_all_elements_by_tag
 from .attribute.__main__ import GetAttributeDriverMethods
 from .dimensions_of_element import get_dimensions_of_element
 from .page_title import get_page_title
@@ -15,6 +17,11 @@ class GetDriverMethods(DriverMethods):
         self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
         self.text: GetTextDriverMethods = GetTextDriverMethods(browser_driver, settings)
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
+
+    def all_elements_by_tag(self, tag: str, timeout: int = timeout.DEFAULT) -> List[object]:
+        """"Get all elements by HTML tag. Examples: "img" as tag for all <img> images, "a" for all <a> links, etc."""
+
+        return get_all_elements_by_tag(self._driver, tag, timeout)
 
     def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
         """Get width and height of element in pixels. Usage:
