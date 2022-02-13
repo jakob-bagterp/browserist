@@ -3,7 +3,7 @@ __all__ = []
 from .check_if import CheckIfDriverMethods
 from .click import ClickDriverMethods
 from .combo import ComboDriverMethods
-from .get import GetDriverMethods
+from .get.__main__ import GetDriverMethods
 from .hover import HoverDriverMethods
 from .input import InputDriverMethods
 from .open import OpenDriverMethods
