@@ -1,3 +1,3 @@
-__all__ = ["directory", "browser_factory", "retry", "screenshot"]
+__all__ = ["directory", "retry", "screenshot"]
 
-from . import directory, browser_factory, retry, screenshot
+from . import directory, retry, screenshot
