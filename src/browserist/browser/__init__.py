@@ -9,7 +9,7 @@ from .input.__main__ import InputDriverMethods
 from .open.__main__ import OpenDriverMethods
 from .scroll.__main__ import ScrollDriverMethods
 from .select.__main__ import SelectDriverMethods
-from .tool import ToolDriverMethods
+from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .. import factory
 from ..model.browser.base.driver import BrowserDriver
