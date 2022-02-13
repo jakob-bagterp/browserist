@@ -3,6 +3,7 @@ from .current import get_current_url
 from .from_image import get_url_from_image
 from .from_link import get_url_from_link
 from .from_multiple_images import get_url_from_multiple_images
+from .from_multiple_links import get_url_from_multiple_links
 from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
@@ -35,3 +36,8 @@ class GetUrlDriverMethods(DriverMethods):
         """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
 
         return get_url_from_multiple_images(self._driver, xpath, timeout)
+
+    def from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+        """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
+
+        return get_url_from_multiple_links(self._driver, xpath, timeout)

@@ -1,13 +1,11 @@
 __all__ = []
 
-from typing import List
 from .attribute import GetAttributeDriverMethods
 from .dimensions_of_element import get_dimensions_of_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text import GetTextDriverMethods
 from .url.__main__ import GetUrlDriverMethods
-from .url_from_multiple_links import get_url_from_multiple_links
 from .window_size import get_window_size
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
@@ -45,11 +43,6 @@ class GetDriverMethods(DriverMethods):
         browser.get.screenshot(destination_dir = "./screenshots") # Default file name and custom destination"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
-
-    def url_from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-        """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
-
-        return get_url_from_multiple_links(self._driver, xpath, timeout)
 
     def window_size(self) -> tuple[int, int]:
         """Get width and height browser window in pixels. Usage:
