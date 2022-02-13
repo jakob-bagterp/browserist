@@ -1,9 +1,9 @@
 from typing import List
 from .attribute_value import get_attribute_value
 from .attribute_values_from_multiple_elements import get_attribute_values_from_multiple_elements
-from .current_page_title import get_current_page_title
 from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
+from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text_from_element import get_text_from_element
 from .texts_from_multiple_elements import get_texts_from_multiple_elements
@@ -39,11 +39,6 @@ class GetDriverMethods(DriverMethods):
 
         return get_attribute_values_from_multiple_elements(self._driver, xpath, attribute, timeout)
 
-    def current_page_title(self) -> str:
-        """Get page title of the current page."""
-
-        return get_current_page_title(self._driver)
-
     def current_url(self) -> str:
         """Get URL of the current page."""
 
@@ -55,6 +50,11 @@ class GetDriverMethods(DriverMethods):
         width, height = browser.get.dimensions_of_element("/element/xpath")"""
 
         return get_dimensions_of_element(self._driver, xpath, timeout)
+
+    def page_title(self) -> str:
+        """Get page title of the current page."""
+
+        return get_page_title(self._driver)
 
     def screenshot(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot and save as PNG image. Default destination directory is from where the script is executed. Examples:
