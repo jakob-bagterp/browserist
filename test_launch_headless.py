@@ -17,7 +17,7 @@ print(browser.get.text.from_element("/html/body/div[4]/main/div[2]/div/div[1]/di
 print(browser.get.text.from_multiple_elements("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"))
 print(browser.get.url_from_link("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a"))
 multiple_links_xpath = "/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"
-print(browser.get.urls_from_multiple_links(multiple_links_xpath))
+print(browser.get.url_from_multiple_links(multiple_links_xpath))
 print("count_elements", browser.tools.count_elements(multiple_links_xpath))
 xpath = "/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/a/img"
 browser.wait.for_element(xpath)
@@ -36,7 +36,7 @@ print("dimensions_of_element", browser.get.dimensions_of_element(xpath))
 print("is_url_valid", browser.tools.is_url_valid(browser.get.url.current()))
 print("is_input_valid", browser.tools.is_input_valid(xpath, xpath + "test"))
 print("url_from_image", browser.get.url.from_image(xpath))
-print("urls_from_multiple_images", browser.get.urls_from_multiple_images(xpath))
+print("url_from_multiple_images", browser.get.url_from_multiple_images(xpath))
 print("get_attribute_value", browser.get.attribute.value(xpath, "src"))
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
 browser.wait.random_time(3, 5)
