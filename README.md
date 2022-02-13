@@ -111,6 +111,6 @@ browser.quit()
 
 As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
 
-| Timing      | Too short -> |   Just right    | <- Too long |
-| :---------- | :----------: | :-------------: | :---------: |
-| Consequence | Code breaks  | Stable and fast |    Slow     |
+| Timing:      |  Too short ->  |    Just right     | <- Too long |
+| :----------- | :------------: | :---------------: | :---------: |
+| Consequence: | _Code breaks_  | _Stable and fast_ |   _Slow_    |
