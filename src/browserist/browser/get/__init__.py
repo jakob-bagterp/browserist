@@ -4,8 +4,7 @@ from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
-from .text_from_element import get_text_from_element
-from .texts_from_multiple_elements import get_texts_from_multiple_elements
+from .text import GetTextDriverMethods
 from .url_from_image import get_url_from_image
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
@@ -20,6 +19,7 @@ class GetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
         self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
+        self.text: GetTextDriverMethods = GetTextDriverMethods(browser_driver, settings)
 
     def current_url(self) -> str:
         """Get URL of the current page."""
@@ -50,20 +50,6 @@ class GetDriverMethods(DriverMethods):
         browser.get.screenshot(destination_dir = "./screenshots")"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
-
-    def text_from_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
-        """Get text from element.
-
-        This method assumes that the text field shouldn't be empty and therefore will retry to get the text (for better support of single-page apps with extended loading time)."""
-
-        return get_text_from_element(self._driver, xpath, timeout)
-
-    def texts_from_multiple_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-        """Get array of texts from elements.
-
-        Assumes that the XPath targets multiple elements."""
-
-        return get_texts_from_multiple_elements(self._driver, xpath, timeout)
 
     def url_from_image(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get URL source from image, e.g. <img> tag.
