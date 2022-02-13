@@ -9,5 +9,5 @@ class WindowSetDriverMethods(DriverMethods):
 
     def position(self, x: int, y: int) -> None:
         """Moves the window to the chosen coordinate of the screen in pixels."""
-        
+
         set_window_position(self._driver, x, y)
