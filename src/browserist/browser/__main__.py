@@ -9,6 +9,7 @@ from .scroll.__main__ import ScrollDriverMethods
 from .select.__main__ import SelectDriverMethods
 from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
+from .window.__main__ import WindowDriverMethods
 from .. import factory
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
@@ -44,6 +45,7 @@ class Browser:
         self.select:   SelectDriverMethods   = SelectDriverMethods(self._browser_driver, settings)
         self.tools:    ToolDriverMethods     = ToolDriverMethods(self._browser_driver, settings)
         self.wait:     WaitDriverMethods     = WaitDriverMethods(self._browser_driver, settings)
+        self.window:   WindowDriverMethods   = WindowDriverMethods(self._browser_driver, settings)
 
     def back(self) -> None:
         """Press the browser's back button."""
