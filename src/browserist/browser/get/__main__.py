@@ -4,6 +4,7 @@ from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text.__main__ import GetTextDriverMethods
 from .url.__main__ import GetUrlDriverMethods
+from .window_position import get_window_position
 from .window_size import get_window_size
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
@@ -41,6 +42,13 @@ class GetDriverMethods(DriverMethods):
         browser.get.screenshot(destination_dir = "./screenshots") # Default file name and custom destination"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
+
+    def window_position(self) -> tuple[int, int]:
+        """Get coordinate position of browser window in pixels. Usage:
+
+        x, y = browser.get.window_position()"""
+        
+        return get_window_position(self._driver)
 
     def window_size(self) -> tuple[int, int]:
         """Get width and height browser window in pixels. Usage:

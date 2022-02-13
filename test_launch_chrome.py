@@ -51,6 +51,7 @@ print("url_from_image", browser.get.url.from_image(xpath))
 print("url_from_multiple_images", browser.get.url.from_multiple_images(xpath))
 print("attribute_value", browser.get.attribute.value(xpath, "src"))
 print("window_size", browser.get.window_size())
+print("window_position", browser.get.window_position())
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
 browser.select.input_field(search_field_xpath)
 browser.wait.random_time(3, 5)
