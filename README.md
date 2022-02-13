@@ -108,3 +108,9 @@ browser.input.value("//xpath/to/input", "Lorem ipsum")
 browser.click.button("//xpath/to/button")
 browser.quit()
 ```
+
+As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
+
+| Timing      | Too short -> |   Just right    | <- Too long |
+| :---------- | :----------: | :-------------: | :---------: |
+| Consequence | Code breaks  | Stable and fast |    Slow     |
