@@ -72,6 +72,7 @@ browser.window.fullscreen()
 
 browser.open.url_in_new_tab("https://github.com/jakob-bagterp/")
 print(browser.get.url.current())
+browser.close()
 
 browser.open.url_if_not_current("https://www.google.dk")
 
