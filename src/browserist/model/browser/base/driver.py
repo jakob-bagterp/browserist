@@ -7,6 +7,7 @@ from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
 from .settings import BrowserSettings
 from .type import BrowserType
+from .... import helper
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
@@ -15,6 +16,7 @@ class BrowserDriver(ABC):
         """Initiates basic properties of the Selenium web driver."""
 
         self.settings = settings
+        helper.directory.create_if_not_exists(self.settings.screenshot_dir)
 
         match(self.settings.type):
             case BrowserType.CHROME | BrowserType.OPERA:
