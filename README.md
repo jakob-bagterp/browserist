@@ -78,3 +78,33 @@ Similar to Selenium, use simple commands to automate the browser:
 | Back    | `browser.back()`    | Press the browser's forward button |
 | Refresh | `browser.refresh()` | Refresh the current page           |
 | Quit    | `browser.quit()`    | Close the browser                  |
+
+## Improved Stability
+Browserist improves stability with less code. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
+
+```python
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+
+driver.get("http://example.com/")
+driver.implicitly_wait(3)
+search_box = driver.find_element(By.XPATH, "//xpath/to/input")
+search_button = driver.find_element(By.XPATH, "//xpath/to/button")
+search_box.send_keys("Lorem ipsum")
+search_button.click()
+driver.quit()
+```
+
+Browserist does the same with less and cleaner code, yet with higher stability and without explicit/implicit waits:
+
+```python
+from browserist import Browser
+
+browser = Browser()
+
+browser.open.url("http://example.com/")
+browser.input.value("//xpath/to/input", "Lorem ipsum")
+browser.click.button("//xpath/to/button")
+browser.quit()
+```
