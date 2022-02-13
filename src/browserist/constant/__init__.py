@@ -1,3 +1,3 @@
-__all__ = ["interval", "regex", "timeout"]
+__all__ = ["directory", "interval", "regex", "timeout"]
 
-from . import interval, regex, timeout
+from . import directory, interval, regex, timeout
