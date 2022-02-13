@@ -1,6 +1,6 @@
 import re
 from .for_element import wait_for_element
-from ..get.text_from_element import get_text_from_element
+from ..get.text.from_element import get_text_from_element
 from ...constant import timeout
 from ... import helper
 from ... import constant

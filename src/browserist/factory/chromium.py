@@ -1,4 +1,4 @@
-from ...model.browser.base.driver import BrowserDriver
+from ..model.browser.base.driver import BrowserDriver
 
 def disable_images(browser_driver: BrowserDriver) -> BrowserDriver:
     if browser_driver.settings.disable_images:

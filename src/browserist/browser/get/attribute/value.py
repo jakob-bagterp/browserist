@@ -1,5 +1,5 @@
-from ..wait.for_element import wait_for_element
-from ...constant import timeout
+from ...wait.for_element import wait_for_element
+from ....constant import timeout
 
 def get_attribute_value(driver: object, xpath: str, attribute: str, timeout: int = timeout.DEFAULT) -> str:
     wait_for_element(driver, xpath, timeout)
