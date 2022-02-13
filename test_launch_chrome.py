@@ -71,6 +71,7 @@ browser.window.maximize()
 browser.window.fullscreen()
 
 browser.open.url_in_new_tab("https://github.com/jakob-bagterp/")
+print("current_handle", browser.window.get.current_handle())
 print(browser.get.url.current())
 browser.open.new_tab()
 browser.close()
