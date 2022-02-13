@@ -10,7 +10,7 @@ from .open import OpenDriverMethods
 from .scroll import ScrollDriverMethods
 from .select import SelectDriverMethods
 from .tool import ToolDriverMethods
-from .wait import WaitDriverMethods
+from .wait.__main__ import WaitDriverMethods
 from .. import factory
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
