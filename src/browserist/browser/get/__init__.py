@@ -56,7 +56,15 @@ class GetDriverMethods(DriverMethods):
         return get_dimensions_of_element(self._driver, xpath, timeout)
 
     def screenshot(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
-        """Take screenshot and save as PNG image. Default destination directory is from where the script is executed."""
+        """Take screenshot and save as PNG image. Default destination directory is from where the script is executed. Examples:
+
+        browser.get.screenshot()
+
+        browser.get.screenshot("image.png") #
+
+        browser.get.screenshot("image.png", "./screenshots")
+        
+        browser.get.screenshot(destination_dir = "./screenshots")"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
 
