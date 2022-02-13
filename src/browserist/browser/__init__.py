@@ -6,7 +6,7 @@ from .combo.__main__ import ComboDriverMethods
 from .get.__main__ import GetDriverMethods
 from .hover.__main__ import HoverDriverMethods
 from .input.__main__ import InputDriverMethods
-from .open import OpenDriverMethods
+from .open.__main__ import OpenDriverMethods
 from .scroll import ScrollDriverMethods
 from .select import SelectDriverMethods
 from .tool import ToolDriverMethods
