@@ -6,7 +6,7 @@ from .dimensions_of_element import get_dimensions_of_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text import GetTextDriverMethods
-from .url import GetUrlDriverMethods
+from .url.__main__ import GetUrlDriverMethods
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
 from .urls_from_multiple_links import get_urls_from_multiple_links
