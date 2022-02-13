@@ -1,6 +1,6 @@
 __all__ = []
 
-from .check_if import CheckIfDriverMethods
+from .check_if.__main__ import CheckIfDriverMethods
 from .click import ClickDriverMethods
 from .combo import ComboDriverMethods
 from .get.__main__ import GetDriverMethods
