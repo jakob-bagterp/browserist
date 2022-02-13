@@ -1,4 +1,4 @@
-from ..get.current_url import get_current_url
+from ..get.url.current import get_current_url
 from ...constant import timeout
 from ... import helper
 

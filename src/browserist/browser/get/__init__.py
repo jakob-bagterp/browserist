@@ -1,10 +1,10 @@
 from typing import List
 from .attribute import GetAttributeDriverMethods
-from .current_url import get_current_url
 from .dimensions_of_element import get_dimensions_of_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text import GetTextDriverMethods
+from .url import GetUrlDriverMethods
 from .url_from_image import get_url_from_image
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
@@ -20,11 +20,7 @@ class GetDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
         self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
         self.text: GetTextDriverMethods = GetTextDriverMethods(browser_driver, settings)
-
-    def current_url(self) -> str:
-        """Get URL of the current page."""
-
-        return get_current_url(self._driver)
+        self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
 
     def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
         """Get width and height of element in pixels. Usage:

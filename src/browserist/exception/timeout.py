@@ -1,4 +1,4 @@
-from ..browser.get.current_url import get_current_url
+from ..browser.get.url.current import get_current_url
 from ..browser.get.page_title import get_page_title
 
 class WaitForElementTimeoutException(Exception):

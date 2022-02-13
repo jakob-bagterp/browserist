@@ -1,4 +1,4 @@
-from ..browser.get.current_url import get_current_url
+from ..browser.get.url.current import get_current_url
 
 class NoElementFoundException(Exception):
     def __init__(self, driver: object, xpath: str) -> None:
