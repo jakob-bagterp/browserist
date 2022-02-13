@@ -4,7 +4,7 @@ from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods
 from .combo.__main__ import ComboDriverMethods
 from .get.__main__ import GetDriverMethods
-from .hover import HoverDriverMethods
+from .hover.__main__ import HoverDriverMethods
 from .input import InputDriverMethods
 from .open import OpenDriverMethods
 from .scroll import ScrollDriverMethods
