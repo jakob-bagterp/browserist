@@ -7,7 +7,6 @@ from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text import GetTextDriverMethods
 from .url.__main__ import GetUrlDriverMethods
-from .url_from_link import get_url_from_link
 from .url_from_multiple_images import get_url_from_multiple_images
 from .url_from_multiple_links import get_url_from_multiple_links
 from .window_size import get_window_size
@@ -52,13 +51,6 @@ class GetDriverMethods(DriverMethods):
         """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
 
         return get_url_from_multiple_images(self._driver, xpath, timeout)
-
-    def url_from_link(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
-        """Get URL from link, e.g. <a> tag or button.
-
-        This method assumes that the link shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time)."""
-
-        return get_url_from_link(self._driver, xpath, timeout)
 
     def url_from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
