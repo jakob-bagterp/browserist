@@ -14,12 +14,12 @@ class OpenDriverMethods(DriverMethods):
     def new_tab(self) -> None:
         """Opens a new tab and switches to new tab."""
 
-        open_new_tab(self._browser_driver)
+        open_new_tab(self._driver)
 
     def new_window(self) -> None:
         """Opens a new window and switches to new window."""
 
-        open_new_window(self._browser_driver)
+        open_new_window(self._driver)
 
     def url(self, url: str) -> None:
         """Open web page by URL."""
