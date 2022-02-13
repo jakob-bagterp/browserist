@@ -7,7 +7,7 @@ from .get.__main__ import GetDriverMethods
 from .hover.__main__ import HoverDriverMethods
 from .input.__main__ import InputDriverMethods
 from .open.__main__ import OpenDriverMethods
-from .scroll import ScrollDriverMethods
+from .scroll.__main__ import ScrollDriverMethods
 from .select import SelectDriverMethods
 from .tool import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
