@@ -29,7 +29,7 @@ class Browser:
 
         self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
         self.driver: object = self._browser_driver.webdriver
-        self._original_window_id: str = get_current_window_handle(self.driver)
+        self._original_window_handle: str = get_current_window_handle(self.driver)
 
         if self._browser_driver.settings.type is BrowserType.INTERNET_EXPLORER:
             self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
