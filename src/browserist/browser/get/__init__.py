@@ -7,7 +7,6 @@ from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text import GetTextDriverMethods
 from .url.__main__ import GetUrlDriverMethods
-from .url_from_multiple_images import get_url_from_multiple_images
 from .url_from_multiple_links import get_url_from_multiple_links
 from .window_size import get_window_size
 from ...constant import timeout
@@ -46,11 +45,6 @@ class GetDriverMethods(DriverMethods):
         browser.get.screenshot(destination_dir = "./screenshots") # Default file name and custom destination"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
-
-    def url_from_multiple_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
-        """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
-
-        return get_url_from_multiple_images(self._driver, xpath, timeout)
 
     def url_from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""

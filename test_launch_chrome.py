@@ -48,7 +48,7 @@ print("dimensions_of_element", browser.get.dimensions_of_element(xpath))
 print("is_url_valid", browser.tools.is_url_valid(browser.get.url.current()))
 print("is_input_valid", browser.tools.is_input_valid(xpath, xpath + "test"))
 print("url_from_image", browser.get.url.from_image(xpath))
-print("url_from_multiple_images", browser.get.url_from_multiple_images(xpath))
+print("url_from_multiple_images", browser.get.url.from_multiple_images(xpath))
 print("attribute_value", browser.get.attribute.value(xpath, "src"))
 print("window_size", browser.get.window_size())
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"

@@ -1,6 +1,8 @@
+from typing import List
 from .current import get_current_url
 from .from_image import get_url_from_image
 from .from_link import get_url_from_link
+from .from_multiple_images import get_url_from_multiple_images
 from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
@@ -28,3 +30,8 @@ class GetUrlDriverMethods(DriverMethods):
         This method assumes that the link shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time)."""
 
         return get_url_from_link(self._driver, xpath, timeout)
+
+    def from_multiple_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+        """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
+
+        return get_url_from_multiple_images(self._driver, xpath, timeout)
