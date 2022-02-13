@@ -1,7 +1,7 @@
 __all__ = []
 
 from .check_if.__main__ import CheckIfDriverMethods
-from .click import ClickDriverMethods
+from .click.__main__ import ClickDriverMethods
 from .combo import ComboDriverMethods
 from .get.__main__ import GetDriverMethods
 from .hover import HoverDriverMethods
