@@ -30,7 +30,7 @@ print(browser.get.url_from_link("/html/body/div[4]/main/div[2]/div/div[2]/div[2]
 multiple_links_xpath = "/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"
 print(browser.get.urls_from_multiple_links(multiple_links_xpath))
 print("count_elements", browser.tools.count_elements(multiple_links_xpath))
-print("attribute_values_from_multiple_elements", browser.get.attribute_values_from_multiple_elements(multiple_links_xpath, "href"))
+print("attribute.value_from_multiple_elements", browser.get.attribute.value_from_multiple_elements(multiple_links_xpath, "href"))
 xpath = "/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[1]/a/img"
 browser.wait.for_element(xpath)
 browser.wait.until_element_disappears(xpath + "/test")
@@ -49,7 +49,7 @@ print("is_url_valid", browser.tools.is_url_valid(browser.get.current_url()))
 print("is_input_valid", browser.tools.is_input_valid(xpath, xpath + "test"))
 print("url_from_image", browser.get.url_from_image(xpath))
 print("urls_from_multiple_images", browser.get.urls_from_multiple_images(xpath))
-print("attribute_value", browser.get.attribute_value(xpath, "src"))
+print("attribute_value", browser.get.attribute.value(xpath, "src"))
 print("window_size", browser.get.window_size())
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
 browser.select.input_field(search_field_xpath)

@@ -37,7 +37,7 @@ print("is_url_valid", browser.tools.is_url_valid(browser.get.current_url()))
 print("is_input_valid", browser.tools.is_input_valid(xpath, xpath + "test"))
 print("url_from_image", browser.get.url_from_image(xpath))
 print("urls_from_multiple_images", browser.get.urls_from_multiple_images(xpath))
-print("get_attribute_value", browser.get.get_attribute_value(xpath, "src"))
+print("get_attribute_value", browser.get.attribute.value(xpath, "src"))
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
 browser.wait.random_time(3, 5)
 browser.click.button_if_contains_text("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a", "browserist", ignore_case = True)

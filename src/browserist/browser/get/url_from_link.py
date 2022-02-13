@@ -1,4 +1,4 @@
-from .attribute_value import get_attribute_value
+from .attribute.value import get_attribute_value
 from ..wait.for_element import wait_for_element
 from ... import constant
 from ... import helper
