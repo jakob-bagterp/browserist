@@ -64,6 +64,8 @@ browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
 browser.open.url_if_not_current("https://www.dr.dk/")
+browser.window.set.size(300, 300)
+print("window_size", browser.window.get.size())
 
 browser.open.url_in_new_tab("https://github.com/jakob-bagterp/")
 print(browser.get.url.current())
