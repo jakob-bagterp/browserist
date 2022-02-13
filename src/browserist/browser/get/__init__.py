@@ -4,7 +4,7 @@ from .attribute import GetAttributeDriverMethods
 from .dimensions_of_element import get_dimensions_of_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
-from .text import GetTextDriverMethods
+from .text.__main__ import GetTextDriverMethods
 from .url.__main__ import GetUrlDriverMethods
 from .window_size import get_window_size
 from ...constant import timeout
