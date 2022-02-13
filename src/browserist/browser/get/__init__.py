@@ -5,7 +5,6 @@ from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text import GetTextDriverMethods
 from .url import GetUrlDriverMethods
-from .url_from_image import get_url_from_image
 from .url_from_link import get_url_from_link
 from .urls_from_multiple_images import get_urls_from_multiple_images
 from .urls_from_multiple_links import get_urls_from_multiple_links
@@ -46,13 +45,6 @@ class GetDriverMethods(DriverMethods):
         browser.get.screenshot(destination_dir = "./screenshots") # Default file name and custom destination"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
-
-    def url_from_image(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
-        """Get URL source from image, e.g. <img> tag.
-
-        This method assumes that the image shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time)."""
-
-        return get_url_from_image(self._driver, xpath, timeout)
 
     def urls_from_multiple_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
         """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
