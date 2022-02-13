@@ -1,6 +1,6 @@
 __all__ = []
 
-from .attribute import GetAttributeDriverMethods
+from .attribute.__main__ import GetAttributeDriverMethods
 from .dimensions_of_element import get_dimensions_of_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
