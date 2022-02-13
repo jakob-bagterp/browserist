@@ -11,13 +11,9 @@ browser.scroll.into_view_if_not_visible("//footer")
 browser.scroll.into_view_if_not_visible("/html/body/div[2]/div/div[3]/div/main/div[1]/div/div/section/div[2]/div/div/ul")
 
 browser.open.url_if_not_current("https://github.com/jakob-bagterp/browserist")
-browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[2]")
-browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[3]")
-browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[4]")
-browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[5]")
-browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[6]")
-browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[7]")
-browser.hover.mouse_on_element("//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[8]")
+for i in range(2, 9):
+    browser.hover.mouse_on_element(f"//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[{i}]")
+
 browser.open.url("https://github.com/jakob-bagterp/")
 browser.wait.until_url_contains("jakob")
 browser.scroll.to_end_of_page()
