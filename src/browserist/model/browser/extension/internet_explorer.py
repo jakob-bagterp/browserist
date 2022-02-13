@@ -1,4 +1,4 @@
-from . import BrowserExtension
+from .__main__ import BrowserExtension
 from .... import factory
 
 class InternetExplorerBrowserExtension(BrowserExtension):
