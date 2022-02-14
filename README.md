@@ -9,8 +9,9 @@ Main features of Browserist:
 
 * Improves stability and speed
 * Simple syntax
-* Extended library of browser automation functions and tools without elaborate code
 * Hassle-free setup that works across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+* Extended library of browser automation functions and tools without elaborate code
+* Supports type hints and other capabilites of Python 3.10 that makes development faster
 
 ## Prerequisites
 * Python 3.10 or higher
