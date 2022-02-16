@@ -24,6 +24,6 @@ class LoginForm:
     password_input_xpath: str
     submit_button_xpath: str
     url: str | None = None
+    post_login_wait_seconds: int | None = None
     post_login_url: str | None = None
     post_login_element_xpath: str | None = None
-    timeout: int = timeout.DEFAULT
