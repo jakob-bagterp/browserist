@@ -51,6 +51,12 @@ class Browser:
         self.wait:      WaitDriverMethods     = WaitDriverMethods(self._browser_driver, settings)
         self.window:    WindowDriverMethods   = WindowDriverMethods(self._browser_driver, settings)
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.quit()
+
     def back(self) -> None:
         """Press the browser's back button."""
 
