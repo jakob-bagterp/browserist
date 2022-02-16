@@ -18,12 +18,12 @@ class ComboDriverMethods(DriverMethods):
 
         combo_cookie_banner(self._driver, settings)
 
-    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm, wait_seconds: int = timeout.DEFAULT) -> None:
+    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm) -> None:
         """Standardised combination of methods to log in.
 
         wait_seconds: Extra seconds in addition to timeout to make sure the login is processed and that the user is redirected succesfully."""
 
-        combo_log_in(self._driver, login_credentials, login_form, wait_seconds)
+        combo_log_in(self._driver, login_credentials, login_form)
 
     def search(self, term: str, settings: SearchSettings) -> None:
         """Standardised combination of methods to perform search."""
