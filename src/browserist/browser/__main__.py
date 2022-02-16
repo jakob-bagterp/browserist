@@ -37,19 +37,19 @@ class Browser:
         if self._browser_driver.settings.type is BrowserType.SAFARI:
             self.safari: SafariBrowserExtension = SafariBrowserExtension(self._browser_driver)
 
-        self.check_if: CheckIfDriverMethods  = CheckIfDriverMethods(self._browser_driver, settings)
-        self.click:    ClickDriverMethods    = ClickDriverMethods(self._browser_driver, settings)
-        self.combo:    ComboDriverMethods    = ComboDriverMethods(self._browser_driver, settings)
-        self.hover:    HoverDriverMethods    = HoverDriverMethods(self._browser_driver, settings)
-        self.get:      GetDriverMethods      = GetDriverMethods(self._browser_driver, settings)
-        self.input:    InputDriverMethods    = InputDriverMethods(self._browser_driver, settings)
-        self.open:     OpenDriverMethods     = OpenDriverMethods(self._browser_driver, settings)
-        self.scroll:   ScrollDriverMethods   = ScrollDriverMethods(self._browser_driver, settings)
-        self.select:   SelectDriverMethods   = SelectDriverMethods(self._browser_driver, settings)
+        self.check_if:  CheckIfDriverMethods  = CheckIfDriverMethods(self._browser_driver, settings)
+        self.click:     ClickDriverMethods    = ClickDriverMethods(self._browser_driver, settings)
+        self.combo:     ComboDriverMethods    = ComboDriverMethods(self._browser_driver, settings)
+        self.hover:     HoverDriverMethods    = HoverDriverMethods(self._browser_driver, settings)
+        self.get:       GetDriverMethods      = GetDriverMethods(self._browser_driver, settings)
+        self.input:     InputDriverMethods    = InputDriverMethods(self._browser_driver, settings)
+        self.open:      OpenDriverMethods     = OpenDriverMethods(self._browser_driver, settings)
+        self.scroll:    ScrollDriverMethods   = ScrollDriverMethods(self._browser_driver, settings)
+        self.select:    SelectDriverMethods   = SelectDriverMethods(self._browser_driver, settings)
         self.switch_to: SwitchToDriverMethods = SwitchToDriverMethods(self._browser_driver, settings, self._original_window_handle)
-        self.tools:    ToolDriverMethods     = ToolDriverMethods(self._browser_driver, settings)
-        self.wait:     WaitDriverMethods     = WaitDriverMethods(self._browser_driver, settings)
-        self.window:   WindowDriverMethods   = WindowDriverMethods(self._browser_driver, settings)
+        self.tools:     ToolDriverMethods     = ToolDriverMethods(self._browser_driver, settings)
+        self.wait:      WaitDriverMethods     = WaitDriverMethods(self._browser_driver, settings)
+        self.window:    WindowDriverMethods   = WindowDriverMethods(self._browser_driver, settings)
 
     def back(self) -> None:
         """Press the browser's back button."""
