@@ -4,7 +4,6 @@ from ..input.value import input_value
 from ..open.url_if_not_current import open_url_if_not_current
 from ..wait.until_url_contains import wait_until_url_contains
 from ..wait.for_element import wait_for_element
-from ...constant import timeout
 from ...exception.login import LoginException
 from ...model.combo_settings.login import LoginCredentials, LoginForm
 
