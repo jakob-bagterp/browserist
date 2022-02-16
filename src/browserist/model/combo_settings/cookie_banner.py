@@ -17,6 +17,6 @@ class CookieBannerSettings:
 
     button_xpath: str
     url: str | None = None
-    has_loaded_wait_seconds: int = timeout.DEFAULT
+    has_loaded_wait_seconds: int | None = None
     has_loaded_xpath: str | None = None
-    has_disappeared_wait_seconds: int = timeout.SHORT
+    has_disappeared_wait_seconds: int | None = None
