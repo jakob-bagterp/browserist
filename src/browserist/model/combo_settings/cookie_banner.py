@@ -5,7 +5,7 @@ from ...constant import timeout
 class CookieBannerSettings:
     """Object with data needed to accept or decline cookies from a banner.
 
-    button_xpath: Can be for either accept of decline cookies.
+    button_xpath: Can be for either accept or decline cookies.
 
     url: Optional URL from where to handle the cookie banner.
 
