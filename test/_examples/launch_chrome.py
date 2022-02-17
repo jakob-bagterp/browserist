@@ -1,5 +1,5 @@
 import time
-from src.browserist import Browser
+from browserist import Browser
 
 browser = Browser()
 
