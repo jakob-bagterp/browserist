@@ -38,7 +38,7 @@ brew install browserist
 ```
 
 ## Getting Started
-The default browser is Chrome.
+The default browser is Chrome. Simply type:
 
 ```python
 from browserist import Browser
@@ -48,7 +48,7 @@ browser.open.url("http://example.com/")
 browser.quit()
 ```
 
-Or you can use the built-in context manager so the browser automatically closes when done or if an error occurs:
+Or use the built-in context manager so the browser automatically closes when done or if an error occurs:
 
 ```python
 from browserist import Browser
@@ -64,9 +64,8 @@ If you want to use other browser types, e.g. Firefox, Edge, etc., define this in
 from browserist import Browser, BrowserSettings, BrowserType
 
 settings = BrowserSettings(type = BrowserType.FIREFOX)
-browser = Browser(settings)
-browser.open.url("http://example.com/")
-browser.quit()
+with Browser(settings) as browser:
+    browser.open.url("http://example.com/")
 ```
 
 #### Supported Browsers
@@ -119,6 +118,7 @@ with Browser() as browser:
 
 As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
 
-| Timing:      |  Too short ->  |    Just right     | <- Too long |
-| :----------- | :------------: | :---------------: | :---------: |
-| Consequence: | _Code breaks_  | _Stable and fast_ |   _Slow_    |
+| Timing:      | Too short ->  |    Just right     |  <- Too long   |
+| :----------- | :-----------: | :---------------: | :------------: |
+| Example:     | time.sleep(1) |   _When ready_    | time.sleep(10) |
+| Consequence: | _Code breaks_ | _Stable and fast_ |     _Slow_     |
