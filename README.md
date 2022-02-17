@@ -48,6 +48,15 @@ browser.open.url("http://example.com/")
 browser.quit()
 ```
 
+Or you can use the built-in context manager so the browser automatically closes when done or if an error occurs:
+
+```python
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("http://example.com/")
+```
+
 ### Browser Types
 If you want to use other browser types, e.g. Firefox, Edge, etc., define this in the settings:
 
@@ -102,12 +111,10 @@ Browserist does the same with less and cleaner code, yet with higher stability a
 ```python
 from browserist import Browser
 
-browser = Browser()
-
-browser.open.url("http://example.com/")
-browser.input.value("//xpath/to/input", "Lorem ipsum")
-browser.click.button("//xpath/to/button")
-browser.quit()
+with Browser() as browser:
+    browser.open.url("http://example.com/")
+    browser.input.value("//xpath/to/input", "Lorem ipsum")
+    browser.click.button("//xpath/to/button")
 ```
 
 As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
