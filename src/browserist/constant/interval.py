@@ -1,2 +1,2 @@
-DEFAULT: float = 0.5
-"""Default interval: 0.5 seconds."""
+DEFAULT: float = 0.25
+"""Default interval: 0.25 seconds."""
