@@ -118,7 +118,7 @@ with Browser() as browser:
 
 As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
 
-| Timing:      | Too short ->  |    Just right     |  <- Too long   |
-| :----------- | :-----------: | :---------------: | :------------: |
-| Example:     | time.sleep(1) |   _When ready_    | time.sleep(10) |
-| Consequence: | _Code breaks_ | _Stable and fast_ |     _Slow_     |
+| Timing:      | Too short ->  |     Just right     |  <- Too long   |
+| :----------- | :-----------: | :----------------: | :------------: |
+| Example:     | time.sleep(1) | wait.for_element() | time.sleep(10) |
+| Consequence: | _Code breaks_ | _Stable and fast_  |     _Slow_     |
