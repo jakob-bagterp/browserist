@@ -1,4 +1,4 @@
-from src.browserist import BrowserSettings, BrowserType
+from browserist import BrowserSettings, BrowserType
 
 DEFAULT = BrowserSettings(
     type = BrowserType.SAFARI,

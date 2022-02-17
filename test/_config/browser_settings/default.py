@@ -1,4 +1,4 @@
-from src.browserist import BrowserSettings
+from browserist import BrowserSettings
 
 DEFAULT = BrowserSettings()
 
