@@ -1,4 +1,4 @@
-import directory
+from . import directory
 
 _mock_data_directory = directory.get_path_for_static_mock_data()
 
