@@ -11,7 +11,7 @@ def with_browser_click_button_if_contains_text(text: str, ignore_case: bool) -> 
 
 class TestClickButtonIfContainsText():
     def test_click_button_if_contains_text_1(self) -> None:
-        click_button_if_contains_text("More information", ignore_case = False)
+        with_browser_click_button_if_contains_text("More information", ignore_case = False)
 
     def test_click_button_if_contains_text_2(self) -> None:
-        click_button_if_contains_text("mOrE iNforMatiOn", ignore_case = True)
+        with_browser_click_button_if_contains_text("mOrE iNforMatiOn", ignore_case = True)
