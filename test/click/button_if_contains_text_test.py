@@ -2,7 +2,7 @@ from browserist import Browser
 from _config.browser_settings import default
 from _helper import external_url, internal_url
 
-def click_button_if_contains_text(text: str, ignore_case: bool) -> None:
+def with_browser_click_button_if_contains_text(text: str, ignore_case: bool) -> None:
     with Browser(default.HEADLESS) as browser:
         browser.open.url(internal_url.EXAMPLE_COM)
         browser.click.button_if_contains_text("/html/body/div/p[2]/a", text, ignore_case)
