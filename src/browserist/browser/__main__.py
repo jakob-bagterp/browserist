@@ -47,7 +47,7 @@ class Browser:
         self.scroll:    ScrollDriverMethods   = ScrollDriverMethods(self._browser_driver, settings)
         self.select:    SelectDriverMethods   = SelectDriverMethods(self._browser_driver, settings)
         self.switch_to: SwitchToDriverMethods = SwitchToDriverMethods(self._browser_driver, settings, self._original_window_handle)
-        self.tools:     ToolDriverMethods     = ToolDriverMethods(self._browser_driver, settings)
+        self.tool:      ToolDriverMethods     = ToolDriverMethods(self._browser_driver, settings)
         self.wait:      WaitDriverMethods     = WaitDriverMethods(self._browser_driver, settings)
         self.window:    WindowDriverMethods   = WindowDriverMethods(self._browser_driver, settings)
 
