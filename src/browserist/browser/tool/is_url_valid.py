@@ -1,7 +1,8 @@
-import re
-from ... import constant
-
-_url_pattern = re.compile(constant.regex.VALID_URL, re.IGNORECASE)
+from urllib.parse import urlparse
 
 def tool_is_url_valid(url: str) -> bool:
-    return bool(_url_pattern.match(url))
+    try:
+        result = urlparse(url)
+        return all([result.scheme, result.netloc])
+    except (ValueError, Exception):
+        return False

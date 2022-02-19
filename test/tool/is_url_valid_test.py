@@ -9,8 +9,8 @@ from _helper import internal_url
     ("http://foo.com/blah_blah_(wikipedia)", True),
     ("http://foo.com/blah_blah_(wikipedia)_(again)", True),
     ("http://userid:password@example.com:8080", True),
-    ("http://invalid.com/perl.cgi?key=", False),
-    ("http://web-site.com/cgi-bin/perl.cgi?key1=value1&key2", False)
+    ("http://invalid.com/perl.cgi?key=", True),
+    ("http://web-site.com/cgi-bin/perl.cgi?key1=value1&key2", True)
 ])
 def test_tool_is_url_valid(url: str, expected: bool) -> None:
     with Browser(default.HEADLESS) as browser:
