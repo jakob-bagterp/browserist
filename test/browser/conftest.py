@@ -1,7 +1,6 @@
 import pytest
 from browserist import Browser
 from typing import Generator
-
 from _config.browser_settings import default
 
 @pytest.fixture(scope = "session")
