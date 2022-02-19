@@ -1,6 +1,5 @@
 import pytest
 from browserist import Browser
-from _config.browser_settings import default
 from _helper import internal_url
 
 @pytest.mark.parametrize("url, expected", [
@@ -27,15 +26,15 @@ from _helper import internal_url
     ("http://foo.com/blah_blah_(wikipedia)_(again)", True),
     ("http://userid:password@example.com:8080", True)
 ])
-def test_tool_is_url_valid(url: str, expected: bool) -> None:
+def test_tool_is_url_valid(url: str, expected: bool, browser_default_headless: Browser) -> None:
     """References for URL regex pattern and other methods of validating URLs:
 
     https://www.regextester.com/94502
 
     https://mathiasbynens.be/demo/url-regex
-    
+
     https://stackoverflow.com/a/52455972/13115170"""
 
-    with Browser(default.HEADLESS) as browser:
-        browser.open.url(internal_url.EXAMPLE_COM)
-        assert browser.tool.is_url_valid(url) is expected
+    browser = browser_default_headless
+    browser.open.url(internal_url.EXAMPLE_COM)
+    assert browser.tool.is_url_valid(url) is expected
