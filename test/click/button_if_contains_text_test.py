@@ -9,9 +9,8 @@ def with_browser_click_button_if_contains_text(text: str, ignore_case: bool) -> 
         browser.wait.until_url_contains(external_url.IANA_ORG)
         assert browser.get.url.current() == external_url.IANA_ORG
 
-class TestClickButtonIfContainsText():
-    def test_click_button_if_contains_text_1(self) -> None:
-        with_browser_click_button_if_contains_text("More information", ignore_case = False)
+def test_click_button_if_contains_text_1() -> None:
+    with_browser_click_button_if_contains_text("More information", ignore_case = False)
 
-    def test_click_button_if_contains_text_2(self) -> None:
-        with_browser_click_button_if_contains_text("mOrE iNforMatiOn", ignore_case = True)
+def test_click_button_if_contains_text_2() -> None:
+    with_browser_click_button_if_contains_text("mOrE iNforMatiOn", ignore_case = True)
