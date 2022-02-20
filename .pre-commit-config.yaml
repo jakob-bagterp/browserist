@@ -2,6 +2,12 @@
 # See https://pre-commit.com/hooks.html for more hooks
 
 repos:
+-   repo: https://github.com/psf/black
+    rev: 22.1.0
+    hooks:
+    -   id: black
+        args: [--safe]
+
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
@@ -24,8 +30,3 @@ repos:
     -   id: requirements-txt-fixer
     -   id: sort-simple-yaml
     -   id: trailing-whitespace
--   repo: https://github.com/psf/black
-    rev: 22.1.0
-    hooks:
-    -   id: black
-        args: [--safe]
