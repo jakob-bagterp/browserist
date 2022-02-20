@@ -6,7 +6,7 @@ repos:
     rev: 22.1.0
     hooks:
     -   id: black
-        args: [--safe]
+        args: ["--safe"]
 
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
@@ -30,3 +30,21 @@ repos:
     -   id: requirements-txt-fixer
     -   id: sort-simple-yaml
     -   id: trailing-whitespace
+
+-   repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+    -   id: flake8
+        language_version: python3
+
+-   repo: https://github.com/asottile/reorder_python_imports
+    rev: v2.7.1
+    hooks:
+    -   id: reorder-python-imports
+        args: ["--application-directories=.:src", "--py37-plus"]
+
+-   repo: https://github.com/asottile/pyupgrade
+    rev: v2.31.0
+    hooks:
+    -   id: pyupgrade
+        args: ["--py310-plus"]
