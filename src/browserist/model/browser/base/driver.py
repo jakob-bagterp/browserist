@@ -1,13 +1,16 @@
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
+
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
+
+from .... import helper
 from .settings import BrowserSettings
 from .type import BrowserType
-from .... import helper
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""

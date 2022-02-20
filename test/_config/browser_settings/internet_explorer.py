@@ -1,4 +1,5 @@
-from browserist import BrowserSettings, BrowserType
+from browserist import BrowserSettings
+from browserist import BrowserType
 
 DEFAULT = BrowserSettings(
     type = BrowserType.INTERNET_EXPLORER,

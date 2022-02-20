@@ -1,13 +1,12 @@
-from typing import List
+from ....constant import timeout
+from ....model.browser.base.driver import BrowserDriver
+from ....model.browser.base.settings import BrowserSettings
+from ....model.driver_methods import DriverMethods
 from .current import get_current_url
 from .from_image import get_url_from_image
 from .from_link import get_url_from_link
 from .from_multiple_images import get_url_from_multiple_images
 from .from_multiple_links import get_url_from_multiple_links
-from ....model.browser.base.driver import BrowserDriver
-from ....model.browser.base.settings import BrowserSettings
-from ....model.driver_methods import DriverMethods
-from ....constant import timeout
 
 class GetUrlDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
@@ -32,12 +31,12 @@ class GetUrlDriverMethods(DriverMethods):
 
         return get_url_from_link(self._driver, xpath, timeout)
 
-    def from_multiple_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+    def from_multiple_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
 
         return get_url_from_multiple_images(self._driver, xpath, timeout)
 
-    def from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+    def from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
 
         return get_url_from_multiple_links(self._driver, xpath, timeout)

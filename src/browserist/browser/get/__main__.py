@@ -1,4 +1,7 @@
-from typing import List
+from ...constant import timeout
+from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
+from ...model.driver_methods import DriverMethods
 from .all_elements_by_tag import get_all_elements_by_tag
 from .attribute.__main__ import GetAttributeDriverMethods
 from .dimensions_of_element import get_dimensions_of_element
@@ -6,10 +9,6 @@ from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text.__main__ import GetTextDriverMethods
 from .url.__main__ import GetUrlDriverMethods
-from ...constant import timeout
-from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
-from ...model.driver_methods import DriverMethods
 
 class GetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
@@ -18,7 +17,7 @@ class GetDriverMethods(DriverMethods):
         self.text: GetTextDriverMethods = GetTextDriverMethods(browser_driver, settings)
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
 
-    def all_elements_by_tag(self, tag: str, timeout: int = timeout.DEFAULT) -> List[object]:
+    def all_elements_by_tag(self, tag: str, timeout: int = timeout.DEFAULT) -> list[object]:
         """"Get all elements by HTML tag. Examples: "img" as tag for all <img> images, "a" for all <a> links, etc."""
 
         return get_all_elements_by_tag(self._driver, tag, timeout)

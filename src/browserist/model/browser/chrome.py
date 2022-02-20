@@ -1,7 +1,8 @@
 from selenium import webdriver
+
+from ... import factory
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ... import factory
 
 class ChromeBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:

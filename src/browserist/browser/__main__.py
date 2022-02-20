@@ -1,3 +1,9 @@
+from .. import factory
+from ..model.browser.base.driver import BrowserDriver
+from ..model.browser.base.settings import BrowserSettings
+from ..model.browser.base.type import BrowserType
+from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
+from ..model.browser.extension.safari import SafariBrowserExtension
 from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods
 from .combo.__main__ import ComboDriverMethods
@@ -12,12 +18,6 @@ from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
 from .window.get.current_handle import get_current_window_handle
-from .. import factory
-from ..model.browser.base.driver import BrowserDriver
-from ..model.browser.base.settings import BrowserSettings
-from ..model.browser.base.type import BrowserType
-from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
-from ..model.browser.extension.safari import SafariBrowserExtension
 
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""

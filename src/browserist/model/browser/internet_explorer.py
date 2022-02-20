@@ -1,8 +1,9 @@
 from selenium import webdriver
+
+from ... import factory
+from ...exception.headless import HeadlessNotSupportedException
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ...exception.headless import HeadlessNotSupportedException
-from ... import factory
 
 class InternetExplorerBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:

@@ -1,4 +1,6 @@
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
+
 from ..base.driver import BrowserDriver
 
 class BrowserExtension(ABC):
@@ -10,5 +12,3 @@ class BrowserExtension(ABC):
     @abstractmethod
     def enable_images(self) -> None:
         """Intended use: Revert disabled images for a browser when its web driver doesn't support a session-based configuration for Selenium, but only a global configuration that impacts normal use."""
-
-        pass

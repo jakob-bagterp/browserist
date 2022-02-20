@@ -1,5 +1,5 @@
-from .__main__ import BrowserExtension
 from .... import factory
+from .__main__ import BrowserExtension
 
 class InternetExplorerBrowserExtension(BrowserExtension):
     def enable_images(self) -> None:

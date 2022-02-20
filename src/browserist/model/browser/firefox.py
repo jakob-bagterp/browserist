@@ -1,7 +1,8 @@
 from selenium import webdriver
+
+from ... import factory
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
-from ... import factory
 
 class FirefoxBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
@@ -22,7 +23,7 @@ class FirefoxBrowserDriver(BrowserDriver):
         if self.settings.disable_images:
             self.firefox_profile.set_preference("permissions.default.image", 2)
             self.firefox_profile.set_preference("dom.ipc.plugins.enabled.libflashplayer.so", "false")
-    
+
     def enable_headless(self) -> None:
         if self.settings.headless:
             self.firefox_options.add_argument("--headless")

@@ -1,7 +1,10 @@
 import time
-from ..constant import interval, timeout
+
+from ..constant import interval
+from ..constant import timeout
 from ..exception.retry import RetryTimeoutException
-from ..model.callable import DriverGetBoolCallable, DriverGetTextCallable
+from ..model.callable import DriverGetBoolCallable
+from ..model.callable import DriverGetTextCallable
 
 def calculate_number_of_retries(total_time: int, interval: int | float) -> int:
     return int(total_time // interval)

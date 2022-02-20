@@ -1,9 +1,9 @@
-from .iframe import switch_to_iframe
-from .original_page import switch_to_original_page
-from .window import switch_to_window
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .iframe import switch_to_iframe
+from .original_page import switch_to_original_page
+from .window import switch_to_window
 
 class SwitchToDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings, original_window_handle: str) -> None:

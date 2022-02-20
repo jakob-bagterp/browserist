@@ -1,4 +1,5 @@
 import time
+
 from ...constant import timeout
 
 def scroll_to_position(driver: object, x: int, y: int) -> None:

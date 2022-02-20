@@ -1,4 +1,5 @@
 import time
+
 from browserist import Browser
 
 browser = Browser()

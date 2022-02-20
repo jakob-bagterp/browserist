@@ -1,10 +1,9 @@
-from typing import List
-from .from_element import get_text_from_element
-from .from_multiple_elements import get_text_from_multiple_elements
+from ....constant import timeout
 from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
-from ....constant import timeout
+from .from_element import get_text_from_element
+from .from_multiple_elements import get_text_from_multiple_elements
 
 class GetTextDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
@@ -17,7 +16,7 @@ class GetTextDriverMethods(DriverMethods):
 
         return get_text_from_element(self._driver, xpath, timeout)
 
-    def from_multiple_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> List[str]:
+    def from_multiple_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of texts from elements.
 
         Assumes that the XPath targets multiple elements."""

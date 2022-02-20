@@ -1,6 +1,8 @@
 import pytest
+from _helper import external_url
+from _helper import internal_url
+
 from browserist import Browser
-from _helper import external_url, internal_url
 
 @pytest.mark.parametrize("text, ignore_case", [
     ("More information", False),

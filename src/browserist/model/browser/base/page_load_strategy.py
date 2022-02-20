@@ -1,4 +1,5 @@
-from enum import Enum, unique
+from enum import Enum
+from enum import unique
 
 @unique
 class PageLoadStrategy(Enum):
@@ -9,7 +10,7 @@ class PageLoadStrategy(Enum):
     EAGER: DOM access is ready, but other resources like images may still be loading. Ready state: Interactive.
 
     NONE: Does not block web driver at all. Ready state: Any."""
-    
-    NORMAL = "normal"    
+
+    NORMAL = "normal"
     EAGER = "eager"
     NONE = "none"

@@ -1,5 +1,5 @@
-from ..browser.get.url.current import get_current_url
 from ..browser.get.page_title import get_page_title
+from ..browser.get.url.current import get_current_url
 
 class WaitForElementTimeoutException(Exception):
     def __init__(self, driver: object, xpath: str) -> None:

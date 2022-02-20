@@ -1,10 +1,13 @@
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
-from .button import click_button
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import TimeoutException
+
+from ...constant import timeout
+from ...exception.element import NoElementFoundException
+from ...exception.element import NoElementFoundWithTextConditionException
+from ...exception.timeout import WaitForElementTimeoutException
 from ..check_if.element_contains_text import check_if_element_contains_text
 from ..wait.for_element import wait_for_element
-from ...constant import timeout
-from ...exception.element import NoElementFoundException, NoElementFoundWithTextConditionException
-from ...exception.timeout import WaitForElementTimeoutException
+from .button import click_button
 
 def click_button_if_contains_text(driver: object, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> None:
     try:

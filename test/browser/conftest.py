@@ -1,7 +1,9 @@
-import pytest
-from browserist import Browser
 from typing import Generator
+
+import pytest
 from _config.browser_settings import default
+
+from browserist import Browser
 
 @pytest.fixture(scope = "session")
 def browser_default_headless() -> Generator[Browser, None, None]:

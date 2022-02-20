@@ -1,4 +1,5 @@
 import subprocess
+
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.type import BrowserType
 

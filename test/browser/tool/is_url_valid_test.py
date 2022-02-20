@@ -1,6 +1,7 @@
 import pytest
-from browserist import Browser
 from _helper import internal_url
+
+from browserist import Browser
 
 @pytest.mark.parametrize("url, expected", [
     ("http://www.example.com", True),

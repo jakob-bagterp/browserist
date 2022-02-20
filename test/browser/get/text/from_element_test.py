@@ -1,5 +1,6 @@
-from browserist import Browser
 from _helper import internal_url
+
+from browserist import Browser
 
 def test_get_text_from_element(browser_default_headless: Browser) -> None:
     browser = browser_default_headless

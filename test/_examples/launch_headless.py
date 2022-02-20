@@ -1,5 +1,8 @@
 import time
-from browserist import Browser, BrowserSettings, BrowserType
+
+from browserist import Browser
+from browserist import BrowserSettings
+from browserist import BrowserType
 
 browser_settings = BrowserSettings(type = BrowserType.FIREFOX, headless = True, disable_images = True)
 print(browser_settings)

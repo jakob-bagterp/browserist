@@ -1,3 +1,7 @@
+from ...constant import timeout
+from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
+from ...model.driver_methods import DriverMethods
 from .does_element_exist import check_if_does_element_exist
 from .element_contains_text import check_if_element_contains_text
 from .is_element_clickable import check_if_is_element_clickable
@@ -6,15 +10,11 @@ from .is_element_enabled import check_if_is_element_enabled
 from .is_element_visible import check_if_is_element_visible
 from .is_image_element_loaded import check_if_is_image_element_loaded
 from .is_image_loaded import check_if_is_image_loaded
-from ...constant import timeout
-from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
-from ...model.driver_methods import DriverMethods
 
 class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
-    
+
     def element_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
