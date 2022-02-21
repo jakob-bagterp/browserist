@@ -1,8 +1,9 @@
-from .mouse_to_element import hover_mouse_on_element
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .mouse_to_element import hover_mouse_on_element
+
 
 class HoverDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:

@@ -1,9 +1,11 @@
 import re
-from .for_element import wait_for_element
-from ..get.text.from_element import get_text_from_element
-from ...constant import timeout
-from ... import helper
+
 from ... import constant
+from ... import helper
+from ...constant import timeout
+from ..get.text.from_element import get_text_from_element
+from .for_element import wait_for_element
+
 
 def wait_until_text_is(driver: object, xpath: str, regex: str, timeout: int = timeout.DEFAULT) -> None:
     def is_element_text(driver: object, xpath: str, regex: str) -> bool:

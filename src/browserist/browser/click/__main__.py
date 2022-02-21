@@ -1,9 +1,10 @@
-from .button import click_button
-from .button_if_contains_text import click_button_if_contains_text
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .button import click_button
+from .button_if_contains_text import click_button_if_contains_text
+
 
 class ClickDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:

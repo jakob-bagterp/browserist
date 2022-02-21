@@ -8,6 +8,7 @@ from ..model.browser.internet_explorer import InternetExplorerBrowserDriver
 from ..model.browser.opera import OperaBrowserDriver
 from ..model.browser.safari import SafariBrowserDriver
 
+
 def browser_driver(settings: BrowserSettings) -> BrowserDriver:
     match(settings.type):
         case BrowserType.CHROME:

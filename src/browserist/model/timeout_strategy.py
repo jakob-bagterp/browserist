@@ -1,16 +1,20 @@
 from dataclasses import dataclass
-from enum import auto, Enum
+from enum import auto
+from enum import Enum
+
 from ..constant import timeout
+
 
 class TimeoutStrategy(Enum):
     """Define timeout strategy.
-    
+
     BREAK: If something times out, stop operation.
-    
+
     CONTINUE: If something times out, continue operation."""
-    
+
     BREAK = auto()
     CONTINUE = auto()
+
 
 @dataclass
 class TimeoutSettings:

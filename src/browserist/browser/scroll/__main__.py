@@ -1,12 +1,13 @@
+from ...constant import timeout
+from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
+from ...model.driver_methods import DriverMethods
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
 from .to_end_of_page import scroll_to_end_of_page
 from .to_position import scroll_to_position
 from .to_top_of_page import scroll_to_top_of_page
-from ...constant import timeout
-from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
-from ...model.driver_methods import DriverMethods
+
 
 class ScrollDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:

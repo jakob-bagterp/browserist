@@ -1,11 +1,14 @@
 import time
+
+from ...exception.login import LoginException
+from ...model.combo_settings.login import LoginCredentials
+from ...model.combo_settings.login import LoginForm
 from ..click.button import click_button
 from ..input.value import input_value
 from ..open.url_if_not_current import open_url_if_not_current
-from ..wait.until_url_contains import wait_until_url_contains
 from ..wait.for_element import wait_for_element
-from ...exception.login import LoginException
-from ...model.combo_settings.login import LoginCredentials, LoginForm
+from ..wait.until_url_contains import wait_until_url_contains
+
 
 def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form: LoginForm) -> None:
     try:

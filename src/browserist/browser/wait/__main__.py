@@ -1,3 +1,7 @@
+from ...constant import timeout
+from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
+from ...model.driver_methods import DriverMethods
 from .for_element import wait_for_element
 from .random_time import wait_random_time
 from .until_element_disappears import wait_until_element_disappears
@@ -10,10 +14,7 @@ from .until_text_is import wait_until_text_is
 from .until_url_changes import wait_until_url_changes
 from .until_url_contains import wait_until_url_contains
 from .until_url_is import wait_until_url_is
-from ...constant import timeout
-from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
-from ...model.driver_methods import DriverMethods
+
 
 class WaitDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:

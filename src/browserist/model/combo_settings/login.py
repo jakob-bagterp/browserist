@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from ...constant import timeout
+
 
 @dataclass
 class LoginCredentials:
@@ -9,6 +9,7 @@ class LoginCredentials:
 
     username: str
     password: str
+
 
 @dataclass
 class LoginForm:

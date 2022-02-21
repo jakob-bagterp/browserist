@@ -1,5 +1,6 @@
 from ..browser.get.url.current import get_current_url
 
+
 class NoElementFoundException(Exception):
     def __init__(self, driver: object, xpath: str) -> None:
         current_url = get_current_url(driver)
@@ -9,6 +10,7 @@ class NoElementFoundException(Exception):
     def __str__(self) -> str:
         return self.message
 
+
 class NoElementFoundWithTextConditionException(Exception):
     def __init__(self, driver: object, xpath: str, text_condition: str) -> None:
         current_url = get_current_url(driver)
@@ -17,6 +19,7 @@ class NoElementFoundWithTextConditionException(Exception):
 
     def __str__(self) -> str:
         return self.message
+
 
 class NoElementDimensionsFoundException(Exception):
     def __init__(self, driver: object, xpath: str) -> None:

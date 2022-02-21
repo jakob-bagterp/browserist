@@ -1,9 +1,11 @@
-from enum import Enum, unique
+from enum import Enum
+from enum import unique
+
 
 @unique
 class BrowserType(Enum):
     """Class to define browser type, e.g. Chrome, Firefox, etc."""
-    
+
     CHROME = "Chrome"
     EDGE = "Edge"
     FIREFOX = "Firefox"

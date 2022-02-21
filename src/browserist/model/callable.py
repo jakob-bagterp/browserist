@@ -1,5 +1,5 @@
-from typing import Callable, List
+from typing import Callable
 
 DriverGetTextCallable = Callable[[object, str], str]
 
-DriverGetBoolCallable = Callable[[object, str | List[object]], bool]
+DriverGetBoolCallable = Callable[[object, str | list[object]], bool]

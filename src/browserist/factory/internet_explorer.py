@@ -1,7 +1,8 @@
-#from winreg import CloseKey, OpenKey, SetValueEx, HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ
-#TODO: Fix ModuleNotFoundError of winreg
+# from winreg import CloseKey, OpenKey, SetValueEx, HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ
+# TODO: Fix ModuleNotFoundError of winreg
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.type import BrowserType
+
 
 def set_image_loading(browser_driver: BrowserDriver, load_images: bool = True):
     if browser_driver.settings.type is BrowserType.INTERNET_EXPLORER:
@@ -10,8 +11,10 @@ def set_image_loading(browser_driver: BrowserDriver, load_images: bool = True):
         SetValueEx(key, "Display Inline Images", 0, REG_SZ, value)
         CloseKey(key)
 
+
 def disable_images(browser_driver: BrowserDriver) -> None:
-    set_image_loading(browser_driver, load_images = False)
+    set_image_loading(browser_driver, load_images=False)
+
 
 def enable_images(browser_driver: BrowserDriver) -> None:
-    set_image_loading(browser_driver, load_images = True)
+    set_image_loading(browser_driver, load_images=True)
