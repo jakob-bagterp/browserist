@@ -7,6 +7,7 @@ from ...exception.element import NoElementFoundException
 from ...exception.timeout import WaitForElementTimeoutException
 from ..wait.for_element import wait_for_element
 
+
 def click_button(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     wait_for_element(driver, xpath, timeout)
     try:

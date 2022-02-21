@@ -4,6 +4,7 @@ from _helper import internal_url
 
 from browserist import Browser
 
+
 @pytest.mark.parametrize("text, ignore_case", [
     ("More information", False),
     ("mOrE iNforMatiOn", True)

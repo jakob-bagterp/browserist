@@ -1,6 +1,7 @@
 from ..get.url.current import get_current_url
 from .url import open_url
 
+
 def open_url_if_not_current(driver: object, url: str, ignore_trailing_slash: bool = True) -> None:
     # TODO: Evaluate without trailing slash
     # TODO: Ignore HTTP?(S) part of URL

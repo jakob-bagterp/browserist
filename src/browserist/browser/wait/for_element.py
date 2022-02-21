@@ -9,6 +9,7 @@ from ...constant import timeout
 from ...exception.element import NoElementFoundException
 from ...exception.timeout import WaitForElementTimeoutException
 
+
 def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     if timeout == constant.timeout.BYPASS:
         return

@@ -5,6 +5,7 @@ from ....model.driver_methods import DriverMethods
 from .value import get_attribute_value
 from .value_from_multiple_elements import get_attribute_value_from_multiple_elements
 
+
 class GetAttributeDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

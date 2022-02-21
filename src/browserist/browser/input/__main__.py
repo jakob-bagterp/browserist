@@ -4,6 +4,7 @@ from ...model.driver_methods import DriverMethods
 from .clear import input_clear
 from .value import input_value
 
+
 class InputDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

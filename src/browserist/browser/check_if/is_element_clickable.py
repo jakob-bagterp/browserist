@@ -8,6 +8,7 @@ from ...constant import interval
 from ...constant import timeout
 from ..wait.for_element import wait_for_element
 
+
 def check_if_is_element_clickable(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
     wait_for_element(driver, xpath, timeout)
     try:

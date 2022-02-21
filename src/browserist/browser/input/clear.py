@@ -6,6 +6,7 @@ from ...exception.element import NoElementFoundException
 from ...exception.timeout import WaitForElementTimeoutException
 from ..wait.for_element import wait_for_element
 
+
 def input_clear(driver: object, xpath: str) -> None:
     wait_for_element(driver, xpath)
     try:

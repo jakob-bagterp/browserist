@@ -5,6 +5,7 @@ from .iframe import switch_to_iframe
 from .original_page import switch_to_original_page
 from .window import switch_to_window
 
+
 class SwitchToDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings, original_window_handle: str) -> None:
         super().__init__(browser_driver, settings)

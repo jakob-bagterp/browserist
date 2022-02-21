@@ -9,6 +9,7 @@ from ..open.url_if_not_current import open_url_if_not_current
 from ..wait.for_element import wait_for_element
 from ..wait.until_url_contains import wait_until_url_contains
 
+
 def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form: LoginForm) -> None:
     try:
         if login_form.url is not None:

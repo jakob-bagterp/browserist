@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class SearchSettings:
     """Object with data needed to accept or decline cookies from a banner.

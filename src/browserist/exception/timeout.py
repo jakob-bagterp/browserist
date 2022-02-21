@@ -1,6 +1,7 @@
 from ..browser.get.page_title import get_page_title
 from ..browser.get.url.current import get_current_url
 
+
 class WaitForElementTimeoutException(Exception):
     def __init__(self, driver: object, xpath: str) -> None:
         current_url = get_current_url(driver)
@@ -9,6 +10,7 @@ class WaitForElementTimeoutException(Exception):
 
     def __str__(self) -> str:
         return self.message
+
 
 class WaitForPageTitleToChangeTimeoutException(Exception):
     def __init__(self, driver: object, page_title_or_fragment: str) -> None:
@@ -19,6 +21,7 @@ class WaitForPageTitleToChangeTimeoutException(Exception):
 
     def __str__(self) -> str:
         return self.message
+
 
 class WaitForUrlTimeoutException(Exception):
     def __init__(self, driver: object, url: str) -> None:

@@ -5,6 +5,7 @@ from .current_handle import get_current_window_handle
 from .position import get_window_position
 from .size import get_window_size
 
+
 class WindowGetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

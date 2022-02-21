@@ -7,6 +7,7 @@ from .url import open_url
 from .url_if_not_current import open_url_if_not_current
 from .url_in_new_tab import open_url_in_new_tab
 
+
 class OpenDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

@@ -12,6 +12,7 @@ from .... import helper
 from .settings import BrowserSettings
 from .type import BrowserType
 
+
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
 

@@ -3,6 +3,7 @@ from abc import abstractmethod
 
 from ..base.driver import BrowserDriver
 
+
 class BrowserExtension(ABC):
     """Abstract class that contains the extension methods for certain browser types."""
 

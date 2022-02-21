@@ -8,6 +8,7 @@ from .to_end_of_page import scroll_to_end_of_page
 from .to_position import scroll_to_position
 from .to_top_of_page import scroll_to_top_of_page
 
+
 class ScrollDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

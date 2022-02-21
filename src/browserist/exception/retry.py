@@ -1,6 +1,7 @@
 from ..model.callable import DriverGetBoolCallable
 from ..model.callable import DriverGetTextCallable
 
+
 class RetryTimeoutException(Exception):
     def __init__(self, func: DriverGetBoolCallable | DriverGetTextCallable) -> None:
         self.message = f"Retry function timed out as loop ran out of retries for this function: {func}"

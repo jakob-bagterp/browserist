@@ -5,6 +5,7 @@ from ....model.driver_methods import DriverMethods
 from .from_element import get_text_from_element
 from .from_multiple_elements import get_text_from_multiple_elements
 
+
 class GetTextDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

@@ -1,4 +1,5 @@
-__all__ = ["Browser", "BrowserSettings", "BrowserType", "CookieBannerSettings", "LoginCredentials", "LoginForm", "PageLoadStrategy", "SearchSettings", "TimeoutSettings", "TimeoutStrategy"]
+__all__ = ["Browser", "BrowserSettings", "BrowserType", "CookieBannerSettings", "LoginCredentials",
+           "LoginForm", "PageLoadStrategy", "SearchSettings", "TimeoutSettings", "TimeoutStrategy"]
 
 from .browser.__main__ import Browser
 from .model.browser.base.page_load_strategy import PageLoadStrategy

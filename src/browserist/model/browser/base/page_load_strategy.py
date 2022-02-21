@@ -1,6 +1,7 @@
 from enum import Enum
 from enum import unique
 
+
 @unique
 class PageLoadStrategy(Enum):
     """Class to configure page load strategy for Selenium.

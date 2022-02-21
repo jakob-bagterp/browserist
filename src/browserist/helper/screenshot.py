@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 def default_file_name() -> str:
     """Example: \"Browserist screenshot 2022-02-12 at 22.12.34.png\""""
 

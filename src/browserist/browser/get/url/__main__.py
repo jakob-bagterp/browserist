@@ -8,6 +8,7 @@ from .from_link import get_url_from_link
 from .from_multiple_images import get_url_from_multiple_images
 from .from_multiple_links import get_url_from_multiple_links
 
+
 class GetUrlDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

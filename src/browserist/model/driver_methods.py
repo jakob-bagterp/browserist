@@ -1,6 +1,7 @@
 from .browser.base.driver import BrowserDriver
 from .browser.base.settings import BrowserSettings
 
+
 class DriverMethods:
     """Super class with initializer that can be extended in sub classes for web driver methods."""
 

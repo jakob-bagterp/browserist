@@ -10,6 +10,7 @@ from .screenshot import get_screenshot
 from .text.__main__ import GetTextDriverMethods
 from .url.__main__ import GetUrlDriverMethods
 
+
 class GetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

@@ -4,7 +4,7 @@ from browserist import Browser
 from browserist import BrowserSettings
 from browserist import BrowserType
 
-browser_settings = BrowserSettings(type = BrowserType.FIREFOX, headless = True, disable_images = True)
+browser_settings = BrowserSettings(type=BrowserType.FIREFOX, headless=True, disable_images=True)
 print(browser_settings)
 browser = Browser(browser_settings)
 
@@ -12,13 +12,15 @@ browser.open.url("https://www.dr.dk/")
 print("page_title", browser.get.page_title())
 browser.refresh()
 
-#browser.get("https://github.com/jakob-bagterp/")
+# browser.get("https://github.com/jakob-bagterp/")
 browser.open.url("https://github.com/jakob-bagterp/")
 browser.wait.until_url_contains("jakob")
 browser.wait.until_url_is(browser.get.url.current())
 print(browser.get.text.from_element("/html/body/div[4]/main/div[2]/div/div[1]/div/div[2]/div[1]/div[2]/h1"))
-print(browser.get.text.from_multiple_elements("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"))
-print(browser.get.url.from_link("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a"))
+print(browser.get.text.from_multiple_elements(
+    "/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"))
+print(browser.get.url.from_link(
+    "/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a"))
 multiple_links_xpath = "/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li/div/div/div/div/a"
 print(browser.get.url.from_multiple_links(multiple_links_xpath))
 print("count_elements", browser.tools.count_elements(multiple_links_xpath))
@@ -43,7 +45,8 @@ print("url_from_multiple_images", browser.get.url.from_multiple_images(xpath))
 print("get_attribute_value", browser.get.attribute.value(xpath, "src"))
 search_field_xpath = "/html/body/div[1]/header/div/div[2]/div[2]/div[1]/div/div/form/label/input[1]"
 browser.wait.random_time(3, 5)
-browser.click.button_if_contains_text("/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a", "browserist", ignore_case = True)
+browser.click.button_if_contains_text(
+    "/html/body/div[4]/main/div[2]/div/div[2]/div[2]/div/div[1]/div/ol/li[1]/div/div/div/div/a", "browserist", ignore_case=True)
 time.sleep(3)
 
 browser.open.url_if_not_current("https://www.dr.dk/")

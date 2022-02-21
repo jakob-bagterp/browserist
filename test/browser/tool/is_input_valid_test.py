@@ -3,6 +3,7 @@ from _helper import internal_url
 
 from browserist import Browser
 
+
 @pytest.mark.parametrize("text, regex, ignore_case, expected", [
     ("test", r"test", False, True),
     ("test", r"TEST", False, False),

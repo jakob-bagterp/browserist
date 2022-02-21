@@ -15,6 +15,7 @@ from .until_url_changes import wait_until_url_changes
 from .until_url_contains import wait_until_url_contains
 from .until_url_is import wait_until_url_is
 
+
 class WaitDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

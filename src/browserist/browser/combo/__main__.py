@@ -9,6 +9,7 @@ from .cookie_banner import combo_cookie_banner
 from .log_in import combo_log_in
 from .search import combo_search
 
+
 class ComboDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

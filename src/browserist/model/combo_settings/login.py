@@ -10,6 +10,7 @@ class LoginCredentials:
     username: str
     password: str
 
+
 @dataclass
 class LoginForm:
     """Object to define the login form page.

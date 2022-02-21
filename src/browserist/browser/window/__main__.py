@@ -7,6 +7,7 @@ from .maximize import window_maximize
 from .minimize import window_minimize
 from .set.__main__ import WindowSetDriverMethods
 
+
 class WindowDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)

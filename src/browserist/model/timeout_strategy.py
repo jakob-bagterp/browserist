@@ -4,6 +4,7 @@ from enum import Enum
 
 from ..constant import timeout
 
+
 class TimeoutStrategy(Enum):
     """Define timeout strategy.
 
@@ -13,6 +14,7 @@ class TimeoutStrategy(Enum):
 
     BREAK = auto()
     CONTINUE = auto()
+
 
 @dataclass
 class TimeoutSettings:

@@ -4,6 +4,7 @@ from ....constant import directory
 from .page_load_strategy import PageLoadStrategy
 from .type import BrowserType
 
+
 @dataclass
 class BrowserSettings:
     """Class to configure the browser driver.
