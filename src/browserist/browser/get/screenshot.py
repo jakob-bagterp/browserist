@@ -1,6 +1,7 @@
 from ... import helper
 from ...model.browser.base.settings import BrowserSettings
 
+
 def get_screenshot(driver: object, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
     if file_name is None:
         file_name = helper.screenshot.default_file_name()

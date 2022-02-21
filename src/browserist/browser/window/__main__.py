@@ -1,11 +1,12 @@
-from .get.__main__ import WindowGetDriverMethods
-from .set.__main__ import WindowSetDriverMethods
-from .fullscreen import window_fullscreen
-from .maximize import window_maximize
-from .minimize import window_minimize
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .fullscreen import window_fullscreen
+from .get.__main__ import WindowGetDriverMethods
+from .maximize import window_maximize
+from .minimize import window_minimize
+from .set.__main__ import WindowSetDriverMethods
+
 
 class WindowDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:

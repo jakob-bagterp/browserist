@@ -2,12 +2,6 @@
 # See https://pre-commit.com/hooks.html for more hooks
 
 repos:
--   repo: https://github.com/psf/black
-    rev: 22.1.0
-    hooks:
-    -   id: black
-        args: ["--safe"]
-
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.1.0
     hooks:
@@ -30,6 +24,24 @@ repos:
     -   id: requirements-txt-fixer
     -   id: sort-simple-yaml
     -   id: trailing-whitespace
+
+-   repo: https://github.com/myint/autoflake
+    rev: v1.4
+    hooks:
+    -   id: autoflake
+        exclude: test/_mock_data
+        args:
+        -   --expand-star-imports
+        -   --ignore-init-module-imports
+        -   --in-place
+        -   --remove-all-unused-imports
+        -   --remove-duplicate-keys
+        -   --remove-unused-variables
+
+-   repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v1.6.0
+    hooks:
+    -   id: autopep8
 
 -   repo: https://github.com/PyCQA/flake8
     rev: 4.0.1

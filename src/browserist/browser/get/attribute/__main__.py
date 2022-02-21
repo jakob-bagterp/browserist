@@ -1,10 +1,10 @@
-from typing import List
-from .value import get_attribute_value
-from .value_from_multiple_elements import get_attribute_value_from_multiple_elements
+from ....constant import timeout
 from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
-from ....constant import timeout
+from .value import get_attribute_value
+from .value_from_multiple_elements import get_attribute_value_from_multiple_elements
+
 
 class GetAttributeDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
@@ -19,7 +19,7 @@ class GetAttributeDriverMethods(DriverMethods):
 
         return get_attribute_value(self._driver, xpath, attribute, timeout)
 
-    def value_from_multiple_elements(self, xpath: str, attribute: str, timeout: int = timeout.DEFAULT) -> List[str]:
+    def value_from_multiple_elements(self, xpath: str, attribute: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get values from an attribute of multiple elements. Assumes that the XPath targets multiple links. Examples:
 
         Use "src" as attribute to get the source URL from an <img> image tag.

@@ -1,4 +1,6 @@
-from ..model.callable import DriverGetBoolCallable, DriverGetTextCallable
+from ..model.callable import DriverGetBoolCallable
+from ..model.callable import DriverGetTextCallable
+
 
 class RetryTimeoutException(Exception):
     def __init__(self, func: DriverGetBoolCallable | DriverGetTextCallable) -> None:

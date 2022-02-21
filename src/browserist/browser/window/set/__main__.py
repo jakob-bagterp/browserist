@@ -1,8 +1,9 @@
-from .position import set_window_position
-from .size import set_window_size
 from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
+from .position import set_window_position
+from .size import set_window_size
+
 
 class WindowSetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
