@@ -1,9 +1,13 @@
-from _helper import external_url
+import pytest
 
 from browserist import Browser
 
 
-def test_get_current_url(browser_default_headless: Browser) -> None:
+@pytest.mark.parametrize("url, expected", [
+    ("http://example.com", "http://example.com/"),
+    ("http://example.com/", "http://example.com/"),
+])
+def test_get_current_url(url: str, expected: str, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
-    browser.open.url_if_not_current(external_url.EXAMPLE_COM)
-    assert browser.get.url.current() == "http://example.com/"
+    browser.open.url_if_not_current(url)
+    assert browser.get.url.current() == expected
