@@ -10,5 +10,5 @@ from browserist import Browser
 ])
 def test_check_if_is_element_visible(xpath: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
-    browser.open.url_if_not_current(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.EXAMPLE_COM)
     assert browser.check_if.is_element_visible(xpath) is expected
