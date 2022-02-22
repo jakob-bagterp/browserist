@@ -38,5 +38,5 @@ def test_tool_is_url_valid(url: str, expected: bool, browser_default_headless: B
     https://stackoverflow.com/a/52455972/13115170"""
 
     browser = browser_default_headless
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url_if_not_current(internal_url.EXAMPLE_COM)
     assert browser.tool.is_url_valid(url) is expected
