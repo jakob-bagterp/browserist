@@ -7,7 +7,7 @@ from browserist import Browser
 
 @pytest.mark.parametrize("text, ignore_case", [
     ("More information", False),
-    ("mOrE iNforMatiOn", True)
+    ("mOrE iNforMatiOn", True),
 ])
 def test_click_button_if_contains_text(text: str, ignore_case: bool, browser_default_headless: Browser) -> None:
     browser = browser_default_headless

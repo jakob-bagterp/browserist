@@ -8,7 +8,7 @@ from browserist import Browser
     ("test", r"test", False, True),
     ("test", r"TEST", False, False),
     ("test", r"tEsT", True, True),
-    ("testing", r"test", False, False)
+    ("testing", r"test", False, False),
 ])
 def test_tool_is_input_valid(text: str, regex: str, ignore_case: bool, expected: bool, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
