@@ -9,6 +9,8 @@ def is_https(url: str) -> bool:
 
 
 def mediate_https(url1: str, url2: str) -> tuple[str, str]:
+    """If a URL is HTTPS, the other URL should also be HTTPS."""
+
     if (is_https(url1) and is_https(url2)) or (not is_https(url1) and not is_https(url2)):
         return url1, url2
     elif not is_https(url1):
