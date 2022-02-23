@@ -6,8 +6,8 @@ from .does_element_exist import check_if_does_element_exist
 from .element_contains_text import check_if_element_contains_text
 from .is_element_clickable import check_if_is_element_clickable
 from .is_element_disabled import check_if_is_element_disabled
+from .is_element_displayed import check_if_is_element_displayed
 from .is_element_enabled import check_if_is_element_enabled
-from .is_element_visible import check_if_is_element_visible
 from .is_image_element_loaded import check_if_is_image_element_loaded
 from .is_image_loaded import check_if_is_image_loaded
 
@@ -41,10 +41,10 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_is_element_disabled(self._driver, xpath)
 
-    def is_element_visible(self, xpath: str) -> bool:
+    def is_element_displayed(self, xpath: str) -> bool:
         """Check visibility status of an element."""
 
-        return check_if_is_element_visible(self._driver, xpath)
+        return check_if_is_element_displayed(self._driver, xpath)
 
     def is_image_element_loaded(self, element: object) -> bool:
         """Check is image element is loaded and ready in the DOM."""
