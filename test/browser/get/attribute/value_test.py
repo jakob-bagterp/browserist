@@ -12,7 +12,7 @@ from browserist import Browser
     (internal_url.W3SCHOOLS_COM, "/html/head/meta[4]", "content",
      "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more."),
 ])
-def test_get_attribute_value(url: str, xpath: str, attribute: str, excepted: int, browser_default_headless: Browser) -> None:
+def test_get_attribute_value(url: str, xpath: str, attribute: str, excepted: str, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(url)
     assert browser.get.attribute.value(xpath, attribute) == excepted
