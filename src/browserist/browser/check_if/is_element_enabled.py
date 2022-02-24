@@ -9,5 +9,5 @@ def check_if_is_element_enabled(driver: object, xpath: str) -> bool:
     try:
         element = driver.find_element(By.XPATH, xpath)
         return element.is_enabled()
-    except NoSuchElementException:
+    except (NoSuchElementException, Exception):
         return False
