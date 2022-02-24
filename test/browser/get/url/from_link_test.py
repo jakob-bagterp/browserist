@@ -1,9 +1,16 @@
+import pytest
 from _helper import internal_url
 
 from browserist import Browser
 
 
-def test_get_url_from_link(browser_default_headless: Browser) -> None:
+@pytest.mark.parametrize("url, xpath, expected", [
+    (internal_url.EXAMPLE_COM, "/html/body/div/p[2]/a", "https://www.iana.org/domains/example"),
+    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[2]/div/div[1]/a[3]",
+     "https://www.w3schools.com/tags/default.asp"),
+    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[6]/div/div[1]/a[1]", "https://www.w3schools.com/sql/default.asp"),
+])
+def test_get_url_from_link(url: str, xpath: str, expected: str, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
-    browser.open.url(internal_url.EXAMPLE_COM)
-    assert browser.get.url.from_link("/html/body/div/p[2]/a") == "https://www.iana.org/domains/example"
+    browser.open.url(url)
+    assert browser.get.url.from_link(xpath) == expected
