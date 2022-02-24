@@ -26,10 +26,10 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_does_element_exist(self._driver, xpath)
 
-    def is_element_clickable(self, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
+    def is_element_clickable(self, xpath: str) -> bool:
         """Check if element is clickable."""
 
-        return check_if_is_element_clickable(self._driver, xpath, timeout)
+        return check_if_is_element_clickable(self._driver, xpath)
 
     def is_element_enabled(self, xpath: str) -> bool:
         """Check whether element is enabled."""
