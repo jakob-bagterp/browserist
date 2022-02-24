@@ -26,7 +26,7 @@ from browserist import Browser
     ("http://foo.com/blah_blah/", True),
     ("http://foo.com/blah_blah_(wikipedia)", True),
     ("http://foo.com/blah_blah_(wikipedia)_(again)", True),
-    ("http://userid:password@example.com:8080", True)
+    ("http://userid:password@example.com:8080", True),
 ])
 def test_tool_is_url_valid(url: str, expected: bool, browser_default_headless: Browser) -> None:
     """References for URL regex pattern and other methods of validating URLs:
