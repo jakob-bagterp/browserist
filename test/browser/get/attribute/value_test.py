@@ -11,6 +11,7 @@ from browserist import Browser
      "src", f"{internal_url.W3SCHOOLS_COM_DIR}/how-spaces-works3.png"),
     (internal_url.W3SCHOOLS_COM, "/html/head/meta[4]", "content",
      "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more."),
+    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[8]/div/div[30]", "class", "w3-col l6 s12 w3-center"),
 ])
 def test_get_attribute_value(url: str, xpath: str, attribute: str, excepted: str, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
