@@ -11,7 +11,5 @@ def check_if_is_element_clickable(driver: object, xpath: str) -> bool:
     try:
         element = WebDriverWait(driver, timeout.VERY_SHORT).until(EC.element_to_be_clickable((By.XPATH, xpath)))
         return element is not None
-    except TimeoutException:
-        return False
-    except NoSuchElementException:
+    except (TimeoutException, NoSuchElementException, Exception):
         return False
