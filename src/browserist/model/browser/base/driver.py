@@ -1,5 +1,4 @@
-from abc import ABC
-from abc import abstractmethod
+from abc import ABC, abstractmethod
 
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions

@@ -2,7 +2,8 @@ from .. import factory
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
-from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
+from ..model.browser.extension.internet_explorer import \
+    InternetExplorerBrowserExtension
 from ..model.browser.extension.safari import SafariBrowserExtension
 from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods

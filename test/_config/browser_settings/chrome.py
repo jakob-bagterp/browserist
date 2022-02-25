@@ -1,5 +1,4 @@
-from browserist import BrowserSettings
-from browserist import BrowserType
+from browserist import BrowserSettings, BrowserType
 
 DEFAULT = BrowserSettings(
     type=BrowserType.CHROME,

@@ -1,6 +1,4 @@
-from browserist import Browser
-from browserist import CookieBannerSettings
-from browserist import SearchSettings
+from browserist import Browser, CookieBannerSettings, SearchSettings
 
 browser = Browser()
 

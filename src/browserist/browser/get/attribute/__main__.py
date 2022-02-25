@@ -3,7 +3,8 @@ from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .value import get_attribute_value
-from .value_from_multiple_elements import get_attribute_value_from_multiple_elements
+from .value_from_multiple_elements import \
+    get_attribute_value_from_multiple_elements
 
 
 class GetAttributeDriverMethods(DriverMethods):

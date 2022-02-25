@@ -1,6 +1,8 @@
 import sys
+
 if sys.platform.startswith("win32"):
     from winreg import CloseKey, OpenKey, SetValueEx, HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ
+
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.type import BrowserType
 
