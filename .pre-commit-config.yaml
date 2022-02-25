@@ -63,3 +63,8 @@ repos:
     -   id: pyupgrade
         args:
         -   --py310-plus
+
+-   repo: https://github.com/pre-commit/mirrors-yapf
+    rev: v0.32.0
+    hooks:
+    -   id: yapf
