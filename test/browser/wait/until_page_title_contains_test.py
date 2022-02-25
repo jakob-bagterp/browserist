@@ -6,8 +6,7 @@ from _helper import internal_url
 
 from browserist import Browser
 from browserist.constant import timeout
-from browserist.exception.timeout import \
-    WaitForPageTitleToChangeTimeoutException
+from browserist.exception.timeout import WaitForPageTitleToChangeTimeoutException
 
 
 @pytest.mark.parametrize("url, page_title_fragment, expectation", [
