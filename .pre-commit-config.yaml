@@ -53,10 +53,13 @@ repos:
     rev: v2.7.1
     hooks:
     -   id: reorder-python-imports
-        args: ["--application-directories=.:src", "--py37-plus"]
+        args:
+        -   --application-directories=.:src
+        -   --py37-plus
 
 -   repo: https://github.com/asottile/pyupgrade
     rev: v2.31.0
     hooks:
     -   id: pyupgrade
-        args: ["--py310-plus"]
+        args:
+        -   --py310-plus
