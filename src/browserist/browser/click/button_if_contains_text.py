@@ -1,8 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
 from ...constant import timeout
-from ...exception.element import (NoElementFoundException,
-                                  NoElementFoundWithTextConditionException)
+from ...exception.element import NoElementFoundException, NoElementFoundWithTextConditionException
 from ...exception.timeout import WaitForElementTimeoutException
 from ..check_if.element_contains_text import check_if_element_contains_text
 from ..wait.for_element import wait_for_element
