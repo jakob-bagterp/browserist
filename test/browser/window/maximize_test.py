@@ -4,7 +4,7 @@ from browserist import Browser
 
 
 def test_window_maximize(browser_default: Browser) -> None:
-    """This test may fail if tested on a multiple screen setup."""
+    """This test may fail if tested on a multiple screens setup."""
 
     browser = browser_default
     browser.open.url(internal_url.EXAMPLE_COM)
