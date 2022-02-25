@@ -20,7 +20,7 @@ class InternetExplorerBrowserDriver(BrowserDriver):
                 options=self.ie_options)
 
     def disable_images(self) -> None:
-        helper.internet_explorer.disable_images(self)
+        factory.internet_explorer.disable_images(self)
 
     def enable_headless(self) -> None:
         raise HeadlessNotSupportedException(self.settings.type)
