@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from enum import auto
-from enum import Enum
+from enum import Enum, auto
 
 from ..constant import timeout
 

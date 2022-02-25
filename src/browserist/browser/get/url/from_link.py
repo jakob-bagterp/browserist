@@ -1,5 +1,4 @@
-from .... import constant
-from .... import helper
+from .... import constant, helper
 from ....constant import timeout
 from ...wait.for_element import wait_for_element
 from ..attribute.value import get_attribute_value
