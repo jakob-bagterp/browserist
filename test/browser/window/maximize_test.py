@@ -11,6 +11,4 @@ def test_window_maximize(browser_default: Browser) -> None:
     default_width, default_height = browser.window.get.size()
     browser.window.maximize()
     maximized_width, maximized_height = browser.window.get.size()
-
-    assert default_width <= maximized_width
-    assert default_height <= maximized_height
+    assert default_width <= maximized_width and default_height <= maximized_height
