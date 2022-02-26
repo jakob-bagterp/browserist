@@ -14,7 +14,7 @@ class WindowSetDriverMethods(DriverMethods):
 
         set_window_position(self._driver, x, y)
 
-    def size(self, x: int, y: int) -> None:
+    def size(self, width: int, height: int) -> None:
         """Restores the window and sets the window size."""
 
-        set_window_size(self._driver, x, y)
+        set_window_size(self._driver, width, height)
