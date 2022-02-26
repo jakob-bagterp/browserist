@@ -10,8 +10,8 @@ from browserist.exception.retry import RetryTimeoutException
 
 
 @pytest.mark.parametrize("xpath, expectation", [
-    ("/html/body/div/p[2]/a", does_not_raise()),
-    ("/html/body/div/p[2]/a/div", pytest.raises(RetryTimeoutException)),
+    ("/html/body/div/p[2]/a", pytest.raises(RetryTimeoutException)),
+    ("/html/body/div/p[2]/a/div", does_not_raise()),
 ])
 def test_wait_until_element_disappears(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
