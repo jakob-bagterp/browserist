@@ -1,1 +1,1 @@
-from browserist import SearchSettings
+# from browserist import SearchSettings
