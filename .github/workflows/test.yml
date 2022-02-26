@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - "**"
-    branches-ignore:
-      - master
   push:
     branches:
       - master
