@@ -1,3 +1,4 @@
+import sys
 from dataclasses import dataclass
 
 from ....constant import directory
@@ -13,7 +14,7 @@ class BrowserSettings:
 
     screenshot_dir: Destination directory for screenshot files. If not set, default directory is is from where the script is executed."""
 
-    type: BrowserType = BrowserType.CHROME
+    type: BrowserType = BrowserType.EDGE if sys.platform.startswith("win32") else BrowserType.CHROME
     headless: bool = False
     disable_images: bool = False
     page_load_strategy: PageLoadStrategy = PageLoadStrategy.NORMAL

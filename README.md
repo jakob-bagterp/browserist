@@ -47,7 +47,7 @@ brew install browserist
 ```
 
 ## Getting Started
-The default browser is Chrome. Simply type:
+The default browser is Chrome (except Edge for Windows). Simply type:
 
 ```python
 from browserist import Browser
