@@ -8,6 +8,7 @@ def test_window_maximize(browser_default: Browser) -> None:
 
     browser = browser_default
     browser.open.url(internal_url.EXAMPLE_COM)
+    browser.window.set.size(1, 1)
     default_width, default_height = browser.window.get.size()
     browser.window.maximize()
     maximized_width, maximized_height = browser.window.get.size()
