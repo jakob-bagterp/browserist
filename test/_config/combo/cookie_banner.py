@@ -1,1 +1,1 @@
-from browserist import CookieBannerSettings
+# from browserist import CookieBannerSettings
