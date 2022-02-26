@@ -21,12 +21,20 @@ Main features of Browserist:
 
 ## Installation
 ### PyPI
+Assuming that Python is installed already, execute this command in the terminal:
+
 ```shell
 pip3 install browserist
 ```
 
+If you already have installed Browserist, use this command to upgrade to latest version:
+
+```shell
+pip3 install --upgrade browserist
+```
+
 ### Homebrew
-If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, use this terminal command to tap Browserist:
+If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap Browserist:
 
 ```shell
 brew tap jakob-bagterp/browserist
