@@ -97,7 +97,7 @@ Similar to Selenium, use simple commands to automate the browser:
 | Refresh | `browser.refresh()` | Refresh the current page           |
 | Quit    | `browser.quit()`    | Close the browser                  |
 
-## Improved Stability
+## Improved Stability and Less Code
 Browserist improves stability with less code. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
 
 ```python
