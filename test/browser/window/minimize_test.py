@@ -8,6 +8,7 @@ def test_window_minimize(browser_default: Browser) -> None:
 
     browser = browser_default
     browser.open.url(internal_url.EXAMPLE_COM)
+    browser.window.set.size(520, 520)  # 500 is minimum width and height for Chrome, 513 on Edge.
     default_width, default_height = browser.window.get.size()
     browser.window.minimize()
     minimized_width, minimized_height = browser.window.get.size()
