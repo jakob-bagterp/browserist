@@ -16,17 +16,15 @@ def ensure_trailing_slash(dir_name: str) -> str:
     return dir_name if dir_name[-1] == "/" else f"{dir_name}/"
 
 
-def replace_path_slash_with_backslash(path: str) -> str:
-    """Relevant for Windows where a file path name should be "file://path\\to\\file.html" instead of "file://path/to/file.html"."""
+def ensure_path_format_encoding_as_url(path: str) -> str:
+    """Relevant for Windows where a file path name should be "file://path/to/file.html" instead of "file://path\\to\\file.html" ."""
 
-    output = path.replace("/", "\\")  # Raw replace slash with backslash.
-    # Handle exception for "file://", "file:///", etc. declaration in URLs.
-    if file_prefix_backslash := re.match(r"^file:[\\]+", output, re.IGNORECASE).group(0):
-        count_backslash = file_prefix_backslash.count("\\")
-        file_prefix_slash = f"file:{''.join(['/' for _ in range(count_backslash)])}"
-        output = output.replace(file_prefix_backslash, file_prefix_slash)
+    output = path.replace("\\", "/")  # Raw replace backslash with slash.
+    # Handle exception for "file:///C:/path/to/file.html" declaration in URLs.
+    if re.match(r"^file:/+[A-Za-z]:", output, re.IGNORECASE):
+        output = re.sub(r"^file:/+", "file:///", output, re.IGNORECASE)
     return output
 
 
 def update_path_format_if_windows(path: str) -> str:
-    return replace_path_slash_with_backslash(path) if is_windows() else path
+    return ensure_path_format_encoding_as_url(path) if is_windows() else path
