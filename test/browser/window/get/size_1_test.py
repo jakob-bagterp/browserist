@@ -5,7 +5,7 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("width, height", [
-    (500, 500),  # 500 is minimum width and height.
+    (520, 520),  # 500 is minimum width and height for Chrome, 513 on Edge.
     (600, 600),
 ])
 def test_window_get_size(width: int, height: int, browser_default: Browser) -> None:
