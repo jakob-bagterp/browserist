@@ -66,7 +66,7 @@ More info and download [here](https://developer.microsoft.com/en-us/microsoft-ed
 brew install geckodriver
 ```
 
-More info [here](https://github.com/mozilla/geckodriver)
+More info [here](https://github.com/mozilla/geckodriver).
 
 ## Getting Started
 The default browser is Chrome (except Edge for Windows). Simply type:
