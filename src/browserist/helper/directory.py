@@ -19,8 +19,13 @@ def ensure_trailing_slash(dir_name: str) -> str:
 def replace_path_slash_with_backslash(path: str) -> str:
     """Relevant for Windows where a file path name should be "file://path\\to\\file.html" instead of "file://path/to/file.html"."""
 
-    path = path.replace("/", "\\")  # Raw replace slash with backslash.
-    return re.sub(r"^file:[\\]+", "file://", path)  # Handle exceptions for "file://" declaration in URLs.
+    output = path.replace("/", "\\")  # Raw replace slash with backslash.
+    # Handle exception for "file://", "file:///", etc. declaration in URLs.
+    if file_prefix_backslash := re.match(r"^file:[\\]+", output, re.IGNORECASE).group(0):
+        count_backslash = file_prefix_backslash.count("\\")
+        file_prefix_slash = f"file:{''.join(['/' for _ in range(count_backslash)])}"
+        output = output.replace(file_prefix_backslash, file_prefix_slash)
+    return output
 
 
 def update_path_format_if_windows(path: str) -> str:
