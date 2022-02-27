@@ -1,6 +1,6 @@
-import sys
+from ..helper import operating_system
 
-if sys.platform.startswith("win32"):
+if operating_system.is_windows():
     from winreg import CloseKey, OpenKey, SetValueEx, HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ
 
 from ..model.browser.base.driver import BrowserDriver
@@ -8,7 +8,7 @@ from ..model.browser.base.type import BrowserType
 
 
 def set_image_loading(browser_driver: BrowserDriver, load_images: bool = True):
-    if browser_driver.settings.type is BrowserType.INTERNET_EXPLORER and sys.platform.startswith("win32"):
+    if browser_driver.settings.type is BrowserType.INTERNET_EXPLORER and operating_system.is_windows():
         value = "yes" if load_images else "no"
         key = OpenKey(HKEY_CURRENT_USER, r"Software\Microsoft\Internet Explorer\Main", 0, KEY_ALL_ACCESS)
         SetValueEx(key, "Display Inline Images", 0, REG_SZ, value)
