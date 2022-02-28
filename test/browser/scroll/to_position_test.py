@@ -5,7 +5,7 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("x, y", [
-    (0, 0),
+    (0, 50),
     (0, 200),
     (0, 100),
 ])
