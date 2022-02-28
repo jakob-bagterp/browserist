@@ -3,7 +3,7 @@ import re
 import urllib
 
 from ..constant import directory
-from .operating_system import is_windows
+from . import operating_system
 
 
 def create_if_not_exists(dir_name: str) -> None:
@@ -32,4 +32,4 @@ def ensure_windows_file_path_format_encoding_as_url(path: str) -> str:
 
 
 def update_path_format_if_windows(path: str) -> str:
-    return ensure_windows_file_path_format_encoding_as_url(path) if is_windows() else encode_path_as_url(path)
+    return ensure_windows_file_path_format_encoding_as_url(path) if operating_system.is_windows() else encode_path_as_url(path)
