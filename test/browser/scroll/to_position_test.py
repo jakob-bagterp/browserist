@@ -9,7 +9,7 @@ from browserist import Browser
     (0, 200),
     (0, 100),
 ])
-def test_get_scroll_position(x: int, y: int, browser_default_headless: Browser) -> None:
+def test_scroll_to_position(x: int, y: int, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser.scroll.to_position(x, y)
