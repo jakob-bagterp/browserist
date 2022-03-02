@@ -5,7 +5,7 @@ from ...constant import timeout
 from ..wait.for_element import wait_for_element
 
 
-def hover_mouse_on_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+def mouse_hover(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     wait_for_element(driver, xpath, timeout)
     element = driver.find_element(By.XPATH, xpath)
     actions = ActionChains(driver)
