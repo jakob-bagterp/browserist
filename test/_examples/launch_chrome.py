@@ -16,7 +16,7 @@ browser.scroll.into_view_if_not_visible(
 
 browser.open.url_if_not_current("https://github.com/jakob-bagterp/browserist")
 for i in range(2, 9):
-    browser.hover.mouse_on_element(
+    browser.mouse.hover(
         f"//*[@id='repo-content-pjax-container']/div/div[3]/div[1]/div[2]/div[3]/div[1]/div[{i}]")
 
 browser.open.url("https://github.com/jakob-bagterp/")
