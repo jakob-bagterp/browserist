@@ -67,5 +67,3 @@ def test_open_url_if_not_current_ignore_https(url1: str, url2: str, ignore_https
     browser.open.url_if_not_current(url2, ignore_https=ignore_https)
     get_url2 = browser.get.url.current()
     assert (get_url1 == get_url2) is expected
-
-# TODO: Test timing for opening external sites. Should not be run on GitHub Actions
