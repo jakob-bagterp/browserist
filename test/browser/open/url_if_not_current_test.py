@@ -34,6 +34,20 @@ def test_open_url_if_not_current_ignore_trailing_slash(url1: str, url2: str, ign
     get_url2 = browser.get.url.current()
     assert (get_url1 == get_url2) is expected
 
+
+@pytest.mark.parametrize("url1, url2, ignore_parameters, expected", [
+    (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, True, True),
+    (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, False, True),
+    (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}?foo=bar", True, True),
+    (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}?foo=bar", False, False),
+])
+def test_open_url_if_not_current_ignore_parameters(url1: str, url2: str, ignore_parameters: bool, expected: bool, browser_default_headless: Browser) -> None:
+    browser = browser_default_headless
+    browser.open.url_if_not_current(url1)
+    get_url1 = browser.get.url.current()
+    browser.open.url_if_not_current(url2, ignore_parameters=ignore_parameters)
+    get_url2 = browser.get.url.current()
+    assert (get_url1 == get_url2) is expected
+
 # TODO: Test timing for opening external sites. Should not be run on GitHub Actions
-# TODO: Test ignore parameters.
 # TODO: Test ignore https.
