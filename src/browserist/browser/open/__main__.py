@@ -12,7 +12,7 @@ class OpenDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
 
     def new_tab(self, url: str | None = None) -> None:
-        """Opens URL in a new tab. The URL is optional."""
+        """Open and switch to new tab. The URL argument is optional."""
 
         open_new_tab(self._driver, url)
 
