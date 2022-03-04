@@ -7,3 +7,7 @@ with Browser() as browser:
     time.sleep(2)
     browser.open.new_tab("http://example.com")
     time.sleep(2)
+    browser.open.new_window()
+    time.sleep(2)
+    browser.open.new_window("http://example.com")
+    time.sleep(2)

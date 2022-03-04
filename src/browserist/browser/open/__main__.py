@@ -16,10 +16,10 @@ class OpenDriverMethods(DriverMethods):
 
         open_new_tab(self._driver, url)
 
-    def new_window(self) -> None:
-        """Opens a new window and switches to new window."""
+    def new_window(self, url: str | None = None) -> None:
+        """Open and switch to new window. The URL argument is optional."""
 
-        open_new_window(self._driver)
+        open_new_window(self._driver, url)
 
     def url(self, url: str) -> None:
         """Open web page by URL."""
