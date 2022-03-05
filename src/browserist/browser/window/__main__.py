@@ -20,7 +20,7 @@ class WindowDriverMethods(DriverMethods):
         self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver, settings)
 
     def close(self) -> None:
-        """Close current window."""
+        """Close current tab or window."""
 
         window_close(self._driver)
 
