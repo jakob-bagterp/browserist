@@ -2,6 +2,7 @@ from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .new import open_new_window
+from .new_tab import open_new_tab
 
 
 class WindowOpenDriverMethods(DriverMethods):
@@ -12,3 +13,8 @@ class WindowOpenDriverMethods(DriverMethods):
         """Open and switch to new window. The URL argument is optional."""
 
         open_new_window(self._driver, url)
+
+    def new_tab(self, url: str | None = None) -> None:
+        """Open and switch to new tab. The URL argument is optional."""
+
+        open_new_tab(self._driver, url)

@@ -1,7 +1,6 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
-from .new_tab import open_new_tab
 from .url import open_url
 from .url_if_not_current import open_url_if_not_current
 
@@ -9,11 +8,6 @@ from .url_if_not_current import open_url_if_not_current
 class OpenDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
-
-    def new_tab(self, url: str | None = None) -> None:
-        """Open and switch to new tab. The URL argument is optional."""
-
-        open_new_tab(self._driver, url)
 
     def url(self, url: str) -> None:
         """Open web page by URL."""
