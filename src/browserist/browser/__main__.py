@@ -17,7 +17,7 @@ from .select.__main__ import SelectDriverMethods
 from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
-from .window.get.current_handle import get_current_window_handle
+from .window.handle.current import get_current_window_handle
 
 
 class Browser:

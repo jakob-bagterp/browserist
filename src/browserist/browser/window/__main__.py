@@ -4,6 +4,7 @@ from ...model.driver_methods import DriverMethods
 from .close import window_close
 from .fullscreen import window_fullscreen
 from .get.__main__ import WindowGetDriverMethods
+from .handle.__main__ import WindowHandleDriverMethods
 from .maximize import window_maximize
 from .minimize import window_minimize
 from .open.__main__ import WindowOpenDriverMethods
@@ -16,6 +17,7 @@ class WindowDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
         self._original_window_handle = original_window_handle
         self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver, settings)
+        self.handle: WindowHandleDriverMethods = WindowHandleDriverMethods(browser_driver, settings)
         self.open: WindowOpenDriverMethods = WindowOpenDriverMethods(browser_driver, settings)
         self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver, settings)
 
