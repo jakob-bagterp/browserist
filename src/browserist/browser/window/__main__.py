@@ -1,6 +1,7 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .close import window_close
 from .fullscreen import window_fullscreen
 from .get.__main__ import WindowGetDriverMethods
 from .maximize import window_maximize
@@ -15,6 +16,11 @@ class WindowDriverMethods(DriverMethods):
         self._original_window_handle = original_window_handle
         self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver, settings)
         self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver, settings)
+
+    def close(self) -> None:
+        """Close current window."""
+
+        window_close(self._driver)
 
     def fullscreen(self) -> None:
         """Fills the entire screen, similar to pressing F11 in most browsers."""
