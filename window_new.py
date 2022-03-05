@@ -17,4 +17,5 @@ with Browser() as browser:
     browser.window.close()
     window_handles = browser.window.handle.all()
     print(browser.window.handle.count(), window_handles)
+    print(browser.window.handle.all())
     time.sleep(1)
