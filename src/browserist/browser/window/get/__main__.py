@@ -17,7 +17,7 @@ class WindowGetDriverMethods(DriverMethods):
         return get_all_window_handles(self._driver)
 
     def current_handle(self) -> str:
-        """Get the ID of the current window."""
+        """Get the ID of the current tab or window."""
 
         return get_current_window_handle(self._driver)
 
