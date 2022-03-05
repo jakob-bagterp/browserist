@@ -8,12 +8,12 @@ from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods
 from .combo.__main__ import ComboDriverMethods
 from .get.__main__ import GetDriverMethods
+from .iframe.__main__ import IframeDriverMethods
 from .input.__main__ import InputDriverMethods
 from .mouse.__main__ import MouseDriverMethods
 from .open.__main__ import OpenDriverMethods
 from .scroll.__main__ import ScrollDriverMethods
 from .select.__main__ import SelectDriverMethods
-from .switch_to.__main__ import SwitchToDriverMethods
 from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
@@ -42,16 +42,16 @@ class Browser:
         self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver, settings)
         self.combo: ComboDriverMethods = ComboDriverMethods(self._browser_driver, settings)
         self.get: GetDriverMethods = GetDriverMethods(self._browser_driver, settings)
+        self.switch_to: IframeDriverMethods = IframeDriverMethods(self._browser_driver, settings)
         self.input: InputDriverMethods = InputDriverMethods(self._browser_driver, settings)
         self.mouse: MouseDriverMethods = MouseDriverMethods(self._browser_driver, settings)
         self.open: OpenDriverMethods = OpenDriverMethods(self._browser_driver, settings)
         self.scroll: ScrollDriverMethods = ScrollDriverMethods(self._browser_driver, settings)
         self.select: SelectDriverMethods = SelectDriverMethods(self._browser_driver, settings)
-        self.switch_to: SwitchToDriverMethods = SwitchToDriverMethods(
-            self._browser_driver, settings, self._original_window_handle)
         self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver, settings)
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver, settings)
-        self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver, settings)
+        self.window: WindowDriverMethods = WindowDriverMethods(
+            self._browser_driver, settings, self._original_window_handle)
 
     def __enter__(self):
         return self
