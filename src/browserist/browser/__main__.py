@@ -74,11 +74,6 @@ class Browser:
 
         self.driver.refresh()
 
-    def close(self) -> None:
-        """Close the tab or window."""
-
-        self.driver.close()
-
     def quit(self) -> None:
         """Quit the browser."""
 
