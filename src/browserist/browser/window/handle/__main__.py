@@ -21,6 +21,8 @@ class WindowHandleDriverMethods(DriverMethods):
         return count_window_handles(self._driver)
 
     def current(self) -> str:
-        """Get the ID of the current tab or window."""
+        """Get the ID of the current tab or window.
+
+        Example: CDwindow-69663F4BF867CC38F6AF46D55BFC1A8A"""
 
         return get_current_window_handle(self._driver)
