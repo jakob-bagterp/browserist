@@ -43,3 +43,11 @@ with Browser() as browser:
     assert number_of_tab_handles_1 != number_of_tab_handles_2
     assert number_of_tab_handles_1 == 1
     assert number_of_tab_handles_2 == 2
+
+    browser.window.open.new_tab()
+    browser.window.open.new_tab()
+
+    for window_handle in browser.window.handle.all():
+        browser.window.switch_to(window_handle)
+        time.sleep(1)
+    browser.window.switch_to_original_window()
