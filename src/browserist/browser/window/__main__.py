@@ -43,12 +43,12 @@ class WindowDriverMethods(DriverMethods):
         window_minimize(self._driver)
 
     def switch_to(self, window_handle: str) -> None:
-        """Switch to window by handle ID."""
+        """Switch to window/tab by handle ID or name."""
 
-        switch_to_window(self._driver, window_handle)
+        switch_to_window(self._driver, self._controller, window_handle)
 
     def switch_to_original_window(self) -> None:
-        """Switch to initial window."""
+        """Switch to initial window/tab."""
 
         original_window_handle_id = self._controller.get_handle_id_by_name(self._controller._original_window_name)
         switch_to_window(self._driver, original_window_handle_id)
