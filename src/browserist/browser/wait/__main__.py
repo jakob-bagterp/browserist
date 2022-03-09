@@ -6,6 +6,7 @@ from .for_element import wait_for_element
 from .random_time import wait_random_time
 from .until_element_disappears import wait_until_element_disappears
 from .until_images_have_loaded import wait_until_images_have_loaded
+from .until_number_of_window_handles_is import wait_until_number_of_window_handles_is
 from .until_page_title_contains import wait_until_page_title_contains
 from .until_page_title_is import wait_until_page_title_is
 from .until_text_changes import wait_until_text_changes
@@ -41,6 +42,11 @@ class WaitDriverMethods(DriverMethods):
         """Wait until element doesn't exist. The image XPath can target one or more images."""
 
         wait_until_images_have_loaded(self._driver, xpath, timeout)
+
+    def until_number_of_window_handles_is(self, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until number of window handles is."""
+
+        wait_until_number_of_window_handles_is(self._driver, timeout)
 
     def until_page_title_contains(self, page_title_fragment: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the page title has changed, e.g. after a redirect or update. The input can contain both a fragment or the full page title."""
