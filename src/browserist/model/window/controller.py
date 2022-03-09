@@ -30,12 +30,16 @@ class WindowHandleController:
         self._window_handles.append(WindowHandle(name, id))
 
     def get_handle_id_by_name(self, name: str) -> str:
+        """Get window handle ID by name."""
+
         for window_handle in self._window_handles:
             if name == window_handle.name:
                 return window_handle.id
         raise WindowHandleNameNotFoundError(name)
 
     def get_handle_name_by_id(self, id: str) -> str:
+        """Get window handle name by ID."""
+
         for window_handle in self._window_handles:
             if id == window_handle.id:
                 return window_handle.name
