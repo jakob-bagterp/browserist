@@ -14,12 +14,12 @@ def test_open_new_tab_in_window(url1: str, url2: str) -> None:
         browser.open.url(url1)
         url_1 = browser.get.url.current()
         tab_handle_1 = browser.window.handle.current()
-        number_of_tab_handles_1 = browser.window.handle.count()
+        number_of_tab_handles_1 = browser.window.handle.count(selenium=True)
 
         browser.window.open.new_tab(url2)
         url_2 = browser.get.url.current()
         tab_handle_2 = browser.window.handle.current()
-        number_of_tab_handles_2 = browser.window.handle.count()
+        number_of_tab_handles_2 = browser.window.handle.count(selenium=True)
 
         assert url_1 != url_2
         assert tab_handle_1 != tab_handle_2

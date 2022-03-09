@@ -9,7 +9,7 @@ def open_new_window(driver: object,
                     controller: WindowHandleController,
                     url: str | None = None,
                     name: str | None = None) -> None:
-    current_number_of_window_handles = count_window_handles(driver)
+    current_number_of_window_handles = count_window_handles(driver, controller, selenium=True)
     driver.switch_to.new_window("window")
     wait_until_number_of_window_handles_is(driver, current_number_of_window_handles + 1)
     new_window_handle_id = get_current_window_handle(driver)
