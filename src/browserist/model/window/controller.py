@@ -33,9 +33,9 @@ class WindowHandleController:
     def remove_handle_by_id(self, id: str) -> None:
         """Remove window handle ID."""
 
-        checksum = self.count()
         if not helper.window_handle.is_valid_id(id):
             raise WindowHandleIdNotValidError(id)
+        checksum = self.count()
         for window_handle in self._window_handles:
             if id == window_handle.id:
                 self._window_handles.remove(window_handle)
