@@ -41,6 +41,17 @@ class WindowHandleController:
         if self.count() != checksum - 1:
             raise WindowHandleIdNotFoundError(id)
 
+    def remove_handle_by_name(self, name: str) -> None:
+        """Remove window handle name."""
+
+        checksum = self.count()
+        for window_handle in self._window_handles:
+            if name == window_handle.name:
+                self._window_handles.remove(window_handle)
+        if self.count() != checksum - 1:
+            raise WindowHandleNameNotFoundError(name)
+        # TODO: Should original window have special case so it can't be removed? Or should removed original window be handled as special case elsewhere?
+
     def get_handle_id_by_name(self, name: str) -> str:
         """Get window handle ID by name."""
 
