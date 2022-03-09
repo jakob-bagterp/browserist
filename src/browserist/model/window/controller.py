@@ -16,7 +16,7 @@ class WindowHandleController:
             )]
 
     def add_handle(self, id: str, name: str | None = None) -> None:
-        """Add new window handle to list."""
+        """Add new window handle to list. The name is optional."""
 
         if not helper.window_handle.is_valid_id(id):
             raise WindowHandleIdNotValidError(id)
