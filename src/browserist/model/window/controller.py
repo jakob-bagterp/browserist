@@ -24,3 +24,8 @@ class WindowHandleController:
         if helper.window_handle.name_already_exists(name, self._window_handles):
             raise WindowHandleNameNotUniqueError(name)
         self._window_handles.append(WindowHandle(name, id))
+
+    def count(self) -> int:
+        """Get current total number of window handles."""
+
+        return len(self._window_handles)
