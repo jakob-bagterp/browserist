@@ -26,7 +26,7 @@ class WindowDriverMethods(DriverMethods):
     def close(self) -> None:
         """Close current tab or window."""
 
-        window_close(self._driver)
+        window_close(self._driver, self._controller)
 
     def fullscreen(self) -> None:
         """Fills the entire screen, similar to pressing F11 in most browsers."""
