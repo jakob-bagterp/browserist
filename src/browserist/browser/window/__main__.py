@@ -20,7 +20,7 @@ class WindowDriverMethods(DriverMethods):
         self._controller: WindowHandleController = WindowHandleController(self._driver)
         self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver, settings)
         self.handle: WindowHandleDriverMethods = WindowHandleDriverMethods(browser_driver, settings)
-        self.open: WindowOpenDriverMethods = WindowOpenDriverMethods(browser_driver, settings)
+        self.open: WindowOpenDriverMethods = WindowOpenDriverMethods(browser_driver, settings, self._controller)
         self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver, settings)
 
     def close(self) -> None:
