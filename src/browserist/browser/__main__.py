@@ -31,6 +31,7 @@ class Browser:
 
         self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
         self.driver: object = self._browser_driver.webdriver
+        # TODO: Handle this in WindowHandleController.
         self._original_window_handle: str = get_current_window_handle(self.driver)
 
         if self._browser_driver.settings.type is BrowserType.INTERNET_EXPLORER:

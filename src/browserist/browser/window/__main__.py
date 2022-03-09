@@ -1,6 +1,7 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from ...model.window.controller import WindowHandleController
 from .close import window_close
 from .fullscreen import window_fullscreen
 from .get.__main__ import WindowGetDriverMethods
@@ -15,7 +16,8 @@ from .switch_to import switch_to_window
 class WindowDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings, original_window_handle: str) -> None:
         super().__init__(browser_driver, settings)
-        self._original_window_handle = original_window_handle
+        self._original_window_handle: str = original_window_handle  # TODO: Handle this in WindowHandleController.
+        self._controller: WindowHandleController = WindowHandleController(self._driver)
         self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver, settings)
         self.handle: WindowHandleDriverMethods = WindowHandleDriverMethods(browser_driver, settings)
         self.open: WindowOpenDriverMethods = WindowOpenDriverMethods(browser_driver, settings)
