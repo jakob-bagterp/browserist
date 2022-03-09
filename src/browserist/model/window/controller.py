@@ -1,7 +1,7 @@
 from ... import helper
 from ...browser.window.handle.current import get_current_window_handle
-from ...exception.window_handle import (WindowHandleIdNotValidError, WindowHandleNameNotFoundError,
-                                        WindowHandleNameNotUniqueError)
+from ...exception.window_handle import (WindowHandleIdNotFoundError, WindowHandleIdNotValidError,
+                                        WindowHandleNameNotFoundError, WindowHandleNameNotUniqueError)
 from .handle import WindowHandle
 
 
@@ -31,6 +31,12 @@ class WindowHandleController:
             if name == window_handle.name:
                 return window_handle.id
         raise WindowHandleNameNotFoundError(name)
+
+    def get_handle_name_by_id(self, id: str) -> str:
+        for window_handle in self._window_handles:
+            if id == window_handle.id:
+                return window_handle.name
+        raise WindowHandleIdNotFoundError(id)
 
     def count(self) -> int:
         """Get current total number of window handles."""
