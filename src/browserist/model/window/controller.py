@@ -29,6 +29,18 @@ class WindowHandleController:
             raise WindowHandleNameNotUniqueError(name)
         self._window_handles.append(WindowHandle(name, id))
 
+    def remove_handle_by_id(self, id: str) -> None:
+        """Remove window handle ID."""
+
+        checksum = self.count()
+        if not helper.window_handle.is_valid_id(id):
+            raise WindowHandleIdNotValidError(id)
+        for window_handle in self._window_handles:
+            if id == window_handle.id:
+                self._window_handles.remove(window_handle)
+        if self.count() != checksum - 1:
+            raise WindowHandleIdNotFoundError(id)
+
     def get_handle_id_by_name(self, name: str) -> str:
         """Get window handle ID by name."""
 
