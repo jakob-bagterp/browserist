@@ -31,3 +31,12 @@ class WaitForUrlTimeoutException(Exception):
 
     def __str__(self) -> str:
         return self.message
+
+
+class WaitForWindowTimeoutException(Exception):
+    def __init__(self) -> None:
+        self.message = "Waiting for new tab or window to open timed out."
+        super().__init__(self.message)
+
+    def __str__(self) -> str:
+        return self.message
