@@ -9,12 +9,12 @@ def test_switch_to_window() -> None:
         browser.window.open.new()
         browser.window.open.new()
 
-        window_handles = browser.window.handle.all()
-        assert len(window_handles) == 3
+        window_handle_ids = browser.window.handle.all()
+        assert len(window_handle_ids) == 3
 
-        for window_handle in window_handles:
-            browser.window.switch_to(window_handle)
-            assert window_handle == browser.window.handle.current()
+        for window_handle_id in window_handle_ids:
+            browser.window.switch_to(window_handle_id)
+            assert window_handle_id == browser.window.handle.current()
 
 
 def test_switch_to_window_by_name() -> None:
@@ -32,12 +32,12 @@ def test_switch_to_tab() -> None:
         browser.window.open.new_tab()
         browser.window.open.new_tab()
 
-        window_handles = browser.window.handle.all()
-        assert len(window_handles) == 3
+        window_handle_ids = browser.window.handle.all()
+        assert len(window_handle_ids) == 3
 
-        for window_handle in window_handles:
-            browser.window.switch_to(window_handle)
-            assert window_handle == browser.window.handle.current()
+        for window_handle_id in window_handle_ids:
+            browser.window.switch_to(window_handle_id)
+            assert window_handle_id == browser.window.handle.current()
 
 
 def test_switch_to_tab_by_name() -> None:
