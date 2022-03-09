@@ -19,7 +19,7 @@ def test_window_handle_controller_remove_handle_by_name(name: str, window_handle
 
 @pytest.mark.parametrize("name, expectation", [
     (WINDOW_HANDLE_2_NAME, does_not_raise()),
-    # This name is reserved for the original window.
+    # This name is reserved for the original window:
     (WINDOW_HANDLE_1_NAME, pytest.raises(WindowHandleNameNotValidError)),
 ])
 def test_window_handle_controller_remove_handle_by_name_invalid_error(name: str, expectation: Any, window_handle_controller: WindowHandleController) -> None:
