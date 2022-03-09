@@ -1,3 +1,4 @@
+from copy import deepcopy
 from typing import Generator
 
 import pytest
@@ -24,10 +25,10 @@ def browser_default() -> Generator[Browser, None, None]:
         yield browser
 
 
-@pytest.fixture(scope="module")
+@pytest.fixture(scope="function")
 def window_handle_controller() -> WindowHandleController:
     with Browser(default.HEADLESS) as browser:
         window_handle_controller = WindowHandleController(browser.driver)
-        window_handle_controller._window_handles = WINDOW_HANDLES
+        window_handle_controller._window_handles = deepcopy(WINDOW_HANDLES)
         window_handle_controller._counter = len(window_handle_controller._window_handles)
         return window_handle_controller
