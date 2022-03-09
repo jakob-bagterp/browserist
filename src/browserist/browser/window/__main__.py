@@ -14,9 +14,8 @@ from .switch_to import switch_to_window
 
 
 class WindowDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings, original_window_handle: str) -> None:
+    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
-        self._original_window_handle: str = original_window_handle  # TODO: Handle this in WindowHandleController.
         self._controller: WindowHandleController = WindowHandleController(self._driver)
         self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver, settings)
         self.handle: WindowHandleDriverMethods = WindowHandleDriverMethods(browser_driver, settings)
@@ -51,4 +50,5 @@ class WindowDriverMethods(DriverMethods):
     def switch_to_original_window(self) -> None:
         """Switch to initial window."""
 
-        switch_to_window(self._driver, self._original_window_handle)
+        original_window_handle_id = self._controller.get_handle_id_by_name(self._controller._original_window_name)
+        switch_to_window(self._driver, original_window_handle_id)

@@ -2,16 +2,17 @@ from ... import helper
 from ...browser.window.handle.current import get_current_window_handle
 from ...exception.window_handle import (WindowHandleIdNotFoundError, WindowHandleIdNotUniqueError,
                                         WindowHandleIdNotValidError, WindowHandleNameNotFoundError,
-                                        WindowHandleNameNotUniqueError)
+                                        WindowHandleNameNotUniqueError, WindowHandleNameNotValidError)
 from .handle import WindowHandle
 
 
 class WindowHandleController:
     def __init__(self, driver: object) -> None:
         self._counter: int = 1
+        self._original_window_name = str(self._counter)
         self._window_handles: list[WindowHandle] = [
             WindowHandle(
-                name=str(self._counter),
+                name=self._original_window_name,
                 id=get_current_window_handle(driver),
             )]
 
@@ -44,6 +45,8 @@ class WindowHandleController:
     def remove_handle_by_name(self, name: str) -> None:
         """Remove window handle name."""
 
+        if name == self._original_window_name:
+            raise WindowHandleNameNotValidError(name)
         checksum = self.count()
         for window_handle in self._window_handles:
             if name == window_handle.name:

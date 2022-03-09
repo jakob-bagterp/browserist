@@ -17,7 +17,6 @@ from .select.__main__ import SelectDriverMethods
 from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
-from .window.handle.current import get_current_window_handle
 
 
 class Browser:
@@ -31,8 +30,6 @@ class Browser:
 
         self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
         self.driver: object = self._browser_driver.webdriver
-        # TODO: Handle this in WindowHandleController.
-        self._original_window_handle: str = get_current_window_handle(self.driver)
 
         if self._browser_driver.settings.type is BrowserType.INTERNET_EXPLORER:
             self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
@@ -51,8 +48,7 @@ class Browser:
         self.select: SelectDriverMethods = SelectDriverMethods(self._browser_driver, settings)
         self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver, settings)
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver, settings)
-        self.window: WindowDriverMethods = WindowDriverMethods(
-            self._browser_driver, settings, self._original_window_handle)
+        self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver, settings)
 
     def __enter__(self):
         return self

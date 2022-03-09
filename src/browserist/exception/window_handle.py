@@ -41,3 +41,12 @@ class WindowHandleIdNotValidError(Exception):
 
     def __str__(self) -> str:
         return self.message
+
+
+class WindowHandleNameNotValidError(Exception):
+    def __init__(self, name: str) -> None:
+        self.message = f"Window handle name is invalid. Try using another name than this: {name}"
+        super().__init__(self.message)
+
+    def __str__(self) -> str:
+        return self.message
