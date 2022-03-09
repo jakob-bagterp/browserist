@@ -12,7 +12,7 @@ def open_new_tab(driver: object,
     current_number_of_window_handles = count_window_handles(driver)
     driver.switch_to.new_window("tab")
     wait_until_number_of_window_handles_is(driver, current_number_of_window_handles + 1)
-    current_window_handle_id = get_current_window_handle(driver)
-    controller.add_handle(current_window_handle_id, name)
+    new_tab_handle_id = get_current_window_handle(driver)
+    controller.add_handle(new_tab_handle_id, name)
     if url:
         open_url(driver, url)
