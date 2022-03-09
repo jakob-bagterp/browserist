@@ -16,6 +16,15 @@ class WindowHandleNameNotFoundError(Exception):
         return self.message
 
 
+class WindowHandleIdNotUniqueError(Exception):
+    def __init__(self, id: str) -> None:
+        self.message = f"Window handle ID already exists: {id}"
+        super().__init__(self.message)
+
+    def __str__(self) -> str:
+        return self.message
+
+
 class WindowHandleNameNotUniqueError(Exception):
     def __init__(self, name: str) -> None:
         self.message = f"Window handle name already exists: {name}"

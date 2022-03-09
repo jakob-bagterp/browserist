@@ -1,7 +1,8 @@
 from ... import helper
 from ...browser.window.handle.current import get_current_window_handle
-from ...exception.window_handle import (WindowHandleIdNotFoundError, WindowHandleIdNotValidError,
-                                        WindowHandleNameNotFoundError, WindowHandleNameNotUniqueError)
+from ...exception.window_handle import (WindowHandleIdNotFoundError, WindowHandleIdNotUniqueError,
+                                        WindowHandleIdNotValidError, WindowHandleNameNotFoundError,
+                                        WindowHandleNameNotUniqueError)
 from .handle import WindowHandle
 
 
@@ -19,6 +20,8 @@ class WindowHandleController:
 
         if not helper.window_handle.is_valid_id(id):
             raise WindowHandleIdNotValidError(id)
+        if helper.window_handle.id_already_exists(id, self._window_handles):
+            raise WindowHandleIdNotUniqueError(id)
         self._counter += 1
         if name is None:
             name = str(self._counter)
