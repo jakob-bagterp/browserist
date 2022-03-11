@@ -1,13 +1,10 @@
-from copy import deepcopy
 from typing import Generator
 
 import pytest
 from _config.browser_settings import default
-from _mock_data.window_handles import WINDOW_HANDLES
 from py.path import local
 
 from browserist import Browser, BrowserSettings
-from browserist.model.window.controller import WindowHandleController
 
 # Reuse a shared Browser whether it's in default or headless mode across tests
 # so each test doesn't have to initialize a new Browser, which is slower.
@@ -51,12 +48,3 @@ def browser_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]
     )
     with Browser(browser_settings) as browser:
         yield browser
-
-
-@pytest.fixture(scope="function")
-def window_handle_controller() -> WindowHandleController:
-    with Browser(default.HEADLESS) as browser:
-        window_handle_controller = WindowHandleController(browser.driver)
-        window_handle_controller._window_handles = deepcopy(WINDOW_HANDLES)
-        window_handle_controller._counter = len(window_handle_controller._window_handles)
-        return window_handle_controller
