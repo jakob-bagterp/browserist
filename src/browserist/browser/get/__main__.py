@@ -40,7 +40,7 @@ class GetDriverMethods(DriverMethods):
 
         browser.get.screenshot() # Default file name and destination
 
-        browser.get.screenshot("image.png") # Custom file name and defualt destination
+        browser.get.screenshot("image.png") # Custom file name and default destination
 
         browser.get.screenshot("image.png", "./screenshots") # Custom file name and destination
 
