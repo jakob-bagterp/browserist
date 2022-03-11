@@ -9,51 +9,42 @@ from py.path import local
 from browserist import Browser, BrowserSettings
 from browserist.model.window.controller import WindowHandleController
 
+# Reuse a shared Browser whether it's in default or headless mode across tests
+# so each test doesn't have to initialize a new Browser, which is slower.
+
 
 @pytest.fixture(scope="session")
 def browser_default_headless() -> Generator[Browser, None, None]:
-    """Reuse a shared Browser in default, headless mode across tests so each test doesn't have to initialize a new Browser, which is slower."""
-
     with Browser(default.HEADLESS) as browser:
         yield browser
 
 
 @pytest.fixture(scope="function")
 def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
-    """Reuse a shared Browser in default, headless mode across tests so each test doesn't have to initialize a new Browser, which is slower."""
-
     with Browser(default.HEADLESS) as browser:
         yield browser
 
 
 @pytest.fixture(scope="session")
 def browser_default_headless_images_disabled() -> Generator[Browser, None, None]:
-    """Reuse a shared Browser in headless mode across tests so each test doesn't have to initialize a new Browser, which is slower."""
-
     with Browser(default.HEADLESS_AND_DISABLE_IMAGES) as browser:
         yield browser
 
 
 @pytest.fixture(scope="session")
 def browser_default() -> Generator[Browser, None, None]:
-    """Reuse a shared Browser in default, headless mode across tests so each test doesn't have to initialize a new Browser, which is slower."""
-
     with Browser(default.DEFAULT) as browser:
         yield browser
 
 
 @pytest.fixture(scope="session")
 def browser_default_disable_images() -> Generator[Browser, None, None]:
-    """Reuse a shared Browser in default mode with images disabled across tests so each test doesn't have to initialize a new Browser, which is slower."""
-
     with Browser(default.DISABLE_IMAGES) as browser:
         yield browser
 
 
 @pytest.fixture(scope="function")
 def browser_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
-    """Reuse a shared Browser in headless mode with special temporary directory configuration for screenshots."""
-
     browser_settings = BrowserSettings(
         headless=True,
         screenshot_dir=str(tmpdir)
