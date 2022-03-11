@@ -27,6 +27,14 @@ def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
 
 
 @pytest.fixture(scope="session")
+def browser_default_headless_images_disabled() -> Generator[Browser, None, None]:
+    """Reuse a shared Browser in headless mode across tests so each test doesn't have to initialize a new Browser, which is slower."""
+
+    with Browser(default.HEADLESS_AND_DISABLE_IMAGES) as browser:
+        yield browser
+
+
+@pytest.fixture(scope="session")
 def browser_default() -> Generator[Browser, None, None]:
     """Reuse a shared Browser in default, headless mode across tests so each test doesn't have to initialize a new Browser, which is slower."""
 

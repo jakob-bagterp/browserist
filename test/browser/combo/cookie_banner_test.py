@@ -14,10 +14,10 @@ from browserist import Browser, CookieBannerSettings
 def test_combo_cookie_banner(
     url: str,
     cookie_banner_settings: CookieBannerSettings,
-    browser_default_headless: Browser
+    browser_default_headless_images_disabled: Browser
 ) -> None:
 
     with does_not_raise():
-        browser = browser_default_headless
+        browser = browser_default_headless_images_disabled
         browser.open.url(url)
         browser.combo.cookie_banner(cookie_banner_settings)
