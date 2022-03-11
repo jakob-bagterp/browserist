@@ -48,3 +48,13 @@ def test_get_screenshot_3(browser_default_headless: Browser, tmpdir: local) -> N
     temp_dir = str(tmpdir.mkdir(CUSTOM_SCREENSHOT_DIRECTORY))
     browser.get.screenshot(CUSTOM_SCREENSHOT_FILENAME, temp_dir)
     assert image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME)
+
+
+def test_get_screenshot_4(browser_default_headless: Browser, tmpdir: local) -> None:
+    """Test of browser.get.screenshot(destination_dir = "./screenshots") with default file name and custom destination."""
+
+    browser = browser_default_headless
+    browser.open.url(internal_url.EXAMPLE_COM)
+    temp_dir = str(tmpdir.mkdir(CUSTOM_SCREENSHOT_DIRECTORY))
+    browser.get.screenshot(destination_dir=temp_dir)
+    assert images_have_minimum_file_size(temp_dir)
