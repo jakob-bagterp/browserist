@@ -1,13 +1,18 @@
 from contextlib import nullcontext as does_not_raise
 
-from _config.combo.cookie_banner import DBA_ACCEPT_COOKIES
+import pytest
+from _config.combo.cookie_banner import DBA_ACCEPT_COOKIES, GOOGLE_ACCEPT_COOKIES
 from _helper import external_url
 
-from browserist import Browser
+from browserist import Browser, CookieBannerSettings
 
 
-def test_wait_for_element(browser_default_headless: Browser) -> None:
+@pytest.mark.parametrize("url, cookie_banner_settings", [
+    (external_url.DBA_DK, DBA_ACCEPT_COOKIES),
+    (external_url.GOOGLE_COM, GOOGLE_ACCEPT_COOKIES),
+])
+def test_combo_cookie_banner(url: str, cookie_banner_settings: CookieBannerSettings, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     with does_not_raise():
-        browser.open.url(external_url.DBA_DK)
-        browser.combo.cookie_banner(DBA_ACCEPT_COOKIES)
+        browser.open.url(url)
+        browser.combo.cookie_banner(cookie_banner_settings)
