@@ -11,8 +11,13 @@ from browserist import Browser, CookieBannerSettings
     (external_url.DBA_DK, DBA_ACCEPT_COOKIES),
     (external_url.GOOGLE_COM, GOOGLE_ACCEPT_COOKIES),
 ])
-def test_combo_cookie_banner(url: str, cookie_banner_settings: CookieBannerSettings, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+def test_combo_cookie_banner(
+    url: str,
+    cookie_banner_settings: CookieBannerSettings,
+    browser_default_headless: Browser
+) -> None:
+
     with does_not_raise():
+        browser = browser_default_headless
         browser.open.url(url)
         browser.combo.cookie_banner(cookie_banner_settings)
