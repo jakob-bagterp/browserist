@@ -4,8 +4,9 @@ from typing import Generator
 import pytest
 from _config.browser_settings import default
 from _mock_data.window_handles import WINDOW_HANDLES
+from py.path import local
 
-from browserist import Browser
+from browserist import Browser, BrowserSettings
 from browserist.model.window.controller import WindowHandleController
 
 
@@ -30,6 +31,18 @@ def browser_default() -> Generator[Browser, None, None]:
     """Reuse a shared Browser in default, headless mode across tests so each test doesn't have to initialize a new Browser, which is slower."""
 
     with Browser(default.DEFAULT) as browser:
+        yield browser
+
+
+@pytest.fixture(scope="function")
+def browser_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
+    """Reuse a shared Browser in headless mode with special temporary directory configuration for screenshots."""
+
+    browser_settings = BrowserSettings(
+        headless=True,
+        screenshot_dir=str(tmpdir)
+    )
+    with Browser(browser_settings) as browser:
         yield browser
 
 
