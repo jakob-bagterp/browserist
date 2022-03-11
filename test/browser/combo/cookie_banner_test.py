@@ -1,4 +1,4 @@
-from contextlib import nullcontext as does_not_raise
+from contextlib import nullcontext as expectation_of_no_exceptions_raised
 
 import pytest
 from _config.combo.cookie_banner import DBA_ACCEPT_COOKIES, GOOGLE_ACCEPT_COOKIES
@@ -17,7 +17,7 @@ def test_combo_cookie_banner(
     browser_default_headless_images_disabled: Browser
 ) -> None:
 
-    with does_not_raise():
+    with expectation_of_no_exceptions_raised():
         browser = browser_default_headless_images_disabled
         browser.open.url(url)
         browser.combo.cookie_banner(cookie_banner_settings)
