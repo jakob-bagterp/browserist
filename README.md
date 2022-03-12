@@ -124,6 +124,7 @@ Browserist improves stability with less code. As a browsers need time to render 
 
 ```python
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
