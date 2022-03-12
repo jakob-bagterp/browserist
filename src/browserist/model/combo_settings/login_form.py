@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+import attr
+
 
 @dataclass
 class _LoginFormInput:
@@ -34,7 +36,7 @@ class _LoginFormSharedDefaults:
     post_login_element_xpath: str | None = None
 
 
-@dataclass
+@attr.s(auto_attribs=True)
 class LoginForm1Step(_LoginForm1Step, _LoginFormSharedDefaults):
     """Settings for login form page in 1 step where both username and password are displayed at once.
 
@@ -45,7 +47,7 @@ class LoginForm1Step(_LoginForm1Step, _LoginFormSharedDefaults):
     post_login_element_xpath: Upon successful login, optionally await this element to be loaded."""
 
 
-@dataclass
+@attr.s(auto_attribs=True)
 class LoginForm2Steps(_LoginForm2Steps, _LoginFormSharedDefaults):
     """Settings for login form page in 2 steps where username is prompted first, and once confirmed, then the password can be entered.
 
