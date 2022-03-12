@@ -1,7 +1,8 @@
 import time
 
 from ...exception.login import LoginException
-from ...model.combo_settings.login import LoginCredentials, LoginForm1Step, LoginForm2Steps
+from ...model.combo_settings.login_credentials import LoginCredentials
+from ...model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
 from ..click.button import click_button
 from ..input.value import input_value
 from ..open.url_if_not_current import open_url_if_not_current

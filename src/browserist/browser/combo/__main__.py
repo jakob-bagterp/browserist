@@ -1,7 +1,8 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.combo_settings.cookie_banner import CookieBannerSettings
-from ...model.combo_settings.login import LoginCredentials, LoginForm1Step, LoginForm2Steps
+from ...model.combo_settings.login_credentials import LoginCredentials
+from ...model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
 from ...model.combo_settings.search import SearchSettings
 from ...model.driver_methods import DriverMethods
 from .cookie_banner import combo_cookie_banner
