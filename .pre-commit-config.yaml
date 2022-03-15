@@ -63,7 +63,7 @@ repos:
 
 ci:
     autofix_prs: true
-    autoupdate_schedule: weekly
+    autoupdate_schedule: quarterly
     submodules: false
     # TODO: Temporarily ignored hooks since the CI checker doesn't use Python 3.8 and not 3.10, which gives syntax errors.
     skip: [check-ast, check-docstring-first, debug-statements, flake8]
