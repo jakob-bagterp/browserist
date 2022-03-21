@@ -1,3 +1,5 @@
+from types import TracebackType
+
 from .. import factory
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
@@ -53,7 +55,7 @@ class Browser:
     def __enter__(self):
         return self
 
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
         self.quit()
 
     def back(self) -> None:
