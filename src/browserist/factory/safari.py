@@ -4,7 +4,7 @@ from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.type import BrowserType
 
 
-def set_image_loading(browser_driver: BrowserDriver, load_images: bool = True):
+def set_image_loading(browser_driver: BrowserDriver, load_images: bool = True) -> None:
     if browser_driver.settings.type is BrowserType.SAFARI:
         value = "true" if load_images else "false"
         subprocess.call(

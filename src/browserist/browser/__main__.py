@@ -1,3 +1,5 @@
+from types import TracebackType
+
 from .. import factory
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
@@ -50,28 +52,28 @@ class Browser:
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver, settings)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver, settings)
 
-    def __enter__(self):
+    def __enter__(self) -> object:
         return self
 
-    def __exit__(self, exc_type, exc_value, traceback):
+    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
         self.quit()
 
     def back(self) -> None:
         """Press the browser's back button."""
 
-        self.driver.back()
+        self.driver.back()  # type: ignore
 
     def forward(self) -> None:
         """Press the browser's forward button."""
 
-        self.driver.forward()
+        self.driver.forward()  # type: ignore
 
     def refresh(self) -> None:
         """Refresh the current page."""
 
-        self.driver.refresh()
+        self.driver.refresh()  # type: ignore
 
     def quit(self) -> None:
         """Quit the browser."""
 
-        self.driver.quit()
+        self.driver.quit()  # type: ignore

@@ -3,32 +3,36 @@ from typing import Any
 
 import pytest
 
-from browserist import helper
+from browserist import Browser, helper
 from browserist.constant import timeout
 from browserist.exception.retry import RetryTimeoutException
 
+TRUE = "true"
 
-def always_false() -> bool:
-    return False
-
-
-def always_true() -> bool:
-    return True
+FALSE = "false"
 
 
-@pytest.mark.parametrize("func, expectation", [
-    (always_false(), pytest.raises(RetryTimeoutException)),
-    (always_true(), does_not_raise()),
+def return_bool(_: object, input: str) -> bool:
+    return input == TRUE
+
+
+@pytest.mark.parametrize("input, expectation", [
+    (FALSE, pytest.raises(RetryTimeoutException)),
+    (TRUE, does_not_raise()),
 ])
-def test_helper_retry_until_condition_is_true(func: Any, expectation: Any) -> None:
+def test_helper_retry_until_condition_is_true(input: str, expectation: Any, browser_default_headless: Browser) -> None:
+    browser = browser_default_headless
     with expectation:
-        helper.retry.until_condition_is_true(func, timeout.VERY_SHORT) is not None
+        _ = helper.retry.until_condition_is_true(
+            browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
 
 
-@pytest.mark.parametrize("func, expectation", [
-    (always_false(), does_not_raise()),
-    (always_true(), pytest.raises(RetryTimeoutException)),
+@pytest.mark.parametrize("input, expectation", [
+    (FALSE, does_not_raise()),
+    (TRUE, pytest.raises(RetryTimeoutException)),
 ])
-def test_helper_retry_until_condition_is_false(func: Any, expectation: Any) -> None:
+def test_helper_retry_until_condition_is_false(input: str, expectation: Any, browser_default_headless: Browser) -> None:
+    browser = browser_default_headless
     with expectation:
-        helper.retry.until_condition_is_false(func, timeout.VERY_SHORT) is not None
+        _ = helper.retry.until_condition_is_false(
+            browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None

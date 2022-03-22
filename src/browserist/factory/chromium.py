@@ -12,5 +12,5 @@ def disable_images(browser_driver: BrowserDriver) -> BrowserDriver:
 def enable_headless(browser_driver: BrowserDriver) -> BrowserDriver:
     if browser_driver.settings.headless:
         browser_driver.chrome_options.headless = True
-        browser_driver.chrome_options.add_argument("headless")
+        browser_driver.chrome_options.add_argument("headless")  # type: ignore
     return browser_driver
