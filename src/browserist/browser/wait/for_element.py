@@ -13,7 +13,7 @@ def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT)
     if timeout == constant.timeout.BYPASS:
         return
     try:
-        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
+        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))  # type: ignore
     except TimeoutException:
         raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
