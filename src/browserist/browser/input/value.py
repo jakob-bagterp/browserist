@@ -12,8 +12,8 @@ def input_value(driver: object, xpath: str, value: str, timeout: int = timeout.D
     try:
         input_field = driver.find_element(By.XPATH, xpath)  # type: ignore
         # Always clear input field before entering value:
-        input_field.clear()  # type: ignore
-        input_field.send_keys(value)  # type: ignore
+        input_field.clear()
+        input_field.send_keys(value)
     except TimeoutException:
         raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:

@@ -11,7 +11,7 @@ def click_button(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> 
     wait_for_element(driver, xpath, timeout)
     try:
         element = driver.find_element(By.XPATH, xpath)  # type: ignore
-        element.click()  # type: ignore
+        element.click()
     except TimeoutException:
         raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
