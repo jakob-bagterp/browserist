@@ -12,4 +12,4 @@ def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = tim
 
     wait_for_element(driver, xpath, timeout)
     elements: list[object] = driver.find_elements(By.XPATH, xpath)  # type: ignore
-    helper.retry.until_condition_is_true(are_all_images_loaded(driver, elements), timeout)
+    helper.retry.until_condition_is_true(driver, elements, func=are_all_images_loaded, timeout=timeout)

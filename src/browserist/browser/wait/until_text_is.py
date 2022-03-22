@@ -12,4 +12,4 @@ def wait_until_text_is(driver: object, xpath: str, regex: str, timeout: int = ti
         return bool(re.match(regex, text))
 
     wait_for_element(driver, xpath, timeout)
-    helper.retry.until_condition_is_true(is_element_text(driver, xpath, regex), timeout)  # type: ignore
+    helper.retry.until_condition_is_true(driver, xpath, regex, func=is_element_text, timeout=timeout)
