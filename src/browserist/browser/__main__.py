@@ -61,19 +61,19 @@ class Browser:
     def back(self) -> None:
         """Press the browser's back button."""
 
-        self.driver.back()
+        self.driver.back()  # type: ignore
 
     def forward(self) -> None:
         """Press the browser's forward button."""
 
-        self.driver.forward()
+        self.driver.forward()  # type: ignore
 
     def refresh(self) -> None:
         """Refresh the current page."""
 
-        self.driver.refresh()
+        self.driver.refresh()  # type: ignore
 
     def quit(self) -> None:
         """Quit the browser."""
 
-        self.driver.quit()
+        self.driver.quit()  # type: ignore
