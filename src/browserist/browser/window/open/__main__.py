@@ -2,8 +2,8 @@ from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from ....model.window.controller import WindowHandleController
-from .new import open_new_window
-from .new_tab import open_new_tab
+from ....model.window.tab_or_window import TabOrWindow
+from .new_tab_or_window import open_new_tab_or_window
 
 
 class WindowOpenDriverMethods(DriverMethods):
@@ -16,11 +16,11 @@ class WindowOpenDriverMethods(DriverMethods):
 
         name: Can be used to switch to this window with the "browser.window.switch_to(name)" method."""
 
-        open_new_window(self._driver, self._controller, url, name)
+        open_new_tab_or_window(self._driver, self._controller, TabOrWindow.WINDOW, url, name)
 
     def new_tab(self, url: str | None = None, name: str | None = None) -> None:
         """Open and switch to new tab in current window. The URL and name of the tab are optional arguments.
 
         name: Can be used to switch to this tab with the "browser.window.switch_to(name)" method."""
 
-        open_new_tab(self._driver, self._controller, url, name)
+        open_new_tab_or_window(self._driver, self._controller, TabOrWindow.TAB, url, name)
