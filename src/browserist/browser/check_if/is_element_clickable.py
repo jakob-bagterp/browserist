@@ -8,7 +8,8 @@ from ...constant import timeout
 
 def check_if_is_element_clickable(driver: object, xpath: str) -> bool:
     try:
-        element = WebDriverWait(driver, timeout.VERY_SHORT).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+        element = WebDriverWait(driver, timeout.VERY_SHORT).until(
+            EC.element_to_be_clickable((By.XPATH, xpath)))  # type: ignore
         return element is not None
     except (TimeoutException, NoSuchElementException, Exception):
         return False
