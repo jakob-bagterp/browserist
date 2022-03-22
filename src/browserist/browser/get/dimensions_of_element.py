@@ -11,8 +11,8 @@ def get_dimensions_of_element(driver: object, xpath: str, timeout: int = timeout
     wait_for_element(driver, xpath, timeout)
     try:
         # Returns dictionary object, e.g. {'height': 598, 'width': 479}.
-        dimensions = driver.find_element(By.XPATH, xpath).size
-        return dimensions.get("width"), dimensions.get("height")
+        dimensions: dict[str, int] = driver.find_element(By.XPATH, xpath).size  # type: ignore
+        return dimensions.get("width") or 0, dimensions.get("height") or 0
     except TimeoutException:
         raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
