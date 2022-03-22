@@ -8,7 +8,7 @@ from ...constant import timeout
 from ...exception.element import NoElementFoundException
 
 
-def scroll_to_end_of_page(driver: object):
+def scroll_to_end_of_page(driver: object) -> None:
     try:
         # Select the whole page before pressing any keys...
         body_element = driver.find_element(By.TAG_NAME, "body")  # type: ignore
