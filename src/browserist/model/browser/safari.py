@@ -12,10 +12,10 @@ class SafariBrowserDriver(BrowserDriver):
 
     def set_webdriver(self) -> object:
         if self.settings.path_to_executable is None:
-            return webdriver.Safari(
+            return webdriver.Safari(  # type: ignore
                 options=self.safari_options)
         else:
-            return webdriver.Safari(
+            return webdriver.Safari(  # type: ignore
                 executable_path=self.settings.path_to_executable,
                 options=self.safari_options)
 
@@ -26,4 +26,4 @@ class SafariBrowserDriver(BrowserDriver):
         raise HeadlessNotSupportedException(self.settings.type)
 
     def set_page_load_strategy(self) -> None:
-        self.safari_options = factory.set.page_load_strategy(self, self.safari_options)
+        self.safari_options = factory.set.page_load_strategy(self, self.safari_options)  # type: ignore

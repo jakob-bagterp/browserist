@@ -26,4 +26,4 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         raise HeadlessNotSupportedException(self.settings.type)
 
     def set_page_load_strategy(self) -> None:
-        self.ie_options = factory.set.page_load_strategy(self, self.ie_options)
+        self.ie_options = factory.set.page_load_strategy(self, self.ie_options)  # type: ignore

@@ -25,4 +25,4 @@ class ChromeBrowserDriver(BrowserDriver):
         self = factory.chromium.enable_headless(self)
 
     def set_page_load_strategy(self) -> None:
-        self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)
+        self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)  # type: ignore
