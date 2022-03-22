@@ -7,6 +7,6 @@ from ..wait.for_element import wait_for_element
 
 def mouse_hover(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
     wait_for_element(driver, xpath, timeout)
-    element = driver.find_element(By.XPATH, xpath)
-    actions = ActionChains(driver)
-    actions.move_to_element(element).perform()
+    element = driver.find_element(By.XPATH, xpath)  # type: ignore
+    actions = ActionChains(driver)  # type: ignore
+    actions.move_to_element(element).perform()  # type: ignore

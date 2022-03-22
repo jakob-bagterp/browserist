@@ -12,10 +12,10 @@ class InternetExplorerBrowserDriver(BrowserDriver):
 
     def set_webdriver(self) -> object:
         if self.settings.path_to_executable is None:
-            return webdriver.Ie(
+            return webdriver.Ie(  # type: ignore
                 options=self.ie_options)
         else:
-            return webdriver.Ie(
+            return webdriver.Ie(  # type: ignore
                 executable_path=self.settings.path_to_executable,
                 options=self.ie_options)
 
@@ -26,4 +26,4 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         raise HeadlessNotSupportedException(self.settings.type)
 
     def set_page_load_strategy(self) -> None:
-        self.ie_options = factory.set.page_load_strategy(self, self.ie_options)
+        self.ie_options = factory.set.page_load_strategy(self, self.ie_options)  # type: ignore

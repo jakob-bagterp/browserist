@@ -3,23 +3,20 @@ from typing import Any
 
 import pytest
 
-from browserist import helper
+from browserist import Browser, helper
 from browserist.constant import timeout
 from browserist.exception.retry import RetryTimeoutException
 
 
-def always_has_text() -> str:
-    return "text"
+def return_input(_: object, input: str) -> str:
+    return input
 
 
-def always_has_no_text() -> str:
-    return ""
-
-
-@pytest.mark.parametrize("func, expectation", [
-    (always_has_text(), does_not_raise()),
-    (always_has_no_text(), pytest.raises(RetryTimeoutException)),
+@pytest.mark.parametrize("input, expectation", [
+    ("text", does_not_raise()),
+    ("", pytest.raises(RetryTimeoutException)),
 ])
-def test_helper_retry_get_text_from_element(func: Any, expectation: Any) -> None:
+def test_helper_retry_get_text_from_element(input: str, expectation: Any, browser_default_headless: Browser) -> None:
+    browser = browser_default_headless
     with expectation:
-        helper.retry.get_text_from_element(func, timeout.VERY_SHORT) is not None
+        _ = helper.retry.get_text_from_element(browser.driver, input, return_input, timeout.VERY_SHORT) is not None
