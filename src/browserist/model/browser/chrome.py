@@ -11,10 +11,10 @@ class ChromeBrowserDriver(BrowserDriver):
 
     def set_webdriver(self) -> object:
         if self.settings.path_to_executable is None:
-            return webdriver.Chrome(
+            return webdriver.Chrome(  # type: ignore
                 options=self.chrome_options)
         else:
-            return webdriver.Chrome(
+            return webdriver.Chrome(  # type: ignore
                 executable_path=self.settings.path_to_executable,
                 options=self.chrome_options)
 
