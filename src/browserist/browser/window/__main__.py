@@ -51,4 +51,4 @@ class WindowDriverMethods(DriverMethods):
         """Switch to initial window/tab."""
 
         original_window_handle_id = self._controller.get_handle_id_by_name(self._controller._original_window_name)
-        switch_to_window(self._driver, original_window_handle_id)
+        switch_to_window(self._driver, self._controller, original_window_handle_id)
