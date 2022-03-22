@@ -52,7 +52,7 @@ class Browser:
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver, settings)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver, settings)
 
-    def __enter__(self):
+    def __enter__(self) -> object:
         return self
 
     def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
