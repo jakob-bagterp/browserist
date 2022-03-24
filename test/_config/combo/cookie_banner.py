@@ -15,3 +15,8 @@ GOOGLE_ACCEPT_COOKIES = CookieBannerSettings(
     button_xpath="//button[2]",
     url=external_url.GOOGLE_COM
 )
+
+JYLLANDSPOSTEN_ACCEPT_COOKIES = CookieBannerSettings(
+    button_xpath="//button[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']",
+    url=external_url.JYLLANDSPOSTEN_DK
+)

@@ -6,6 +6,8 @@ EXAMPLE_COM: str = "http://example.com/"
 
 GOOGLE_COM: str = "https://www.google.com/"
 
+JYLLANDSPOSTEN_DK: str = "https://jyllands-posten.dk/"
+
 IANA_ORG: str = "https://www.iana.org/domains/reserved"
 
 W3SCHOOLS_COM: str = "https://www.w3schools.com/"

@@ -1,7 +1,9 @@
 from contextlib import nullcontext as expectation_of_no_exceptions_raised
 
 import pytest
-from _config.combo.log_in import AMAZON_LOGIN_CREDENTIALS, AMAZON_LOGIN_FORM
+from _config.combo.cookie_banner import JYLLANDSPOSTEN_ACCEPT_COOKIES
+from _config.combo.log_in import (AMAZON_LOGIN_CREDENTIALS, AMAZON_LOGIN_FORM, JYLLANDSPOSTEN_LOGIN_CREDENTIALS,
+                                  JYLLANDSPOSTEN_LOGIN_FORM)
 from _helper import external_url
 
 from browserist import Browser, CookieBannerSettings, LoginCredentials, LoginForm1Step, LoginForm2Steps
@@ -9,6 +11,8 @@ from browserist import Browser, CookieBannerSettings, LoginCredentials, LoginFor
 
 @pytest.mark.parametrize("url, login_credentials, login_form, cookie_banner_settings", [
     (external_url.AMAZON_COM, AMAZON_LOGIN_CREDENTIALS, AMAZON_LOGIN_FORM, None),
+    (external_url.JYLLANDSPOSTEN_DK, JYLLANDSPOSTEN_LOGIN_CREDENTIALS,
+     JYLLANDSPOSTEN_LOGIN_FORM, JYLLANDSPOSTEN_ACCEPT_COOKIES),
 ])
 def test_combo_login_with_1_and_2_steps(
     url: str,
