@@ -1,3 +1,5 @@
+AMAZON_COM: str = "https://www.amazon.com/"
+
 DBA_DK: str = "https://www.dba.dk/"
 
 EXAMPLE_COM: str = "http://example.com/"
