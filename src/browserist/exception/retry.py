@@ -1,4 +1,4 @@
-from ..model.callable import DriverGetBoolCallable, DriverGetTextCallable
+from ..model.type.callable import DriverGetBoolCallable, DriverGetTextCallable
 
 
 class RetryTimeoutException(Exception):
