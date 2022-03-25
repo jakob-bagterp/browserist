@@ -10,6 +10,8 @@ from browserist.browser.check_if.is_element_disabled import check_if_is_element_
 from browserist.browser.check_if.is_element_displayed import check_if_is_element_displayed
 from browserist.browser.check_if.is_element_enabled import check_if_is_element_enabled
 from browserist.browser.check_if.is_image_loaded import check_if_is_image_loaded
+from browserist.browser.click.button import click_button
+# from browserist.browser.click.button_if_contains_text import click_button_if_contains_text  # TODO
 from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable
 
 
@@ -20,6 +22,7 @@ from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable
     check_if_is_element_displayed,
     check_if_is_element_enabled,
     check_if_is_image_loaded,
+    click_button,
 ])
 def test_xpath_exception_handling_for_methods_with_2_arguments(
     method: BrowserMethodWith2ArgumentsCallable,
