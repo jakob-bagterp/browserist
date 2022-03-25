@@ -2,7 +2,7 @@ from ... import helper
 from ...exception.xpath import XPathSyntaxError
 
 
-class XPath:
+class XPath(str):
     """Class to handle and validate XPath input as "tiny type"."""
 
     def __init__(self, xpath: str) -> None:
