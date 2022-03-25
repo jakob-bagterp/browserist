@@ -1,3 +1,18 @@
-class XPath(str):
-    def __new__(cls, xpath: str):
-        return super().__new__(cls, xpath)
+from ... import helper
+
+
+class XPath:
+    """Class to handle and validate XPath input as "tiny type"."""
+
+    def __init__(self, xpath: str) -> None:
+        if helper.xpath.is_valid(xpath):
+            self.value: str = xpath
+
+    def __str__(self) -> str:
+        return self.value
+
+    def __repr__(self) -> str:
+        return self.value
+
+    def is_valid(self) -> bool:
+        return helper.xpath.is_valid(self.value)
