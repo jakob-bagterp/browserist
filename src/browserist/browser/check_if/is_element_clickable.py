@@ -8,8 +8,8 @@ from ...model.type.xpath import XPath
 
 
 def check_if_is_element_clickable(driver: object, xpath: str) -> bool:
+    xpath = XPath(xpath)
     try:
-        xpath = XPath(xpath)
         element: object = WebDriverWait(driver, timeout.VERY_SHORT).until(
             EC.element_to_be_clickable((By.XPATH, xpath)))  # type: ignore
         return element is not None
