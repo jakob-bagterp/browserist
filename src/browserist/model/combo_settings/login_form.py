@@ -1,27 +1,41 @@
 from dataclasses import dataclass
+from typing import Any
+
+from ... import helper
+from ...model.type.xpath import XPath
 
 
 @dataclass
 class _LoginFormInput:
     """Shared for input values for login form."""
 
-    username_input_xpath: str
-    password_input_xpath: str
+    username_input_xpath: XPath
+    password_input_xpath: XPath
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        self = helper.xpath.set_attributes(self, name, value, ["username_input_xpath", "password_input_xpath"])
 
 
 @dataclass
 class _LoginForm1Step:
     """Specific input value for 1 step login flow."""
 
-    submit_button_xpath: str
+    submit_button_xpath: XPath
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        self = helper.xpath.set_attributes(self, name, value, ["submit_button_xpath"])
 
 
 @dataclass
 class _LoginForm2Steps:
     """Specific input values for 2 steps login flow."""
 
-    username_submit_button_xpath: str
-    password_submit_button_xpath: str
+    username_submit_button_xpath: XPath
+    password_submit_button_xpath: XPath
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        self = helper.xpath.set_attributes(
+            self, name, value, ["username_submit_button_xpath", "password_submit_button_xpath"])
 
 
 @dataclass
@@ -31,7 +45,10 @@ class _LoginFormSharedDefaults:
     url: str | None = None
     post_login_wait_seconds: int | None = None
     post_login_url: str | None = None
-    post_login_element_xpath: str | None = None
+    post_login_element_xpath: XPath | None = None
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        self = helper.xpath.set_attributes(self, name, value, ["post_login_element_xpath"])
 
 
 class LoginForm1Step(_LoginFormInput, _LoginForm1Step, _LoginFormSharedDefaults):
