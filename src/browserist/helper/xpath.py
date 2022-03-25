@@ -21,3 +21,7 @@ def set_attributes(self: Any, name: str, value: Any, attributes: list[str]) -> A
     if name and value:
         self.__dict__[name] = XPath(value) if name in attributes else value
     return self
+
+
+def mediate_default_none(value: str | None) -> XPath | None:
+    return None if value is None else XPath(value)
