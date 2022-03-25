@@ -17,7 +17,7 @@ from browserist.model.combo_settings.search import SearchSettings
     (VALID_XPATH, INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     (INVALID_XPATH, INVALID_XPATH, pytest.raises(XPathSyntaxError)),
 ])
-def test_xpath_exception_handling_for_cookie_bannger_settings(xpath1: str, xpath2: str, expectation: Any) -> None:
+def test_xpath_exception_handling_of_cookie_bannger_settings(xpath1: str, xpath2: str, expectation: Any) -> None:
     with expectation:
         _ = CookieBannerSettings(
             button_xpath=xpath1,
@@ -37,7 +37,7 @@ def test_xpath_exception_handling_for_cookie_bannger_settings(xpath1: str, xpath
     (VALID_XPATH, INVALID_XPATH, INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     (INVALID_XPATH, INVALID_XPATH, INVALID_XPATH, pytest.raises(XPathSyntaxError)),
 ])
-def test_xpath_exception_handling_for_search_settings(xpath1: str, xpath2: str, xpath3: str, expectation: Any) -> None:
+def test_xpath_exception_handling_of_search_settings(xpath1: str, xpath2: str, xpath3: str, expectation: Any) -> None:
     with expectation:
         _ = SearchSettings(
             input_xpath=xpath1,
