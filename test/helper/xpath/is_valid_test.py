@@ -1,9 +1,12 @@
 import pytest
+from _helper.xpath import INVALID_XPATH, VALID_XPATH
 
 from browserist import helper
 
 
 @pytest.mark.parametrize("xpath, expected", [
+    (VALID_XPATH, True),
+    (INVALID_XPATH, False),
     ("//*[@id='react-root']/section", True),
     ("//*[[@id='react-root']/section", False),
     ("//*[@id='react-root']\\section", False),
