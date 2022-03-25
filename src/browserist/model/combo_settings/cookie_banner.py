@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from ..type.xpath import XPath
+from ... import helper
 
 
 @dataclass
@@ -24,5 +24,4 @@ class CookieBannerSettings:
     has_disappeared_wait_seconds: int | None = None
 
     def __setattr__(self, name: str, value: str) -> None:
-        if name in {"button_xpath", "has_loaded_xpath"}:
-            self.__dict__[name] = XPath(value)
+        self = helper.xpath.set_attributes(self, name, value, ["button_xpath", "has_loaded_xpath"])
