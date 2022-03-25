@@ -22,9 +22,6 @@ class _LoginForm1Step:
 
     submit_button_xpath: XPath
 
-    def __setattr__(self, name: str, value: Any) -> None:
-        self = helper.xpath.set_attributes(self, name, value, ["submit_button_xpath"])
-
 
 @dataclass
 class _LoginForm2Steps:
@@ -32,10 +29,6 @@ class _LoginForm2Steps:
 
     username_submit_button_xpath: XPath
     password_submit_button_xpath: XPath
-
-    def __setattr__(self, name: str, value: Any) -> None:
-        self = helper.xpath.set_attributes(
-            self, name, value, ["username_submit_button_xpath", "password_submit_button_xpath"])
 
 
 @dataclass
@@ -46,9 +39,6 @@ class _LoginFormSharedDefaults:
     post_login_wait_seconds: int | None = None
     post_login_url: str | None = None
     post_login_element_xpath: XPath | None = None
-
-    def __setattr__(self, name: str, value: Any) -> None:
-        self = helper.xpath.set_attributes(self, name, value, ["post_login_element_xpath"])
 
 
 class LoginForm1Step(_LoginFormInput, _LoginForm1Step, _LoginFormSharedDefaults):
@@ -69,9 +59,10 @@ class LoginForm1Step(_LoginFormInput, _LoginForm1Step, _LoginFormSharedDefaults)
                  post_login_url: str | None = None,
                  post_login_element_xpath: str | None = None
                  ) -> None:
-        _LoginFormInput.__init__(self, username_input_xpath, password_input_xpath)
-        _LoginForm1Step.__init__(self, submit_button_xpath)
-        _LoginFormSharedDefaults.__init__(self, url, post_login_wait_seconds, post_login_url, post_login_element_xpath)
+        _LoginFormInput.__init__(self, XPath(username_input_xpath), XPath(password_input_xpath))
+        _LoginForm1Step.__init__(self, XPath(submit_button_xpath))
+        _LoginFormSharedDefaults.__init__(self, url, post_login_wait_seconds, post_login_url,
+                                          None if post_login_element_xpath is None else XPath(post_login_element_xpath))
 
 
 class LoginForm2Steps(_LoginFormInput, _LoginForm2Steps, _LoginFormSharedDefaults):
@@ -93,6 +84,7 @@ class LoginForm2Steps(_LoginFormInput, _LoginForm2Steps, _LoginFormSharedDefault
                  post_login_url: str | None = None,
                  post_login_element_xpath: str | None = None
                  ) -> None:
-        _LoginFormInput.__init__(self, username_input_xpath, password_input_xpath)
-        _LoginForm2Steps.__init__(self, username_submit_button_xpath, password_submit_button_xpath)
-        _LoginFormSharedDefaults.__init__(self, url, post_login_wait_seconds, post_login_url, post_login_element_xpath)
+        _LoginFormInput.__init__(self, XPath(username_input_xpath), XPath(password_input_xpath))
+        _LoginForm2Steps.__init__(self, XPath(username_submit_button_xpath), XPath(password_submit_button_xpath))
+        _LoginFormSharedDefaults.__init__(self, url, post_login_wait_seconds, post_login_url,
+                                          None if post_login_element_xpath is None else XPath(post_login_element_xpath))
