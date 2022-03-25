@@ -2,7 +2,6 @@ from dataclasses import dataclass
 from typing import Any
 
 from ... import helper
-from ...model.type.xpath import XPath
 
 
 @dataclass
@@ -19,11 +18,11 @@ class SearchSettings:
 
     await_search_results_xpath: Optional wait for a search result element to be ready."""
 
-    input_xpath: XPath
-    button_xpath: XPath
+    input_xpath: str
+    button_xpath: str
     url: str | None = None
     await_search_results_url: str | None = None
-    await_search_results_xpath: XPath | None = None
+    await_search_results_xpath: str | None = None
 
     def __setattr__(self, name: str, value: Any) -> None:
         self = helper.xpath.set_attributes(
