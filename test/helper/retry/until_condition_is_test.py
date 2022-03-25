@@ -1,0 +1,38 @@
+from contextlib import nullcontext as does_not_raise
+from typing import Any
+
+import pytest
+
+from browserist import Browser, helper
+from browserist.constant import timeout
+from browserist.exception.retry import RetryTimeoutException
+
+TRUE = "true"
+
+FALSE = "false"
+
+
+def return_bool(_: object, input: str) -> bool:
+    return input == TRUE
+
+
+@pytest.mark.parametrize("input, expectation", [
+    (FALSE, pytest.raises(RetryTimeoutException)),
+    (TRUE, does_not_raise()),
+])
+def test_helper_retry_until_condition_is_true(input: str, expectation: Any, browser_default_headless: Browser) -> None:
+    browser = browser_default_headless
+    with expectation:
+        _ = helper.retry.until_condition_is_true(
+            browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
+
+
+@pytest.mark.parametrize("input, expectation", [
+    (FALSE, does_not_raise()),
+    (TRUE, pytest.raises(RetryTimeoutException)),
+])
+def test_helper_retry_until_condition_is_false(input: str, expectation: Any, browser_default_headless: Browser) -> None:
+    browser = browser_default_headless
+    with expectation:
+        _ = helper.retry.until_condition_is_false(
+            browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None

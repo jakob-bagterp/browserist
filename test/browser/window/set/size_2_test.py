@@ -1,0 +1,19 @@
+import pytest
+from _helper import internal_url
+
+from browserist import Browser
+
+
+@pytest.mark.parametrize("width1, height1, width2, height2", [
+    (100, 100, 200, 200),
+    (100, 100, 100, 200),
+    (100, 100, 200, 100),
+])
+def test_window_set_size(width1: int, height1: int, width2: int, height2: int, browser_default: Browser) -> None:
+    browser = browser_default
+    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.window.set.size(width1, height1)
+    get_width1, get_height1 = browser.window.get.size()
+    browser.window.set.size(width2, height2)
+    get_width2, get_height2 = browser.window.get.size()
+    assert get_width1 <= get_width2 and get_height1 <= get_height2
