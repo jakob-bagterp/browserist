@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass
+@dataclass(kw_only=True, slots=True)
 class LoginCredentials:
     """Object to define a user profile's access credentials.
 
