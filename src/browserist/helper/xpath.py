@@ -13,9 +13,9 @@ def is_valid(xpath: str) -> bool:
         return False
 
 
-def set_attributes(self: Any, name: str, value: str, attributes: list[str]) -> Any:
+def set_attributes(self: Any, name: str, value: Any, attributes: list[str]) -> Any:
     """Intended for the __setattr__ dunder method in data classes where some string arguments need to be validated and set as XPath."""
 
-    if name in attributes:
-        self.__dict__[name] = XPath(value)
+    if name and value:
+        self.__dict__[name] = XPath(value) if name in attributes else value
     return self
