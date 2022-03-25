@@ -1,47 +1,11 @@
 from dataclasses import dataclass
-from typing import Any
 
 from ... import helper
 from ...model.type.xpath import XPath
 
 
-@dataclass
-class _LoginFormInput:
-    """Shared for input values for login form."""
-
-    username_input_xpath: XPath
-    password_input_xpath: XPath
-
-    def __setattr__(self, name: str, value: Any) -> None:
-        self = helper.xpath.set_attributes(self, name, value, ["username_input_xpath", "password_input_xpath"])
-
-
-@dataclass
-class _LoginForm1Step:
-    """Specific input value for 1 step login flow."""
-
-    submit_button_xpath: XPath
-
-
-@dataclass
-class _LoginForm2Steps:
-    """Specific input values for 2 steps login flow."""
-
-    username_submit_button_xpath: XPath
-    password_submit_button_xpath: XPath
-
-
-@dataclass
-class _LoginFormSharedDefaults:
-    """Base class with shared, default values."""
-
-    url: str | None = None
-    post_login_wait_seconds: int | None = None
-    post_login_url: str | None = None
-    post_login_element_xpath: XPath | None = None
-
-
-class LoginForm1Step(_LoginFormInput, _LoginForm1Step, _LoginFormSharedDefaults):
+@dataclass(kw_only=True, slots=True)
+class LoginForm1Step:
     """Settings for login form page in 1 step where both username and password are displayed at once.
 
     url: Optional URL to login page.
@@ -50,22 +14,25 @@ class LoginForm1Step(_LoginFormInput, _LoginForm1Step, _LoginFormSharedDefaults)
 
     post_login_element_xpath: Upon successful login, optionally await this element to be loaded."""
 
-    def __init__(self,
-                 username_input_xpath: str,
-                 password_input_xpath: str,
-                 submit_button_xpath: str,
-                 url: str | None = None,
-                 post_login_wait_seconds: int | None = None,
-                 post_login_url: str | None = None,
-                 post_login_element_xpath: str | None = None
-                 ) -> None:
-        _LoginFormInput.__init__(self, XPath(username_input_xpath), XPath(password_input_xpath))
-        _LoginForm1Step.__init__(self, XPath(submit_button_xpath))
-        _LoginFormSharedDefaults.__init__(self, url, post_login_wait_seconds, post_login_url,
-                                          None if post_login_element_xpath is None else XPath(post_login_element_xpath))
+    username_input_xpath: str
+    password_input_xpath: str
+    submit_button_xpath: str  # Specific for this class.
+
+    # Shared defaults:
+    url: str | None = None
+    post_login_wait_seconds: int | None = None
+    post_login_url: str | None = None
+    post_login_element_xpath: str | None = None
+
+    def __post_init__(self) -> None:
+        self.username_input_xpath = XPath(self.username_input_xpath)
+        self.password_input_xpath = XPath(self.password_input_xpath)
+        self.submit_button_xpath = XPath(self.submit_button_xpath)
+        self.post_login_element_xpath = helper.xpath.mediate_default_none(self.post_login_element_xpath)
 
 
-class LoginForm2Steps(_LoginFormInput, _LoginForm2Steps, _LoginFormSharedDefaults):
+@dataclass(kw_only=True, slots=True)
+class LoginForm2Steps:
     """Settings for login form page in 2 steps where username is prompted first, and once confirmed, then the password can be entered.
 
     url: Optional URL to login page.
@@ -74,17 +41,20 @@ class LoginForm2Steps(_LoginFormInput, _LoginForm2Steps, _LoginFormSharedDefault
 
     post_login_element_xpath: Upon successful login, optionally await this element to be loaded."""
 
-    def __init__(self,
-                 username_input_xpath: str,
-                 username_submit_button_xpath: str,
-                 password_input_xpath: str,
-                 password_submit_button_xpath: str,
-                 url: str | None = None,
-                 post_login_wait_seconds: int | None = None,
-                 post_login_url: str | None = None,
-                 post_login_element_xpath: str | None = None
-                 ) -> None:
-        _LoginFormInput.__init__(self, XPath(username_input_xpath), XPath(password_input_xpath))
-        _LoginForm2Steps.__init__(self, XPath(username_submit_button_xpath), XPath(password_submit_button_xpath))
-        _LoginFormSharedDefaults.__init__(self, url, post_login_wait_seconds, post_login_url,
-                                          None if post_login_element_xpath is None else XPath(post_login_element_xpath))
+    username_input_xpath: str
+    username_submit_button_xpath: str  # Specific for this class.
+    password_input_xpath: str
+    password_submit_button_xpath: str  # Specific for this class.
+
+    # Shared defaults:
+    url: str | None = None
+    post_login_wait_seconds: int | None = None
+    post_login_url: str | None = None
+    post_login_element_xpath: str | None = None
+
+    def __post_init__(self) -> None:
+        self.username_input_xpath = XPath(self.username_input_xpath)
+        self.username_submit_button_xpath = XPath(self.username_submit_button_xpath)
+        self.password_input_xpath = XPath(self.password_input_xpath)
+        self.password_submit_button_xpath = XPath(self.password_submit_button_xpath)
+        self.post_login_element_xpath = helper.xpath.mediate_default_none(self.post_login_element_xpath)
