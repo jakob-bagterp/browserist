@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from ..type.xpath import XPath
+
 
 @dataclass
 class CookieBannerSettings:
@@ -20,3 +22,7 @@ class CookieBannerSettings:
     has_loaded_wait_seconds: int | None = None
     has_loaded_xpath: str | None = None
     has_disappeared_wait_seconds: int | None = None
+
+    def __setattr__(self, name: str, value: str) -> None:
+        if name in {"button_xpath", "has_loaded_xpath"}:
+            self.__dict__[name] = XPath(value)
