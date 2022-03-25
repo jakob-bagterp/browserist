@@ -1,10 +1,10 @@
 from dataclasses import dataclass
-from typing import Any
 
 from ... import helper
+from ...model.type.xpath import XPath
 
 
-@dataclass
+@dataclass(kw_only=True, slots=True)
 class CookieBannerSettings:
     """Object with data needed to accept or decline cookies from a banner.
 
@@ -24,5 +24,6 @@ class CookieBannerSettings:
     has_loaded_xpath: str | None = None
     has_disappeared_wait_seconds: int | None = None
 
-    def __setattr__(self, name: str, value: Any) -> None:
-        self = helper.xpath.set_attributes(self, name, value, ["button_xpath", "has_loaded_xpath"])
+    def __post_init__(self) -> None:
+        self.button_xpath = XPath(self.button_xpath)
+        self.has_loaded_xpath = helper.xpath.mediate_default_none(self.has_loaded_xpath)
