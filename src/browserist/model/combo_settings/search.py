@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+from ... import helper
+
 
 @dataclass
 class SearchSettings:
@@ -20,3 +22,7 @@ class SearchSettings:
     url: str | None = None
     await_search_results_url: str | None = None
     await_search_results_xpath: str | None = None
+
+    def __setattr__(self, name: str, value: str) -> None:
+        self = helper.xpath.set_attributes(
+            self, name, value, ["input_xpath", "button_xpath", "await_search_results_xpath"])
