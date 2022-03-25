@@ -1,4 +1,4 @@
-import lxml.etree
+import lxml.etree  # type: ignore
 from lxml.etree import XPathSyntaxError as LXML_XPathSyntaxError
 
 from ..exception.xpath import XPathSyntaxError
