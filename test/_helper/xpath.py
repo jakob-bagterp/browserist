@@ -51,6 +51,13 @@ XPATH_TESTS_W3SCHOOLS_COM_IFRAME: list[XPathExpectation] = [
     XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
 ]
 
+VALID_XPATH_W3SCHOOLS_COM_INPUT = "//*[@id='search2']"
+
+XPATH_TESTS_W3SCHOOLS_COM_INPUT: list[XPathExpectation] = [
+    XPathExpectation(VALID_XPATH_W3SCHOOLS_COM_INPUT, does_not_raise()),
+    XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
+]
+
 
 def exception_handling_for_methods_with_2_arguments(
     browser: Browser,
