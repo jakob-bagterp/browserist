@@ -12,7 +12,7 @@ from browserist.model.type.callable import (BrowserMethodWith2ArgumentsCallable,
 from . import internal_url
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class XPathExpectation:
     xpath: str
     expactation: Any
