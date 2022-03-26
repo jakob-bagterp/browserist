@@ -36,6 +36,14 @@ XPATH_TESTS_EXAMPLE_COM: list[XPathExpectation] = [
     XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
 ]
 
+# Compatible with W3Schools.com so it can be used with wait methods without timing out:
+VALID_XPATH_W3SCHOOLS_COM = "//*[@id='bgcodeimg2']/div/img"
+
+XPATH_TESTS_W3SCHOOLS_COM: list[XPathExpectation] = [
+    XPathExpectation(VALID_XPATH_W3SCHOOLS_COM, does_not_raise()),
+    XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
+]
+
 
 def exception_handling_for_methods_with_2_arguments(
     browser: Browser,
