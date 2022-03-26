@@ -44,7 +44,7 @@ class Browser:
         self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver, settings)
         self.combo: ComboDriverMethods = ComboDriverMethods(self._browser_driver, settings)
         self.get: GetDriverMethods = GetDriverMethods(self._browser_driver, settings)
-        self.switch_to: IframeDriverMethods = IframeDriverMethods(self._browser_driver, settings)
+        self.iframe: IframeDriverMethods = IframeDriverMethods(self._browser_driver, settings)
         self.input: InputDriverMethods = InputDriverMethods(self._browser_driver, settings)
         self.mouse: MouseDriverMethods = MouseDriverMethods(self._browser_driver, settings)
         self.open: OpenDriverMethods = OpenDriverMethods(self._browser_driver, settings)
