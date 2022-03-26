@@ -39,10 +39,12 @@ XPATH_TESTS_EXAMPLE_COM: list[XPathExpectation] = [
 
 def exception_handling_for_methods_with_2_arguments(
     browser: Browser,
-    method: BrowserMethodWith2ArgumentsCallable
+    method: BrowserMethodWith2ArgumentsCallable,
+    url: str = internal_url.EXAMPLE_COM,
+    tests: list[XPathExpectation] = XPATH_TESTS
 ) -> None:
-    browser.open.url(internal_url.EXAMPLE_COM)
-    for test in XPATH_TESTS:
+    browser.open.url(url)
+    for test in tests:
         with test.expactation:
             _ = method(browser.driver, test.xpath) is not None
 
@@ -50,9 +52,11 @@ def exception_handling_for_methods_with_2_arguments(
 def exception_handling_for_methods_with_3_arguments_or_more(
     browser: Browser,
     method: BrowserMethodWith3ArgumentsCallable | BrowserMethodWith4ArgumentsCallable,
-    *args: Any
+    *args: Any,
+    url: str = internal_url.EXAMPLE_COM,
+    tests: list[XPathExpectation] = XPATH_TESTS_EXAMPLE_COM
 ) -> None:
-    browser.open.url(internal_url.EXAMPLE_COM)
-    for test in XPATH_TESTS_EXAMPLE_COM:
+    browser.open.url(url)
+    for test in tests:
         with test.expactation:
             _ = method(browser.driver, test.xpath, *args) is not None
