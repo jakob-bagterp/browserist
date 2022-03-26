@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-@dataclass(frozen=True)
+@dataclass(frozen=True, slots=True)
 class WindowHandle:
     """Object that let's the user define a humanised name for a tab/window while the actual ID is handled by the system in the background."""
 
