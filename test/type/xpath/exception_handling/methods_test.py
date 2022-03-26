@@ -5,8 +5,6 @@ from _helper import internal_url
 from _helper.xpath import XPATH_TESTS_EXAMPLE_COM
 
 from browserist import Browser
-from browserist.browser.get.attribute.value import get_attribute_value
-from browserist.browser.get.attribute.value_from_multiple_elements import get_attribute_value_from_multiple_elements
 from browserist.browser.get.text.from_element import get_text_from_element
 from browserist.browser.get.text.from_multiple_elements import get_text_from_multiple_elements
 from browserist.constant import timeout
@@ -14,8 +12,6 @@ from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 
 
 @pytest.mark.parametrize("method, arg3", [
-    (get_attribute_value, "href"),
-    (get_attribute_value_from_multiple_elements, "href"),
     (get_text_from_element, timeout.VERY_SHORT),
     (get_text_from_multiple_elements, timeout.VERY_SHORT),
 ])
