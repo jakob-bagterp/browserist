@@ -1,6 +1,6 @@
 import pytest
 from _helper import internal_url
-from _helper.xpath import XPATH_TESTS_W3SCHOOLS_COM, exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath import XPATH_TESTS_W3SCHOOLS_COM_IMAGE, exception_handling_for_methods_with_3_arguments_or_more
 
 from browserist import Browser
 from browserist.browser.get.url.from_image import get_url_from_image
@@ -33,4 +33,4 @@ def test_xpath_exception_handling_for_get_url_methods_2(
     timeout: int
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout, url=internal_url.W3SCHOOLS_COM, tests=XPATH_TESTS_W3SCHOOLS_COM)
+        browser_default_headless, method, timeout, url=internal_url.W3SCHOOLS_COM, tests=XPATH_TESTS_W3SCHOOLS_COM_IMAGE)
