@@ -9,12 +9,12 @@ class IframeDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def iframe(self, xpath: str) -> None:
+    def switch_to(self, xpath: str) -> None:
         """Switch to iframe."""
 
         switch_to_iframe(self._driver, xpath)
 
-    def original_page(self) -> None:
+    def switch_to_original_page(self) -> None:
         """After switch to iframe, use this to go back to the original page."""
 
         switch_to_original_page(self._driver)
