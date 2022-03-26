@@ -16,6 +16,9 @@ from browserist.browser.click.button import click_button
 from browserist.browser.click.button_if_contains_text import click_button_if_contains_text
 from browserist.browser.get.attribute.value import get_attribute_value
 from browserist.browser.get.attribute.value_from_multiple_elements import get_attribute_value_from_multiple_elements
+from browserist.browser.get.text.from_element import get_text_from_element
+from browserist.browser.get.text.from_multiple_elements import get_text_from_multiple_elements
+from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable, BrowserMethodWith3ArgumentsCallable
 
 
@@ -45,6 +48,8 @@ def test_xpath_exception_handling_for_methods_with_2_arguments(
     (click_button_if_contains_text, "More information..."),
     (get_attribute_value, "href"),
     (get_attribute_value_from_multiple_elements, "href"),
+    (get_text_from_element, timeout.VERY_SHORT),
+    (get_text_from_multiple_elements, timeout.VERY_SHORT),
 ])
 def test_xpath_exception_handling_for_methods_with_3_arguments(
     method: BrowserMethodWith3ArgumentsCallable,
