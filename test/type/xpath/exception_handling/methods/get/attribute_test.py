@@ -11,7 +11,7 @@ from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
     (get_attribute_value, "href"),
     (get_attribute_value_from_multiple_elements, "href"),
 ])
-def test_xpath_exception_handling_for_check_if_methods_2(
+def test_xpath_exception_handling_for_get_attribute_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
     attribute: str
