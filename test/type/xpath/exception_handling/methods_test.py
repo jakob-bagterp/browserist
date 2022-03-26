@@ -30,7 +30,7 @@ def test_xpath_exception_handling_for_methods_with_2_arguments(
 ) -> None:
 
     browser = browser_default_headless
-    browser.open.url_if_not_current(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.EXAMPLE_COM)
     for test in XPATH_TESTS:
         with test.expactation:
             _ = method(browser.driver, test.xpath) is not None
