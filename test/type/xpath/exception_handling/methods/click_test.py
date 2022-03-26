@@ -11,7 +11,7 @@ from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable, 
 @pytest.mark.parametrize("method", [
     click_button,
 ])
-def test_xpath_exception_handling_for_check_if_methods_1(
+def test_xpath_exception_handling_for_click_methods_1(
     browser_default_headless: Browser,
     method: BrowserMethodWith2ArgumentsCallable
 ) -> None:
@@ -21,7 +21,7 @@ def test_xpath_exception_handling_for_check_if_methods_1(
 @pytest.mark.parametrize("method, text", [
     (click_button_if_contains_text, "More information..."),
 ])
-def test_xpath_exception_handling_for_check_if_methods_2(
+def test_xpath_exception_handling_for_click_methods_2(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
     text: str
