@@ -8,7 +8,7 @@
 > 1. The belief that web browsers account for differences in websites or web applications in all of their ability and that a particular web browser is superior to others.
 > 2. Discrimination or prejudice based on web browser.
 
-Despite the [urban definition](https://www.urbandictionary.com/define.php?term=browserist), Browserist is a Python extension of the Selenium web driver than makes it even easier to use different browsers for testing and automation.
+Despite the [urban definition](https://www.urbandictionary.com/define.php?term=browserist), Browserist is a Python extension of the Selenium web driver that makes it even easier to use different browsers for testing and automation.
 
 Main features of Browserist:
 
@@ -16,7 +16,7 @@ Main features of Browserist:
 * Simple syntax
 * Hassle-free setup that works across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 * Extended library of browser automation functions and tools without elaborate code
-* Supports type hints and other capabilites of Python 3.10 that makes development faster
+* Supports type hints and other capabilites of Python 3.10 that makes development more efficient
 
 ## Prerequisites
 * Python 3.10 or higher
