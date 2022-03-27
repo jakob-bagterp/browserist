@@ -1,6 +1,6 @@
 import pytest
 from _helper.xpath.method import exception_handling_for_methods_with_3_arguments_or_more
-from _helper.xpath.test_set import XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
+from _helper.xpath.test_set import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
 
 from browserist import Browser
 from browserist.browser.wait.for_element import wait_for_element
@@ -37,4 +37,4 @@ def test_xpath_exception_handling_for_wait_methods_2(
     text: str
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, text, timeout.VERY_SHORT)
+        browser_default_headless, method, text, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_EXAMPLE_COM_LINK)
