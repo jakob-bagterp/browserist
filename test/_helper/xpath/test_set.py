@@ -1,11 +1,10 @@
 from contextlib import nullcontext as does_not_raise
 
 import pytest
+from _helper import internal_url
+from _helper.xpath.model import XPathExpectation, XPathTestSet
 
 from browserist.exception.xpath import XPathSyntaxError
-
-from .. import internal_url
-from .model import XPathExpectation, XPathTestSet
 
 # Should be compatible with general web pages so it can be used with wait methods without timing out:
 VALID_XPATH = "/html/body"
