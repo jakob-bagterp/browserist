@@ -5,7 +5,6 @@ from _helper.xpath.test_set import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_S
 from browserist import Browser
 from browserist.browser.wait.for_element import wait_for_element
 from browserist.browser.wait.until_element_disappears import wait_until_element_disappears
-from browserist.browser.wait.until_images_have_loaded import wait_until_images_have_loaded
 from browserist.browser.wait.until_text_changes import wait_until_text_changes
 from browserist.browser.wait.until_text_contains import wait_until_text_contains
 from browserist.browser.wait.until_text_is import wait_until_text_is
@@ -16,7 +15,6 @@ from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable, 
 @pytest.mark.parametrize("method", [
     wait_for_element,
     wait_until_element_disappears,
-    wait_until_images_have_loaded,
 ])
 def test_xpath_exception_handling_for_wait_methods_1(
     browser_default_headless: Browser,
