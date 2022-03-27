@@ -4,7 +4,11 @@
 [![Test](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml)
 
 # 👩‍💻 Browserist Extension for Selenium 👨‍💻
-Extend the Python version of the Selenium web driver with Browserist and make your browser automation even easier.
+> **browserist**
+> 1. The belief that web browsers account for differences in websites or web applications in all of their ability and that a particular web browser is superior to others.
+> 2. Discrimination or prejudice based on web browser.
+
+Despite the [definition](https://www.urbandictionary.com/define.php?term=browserist), Browserist makes it even easier to use different browsers for testing and automation than the standard version Python version of the Selenium web driver.
 
 Main features of Browserist:
 
