@@ -16,7 +16,7 @@ def test_open_new_window(url1: str, url2: str) -> None:
         window_handle_1 = browser.window.handle.current()
         number_of_window_handles_1 = browser.window.handle.count(selenium=True)
 
-        browser.window.open.new(url2)
+        browser.window.open.new_window(url2)
         url_2 = browser.get.url.current()
         window_handle_2 = browser.window.handle.current()
         number_of_window_handles_2 = browser.window.handle.count(selenium=True)

@@ -6,8 +6,8 @@ from browserist import Browser
 
 def test_switch_to_window() -> None:
     with Browser(default.HEADLESS) as browser:
-        browser.window.open.new()
-        browser.window.open.new()
+        browser.window.open.new_window()
+        browser.window.open.new_window()
 
         window_handle_ids = browser.window.handle.all()
         assert len(window_handle_ids) == 3
@@ -19,7 +19,7 @@ def test_switch_to_window() -> None:
 
 def test_switch_to_window_by_name() -> None:
     with Browser(default.HEADLESS) as browser:
-        browser.window.open.new(name=WINDOW_HANDLE_2_NAME)
+        browser.window.open.new_window(name=WINDOW_HANDLE_2_NAME)
         assert browser.window._controller.count() == 2
         window_handle_2_id = browser.window.handle.current()
         browser.window.switch_to(WINDOW_HANDLE_1_NAME)

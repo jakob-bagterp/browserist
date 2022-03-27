@@ -7,7 +7,7 @@ with Browser() as browser:
     time.sleep(1)
     browser.window.open.new_tab("http://example.com")
     time.sleep(1)
-    browser.window.open.new()
+    browser.window.open.new_window()
     time.sleep(1)
     browser.window.open.new("http://example.com")
     window_handles = browser.window.handle.all()
