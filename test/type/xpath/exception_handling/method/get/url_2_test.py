@@ -1,6 +1,6 @@
 import pytest
 from _helper.xpath.method import exception_handling_for_methods_with_3_arguments_or_more
-from _helper.xpath.test_set import XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
+from _helper.xpath.test_set import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
 
 from browserist import Browser
 from browserist.browser.get.url.from_image import get_url_from_image
@@ -20,7 +20,8 @@ def test_xpath_exception_handling_for_get_url_methods_1(
     method: BrowserMethodWith3ArgumentsCallable,
     timeout: int
 ) -> None:
-    exception_handling_for_methods_with_3_arguments_or_more(browser_default_headless, method, timeout)
+    exception_handling_for_methods_with_3_arguments_or_more(
+        browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_EXAMPLE_COM_LINK)
 
 
 @pytest.mark.parametrize("method, timeout", [
