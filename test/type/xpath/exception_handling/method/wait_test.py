@@ -1,6 +1,6 @@
 import pytest
-from _helper import internal_url
-from _helper.xpath import XPATH_TESTS_W3SCHOOLS_COM_IMAGE, exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath.method import exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath.test_set import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
 
 from browserist import Browser
 from browserist.browser.wait.for_element import wait_for_element
@@ -23,7 +23,7 @@ def test_xpath_exception_handling_for_wait_methods_1(
     method: BrowserMethodWith3ArgumentsCallable
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout.VERY_SHORT, url=internal_url.W3SCHOOLS_COM, tests=XPATH_TESTS_W3SCHOOLS_COM_IMAGE)
+        browser_default_headless, method, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE)
 
 
 @pytest.mark.parametrize("method, text", [
@@ -37,4 +37,4 @@ def test_xpath_exception_handling_for_wait_methods_2(
     text: str
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, text, timeout.VERY_SHORT)
+        browser_default_headless, method, text, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_EXAMPLE_COM_LINK)

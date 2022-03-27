@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 from _helper import internal_url
-from _helper.xpath import INVALID_XPATH, VALID_XPATH
+from _helper.xpath.test_set import INVALID_XPATH, VALID_XPATH
 
 from browserist.exception.xpath import XPathSyntaxError
 from browserist.model.combo_settings.search import SearchSettings

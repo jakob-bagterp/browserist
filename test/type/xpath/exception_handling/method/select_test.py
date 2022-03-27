@@ -1,6 +1,6 @@
 import pytest
-from _helper import internal_url
-from _helper.xpath import XPATH_TESTS_W3SCHOOLS_COM_INPUT, exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath.method import exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath.test_set import XPATH_TEST_SET_W3SCHOOLS_COM_INPUT
 
 from browserist import Browser
 from browserist.browser.select.input_field import select_input_field
@@ -16,4 +16,4 @@ def test_xpath_exception_handling_for_select_methods(
     method: BrowserMethodWith3ArgumentsCallable,
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout.VERY_SHORT, url=internal_url.W3SCHOOLS_COM, tests=XPATH_TESTS_W3SCHOOLS_COM_INPUT)
+        browser_default_headless, method, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_W3SCHOOLS_COM_INPUT)
