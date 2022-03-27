@@ -7,10 +7,12 @@ from ... import constant
 from ...constant import timeout
 from ...exception.element import NoElementFoundException
 from ...exception.timeout import WaitForElementTimeoutException
+from ...model.type.xpath import XPath
 from ..wait.for_element import wait_for_element
 
 
 def scroll_into_view(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    xpath = XPath(xpath)
     try:
         wait_for_element(driver, xpath, timeout)
         element: object = driver.find_element(By.XPATH, xpath)  # type: ignore
