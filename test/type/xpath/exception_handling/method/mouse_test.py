@@ -13,5 +13,4 @@ def test_xpath_exception_handling_for_mouse_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith2ArgumentsCallable,
 ) -> None:
-    exception_handling_for_methods_with_2_arguments(
-        browser_default_headless, method)
+    exception_handling_for_methods_with_2_arguments(browser_default_headless, method)
