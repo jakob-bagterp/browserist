@@ -10,7 +10,7 @@ from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 @pytest.mark.parametrize("method", [
     tool_count_elements,
 ])
-def test_xpath_exception_handling_for_select_methods(
+def test_xpath_exception_handling_for_tool_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
 ) -> None:
