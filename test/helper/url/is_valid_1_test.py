@@ -27,7 +27,7 @@ from browserist import helper
     ("http://foo.com/blah_blah_(wikipedia)_(again)", True),
     ("http://userid:password@example.com:8080", True),
 ])
-def test_tool_is_url_valid(url: str, expected: bool) -> None:
+def test_helper_is_valid_url(url: str, expected: bool) -> None:
     """References for URL regex pattern and other methods of validating URLs:
 
     https://www.regextester.com/94502
