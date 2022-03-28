@@ -1,10 +1,10 @@
+from ... import helper
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .count_elements import tool_count_elements
 from .is_input_valid import tool_is_input_valid
-from .is_url_valid import tool_is_url_valid
 
 
 class ToolDriverMethods(DriverMethods):
@@ -19,7 +19,7 @@ class ToolDriverMethods(DriverMethods):
     def is_url_valid(self, url: str) -> bool:
         """Check if input is a valid URL."""
 
-        return tool_is_url_valid(url)
+        return helper.url.is_valid(url)
 
     def count_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> int:
         """Count number of elements."""
