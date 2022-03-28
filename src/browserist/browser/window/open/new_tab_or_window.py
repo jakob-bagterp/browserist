@@ -1,3 +1,4 @@
+from .... import helper
 from ....model.window.controller import WindowHandleController
 from ....model.window.tab_or_window import TabOrWindow
 from ...open.url import open_url
@@ -11,6 +12,7 @@ def open_new_tab_or_window(driver: object,
                            tab_or_window: TabOrWindow,
                            url: str | None = None,
                            name: str | None = None) -> None:
+    url = helper.url.mediate_conversion_to_tiny_type_or_none(url)
     current_number_of_window_handles = count_window_handles(driver, controller, selenium=True)
     driver.switch_to.new_window(tab_or_window.value)  # type: ignore
     wait_until_number_of_window_handles_is(driver, current_number_of_window_handles + 1)
