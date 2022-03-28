@@ -1,3 +1,6 @@
+from urllib.parse import urlparse
+
+
 def ensure_trailing_slash(url: str) -> str:
     """When comparing URLs, e.g. "http://example.com/" and "http://example.com", use this method to normalise the comparison."""
 
@@ -8,6 +11,14 @@ def ensure_trailing_slash(url: str) -> str:
 
 def is_https(url: str) -> bool:
     return url.startswith("https:")
+
+
+def is_valid(url: str) -> bool:
+    try:
+        result = urlparse(url)
+        return all([result.scheme, result.netloc])
+    except (ValueError, Exception):
+        return False
 
 
 def mediate_https(url1: str, url2: str) -> tuple[str, str]:
