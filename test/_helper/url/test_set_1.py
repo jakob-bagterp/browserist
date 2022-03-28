@@ -5,7 +5,7 @@ from _helper.url.model_1 import URLExpectation, URLTestSet
 
 from browserist.exception.url import URLSyntaxError
 
-VALID_URL = "https://www.amazon.com/"
+VALID_URL = "https://example.com/"
 
 INVALID_URL = "https:/invalid-url"
 
