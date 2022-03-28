@@ -4,7 +4,7 @@ import pytest
 from _config.combo.cookie_banner import JYLLANDSPOSTEN_ACCEPT_COOKIES
 from _config.combo.log_in import (AMAZON_LOGIN_CREDENTIALS, AMAZON_LOGIN_FORM, JYLLANDSPOSTEN_LOGIN_CREDENTIALS,
                                   JYLLANDSPOSTEN_LOGIN_FORM)
-from _helper import external_url
+from _helper.url import external_url
 
 from browserist import Browser, CookieBannerSettings, LoginCredentials, LoginForm1Step, LoginForm2Steps
 

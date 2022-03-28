@@ -1,4 +1,4 @@
-from _helper.external_url import GOOGLE_COM
+from _helper.url.external_url import GOOGLE_COM
 from _helper.url.method_1 import exception_handling_for_methods_with_3_arguments_or_more
 from _helper.url.test_set_1 import VALID_URL
 

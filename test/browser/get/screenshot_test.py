@@ -1,4 +1,5 @@
-from _helper import internal_url, screenshot
+from _helper import screenshot
+from _helper.url import internal_url
 from py.path import local
 
 from browserist import Browser
