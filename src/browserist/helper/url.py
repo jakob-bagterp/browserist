@@ -1,5 +1,7 @@
 from urllib.parse import urlparse
 
+from ..model.type.url import URL
+
 
 def ensure_trailing_slash(url: str) -> str:
     """When comparing URLs, e.g. "http://example.com/" and "http://example.com", use this method to normalise the comparison."""
@@ -19,6 +21,10 @@ def is_valid(url: str) -> bool:
         return all([result.scheme, result.netloc])
     except (ValueError, Exception):
         return False
+
+
+def mediate_default_none(value: str | None) -> URL | None:
+    return None if value is None else URL(value)
 
 
 def mediate_https(url1: str, url2: str) -> tuple[str, str]:
