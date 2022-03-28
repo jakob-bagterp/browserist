@@ -2,7 +2,7 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
-from _helper import internal_url
+from _helper.url.test_set_1 import VALID_URL
 from _helper.xpath.test_set_2 import INVALID_XPATH, VALID_XPATH
 
 from browserist.constant import timeout
@@ -20,7 +20,7 @@ def test_xpath_exception_handling_of_cookie_bannger_settings(xpath1: str, xpath2
     with expectation:
         _ = CookieBannerSettings(
             button_xpath=xpath1,
-            url=internal_url.EXAMPLE_COM,
+            url=VALID_URL,
             has_loaded_xpath=xpath2,
             has_disappeared_wait_seconds=timeout.VERY_SHORT
         ) is not None

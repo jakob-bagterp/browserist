@@ -2,7 +2,7 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
-from _helper import internal_url
+from _helper.url.test_set_1 import VALID_URL
 from _helper.xpath.test_set_2 import INVALID_XPATH, VALID_XPATH
 
 from browserist.exception.xpath import XPathSyntaxError
@@ -24,7 +24,7 @@ def test_xpath_exception_handling_of_search_settings(xpath1: str, xpath2: str, x
         _ = SearchSettings(
             input_xpath=xpath1,
             button_xpath=xpath2,
-            url=internal_url.EXAMPLE_COM,
-            await_search_results_url=internal_url.EXAMPLE_COM,
+            url=VALID_URL,
+            await_search_results_url=VALID_URL,
             await_search_results_xpath=xpath3
         ) is not None
