@@ -28,6 +28,8 @@ class LoginForm1Step:
         self.username_input_xpath = XPath(self.username_input_xpath)
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.submit_button_xpath = XPath(self.submit_button_xpath)
+        self.url = helper.url.mediate_default_none(self.url)
+        self.post_login_url = helper.url.mediate_default_none(self.post_login_url)
         self.post_login_element_xpath = helper.xpath.mediate_default_none(self.post_login_element_xpath)
 
 
@@ -57,4 +59,6 @@ class LoginForm2Steps:
         self.username_submit_button_xpath = XPath(self.username_submit_button_xpath)
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.password_submit_button_xpath = XPath(self.password_submit_button_xpath)
+        self.url = helper.url.mediate_default_none(self.url)
+        self.post_login_url = helper.url.mediate_default_none(self.post_login_url)
         self.post_login_element_xpath = helper.xpath.mediate_default_none(self.post_login_element_xpath)

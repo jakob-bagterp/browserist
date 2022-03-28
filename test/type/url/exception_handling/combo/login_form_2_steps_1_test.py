@@ -1,0 +1,30 @@
+from contextlib import nullcontext as does_not_raise
+from typing import Any
+
+import pytest
+from _helper.url.test_set_1 import INVALID_URL, VALID_URL
+from _helper.xpath.test_set_2 import VALID_XPATH
+
+from browserist.constant import timeout
+from browserist.exception.url import URLSyntaxError
+from browserist.model.combo_settings.login_form import LoginForm2Steps
+
+
+@pytest.mark.parametrize("url1, url2, expectation", [
+    (VALID_URL, VALID_URL, does_not_raise()),
+    (INVALID_URL, VALID_URL, pytest.raises(URLSyntaxError)),
+    (VALID_URL, INVALID_URL, pytest.raises(URLSyntaxError)),
+    (INVALID_URL, INVALID_URL, pytest.raises(URLSyntaxError)),
+])
+def test_url_exception_handling_of_login_form_2_steps(url1: str, url2: str, expectation: Any) -> None:
+    with expectation:
+        _ = LoginForm2Steps(
+            username_input_xpath=VALID_XPATH,
+            username_submit_button_xpath=VALID_XPATH,
+            password_input_xpath=VALID_XPATH,
+            password_submit_button_xpath=VALID_XPATH,
+            url=url1,
+            post_login_wait_seconds=timeout.VERY_SHORT,
+            post_login_url=url2,
+            post_login_element_xpath=VALID_XPATH
+        ) is not None
