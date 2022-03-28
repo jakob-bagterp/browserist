@@ -1,6 +1,6 @@
 from typing import Any
 
-from _helper.xpath.model import XPathTestSet
+from _helper.xpath.model_2 import XPathTestSet
 from _helper.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_DEFAULT
 
 from browserist import Browser

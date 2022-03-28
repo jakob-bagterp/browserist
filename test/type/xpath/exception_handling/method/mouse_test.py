@@ -1,5 +1,5 @@
 import pytest
-from _helper.xpath.method import exception_handling_for_methods_with_2_arguments
+from _helper.xpath.method_2 import exception_handling_for_methods_with_2_arguments
 
 from browserist import Browser
 from browserist.browser.mouse.hover import mouse_hover

@@ -1,5 +1,5 @@
 import pytest
-from _helper.xpath.method import exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath.method_2 import exception_handling_for_methods_with_3_arguments_or_more
 
 from browserist import Browser
 from browserist.browser.get.text.from_element import get_text_from_element
