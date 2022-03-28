@@ -11,7 +11,7 @@ from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable
     open_url,
     open_url_if_not_current,
 ])
-def test_xpath_exception_handling_for_open_url_methods(
+def test_url_exception_handling_for_open_url_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith2ArgumentsCallable
 ) -> None:
