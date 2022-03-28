@@ -1,6 +1,6 @@
-from browserist import Browser
+from _helper.url import internal_url
 
-from .._helper import internal_url
+from browserist import Browser
 
 with Browser() as browser:
     browser.open.url(internal_url.W3SCHOOLS_COM)

@@ -9,7 +9,7 @@ with Browser() as browser:
     time.sleep(1)
     browser.window.open.new_window()
     time.sleep(1)
-    browser.window.open.new("http://example.com")
+    browser.window.open.new_tab("http://example.com")
     window_handles = browser.window.handle.all()
     print(browser.window.handle.count(), window_handles)
     print(browser.window.handle.all())
