@@ -1,9 +1,13 @@
 import pytest
+from _helper.url.test_set_1 import INVALID_URL, VALID_URL
 
 from browserist import helper
 
 
 @pytest.mark.parametrize("url, expected", [
+    (VALID_URL, True),
+    (INVALID_URL, False),
+
     ("http://www.example.com", True),
     ("https://www.example.com", True),
     ("http://blog.example.com", True),
