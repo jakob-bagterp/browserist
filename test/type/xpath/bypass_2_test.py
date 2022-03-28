@@ -1,4 +1,4 @@
-from _helper.xpath.test_set import VALID_XPATH
+from _helper.xpath.test_set_2 import VALID_XPATH
 
 from browserist.model.type.xpath import XPath
 

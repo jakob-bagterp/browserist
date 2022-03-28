@@ -1,6 +1,6 @@
 import pytest
-from _helper.xpath.method import exception_handling_for_methods_with_3_arguments_or_more
-from _helper.xpath.test_set import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
+from _helper.xpath.method_2 import exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
 
 from browserist import Browser
 from browserist.browser.get.url.from_image import get_url_from_image

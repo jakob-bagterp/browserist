@@ -1,7 +1,7 @@
 import time
 
 import pytest
-from _helper import external_url, internal_url
+from _helper.url import external_url, internal_url
 
 from browserist import Browser
 

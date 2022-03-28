@@ -1,5 +1,5 @@
 import pytest
-from _helper import internal_url
+from _helper.url import internal_url
 
 from browserist import Browser
 from browserist.helper.directory import update_path_format_if_windows

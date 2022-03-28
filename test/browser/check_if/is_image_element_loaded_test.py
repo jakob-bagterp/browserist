@@ -1,5 +1,5 @@
 import pytest
-from _helper import internal_url
+from _helper.url import internal_url
 from selenium.webdriver.common.by import By
 
 from browserist import Browser

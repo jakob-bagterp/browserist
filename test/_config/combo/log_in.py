@@ -1,5 +1,5 @@
 import keyring
-from _helper import external_url
+from _helper.url import external_url
 
 from browserist import LoginCredentials, LoginForm1Step, LoginForm2Steps
 

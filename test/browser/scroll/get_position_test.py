@@ -1,4 +1,4 @@
-from _helper import internal_url
+from _helper.url import internal_url
 
 from browserist import Browser
 

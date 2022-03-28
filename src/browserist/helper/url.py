@@ -1,3 +1,8 @@
+from urllib.parse import urlparse
+
+from ..model.type.url import URL
+
+
 def ensure_trailing_slash(url: str) -> str:
     """When comparing URLs, e.g. "http://example.com/" and "http://example.com", use this method to normalise the comparison."""
 
@@ -8,6 +13,22 @@ def ensure_trailing_slash(url: str) -> str:
 
 def is_https(url: str) -> bool:
     return url.startswith("https:")
+
+
+def is_valid(url: str) -> bool:
+    if url.startswith("file://"):  # Accept files from local machine as valid URLs and as an exception.
+        return True
+    try:
+        result = urlparse(url)
+        return all([result.scheme, result.netloc])
+    except (ValueError, Exception):
+        return False
+
+
+def mediate_conversion_to_tiny_type_or_none(value: str | None) -> URL | None:
+    """Mediate conversion of string to URL tiny type or keep None type."""
+
+    return None if value is None else URL(value)
 
 
 def mediate_https(url1: str, url2: str) -> tuple[str, str]:

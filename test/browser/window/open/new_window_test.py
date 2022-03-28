@@ -1,6 +1,6 @@
 import pytest
 from _config.browser_settings import default
-from _helper import internal_url
+from _helper.url import internal_url
 
 from browserist import Browser
 

@@ -1,6 +1,6 @@
 import pytest
-from _helper.xpath.method import exception_handling_for_methods_with_3_arguments_or_more
-from _helper.xpath.test_set import XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
+from _helper.xpath.method_2 import exception_handling_for_methods_with_3_arguments_or_more
+from _helper.xpath.test_set_2 import XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
 
 from browserist import Browser
 from browserist.browser.wait.until_images_have_loaded import wait_until_images_have_loaded

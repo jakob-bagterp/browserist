@@ -1,10 +1,13 @@
 import pytest
-from _helper import internal_url
+from _helper.url.test_set_1 import INVALID_URL, VALID_URL
 
-from browserist import Browser
+from browserist import helper
 
 
 @pytest.mark.parametrize("url, expected", [
+    (VALID_URL, True),
+    (INVALID_URL, False),
+
     ("http://www.example.com", True),
     ("https://www.example.com", True),
     ("http://blog.example.com", True),
@@ -28,7 +31,7 @@ from browserist import Browser
     ("http://foo.com/blah_blah_(wikipedia)_(again)", True),
     ("http://userid:password@example.com:8080", True),
 ])
-def test_tool_is_url_valid(url: str, expected: bool, browser_default_headless: Browser) -> None:
+def test_helper_is_valid_url(url: str, expected: bool) -> None:
     """References for URL regex pattern and other methods of validating URLs:
 
     https://www.regextester.com/94502
@@ -37,6 +40,4 @@ def test_tool_is_url_valid(url: str, expected: bool, browser_default_headless: B
 
     https://stackoverflow.com/a/52455972/13115170"""
 
-    browser = browser_default_headless
-    browser.open.url(internal_url.EXAMPLE_COM)
-    assert browser.tool.is_url_valid(url) is expected
+    assert helper.url.is_valid(url) is expected

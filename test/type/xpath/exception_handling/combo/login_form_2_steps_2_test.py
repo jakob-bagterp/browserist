@@ -2,8 +2,8 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
-from _helper import internal_url
-from _helper.xpath.test_set import INVALID_XPATH, VALID_XPATH
+from _helper.url.test_set_1 import VALID_URL
+from _helper.xpath.test_set_2 import INVALID_XPATH, VALID_XPATH
 
 from browserist.constant import timeout
 from browserist.exception.xpath import XPathSyntaxError
@@ -25,8 +25,8 @@ def test_xpath_exception_handling_of_login_form_2_steps(xpath1: str, xpath2: str
             username_submit_button_xpath=xpath2,
             password_input_xpath=xpath3,
             password_submit_button_xpath=xpath4,
-            url=internal_url.EXAMPLE_COM,
+            url=VALID_URL,
             post_login_wait_seconds=timeout.VERY_SHORT,
-            post_login_url=internal_url.EXAMPLE_COM,
+            post_login_url=VALID_URL,
             post_login_element_xpath=xpath5
         ) is not None

@@ -26,4 +26,5 @@ class CookieBannerSettings:
 
     def __post_init__(self) -> None:
         self.button_xpath = XPath(self.button_xpath)
-        self.has_loaded_xpath = helper.xpath.mediate_default_none(self.has_loaded_xpath)
+        self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
+        self.has_loaded_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(self.has_loaded_xpath)
