@@ -27,4 +27,6 @@ class SearchSettings:
     def __post_init__(self) -> None:
         self.input_xpath = XPath(self.input_xpath)
         self.button_xpath = XPath(self.button_xpath)
+        self.url = helper.url.mediate_default_none(self.url)
+        self.await_search_results_url = helper.url.mediate_default_none(self.await_search_results_url)
         self.await_search_results_xpath = helper.xpath.mediate_default_none(self.await_search_results_xpath)
