@@ -1,6 +1,6 @@
 import pytest
 from _helper.xpath.method import exception_handling_for_methods_with_2_arguments
-from _helper.xpath.test_set import XPATH_TEST_SET_W3SCHOOLS_COM_IFRAME
+from _helper.xpath.test_set_2 import XPATH_TEST_SET_W3SCHOOLS_COM_IFRAME
 
 from browserist import Browser
 from browserist.browser.iframe.iframe import switch_to_iframe

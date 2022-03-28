@@ -1,5 +1,5 @@
 import pytest
-from _helper.xpath.test_set import INVALID_XPATH, VALID_XPATH
+from _helper.xpath.test_set_2 import INVALID_XPATH, VALID_XPATH
 
 from browserist import helper
 
