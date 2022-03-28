@@ -16,7 +16,7 @@ def is_https(url: str) -> bool:
 
 
 def is_valid(url: str) -> bool:
-    if url.startswith("file://"):  # Accept files from local machine as valid URLs and as an exception.
+    if url.startswith("file://"):  # Accept files from local machine as valid URL and as an exception.
         return True
     try:
         result = urlparse(url)
