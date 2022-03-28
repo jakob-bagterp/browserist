@@ -24,6 +24,8 @@ def is_valid(url: str) -> bool:
 
 
 def mediate_default_none(value: str | None) -> URL | None:
+    """Mediate conversion of string to URL tiny type or keep None type."""
+
     return None if value is None else URL(value)
 
 

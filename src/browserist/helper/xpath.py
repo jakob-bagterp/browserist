@@ -24,4 +24,6 @@ def set_attributes(self: Any, name: str, value: Any, attributes: list[str]) -> A
 
 
 def mediate_default_none(value: str | None) -> XPath | None:
+    """Mediate conversion of string to XPath tiny type or keep None type."""
+
     return None if value is None else XPath(value)
