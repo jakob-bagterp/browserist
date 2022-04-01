@@ -10,13 +10,11 @@ from browserist.exception.url import URLSyntaxError
 from browserist.model.combo_settings.login_form import LoginForm1Step
 
 
-@pytest.mark.parametrize("url1, url2, expectation", [
-    (VALID_URL, VALID_URL, does_not_raise()),
-    (INVALID_URL, VALID_URL, pytest.raises(URLSyntaxError)),
-    (VALID_URL, INVALID_URL, pytest.raises(URLSyntaxError)),
-    (INVALID_URL, INVALID_URL, pytest.raises(URLSyntaxError)),
+@pytest.mark.parametrize("url1, expectation", [
+    (VALID_URL, does_not_raise()),
+    (INVALID_URL, pytest.raises(URLSyntaxError)),
 ])
-def test_url_exception_handling_of_login_form_1_step(url1: str, url2: str, expectation: Any) -> None:
+def test_url_exception_handling_of_login_form_1_step(url1: str, expectation: Any) -> None:
     with expectation:
         _ = LoginForm1Step(
             username_input_xpath=VALID_XPATH,
@@ -24,6 +22,6 @@ def test_url_exception_handling_of_login_form_1_step(url1: str, url2: str, expec
             submit_button_xpath=VALID_XPATH,
             url=url1,
             post_login_wait_seconds=timeout.VERY_SHORT,
-            post_login_url_contains=url2,
+            post_login_url_contains=url1,
             post_login_element_xpath=VALID_XPATH
         ) is not None
