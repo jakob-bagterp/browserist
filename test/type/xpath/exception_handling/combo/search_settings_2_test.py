@@ -25,6 +25,6 @@ def test_xpath_exception_handling_of_search_settings(xpath1: str, xpath2: str, x
             input_xpath=xpath1,
             button_xpath=xpath2,
             url=VALID_URL,
-            await_search_results_url=VALID_URL,
+            await_search_results_url_contains=VALID_URL,
             await_search_results_xpath=xpath3
         ) is not None
