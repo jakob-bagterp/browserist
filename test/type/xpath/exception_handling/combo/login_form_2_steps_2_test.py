@@ -27,6 +27,6 @@ def test_xpath_exception_handling_of_login_form_2_steps(xpath1: str, xpath2: str
             password_submit_button_xpath=xpath4,
             url=VALID_URL,
             post_login_wait_seconds=timeout.VERY_SHORT,
-            post_login_url=VALID_URL,
+            post_login_url_contains=VALID_URL,
             post_login_element_xpath=xpath5
         ) is not None

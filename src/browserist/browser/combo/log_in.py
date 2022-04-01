@@ -33,8 +33,8 @@ def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form
 
         if login_form.post_login_wait_seconds is not None:
             time.sleep(login_form.post_login_wait_seconds)
-        if login_form.post_login_url is not None:
-            wait_until_url_contains(driver, login_form.post_login_url)
+        if login_form.post_login_url_contains is not None:
+            wait_until_url_contains(driver, login_form.post_login_url_contains)
         if login_form.post_login_element_xpath is not None:
             wait_for_element(driver, login_form.post_login_element_xpath)
     except Exception:
