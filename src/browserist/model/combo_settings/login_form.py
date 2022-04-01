@@ -10,7 +10,7 @@ class LoginForm1Step:
 
     url: Optional URL to login page.
 
-    post_login_url: Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
+    post_login_url_contains: Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
 
     post_login_element_xpath: Upon successful login, optionally await this element to be loaded."""
 
@@ -21,7 +21,7 @@ class LoginForm1Step:
     # Shared defaults:
     url: str | None = None
     post_login_wait_seconds: int | None = None
-    post_login_url: str | None = None
+    post_login_url_contains: str | None = None
     post_login_element_xpath: str | None = None
 
     def __post_init__(self) -> None:
@@ -29,7 +29,6 @@ class LoginForm1Step:
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.submit_button_xpath = XPath(self.submit_button_xpath)
         self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
-        self.post_login_url = helper.url.mediate_conversion_to_tiny_type_or_none(self.post_login_url)
         self.post_login_element_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(
             self.post_login_element_xpath)
 
@@ -40,7 +39,7 @@ class LoginForm2Steps:
 
     url: Optional URL to login page.
 
-    post_login_url: Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
+    post_login_url_contains: Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
 
     post_login_element_xpath: Upon successful login, optionally await this element to be loaded."""
 
@@ -52,7 +51,7 @@ class LoginForm2Steps:
     # Shared defaults:
     url: str | None = None
     post_login_wait_seconds: int | None = None
-    post_login_url: str | None = None
+    post_login_url_contains: str | None = None
     post_login_element_xpath: str | None = None
 
     def __post_init__(self) -> None:
@@ -61,6 +60,5 @@ class LoginForm2Steps:
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.password_submit_button_xpath = XPath(self.password_submit_button_xpath)
         self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
-        self.post_login_url = helper.url.mediate_conversion_to_tiny_type_or_none(self.post_login_url)
         self.post_login_element_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(
             self.post_login_element_xpath)
