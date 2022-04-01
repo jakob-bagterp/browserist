@@ -14,21 +14,19 @@ class SearchSettings:
 
     url: Optional URL for the search page.
 
-    await_search_results_url: Optional wait for the search results page to load.
+    await_search_results_url_contains: Optional wait for the search results page URL to change.
 
     await_search_results_xpath: Optional wait for a search result element to be ready."""
 
     input_xpath: str
     button_xpath: str
     url: str | None = None
-    await_search_results_url: str | None = None
+    await_search_results_url_contains: str | None = None
     await_search_results_xpath: str | None = None
 
     def __post_init__(self) -> None:
         self.input_xpath = XPath(self.input_xpath)
         self.button_xpath = XPath(self.button_xpath)
         self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
-        self.await_search_results_url = helper.url.mediate_conversion_to_tiny_type_or_none(
-            self.await_search_results_url)
         self.await_search_results_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(
             self.await_search_results_xpath)
