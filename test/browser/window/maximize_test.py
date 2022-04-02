@@ -1,4 +1,4 @@
-from _helper.url import internal_url
+from _mock_data.url import internal_url
 
 from browserist import Browser
 

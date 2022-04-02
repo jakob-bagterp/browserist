@@ -1,4 +1,4 @@
-from _helper.url import external_url
+from _mock_data.url import external_url
 
 from browserist import CookieBannerSettings
 from browserist.constant import timeout

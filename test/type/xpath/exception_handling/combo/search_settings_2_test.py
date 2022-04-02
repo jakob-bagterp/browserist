@@ -2,8 +2,8 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
-from _helper.url.test_set_1 import VALID_URL
-from _helper.xpath.test_set_2 import INVALID_XPATH, VALID_XPATH
+from _mock_data.url.test_set_1 import VALID_URL
+from _mock_data.xpath.test_set_2 import INVALID_XPATH, VALID_XPATH
 
 from browserist.exception.xpath import XPathSyntaxError
 from browserist.model.combo_settings.search import SearchSettings

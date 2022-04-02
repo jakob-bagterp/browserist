@@ -1,7 +1,7 @@
 from typing import Any
 
-from _helper.xpath.model_2 import XPathTestSet
-from _helper.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_DEFAULT
+from _mock_data.xpath.model_2 import XPathTestSet
+from _mock_data.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_DEFAULT
 
 from browserist import Browser
 from browserist.model.type.callable import (BrowserMethodWith2ArgumentsCallable, BrowserMethodWith3ArgumentsCallable,

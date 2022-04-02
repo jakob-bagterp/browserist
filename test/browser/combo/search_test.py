@@ -3,7 +3,7 @@ from contextlib import nullcontext as expectation_of_no_exceptions_raised
 import pytest
 from _config.combo.cookie_banner import DBA_ACCEPT_COOKIES, GOOGLE_ACCEPT_COOKIES
 from _config.combo.search import DBA_SEARCH, GOOGLE_SEARCH
-from _helper.url import external_url
+from _mock_data.url import external_url
 
 from browserist import Browser, CookieBannerSettings, SearchSettings
 

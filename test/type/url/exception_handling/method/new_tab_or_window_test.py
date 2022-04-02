@@ -1,4 +1,4 @@
-from _helper.url.test_set_1 import URL_TEST_SET_DEFAULT
+from _mock_data.url.test_set_1 import URL_TEST_SET_DEFAULT
 
 from browserist import Browser
 

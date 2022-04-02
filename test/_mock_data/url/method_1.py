@@ -1,7 +1,7 @@
 from typing import Any
 
-from _helper.url.model_1 import URLTestSet
-from _helper.url.test_set_1 import URL_TEST_SET_DEFAULT
+from _mock_data.url.model_1 import URLTestSet
+from _mock_data.url.test_set_1 import URL_TEST_SET_DEFAULT
 
 from browserist import Browser
 from browserist.model.type.callable import (BrowserMethodWith2ArgumentsCallable, BrowserMethodWith3ArgumentsCallable,
