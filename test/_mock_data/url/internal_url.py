@@ -1,6 +1,6 @@
-from browserist.helper.directory import update_path_format_if_windows
+from _helper import directory
 
-from .. import directory
+from browserist.helper.directory import update_path_format_if_windows
 
 _web_mock_data_directory = directory.get_path_for_web_mock_data()
 

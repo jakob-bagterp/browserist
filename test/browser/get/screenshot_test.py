@@ -1,5 +1,5 @@
 from _helper import screenshot
-from _helper.url import internal_url
+from _mock_data.url import internal_url
 from py.path import local
 
 from browserist import Browser

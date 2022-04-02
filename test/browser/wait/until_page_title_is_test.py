@@ -2,7 +2,7 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
-from _helper.url import internal_url
+from _mock_data.url import internal_url
 
 from browserist import Browser
 from browserist.constant import timeout

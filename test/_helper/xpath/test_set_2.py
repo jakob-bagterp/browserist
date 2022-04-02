@@ -1,8 +1,8 @@
 from contextlib import nullcontext as does_not_raise
 
 import pytest
-from _helper.url import internal_url
 from _helper.xpath.model_2 import XPathExpectation, XPathTestSet
+from _mock_data.url import internal_url
 
 from browserist.exception.xpath import XPathSyntaxError
 

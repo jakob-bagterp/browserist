@@ -1,7 +1,7 @@
 from contextlib import nullcontext as does_not_raise
 
 import pytest
-from _helper.url.model_1 import URLExpectation, URLTestSet
+from _mock_data.url.model_1 import URLExpectation, URLTestSet
 
 from browserist.exception.url import URLSyntaxError
 
