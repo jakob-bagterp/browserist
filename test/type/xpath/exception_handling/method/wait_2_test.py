@@ -1,6 +1,6 @@
 import pytest
-from _helper.xpath.method_2 import exception_handling_for_methods_with_3_arguments_or_more
-from _helper.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
+from _mock_data.xpath.method_2 import exception_handling_for_methods_with_3_arguments_or_more
+from _mock_data.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
 
 from browserist import Browser
 from browserist.browser.wait.for_element import wait_for_element
