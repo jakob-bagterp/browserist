@@ -1,6 +1,5 @@
 import time
 
-from ...exception.login import LoginException
 from ...model.combo_settings.login_credentials import LoginCredentials
 from ...model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
 from ..click.button import click_button
@@ -22,20 +21,17 @@ def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form
         input_value(driver, login_form.password_input_xpath, login_credentials.password)
         click_button(driver, login_form.password_submit_button_xpath)
 
-    try:
-        if login_form.url is not None:
-            open_url_if_not_current(driver, login_form.url)
+    if login_form.url is not None:
+        open_url_if_not_current(driver, login_form.url)
 
-        if type(login_form) is LoginForm1Step:
-            login_form_1_step(login_form)
-        elif type(login_form) is LoginForm2Steps:
-            login_form_2_steps(login_form)
+    if type(login_form) is LoginForm1Step:
+        login_form_1_step(login_form)
+    elif type(login_form) is LoginForm2Steps:
+        login_form_2_steps(login_form)
 
-        if login_form.post_login_wait_seconds is not None:
-            time.sleep(login_form.post_login_wait_seconds)
-        if login_form.post_login_url_contains is not None:
-            wait_until_url_contains(driver, login_form.post_login_url_contains)
-        if login_form.post_login_element_xpath is not None:
-            wait_for_element(driver, login_form.post_login_element_xpath)
-    except Exception:
-        raise LoginException(login_credentials.username) from Exception
+    if login_form.post_login_wait_seconds is not None:
+        time.sleep(login_form.post_login_wait_seconds)
+    if login_form.post_login_url_contains is not None:
+        wait_until_url_contains(driver, login_form.post_login_url_contains)
+    if login_form.post_login_element_xpath is not None:
+        wait_for_element(driver, login_form.post_login_element_xpath)
