@@ -2,9 +2,11 @@ from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .all_elements import get_all_elements
 from .all_elements_by_tag import get_all_elements_by_tag
 from .attribute.__main__ import GetAttributeDriverMethods
 from .dimensions_of_element import get_dimensions_of_element
+from .element import get_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text.__main__ import GetTextDriverMethods
@@ -23,12 +25,22 @@ class GetDriverMethods(DriverMethods):
 
         return get_all_elements_by_tag(self._driver, tag, timeout)
 
+    def all_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[object]:
+        """Get all elements by XPath."""
+
+        return get_all_elements(self._driver, xpath, timeout)
+
     def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
         """Get width and height of element in pixels. Usage:
 
         width, height = browser.get.dimensions_of_element("/element/xpath")"""
 
         return get_dimensions_of_element(self._driver, xpath, timeout)
+
+    def element(self, xpath: str, timeout: int = timeout.DEFAULT) -> object:
+        """Get single element by XPath."""
+
+        return get_element(self._driver, xpath, timeout)
 
     def page_title(self) -> str:
         """Get page title of the current page."""
