@@ -7,6 +7,8 @@ from ...exception.xpath import XPathSyntaxError
 class XPath(str):
     """Class to handle and validate XPath input as "tiny type"."""
 
+    __slots__ = ["value"]
+
     def __new__(cls, xpath: str | XPath) -> XPath:
         # If input already is a validated XPath element, bypass and don't create a new object:
         return xpath if isinstance(xpath, XPath) else super().__new__(cls, xpath)

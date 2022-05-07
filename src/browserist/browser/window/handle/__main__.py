@@ -8,6 +8,8 @@ from .current import get_current_window_handle
 
 
 class WindowHandleDriverMethods(DriverMethods):
+    __slots__ = ["_controller"]
+
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings, controller: WindowHandleController) -> None:
         super().__init__(browser_driver, settings)
         self._controller = controller

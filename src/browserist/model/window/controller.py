@@ -7,6 +7,8 @@ from .handle import WindowHandle
 
 
 class WindowHandleController:
+    __slots__ = ["_window_handles", "_original_window_name", "_counter"]
+
     def __init__(self, driver: object) -> None:
         self._counter: int = 1
         self._original_window_name = str(self._counter)

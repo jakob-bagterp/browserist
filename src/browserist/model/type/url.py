@@ -7,6 +7,8 @@ from ...exception.url import URLSyntaxError
 class URL(str):
     """Class to handle and validate URL input as "tiny type"."""
 
+    __slots__ = ["value"]
+
     def __new__(cls, url: str | URL) -> URL:
         # If input already is a validated URL element, bypass and don't create a new object:
         return url if isinstance(url, URL) else super().__new__(cls, url)

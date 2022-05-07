@@ -26,6 +26,9 @@ from .window.__main__ import WindowDriverMethods
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
 
+    __slots__ = ["_browser_driver", "driver", "ie", "safari",
+                 "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "scroll", "select", "tool", "wait", "window"]
+
     def __init__(self, settings: BrowserSettings | None = None) -> None:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
 
