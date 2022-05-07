@@ -2,11 +2,11 @@ from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
-from .all_elements import get_all_elements
-from .all_elements_by_tag import get_all_elements_by_tag
 from .attribute.__main__ import GetAttributeDriverMethods
-from .dimensions import get_dimensions
+from .dimensions_of_element import get_dimensions_of_element
 from .element import get_element
+from .elements import get_elements
+from .elements_by_tag import get_elements_by_tag
 from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text.__main__ import GetTextDriverMethods
@@ -22,27 +22,27 @@ class GetDriverMethods(DriverMethods):
         self.text: GetTextDriverMethods = GetTextDriverMethods(browser_driver, settings)
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
 
-    def all_elements_by_tag(self, tag: str, timeout: int = timeout.DEFAULT) -> list[object]:
-        """"Get all elements by HTML tag. Examples: "img" as tag for all <img> images, "a" for all <a> links, etc."""
-
-        return get_all_elements_by_tag(self._driver, tag, timeout)
-
-    def all_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[object]:
-        """Get all elements by XPath."""
-
-        return get_all_elements(self._driver, xpath, timeout)
-
-    def dimensions(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
+    def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
         """Get width and height of element in pixels. Usage:
 
-        width, height = browser.get.dimensions("/element/xpath")"""
+        width, height = browser.get.dimensions_of_element("/element/xpath")"""
 
-        return get_dimensions(self._driver, xpath, timeout)
+        return get_dimensions_of_element(self._driver, xpath, timeout)
 
     def element(self, xpath: str, timeout: int = timeout.DEFAULT) -> object:
-        """Get single element by XPath."""
+        """Get single web element by XPath."""
 
         return get_element(self._driver, xpath, timeout)
+
+    def elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[object]:
+        """Get all web elements by XPath."""
+
+        return get_elements(self._driver, xpath, timeout)
+
+    def elements_by_tag(self, tag: str, timeout: int = timeout.DEFAULT) -> list[object]:
+        """"Get all web elements by HTML tag. Examples: "img" as tag for all <img> images, "a" for all <a> links, etc."""
+
+        return get_elements_by_tag(self._driver, tag, timeout)
 
     def page_title(self) -> str:
         """Get page title of the current page."""
