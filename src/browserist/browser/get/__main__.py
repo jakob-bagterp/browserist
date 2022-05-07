@@ -3,7 +3,7 @@ from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .attribute.__main__ import GetAttributeDriverMethods
-from .dimensions_of_element import get_dimensions_of_element
+from .dimensions import get_dimensions
 from .element import get_element
 from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
@@ -27,7 +27,7 @@ class GetDriverMethods(DriverMethods):
 
         width, height = browser.get.dimensions_of_element("/element/xpath")"""
 
-        return get_dimensions_of_element(self._driver, xpath, timeout)
+        return get_dimensions(self._driver, xpath, timeout)
 
     def element(self, xpath: str, timeout: int = timeout.DEFAULT) -> object:
         """Get single web element by XPath."""
