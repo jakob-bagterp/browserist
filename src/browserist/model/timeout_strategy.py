@@ -15,7 +15,7 @@ class TimeoutStrategy(Enum):
     CONTINUE = auto()
 
 
-@dataclass
+@dataclass(slots=True)
 class TimeoutSettings:
     strategy: TimeoutStrategy = TimeoutStrategy.BREAK
     seconds: int = timeout.DEFAULT
