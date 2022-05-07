@@ -4,6 +4,8 @@ from .browser.base.settings import BrowserSettings
 
 class DriverMethods:
     """Super class with initializer that can be extended in sub classes for web driver methods."""
+    
+    __slots__ = ["_browser_driver", "_driver", "_settings"]
 
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         self._browser_driver: BrowserDriver = browser_driver

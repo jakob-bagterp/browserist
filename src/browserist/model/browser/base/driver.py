@@ -14,6 +14,8 @@ from .type import BrowserType
 
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
+    
+    __slots__ = ["settings", "chrome_options", "edge_options", "firefox_options", "firefox_profile", "ie_options", "safari_options", "webdriver"]
 
     def __init__(self, settings: BrowserSettings) -> None:
         """Initiates basic properties of the Selenium web driver."""
