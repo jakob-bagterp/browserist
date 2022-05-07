@@ -3,7 +3,7 @@ from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .from_element import get_text_from_element
-from .from_multiple_elements import get_text_from_multiple_elements
+from .from_elements import get_text_from_elements
 
 
 class GetTextDriverMethods(DriverMethods):
@@ -17,9 +17,9 @@ class GetTextDriverMethods(DriverMethods):
 
         return get_text_from_element(self._driver, xpath, timeout)
 
-    def from_multiple_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
+    def from_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of texts from elements.
 
         Assumes that the XPath targets multiple elements."""
 
-        return get_text_from_multiple_elements(self._driver, xpath, timeout)
+        return get_text_from_elements(self._driver, xpath, timeout)
