@@ -5,7 +5,7 @@ from ...model.driver_methods import DriverMethods
 from .all_elements import get_all_elements
 from .all_elements_by_tag import get_all_elements_by_tag
 from .attribute.__main__ import GetAttributeDriverMethods
-from .dimensions_of_element import get_dimensions_of_element
+from .dimensions import get_dimensions
 from .element import get_element
 from .page_title import get_page_title
 from .screenshot import get_screenshot
@@ -32,12 +32,12 @@ class GetDriverMethods(DriverMethods):
 
         return get_all_elements(self._driver, xpath, timeout)
 
-    def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
+    def dimensions(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
         """Get width and height of element in pixels. Usage:
 
-        width, height = browser.get.dimensions_of_element("/element/xpath")"""
+        width, height = browser.get.dimensions("/element/xpath")"""
 
-        return get_dimensions_of_element(self._driver, xpath, timeout)
+        return get_dimensions(self._driver, xpath, timeout)
 
     def element(self, xpath: str, timeout: int = timeout.DEFAULT) -> object:
         """Get single element by XPath."""
