@@ -11,7 +11,7 @@ from browserist import Browser
      "https://www.w3schools.com/tryit/tryit.asp?filename=tryhtml_hello",
      "https://www.w3schools.com/tryit/trycompiler.asp?filename=demo_python"]),
 ])
-def test_get_attribute_value_from_multiple_elements(url: str, xpath: str, attribute: str, expected: list[str], browser_default_headless: Browser) -> None:
+def test_get_attribute_values(url: str, xpath: str, attribute: str, expected: list[str], browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(url)
-    assert browser.get.attribute.value_from_multiple_elements(xpath, attribute) == expected
+    assert browser.get.attribute.values(xpath, attribute) == expected
