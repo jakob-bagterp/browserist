@@ -14,6 +14,8 @@ from .switch_to import switch_to_window
 
 
 class WindowDriverMethods(DriverMethods):
+    __slots__ = ["_controller", "get", "handle", "open", "set"]
+
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
         self._controller: WindowHandleController = WindowHandleController(self._driver)
