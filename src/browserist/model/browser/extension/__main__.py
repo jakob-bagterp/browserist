@@ -5,7 +5,7 @@ from ..base.driver import BrowserDriver
 
 class BrowserExtension(ABC):
     """Abstract class that contains the extension methods for certain browser types."""
-    
+
     __slots__ = ["browser_driver"]
 
     def __init__(self, browser_driver: BrowserDriver) -> None:

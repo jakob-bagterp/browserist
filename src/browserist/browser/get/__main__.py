@@ -15,7 +15,7 @@ from .url.__main__ import GetUrlDriverMethods
 
 class GetDriverMethods(DriverMethods):
     __slots__ = ["attribute", "text", "url"]
-    
+
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
         self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
