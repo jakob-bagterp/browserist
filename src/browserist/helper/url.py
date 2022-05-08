@@ -21,7 +21,7 @@ def is_valid(url: str) -> bool:
     try:
         result = urlparse(url)
         return all([result.scheme, result.netloc])
-    except (ValueError, Exception):
+    except Exception:
         return False
 
 
