@@ -22,10 +22,10 @@ class GetDriverMethods(DriverMethods):
         self.text: GetTextDriverMethods = GetTextDriverMethods(browser_driver, settings)
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
 
-    def dimensions_of_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
+    def dimensions(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
         """Get width and height of element in pixels. Usage:
 
-        width, height = browser.get.dimensions_of_element("/element/xpath")"""
+        width, height = browser.get.dimensions("/element/xpath")"""
 
         return get_dimensions(self._driver, xpath, timeout)
 
