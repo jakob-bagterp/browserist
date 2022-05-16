@@ -2,8 +2,8 @@ from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .contains_text import check_if_contains_text
 from .does_element_exist import check_if_does_element_exist
-from .element_contains_text import check_if_element_contains_text
 from .is_element_clickable import check_if_is_element_clickable
 from .is_element_disabled import check_if_is_element_disabled
 from .is_element_displayed import check_if_is_element_displayed
@@ -16,10 +16,10 @@ class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def element_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> bool:
+    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
-        return check_if_element_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
 
     def does_element_exist(self, xpath: str,) -> bool:
         """Check if element exists."""
