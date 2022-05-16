@@ -7,7 +7,7 @@ from .does_exist import check_if_does_exist
 from .is_clickable import check_if_is_clickable
 from .is_disabled import check_if_is_disabled
 from .is_displayed import check_if_is_displayed
-from .is_element_enabled import check_if_is_element_enabled
+from .is_enabled import check_if_is_enabled
 from .is_image_element_loaded import check_if_is_image_element_loaded
 from .is_image_loaded import check_if_is_image_loaded
 
@@ -31,10 +31,10 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_is_clickable(self._driver, xpath)
 
-    def is_element_enabled(self, xpath: str) -> bool:
+    def is_enabled(self, xpath: str) -> bool:
         """Check whether element is enabled."""
 
-        return check_if_is_element_enabled(self._driver, xpath)
+        return check_if_is_enabled(self._driver, xpath)
 
     def is_disabled(self, xpath: str) -> bool:
         """Check whether element is disabled."""
