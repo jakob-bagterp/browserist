@@ -7,7 +7,7 @@ from ...constant import timeout
 from ...model.type.xpath import XPath
 
 
-def check_if_is_element_clickable(driver: object, xpath: str) -> bool:
+def check_if_is_clickable(driver: object, xpath: str) -> bool:
     xpath = XPath(xpath)
     try:
         element: object = WebDriverWait(driver, timeout.VERY_SHORT).until(
