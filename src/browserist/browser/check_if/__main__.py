@@ -5,7 +5,7 @@ from ...model.driver_methods import DriverMethods
 from .contains_text import check_if_contains_text
 from .does_exist import check_if_does_exist
 from .is_clickable import check_if_is_clickable
-from .is_element_disabled import check_if_is_element_disabled
+from .is_disabled import check_if_is_disabled
 from .is_element_displayed import check_if_is_element_displayed
 from .is_element_enabled import check_if_is_element_enabled
 from .is_image_element_loaded import check_if_is_image_element_loaded
@@ -36,10 +36,10 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_is_element_enabled(self._driver, xpath)
 
-    def is_element_disabled(self, xpath: str) -> bool:
+    def is_disabled(self, xpath: str) -> bool:
         """Check whether element is disabled."""
 
-        return check_if_is_element_disabled(self._driver, xpath)
+        return check_if_is_disabled(self._driver, xpath)
 
     def is_element_displayed(self, xpath: str) -> bool:
         """Check visibility status of an element."""
