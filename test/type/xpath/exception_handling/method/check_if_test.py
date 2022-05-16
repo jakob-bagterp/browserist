@@ -7,7 +7,7 @@ from browserist.browser.check_if.contains_text import check_if_contains_text
 from browserist.browser.check_if.does_exist import check_if_does_exist
 from browserist.browser.check_if.is_clickable import check_if_is_clickable
 from browserist.browser.check_if.is_disabled import check_if_is_disabled
-from browserist.browser.check_if.is_element_displayed import check_if_is_element_displayed
+from browserist.browser.check_if.is_displayed import check_if_is_displayed
 from browserist.browser.check_if.is_element_enabled import check_if_is_element_enabled
 from browserist.browser.check_if.is_image_loaded import check_if_is_image_loaded
 from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable, BrowserMethodWith3ArgumentsCallable
@@ -17,7 +17,7 @@ from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable, 
     check_if_does_exist,
     check_if_is_clickable,
     check_if_is_disabled,
-    check_if_is_element_displayed,
+    check_if_is_displayed,
     check_if_is_element_enabled,
     check_if_is_image_loaded,
 ])
