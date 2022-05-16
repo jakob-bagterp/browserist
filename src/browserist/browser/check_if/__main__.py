@@ -3,7 +3,7 @@ from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .contains_text import check_if_contains_text
-from .does_element_exist import check_if_does_element_exist
+from .does_exist import check_if_does_exist
 from .is_element_clickable import check_if_is_element_clickable
 from .is_element_disabled import check_if_is_element_disabled
 from .is_element_displayed import check_if_is_element_displayed
@@ -21,10 +21,10 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
 
-    def does_element_exist(self, xpath: str,) -> bool:
+    def does_exist(self, xpath: str,) -> bool:
         """Check if element exists."""
 
-        return check_if_does_element_exist(self._driver, xpath)
+        return check_if_does_exist(self._driver, xpath)
 
     def is_element_clickable(self, xpath: str) -> bool:
         """Check if element is clickable."""
