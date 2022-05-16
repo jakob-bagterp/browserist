@@ -4,7 +4,7 @@ from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .contains_text import check_if_contains_text
 from .does_exist import check_if_does_exist
-from .is_element_clickable import check_if_is_element_clickable
+from .is_clickable import check_if_is_clickable
 from .is_element_disabled import check_if_is_element_disabled
 from .is_element_displayed import check_if_is_element_displayed
 from .is_element_enabled import check_if_is_element_enabled
@@ -26,10 +26,10 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_does_exist(self._driver, xpath)
 
-    def is_element_clickable(self, xpath: str) -> bool:
+    def is_clickable(self, xpath: str) -> bool:
         """Check if element is clickable."""
 
-        return check_if_is_element_clickable(self._driver, xpath)
+        return check_if_is_clickable(self._driver, xpath)
 
     def is_element_enabled(self, xpath: str) -> bool:
         """Check whether element is enabled."""
