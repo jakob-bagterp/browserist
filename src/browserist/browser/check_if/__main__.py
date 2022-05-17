@@ -31,11 +31,6 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_is_clickable(self._driver, xpath)
 
-    def is_enabled(self, xpath: str) -> bool:
-        """Check whether element is enabled."""
-
-        return check_if_is_enabled(self._driver, xpath)
-
     def is_disabled(self, xpath: str) -> bool:
         """Check whether element is disabled."""
 
@@ -45,6 +40,11 @@ class CheckIfDriverMethods(DriverMethods):
         """Check visibility status of an element."""
 
         return check_if_is_displayed(self._driver, xpath)
+
+    def is_enabled(self, xpath: str) -> bool:
+        """Check whether element is enabled."""
+
+        return check_if_is_enabled(self._driver, xpath)
 
     def is_image_element_loaded(self, element: object) -> bool:
         """Check is image element is loaded and ready in the DOM."""
