@@ -5,7 +5,7 @@ from _mock_data.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_T
 from browserist import Browser
 from browserist.browser.wait.for_element import wait_for_element
 from browserist.browser.wait.until.element_disappears import wait_until_element_disappears
-from browserist.browser.wait.until_text_changes import wait_until_text_changes
+from browserist.browser.wait.until.text.changes import wait_until_text_changes
 from browserist.browser.wait.until_text_contains import wait_until_text_contains
 from browserist.browser.wait.until_text_is import wait_until_text_is
 from browserist.constant import timeout
