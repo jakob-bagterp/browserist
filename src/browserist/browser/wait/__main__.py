@@ -10,7 +10,6 @@ from .until_page_title_is import wait_until_page_title_is
 from .until_text_changes import wait_until_text_changes
 from .until_text_contains import wait_until_text_contains
 from .until_text_is import wait_until_text_is
-from .until_url_changes import wait_until_url_changes
 from .until_url_contains import wait_until_url_contains
 from .until_url_is import wait_until_url_is
 
@@ -58,11 +57,6 @@ class WaitDriverMethods(DriverMethods):
         """Wait until the text of an element has changed, e.g. after a form action. The text is evaluated as an exact match."""
 
         wait_until_text_is(self._driver, xpath, regex, timeout)
-
-    def until_url_changes(self, baseline_url: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the browser URL has changed from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""
-
-        wait_until_url_changes(self._driver, baseline_url, timeout)
 
     def until_url_contains(self, url_fragment: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""

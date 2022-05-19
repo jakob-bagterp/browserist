@@ -1,7 +1,7 @@
-from ... import helper
-from ...constant import timeout
-from ...model.type.url import URL
-from ..get.url.current import get_current_url
+from ..... import helper
+from .....constant import timeout
+from .....model.type.url import URL
+from ....get.url.current import get_current_url
 
 
 def wait_until_url_changes(driver: object, baseline_url: str, timeout: int = timeout.DEFAULT) -> None:

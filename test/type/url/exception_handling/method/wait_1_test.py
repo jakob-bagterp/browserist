@@ -3,7 +3,7 @@ from _mock_data.url.method_1 import exception_handling_for_methods_with_3_argume
 from _mock_data.url.test_set_1 import VALID_URL
 
 from browserist import Browser
-from browserist.browser.wait.until_url_changes import wait_until_url_changes
+from browserist.browser.wait.until.url.changes import wait_until_url_changes
 from browserist.browser.wait.until_url_is import wait_until_url_is
 from browserist.constant import timeout
 

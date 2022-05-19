@@ -18,4 +18,4 @@ def test_wait_until_url_changes(url1: str, url2: str, expectation: Any, browser_
     with expectation:
         browser.open.url(url1)
         browser.open.url(url2)
-        browser.wait.until_url_changes(url1, timeout.VERY_SHORT) is not None
+        browser.wait.until.url.changes(url1, timeout.VERY_SHORT) is not None
