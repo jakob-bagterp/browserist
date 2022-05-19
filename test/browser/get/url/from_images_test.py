@@ -18,7 +18,7 @@ from browserist.helper.directory import update_path_format_if_windows
         update_path_format_if_windows(f"{internal_url.W3SCHOOLS_COM_DIR}/w3schools_logo_500_04AA6D.png"),
     ]),
 ])
-def test_get_url_from_multiple_images(url: str, xpath: str, expected: list[str], browser_default_headless: Browser) -> None:
+def test_get_url_from_images(url: str, xpath: str, expected: list[str], browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(url)
-    assert browser.get.url.from_multiple_images(xpath) == expected
+    assert browser.get.url.from_images(xpath) == expected
