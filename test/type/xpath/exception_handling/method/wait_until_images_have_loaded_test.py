@@ -3,7 +3,7 @@ from _mock_data.xpath.method_2 import exception_handling_for_methods_with_3_argu
 from _mock_data.xpath.test_set_2 import XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE
 
 from browserist import Browser
-from browserist.browser.wait.until_images_have_loaded import wait_until_images_have_loaded
+from browserist.browser.wait.until.images_have_loaded import wait_until_images_have_loaded
 from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 
