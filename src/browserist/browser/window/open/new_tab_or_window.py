@@ -2,7 +2,7 @@ from .... import helper
 from ....model.window.controller import WindowHandleController
 from ....model.window.tab_or_window import TabOrWindow
 from ...open.url import open_url
-from ...wait.until_number_of_window_handles_is import wait_until_number_of_window_handles_is
+from ...wait.until.number_of_window_handles_is import wait_until_number_of_window_handles_is
 from ..handle.count import count_window_handles
 from ..handle.current import get_current_window_handle
 

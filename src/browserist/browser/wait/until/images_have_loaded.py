@@ -1,9 +1,9 @@
 from selenium.webdriver.common.by import By
 
-from ... import helper
-from ...constant import timeout
-from ...model.type.xpath import XPath
-from .for_element import wait_for_element
+from .... import helper
+from ....constant import timeout
+from ....model.type.xpath import XPath
+from ..for_element import wait_for_element
 
 
 def wait_until_images_have_loaded(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
