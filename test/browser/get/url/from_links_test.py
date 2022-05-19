@@ -11,7 +11,7 @@ from browserist import Browser
     (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[9]/div/a", ["https://www.w3schools.com/tryit/tryit.asp?filename=tryhtml_hello",
      "https://www.w3schools.com/tryit/trycompiler.asp?filename=demo_python"]),
 ])
-def test_get_url_from_multiple_links(url: str, xpath: str, expected: list[str], browser_default_headless: Browser) -> None:
+def test_get_url_from_links(url: str, xpath: str, expected: list[str], browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(url)
-    assert browser.get.url.from_multiple_links(xpath) == expected
+    assert browser.get.url.from_links(xpath) == expected

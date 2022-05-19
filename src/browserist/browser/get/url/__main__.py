@@ -6,7 +6,7 @@ from .current import get_current_url
 from .from_image import get_url_from_image
 from .from_images import get_url_from_images
 from .from_link import get_url_from_link
-from .from_multiple_links import get_url_from_multiple_links
+from .from_links import get_url_from_links
 
 
 class GetUrlDriverMethods(DriverMethods):
@@ -37,7 +37,7 @@ class GetUrlDriverMethods(DriverMethods):
 
         return get_url_from_link(self._driver, xpath, timeout)
 
-    def from_multiple_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
+    def from_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
 
-        return get_url_from_multiple_links(self._driver, xpath, timeout)
+        return get_url_from_links(self._driver, xpath, timeout)
