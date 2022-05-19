@@ -17,4 +17,4 @@ def test_wait_until_images_have_loaded(url: str, xpath: str, expectation: Any, b
     browser = browser_default_headless
     with expectation:
         browser.open.url(url)
-        browser.wait.until_images_have_loaded(xpath, timeout.VERY_SHORT) is not None
+        browser.wait.until.images_have_loaded(xpath, timeout.VERY_SHORT) is not None
