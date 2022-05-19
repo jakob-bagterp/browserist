@@ -18,8 +18,8 @@ from browserist.exception.timeout import WaitForElementTimeoutException
     ("/html/body/div/p[2]/a", "no valid text", pytest.raises(RetryTimeoutException)),
     ("/html/body/div/p[2]/a/div", "element doesn't exist", pytest.raises(WaitForElementTimeoutException)),
 ])
-def test_wait_until_text_is(xpath: str, regex: str, expectation: Any, browser_default_headless: Browser) -> None:
+def test_wait_until_text_equals(xpath: str, regex: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     with expectation:
         browser.open.url(internal_url.EXAMPLE_COM)
-        browser.wait.until_text_is(xpath, regex, timeout.VERY_SHORT) is not None
+        browser.wait.until.text.equals(xpath, regex, timeout.VERY_SHORT) is not None
