@@ -13,5 +13,5 @@ def test_click_button(url: str, xpath: str, url_expected: str, browser_default_h
     browser = browser_default_headless
     browser.open.url(url)
     browser.click.button(xpath)
-    browser.wait.until_url_contains(url_expected)
+    browser.wait.until.url.contains(url_expected)
     assert browser.get.url.current() == url_expected
