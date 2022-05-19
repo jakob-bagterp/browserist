@@ -5,8 +5,6 @@ from ...model.driver_methods import DriverMethods
 from .for_element import wait_for_element
 from .random_time import wait_random_time
 from .until.__main__ import WaitUntilDriverMethods
-from .until_page_title_contains import wait_until_page_title_contains
-from .until_page_title_is import wait_until_page_title_is
 from .until_url_changes import wait_until_url_changes
 from .until_url_contains import wait_until_url_contains
 from .until_url_is import wait_until_url_is
@@ -30,16 +28,6 @@ class WaitDriverMethods(DriverMethods):
         """Randomize sleep timing to make actions look less like a bot."""
 
         wait_random_time(min_seconds, max_seconds)
-
-    def until_page_title_contains(self, page_title_fragment: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the page title has changed, e.g. after a redirect or update. The input can contain both a fragment or the full page title."""
-
-        wait_until_page_title_contains(self._driver, page_title_fragment, timeout)
-
-    def until_page_title_is(self, page_title: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the page title has changed, e.g. after a redirect or update. The input has to match the exact page title."""
-
-        wait_until_page_title_is(self._driver, page_title, timeout)
 
     def until_url_changes(self, baseline_url: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the browser URL has changed from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""
