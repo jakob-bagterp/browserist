@@ -5,7 +5,7 @@ from ...model.combo_settings.cookie_banner import CookieBannerSettings
 from ..click.button import click_button
 from ..open.url_if_not_current import open_url_if_not_current
 from ..wait.for_element import wait_for_element
-from ..wait.until_element_disappears import wait_until_element_disappears
+from ..wait.until.element_disappears import wait_until_element_disappears
 
 
 def combo_cookie_banner(driver: object, settings: CookieBannerSettings) -> None:
