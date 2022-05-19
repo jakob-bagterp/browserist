@@ -5,11 +5,15 @@ from ....model.driver_methods import DriverMethods
 from .element_disappears import wait_until_element_disappears
 from .images_have_loaded import wait_until_images_have_loaded
 from .number_of_window_handles_is import wait_until_number_of_window_handles_is
+from .text.__main__ import WaitUntilTextDriverMethods
 
 
 class WaitUntilDriverMethods(DriverMethods):
+    __slots__ = ["text"]
+
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
+        self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver, settings)
 
     def element_disappears(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until element doesn't exist."""
