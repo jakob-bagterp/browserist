@@ -5,7 +5,6 @@ from ...model.driver_methods import DriverMethods
 from .for_element import wait_for_element
 from .random_time import wait_random_time
 from .until.__main__ import WaitUntilDriverMethods
-from .until_images_have_loaded import wait_until_images_have_loaded
 from .until_number_of_window_handles_is import wait_until_number_of_window_handles_is
 from .until_page_title_contains import wait_until_page_title_contains
 from .until_page_title_is import wait_until_page_title_is
@@ -35,11 +34,6 @@ class WaitDriverMethods(DriverMethods):
         """Randomize sleep timing to make actions look less like a bot."""
 
         wait_random_time(min_seconds, max_seconds)
-
-    def until_images_have_loaded(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until element doesn't exist. The image XPath can target one or more images."""
-
-        wait_until_images_have_loaded(self._driver, xpath, timeout)
 
     def until_number_of_window_handles_is(self, timeout: int = timeout.DEFAULT) -> None:
         """Wait until number of window handles is."""
