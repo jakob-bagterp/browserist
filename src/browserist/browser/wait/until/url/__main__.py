@@ -4,6 +4,7 @@ from .....model.browser.base.settings import BrowserSettings
 from .....model.driver_methods import DriverMethods
 from .changes import wait_until_url_changes
 from .contains import wait_until_url_contains
+from .equals import wait_until_url_equals
 
 
 class WaitUntilUrlDriverMethods(DriverMethods):
@@ -19,3 +20,8 @@ class WaitUntilUrlDriverMethods(DriverMethods):
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
 
         wait_until_url_contains(self._driver, url_fragment, timeout)
+
+    def equals(self, url: str, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until the browser URL has changed, e.g. after a redirect. The URL is evaluated as an exact match."""
+
+        wait_until_url_equals(self._driver, url, timeout)
