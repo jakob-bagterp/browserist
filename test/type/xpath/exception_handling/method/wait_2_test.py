@@ -5,9 +5,9 @@ from _mock_data.xpath.test_set_2 import XPATH_TEST_SET_EXAMPLE_COM_LINK, XPATH_T
 from browserist import Browser
 from browserist.browser.wait.for_element import wait_for_element
 from browserist.browser.wait.until.element_disappears import wait_until_element_disappears
-from browserist.browser.wait.until_text_changes import wait_until_text_changes
-from browserist.browser.wait.until_text_contains import wait_until_text_contains
-from browserist.browser.wait.until_text_is import wait_until_text_is
+from browserist.browser.wait.until.text.changes import wait_until_text_changes
+from browserist.browser.wait.until.text.contains import wait_until_text_contains
+from browserist.browser.wait.until.text.equals import wait_until_text_equals
 from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable, BrowserMethodWith4ArgumentsCallable
 
@@ -27,7 +27,7 @@ def test_xpath_exception_handling_for_wait_methods_1(
 @pytest.mark.parametrize("method, text", [
     (wait_until_text_changes, "not same text as button"),
     (wait_until_text_contains, "information"),
-    (wait_until_text_is, "More information..."),
+    (wait_until_text_equals, "More information..."),
 ])
 def test_xpath_exception_handling_for_wait_methods_2(
     browser_default_headless: Browser,

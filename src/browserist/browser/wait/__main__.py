@@ -5,9 +5,6 @@ from ...model.driver_methods import DriverMethods
 from .for_element import wait_for_element
 from .random_time import wait_random_time
 from .until.__main__ import WaitUntilDriverMethods
-from .until_text_changes import wait_until_text_changes
-from .until_text_contains import wait_until_text_contains
-from .until_text_is import wait_until_text_is
 from .until_url_changes import wait_until_url_changes
 from .until_url_contains import wait_until_url_contains
 from .until_url_is import wait_until_url_is
@@ -31,21 +28,6 @@ class WaitDriverMethods(DriverMethods):
         """Randomize sleep timing to make actions look less like a bot."""
 
         wait_random_time(min_seconds, max_seconds)
-
-    def until_text_changes(self, xpath: str, baseline_text: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the text of an element changes from a baseline text, e.g. after a form action. The text is evaluated as an exact match."""
-
-        wait_until_text_changes(self._driver, xpath, baseline_text, timeout)
-
-    def until_text_contains(self, xpath: str, regex: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the text of an element has changed, e.g. after a form action."""
-
-        wait_until_text_contains(self._driver, xpath, regex, timeout)
-
-    def until_text_is(self, xpath: str, regex: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the text of an element has changed, e.g. after a form action. The text is evaluated as an exact match."""
-
-        wait_until_text_is(self._driver, xpath, regex, timeout)
 
     def until_url_changes(self, baseline_url: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the browser URL has changed from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""

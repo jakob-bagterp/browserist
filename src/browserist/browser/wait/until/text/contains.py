@@ -1,10 +1,10 @@
 import re
 
-from ... import constant, helper
-from ...constant import timeout
-from ...model.type.xpath import XPath
-from ..get.text.from_element import get_text_from_element
-from .for_element import wait_for_element
+from ..... import constant, helper
+from .....constant import timeout
+from .....model.type.xpath import XPath
+from ....get.text.from_element import get_text_from_element
+from ...for_element import wait_for_element
 
 
 def wait_until_text_contains(driver: object, xpath: str, regex: str, timeout: int = timeout.DEFAULT) -> None:
