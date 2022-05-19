@@ -7,15 +7,17 @@ from .images_have_loaded import wait_until_images_have_loaded
 from .number_of_window_handles_is import wait_until_number_of_window_handles_is
 from .page_title.__main__ import WaitUntilPageTitleDriverMethods
 from .text.__main__ import WaitUntilTextDriverMethods
+from .url.__main__ import WaitUntilUrlDriverMethods
 
 
 class WaitUntilDriverMethods(DriverMethods):
-    __slots__ = ["page_title", "text"]
+    __slots__ = ["page_title", "text", "url"]
 
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
         self.page_title: WaitUntilPageTitleDriverMethods = WaitUntilPageTitleDriverMethods(browser_driver, settings)
         self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver, settings)
+        self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver, settings)
 
     def element_disappears(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until element doesn't exist."""

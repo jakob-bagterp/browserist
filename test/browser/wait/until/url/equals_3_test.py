@@ -13,9 +13,9 @@ from browserist.exception.timeout import WaitForUrlTimeoutException
     (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, does_not_raise()),
     (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM, pytest.raises(WaitForUrlTimeoutException)),
 ])
-def test_wait_until_url_is(url1: str, url2: str, expectation: Any, browser_default_headless: Browser) -> None:
+def test_wait_until_url_equals(url1: str, url2: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     with expectation:
         browser.open.url(url1)
         browser.open.url(url2)
-        browser.wait.until_url_is(url1, timeout.VERY_SHORT) is not None
+        browser.wait.until.url.equals(url1, timeout.VERY_SHORT) is not None

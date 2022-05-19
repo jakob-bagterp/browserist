@@ -5,9 +5,6 @@ from ...model.driver_methods import DriverMethods
 from .for_element import wait_for_element
 from .random_time import wait_random_time
 from .until.__main__ import WaitUntilDriverMethods
-from .until_url_changes import wait_until_url_changes
-from .until_url_contains import wait_until_url_contains
-from .until_url_is import wait_until_url_is
 
 
 class WaitDriverMethods(DriverMethods):
@@ -28,18 +25,3 @@ class WaitDriverMethods(DriverMethods):
         """Randomize sleep timing to make actions look less like a bot."""
 
         wait_random_time(min_seconds, max_seconds)
-
-    def until_url_changes(self, baseline_url: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the browser URL has changed from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""
-
-        wait_until_url_changes(self._driver, baseline_url, timeout)
-
-    def until_url_contains(self, url_fragment: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
-
-        wait_until_url_contains(self._driver, url_fragment, timeout)
-
-    def until_url_is(self, url: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the browser URL has changed, e.g. after a redirect. The URL is evaluated as an exact match."""
-
-        wait_until_url_is(self._driver, url, timeout)

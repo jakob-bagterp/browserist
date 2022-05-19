@@ -19,4 +19,4 @@ def test_wait_until_url_contains(url1: str, url2: str, url2_fragment: str, expec
     with expectation:
         browser.open.url(url1)
         browser.open.url(url2)
-        browser.wait.until_url_contains(url2_fragment, timeout.VERY_SHORT) is not None
+        browser.wait.until.url.contains(url2_fragment, timeout.VERY_SHORT) is not None
