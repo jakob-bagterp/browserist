@@ -1,7 +1,7 @@
-from ... import helper
-from ...constant import timeout
-from ...model.type.xpath import XPath
-from ..check_if.is_displayed import check_if_is_displayed
+from .... import helper
+from ....constant import timeout
+from ....model.type.xpath import XPath
+from ...check_if.is_displayed import check_if_is_displayed
 
 
 def wait_until_element_disappears(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
