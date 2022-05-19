@@ -4,6 +4,7 @@ from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .element_disappears import wait_until_element_disappears
 from .images_have_loaded import wait_until_images_have_loaded
+from .number_of_window_handles_is import wait_until_number_of_window_handles_is
 
 
 class WaitUntilDriverMethods(DriverMethods):
@@ -19,3 +20,8 @@ class WaitUntilDriverMethods(DriverMethods):
         """Wait until element doesn't exist. The image XPath can target one or more images."""
 
         wait_until_images_have_loaded(self._driver, xpath, timeout)
+
+    def until_number_of_window_handles_is(self, timeout: int = timeout.DEFAULT) -> None:
+        """Wait until number of window handles is."""
+
+        wait_until_number_of_window_handles_is(self._driver, timeout)
