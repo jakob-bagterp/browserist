@@ -13,8 +13,8 @@ from browserist.exception.timeout import WaitForPageTitleToChangeTimeoutExceptio
     (internal_url.EXAMPLE_COM, "Example Domain", does_not_raise()),
     (internal_url.EXAMPLE_COM, "no_match", pytest.raises(WaitForPageTitleToChangeTimeoutException)),
 ])
-def test_wait_until_page_title_is(url: str, page_title: str, expectation: Any, browser_default_headless: Browser) -> None:
+def test_wait_until_page_title_equals(url: str, page_title: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     with expectation:
         browser.open.url(url)
-        browser.wait.until_page_title_is(page_title, timeout.VERY_SHORT) is not None
+        browser.wait.until.page_title.equals(page_title, timeout.VERY_SHORT) is not None

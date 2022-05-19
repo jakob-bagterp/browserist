@@ -5,7 +5,6 @@ from ...model.driver_methods import DriverMethods
 from .for_element import wait_for_element
 from .random_time import wait_random_time
 from .until.__main__ import WaitUntilDriverMethods
-from .until_page_title_is import wait_until_page_title_is
 from .until_text_changes import wait_until_text_changes
 from .until_text_contains import wait_until_text_contains
 from .until_text_is import wait_until_text_is
@@ -32,11 +31,6 @@ class WaitDriverMethods(DriverMethods):
         """Randomize sleep timing to make actions look less like a bot."""
 
         wait_random_time(min_seconds, max_seconds)
-
-    def until_page_title_is(self, page_title: str, timeout: int = timeout.DEFAULT) -> None:
-        """Wait until the page title has changed, e.g. after a redirect or update. The input has to match the exact page title."""
-
-        wait_until_page_title_is(self._driver, page_title, timeout)
 
     def until_text_changes(self, xpath: str, baseline_text: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the text of an element changes from a baseline text, e.g. after a form action. The text is evaluated as an exact match."""
