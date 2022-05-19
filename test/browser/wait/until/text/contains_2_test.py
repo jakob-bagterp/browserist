@@ -22,4 +22,4 @@ def test_wait_until_text_contains(xpath: str, regex: str, expectation: Any, brow
     browser = browser_default_headless
     with expectation:
         browser.open.url(internal_url.EXAMPLE_COM)
-        browser.wait.until_text_contains(xpath, regex, timeout.VERY_SHORT) is not None
+        browser.wait.until.text.contains(xpath, regex, timeout.VERY_SHORT) is not None

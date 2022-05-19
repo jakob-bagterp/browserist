@@ -1,8 +1,8 @@
-from ... import helper
-from ...constant import timeout
-from ...model.type.xpath import XPath
-from ..get.text.from_element import get_text_from_element
-from .for_element import wait_for_element
+from ..... import helper
+from .....constant import timeout
+from .....model.type.xpath import XPath
+from ....get.text.from_element import get_text_from_element
+from ...for_element import wait_for_element
 
 
 def wait_until_text_changes(driver: object, xpath: str, baseline_text: str, timeout: int = timeout.DEFAULT) -> None:
