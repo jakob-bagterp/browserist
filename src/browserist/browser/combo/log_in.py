@@ -6,7 +6,7 @@ from ..click.button import click_button
 from ..input.value import input_value
 from ..open.url_if_not_current import open_url_if_not_current
 from ..wait.for_element import wait_for_element
-from ..wait.until_url_contains import wait_until_url_contains
+from ..wait.until.url.contains import wait_until_url_contains
 
 
 def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps) -> None:
