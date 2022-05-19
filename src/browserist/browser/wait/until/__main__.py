@@ -21,7 +21,7 @@ class WaitUntilDriverMethods(DriverMethods):
 
         wait_until_images_have_loaded(self._driver, xpath, timeout)
 
-    def until_number_of_window_handles_is(self, timeout: int = timeout.DEFAULT) -> None:
+    def number_of_window_handles_is(self, timeout: int = timeout.DEFAULT) -> None:
         """Wait until number of window handles is."""
 
         wait_until_number_of_window_handles_is(self._driver, timeout)
