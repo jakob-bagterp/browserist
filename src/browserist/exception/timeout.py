@@ -3,6 +3,8 @@ from ..browser.get.url.current import get_current_url
 
 
 class WaitForElementTimeoutException(Exception):
+    __slots__ = ["message"]
+
     def __init__(self, driver: object, xpath: str) -> None:
         current_url = get_current_url(driver)
         self.message = f"On page {current_url}, waiting for element timed out: {xpath}"
@@ -13,6 +15,8 @@ class WaitForElementTimeoutException(Exception):
 
 
 class WaitForPageTitleToChangeTimeoutException(Exception):
+    __slots__ = ["message"]
+
     def __init__(self, driver: object, page_title_or_fragment: str) -> None:
         current_url = get_current_url(driver)
         page_title = get_page_title(driver)
@@ -24,6 +28,8 @@ class WaitForPageTitleToChangeTimeoutException(Exception):
 
 
 class WaitForUrlTimeoutException(Exception):
+    __slots__ = ["message"]
+
     def __init__(self, driver: object, url: str) -> None:
         current_url = get_current_url(driver)
         self.message = f"On page {current_url}, waiting for URL timed out, or the URL fragment doesn't exist: {url}"
@@ -34,6 +40,8 @@ class WaitForUrlTimeoutException(Exception):
 
 
 class WaitForWindowTimeoutException(Exception):
+    __slots__ = ["message"]
+
     def __init__(self) -> None:
         self.message = "Waiting for new tab or window to open timed out."
         super().__init__(self.message)
