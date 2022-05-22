@@ -18,7 +18,8 @@ def ensure_trailing_slash(dir_name: str) -> str:
 
 
 def encode_path_as_url(path: str) -> str:
-    return urllib.parse.quote(path, safe="/:").replace("%2520", "%20")
+    url_encoded_path = str(urllib.parse.quote(path, safe="/:"))
+    return url_encoded_path.replace("%2520", "%20")  # Handle edge cases.
 
 
 def ensure_windows_file_path_format_encoding_as_url(path: str) -> str:
