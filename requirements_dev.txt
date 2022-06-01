@@ -1,7 +1,7 @@
 coverage==6.4
 flake8==4.0.1
 keyring==23.5.1
-lxml==4.8.0
+lxml==4.9.0
 mypy==0.960
 pre-commit==2.19.0
 pytest==7.1.2
