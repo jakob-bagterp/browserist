@@ -11,10 +11,10 @@ class EdgeBrowserDriver(BrowserDriver):
 
     def set_webdriver(self) -> object:
         if self.settings.path_to_executable is None:
-            return webdriver.Edge(  # type: ignore
+            return webdriver.Edge(
                 options=self.edge_options)
         else:
-            return webdriver.Edge(  # type: ignore
+            return webdriver.Edge(
                 executable_path=self.settings.path_to_executable,
                 options=self.edge_options)
 

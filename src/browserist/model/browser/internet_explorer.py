@@ -12,10 +12,10 @@ class InternetExplorerBrowserDriver(BrowserDriver):
 
     def set_webdriver(self) -> object:
         if self.settings.path_to_executable is None:
-            return webdriver.Ie(  # type: ignore
+            return webdriver.Ie(
                 options=self.ie_options)
         else:
-            return webdriver.Ie(  # type: ignore
+            return webdriver.Ie(
                 executable_path=self.settings.path_to_executable,
                 options=self.ie_options)
 

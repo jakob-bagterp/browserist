@@ -12,10 +12,10 @@ class SafariBrowserDriver(BrowserDriver):
 
     def set_webdriver(self) -> object:
         if self.settings.path_to_executable is None:
-            return webdriver.Safari(  # type: ignore
+            return webdriver.Safari(
                 options=self.safari_options)
         else:
-            return webdriver.Safari(  # type: ignore
+            return webdriver.Safari(
                 executable_path=self.settings.path_to_executable,
                 options=self.safari_options)
 
