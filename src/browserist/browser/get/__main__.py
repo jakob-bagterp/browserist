@@ -10,6 +10,7 @@ from .elements_by_tag import get_elements_by_tag
 from .page_title import get_page_title
 from .screenshot import get_screenshot
 from .text.__main__ import GetTextDriverMethods
+from .texts import get_texts
 from .url.__main__ import GetUrlDriverMethods
 
 
@@ -61,3 +62,10 @@ class GetDriverMethods(DriverMethods):
         browser.get.screenshot(destination_dir = "./screenshots") # Default file name and custom destination"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
+
+    def texts(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
+        """Get array of texts from elements.
+
+        Assumes that the XPath targets multiple elements."""
+
+        return get_texts(self._driver, xpath, timeout)
