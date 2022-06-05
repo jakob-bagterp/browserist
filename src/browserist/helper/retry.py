@@ -9,7 +9,7 @@ def calculate_number_of_retries(total_time: int, interval: int | float) -> int:
     return int(total_time // interval)
 
 
-def get_text_from_element(driver: object, input: str, func: DriverGetTextCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str:
+def get_text(driver: object, input: str, func: DriverGetTextCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str:
     text = func(driver, input)
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while not text and retries_left > 0:

@@ -11,4 +11,4 @@ def get_url_from_image(driver: object, xpath: str, timeout: int = timeout.DEFAUL
 
     xpath = XPath(xpath)
     wait_for_element(driver, xpath, timeout)
-    return helper.retry.get_text_from_element(driver, xpath, get_src_attribute_of_element)
+    return helper.retry.get_text(driver, xpath, get_src_attribute_of_element)

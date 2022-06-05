@@ -9,18 +9,17 @@ from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
 from .page_title import get_page_title
 from .screenshot import get_screenshot
-from .text.__main__ import GetTextDriverMethods
+from .text import get_text
 from .texts import get_texts
 from .url.__main__ import GetUrlDriverMethods
 
 
 class GetDriverMethods(DriverMethods):
-    __slots__ = ["attribute", "text", "url"]
+    __slots__ = ["attribute", "url"]
 
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
         self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
-        self.text: GetTextDriverMethods = GetTextDriverMethods(browser_driver, settings)
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
 
     def dimensions(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
@@ -62,6 +61,13 @@ class GetDriverMethods(DriverMethods):
         browser.get.screenshot(destination_dir = "./screenshots") # Default file name and custom destination"""
 
         get_screenshot(self._driver, self._settings, file_name, destination_dir)
+
+    def text(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+        """Get text from element.
+
+        This method assumes that the text field shouldn't be empty and therefore will retry to get the text (for better support of single-page apps with extended loading time)."""
+
+        return get_text(self._driver, xpath, timeout)
 
     def texts(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of texts from elements.

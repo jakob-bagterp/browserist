@@ -16,7 +16,7 @@ def return_input(_: object, input: str) -> str:
     ("text", does_not_raise()),
     ("", pytest.raises(RetryTimeoutException)),
 ])
-def test_helper_retry_get_text_from_element(input: str, expectation: Any, browser_default_headless: Browser) -> None:
+def test_helper_retry_get_text(input: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     with expectation:
-        _ = helper.retry.get_text_from_element(browser.driver, input, return_input, timeout.VERY_SHORT) is not None
+        _ = helper.retry.get_text(browser.driver, input, return_input, timeout.VERY_SHORT) is not None
