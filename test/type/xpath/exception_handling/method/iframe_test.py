@@ -3,7 +3,7 @@ from _mock_data.xpath.method_2 import exception_handling_for_methods_with_2_argu
 from _mock_data.xpath.test_set_2 import XPATH_TEST_SET_W3SCHOOLS_COM_IFRAME
 
 from browserist import Browser
-from browserist.browser.iframe.iframe import switch_to_iframe
+from browserist.browser.iframe.switch_to import switch_to_iframe
 from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable
 
 
