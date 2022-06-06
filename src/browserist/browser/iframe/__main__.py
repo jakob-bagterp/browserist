@@ -1,8 +1,8 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
-from .original_page import switch_to_original_page
 from .switch_to import switch_to_iframe
+from .switch_to_original_page import switch_to_original_page
 
 
 class IframeDriverMethods(DriverMethods):
