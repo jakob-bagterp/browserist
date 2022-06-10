@@ -4,7 +4,7 @@ from .....constant import timeout
 from .strategy import TimeoutStrategy
 
 
-@dataclass(slots=True)
+@dataclass(kw_only=True, slots=True)
 class TimeoutSettings:
     """Class to configure timeout settings and strategy.
 
