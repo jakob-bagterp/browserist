@@ -158,3 +158,17 @@ As you can't click a button that's not ready in the DOM, Browserist simply check
 | :----------- | :-----------: | :----------------: | :------------: |
 | Example:     | time.sleep(1) | wait.for_element() | time.sleep(10) |
 | Consequence: | _Code breaks_ | _Stable and fast_  |     _Slow_     |
+
+## Timeout Strategy and Settings
+What happens if a function times out: Should the browser stop or continue its operation?
+
+Define a general timeout in seconds for each function and strategy. Default timeout is `5` seconds per function while the strategy can be `TimeoutStrategy.STOP` (default) or `TimeoutStrategy.CONTINUE`.
+
+```python
+from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrategy
+
+timeout_settings = TimeoutSettings(strategy = TimeoutStrategy.CONTINUE, seconds = 10)
+settings = BrowserSettings(timeout = timeout_settings)
+with Browser(settings) as browser:
+    browser.open.url("http://example.com/")
+```
