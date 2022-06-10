@@ -2,6 +2,7 @@ from dataclasses import dataclass
 
 from ....constant import directory
 from ....helper import operating_system
+from ...timeout_strategy import TimeoutSettings
 from .page_load_strategy import PageLoadStrategy
 from .type import BrowserType
 
@@ -20,3 +21,4 @@ class BrowserSettings:
     page_load_strategy: PageLoadStrategy = PageLoadStrategy.NORMAL
     path_to_executable: str | None = None
     screenshot_dir: str = directory.CURRENT
+    timeout: TimeoutSettings = TimeoutSettings()
