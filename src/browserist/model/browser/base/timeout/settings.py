@@ -10,7 +10,7 @@ class TimeoutSettings:
 
     strategy: If a function times out, should the browser continue or stop? Default is stop.
 
-    seconds: General timeout in seconds to be applied for each function (unless function-specific timeout is given)."""
+    seconds: General timeout in seconds to be applied for each function (note that a function-specific timeout overrides this)."""
 
     strategy: TimeoutStrategy = TimeoutStrategy.STOP
     seconds: int = timeout.DEFAULT
