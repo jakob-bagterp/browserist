@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from ....constant import directory
 from ....helper import operating_system
-from ...timeout_strategy import TimeoutSettings
+from ...timeout.settings import TimeoutSettings
 from .page_load_strategy import PageLoadStrategy
 from .type import BrowserType
 

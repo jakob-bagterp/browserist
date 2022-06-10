@@ -9,5 +9,6 @@ from .model.combo_settings.cookie_banner import CookieBannerSettings
 from .model.combo_settings.login_credentials import LoginCredentials
 from .model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
 from .model.combo_settings.search import SearchSettings
-from .model.timeout_strategy import TimeoutSettings, TimeoutStrategy
+from .model.timeout.settings import TimeoutSettings
+from .model.timeout.strategy import TimeoutStrategy
 from .version import __version__  # noqa
