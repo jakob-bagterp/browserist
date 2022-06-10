@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from ...constant import timeout
+from .....constant import timeout
 from .strategy import TimeoutStrategy
 
 
