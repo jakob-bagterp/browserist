@@ -5,9 +5,9 @@ from enum import Enum, unique
 class TimeoutStrategy(Enum):
     """Define timeout strategy.
 
-    STOP: If something times out, stop operation.
+    STOP: If a function times out, stop operation.
 
-    CONTINUE: If something times out, continue operation."""
+    CONTINUE: If a function times out, continue operation."""
 
     STOP = "stop"
     CONTINUE = "continue"
