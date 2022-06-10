@@ -9,5 +9,5 @@ class TimeoutStrategy(Enum):
 
     CONTINUE: If something times out, continue operation."""
 
-    BREAK = "break"
+    STOP = "stop"
     CONTINUE = "continue"

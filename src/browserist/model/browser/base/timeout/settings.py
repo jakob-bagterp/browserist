@@ -6,6 +6,6 @@ from .strategy import TimeoutStrategy
 
 @dataclass(slots=True)
 class TimeoutSettings:
-    strategy: TimeoutStrategy = TimeoutStrategy.BREAK
+    strategy: TimeoutStrategy = TimeoutStrategy.STOP
     seconds: int = timeout.DEFAULT
     _is_timed_out: bool = False
