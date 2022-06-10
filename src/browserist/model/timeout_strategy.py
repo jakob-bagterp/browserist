@@ -1,9 +1,10 @@
 from dataclasses import dataclass
-from enum import Enum, auto
+from enum import Enum, unique
 
 from ..constant import timeout
 
 
+@unique
 class TimeoutStrategy(Enum):
     """Define timeout strategy.
 
@@ -11,8 +12,8 @@ class TimeoutStrategy(Enum):
 
     CONTINUE: If something times out, continue operation."""
 
-    BREAK = auto()
-    CONTINUE = auto()
+    BREAK = "break"
+    CONTINUE = "continue"
 
 
 @dataclass(slots=True)
