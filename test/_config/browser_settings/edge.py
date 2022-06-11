@@ -1,7 +1,7 @@
 from browserist import BrowserSettings, BrowserType
 
 DEFAULT = BrowserSettings(
-    type=BrowserType.EDGE,
+    type=BrowserType.EDGE
 )
 
 HEADLESS = BrowserSettings(
