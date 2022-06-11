@@ -9,13 +9,13 @@ from browserist.exception.window_handle import WindowHandleIdNotFoundError
 from browserist.model.window.controller import WindowHandleController
 
 
-@pytest.mark.parametrize("id, expected", [
+@pytest.mark.parametrize("id, expected_handle_name", [
     (WINDOW_HANDLE_1_ID, WINDOW_HANDLE_1_NAME),
     (WINDOW_HANDLE_2_ID, WINDOW_HANDLE_2_NAME),
     (WINDOW_HANDLE_3_ID, WINDOW_HANDLE_3_NAME),
 ])
-def test_window_handle_controller_get_handle_name_by_id(id: str, expected: str, window_handle_controller: WindowHandleController) -> None:
-    assert window_handle_controller.get_handle_name_by_id(id) == expected
+def test_window_handle_controller_get_handle_name_by_id(id: str, expected_handle_name: str, window_handle_controller: WindowHandleController) -> None:
+    assert window_handle_controller.get_handle_name_by_id(id) == expected_handle_name
 
 
 @pytest.mark.parametrize("id, expectation", [
