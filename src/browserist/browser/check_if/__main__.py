@@ -18,7 +18,8 @@ class CheckIfDriverMethods(DriverMethods):
     def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
-        return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        if self.should_continue():
+            return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
 
     def does_exist(self, xpath: str,) -> bool:
         """Check if element exists."""
