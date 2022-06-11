@@ -15,6 +15,7 @@ class DriverMethods:
 
     def should_continue(self) -> bool:
         """Controller for timeout strategy for each relevant browser method."""
+        # TODO: Create unit test.
 
         return not all([
             self._settings.timeout._is_timed_out,
@@ -23,5 +24,6 @@ class DriverMethods:
 
     def set_timed_out(self) -> None:
         """Sets global timeout to true."""
+        # TODO: Create unit test.
 
         self._settings.timeout._is_timed_out = True
