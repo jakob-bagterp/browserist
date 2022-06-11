@@ -13,7 +13,7 @@ class DriverMethods:
         self._driver: object = browser_driver.webdriver
         self._settings: BrowserSettings = settings
 
-    def should_continue(self) -> bool:
+    def _should_continue(self) -> bool:
         """Controller for timeout strategy for each relevant browser method."""
         # TODO: Create unit test.
 
@@ -22,13 +22,13 @@ class DriverMethods:
             self._settings.timeout.strategy is TimeoutStrategy.STOP
         ])
 
-    def timeout_mediator(self, timeout: int | None) -> int:
+    def _timeout_mediator(self, timeout: int | None) -> int:
         """Mediate whether timeout seconds should use a global or a local setting."""
         # TODO: Create unit test.
 
         return self._settings.timeout.seconds if timeout is None else timeout
 
-    def set_is_timed_out(self) -> None:
+    def _set_is_timed_out(self) -> None:
         """Sets global timeout to true."""
         # TODO: Create unit test.
 
