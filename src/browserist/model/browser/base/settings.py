@@ -6,7 +6,7 @@ from .page_load_strategy import PageLoadStrategy
 from .type import BrowserType
 
 
-@dataclass(slots=True)
+@dataclass(kw_only=True, slots=True)
 class BrowserSettings:
     """Class to configure the browser driver.
 
