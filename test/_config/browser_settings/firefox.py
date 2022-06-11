@@ -1,7 +1,7 @@
 from browserist import BrowserSettings, BrowserType
 
 DEFAULT = BrowserSettings(
-    type=BrowserType.FIREFOX,
+    type=BrowserType.FIREFOX
 )
 
 HEADLESS = BrowserSettings(
