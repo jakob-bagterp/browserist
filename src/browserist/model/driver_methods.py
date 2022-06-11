@@ -22,6 +22,12 @@ class DriverMethods:
             self._settings.timeout.strategy is TimeoutStrategy.STOP
         ])
 
+    def timeout_mediator(self, timeout: int | None) -> int:
+        """Mediate whether timeout seconds should use a global or a local setting."""
+        # TODO: Create unit test.
+
+        return self._settings.timeout.seconds if timeout is None else timeout
+
     def set_is_timed_out(self) -> None:
         """Sets global timeout to true."""
         # TODO: Create unit test.
