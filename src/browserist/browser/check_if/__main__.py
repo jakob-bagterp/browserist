@@ -15,7 +15,7 @@ class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> bool:
+    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> bool | None:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
         if self._should_continue():
