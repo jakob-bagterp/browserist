@@ -22,7 +22,7 @@ class DriverMethods:
             self._settings.timeout.strategy is TimeoutStrategy.STOP
         ])
 
-    def set_timed_out(self) -> None:
+    def set_is_timed_out(self) -> None:
         """Sets global timeout to true."""
         # TODO: Create unit test.
 
