@@ -1,4 +1,4 @@
-from ..model.browser.base.timeout.strategy import TimeoutStrategy
+from .. import helper
 from .browser.base.driver import BrowserDriver
 from .browser.base.settings import BrowserSettings
 
@@ -17,19 +17,16 @@ class DriverMethods:
         """Controller for timeout strategy for each relevant browser method."""
         # TODO: Create unit test.
 
-        return not all([
-            self._settings.timeout._is_timed_out,
-            self._settings.timeout.strategy is TimeoutStrategy.STOP
-        ])
+        return helper.timeout.should_continue(self._settings)
 
     def _timeout_mediator(self, timeout: int | None) -> int:
         """Mediate whether timeout seconds should use a global or a local setting."""
         # TODO: Create unit test.
 
-        return self._settings.timeout.seconds if timeout is None else timeout
+        return helper.timeout.timeout_mediator(self._settings, timeout)
 
     def _set_is_timed_out(self) -> None:
         """Sets global timeout to true."""
         # TODO: Create unit test.
 
-        self._settings.timeout._is_timed_out = True
+        self._settings = helper.timeout.set_is_timed_out(self._settings)
