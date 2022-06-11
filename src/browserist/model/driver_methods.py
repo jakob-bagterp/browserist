@@ -19,11 +19,11 @@ class DriverMethods:
 
         return helper.timeout.should_continue(self._settings)
 
-    def _timeout_mediator(self, timeout: int | None) -> int:
+    def _mediate_timeout(self, timeout: int | None) -> int:
         """Mediate whether timeout seconds should use a global or a local setting."""
         # TODO: Create unit test.
 
-        return helper.timeout.timeout_mediator(self._settings, timeout)
+        return helper.timeout.mediate_timeout(self._settings, timeout)
 
     def _set_is_timed_out(self) -> None:
         """Sets global timeout to true."""

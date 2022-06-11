@@ -9,7 +9,7 @@ def should_continue(settings: BrowserSettings) -> bool:
     ])
 
 
-def timeout_mediator(settings: BrowserSettings, timeout: int | None) -> int:
+def mediate_timeout(settings: BrowserSettings, timeout: int | None) -> int:
     return settings.timeout.seconds if timeout is None else timeout
 
 
