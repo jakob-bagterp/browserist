@@ -15,13 +15,10 @@ class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> bool:
+    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> bool:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
-        return self.timeout_controller(
-            check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout),
-            timeout
-        )
+        return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
 
     def does_exist(self, xpath: str,) -> bool:
         """Check if element exists."""
