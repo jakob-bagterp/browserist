@@ -25,6 +25,5 @@ class DriverMethods:
 
     def _set_is_timed_out(self) -> None:
         """Sets global timeout to true."""
-        # TODO: Create unit test.
 
         self._settings = helper.timeout.set_is_timed_out(self._settings)
