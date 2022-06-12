@@ -21,7 +21,6 @@ class DriverMethods:
 
     def _mediate_timeout(self, timeout: int | None) -> int:
         """Mediate whether timeout seconds should use a global or a local setting."""
-        # TODO: Create unit test.
 
         return helper.timeout.mediate_timeout(self._settings, timeout)
 
