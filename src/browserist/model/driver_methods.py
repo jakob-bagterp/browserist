@@ -15,7 +15,6 @@ class DriverMethods:
 
     def _timeout_should_continue(self) -> bool:
         """Controller for timeout strategy for each relevant browser method."""
-        # TODO: Create unit test.
 
         return helper.timeout.should_continue(self._settings)
 
