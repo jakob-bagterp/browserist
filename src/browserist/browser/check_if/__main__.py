@@ -22,7 +22,7 @@ class CheckIfDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
 
-    def does_exist(self, xpath: str,) -> bool:
+    def does_exist(self, xpath: str) -> bool:
         """Check if element exists."""
 
         return check_if_does_exist(self._driver, xpath)
