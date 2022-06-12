@@ -20,36 +20,42 @@ class CheckIfDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        return None
 
     def does_exist(self, xpath: str) -> bool | None:
         """Check if element exists."""
 
         if self._timeout_should_continue():
             return check_if_does_exist(self._driver, xpath)
+        return None
 
     def is_clickable(self, xpath: str) -> bool | None:
         """Check if element is clickable."""
 
         if self._timeout_should_continue():
             return check_if_is_clickable(self._driver, xpath)
+        return None
 
     def is_disabled(self, xpath: str) -> bool | None:
         """Check whether element is disabled."""
 
         if self._timeout_should_continue():
             return check_if_is_disabled(self._driver, xpath)
+        return None
 
     def is_displayed(self, xpath: str) -> bool | None:
         """Check visibility status of an element."""
 
         if self._timeout_should_continue():
             return check_if_is_displayed(self._driver, xpath)
+        return None
 
     def is_enabled(self, xpath: str) -> bool | None:
         """Check whether element is enabled."""
 
         if self._timeout_should_continue():
             return check_if_is_enabled(self._driver, xpath)
+        return None
 
     def is_image_loaded(self, xpath: str, timeout: int | None = None) -> bool | None:
         """Check is image is loaded and ready in the DOM."""
@@ -57,3 +63,4 @@ class CheckIfDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return check_if_is_image_loaded(self._driver, xpath, timeout)
+        return None
