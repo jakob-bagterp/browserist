@@ -1,4 +1,3 @@
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -15,37 +14,53 @@ class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> bool:
+    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> bool | None:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
-        return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        return None
 
-    def does_exist(self, xpath: str,) -> bool:
+    def does_exist(self, xpath: str) -> bool | None:
         """Check if element exists."""
 
-        return check_if_does_exist(self._driver, xpath)
+        if self._timeout_should_continue():
+            return check_if_does_exist(self._driver, xpath)
+        return None
 
-    def is_clickable(self, xpath: str) -> bool:
+    def is_clickable(self, xpath: str) -> bool | None:
         """Check if element is clickable."""
 
-        return check_if_is_clickable(self._driver, xpath)
+        if self._timeout_should_continue():
+            return check_if_is_clickable(self._driver, xpath)
+        return None
 
-    def is_disabled(self, xpath: str) -> bool:
+    def is_disabled(self, xpath: str) -> bool | None:
         """Check whether element is disabled."""
 
-        return check_if_is_disabled(self._driver, xpath)
+        if self._timeout_should_continue():
+            return check_if_is_disabled(self._driver, xpath)
+        return None
 
-    def is_displayed(self, xpath: str) -> bool:
+    def is_displayed(self, xpath: str) -> bool | None:
         """Check visibility status of an element."""
 
-        return check_if_is_displayed(self._driver, xpath)
+        if self._timeout_should_continue():
+            return check_if_is_displayed(self._driver, xpath)
+        return None
 
-    def is_enabled(self, xpath: str) -> bool:
+    def is_enabled(self, xpath: str) -> bool | None:
         """Check whether element is enabled."""
 
-        return check_if_is_enabled(self._driver, xpath)
+        if self._timeout_should_continue():
+            return check_if_is_enabled(self._driver, xpath)
+        return None
 
-    def is_image_loaded(self, xpath: str, timeout: int = timeout.DEFAULT) -> bool:
+    def is_image_loaded(self, xpath: str, timeout: int | None = None) -> bool | None:
         """Check is image is loaded and ready in the DOM."""
 
-        return check_if_is_image_loaded(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return check_if_is_image_loaded(self._driver, xpath, timeout)
+        return None
