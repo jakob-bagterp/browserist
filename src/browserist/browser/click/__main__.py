@@ -15,6 +15,8 @@ class ClickDriverMethods(DriverMethods):
 
         click_button(self._driver, xpath, timeout)
 
-    def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int = timeout.DEFAULT) -> None:
+    def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> None:
 
-        click_button_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            click_button_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
