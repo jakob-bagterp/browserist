@@ -20,12 +20,15 @@ class GetUrlDriverMethods(DriverMethods):
             return get_current_url(self._driver)
         return None
 
-    def from_image(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+    def from_image(self, xpath: str, timeout: int | None = None) -> str | None:
         """Get URL source from image, e.g. <img> tag.
 
         This method assumes that the image shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time)."""
 
-        return get_url_from_image(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_url_from_image(self._driver, xpath, timeout)
+        return None
 
     def from_images(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
