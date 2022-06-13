@@ -13,10 +13,12 @@ class GetUrlDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def current(self) -> str:
+    def current(self) -> str | None:
         """Get URL of the current page."""
 
-        return get_current_url(self._driver)
+        if self._timeout_should_continue():
+            return get_current_url(self._driver)
+        return None
 
     def from_image(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get URL source from image, e.g. <img> tag.
