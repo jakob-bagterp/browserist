@@ -1,4 +1,3 @@
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -10,10 +9,12 @@ class ClickDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def button(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    def button(self, xpath: str, timeout: int | None = None) -> None:
         """Click button."""
 
-        click_button(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            click_button(self._driver, xpath, timeout)
 
     def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> None:
 
