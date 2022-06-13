@@ -29,7 +29,7 @@ def test_xpath_exception_handling_for_check_if_methods_1(
     exception_handling_for_methods_with_2_arguments(browser_default_headless, method)
 
 
-@pytest.mark.parametrize("method, text, ignore_case, timeout", [
+@pytest.mark.parametrize("method, timeout", [
     (check_if_is_image_loaded, timeout.VERY_SHORT),
 ])
 def test_xpath_exception_handling_for_check_if_methods_2(
