@@ -56,10 +56,12 @@ class GetDriverMethods(DriverMethods):
             return get_elements_by_tag(self._driver, tag, timeout)
         return None
 
-    def page_title(self) -> str:
+    def page_title(self) -> str | None:
         """Get page title of the current page."""
 
-        return get_page_title(self._driver)
+        if self._timeout_should_continue():
+            return get_page_title(self._driver)
+        return None
 
     def screenshot(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot and save as PNG image. Default destination directory is from where the script is executed. Examples:
