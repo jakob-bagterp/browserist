@@ -40,10 +40,13 @@ class GetDriverMethods(DriverMethods):
             return get_element(self._driver, xpath, timeout)
         return None
 
-    def elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[object]:
+    def elements(self, xpath: str, timeout: int | None = None) -> list[object] | None:
         """Get multiple web elements by XPath."""
 
-        return get_elements(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_elements(self._driver, xpath, timeout)
+        return None
 
     def elements_by_tag(self, tag: str, timeout: int = timeout.DEFAULT) -> list[object]:
         """"Get multiple web elements by HTML tag. Examples: "img" as tag for all <img> images, "a" for all <a> links, etc."""
