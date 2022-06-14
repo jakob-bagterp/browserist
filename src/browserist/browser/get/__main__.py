@@ -77,12 +77,15 @@ class GetDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             get_screenshot(self._driver, self._settings, file_name, destination_dir)
 
-    def text(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+    def text(self, xpath: str, timeout: int | None = None) -> str | None:
         """Get text from element.
 
         This method assumes that the text field shouldn't be empty and therefore will retry to get the text (for better support of single-page apps with extended loading time)."""
 
-        return get_text(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_text(self._driver, xpath, timeout)
+        return None
 
     def texts(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of texts from elements.
