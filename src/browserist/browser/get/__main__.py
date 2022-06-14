@@ -74,7 +74,8 @@ class GetDriverMethods(DriverMethods):
 
         browser.get.screenshot(destination_dir = "./screenshots") # Default file name and custom destination"""
 
-        get_screenshot(self._driver, self._settings, file_name, destination_dir)
+        if self._timeout_should_continue():
+            get_screenshot(self._driver, self._settings, file_name, destination_dir)
 
     def text(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get text from element.
