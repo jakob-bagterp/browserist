@@ -1,4 +1,3 @@
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -14,12 +13,14 @@ class WaitDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
         self.until: WaitUntilDriverMethods = WaitUntilDriverMethods(browser_driver, settings)
 
-    def for_element(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    def for_element(self, xpath: str, timeout: int | None = None) -> None:
         """Wait until element is ready in the DOM and/or on the screen.
 
         Especially useful for single-page app elements handled/modified by JavaScript, but also standard HTML that doesn't load immediately, this helper function ensures that DOM elements are ready before processing."""
 
-        wait_for_element(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            wait_for_element(self._driver, xpath, timeout)
 
     def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
         """Randomize sleep timing to make actions look less like a bot."""

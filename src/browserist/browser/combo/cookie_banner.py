@@ -16,7 +16,7 @@ def combo_cookie_banner(driver: object, settings: CookieBannerSettings) -> None:
     if settings.has_loaded_wait_seconds is not None:
         time.sleep(settings.has_loaded_wait_seconds)
     if settings.has_loaded_xpath is not None:
-        wait_for_element(driver, settings.has_loaded_xpath)
+        wait_for_element(driver, settings.has_loaded_xpath, timeout.DEFAULT)
     click_button(driver, settings.button_xpath, timeout.DEFAULT)
     if settings.has_disappeared_wait_seconds is not None:
         time.sleep(settings.has_disappeared_wait_seconds)
