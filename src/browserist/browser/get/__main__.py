@@ -1,4 +1,3 @@
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -87,9 +86,12 @@ class GetDriverMethods(DriverMethods):
             return get_text(self._driver, xpath, timeout)
         return None
 
-    def texts(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
+    def texts(self, xpath: str, timeout: int | None = None) -> list[str] | None:
         """Get array of texts from elements.
 
         Assumes that the XPath targets multiple elements."""
 
-        return get_texts(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_texts(self._driver, xpath, timeout)
+        return None
