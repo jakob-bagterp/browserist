@@ -22,12 +22,15 @@ class GetDriverMethods(DriverMethods):
         self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
 
-    def dimensions(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
+    def dimensions(self, xpath: str, timeout: int | None = None) -> tuple[int, int] | None:
         """Get width and height of element in pixels. Usage:
 
         width, height = browser.get.dimensions("/element/xpath")"""
 
-        return get_dimensions(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_dimensions(self._driver, xpath, timeout)
+        return None
 
     def element(self, xpath: str, timeout: int = timeout.DEFAULT) -> object:
         """Get single web element by XPath."""
