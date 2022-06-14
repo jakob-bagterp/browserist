@@ -38,12 +38,15 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_images(self._driver, xpath, timeout)
         return None
 
-    def from_link(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
+    def from_link(self, xpath: str, timeout: int | None = None) -> str | None:
         """Get URL from link, e.g. <a> tag or button.
 
         This method assumes that the link shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time)."""
 
-        return get_url_from_link(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_url_from_link(self._driver, xpath, timeout)
+        return None
 
     def from_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
