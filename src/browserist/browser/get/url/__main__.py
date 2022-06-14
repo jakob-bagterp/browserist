@@ -1,4 +1,3 @@
-from ....constant import timeout
 from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
@@ -48,7 +47,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_link(self._driver, xpath, timeout)
         return None
 
-    def from_links(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[str]:
+    def from_links(self, xpath: str, timeout: int | None = None) -> list[str] | None:
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
 
-        return get_url_from_links(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_url_from_links(self._driver, xpath, timeout)
+        return None
