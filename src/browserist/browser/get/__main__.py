@@ -32,10 +32,13 @@ class GetDriverMethods(DriverMethods):
             return get_dimensions(self._driver, xpath, timeout)
         return None
 
-    def element(self, xpath: str, timeout: int = timeout.DEFAULT) -> object:
+    def element(self, xpath: str, timeout: int | None = None) -> object | None:
         """Get single web element by XPath."""
 
-        return get_element(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_element(self._driver, xpath, timeout)
+        return None
 
     def elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> list[object]:
         """Get multiple web elements by XPath."""
