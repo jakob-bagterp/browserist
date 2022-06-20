@@ -26,10 +26,12 @@ class ScrollDriverMethods(DriverMethods):
 
         scroll_into_view(self._driver, xpath, timeout)
 
-    def into_view_if_not_visible(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    def into_view_if_not_visible(self, xpath: str, timeout: int | None = None) -> None:
         """If not visilbe, find element and scroll up or down until element is visible."""
 
-        scroll_into_view_if_not_visible(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            scroll_into_view_if_not_visible(self._driver, xpath, timeout)
 
     def to_end_of_page(self) -> None:
         """Scroll to end of page."""
