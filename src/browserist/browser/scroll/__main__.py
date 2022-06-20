@@ -1,4 +1,3 @@
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -21,10 +20,12 @@ class ScrollDriverMethods(DriverMethods):
 
         return get_scroll_position(self._driver)
 
-    def into_view(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    def into_view(self, xpath: str, timeout: int | None = None) -> None:
         """Find element and scroll up or down until element is visible."""
 
-        scroll_into_view(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            scroll_into_view(self._driver, xpath, timeout)
 
     def into_view_if_not_visible(self, xpath: str, timeout: int | None = None) -> None:
         """If not visilbe, find element and scroll up or down until element is visible."""
