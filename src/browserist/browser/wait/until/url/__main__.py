@@ -18,10 +18,12 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             wait_until_url_changes(self._driver, baseline_url, timeout)
 
-    def contains(self, url_fragment: str, timeout: int = timeout.DEFAULT) -> None:
+    def contains(self, url_fragment: str, timeout: int | None = None) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL variable can contain both a fragment (e.g. ?login=true) or a full URL (e.g. https://www.example.com/?login=true)."""
 
-        wait_until_url_contains(self._driver, url_fragment, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            wait_until_url_contains(self._driver, url_fragment, timeout)
 
     def equals(self, url: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL is evaluated as an exact match."""

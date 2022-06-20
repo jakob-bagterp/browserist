@@ -15,6 +15,6 @@ def combo_search(driver: object, term: str, settings: SearchSettings) -> None:
     input_value(driver, settings.input_xpath, term)
     click_button(driver, settings.button_xpath, timeout.DEFAULT)
     if settings.await_search_results_url_contains is not None:
-        wait_until_url_contains(driver, settings.await_search_results_url_contains)
+        wait_until_url_contains(driver, settings.await_search_results_url_contains, timeout.DEFAULT)
     if settings.await_search_results_xpath is not None:
         wait_for_element(driver, settings.await_search_results_xpath, timeout.DEFAULT)
