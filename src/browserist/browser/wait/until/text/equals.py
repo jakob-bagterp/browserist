@@ -1,13 +1,12 @@
 import re
 
 from ..... import constant, helper
-from .....constant import timeout
 from .....model.type.xpath import XPath
 from ....get.text import get_text
 from ...for_element import wait_for_element
 
 
-def wait_until_text_equals(driver: object, xpath: str, regex: str, timeout: int = timeout.DEFAULT) -> None:
+def wait_until_text_equals(driver: object, xpath: str, regex: str, timeout: int) -> None:
     def is_element_text(driver: object, xpath: str, regex: str) -> bool:
         text = get_text(driver, xpath, constant.timeout.BYPASS)
         return bool(re.match(regex, text))
