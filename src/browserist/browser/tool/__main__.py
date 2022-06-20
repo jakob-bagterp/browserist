@@ -1,5 +1,4 @@
 from ... import helper
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -21,7 +20,10 @@ class ToolDriverMethods(DriverMethods):
 
         return helper.url.is_valid(url)
 
-    def count_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> int:
+    def count_elements(self, xpath: str, timeout: int | None = None) -> int | None:
         """Count number of elements."""
 
-        return tool_count_elements(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return tool_count_elements(self._driver, xpath, timeout)
+        return None
