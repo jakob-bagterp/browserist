@@ -1,4 +1,3 @@
-from .....constant import timeout
 from .....model.browser.base.driver import BrowserDriver
 from .....model.browser.base.settings import BrowserSettings
 from .....model.driver_methods import DriverMethods
@@ -25,7 +24,9 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             wait_until_url_contains(self._driver, url_fragment, timeout)
 
-    def equals(self, url: str, timeout: int = timeout.DEFAULT) -> None:
+    def equals(self, url: str, timeout: int | None = None) -> None:
         """Wait until the browser URL has changed, e.g. after a redirect. The URL is evaluated as an exact match."""
 
-        wait_until_url_equals(self._driver, url, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            wait_until_url_equals(self._driver, url, timeout)
