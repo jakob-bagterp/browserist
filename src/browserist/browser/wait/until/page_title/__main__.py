@@ -1,4 +1,3 @@
-from .....constant import timeout
 from .....model.browser.base.driver import BrowserDriver
 from .....model.browser.base.settings import BrowserSettings
 from .....model.driver_methods import DriverMethods
@@ -25,7 +24,9 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             wait_until_page_title_contains(self._driver, page_title_fragment, timeout)
 
-    def equals(self, page_title: str, timeout: int = timeout.DEFAULT) -> None:
+    def equals(self, page_title: str, timeout: int | None = None) -> None:
         """Wait until the page title has changed, e.g. after a redirect or update. The input has to match the exact page title."""
 
-        wait_until_page_title_equals(self._driver, page_title, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            wait_until_page_title_equals(self._driver, page_title, timeout)
