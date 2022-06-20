@@ -12,7 +12,7 @@ def combo_search(driver: object, term: str, settings: SearchSettings) -> None:
 
     if settings.url is not None:
         open_url_if_not_current(driver, settings.url)
-    input_value(driver, settings.input_xpath, term)
+    input_value(driver, settings.input_xpath, term, timeout.DEFAULT)
     click_button(driver, settings.button_xpath, timeout.DEFAULT)
     if settings.await_search_results_url_contains is not None:
         wait_until_url_contains(driver, settings.await_search_results_url_contains, timeout.DEFAULT)

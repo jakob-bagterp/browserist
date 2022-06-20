@@ -14,14 +14,14 @@ def combo_log_in(driver: object, login_credentials: LoginCredentials, login_form
     # TODO: Incorporate timeout strategy and settings
 
     def login_form_1_step(login_form: LoginForm1Step) -> None:
-        input_value(driver, login_form.username_input_xpath, login_credentials.username)
-        input_value(driver, login_form.password_input_xpath, login_credentials.password)
+        input_value(driver, login_form.username_input_xpath, login_credentials.username, timeout.DEFAULT)
+        input_value(driver, login_form.password_input_xpath, login_credentials.password, timeout.DEFAULT)
         click_button(driver, login_form.submit_button_xpath, timeout.DEFAULT)
 
     def login_form_2_steps(login_form: LoginForm2Steps) -> None:
-        input_value(driver, login_form.username_input_xpath, login_credentials.username)
+        input_value(driver, login_form.username_input_xpath, login_credentials.username, timeout.DEFAULT)
         click_button(driver, login_form.username_submit_button_xpath, timeout.DEFAULT)
-        input_value(driver, login_form.password_input_xpath, login_credentials.password)
+        input_value(driver, login_form.password_input_xpath, login_credentials.password, timeout.DEFAULT)
         click_button(driver, login_form.password_submit_button_xpath, timeout.DEFAULT)
 
     if login_form.url is not None:
