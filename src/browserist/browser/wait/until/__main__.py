@@ -19,10 +19,12 @@ class WaitUntilDriverMethods(DriverMethods):
         self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver, settings)
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver, settings)
 
-    def element_disappears(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    def element_disappears(self, xpath: str, timeout: int | None = None) -> None:
         """Wait until element doesn't exist."""
 
-        wait_until_element_disappears(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            wait_until_element_disappears(self._driver, xpath, timeout)
 
     def images_have_loaded(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Wait until element doesn't exist. The image XPath can target one or more images."""
