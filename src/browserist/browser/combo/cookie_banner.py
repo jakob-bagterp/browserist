@@ -22,4 +22,4 @@ def combo_cookie_banner(driver: object, settings: CookieBannerSettings) -> None:
         time.sleep(settings.has_disappeared_wait_seconds)
     else:
         time.sleep(timeout.VERY_SHORT)
-    wait_until_element_disappears(driver, settings.button_xpath)
+    wait_until_element_disappears(driver, settings.button_xpath, timeout.DEFAULT)
