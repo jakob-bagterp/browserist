@@ -9,7 +9,7 @@ class GetScreenshotDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
 
     def visible_portion(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
-        """Take screenshot and save as PNG image. Default destination directory is from where the script is executed. Examples:
+        """Take screenshot of visible portion and save as PNG image. Default destination directory is from where the script is executed. Examples:
 
         browser.get.screenshot.visible_portion() # Default file name and destination
 
