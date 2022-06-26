@@ -8,6 +8,7 @@ from .element import get_element
 from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
 from .page_title import get_page_title
+from .screen_size import get_screen_size
 from .screenshot import get_screenshot
 from .text import get_text
 from .texts import get_texts
@@ -48,6 +49,13 @@ class GetDriverMethods(DriverMethods):
         """Get page title of the current page."""
 
         return get_page_title(self._driver)
+
+    def screen_size(self) -> tuple[int, int]:
+        """Get inner width and height of the screen in pixels. Usage:
+
+        width, height = browser.get.screen_size()"""
+
+        return get_screen_size(self._driver)
 
     def screenshot(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot and save as PNG image. Default destination directory is from where the script is executed. Examples:
