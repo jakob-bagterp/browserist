@@ -5,6 +5,7 @@ from ...model.driver_methods import DriverMethods
 from .get_position import get_scroll_position
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
+from .page_down import scroll_page_down
 from .to_end_of_page import scroll_to_end_of_page
 from .to_position import scroll_to_position
 from .to_top_of_page import scroll_to_top_of_page
@@ -30,6 +31,11 @@ class ScrollDriverMethods(DriverMethods):
         """If not visilbe, find element and scroll up or down until element is visible."""
 
         scroll_into_view_if_not_visible(self._driver, xpath, timeout)
+
+    def page_down(self) -> None:
+        """If possible, scroll page down."""
+
+        scroll_page_down(self._driver)
 
     def to_end_of_page(self) -> None:
         """Scroll to end of page."""
