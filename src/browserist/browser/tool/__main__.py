@@ -20,10 +20,9 @@ class ToolDriverMethods(DriverMethods):
 
         return helper.url.is_valid(url)
 
-    def count_elements(self, xpath: str, timeout: int | None = None) -> int | None:
+    def count_elements(self, xpath: str, timeout: int | None = None) -> int:
         """Count number of elements."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return tool_count_elements(self._driver, xpath, timeout)
-        return None
