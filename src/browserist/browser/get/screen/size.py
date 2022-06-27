@@ -1,5 +1,5 @@
-from .screen_height import get_screen_height
-from .screen_width import get_screen_width
+from .height import get_screen_height
+from .width import get_screen_width
 
 
 def get_screen_size(driver: object) -> tuple[int, int]:
