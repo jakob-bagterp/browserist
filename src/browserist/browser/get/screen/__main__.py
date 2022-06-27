@@ -24,7 +24,8 @@ class GetScreenSizeDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return get_screen_size(self._driver)
 
-    def width(self) -> int:
+    def width(self) -> int:  # type: ignore
         """Get inner width of the screen in pixels."""
 
-        return get_screen_width(self._driver)
+        if self._timeout_should_continue():
+            return get_screen_width(self._driver)
