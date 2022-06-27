@@ -1,4 +1,8 @@
+from .screen_height import get_screen_height
+from .screen_width import get_screen_width
+
+
 def get_screen_size(driver: object) -> tuple[int, int]:
-    width = int(driver.execute_script("return window.innerWidth;"))  # type: ignore
-    height = int(driver.execute_script("return window.innerHeight;"))  # type: ignore
+    width = get_screen_width(driver)
+    height = get_screen_height(driver)
     return width, height
