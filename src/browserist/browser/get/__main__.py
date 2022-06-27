@@ -58,12 +58,13 @@ class GetDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return get_page_title(self._driver)
 
-    def screen_size(self) -> tuple[int, int]:
+    def screen_size(self) -> tuple[int, int]:  # type: ignore
         """Get inner width and height of the screen in pixels. Usage:
 
         width, height = browser.get.screen_size()"""
 
-        return get_screen_size(self._driver)
+        if self._timeout_should_continue():
+            return get_screen_size(self._driver)
 
     def screenshot(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot and save as PNG image. Default destination directory is from where the script is executed. Examples:
