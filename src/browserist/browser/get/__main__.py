@@ -9,6 +9,7 @@ from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
 from .page_title import get_page_title
 from .screen_size import get_screen_size
+from .screen_width import get_screen_width
 from .screenshot.__main__ import GetScreenshotDriverMethods
 from .text import get_text
 from .texts import get_texts
@@ -57,6 +58,11 @@ class GetDriverMethods(DriverMethods):
         width, height = browser.get.screen_size()"""
 
         return get_screen_size(self._driver)
+
+    def screen_width(self) -> int:
+        """Get inner width of the screen in pixels."""
+
+        return get_screen_width(self._driver)
 
     def text(self, xpath: str, timeout: int = timeout.DEFAULT) -> str:
         """Get text from element.
