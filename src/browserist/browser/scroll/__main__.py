@@ -43,7 +43,7 @@ class ScrollDriverMethods(DriverMethods):
         scroll_to_end_of_page(self._driver)
 
     def to_position(self, x: int, y: int) -> None:
-        """If possible, scroll to coordinate X and Y pixels of page."""
+        """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
 
         scroll_to_position(self._driver, x, y)
 
