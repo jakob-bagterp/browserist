@@ -6,6 +6,7 @@ from browserist import Browser
 def test_get_scroll_position(browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.scroll.to_top_of_page()
     x_default, y_default = browser.scroll.get_position()
     browser.scroll.to_end_of_page()
     _, y_end = browser.scroll.get_position()
