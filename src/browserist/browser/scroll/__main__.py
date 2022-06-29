@@ -2,6 +2,7 @@ from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
+from .by import scroll_by
 from .get_position import get_scroll_position
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
@@ -14,6 +15,11 @@ from .to_top_of_page import scroll_to_top_of_page
 class ScrollDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
+
+    def by(self, x: int, y: int) -> None:
+        """If possible, scroll by X and Y pixels as relative position."""
+
+        scroll_by(self._driver, x, y)
 
     def get_position(self) -> tuple[int, int]:
         """Get scroll position of the X and Y axis. Usage:
@@ -43,7 +49,7 @@ class ScrollDriverMethods(DriverMethods):
         scroll_to_end_of_page(self._driver)
 
     def to_position(self, x: int, y: int) -> None:
-        """If possible, scroll to coordinate X and Y pixels of page."""
+        """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
 
         scroll_to_position(self._driver, x, y)
 
