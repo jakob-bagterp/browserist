@@ -7,7 +7,6 @@ from .get_position import get_scroll_position
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
 from .page.__main__ import ScrollPageDriverMethods
-from .to_end_of_page import scroll_to_end_of_page
 from .to_position import scroll_to_position
 from .to_top_of_page import scroll_to_top_of_page
 
@@ -40,11 +39,6 @@ class ScrollDriverMethods(DriverMethods):
         """If not visible, find element and scroll up or down until element is visible."""
 
         scroll_into_view_if_not_visible(self._driver, xpath, timeout)
-
-    def to_end_of_page(self) -> None:
-        """If possible, scroll to end of page."""
-
-        scroll_to_end_of_page(self._driver)
 
     def to_position(self, x: int, y: int) -> None:
         """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
