@@ -8,7 +8,6 @@ from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
 from .page.__main__ import ScrollPageDriverMethods
 from .to_position import scroll_to_position
-from .to_top_of_page import scroll_to_top_of_page
 
 
 class ScrollDriverMethods(DriverMethods):
@@ -44,8 +43,3 @@ class ScrollDriverMethods(DriverMethods):
         """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
 
         scroll_to_position(self._driver, x, y)
-
-    def to_top_of_page(self) -> None:
-        """If possible, scroll to top of page."""
-
-        scroll_to_top_of_page(self._driver)
