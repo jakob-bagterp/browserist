@@ -2,6 +2,7 @@ from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .down import scroll_page_down
+from .up import scroll_page_up
 
 
 class ScrollPageDriverMethods(DriverMethods):
@@ -12,3 +13,8 @@ class ScrollPageDriverMethods(DriverMethods):
         """If possible, scroll page down."""
 
         scroll_page_down(self._driver)
+
+    def up(self) -> None:
+        """If possible, scroll page up."""
+
+        scroll_page_up(self._driver)
