@@ -3,6 +3,7 @@ from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .by import scroll_by
+from .get.__main__ import ScrollGetDriverMethods
 from .get_position import get_scroll_position
 from .get_total_height import get_total_scroll_height
 from .into_view import scroll_into_view
@@ -12,10 +13,11 @@ from .to_position import scroll_to_position
 
 
 class ScrollDriverMethods(DriverMethods):
-    __slots__ = ["page"]
+    __slots__ = ["get", "page"]
 
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
+        self.get: ScrollGetDriverMethods = ScrollGetDriverMethods(browser_driver, settings)
         self.page: ScrollPageDriverMethods = ScrollPageDriverMethods(browser_driver, settings)
 
     def by(self, x: int, y: int) -> None:
