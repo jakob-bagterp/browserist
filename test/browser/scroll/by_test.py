@@ -9,8 +9,8 @@ from browserist import Browser
     (0, 200),
     (0, 100),
 ])
-def test_scroll_by(x: int, y: int, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+def test_scroll_by(x: int, y: int, browser_default_headless_scope_function: Browser) -> None:
+    browser = browser_default_headless_scope_function
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser.scroll.page.to_top()
     browser.scroll.by(x, y)
