@@ -6,6 +6,8 @@ from browserist import Browser
 
 @pytest.mark.parametrize("x, y", [
     (0, 50),
+    (0, 200),
+    (0, 100),
 ])
 def test_scroll_by(x: int, y: int, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
