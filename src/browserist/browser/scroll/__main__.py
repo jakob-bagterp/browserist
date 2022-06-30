@@ -4,7 +4,6 @@ from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .by import scroll_by
 from .get.__main__ import ScrollGetDriverMethods
-from .get_position import get_scroll_position
 from .get_total_height import get_total_scroll_height
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
@@ -24,13 +23,6 @@ class ScrollDriverMethods(DriverMethods):
         """If possible, scroll by X and Y pixels as relative position."""
 
         scroll_by(self._driver, x, y)
-
-    def get_position(self) -> tuple[int, int]:
-        """Get scroll position of the X and Y axis. Usage:
-
-        x, y = browser.scroll.get_position()"""
-
-        return get_scroll_position(self._driver)
 
     def get_total_height(self) -> int:
         """Get total scroll height."""
