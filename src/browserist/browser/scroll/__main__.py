@@ -6,16 +6,16 @@ from .by import scroll_by
 from .get_position import get_scroll_position
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
-from .page_down import scroll_page_down
-from .page_up import scroll_page_up
-from .to_end_of_page import scroll_to_end_of_page
+from .page.__main__ import ScrollPageDriverMethods
 from .to_position import scroll_to_position
-from .to_top_of_page import scroll_to_top_of_page
 
 
 class ScrollDriverMethods(DriverMethods):
+    __slots__ = ["page"]
+
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
+        self.page: ScrollPageDriverMethods = ScrollPageDriverMethods(browser_driver, settings)
 
     def by(self, x: int, y: int) -> None:
         """If possible, scroll by X and Y pixels as relative position."""
@@ -39,27 +39,7 @@ class ScrollDriverMethods(DriverMethods):
 
         scroll_into_view_if_not_visible(self._driver, xpath, timeout)
 
-    def page_down(self) -> None:
-        """If possible, scroll page down."""
-
-        scroll_page_down(self._driver)
-
-    def page_up(self) -> None:
-        """If possible, scroll page up."""
-
-        scroll_page_up(self._driver)
-
-    def to_end_of_page(self) -> None:
-        """If possible, scroll to end of page."""
-
-        scroll_to_end_of_page(self._driver)
-
     def to_position(self, x: int, y: int) -> None:
         """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
 
         scroll_to_position(self._driver, x, y)
-
-    def to_top_of_page(self) -> None:
-        """If possible, scroll to top of page."""
-
-        scroll_to_top_of_page(self._driver)
