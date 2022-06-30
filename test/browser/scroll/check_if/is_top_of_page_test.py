@@ -12,5 +12,6 @@ from browserist import Browser
 def test_check_if_scroll_is_top_of_page(url: str, y_position: int, expected: bool, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(url)
+    browser.scroll.page.to_top()
     browser.scroll.to_position(0, y_position)
     assert browser.scroll.check_if.is_top_of_page() is expected
