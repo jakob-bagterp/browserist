@@ -13,5 +13,5 @@ def test_scroll_down_by(pixels: int, browser_default_headless_scope_function: Br
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser.scroll.page.to_top()
     browser.scroll.down_by(pixels)
-    _, get_y = browser.scroll.get.position()
-    assert get_y == pixels
+    _, y_down = browser.scroll.get.position()
+    assert y_down == pixels
