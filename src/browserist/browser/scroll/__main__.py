@@ -9,6 +9,7 @@ from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
 from .page.__main__ import ScrollPageDriverMethods
 from .to_position import scroll_to_position
+from .up_by import scroll_up_by
 
 
 class ScrollDriverMethods(DriverMethods):
@@ -39,3 +40,8 @@ class ScrollDriverMethods(DriverMethods):
         """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
 
         scroll_to_position(self._driver, x, y)
+
+    def up_by(self, pixels: int) -> None:
+        """If possible, scroll up in pixels. Horisontal position is unchanged."""
+
+        scroll_up_by(self._driver, pixels)
