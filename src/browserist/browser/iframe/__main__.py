@@ -12,9 +12,11 @@ class IframeDriverMethods(DriverMethods):
     def switch_to(self, xpath: str) -> None:
         """Switch to iframe."""
 
-        switch_to_iframe(self._driver, xpath)
+        if self._timeout_should_continue():
+            switch_to_iframe(self._driver, xpath)
 
     def switch_to_original_page(self) -> None:
         """After switch to iframe, use this to go back to the original page."""
 
-        switch_to_original_page(self._driver)
+        if self._timeout_should_continue():
+            switch_to_original_page(self._driver)
