@@ -9,20 +9,18 @@ from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
 from .page_title import get_page_title
 from .screen.__main__ import GetScreenSizeDriverMethods
-from .screenshot.__main__ import GetScreenshotDriverMethods
 from .text import get_text
 from .texts import get_texts
 from .url.__main__ import GetUrlDriverMethods
 
 
 class GetDriverMethods(DriverMethods):
-    __slots__ = ["attribute", "screen", "screenshot", "url"]
+    __slots__ = ["attribute", "screen", "url"]
 
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
         self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
         self.screen: GetScreenSizeDriverMethods = GetScreenSizeDriverMethods(browser_driver, settings)
-        self.screenshot: GetScreenshotDriverMethods = GetScreenshotDriverMethods(browser_driver, settings)
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
 
     def dimensions(self, xpath: str, timeout: int = timeout.DEFAULT) -> tuple[int, int]:
