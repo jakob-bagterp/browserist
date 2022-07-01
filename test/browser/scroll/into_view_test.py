@@ -17,7 +17,7 @@ from browserist.exception.timeout import WaitForElementTimeoutException
 def test_scroll_into_view(xpath: str, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     browser.open.url(internal_url.W3SCHOOLS_COM)
-    browser.scroll.page.to_top()
+    browser.scroll.to_position(1, 1)
     x_default, y_default = browser.scroll.get.position()
     browser.scroll.into_view(xpath, timeout.VERY_SHORT)
     x_scrolled, y_scrolled = browser.scroll.get.position()
