@@ -4,6 +4,7 @@ from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .by import scroll_by
 from .check_if.__main__ import ScrollCheckIfDriverMethods
+from .down_by import scroll_down_by
 from .get.__main__ import ScrollGetDriverMethods
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
@@ -24,6 +25,11 @@ class ScrollDriverMethods(DriverMethods):
         """If possible, scroll by X and Y pixels as relative position."""
 
         scroll_by(self._driver, x, y)
+
+    def down_by(self, pixels: int) -> None:
+        """If possible, scroll down in pixels. Horisontal position is unchanged."""
+
+        scroll_down_by(self._driver, pixels)
 
     def into_view(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Find element and scroll up or down until element is visible."""
