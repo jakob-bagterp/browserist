@@ -12,9 +12,11 @@ class WindowSetDriverMethods(DriverMethods):
     def position(self, x: int, y: int) -> None:
         """Moves the window to the chosen coordinate of the screen in pixels."""
 
-        set_window_position(self._driver, x, y)
+        if self._timeout_should_continue():
+            set_window_position(self._driver, x, y)
 
     def size(self, width: int, height: int) -> None:
         """Restores the window and sets the window size."""
 
-        set_window_size(self._driver, width, height)
+        if self._timeout_should_continue():
+            set_window_size(self._driver, width, height)
