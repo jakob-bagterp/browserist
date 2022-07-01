@@ -14,6 +14,7 @@ def test_get_total_scroll_height(url: str, expected_total_scroll_height: int, br
     browser = browser_default_headless
     browser.open.url(url)
     total_scroll_height = browser.scroll.get.total_height()
+    # Various browsers may calculate the height differently, e.g. due to differient default widths, so we add a safety margin:
     minimum_height = expected_total_scroll_height - (expected_total_scroll_height * MARGIN)
     maximim_height = expected_total_scroll_height + (expected_total_scroll_height * MARGIN)
     assert minimum_height < total_scroll_height < maximim_height
