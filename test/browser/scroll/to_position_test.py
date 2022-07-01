@@ -13,5 +13,5 @@ def test_scroll_to_position(x: int, y: int, browser_default_headless: Browser) -
     browser = browser_default_headless
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser.scroll.to_position(x, y)
-    get_x, get_y = browser.scroll.get.position()
-    assert get_x == x and get_y == y
+    x_get, y_get = browser.scroll.get.position()
+    assert x_get == x and y_get == y
