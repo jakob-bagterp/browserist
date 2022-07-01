@@ -1,12 +1,12 @@
-from ....model.browser.base.driver import BrowserDriver
-from ....model.browser.base.settings import BrowserSettings
-from ....model.driver_methods import DriverMethods
+from ...model.browser.base.driver import BrowserDriver
+from ...model.browser.base.settings import BrowserSettings
+from ...model.driver_methods import DriverMethods
 from .height import get_screen_height
 from .size import get_screen_size
 from .width import get_screen_width
 
 
-class GetScreenSizeDriverMethods(DriverMethods):
+class ScreenSizeDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
@@ -18,7 +18,7 @@ class GetScreenSizeDriverMethods(DriverMethods):
     def size(self) -> tuple[int, int]:
         """Get inner width and height of the screen in pixels. Usage:
 
-        width, height = browser.get.screen_size()"""
+        width, height = browser.screen.size()"""
 
         return get_screen_size(self._driver)
 
