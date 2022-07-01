@@ -24,12 +24,14 @@ class ScrollDriverMethods(DriverMethods):
     def by(self, x: int, y: int) -> None:
         """If possible, scroll by X and Y pixels as relative position."""
 
-        scroll_by(self._driver, x, y)
+        if self._timeout_should_continue():
+            scroll_by(self._driver, x, y)
 
     def down_by(self, pixels: int) -> None:
         """If possible, scroll down in pixels. Horisontal position is unchanged."""
 
-        scroll_down_by(self._driver, pixels)
+        if self._timeout_should_continue():
+            scroll_down_by(self._driver, pixels)
 
     def into_view(self, xpath: str, timeout: int | None = None) -> None:
         """Find element and scroll up or down until element is visible."""
@@ -48,9 +50,11 @@ class ScrollDriverMethods(DriverMethods):
     def to_position(self, x: int, y: int) -> None:
         """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
 
-        scroll_to_position(self._driver, x, y)
+        if self._timeout_should_continue():
+            scroll_to_position(self._driver, x, y)
 
     def up_by(self, pixels: int) -> None:
         """If possible, scroll up in pixels. Horisontal position is unchanged."""
 
-        scroll_up_by(self._driver, pixels)
+        if self._timeout_should_continue():
+            scroll_up_by(self._driver, pixels)
