@@ -1,6 +1,6 @@
 from ... import helper
 from ...model.browser.base.settings import BrowserSettings
-from .__init__ import default_file_name
+from ..screenshot import default_file_name
 
 
 def file_name(file_name: str | None) -> str:
