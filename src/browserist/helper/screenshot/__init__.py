@@ -11,3 +11,7 @@ def default_file_name() -> str:
     date = datetime.now().strftime("%Y-%m-%d")
     time = datetime.now().strftime("%H.%M.%S")
     return f"Browserist screenshot {date} at {time}.png"
+
+
+def save(driver: object, destination_dir: str, file_name: str) -> None:
+    driver.save_screenshot(f"{destination_dir}{file_name}")  # type: ignore
