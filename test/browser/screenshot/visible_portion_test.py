@@ -1,11 +1,9 @@
 from _helper import screenshot
+from _mock_data.screenshot import CUSTOM_SCREENSHOT_DIRECTORY, CUSTOM_SCREENSHOT_FILENAME
 from _mock_data.url import internal_url
 from py.path import local
 
 from browserist import Browser
-
-CUSTOM_SCREENSHOT_DIRECTORY = "screenshot"
-CUSTOM_SCREENSHOT_FILENAME = "screenshot.png"
 
 
 def test_get_screenshot_of_visible_portion_1(browser_headless_screenshot: Browser, tmpdir: local) -> None:
