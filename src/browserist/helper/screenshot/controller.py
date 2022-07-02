@@ -1,10 +1,9 @@
 from ... import helper
 from ...model.browser.base.settings import BrowserSettings
-from ..screenshot import default_file_name
 
 
 def file_name(file_name: str | None) -> str:
-    return default_file_name() if file_name is None else file_name
+    return helper.screenshot.default_file_name() if file_name is None else file_name
 
 
 def destination_dir(settings: BrowserSettings, destination_dir: str | None = None) -> str:
