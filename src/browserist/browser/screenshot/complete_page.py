@@ -7,7 +7,7 @@ from ..scroll.to_position import scroll_to_position
 from .visible_portion import get_screenshot_of_visible_portion
 
 
-def get_screenshot_complete_page(driver: object, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
+def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
     def default_get_screenshot_of_complete_page(driver: object) -> None:
         x_inital, y_initial = get_scroll_position(driver)
         scroll_to_top_of_page(driver)
