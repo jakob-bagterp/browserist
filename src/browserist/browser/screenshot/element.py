@@ -1,13 +1,12 @@
 from ... import helper
 from ...model.browser.base.settings import BrowserSettings
+from ...model.type.xpath import XPath
+from ..get.element import get_element
 
 
-def get_screenshot_of_element(driver: object, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
-    if file_name is None:
-        file_name = helper.screenshot.default_file_name()
-    if destination_dir is None:
-        destination_dir = settings.screenshot_dir
-    else:
-        destination_dir = helper.directory.ensure_trailing_slash(destination_dir)
-        helper.directory.create_if_not_exists(destination_dir)
-    driver.save_screenshot(f"{destination_dir}{file_name}")  # type: ignore
+def get_screenshot_of_element(driver: object, xpath: str, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
+    xpath = XPath(xpath)
+    element = get_element(driver, xpath)
+    file_name = helper.screenshot.controller.file_name(file_name)
+    destination_dir = helper.screenshot.controller.destination_dir(settings, destination_dir)
+    helper.screenshot.save_element(element, destination_dir, file_name)

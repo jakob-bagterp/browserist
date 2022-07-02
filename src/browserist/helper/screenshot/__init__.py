@@ -22,3 +22,10 @@ def generate_file_path(destination_dir: str, file_name: str) -> str:
 def save(driver: object, destination_dir: str, file_name: str) -> None:
     file_path = generate_file_path(destination_dir, file_name)
     driver.save_screenshot(file_path)  # type: ignore
+
+
+def save_element(element: object, destination_dir: str, file_name: str) -> None:
+    """Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
+
+    file_path = generate_file_path(destination_dir, file_name)
+    element.screenshot(file_path)  # type: ignore
