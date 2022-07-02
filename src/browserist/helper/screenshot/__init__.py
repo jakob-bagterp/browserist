@@ -13,5 +13,12 @@ def default_file_name() -> str:
     return f"Browserist screenshot {date} at {time}.png"
 
 
+def generate_file_path(destination_dir: str, file_name: str) -> str:
+    """Merge destination directory and file name into a single path. Assumes that the directory is valid and exists."""
+
+    return f"{destination_dir}{file_name}"
+
+
 def save(driver: object, destination_dir: str, file_name: str) -> None:
-    driver.save_screenshot(f"{destination_dir}{file_name}")  # type: ignore
+    file_path = generate_file_path(destination_dir, file_name)
+    driver.save_screenshot(file_path)  # type: ignore
