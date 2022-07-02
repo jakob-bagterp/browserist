@@ -4,7 +4,7 @@ from ..scroll.get.position import get_scroll_position
 from ..scroll.page.down import scroll_page_down
 from ..scroll.page.to_top import scroll_to_top_of_page
 from ..scroll.to_position import scroll_to_position
-from .visible_portion import get_screenshot_visible_portion
+from .visible_portion import get_screenshot_of_visible_portion
 
 
 def get_screenshot_complete_page(driver: object, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
@@ -12,7 +12,7 @@ def get_screenshot_complete_page(driver: object, settings: BrowserSettings, file
         x_inital, y_initial = get_scroll_position(driver)
         scroll_to_top_of_page(driver)
         while check_if_scroll_is_end_of_page(driver) is not True:
-            get_screenshot_visible_portion(driver, settings, file_name, destination_dir)
+            get_screenshot_of_visible_portion(driver, settings, file_name, destination_dir)
             scroll_page_down(driver)
         scroll_to_position(driver, x_inital, y_initial)
 
