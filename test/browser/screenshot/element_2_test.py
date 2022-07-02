@@ -7,7 +7,7 @@ from browserist import Browser
 
 
 def test_get_screenshot_of_element_1(browser_headless_screenshot: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("element/xpath") with default file name and destination."""
+    """Test of browser.screenshot.element("/element/xpath") with default file name and destination."""
 
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
@@ -16,7 +16,7 @@ def test_get_screenshot_of_element_1(browser_headless_screenshot: Browser, tmpdi
 
 
 def test_get_screenshot_of_element_2(browser_headless_screenshot: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("element/xpath", "image.png") with custom file name and default destination."""
+    """Test of browser.screenshot.element("/element/xpath", "image.png") with custom file name and default destination."""
 
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
@@ -25,7 +25,7 @@ def test_get_screenshot_of_element_2(browser_headless_screenshot: Browser, tmpdi
 
 
 def test_get_screenshot_of_element_3(browser_default_headless: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("element/xpath", "image.png", "./screenshots") with custom file name and destination."""
+    """Test of browser.screenshot.element("/element/xpath", "image.png", "./screenshots") with custom file name and destination."""
 
     browser = browser_default_headless
     browser.open.url(internal_url.EXAMPLE_COM)
@@ -35,7 +35,7 @@ def test_get_screenshot_of_element_3(browser_default_headless: Browser, tmpdir: 
 
 
 def test_get_screenshot_of_element_4(browser_default_headless: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("element/xpath", destination_dir = "./screenshots") with default file name and custom destination."""
+    """Test of browser.screenshot.element("/element/xpath", destination_dir = "./screenshots") with default file name and custom destination."""
 
     browser = browser_default_headless
     browser.open.url(internal_url.EXAMPLE_COM)
