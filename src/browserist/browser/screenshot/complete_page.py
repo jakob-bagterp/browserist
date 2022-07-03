@@ -14,9 +14,13 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
         x_inital, y_initial = get_scroll_position(driver)
         scroll_to_top_of_page(driver)
         temp_dir = helper.screenshot.controller.get_temp_dir(destination_dir)
+        date = helper.date_time.get_current_date()
+        time = helper.date_time.get_current_time()
         i = 1
         while check_if_scroll_is_end_of_page(driver) is not True:
-            get_screenshot_of_visible_portion(driver, settings, f"temp_{i}.png", temp_dir)
+            get_screenshot_of_visible_portion(driver, settings,
+                                              helper.screenshot.get_temp_file_name(date, time, i),
+                                              temp_dir)
             scroll_page_down(driver)
             i += 1
         scroll_to_position(driver, x_inital, y_initial)
