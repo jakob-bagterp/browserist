@@ -2,15 +2,17 @@ __all__ = ["controller", "default_file_name"]
 
 from datetime import datetime
 
+from ...model.screenshot import ScreenshotType
 from . import controller
 
 
-def default_file_name() -> str:
+def default_file_name(screenshot_type: ScreenshotType | None = None) -> str:
     """Example: \"Browserist screenshot 2022-02-12 at 22.12.34.png\""""
 
     date = datetime.now().strftime("%Y-%m-%d")
     time = datetime.now().strftime("%H.%M.%S")
-    return f"Browserist screenshot {date} at {time}.png"
+    appendix = "" if screenshot_type is None else f" ({screenshot_type.value})"
+    return f"Browserist screenshot {date} at {time}{appendix}.png"
 
 
 def generate_file_path(destination_dir: str, file_name: str) -> str:
