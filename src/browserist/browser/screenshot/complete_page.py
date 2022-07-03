@@ -1,3 +1,4 @@
+from ... import helper
 from ...model.browser.base.settings import BrowserSettings, BrowserType
 from ..scroll.check_if.is_end_of_page import check_if_scroll_is_end_of_page
 from ..scroll.get.position import get_scroll_position
@@ -15,6 +16,8 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
             get_screenshot_of_visible_portion(driver, settings, file_name, destination_dir)
             scroll_page_down(driver)
         scroll_to_position(driver, x_inital, y_initial)
+
+    destination_dir = helper.screenshot.controller.destination_dir(settings, destination_dir)
 
     match settings.type:
         case BrowserType.FIREFOX:
