@@ -1,3 +1,3 @@
-__all__ = ["directory", "interval", "timeout"]
+__all__ = ["directory", "interval", "screenshot", "timeout"]
 
-from . import directory, interval, timeout
+from . import directory, interval, screenshot, timeout

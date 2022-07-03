@@ -1,4 +1,4 @@
-from ... import helper
+from ... import constant, helper
 from ...model.browser.base.settings import BrowserSettings
 from ...model.screenshot import ScreenshotType
 
@@ -12,3 +12,10 @@ def destination_dir(settings: BrowserSettings, destination_dir: str | None = Non
         return settings.screenshot_dir
     helper.directory.create_if_not_exists(destination_dir)
     return helper.directory.ensure_trailing_slash(destination_dir)
+
+
+def temp_dir(destination_dir: str) -> str:
+    """Assumes that the destination_dir controller has defined the destination directory."""
+    temp_dir = f"{destination_dir}/{constant.screenshot.TEMP_DIR}/"
+    helper.directory.create_if_not_exists(temp_dir)
+    return temp_dir
