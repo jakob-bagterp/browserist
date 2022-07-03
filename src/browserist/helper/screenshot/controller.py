@@ -4,7 +4,7 @@ from ...model.screenshot import ScreenshotType
 
 
 def get_file_name(file_name: str | None, screenshot_type: ScreenshotType | None = None) -> str:
-    return helper.screenshot.default_file_name(screenshot_type) if file_name is None else file_name
+    return helper.screenshot.get_default_file_name(screenshot_type) if file_name is None else file_name
 
 
 def get_destination_dir(settings: BrowserSettings, destination_dir: str | None = None) -> str:

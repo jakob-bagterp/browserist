@@ -1,4 +1,4 @@
-__all__ = ["controller", "default_file_name"]
+__all__ = ["controller", "get_default_file_name"]
 
 
 from ...model.screenshot import ScreenshotType
@@ -6,7 +6,7 @@ from ..date_time import get_current_date, get_current_time
 from . import controller
 
 
-def default_file_name(screenshot_type: ScreenshotType | None = None) -> str:
+def get_default_file_name(screenshot_type: ScreenshotType | None = None) -> str:
     """Example: \"Browserist screenshot 2022-02-12 at 22.12.34.png\""""
 
     date = get_current_date()
