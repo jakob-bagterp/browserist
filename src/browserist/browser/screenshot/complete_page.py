@@ -13,7 +13,7 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
     def default_get_screenshot_of_complete_page(driver: object, file_name: str, destination_dir: str) -> None:
         x_inital, y_initial = get_scroll_position(driver)
         scroll_to_top_of_page(driver)
-        temp_dir = helper.screenshot.controller.temp_dir(destination_dir)
+        temp_dir = helper.screenshot.controller.get_temp_dir(destination_dir)
         i = 1
         while check_if_scroll_is_end_of_page(driver) is not True:
             get_screenshot_of_visible_portion(driver, settings, f"temp_{i}.png", temp_dir)
