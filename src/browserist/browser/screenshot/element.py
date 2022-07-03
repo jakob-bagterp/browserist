@@ -8,6 +8,6 @@ from ..get.element import get_element
 def get_screenshot_of_element(driver: object, xpath: str, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
     xpath = XPath(xpath)
     element = get_element(driver, xpath)
-    destination_dir = helper.screenshot.controller.destination_dir(settings, destination_dir)
     file_name = helper.screenshot.controller.get_file_name(file_name, ScreenshotType.ELEMENT)
+    destination_dir = helper.screenshot.controller.get_destination_dir(settings, destination_dir)
     helper.screenshot.save_element(element, destination_dir, file_name)

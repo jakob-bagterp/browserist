@@ -21,7 +21,7 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
             i += 1
         scroll_to_position(driver, x_inital, y_initial)
 
-    destination_dir = helper.screenshot.controller.destination_dir(settings, destination_dir)
+    destination_dir = helper.screenshot.controller.get_destination_dir(settings, destination_dir)
     file_name = helper.screenshot.controller.get_file_name(file_name, ScreenshotType.COMPLETE_PAGE)
 
     match settings.type:
