@@ -15,7 +15,8 @@ def destination_dir(settings: BrowserSettings, destination_dir: str | None = Non
 
 
 def temp_dir(destination_dir: str) -> str:
-    """Assumes that the destination_dir controller has defined the destination directory."""
+    """As the temporary directory will be a sub directory to the destination, this assumes that the destination directory has been defined by the controller."""
+
     temp_dir = f"{destination_dir}/{constant.screenshot.TEMP_DIR}/"
     helper.directory.create_if_not_exists(temp_dir)
     return temp_dir
