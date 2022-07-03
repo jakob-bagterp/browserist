@@ -3,7 +3,7 @@ from ...model.browser.base.settings import BrowserSettings
 from ...model.screenshot import ScreenshotType
 
 
-def file_name(file_name: str | None, screenshot_type: ScreenshotType | None = None) -> str:
+def get_file_name(file_name: str | None, screenshot_type: ScreenshotType | None = None) -> str:
     return helper.screenshot.default_file_name(screenshot_type) if file_name is None else file_name
 
 
