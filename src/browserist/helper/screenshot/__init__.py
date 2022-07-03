@@ -16,10 +16,12 @@ def get_default_file_name(screenshot_type: ScreenshotType | None = None) -> str:
     return f"Browserist screenshot {date} at {time}{appendix}.png"
 
 
-def get_temp_file_name(date: str, time: str, i: int) -> str:
-    """Example: \"2022-02-12_22.12.34_temp_1.png\""""
+def get_temp_file_name_without_iterator_and_file_type() -> str:
+    """Intended use: \"2022-02-12_22.12.34_temp_1.png\". Only returns the \"2022-02-12_22.12.34_temp\" part so remember to add the \"_1.png\" part."""
 
-    return f"{date}_{time}_{constant.screenshot.TEMP_FILE}_{i}.png"
+    date = get_current_date()
+    time = get_current_time()
+    return f"{date}_{time}_{constant.screenshot.TEMP_FILE}.png"
 
 
 def generate_file_path(destination_dir: str, file_name: str) -> str:
