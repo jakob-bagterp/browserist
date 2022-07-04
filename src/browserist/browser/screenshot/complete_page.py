@@ -18,13 +18,16 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
         scroll_to_top_of_page(driver)
         temp_dir = helper.screenshot.controller.get_temp_dir(destination_dir)
         temp_file_prefix = helper.screenshot.get_temp_file_prefix_without_iterator_and_file_type()
+        all_temp_file_paths: list[str] = []
         i = 1
         while check_if_scroll_is_end_of_page(driver) is not True:
-            get_screenshot_of_visible_portion(driver, settings, f"{temp_file_prefix}_{i}.png", temp_dir)
+            temp_file_path = f"{temp_file_prefix}_{i}.png"
+            get_screenshot_of_visible_portion(driver, settings, temp_file_path, temp_dir)
             scroll_page_down(driver)
+            all_temp_file_paths.append(temp_file_path)
             i += 1
-        # TODO: Find temp files and remove them.
         scroll_to_position(driver, x_inital, y_initial)
+        helper.file.remove(all_temp_file_paths)
 
     destination_dir = helper.screenshot.controller.get_destination_dir(settings, destination_dir)
     file_name = helper.screenshot.controller.get_file_name(file_name, ScreenshotType.COMPLETE_PAGE)
