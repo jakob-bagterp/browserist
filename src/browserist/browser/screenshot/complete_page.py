@@ -21,9 +21,10 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
         all_temp_file_paths: list[str] = []
         i = 1
         while check_if_scroll_is_end_of_page(driver) is not True:
-            temp_file_path = f"{temp_file_prefix}_{i}.png"
-            get_screenshot_of_visible_portion(driver, settings, temp_file_path, temp_dir)
+            temp_file_name = f"{temp_file_prefix}_{i}.png"
+            get_screenshot_of_visible_portion(driver, settings, temp_file_name, temp_dir)
             scroll_page_down(driver)
+            temp_file_path = helper.screenshot.generate_file_path(temp_dir, temp_file_name)
             all_temp_file_paths.append(temp_file_path)
             i += 1
         scroll_to_position(driver, x_inital, y_initial)
