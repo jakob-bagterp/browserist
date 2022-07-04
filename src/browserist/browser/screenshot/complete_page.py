@@ -16,7 +16,7 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
     def default_get_screenshot_of_complete_page(driver: object, file_name: str, destination_dir: str) -> None:
         x_inital, y_initial = get_scroll_position(driver)
         scroll_to_top_of_page(driver)
-        temp_dir = helper.screenshot.controller.get_temp_dir(destination_dir)
+        temp_dir = helper.screenshot.controller.mediate_temp_dir(destination_dir)
         temp_file_prefix = helper.screenshot.get_temp_file_prefix_without_iterator_and_file_type()
         all_temp_file_paths: list[str] = []
         i = 1
