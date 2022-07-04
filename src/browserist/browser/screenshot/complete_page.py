@@ -23,6 +23,7 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
             get_screenshot_of_visible_portion(driver, settings, f"{temp_file_prefix}_{i}.png", temp_dir)
             scroll_page_down(driver)
             i += 1
+        # TODO: Find temp files and remove them.
         scroll_to_position(driver, x_inital, y_initial)
 
     destination_dir = helper.screenshot.controller.get_destination_dir(settings, destination_dir)
