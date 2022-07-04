@@ -30,7 +30,7 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
         scroll_to_position(driver, x_inital, y_initial)
         helper.file.remove(all_temp_file_paths)
 
-    destination_dir = helper.screenshot.controller.get_destination_dir(settings, destination_dir)
+    destination_dir = helper.screenshot.controller.mediate_destination_dir(settings, destination_dir)
     file_name = helper.screenshot.controller.mediate_file_name(file_name, ScreenshotType.COMPLETE_PAGE)
     file_path = helper.screenshot.generate_file_path(destination_dir, file_name)
 
