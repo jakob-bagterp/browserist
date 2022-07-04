@@ -27,6 +27,7 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
             temp_file_path = helper.screenshot.generate_file_path(temp_dir, temp_file_name)
             all_temp_file_paths.append(temp_file_path)
             i += 1
+        # TODO: Stitch the temp images together.
         scroll_to_position(driver, x_inital, y_initial)
         helper.file.remove(all_temp_file_paths)
 
