@@ -1,10 +1,10 @@
-__all__ = ["controller", "get_default_file_name"]
+__all__ = ["complete_page", "controller", "get_default_file_name"]
 
 
 from ... import constant
 from ...model.screenshot import ScreenshotType
 from ..date_time import get_current_date, get_current_time
-from . import controller
+from . import complete_page, controller
 
 
 def get_default_file_name(screenshot_type: ScreenshotType | None = None) -> str:

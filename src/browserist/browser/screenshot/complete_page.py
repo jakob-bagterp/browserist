@@ -10,9 +10,6 @@ from .visible_portion import get_screenshot_of_visible_portion
 
 
 def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, file_name: str | None = None, destination_dir: str | None = None) -> None:
-    def firefox_get_screenshot_of_complete_page(driver: object, file_path: str) -> None:
-        driver.get_full_page_screenshot_as(file_path)  # type: ignore
-
     def default_get_screenshot_of_complete_page(driver: object, file_name: str, destination_dir: str) -> None:
         x_inital, y_initial = get_scroll_position(driver)
         scroll_to_top_of_page(driver)
@@ -37,6 +34,6 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
 
     match settings.type:
         case BrowserType.FIREFOX:
-            firefox_get_screenshot_of_complete_page(driver, file_path)
+            helper.screenshot.complete_page.firefox(driver, file_path)
         case _:
             default_get_screenshot_of_complete_page(driver, file_name, destination_dir)
