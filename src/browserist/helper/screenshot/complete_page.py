@@ -13,14 +13,6 @@ def firefox(driver: object, file_path: str) -> None:
 
 
 def default(driver: object, file_path: str, settings: BrowserSettings, destination_dir: str) -> None:
-    def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
-        merged_image = all_temp_file_paths[0]
-        if len(all_temp_file_paths) > 1:
-            for file_path in all_temp_file_paths[1:]:
-                image_add = helper.image.open(file_path)
-                merged_image = helper.image.merge_vertically(merged_image, image_add)
-        helper.image.save(merged_image, save_file_path)
-
     x_inital, y_initial = get_scroll_position(driver)
     scroll_to_top_of_page(driver)
     temp_dir = helper.screenshot.controller.mediate_temp_dir(destination_dir)
@@ -35,6 +27,6 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
         all_temp_file_paths.append(temp_file_path)
         i += 1
     # TODO: Consider refactoring to async methods so it runs faster:
-    merge_images(all_temp_file_paths, file_path)
+    helper.screenshot.merge_images(all_temp_file_paths, file_path)
     scroll_to_position(driver, x_inital, y_initial)
     helper.file.remove(all_temp_file_paths)

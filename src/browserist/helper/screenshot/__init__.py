@@ -2,7 +2,7 @@ __all__ = ["complete_page", "controller", "get_default_file_name",
            "get_temp_file_prefix_without_iterator_and_file_type", "generate_file_path", "save", "save_element"]
 
 
-from ... import constant
+from ... import constant, helper
 from ...model.screenshot import ScreenshotType
 from ..date_time import get_current_date, get_current_time, get_timestamp
 from . import complete_page, controller
@@ -40,3 +40,12 @@ def save_element(element: object, destination_dir: str, file_name: str) -> None:
 
     file_path = generate_file_path(destination_dir, file_name)
     element.screenshot(file_path)  # type: ignore
+
+
+def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
+    merged_image = all_temp_file_paths[0]
+    if len(all_temp_file_paths) > 1:
+        for file_path in all_temp_file_paths[1:]:
+            image_add = helper.image.open(file_path)
+            merged_image = helper.image.merge_vertically(merged_image, image_add)
+    helper.image.save(merged_image, save_file_path)
