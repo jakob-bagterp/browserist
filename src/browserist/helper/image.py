@@ -13,15 +13,15 @@ def is_element_loaded(driver: object, element: object) -> bool:
 def merge_vertically(image_base: Image, image_add: Image) -> Image:  # type: ignore
     """Merge two images vertically. Assumes both images have the same width. "image_add" will be added below "image_base"."""
 
-    merged_image_width: int = image_base.width  # type: ignore
-    merged_image_height: int = image_base.height + image_add.height  # type: ignore
+    merged_image_width: int = image_base.width
+    merged_image_height: int = image_base.height + image_add.height
     merged_image = Image.new("RGB", (merged_image_width, merged_image_height))
-    merged_image.paste(image_base, (0, 0))  # type: ignore
-    merged_image.paste(image_add, (0, image_base.height))  # type: ignore
-    return merged_image  # type: ignore
+    merged_image.paste(image_base, (0, 0))
+    merged_image.paste(image_add, (0, image_base.height))
+    return merged_image
 
 
 def open(file_path: str) -> Image:  # type: ignore
     """Open image from file path."""
 
-    return Image.open(file_path)  # type: ignore
+    return Image.open(file_path)
