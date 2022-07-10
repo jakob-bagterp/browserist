@@ -19,3 +19,9 @@ def merge_vertically(image_base: Image, image_add: Image) -> Image:  # type: ign
     merged_image.paste(image_base, (0, 0))  # type: ignore
     merged_image.paste(image_add, (0, image_base.height))  # type: ignore
     return merged_image  # type: ignore
+
+
+def open(file_path: str) -> Image:  # type: ignore
+    """Open image from file path."""
+
+    return Image.open(file_path)  # type: ignore
