@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image  # type: ignore
 
 
 def is_element_loaded(driver: object, element: object) -> bool:
