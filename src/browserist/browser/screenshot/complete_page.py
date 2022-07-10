@@ -1,5 +1,6 @@
 from ... import helper
-from ...model.browser.base.settings import BrowserSettings, BrowserType
+from ...model.browser.base.settings import BrowserSettings
+from ...model.browser.base.type import BrowserType
 from ...model.screenshot import ScreenshotType
 
 
