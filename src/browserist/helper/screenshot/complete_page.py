@@ -12,7 +12,15 @@ def firefox(driver: object, file_path: str) -> None:
     driver.get_full_page_screenshot_as(file_path)  # type: ignore
 
 
-def default(driver: object, settings: BrowserSettings, file_name: str, destination_dir: str) -> None:
+def default(driver: object, settings: BrowserSettings, file_path: str, destination_dir: str) -> None:
+    def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
+        merged_image = all_temp_file_paths[0]
+        if len(all_temp_file_paths) > 1:
+            for file_path in all_temp_file_paths[1:]:
+                image_add = helper.image.open(file_path)
+                merged_image = helper.image.merge_vertically(merged_image, image_add)
+        helper.image.save(merged_image, save_file_path)
+
     x_inital, y_initial = get_scroll_position(driver)
     scroll_to_top_of_page(driver)
     temp_dir = helper.screenshot.controller.mediate_temp_dir(destination_dir)
@@ -26,6 +34,6 @@ def default(driver: object, settings: BrowserSettings, file_name: str, destinati
         temp_file_path = helper.screenshot.generate_file_path(temp_dir, temp_file_name)
         all_temp_file_paths.append(temp_file_path)
         i += 1
-    # TODO: Stitch the temp images together.
+    merge_images(all_temp_file_paths, file_path)
     scroll_to_position(driver, x_inital, y_initial)
     helper.file.remove(all_temp_file_paths)
