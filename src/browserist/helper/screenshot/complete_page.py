@@ -16,13 +16,14 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
     # Save inital scroll position so we can return to it later.
     x_inital, y_initial = get_scroll_position(driver)
 
-    # Prepare for iteration from the top of the page.
+    # Prepare for iteration from the top of the page...
     scroll_to_top_of_page(driver)
     temp_dir = helper.screenshot.controller.mediate_temp_dir(destination_dir)
     temp_file_prefix = helper.screenshot.get_temp_file_prefix_without_iterator_and_file_type()
     all_temp_file_paths: list[str] = []
     i = 1
 
+    # ... and take screenshots of the visible portion until we reach the end of the page.
     while check_if_scroll_is_end_of_page(driver) is not True:
         temp_file_name = f"{temp_file_prefix}_{i}.png"
         get_screenshot_of_visible_portion(driver, settings, temp_file_name, temp_dir)
