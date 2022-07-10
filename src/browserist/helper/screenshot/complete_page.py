@@ -34,6 +34,7 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
         temp_file_path = helper.screenshot.generate_file_path(temp_dir, temp_file_name)
         all_temp_file_paths.append(temp_file_path)
         i += 1
+    # TODO: Consider refactoring to async methods so it runs faster:
     merge_images(all_temp_file_paths, file_path)
     scroll_to_position(driver, x_inital, y_initial)
     helper.file.remove(all_temp_file_paths)
