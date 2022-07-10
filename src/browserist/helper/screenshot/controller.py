@@ -17,6 +17,7 @@ def mediate_destination_dir(settings: BrowserSettings, destination_dir: str | No
 def mediate_temp_dir(destination_dir: str) -> str:
     """As the temporary directory will be a sub directory to the destination, this assumes that the destination directory has been defined by the controller."""
 
-    temp_dir = f"{destination_dir}/{constant.screenshot.TEMP_DIR}/"
+    destination_dir = helper.directory.ensure_trailing_slash(destination_dir)
+    temp_dir = f"{destination_dir}{constant.screenshot.TEMP_DIR}/"
     helper.directory.create_if_not_exists(temp_dir)
     return temp_dir
