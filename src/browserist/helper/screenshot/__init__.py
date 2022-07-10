@@ -27,6 +27,7 @@ def get_temp_file_prefix_without_iterator_and_file_type() -> str:
 def generate_file_path(destination_dir: str, file_name: str) -> str:
     """Merge destination directory and file name into a single path. Assumes that the directory is valid and exists."""
 
+    destination_dir = helper.directory.ensure_trailing_slash(destination_dir)
     return f"{destination_dir}{file_name}"
 
 
