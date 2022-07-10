@@ -21,7 +21,7 @@ def get_temp_file_prefix_without_iterator_and_file_type() -> str:
     """Intended use: \"2022-02-12_22.12.34_temp_1.png\". Only returns the \"2022-02-12_22.12.34_temp\" part so remember to add the \"_1.png\" part."""
 
     timestamp = get_timestamp()
-    return f"{timestamp}_{constant.screenshot.TEMP_FILE}.png"
+    return f"{timestamp}_{constant.screenshot.TEMP_FILE}"
 
 
 def generate_file_path(destination_dir: str, file_name: str) -> str:
