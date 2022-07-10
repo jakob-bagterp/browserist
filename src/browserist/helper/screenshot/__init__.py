@@ -43,7 +43,7 @@ def save_element(element: object, destination_dir: str, file_name: str) -> None:
 
 
 def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
-    merged_image = all_temp_file_paths[0]
+    merged_image = helper.image.open(all_temp_file_paths[0])
     if len(all_temp_file_paths) > 1:
         for file_path in all_temp_file_paths[1:]:
             image_add = helper.image.open(file_path)
