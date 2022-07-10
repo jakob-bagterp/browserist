@@ -25,3 +25,9 @@ def open(file_path: str) -> Image:  # type: ignore
     """Open image from file path."""
 
     return Image.open(file_path)
+
+
+def save(image: Image, file_path: str) -> Image:  # type: ignore
+    """Save image to file path."""
+
+    return image.save(file_path)
