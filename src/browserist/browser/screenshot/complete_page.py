@@ -13,4 +13,4 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
         case BrowserType.FIREFOX:
             helper.screenshot.complete_page.firefox(driver, file_path)
         case _:
-            helper.screenshot.complete_page.default(driver, settings, file_path, destination_dir)
+            helper.screenshot.complete_page.default(driver, file_path, settings, destination_dir)

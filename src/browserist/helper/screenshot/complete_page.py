@@ -12,7 +12,7 @@ def firefox(driver: object, file_path: str) -> None:
     driver.get_full_page_screenshot_as(file_path)  # type: ignore
 
 
-def default(driver: object, settings: BrowserSettings, file_path: str, destination_dir: str) -> None:
+def default(driver: object, file_path: str, settings: BrowserSettings, destination_dir: str) -> None:
     def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
         merged_image = all_temp_file_paths[0]
         if len(all_temp_file_paths) > 1:
