@@ -19,7 +19,7 @@ class ScreenshotTempDataHandler():
 
     destination_dir: str
     all_temp_file_paths: list[str] = []
-    _temp_file_prefix: str = helper.screenshot.get_temp_file_prefix_without_iterator_and_file_type()
+    _temp_file_prefix: str = helper.screenshot.file.get_temp_prefix_without_iterator_and_file_type()
     _iteration: int = 1
 
     # TODO: Should be static attribute: temp_dir
@@ -30,7 +30,7 @@ class ScreenshotTempDataHandler():
         return f"{self._temp_file_prefix}_{self._iteration}.png"
 
     def get_temp_file_path(self) -> str:
-        return helper.screenshot.generate_file_path(self.get_temp_dir(), self.get_temp_file_name())
+        return helper.screenshot.file.get_path(self.get_temp_dir(), self.get_temp_file_name())
 
     def next_iteration(self) -> None:
         temp_file_path = self.get_temp_file_path()
