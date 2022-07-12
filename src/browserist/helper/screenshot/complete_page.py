@@ -1,4 +1,3 @@
-from ... import helper
 from ...browser.screenshot.visible_portion import get_screenshot_of_visible_portion
 from ...browser.scroll.check_if.is_end_of_page import check_if_scroll_is_end_of_page
 from ...browser.scroll.get.position import get_scroll_position
@@ -24,7 +23,7 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
 
     # Prepare for iteration from the top of the page...
     scroll_to_top_of_page(driver)
-    handler = ScreenshotTempDataHandler(destination_dir=destination_dir)
+    handler = ScreenshotTempDataHandler(destination_dir=destination_dir, file_path=file_path)
 
     # ... and take screenshots of the visible portion...
     get_screenshot_of_visible_portion_and_scroll_down(driver, settings, handler)
@@ -34,7 +33,7 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
         get_screenshot_of_visible_portion_and_scroll_down(driver, settings, handler)
 
     # TODO: Consider refactoring to async methods so it runs faster:
-    helper.screenshot.merge_images(handler.all_temp_file_paths, file_path)
+    handler.merge_temp_images_into_final_screenshot()
 
     # Return to initial scroll position and tidy up temp files.
     scroll_to_position(driver, x_inital, y_initial)
