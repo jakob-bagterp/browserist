@@ -17,7 +17,8 @@ class ScreenshotType(Enum):
 class ScreenshotTempDataHandler():
     """Class to handle iteration details and general data for screenshot of complete page, e.g. file and directory names."""
 
-    __slots__ = ["destination_dir", "file_path", "_all_temp_file_paths", "_temp_file_prefix", "_iteration", "_temp_dir"]
+    __slots__ = ["destination_dir", "file_path",
+                 "_all_temp_file_paths", "_temp_file_prefix", "_iteration", "_temp_dir"]
 
     destination_dir: str
     file_path: str
