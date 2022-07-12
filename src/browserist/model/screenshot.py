@@ -29,6 +29,9 @@ class ScreenshotTempDataHandler():
         self._temp_file_prefix: str = helper.screenshot.file.get_temp_prefix_without_iterator_and_file_type()
         self._iteration: int = 1
 
+    def get_temp_dir(self) -> str:
+        return self._temp_dir
+
     def get_temp_file_name(self) -> str:
         return f"{self._temp_file_prefix}_{self._iteration}.png"
 
