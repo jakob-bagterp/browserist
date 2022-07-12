@@ -33,7 +33,7 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
         get_screenshot_of_visible_portion_and_scroll_down(driver, settings, handler)
 
     # TODO: Consider refactoring to async methods so it runs faster:
-    handler.merge_temp_images_into_final_screenshot()
+    handler.merge_temp_files_into_final_screenshot()
 
     # Return to initial scroll position and tidy up temp files.
     scroll_to_position(driver, x_inital, y_initial)
