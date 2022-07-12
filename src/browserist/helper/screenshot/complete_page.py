@@ -14,7 +14,7 @@ def firefox(driver: object, file_path: str) -> None:
 
 
 def default(driver: object, file_path: str, settings: BrowserSettings, destination_dir: str) -> None:
-    def process_screenshot_of_visible_portion(driver: object, settings: BrowserSettings, handler: ScreenshotTempDataHandler) -> None:
+    def get_screenshot_of_visible_portion_and_scroll_down(driver: object, settings: BrowserSettings, handler: ScreenshotTempDataHandler) -> None:
         get_screenshot_of_visible_portion(driver, settings, handler.get_temp_file_name(), handler.get_temp_dir())
         scroll_page_down(driver)
         handler.next_iteration()
@@ -27,11 +27,11 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
     handler = ScreenshotTempDataHandler(destination_dir=destination_dir)
 
     # ... and take screenshots of the visible portion...
-    process_screenshot_of_visible_portion(driver, settings, handler)
+    get_screenshot_of_visible_portion_and_scroll_down(driver, settings, handler)
 
     # ...until we reach the end of the page.
     while check_if_scroll_is_end_of_page(driver) is not True:
-        process_screenshot_of_visible_portion(driver, settings, handler)
+        get_screenshot_of_visible_portion_and_scroll_down(driver, settings, handler)
 
     # TODO: Consider refactoring to async methods so it runs faster:
     helper.screenshot.merge_images(handler.all_temp_file_paths, file_path)
