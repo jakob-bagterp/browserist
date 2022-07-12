@@ -36,7 +36,8 @@ class ScreenshotTempDataHandler():
         return f"{self._temp_file_prefix}_{self._iteration}.png"
 
     def get_temp_file_path(self) -> str:
-        return helper.screenshot.file.get_path(self._temp_dir, self.get_temp_file_name())
+        temp_file_name = self.get_temp_file_name()
+        return helper.screenshot.file.get_path(self._temp_dir, temp_file_name)
 
     def next_iteration(self) -> None:
         temp_file_path = self.get_temp_file_path()
