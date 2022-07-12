@@ -14,7 +14,8 @@ def firefox(driver: object, file_path: str) -> None:
 
 def default(driver: object, file_path: str, settings: BrowserSettings, destination_dir: str) -> None:
     def get_screenshot_of_visible_portion_and_scroll_down(driver: object, settings: BrowserSettings, handler: ScreenshotTempDataHandler) -> None:
-        get_screenshot_of_visible_portion(driver, settings, handler.get_temp_file_name(), handler.get_temp_dir())
+        get_screenshot_of_visible_portion(
+            driver, settings, file_name=handler.get_temp_file_name(), destination_dir=handler.get_temp_dir())
         scroll_page_down(driver)
         handler.next_iteration()
 
