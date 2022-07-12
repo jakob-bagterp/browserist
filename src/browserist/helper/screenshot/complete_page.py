@@ -29,7 +29,7 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
     # ... and take screenshots of the visible portion...
     get_screenshot_of_visible_portion_and_scroll_down(driver, settings, handler)
 
-    # ...until we reach the end of the page.
+    # ... until we reach the end of the page.
     while check_if_scroll_is_end_of_page(driver) is not True:
         get_screenshot_of_visible_portion_and_scroll_down(driver, settings, handler)
 
