@@ -38,4 +38,4 @@ def default(driver: object, file_path: str, settings: BrowserSettings, destinati
 
     # Return to initial scroll position and tidy up temp files.
     scroll_to_position(driver, x_inital, y_initial)
-    helper.file.remove(handler.all_temp_file_paths)
+    handler.remove_temp_files()

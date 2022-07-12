@@ -36,3 +36,6 @@ class ScreenshotTempDataHandler():
         temp_file_path = self.get_temp_file_path()
         self.all_temp_file_paths.append(temp_file_path)
         self._iteration += 1
+
+    def remove_temp_files(self) -> None:
+        helper.file.remove(self.all_temp_file_paths)
