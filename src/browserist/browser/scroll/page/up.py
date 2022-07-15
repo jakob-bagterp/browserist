@@ -1,7 +1,7 @@
 import time
 
 from ....constant import timeout
-from ...get.screen.height import get_screen_height
+from ...screen.height import get_screen_height
 from ..by import scroll_by
 
 

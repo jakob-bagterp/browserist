@@ -29,3 +29,16 @@ def exception_handling_for_methods_with_3_arguments_or_more(
     for test in test_set.tests:
         with test.expactation:
             _ = method(browser.driver, test.xpath, *args) is not None
+
+
+def exception_handling_for_screenshot_methods(
+    browser: Browser,
+    method: BrowserMethodWith3ArgumentsCallable | BrowserMethodWith4ArgumentsCallable,
+    temp_dir: str,
+    *args: Any,
+    test_set: XPathTestSet = XPATH_TEST_SET_EXAMPLE_COM_DEFAULT,
+) -> None:
+    browser.open.url(test_set.url)
+    for test in test_set.tests:
+        with test.expactation:
+            _ = method(browser.driver, test.xpath, browser._browser_driver.settings, temp_dir, *args) is not None
