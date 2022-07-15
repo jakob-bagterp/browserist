@@ -10,10 +10,9 @@ def save(driver: object, destination_dir: str, file_name: str) -> None:
     driver.save_screenshot(file_path)  # type: ignore
 
 
-def save_element(element: object, destination_dir: str, file_name: str) -> None:
+def save_element(element: object, file_path: str) -> None:
     """Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
 
-    file_path = helper.screenshot.file.get_path(destination_dir, file_name)
     element.screenshot(file_path)  # type: ignore
 
 

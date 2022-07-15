@@ -10,4 +10,5 @@ def get_screenshot_of_element(driver: object, xpath: str, settings: BrowserSetti
     element = get_element(driver, xpath)
     file_name = helper.screenshot.controller.mediate_file_name(file_name, ScreenshotType.ELEMENT)
     destination_dir = helper.screenshot.controller.mediate_destination_dir(settings, destination_dir)
-    helper.screenshot.save_element(element, destination_dir, file_name)
+    file_path = helper.screenshot.file.get_path(destination_dir, file_name)
+    helper.screenshot.save_element(element, file_path)
