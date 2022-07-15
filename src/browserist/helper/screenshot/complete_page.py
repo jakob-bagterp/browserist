@@ -1,4 +1,4 @@
-from ...browser.screenshot.visible_portion import get_screenshot_of_visible_portion
+from ... import helper
 from ...browser.scroll.check_if.is_end_of_page import check_if_scroll_is_end_of_page
 from ...browser.scroll.get.position import get_scroll_position
 from ...browser.scroll.page.down import scroll_page_down
@@ -13,11 +13,12 @@ def firefox(driver: object, file_path: str) -> None:
 
 
 def default(driver: object, file_path: str, settings: BrowserSettings, destination_dir: str) -> None:
-    def get_screenshot_of_visible_portion_and_scroll_down(driver: object, settings: BrowserSettings, handler: ScreenshotTempDataHandler) -> None:
-        get_screenshot_of_visible_portion(
-            driver, settings, file_name=handler.get_temp_file_name(), destination_dir=handler.get_temp_dir())
+    def get_screenshot_of_visible_portion_and_scroll_down(driver: object, handler: ScreenshotTempDataHandler) -> None:
+        temp_file_path = handler.get_temp_file_path()
+        helper.screenshot.save(driver, temp_file_path)
+        handler.save_temp_file_path(temp_file_path)
         scroll_page_down(driver)
-        handler.next_iteration()
+        handler.increment_iteration()
 
     # Save inital scroll position so we can return to it later.
     x_inital, y_initial = get_scroll_position(driver)

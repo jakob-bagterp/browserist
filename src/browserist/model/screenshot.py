@@ -29,9 +29,6 @@ class ScreenshotTempDataHandler():
         self._temp_file_prefix: str = helper.screenshot.file.get_temp_prefix_without_iterator_and_file_type()
         self._iteration: int = 1
 
-    def get_temp_dir(self) -> str:
-        return self._temp_dir
-
     def get_temp_file_name(self) -> str:
         return f"{self._temp_file_prefix}_{self._iteration}.png"
 
@@ -39,9 +36,10 @@ class ScreenshotTempDataHandler():
         temp_file_name = self.get_temp_file_name()
         return helper.screenshot.file.get_path(self._temp_dir, temp_file_name)
 
-    def next_iteration(self) -> None:
-        temp_file_path = self.get_temp_file_path()
+    def save_temp_file_path(self, temp_file_path: str) -> None:
         self._all_temp_file_paths.append(temp_file_path)
+
+    def increment_iteration(self) -> None:
         self._iteration += 1
 
     def merge_temp_files_into_final_screenshot(self) -> None:
