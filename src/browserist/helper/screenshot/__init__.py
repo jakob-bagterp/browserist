@@ -5,8 +5,7 @@ from ... import helper
 from . import complete_page, controller, file
 
 
-def save(driver: object, destination_dir: str, file_name: str) -> None:
-    file_path = helper.screenshot.file.get_path(destination_dir, file_name)
+def save(driver: object, file_path: str) -> None:
     driver.save_screenshot(file_path)  # type: ignore
 
 
