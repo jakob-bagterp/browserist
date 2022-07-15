@@ -17,11 +17,11 @@ class ScreenshotType(Enum):
 class ScreenshotTempDataHandler():
     """Class to handle iteration details and general data for screenshot of complete page, e.g. file and directory names."""
 
-    __slots__ = ["destination_dir", "file_path",
+    __slots__ = ["destination_dir", "destination_file_path",
                  "_all_temp_file_paths", "_temp_file_prefix", "_iteration", "_temp_dir"]
 
     destination_dir: str
-    file_path: str
+    destination_file_path: str
 
     def __post_init__(self) -> None:
         self._temp_dir: str = helper.screenshot.controller.mediate_temp_dir(self.destination_dir)
@@ -45,7 +45,7 @@ class ScreenshotTempDataHandler():
         self._iteration += 1
 
     def merge_temp_files_into_final_screenshot(self) -> None:
-        helper.screenshot.merge_images(self._all_temp_file_paths, self.file_path)
+        helper.screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
 
     def remove_temp_files(self) -> None:
         helper.file.remove(self._all_temp_file_paths)

@@ -6,11 +6,11 @@ from ...browser.scroll.to_position import scroll_to_position
 from ...model.screenshot import ScreenshotTempDataHandler
 
 
-def firefox(driver: object, file_path: str) -> None:
-    driver.get_full_page_screenshot_as(file_path)  # type: ignore
+def firefox(driver: object, destination_file_path: str) -> None:
+    driver.get_full_page_screenshot_as(destination_file_path)  # type: ignore
 
 
-def default(driver: object, file_path: str, destination_dir: str) -> None:
+def default(driver: object, destination_file_path: str, destination_dir: str) -> None:
     def get_screenshot_of_visible_portion_and_scroll_down(driver: object, handler: ScreenshotTempDataHandler) -> None:
         handler.save_screenshot(driver)
         handler.increment_iteration()
@@ -21,7 +21,7 @@ def default(driver: object, file_path: str, destination_dir: str) -> None:
 
     # Prepare for iteration from the top of the page...
     scroll_to_top_of_page(driver)
-    handler = ScreenshotTempDataHandler(destination_dir=destination_dir, file_path=file_path)
+    handler = ScreenshotTempDataHandler(destination_dir=destination_dir, destination_file_path=destination_file_path)
 
     # ... and take screenshots of the visible portion...
     get_screenshot_of_visible_portion_and_scroll_down(driver, handler)
