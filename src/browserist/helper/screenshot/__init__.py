@@ -6,11 +6,13 @@ from . import complete_page, controller, file
 
 
 def save(driver: object, file_path: str) -> None:
+    """Take screenshot of visible portion. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takescreenshot"""
+
     driver.save_screenshot(file_path)  # type: ignore
 
 
 def save_element(element: object, file_path: str) -> None:
-    """Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
+    """Take screenshot of element. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
 
     element.screenshot(file_path)  # type: ignore
 
