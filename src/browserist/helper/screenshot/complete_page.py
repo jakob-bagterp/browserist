@@ -19,14 +19,12 @@ def default(driver: object, destination_file_path: str, destination_dir: str) ->
     # Save inital scroll position so we can return to it later.
     x_inital, y_initial = get_scroll_position(driver)
 
-    # Prepare for iteration from the top of the page...
+    # Prepare for iteration from the top of the page.
     scroll_to_top_of_page(driver)
     handler = ScreenshotTempDataHandler(destination_dir=destination_dir, destination_file_path=destination_file_path)
 
-    # ... and take screenshots of the visible portion...
+    # Take screenshots of the visible portion until we reach the end of the page.
     get_screenshot_of_visible_portion_and_scroll_down(driver, handler)
-
-    # ... until we reach the end of the page.
     while check_if_scroll_is_end_of_page(driver) is not True:
         get_screenshot_of_visible_portion_and_scroll_down(driver, handler)
 
