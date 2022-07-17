@@ -47,7 +47,7 @@ class ScrollDriverMethods(DriverMethods):
 
         scroll_to_position(self._driver, x, y)
 
-    def up_by(self, pixels: int) -> None:
-        """If possible, scroll up in pixels. Horisontal position is unchanged."""
+    def up_by(self, pixels: int, delay_seconds: float = 1) -> None:
+        """If possible, scroll up in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated."""
 
-        scroll_up_by(self._driver, pixels)
+        scroll_up_by(self._driver, pixels, delay_seconds)
