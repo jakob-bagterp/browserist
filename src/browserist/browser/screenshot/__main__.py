@@ -10,7 +10,7 @@ class ScreenshotDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def complete_page(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
+    def complete_page(self, file_name: str | None = None, destination_dir: str | None = None, delay_seconds: float = 1) -> None:
         """Take screenshot of complete page and save as PNG image. Default destination directory is from where the script is executed. Examples:
 
         browser.screenshot.complete_page() # Default file name and destination
@@ -19,9 +19,11 @@ class ScreenshotDriverMethods(DriverMethods):
 
         browser.screenshot.complete_page("image.png", "./screenshots") # Custom file name and destination
 
-        browser.screenshot.complete_page(destination_dir = "./screenshots") # Default file name and custom destination"""
+        browser.screenshot.complete_page(destination_dir = "./screenshots") # Default file name and custom destination
 
-        get_screenshot_of_complete_page(self._driver, self._settings, file_name, destination_dir)
+        Some browsers don't support screenshots of the entire page at once, and so we need to merge screenshots portion by portions. Use "delay_seconds" to adjust iteration delay to ensure that the screen is updated after each scroll."""
+
+        get_screenshot_of_complete_page(self._driver, self._settings, file_name, destination_dir, delay_seconds)
 
     def element(self, xpath: str, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot of visible portion and save as PNG image. Default destination directory is from where the script is executed. Examples:
