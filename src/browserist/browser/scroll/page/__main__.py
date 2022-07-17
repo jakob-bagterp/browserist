@@ -11,10 +11,10 @@ class ScrollPageDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def down(self) -> None:
+    def down(self, delay_seconds: float = 1) -> None:
         """If possible, scroll page down."""
 
-        scroll_page_down(self._driver)
+        scroll_page_down(self._driver, delay_seconds)
 
     def to_end(self) -> None:
         """If possible, scroll to end of page."""
