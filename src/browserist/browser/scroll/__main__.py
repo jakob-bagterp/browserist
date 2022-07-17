@@ -27,10 +27,10 @@ class ScrollDriverMethods(DriverMethods):
 
         scroll_by(self._driver, x, y, delay_seconds)
 
-    def down_by(self, pixels: int) -> None:
-        """If possible, scroll down in pixels. Horisontal position is unchanged."""
+    def down_by(self, pixels: int, delay_seconds: float = 1) -> None:
+        """If possible, scroll down in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated."""
 
-        scroll_down_by(self._driver, pixels)
+        scroll_down_by(self._driver, pixels, delay_seconds)
 
     def into_view(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
         """Find element and scroll up or down until element is visible."""
