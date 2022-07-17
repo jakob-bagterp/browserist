@@ -22,10 +22,10 @@ class ScrollDriverMethods(DriverMethods):
         self.get: ScrollGetDriverMethods = ScrollGetDriverMethods(browser_driver, settings)
         self.page: ScrollPageDriverMethods = ScrollPageDriverMethods(browser_driver, settings)
 
-    def by(self, x: int, y: int) -> None:
-        """If possible, scroll by X and Y pixels as relative position."""
+    def by(self, x: int, y: int, delay_seconds: float = 1) -> None:
+        """If possible, scroll by X and Y pixels as relative position. Add custom delay in seconds to ensure the view is updated."""
 
-        scroll_by(self._driver, x, y)
+        scroll_by(self._driver, x, y, delay_seconds)
 
     def down_by(self, pixels: int) -> None:
         """If possible, scroll down in pixels. Horisontal position is unchanged."""
