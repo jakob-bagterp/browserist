@@ -12,7 +12,7 @@ class ScrollPageDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
 
     def down(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll page down."""
+        """If possible, scroll page down. Add custom delay in seconds to ensure the view is updated."""
 
         scroll_page_down(self._driver, delay_seconds)
 
