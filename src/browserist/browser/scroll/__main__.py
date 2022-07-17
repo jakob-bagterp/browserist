@@ -42,10 +42,10 @@ class ScrollDriverMethods(DriverMethods):
 
         scroll_into_view_if_not_visible(self._driver, xpath, timeout, delay_seconds)
 
-    def to_position(self, x: int, y: int) -> None:
-        """If possible, scroll to coordinate X and Y pixels of page as absolute position."""
+    def to_position(self, x: int, y: int, delay_seconds: float = 1) -> None:
+        """If possible, scroll to coordinate X and Y pixels of page as absolute position. Add custom delay in seconds to ensure the view is updated."""
 
-        scroll_to_position(self._driver, x, y)
+        scroll_to_position(self._driver, x, y, delay_seconds)
 
     def up_by(self, pixels: int, delay_seconds: float = 1) -> None:
         """If possible, scroll up in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated."""
