@@ -21,10 +21,10 @@ class ScrollPageDriverMethods(DriverMethods):
 
         scroll_to_end_of_page(self._driver, delay_seconds)
 
-    def to_top(self) -> None:
-        """If possible, scroll to top of page."""
+    def to_top(self, delay_seconds: float = 1) -> None:
+        """If possible, scroll to top of page. Add custom delay in seconds to ensure the view is updated."""
 
-        scroll_to_top_of_page(self._driver)
+        scroll_to_top_of_page(self._driver, delay_seconds)
 
     def up(self) -> None:
         """If possible, scroll page up."""
