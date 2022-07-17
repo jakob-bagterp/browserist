@@ -4,11 +4,10 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-from ....constant import timeout
 from ....exception.element import NoElementFoundException
 
 
-def scroll_to_end_of_page(driver: object, delay_seconds: float = timeout.VERY_SHORT) -> None:
+def scroll_to_end_of_page(driver: object, delay_seconds: float) -> None:
     try:
         # Select the whole page before pressing any keys...
         body_element = driver.find_element(By.TAG_NAME, "body")  # type: ignore
