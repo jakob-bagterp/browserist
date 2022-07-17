@@ -6,4 +6,4 @@ from .into_view import scroll_into_view
 def scroll_into_view_if_not_visible(driver: object, xpath: str, timeout: int, delay_seconds: float) -> None:
     xpath = XPath(xpath)
     if not check_if_is_displayed(driver, xpath):
-        scroll_into_view(driver, xpath, timeout, delay_seconds)  # TODO: Add delay_seconds.
+        scroll_into_view(driver, xpath, timeout, delay_seconds)
