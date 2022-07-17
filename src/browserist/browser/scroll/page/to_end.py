@@ -13,6 +13,6 @@ def scroll_to_end_of_page(driver: object, delay_seconds: float) -> None:
         body_element = driver.find_element(By.TAG_NAME, "body")  # type: ignore
         # ... and then simulate pressing End on the keyboard:
         body_element.send_keys(Keys.END)
-        time.sleep(delay_seconds)  # Small delay to ensure the view is updated.
+        time.sleep(delay_seconds)  # Small delay to ensure that the screen is updated after scroll.
     except NoSuchElementException:
         raise NoElementFoundException(driver, "body") from NoSuchElementException

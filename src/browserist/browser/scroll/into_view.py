@@ -15,7 +15,7 @@ def scroll_into_view(driver: object, xpath: str, timeout: int, delay_seconds: fl
         wait_for_element(driver, xpath, timeout)
         element: object = driver.find_element(By.XPATH, xpath)  # type: ignore
         driver.execute_script("arguments[0].scrollIntoView();", element)  # type: ignore
-        time.sleep(delay_seconds)  # Small timeout to make sure screen is updated after scroll.
+        time.sleep(delay_seconds)  # Small delay to ensure that the screen is updated after scroll.
     except TimeoutException:
         raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
     except NoSuchElementException:
