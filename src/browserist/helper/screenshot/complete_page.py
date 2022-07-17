@@ -14,13 +14,13 @@ def default(driver: object, destination_file_path: str, destination_dir: str) ->
     def get_screenshot_of_visible_portion_and_scroll_down(driver: object, handler: ScreenshotTempDataHandler) -> None:
         handler.save_screenshot(driver)
         handler.increment_iteration()
-        scroll_page_down(driver)
+        scroll_page_down(driver, delay_seconds=1)
 
     # Save inital scroll position so we can return to it later.
     x_inital, y_initial = get_scroll_position(driver)
 
     # Prepare for iteration from the top of the page.
-    scroll_to_top_of_page(driver)
+    scroll_to_top_of_page(driver, delay_seconds=1)
     handler = ScreenshotTempDataHandler(destination_dir=destination_dir, destination_file_path=destination_file_path)
 
     # Take screenshots of the visible portion until we reach the end of the page.
@@ -32,5 +32,5 @@ def default(driver: object, destination_file_path: str, destination_dir: str) ->
     handler.merge_temp_files_into_final_screenshot()
 
     # Return to initial scroll position and tidy up temp files.
-    scroll_to_position(driver, x_inital, y_initial)
+    scroll_to_position(driver, x_inital, y_initial, delay_seconds=1)
     handler.remove_temp_files()
