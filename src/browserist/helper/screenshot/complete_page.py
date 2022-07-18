@@ -7,7 +7,7 @@ from ...model.screenshot import ScreenshotTempDataHandler
 
 
 def firefox(driver: object, destination_file_path: str) -> None:
-    driver.get_full_page_screenshot_as(destination_file_path)  # type: ignore
+    driver.get_full_page_screenshot_as_file(destination_file_path)  # type: ignore
 
 
 def default(driver: object, destination_file_path: str, destination_dir: str, delay_seconds: float) -> None:
