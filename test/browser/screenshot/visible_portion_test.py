@@ -1,4 +1,4 @@
-from _helper.screenshot.element_or_visible_portion import image_has_minimum_file_size, images_have_minimum_file_size
+from _helper import screenshot
 from _mock_data.screenshot import CUSTOM_SCREENSHOT_DIRECTORY, CUSTOM_SCREENSHOT_FILENAME
 from _mock_data.url import internal_url
 from py.path import local
@@ -12,7 +12,7 @@ def test_get_screenshot_of_visible_portion_1(browser_headless_screenshot: Browse
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.visible_portion()
-    assert images_have_minimum_file_size(str(tmpdir))
+    assert screenshot.images_have_minimum_file_size(str(tmpdir))
 
 
 def test_get_screenshot_of_visible_portion_2(browser_headless_screenshot: Browser, tmpdir: local) -> None:
@@ -21,7 +21,7 @@ def test_get_screenshot_of_visible_portion_2(browser_headless_screenshot: Browse
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.visible_portion(CUSTOM_SCREENSHOT_FILENAME)
-    assert images_have_minimum_file_size(str(tmpdir))
+    assert screenshot.images_have_minimum_file_size(str(tmpdir))
 
 
 def test_get_screenshot_of_visible_portion_3(browser_default_headless: Browser, tmpdir: local) -> None:
@@ -31,7 +31,7 @@ def test_get_screenshot_of_visible_portion_3(browser_default_headless: Browser, 
     browser.open.url(internal_url.EXAMPLE_COM)
     temp_dir = str(tmpdir.mkdir(CUSTOM_SCREENSHOT_DIRECTORY))
     browser.screenshot.visible_portion(CUSTOM_SCREENSHOT_FILENAME, temp_dir)
-    assert image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME)
+    assert screenshot.image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME)
 
 
 def test_get_screenshot_of_visible_portion_4(browser_default_headless: Browser, tmpdir: local) -> None:
@@ -41,4 +41,4 @@ def test_get_screenshot_of_visible_portion_4(browser_default_headless: Browser, 
     browser.open.url(internal_url.EXAMPLE_COM)
     temp_dir = str(tmpdir.mkdir(CUSTOM_SCREENSHOT_DIRECTORY))
     browser.screenshot.visible_portion(destination_dir=temp_dir)
-    assert images_have_minimum_file_size(temp_dir)
+    assert screenshot.images_have_minimum_file_size(temp_dir)
