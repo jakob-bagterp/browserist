@@ -5,7 +5,7 @@ from py.path import local
 
 from browserist import Browser
 
-MINIMUM_FILE_SIZE = 500_000
+MINIMUM_FILE_SIZE = 700_000
 
 
 def test_default_get_screenshot_of_complete_page_1(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
