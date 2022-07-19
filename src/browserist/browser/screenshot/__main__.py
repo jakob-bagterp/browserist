@@ -21,7 +21,7 @@ class ScreenshotDriverMethods(DriverMethods):
 
         browser.screenshot.complete_page(destination_dir = "./screenshots") # Default file name and custom destination
 
-        Firefox is recommended browser for complete page screenshots as it executes this in one go. Other browsers can't capture the entire page at once, and so we need to merge screenshots portion by portions.
+        Firefox is recommended browser for complete page screenshots as it executes this in one go. Other browsers can't capture the entire page at once, and so we need to merge screenshots portion by portions – this is obviously much slower.
 
         Use "delay_seconds" to adjust iteration delay to ensure that the screen is updated after each scroll."""
 
