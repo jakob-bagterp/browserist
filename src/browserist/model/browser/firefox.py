@@ -24,7 +24,7 @@ class FirefoxBrowserDriver(BrowserDriver):
             self.firefox_options.set_preference("dom.ipc.plugins.enabled.libflashplayer.so", "false")
 
     def enable_headless(self) -> None:
-        if self.firefox_options.headless:
+        if self.settings.headless:
             self.firefox_options.add_argument("--headless")  # type: ignore
 
     def set_page_load_strategy(self) -> None:
