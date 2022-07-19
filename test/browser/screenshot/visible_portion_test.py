@@ -5,7 +5,7 @@ from py.path import local
 
 from browserist import Browser
 
-MINIMUM_FILE_SIZE = 1000
+MINIMUM_FILE_SIZE = 1_000
 
 
 def test_get_screenshot_of_visible_portion_1(browser_headless_screenshot: Browser, tmpdir: local) -> None:
