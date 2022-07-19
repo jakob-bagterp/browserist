@@ -42,7 +42,7 @@ def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
 
 
 @pytest.fixture(scope="function")
-def browser_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
+def browser_default_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
         headless=True,
         screenshot_dir=str(tmpdir)

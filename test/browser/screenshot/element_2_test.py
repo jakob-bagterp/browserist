@@ -8,19 +8,19 @@ from browserist import Browser
 MINIMUM_FILE_SIZE = 1_000
 
 
-def test_get_screenshot_of_element_1(browser_headless_screenshot: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_element_1(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.element("/element/xpath") with default file name and destination."""
 
-    browser = browser_headless_screenshot
+    browser = browser_default_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.element(EXAMPLE_COM_VALID_XPATH)
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
 
-def test_get_screenshot_of_element_2(browser_headless_screenshot: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_element_2(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.element("/element/xpath", "image.png") with custom file name and default destination."""
 
-    browser = browser_headless_screenshot
+    browser = browser_default_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.element(EXAMPLE_COM_VALID_XPATH, CUSTOM_SCREENSHOT_FILENAME)
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)

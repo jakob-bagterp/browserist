@@ -8,19 +8,19 @@ from browserist import Browser
 MINIMUM_FILE_SIZE = 1_000
 
 
-def test_get_screenshot_of_visible_portion_1(browser_headless_screenshot: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_visible_portion_1(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.visible_portion() with default file name and destination."""
 
-    browser = browser_headless_screenshot
+    browser = browser_default_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.visible_portion()
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
 
-def test_get_screenshot_of_visible_portion_2(browser_headless_screenshot: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_visible_portion_2(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.visible_portion("image.png") with custom file name and default destination."""
 
-    browser = browser_headless_screenshot
+    browser = browser_default_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.visible_portion(CUSTOM_SCREENSHOT_FILENAME)
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
