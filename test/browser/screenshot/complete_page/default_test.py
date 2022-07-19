@@ -37,7 +37,7 @@ def test_default_get_screenshot_of_complete_page_3(browser_default_headless: Bro
     # TODO: Remove this later
     import os
     size = os.path.getsize(f"{temp_dir}/{CUSTOM_SCREENSHOT_FILENAME}")
-    assert size > 1_000_000_000
+    assert size > 900_000
 
 
 def test_default_get_screenshot_of_complete_page_4(browser_default_headless: Browser, tmpdir: local) -> None:
