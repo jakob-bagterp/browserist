@@ -12,7 +12,7 @@ def test_get_screenshot_of_element_1(browser_headless_screenshot: Browser, tmpdi
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.element(EXAMPLE_COM_VALID_XPATH)
-    assert screenshot.images_have_minimum_file_size(str(tmpdir))
+    assert screenshot.images_have_minimum_file_size(tmpdir)
 
 
 def test_get_screenshot_of_element_2(browser_headless_screenshot: Browser, tmpdir: local) -> None:
@@ -21,7 +21,7 @@ def test_get_screenshot_of_element_2(browser_headless_screenshot: Browser, tmpdi
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.element(EXAMPLE_COM_VALID_XPATH, CUSTOM_SCREENSHOT_FILENAME)
-    assert screenshot.images_have_minimum_file_size(str(tmpdir))
+    assert screenshot.images_have_minimum_file_size(tmpdir)
 
 
 def test_get_screenshot_of_element_3(browser_default_headless: Browser, tmpdir: local) -> None:

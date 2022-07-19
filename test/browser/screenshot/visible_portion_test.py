@@ -12,7 +12,7 @@ def test_get_screenshot_of_visible_portion_1(browser_headless_screenshot: Browse
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.visible_portion()
-    assert screenshot.images_have_minimum_file_size(str(tmpdir))
+    assert screenshot.images_have_minimum_file_size(tmpdir)
 
 
 def test_get_screenshot_of_visible_portion_2(browser_headless_screenshot: Browser, tmpdir: local) -> None:
@@ -21,7 +21,7 @@ def test_get_screenshot_of_visible_portion_2(browser_headless_screenshot: Browse
     browser = browser_headless_screenshot
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screenshot.visible_portion(CUSTOM_SCREENSHOT_FILENAME)
-    assert screenshot.images_have_minimum_file_size(str(tmpdir))
+    assert screenshot.images_have_minimum_file_size(tmpdir)
 
 
 def test_get_screenshot_of_visible_portion_3(browser_default_headless: Browser, tmpdir: local) -> None:
