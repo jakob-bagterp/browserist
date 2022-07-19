@@ -12,21 +12,19 @@ class FirefoxBrowserDriver(BrowserDriver):
     def set_webdriver(self) -> object:
         if self.settings.path_to_executable is None:
             return webdriver.Firefox(  # type: ignore
-                firefox_profile=self.firefox_profile,
                 options=self.firefox_options)
         else:
             return webdriver.Firefox(  # type: ignore
                 executable_path=self.settings.path_to_executable,
-                firefox_profile=self.firefox_profile,
                 options=self.firefox_options)
 
     def disable_images(self) -> None:
         if self.settings.disable_images:
-            self.firefox_profile.set_preference("permissions.default.image", 2)  # type: ignore
-            self.firefox_profile.set_preference("dom.ipc.plugins.enabled.libflashplayer.so", "false")  # type: ignore
+            self.firefox_options.set_preference("permissions.default.image", 2)
+            self.firefox_options.set_preference("dom.ipc.plugins.enabled.libflashplayer.so", "false")
 
     def enable_headless(self) -> None:
-        if self.settings.headless:
+        if self.firefox_options.headless:
             self.firefox_options.add_argument("--headless")  # type: ignore
 
     def set_page_load_strategy(self) -> None:
