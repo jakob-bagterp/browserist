@@ -20,8 +20,8 @@ class FirefoxBrowserDriver(BrowserDriver):
 
     def disable_images(self) -> None:
         if self.settings.disable_images:
-            self.firefox_options.set_preference("permissions.default.image", 2)  # type: ignore
-            self.firefox_options.set_preference("dom.ipc.plugins.enabled.libflashplayer.so", "false")  # type: ignore
+            self.firefox_options.set_preference("permissions.default.image", 2)
+            self.firefox_options.set_preference("dom.ipc.plugins.enabled.libflashplayer.so", "false")
 
     def enable_headless(self) -> None:
         if self.firefox_options.headless:
