@@ -5,7 +5,7 @@ from py.path import local
 
 from browserist import Browser
 
-MINIMUM_FILE_SIZE = 1_000_000
+MINIMUM_FILE_SIZE = 800_000
 
 
 def test_firefox_get_screenshot_of_complete_page_1(browser_firefox_headless_screenshot: Browser, tmpdir: local) -> None:
@@ -33,10 +33,7 @@ def test_firefox_get_screenshot_of_complete_page_3(browser_firefox_headless_scre
     browser.open.url(internal_url.W3SCHOOLS_COM)
     temp_dir = str(tmpdir.mkdir(CUSTOM_SCREENSHOT_DIRECTORY))
     browser.screenshot.complete_page(CUSTOM_SCREENSHOT_FILENAME, temp_dir)
-    # assert screenshot.image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME, MINIMUM_FILE_SIZE)
-    import os
-    file_size = os.path.getsize(f"{temp_dir}/{CUSTOM_SCREENSHOT_FILENAME}")
-    assert file_size > MINIMUM_FILE_SIZE
+    assert screenshot.image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME, MINIMUM_FILE_SIZE)
 
 
 def test_firefox_get_screenshot_of_complete_page_4(browser_firefox_headless_screenshot: Browser, tmpdir: local) -> None:
