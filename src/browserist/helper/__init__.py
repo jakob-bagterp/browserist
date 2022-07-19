@@ -1,3 +1,4 @@
-__all__ = ["directory", "image", "operating_system", "retry", "screenshot", "url", "window_handle", "xpath"]
+__all__ = ["date_time", "directory", "file", "image", "operating_system",
+           "retry", "screenshot", "url", "window_handle", "xpath"]
 
-from . import directory, image, operating_system, retry, screenshot, url, window_handle, xpath
+from . import date_time, directory, file, image, operating_system, retry, screenshot, url, window_handle, xpath

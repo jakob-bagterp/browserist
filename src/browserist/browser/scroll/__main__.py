@@ -23,31 +23,31 @@ class ScrollDriverMethods(DriverMethods):
         self.page: ScrollPageDriverMethods = ScrollPageDriverMethods(browser_driver, settings)
 
     def by(self, x: int, y: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll by X and Y pixels as relative position. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll by X and Y pixels as relative position. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_by(self._driver, x, y, delay_seconds)
 
     def down_by(self, pixels: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll down in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll down in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_down_by(self._driver, pixels, delay_seconds)
 
     def into_view(self, xpath: str, timeout: int = timeout.DEFAULT, delay_seconds: float = 1) -> None:
-        """Find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated."""
+        """Find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_into_view(self._driver, xpath, timeout, delay_seconds)
 
     def into_view_if_not_visible(self, xpath: str, timeout: int = timeout.DEFAULT, delay_seconds: float = 1) -> None:
-        """If not visible, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated."""
+        """If not visible, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_into_view_if_not_visible(self._driver, xpath, timeout, delay_seconds)
 
     def to_position(self, x: int, y: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll to coordinate X and Y pixels of page as absolute position. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll to coordinate X and Y pixels of page as absolute position. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_to_position(self._driver, x, y, delay_seconds)
 
     def up_by(self, pixels: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll up in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll up in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_up_by(self._driver, pixels, delay_seconds)

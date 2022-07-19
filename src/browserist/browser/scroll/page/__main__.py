@@ -12,21 +12,21 @@ class ScrollPageDriverMethods(DriverMethods):
         super().__init__(browser_driver, settings)
 
     def down(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll page down. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll page down. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_page_down(self._driver, delay_seconds)
 
     def to_end(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll to end of page. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll to end of page. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_to_end_of_page(self._driver, delay_seconds)
 
     def to_top(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll to top of page. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll to top of page. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_to_top_of_page(self._driver, delay_seconds)
 
     def up(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll page up. Add custom delay in seconds to ensure the view is updated."""
+        """If possible, scroll page up. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_page_up(self._driver, delay_seconds)
