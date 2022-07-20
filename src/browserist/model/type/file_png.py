@@ -24,4 +24,4 @@ class FilePNG(str):
         return self.value
 
     def is_valid(self) -> bool:
-        bool(self.value.endswith(".png"))
+        return bool(self.value.endswith(".png"))
