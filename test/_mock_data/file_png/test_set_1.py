@@ -12,7 +12,7 @@ INVALID_PNG_FILE_NAME = "image_file.jpg"
 
 FILE_PNG_TEST_SET_DEFAULT = FilePNGTestSet(
     tests=[
-        FilePNGExpectation(VALID_PNG_FILE_NAME, does_not_raise()),
-        FilePNGExpectation(INVALID_PNG_FILE_NAME, pytest.raises(FilePNGSyntaxError)),
+        FilePNGExpectation(file_name=VALID_PNG_FILE_NAME, expectation=does_not_raise()),
+        FilePNGExpectation(file_name=INVALID_PNG_FILE_NAME, expectation=pytest.raises(FilePNGSyntaxError)),
     ]
 )
