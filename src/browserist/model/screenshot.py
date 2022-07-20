@@ -22,7 +22,7 @@ class ScreenshotTempDataHandler():
                  "_all_temp_file_paths", "_temp_file_prefix", "_iteration", "_temp_dir"]
 
     destination_dir: str
-    destination_file_path: str | FilePNG
+    destination_file_path: str
 
     def __post_init__(self) -> None:
         self.destination_file_path = FilePNG(self.destination_file_path)
