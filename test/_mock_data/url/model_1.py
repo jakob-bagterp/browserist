@@ -5,7 +5,7 @@ from typing import Any
 @dataclass(frozen=True, slots=True)
 class URLExpectation:
     url: str
-    expactation: Any
+    expectation: Any
 
 
 @dataclass(frozen=True, slots=True)

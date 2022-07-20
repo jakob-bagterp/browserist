@@ -14,7 +14,7 @@ def exception_handling_for_methods_with_2_arguments(
     test_set: URLTestSet = URL_TEST_SET_DEFAULT
 ) -> None:
     for test in test_set.tests:
-        with test.expactation:
+        with test.expectation:
             _ = method(browser.driver, test.url) is not None
 
 
@@ -25,5 +25,5 @@ def exception_handling_for_methods_with_3_arguments_or_more(
     test_set: URLTestSet = URL_TEST_SET_DEFAULT
 ) -> None:
     for test in test_set.tests:
-        with test.expactation:
+        with test.expectation:
             _ = method(browser.driver, test.url, *args) is not None
