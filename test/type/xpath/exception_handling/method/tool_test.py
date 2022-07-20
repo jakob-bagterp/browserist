@@ -1,5 +1,5 @@
 import pytest
-from _mock_data.xpath.method_2 import exception_handling_for_methods_with_3_arguments_or_more
+from _mock_data.xpath.method_3 import exception_handling_for_methods_with_3_arguments_or_more
 
 from browserist import Browser
 from browserist.browser.tool.count_elements import tool_count_elements

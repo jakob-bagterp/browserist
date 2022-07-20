@@ -2,7 +2,7 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
-from _mock_data.xpath.test_set_2 import INVALID_XPATH, VALID_XPATH
+from _mock_data.xpath.test_set_3 import INVALID_XPATH, VALID_XPATH
 
 from browserist.exception.xpath import XPathSyntaxError
 from browserist.model.type.xpath import XPath
