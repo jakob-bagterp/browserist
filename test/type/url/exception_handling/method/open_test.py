@@ -1,5 +1,5 @@
 import pytest
-from _mock_data.url.method_1 import exception_handling_for_methods_with_2_arguments
+from _mock_data.url.method_2 import exception_handling_for_methods_with_2_arguments
 
 from browserist import Browser
 from browserist.browser.open.url import open_url

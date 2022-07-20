@@ -1,6 +1,6 @@
 from _mock_data.url.external_url import GOOGLE_COM
-from _mock_data.url.method_1 import exception_handling_for_methods_with_3_arguments_or_more
-from _mock_data.url.test_set_1 import VALID_URL
+from _mock_data.url.method_2 import exception_handling_for_methods_with_3_arguments_or_more
+from _mock_data.url.test_set_2 import VALID_URL
 
 from browserist import Browser
 from browserist.browser.wait.until.url.changes import wait_until_url_changes

@@ -2,7 +2,7 @@ from contextlib import nullcontext as does_not_raise
 
 import pytest
 from _mock_data.url import internal_url
-from _mock_data.xpath.model_2 import XPathExpectation, XPathTestSet
+from _mock_data.xpath.model_3 import XPathExpectation, XPathTestSet
 
 from browserist.exception.xpath import XPathSyntaxError
 
