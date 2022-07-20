@@ -1,6 +1,6 @@
 import pytest
 from _mock_data.screenshot import CUSTOM_SCREENSHOT_DIRECTORY, CUSTOM_SCREENSHOT_FILENAME
-from _mock_data.xpath.method_2 import exception_handling_for_screenshot_methods
+from _mock_data.xpath.method_3 import exception_handling_for_screenshot_methods
 from py.path import local
 
 from browserist import Browser

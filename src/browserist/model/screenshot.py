@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from enum import Enum, unique
 
 from .. import helper
+from .type.file_png import FilePNG
 
 
 @unique
@@ -24,6 +25,7 @@ class ScreenshotTempDataHandler():
     destination_file_path: str
 
     def __post_init__(self) -> None:
+        self.destination_file_path = FilePNG(self.destination_file_path)
         self._temp_dir: str = helper.screenshot.controller.mediate_temp_dir(self.destination_dir)
         self._all_temp_file_paths: list[str] = []
         self._temp_file_prefix: str = helper.screenshot.file.get_temp_prefix_without_iterator_and_file_type()
