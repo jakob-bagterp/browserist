@@ -5,7 +5,7 @@ from typing import Any
 @dataclass(frozen=True, slots=True)
 class XPathExpectation:
     xpath: str
-    expactation: Any
+    expectation: Any
 
 
 @dataclass(frozen=True, slots=True)
