@@ -1,33 +1,28 @@
-__all__ = ["controller", "default_file_name"]
-
-from datetime import datetime
-
-from ...model.screenshot import ScreenshotType
-from . import controller
+__all__ = ["complete_page", "controller", "file", "save", "save_element"]
 
 
-def default_file_name(screenshot_type: ScreenshotType | None = None) -> str:
-    """Example: \"Browserist screenshot 2022-02-12 at 22.12.34.png\""""
-
-    date = datetime.now().strftime("%Y-%m-%d")
-    time = datetime.now().strftime("%H.%M.%S")
-    appendix = "" if screenshot_type is None else f" ({screenshot_type.value})"
-    return f"Browserist screenshot {date} at {time}{appendix}.png"
+from ... import helper
+from . import complete_page, controller, file
 
 
-def generate_file_path(destination_dir: str, file_name: str) -> str:
-    """Merge destination directory and file name into a single path. Assumes that the directory is valid and exists."""
+def save(driver: object, file_path: str) -> None:
+    """Take screenshot of visible portion. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takescreenshot"""
 
-    return f"{destination_dir}{file_name}"
-
-
-def save(driver: object, destination_dir: str, file_name: str) -> None:
-    file_path = generate_file_path(destination_dir, file_name)
     driver.save_screenshot(file_path)  # type: ignore
 
 
-def save_element(element: object, destination_dir: str, file_name: str) -> None:
-    """Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
+def save_element(element: object, file_path: str) -> None:
+    """Take screenshot of element. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
 
-    file_path = generate_file_path(destination_dir, file_name)
     element.screenshot(file_path)  # type: ignore
+
+
+def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
+    if not all_temp_file_paths:
+        return
+    merged_image = helper.image.open(all_temp_file_paths[0])
+    if len(all_temp_file_paths) > 1:
+        for file_path in all_temp_file_paths[1:]:
+            image_add = helper.image.open(file_path)
+            merged_image = helper.image.merge_vertically(merged_image, image_add)
+    helper.image.save(merged_image, save_file_path)

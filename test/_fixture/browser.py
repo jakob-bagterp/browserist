@@ -5,6 +5,7 @@ from _config.browser_settings import default
 from py.path import local
 
 from browserist import Browser, BrowserSettings
+from browserist.model.browser.base.type import BrowserType
 
 # Reuse a shared Browser whether it's in default or headless mode across tests
 # so each test doesn't have to initialize a new Browser, which is slower.
@@ -41,8 +42,19 @@ def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
 
 
 @pytest.fixture(scope="function")
-def browser_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
+def browser_default_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
+        headless=True,
+        screenshot_dir=str(tmpdir)
+    )
+    with Browser(browser_settings) as browser:
+        yield browser
+
+
+@pytest.fixture(scope="function")
+def browser_firefox_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
+    browser_settings = BrowserSettings(
+        type=BrowserType.FIREFOX,
         headless=True,
         screenshot_dir=str(tmpdir)
     )

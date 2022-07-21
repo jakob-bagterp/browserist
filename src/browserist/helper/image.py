@@ -1,3 +1,6 @@
+from PIL import Image  # type: ignore
+
+
 def is_element_loaded(driver: object, element: object) -> bool:
     """Check if image element is loaded and ready in the DOM."""
 
@@ -5,3 +8,26 @@ def is_element_loaded(driver: object, element: object) -> bool:
         "return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0;",
         element)
     return is_image_loaded or False
+
+
+def merge_vertically(image_base: Image, image_add: Image) -> Image:  # type: ignore
+    """Merge two images vertically. Assumes both images have the same width. "image_add" will be added below "image_base"."""
+
+    merged_image_width: int = image_base.width
+    merged_image_height: int = image_base.height + image_add.height
+    merged_image = Image.new("RGB", (merged_image_width, merged_image_height))
+    merged_image.paste(image_base, (0, 0))
+    merged_image.paste(image_add, (0, image_base.height))
+    return merged_image
+
+
+def open(file_path: str) -> Image:  # type: ignore
+    """Open image from file path."""
+
+    return Image.open(file_path)
+
+
+def save(image: Image, file_path: str) -> Image:  # type: ignore
+    """Save image to file path."""
+
+    return image.save(file_path)

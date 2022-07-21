@@ -3,12 +3,11 @@ from typing import Any
 
 
 @dataclass(frozen=True, slots=True)
-class XPathExpectation:
-    xpath: str
-    expactation: Any
+class URLExpectation:
+    url: str
+    expectation: Any
 
 
 @dataclass(frozen=True, slots=True)
-class XPathTestSet:
-    url: str
-    tests: list[XPathExpectation]
+class URLTestSet:
+    tests: list[URLExpectation]

@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.safari.options import Options as SafariOptions
@@ -16,7 +15,7 @@ class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
 
     __slots__ = ["settings", "chrome_options", "edge_options", "firefox_options",
-                 "firefox_profile", "ie_options", "safari_options", "webdriver"]
+                 "ie_options", "safari_options", "webdriver"]
 
     def __init__(self, settings: BrowserSettings) -> None:
         """Initiates basic properties of the Selenium web driver."""
@@ -31,7 +30,6 @@ class BrowserDriver(ABC):
                 self.edge_options: EdgeOptions = EdgeOptions()  # type: ignore
             case BrowserType.FIREFOX:
                 self.firefox_options: FirefoxOptions = FirefoxOptions()  # type: ignore
-                self.firefox_profile: FirefoxProfile = FirefoxProfile()  # type: ignore
             case BrowserType.INTERNET_EXPLORER:
                 self.ie_options: IEOptions = IEOptions()  # type: ignore
             case BrowserType.SAFARI:

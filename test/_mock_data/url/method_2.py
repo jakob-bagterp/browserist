@@ -1,7 +1,7 @@
 from typing import Any
 
-from _mock_data.url.model_1 import URLTestSet
-from _mock_data.url.test_set_1 import URL_TEST_SET_DEFAULT
+from _mock_data.url.model_2 import URLTestSet
+from _mock_data.url.test_set_2 import URL_TEST_SET_DEFAULT
 
 from browserist import Browser
 from browserist.model.type.callable import (BrowserMethodWith2ArgumentsCallable, BrowserMethodWith3ArgumentsCallable,
@@ -14,7 +14,7 @@ def exception_handling_for_methods_with_2_arguments(
     test_set: URLTestSet = URL_TEST_SET_DEFAULT
 ) -> None:
     for test in test_set.tests:
-        with test.expactation:
+        with test.expectation:
             _ = method(browser.driver, test.url) is not None
 
 
@@ -25,5 +25,5 @@ def exception_handling_for_methods_with_3_arguments_or_more(
     test_set: URLTestSet = URL_TEST_SET_DEFAULT
 ) -> None:
     for test in test_set.tests:
-        with test.expactation:
+        with test.expectation:
             _ = method(browser.driver, test.url, *args) is not None
