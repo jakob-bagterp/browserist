@@ -21,7 +21,7 @@ def exception_handling_for_methods_with_2_arguments(
 
 def exception_handling_for_methods_with_3_arguments_or_more(
     browser: Browser,
-    method: BrowserMethodWith3ArgumentsCallable | BrowserMethodWith4ArgumentsCallable,
+    method: BrowserMethodWith3ArgumentsCallable | BrowserMethodWith4ArgumentsCallable | BrowserMethodWith5ArgumentsCallable,
     *args: Any,
     test_set: XPathTestSet = XPATH_TEST_SET_EXAMPLE_COM_DEFAULT
 ) -> None:

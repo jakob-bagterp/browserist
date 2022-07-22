@@ -1,5 +1,4 @@
 from ... import helper
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -11,17 +10,21 @@ class ToolDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def is_input_valid(self, text: str, regex: str, ignore_case: bool = True) -> bool:
+    def is_input_valid(self, text: str, regex: str, ignore_case: bool = True) -> bool:  # type: ignore
         """Check if input matches regex condition."""
 
-        return tool_is_input_valid(text, regex, ignore_case)
+        if self._timeout_should_continue():
+            return tool_is_input_valid(text, regex, ignore_case)
 
-    def is_url_valid(self, url: str) -> bool:
+    def is_url_valid(self, url: str) -> bool:  # type: ignore
         """Check if input is a valid URL."""
 
-        return helper.url.is_valid(url)
+        if self._timeout_should_continue():
+            return helper.url.is_valid(url)
 
-    def count_elements(self, xpath: str, timeout: int = timeout.DEFAULT) -> int:
+    def count_elements(self, xpath: str, timeout: int | None = None) -> int:  # type: ignore
         """Count number of elements."""
 
-        return tool_count_elements(self._driver, xpath, timeout)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return tool_count_elements(self._driver, xpath, timeout)

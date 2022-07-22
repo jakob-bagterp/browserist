@@ -4,13 +4,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
 
 from ... import constant
-from ...constant import timeout
 from ...exception.element import NoElementFoundException
 from ...exception.timeout import WaitForElementTimeoutException
 from ...model.type.xpath import XPath
 
 
-def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+def wait_for_element(driver: object, xpath: str, timeout: int) -> None:
     xpath = XPath(xpath)
     if timeout == constant.timeout.BYPASS:
         return

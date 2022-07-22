@@ -1,4 +1,5 @@
 from ... import helper
+from ...constant import timeout
 from ...model.browser.base.settings import BrowserSettings
 from ...model.screenshot import ScreenshotType
 from ...model.type.file_png import FilePNG
@@ -13,5 +14,5 @@ def get_screenshot_of_element(driver: object, xpath: str, settings: BrowserSetti
     file_name = helper.screenshot.controller.mediate_file_name(file_name, ScreenshotType.ELEMENT)
     destination_dir = helper.screenshot.controller.mediate_destination_dir(settings, destination_dir)
     file_path = helper.screenshot.file.get_path(destination_dir, file_name)
-    element = get_element(driver, xpath)
+    element = get_element(driver, xpath, timeout.DEFAULT)
     helper.screenshot.save_element(element, file_path)

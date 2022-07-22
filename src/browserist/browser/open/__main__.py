@@ -12,7 +12,8 @@ class OpenDriverMethods(DriverMethods):
     def url(self, url: str) -> None:
         """Open web page by URL."""
 
-        open_url(self._driver, url)
+        if self._timeout_should_continue():
+            open_url(self._driver, url)
 
     def url_if_not_current(self, url: str, ignore_trailing_slash: bool = True, ignore_parameters: bool = False, ignore_https: bool = False) -> None:
         """Open a URL if it isn't already the current URL. Useful when doing multiple operations on a page where.
@@ -23,4 +24,5 @@ class OpenDriverMethods(DriverMethods):
 
         ignore_https: Ignore whether the URL is "http://example.com" or "https://example.com"."""
 
-        open_url_if_not_current(self._driver, url, ignore_trailing_slash, ignore_parameters, ignore_https)
+        if self._timeout_should_continue():
+            open_url_if_not_current(self._driver, url, ignore_trailing_slash, ignore_parameters, ignore_https)

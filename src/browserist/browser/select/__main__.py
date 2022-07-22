@@ -9,11 +9,13 @@ class SelectDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def input_field(self, xpath: str) -> None:
+    def input_field(self, xpath: str, timeout: int | None = None) -> None:
         """Select input field, similar to clicking the mouse on a form field."""
 
         if self._settings.headless:
             raise MethodNotSupportedInHeadlessModeException(
                 "select.input_field", "headless mode doesn't support interactions")
 
-        select_input_field(self._driver, xpath)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            select_input_field(self._driver, xpath, timeout)

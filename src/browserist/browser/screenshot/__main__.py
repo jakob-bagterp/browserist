@@ -25,7 +25,8 @@ class ScreenshotDriverMethods(DriverMethods):
 
         Use "delay_seconds" to adjust iteration delay to ensure that the screen is updated after each scroll."""
 
-        get_screenshot_of_complete_page(self._driver, self._settings, file_name, destination_dir, delay_seconds)
+        if self._timeout_should_continue():
+            get_screenshot_of_complete_page(self._driver, self._settings, file_name, destination_dir, delay_seconds)
 
     def element(self, xpath: str, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot of visible portion and save as PNG image. Default destination directory is from where the script is executed. Examples:
@@ -40,7 +41,8 @@ class ScreenshotDriverMethods(DriverMethods):
 
         Note that "/element/xpath" should be a valid XPath expression."""
 
-        get_screenshot_of_element(self._driver, xpath, self._settings, file_name, destination_dir)
+        if self._timeout_should_continue():
+            get_screenshot_of_element(self._driver, xpath, self._settings, file_name, destination_dir)
 
     def visible_portion(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot of visible portion and save as PNG image. Default destination directory is from where the script is executed. Examples:
@@ -53,4 +55,5 @@ class ScreenshotDriverMethods(DriverMethods):
 
         browser.screenshot.visible_portion(destination_dir = "./screenshots") # Default file name and custom destination"""
 
-        get_screenshot_of_visible_portion(self._driver, self._settings, file_name, destination_dir)
+        if self._timeout_should_continue():
+            get_screenshot_of_visible_portion(self._driver, self._settings, file_name, destination_dir)

@@ -9,16 +9,18 @@ class WindowGetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def position(self) -> tuple[int, int]:
+    def position(self) -> tuple[int, int]:  # type: ignore
         """Get the coordinates of the top left corner of the browser window on the screen. Usage:
 
         x, y = browser.window.get.position()"""
 
-        return get_window_position(self._driver)
+        if self._timeout_should_continue():
+            return get_window_position(self._driver)
 
-    def size(self) -> tuple[int, int]:
+    def size(self) -> tuple[int, int]:  # type: ignore
         """Get width and height of browser window on the screen in pixels. Usage:
 
         width, height = browser.window.get.size()"""
 
-        return get_window_size(self._driver)
+        if self._timeout_should_continue():
+            return get_window_size(self._driver)
