@@ -1,4 +1,3 @@
-from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
@@ -23,7 +22,7 @@ class WaitDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             wait_for_element(self._driver, xpath, timeout)
 
-    def random_time(self, min_seconds: int = timeout.VERY_SHORT, max_seconds: int = timeout.DEFAULT) -> None:
+    def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
         """Randomize sleep timing to make actions look less like a bot."""
 
         if self._timeout_should_continue():
