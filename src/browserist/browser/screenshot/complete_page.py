@@ -1,3 +1,5 @@
+import asyncio
+
 from ... import helper
 from ...model.browser.base.settings import BrowserSettings
 from ...model.browser.base.type import BrowserType
@@ -16,4 +18,6 @@ def get_screenshot_of_complete_page(driver: object, settings: BrowserSettings, f
         case BrowserType.FIREFOX:
             helper.screenshot.complete_page.firefox(driver, destination_file_path)
         case _:
-            helper.screenshot.complete_page.default(driver, destination_file_path, destination_dir, delay_seconds)
+            asyncio.run(
+                helper.screenshot.complete_page.default(driver, destination_file_path, destination_dir, delay_seconds)
+            )

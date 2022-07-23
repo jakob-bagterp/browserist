@@ -46,7 +46,7 @@ class ScreenshotTempDataHandler():
     def increment_iteration(self) -> None:
         self._iteration += 1
 
-    def merge_temp_files_into_final_screenshot(self) -> None:
+    async def merge_temp_files_into_final_screenshot(self) -> None:
         helper.screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
 
     def remove_temp_files(self) -> None:
