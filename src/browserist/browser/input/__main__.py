@@ -14,11 +14,11 @@ class InputDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            input_clear(self._driver, xpath, timeout)
+            input_clear(self._driver, self._settings, xpath, timeout)
 
     def value(self, xpath: str, value: str, timeout: int | None = None) -> None:
         """Input value into form field."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            input_value(self._driver, xpath, value, timeout)
+            input_value(self._driver, self._settings, xpath, value, timeout)

@@ -17,16 +17,16 @@ class ComboDriverMethods(DriverMethods):
     def cookie_banner(self, settings: CookieBannerSettings) -> None:
         """Standardised combination of methods to accept or decline cookies."""
 
-        combo_cookie_banner(self._driver, settings)
+        combo_cookie_banner(self._driver, self._settings, settings)
 
     def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps) -> None:
         """Standardised combination of methods to log in.
 
         wait_seconds: Extra seconds in addition to timeout to make sure the login is processed and that the user is redirected succesfully."""
 
-        combo_log_in(self._driver, login_credentials, login_form)
+        combo_log_in(self._driver, self._settings, login_credentials, login_form)
 
     def search(self, term: str, settings: SearchSettings) -> None:
         """Standardised combination of methods to perform search."""
 
-        combo_search(self._driver, term, settings)
+        combo_search(self._driver, self._settings, term, settings)

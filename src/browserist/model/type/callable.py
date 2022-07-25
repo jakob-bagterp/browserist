@@ -1,6 +1,6 @@
 from typing import Any, Callable
 
-DriverGetTextCallable = Callable[[object, str], str]
+DriverGetTextCallable = Callable[..., str]
 
 DriverGetBoolCallable = Callable[..., bool]
 

@@ -42,7 +42,7 @@ class ScreenshotDriverMethods(DriverMethods):
         Note that "/element/xpath" should be a valid XPath expression."""
 
         if self._timeout_should_continue():
-            get_screenshot_of_element(self._driver, xpath, self._settings, file_name, destination_dir)
+            get_screenshot_of_element(self._driver, self._settings, xpath, file_name, destination_dir)
 
     def visible_portion(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
         """Take screenshot of visible portion and save as PNG image. Default destination directory is from where the script is executed. Examples:

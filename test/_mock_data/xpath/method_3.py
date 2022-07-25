@@ -16,7 +16,7 @@ def exception_handling_for_methods_with_2_arguments(
     browser.open.url(test_set.url)
     for test in test_set.tests:
         with test.expectation:
-            _ = method(browser.driver, test.xpath) is not None
+            _ = method(browser.driver, browser._browser_driver.settings, test.xpath) is not None
 
 
 def exception_handling_for_methods_with_3_arguments_or_more(
@@ -28,7 +28,7 @@ def exception_handling_for_methods_with_3_arguments_or_more(
     browser.open.url(test_set.url)
     for test in test_set.tests:
         with test.expectation:
-            _ = method(browser.driver, test.xpath, *args) is not None
+            _ = method(browser.driver, browser._browser_driver.settings, test.xpath, *args) is not None
 
 
 def exception_handling_for_screenshot_methods(
@@ -41,4 +41,4 @@ def exception_handling_for_screenshot_methods(
     browser.open.url(test_set.url)
     for test in test_set.tests:
         with test.expectation:
-            _ = method(browser.driver, test.xpath, browser._browser_driver.settings, file_name, temp_dir) is not None
+            _ = method(browser.driver, browser._browser_driver.settings, test.xpath, file_name, temp_dir) is not None

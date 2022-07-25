@@ -13,4 +13,4 @@ class MouseDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            mouse_hover(self._driver, xpath, timeout)
+            mouse_hover(self._driver, self._settings, xpath, timeout)

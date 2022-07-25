@@ -27,28 +27,28 @@ class GetDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_dimensions(self._driver, xpath, timeout)
+            return get_dimensions(self._driver, self._settings, xpath, timeout)
 
     def element(self, xpath: str, timeout: int | None = None) -> object:  # type: ignore
         """Get single web element by XPath."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_element(self._driver, xpath, timeout)
+            return get_element(self._driver, self._settings, xpath, timeout)
 
     def elements(self, xpath: str, timeout: int | None = None) -> list[object]:  # type: ignore
         """Get multiple web elements by XPath."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_elements(self._driver, xpath, timeout)
+            return get_elements(self._driver, self._settings, xpath, timeout)
 
     def elements_by_tag(self, tag: str, timeout: int | None = None) -> list[object]:  # type: ignore
         """"Get multiple web elements by HTML tag. Examples: "img" as tag for all <img> images, "a" for all <a> links, etc."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_elements_by_tag(self._driver, tag, timeout)
+            return get_elements_by_tag(self._driver, self._settings, tag, timeout)
 
     def page_title(self) -> str:  # type: ignore
         """Get page title of the current page."""
@@ -63,7 +63,7 @@ class GetDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_text(self._driver, xpath, timeout)
+            return get_text(self._driver, self._settings, xpath, timeout)
 
     def texts(self, xpath: str, timeout: int | None = None) -> list[str]:  # type: ignore
         """Get array of texts from elements.
@@ -72,4 +72,4 @@ class GetDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_texts(self._driver, xpath, timeout)
+            return get_texts(self._driver, self._settings, xpath, timeout)

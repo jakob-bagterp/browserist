@@ -19,7 +19,7 @@ class CheckIfDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+            return check_if_contains_text(self._driver, self._settings, xpath, regex, ignore_case, timeout)
 
     def does_exist(self, xpath: str) -> bool:  # type: ignore
         """Check if element exists."""
@@ -57,4 +57,4 @@ class CheckIfDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return check_if_is_image_loaded(self._driver, xpath, timeout)
+            return check_if_is_image_loaded(self._driver, self._settings, xpath, timeout)

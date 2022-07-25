@@ -14,7 +14,7 @@ class IframeDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            switch_to_iframe(self._driver, xpath, timeout)
+            switch_to_iframe(self._driver, self._settings, xpath, timeout)
 
     def switch_to_original_page(self) -> None:
         """After switch to iframe, use this to go back to the original page."""

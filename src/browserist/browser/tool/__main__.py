@@ -27,4 +27,4 @@ class ToolDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return tool_count_elements(self._driver, xpath, timeout)
+            return tool_count_elements(self._driver, self._settings, xpath, timeout)

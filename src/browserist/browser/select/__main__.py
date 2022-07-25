@@ -18,4 +18,4 @@ class SelectDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            select_input_field(self._driver, xpath, timeout)
+            select_input_field(self._driver, self._settings, xpath, timeout)

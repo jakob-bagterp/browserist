@@ -38,14 +38,14 @@ class ScrollDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            scroll_into_view(self._driver, xpath, timeout, delay_seconds)
+            scroll_into_view(self._driver, self._settings, xpath, timeout, delay_seconds)
 
     def into_view_if_not_visible(self, xpath: str, timeout: int | None = None, delay_seconds: float = 1) -> None:
         """If not visible, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            scroll_into_view_if_not_visible(self._driver, xpath, timeout, delay_seconds)
+            scroll_into_view_if_not_visible(self._driver, self._settings, xpath, timeout, delay_seconds)
 
     def to_position(self, x: int, y: int, delay_seconds: float = 1) -> None:
         """If possible, scroll to coordinate X and Y pixels of page as absolute position. Add custom delay in seconds to ensure the view is updated after scroll."""

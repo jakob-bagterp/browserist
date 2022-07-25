@@ -18,7 +18,7 @@ class GetAttributeDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_attribute_value(self._driver, xpath, attribute, timeout)
+            return get_attribute_value(self._driver, self._settings, xpath, attribute, timeout)
 
     def values(self, xpath: str, attribute: str, timeout: int | None = None) -> list[str]:  # type: ignore
         """Get values from an attribute of multiple elements. Assumes that the XPath targets multiple links. Examples:
@@ -29,4 +29,4 @@ class GetAttributeDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_attribute_values(self._driver, xpath, attribute, timeout)
+            return get_attribute_values(self._driver, self._settings, xpath, attribute, timeout)

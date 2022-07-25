@@ -20,7 +20,7 @@ class WaitDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_for_element(self._driver, xpath, timeout)
+            wait_for_element(self._driver, self._settings, xpath, timeout)
 
     def random_time(self, min_seconds: int = 1, max_seconds: int = 5) -> None:
         """Randomize sleep timing to make actions look less like a bot."""
