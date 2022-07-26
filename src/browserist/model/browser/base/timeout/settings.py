@@ -1,10 +1,7 @@
-from dataclasses import dataclass
-
 from .....constant import timeout
 from .strategy import TimeoutStrategy
 
 
-@dataclass(kw_only=True)
 class TimeoutSettings:
     """Class to configure timeout settings and strategy.
 
@@ -12,10 +9,9 @@ class TimeoutSettings:
 
     seconds: General timeout in seconds to be applied for each function (note that a function-specific timeout overrides this)."""
 
-    __slots__ = ("strategy", "seconds", "_is_timed_out")
+    __slots__ = ["strategy", "seconds", "_is_timed_out"]
 
-    strategy: TimeoutStrategy = TimeoutStrategy.STOP
-    seconds: int = timeout.DEFAULT
-
-    def __post_init__(self) -> None:
+    def __init__(self, strategy: TimeoutStrategy = TimeoutStrategy.STOP, seconds: int = timeout.DEFAULT) -> None:
+        self.strategy: TimeoutStrategy = strategy
+        self.seconds: int = seconds
         self._is_timed_out: bool = False
