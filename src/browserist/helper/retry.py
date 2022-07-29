@@ -38,3 +38,12 @@ def until_condition_is_false(driver: object, settings: BrowserSettings, *args: s
         retries_left -= 1
         if retries_left == 0:
             raise RetryTimeoutException(func)
+
+
+def until_condition_is_false_without_settings(driver: object, *args: str | list[object], func: DriverGetBoolCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
+    retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
+    while func(driver, *args) is True and retries_left > 0:
+        time.sleep(wait_interval_seconds)
+        retries_left -= 1
+        if retries_left == 0:
+            raise RetryTimeoutException(func)

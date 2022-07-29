@@ -23,7 +23,7 @@ class WaitUntilDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_element_disappears(self._driver, self._settings, xpath, timeout)
+            wait_until_element_disappears(self._driver, xpath, timeout)
 
     def images_have_loaded(self, xpath: str, timeout: int | None = None) -> None:
         """Wait until element doesn't exist. The image XPath can target one or more images."""
