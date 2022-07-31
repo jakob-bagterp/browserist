@@ -75,3 +75,8 @@ class BrowserDriver(ABC):
         """Method to set the page load strategy to define whether the web driver should wait until all assets are downloaded (slower) or not (faster)."""
 
         raise NotImplementedError
+
+    def get_webdriver(self) -> object:
+        """Returns the Selenium web driver."""
+
+        return self.webdriver
