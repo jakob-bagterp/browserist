@@ -13,10 +13,10 @@ class ClickDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            click_button(self._driver, self._settings, xpath, timeout)
+            click_button(self._browser_driver, xpath, timeout)
 
     def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> None:
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            click_button_if_contains_text(self._driver, self._settings, xpath, regex, ignore_case, timeout)
+            click_button_if_contains_text(self._browser_driver, xpath, regex, ignore_case, timeout)
