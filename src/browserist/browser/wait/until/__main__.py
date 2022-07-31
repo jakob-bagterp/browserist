@@ -1,5 +1,4 @@
 from ....model.browser.base.driver import BrowserDriver
-from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .element_disappears import wait_until_element_disappears
 from .images_have_loaded import wait_until_images_have_loaded
@@ -12,11 +11,11 @@ from .url.__main__ import WaitUntilUrlDriverMethods
 class WaitUntilDriverMethods(DriverMethods):
     __slots__ = ["page_title", "text", "url"]
 
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
-        self.page_title: WaitUntilPageTitleDriverMethods = WaitUntilPageTitleDriverMethods(browser_driver, settings)
-        self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver, settings)
-        self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
+        self.page_title: WaitUntilPageTitleDriverMethods = WaitUntilPageTitleDriverMethods(browser_driver)
+        self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver)
+        self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver)
 
     def element_disappears(self, xpath: str, timeout: int | None = None) -> None:
         """Wait until element doesn't exist."""

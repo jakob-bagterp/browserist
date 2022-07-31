@@ -1,5 +1,4 @@
 from .....model.browser.base.driver import BrowserDriver
-from .....model.browser.base.settings import BrowserSettings
 from .....model.driver_methods import DriverMethods
 from .changes import wait_until_page_title_changes
 from .contains import wait_until_page_title_contains
@@ -7,8 +6,8 @@ from .equals import wait_until_page_title_equals
 
 
 class WaitUntilPageTitleDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def changes(self, baseline_text: str, timeout: int | None = None) -> None:
         """Wait until the page title changes from a baseline text, e.g. after a page reload or change. The text is evaluated as an exact match."""

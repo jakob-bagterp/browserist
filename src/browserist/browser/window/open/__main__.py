@@ -1,5 +1,4 @@
 from ....model.browser.base.driver import BrowserDriver
-from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from ....model.window.controller import WindowHandleController
 from ....model.window.tab_or_window import TabOrWindow
@@ -9,8 +8,8 @@ from .new_tab_or_window import open_new_tab_or_window
 class WindowOpenDriverMethods(DriverMethods):
     __slots__ = ["_controller"]
 
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings, controller: WindowHandleController) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver, controller: WindowHandleController) -> None:
+        super().__init__(browser_driver)
         self._controller = controller
 
     def new_tab(self, url: str | None = None, name: str | None = None) -> None:
@@ -19,8 +18,8 @@ class WindowOpenDriverMethods(DriverMethods):
         name: Can be used to switch to this tab with the "browser.window.switch_to(name)" method."""
 
         if self._timeout_should_continue():
-            open_new_tab_or_window(self._driver, self._controller, TabOrWindow.TAB,
-                                   self._settings.timeout.seconds, url, name)
+            open_new_tab_or_window(self._browser_driver.webdriver, self._controller, TabOrWindow.TAB,
+                                   self._browser_driver.settings.timeout.seconds, url, name)
 
     def new_window(self, url: str | None = None, name: str | None = None) -> None:
         """Open and switch to new window. The URL and name of the window are optional arguments.
@@ -28,5 +27,5 @@ class WindowOpenDriverMethods(DriverMethods):
         name: Can be used to switch to this window with the "browser.window.switch_to(name)" method."""
 
         if self._timeout_should_continue():
-            open_new_tab_or_window(self._driver, self._controller, TabOrWindow.WINDOW,
-                                   self._settings.timeout.seconds, url, name)
+            open_new_tab_or_window(self._browser_driver.webdriver, self._controller, TabOrWindow.WINDOW,
+                                   self._browser_driver.settings.timeout.seconds, url, name)

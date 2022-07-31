@@ -1,13 +1,12 @@
 from ...exception.headless import MethodNotSupportedInHeadlessModeException
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .input_field import select_input_field
 
 
 class SelectDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def input_field(self, xpath: str, timeout: int | None = None) -> None:
         """Select input field, similar to clicking the mouse on a form field."""

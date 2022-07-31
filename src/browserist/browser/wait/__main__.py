@@ -1,5 +1,4 @@
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .for_element import wait_for_element
 from .random_time import wait_random_time
@@ -9,9 +8,9 @@ from .until.__main__ import WaitUntilDriverMethods
 class WaitDriverMethods(DriverMethods):
     __slots__ = ["until"]
 
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
-        self.until: WaitUntilDriverMethods = WaitUntilDriverMethods(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
+        self.until: WaitUntilDriverMethods = WaitUntilDriverMethods(browser_driver)
 
     def for_element(self, xpath: str, timeout: int | None = None) -> None:
         """Wait until element is ready in the DOM and/or on the screen.

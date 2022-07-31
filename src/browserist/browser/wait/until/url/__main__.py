@@ -1,5 +1,4 @@
 from .....model.browser.base.driver import BrowserDriver
-from .....model.browser.base.settings import BrowserSettings
 from .....model.driver_methods import DriverMethods
 from .changes import wait_until_url_changes
 from .contains import wait_until_url_contains
@@ -7,8 +6,8 @@ from .equals import wait_until_url_equals
 
 
 class WaitUntilUrlDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def changes(self, baseline_url: str, timeout: int | None = None) -> None:
         """Wait until the browser URL has changed from a baseline URL, e.g. after a redirect or form action. The URL is evaluated as an exact match."""

@@ -1,5 +1,4 @@
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .attribute.__main__ import GetAttributeDriverMethods
 from .dimensions import get_dimensions
@@ -15,10 +14,10 @@ from .url.__main__ import GetUrlDriverMethods
 class GetDriverMethods(DriverMethods):
     __slots__ = ["attribute", "url"]
 
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
-        self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver, settings)
-        self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
+        self.attribute: GetAttributeDriverMethods = GetAttributeDriverMethods(browser_driver)
+        self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver)
 
     def dimensions(self, xpath: str, timeout: int | None = None) -> tuple[int, int]:  # type: ignore
         """Get width and height of element in pixels. Usage:

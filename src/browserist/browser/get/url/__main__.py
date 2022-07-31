@@ -1,5 +1,4 @@
 from ....model.browser.base.driver import BrowserDriver
-from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .current import get_current_url
 from .from_image import get_url_from_image
@@ -9,8 +8,8 @@ from .from_links import get_url_from_links
 
 
 class GetUrlDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def current(self) -> str:  # type: ignore
         """Get URL of the current page."""

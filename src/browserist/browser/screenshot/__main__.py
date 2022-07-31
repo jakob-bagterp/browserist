@@ -1,5 +1,4 @@
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .complete_page import get_screenshot_of_complete_page
 from .element import get_screenshot_of_element
@@ -7,8 +6,8 @@ from .visible_portion import get_screenshot_of_visible_portion
 
 
 class ScreenshotDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def complete_page(self, file_name: str | None = None, destination_dir: str | None = None, delay_seconds: float = 1) -> None:
         """Take screenshot of complete page and save as PNG image. Default destination directory is from where the script is executed. Examples:

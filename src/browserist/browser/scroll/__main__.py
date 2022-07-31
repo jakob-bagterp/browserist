@@ -1,5 +1,4 @@
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .by import scroll_by
 from .check_if.__main__ import ScrollCheckIfDriverMethods
@@ -15,11 +14,11 @@ from .up_by import scroll_up_by
 class ScrollDriverMethods(DriverMethods):
     __slots__ = ["check_if", "get", "page"]
 
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
-        self.check_if: ScrollCheckIfDriverMethods = ScrollCheckIfDriverMethods(browser_driver, settings)
-        self.get: ScrollGetDriverMethods = ScrollGetDriverMethods(browser_driver, settings)
-        self.page: ScrollPageDriverMethods = ScrollPageDriverMethods(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
+        self.check_if: ScrollCheckIfDriverMethods = ScrollCheckIfDriverMethods(browser_driver)
+        self.get: ScrollGetDriverMethods = ScrollGetDriverMethods(browser_driver)
+        self.page: ScrollPageDriverMethods = ScrollPageDriverMethods(browser_driver)
 
     def by(self, x: int, y: int, delay_seconds: float = 1) -> None:
         """If possible, scroll by X and Y pixels as relative position. Add custom delay in seconds to ensure the view is updated after scroll."""

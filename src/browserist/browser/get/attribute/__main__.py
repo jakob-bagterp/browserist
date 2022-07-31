@@ -1,13 +1,12 @@
 from ....model.browser.base.driver import BrowserDriver
-from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
 from .value import get_attribute_value
 from .values import get_attribute_values
 
 
 class GetAttributeDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def value(self, xpath: str, attribute: str, timeout: int | None = None) -> str:  # type: ignore
         """Get value from an attribute of an element. Examples:

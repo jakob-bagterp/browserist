@@ -1,14 +1,13 @@
 from ... import helper
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from .count_elements import tool_count_elements
 from .is_input_valid import tool_is_input_valid
 
 
 class ToolDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def is_input_valid(self, text: str, regex: str, ignore_case: bool = True) -> bool:  # type: ignore
         """Check if input matches regex condition."""

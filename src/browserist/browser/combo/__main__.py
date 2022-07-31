@@ -1,5 +1,4 @@
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.combo_settings.cookie_banner import CookieBannerSettings
 from ...model.combo_settings.login_credentials import LoginCredentials
 from ...model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
@@ -11,8 +10,8 @@ from .search import combo_search
 
 
 class ComboDriverMethods(DriverMethods):
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
 
     def cookie_banner(self, settings: CookieBannerSettings) -> None:
         """Standardised combination of methods to accept or decline cookies."""

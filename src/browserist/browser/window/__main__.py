@@ -1,5 +1,4 @@
 from ...model.browser.base.driver import BrowserDriver
-from ...model.browser.base.settings import BrowserSettings
 from ...model.driver_methods import DriverMethods
 from ...model.window.controller import WindowHandleController
 from .close import window_close
@@ -16,13 +15,13 @@ from .switch_to import switch_to_window
 class WindowDriverMethods(DriverMethods):
     __slots__ = ["_controller", "get", "handle", "open", "set"]
 
-    def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
-        super().__init__(browser_driver, settings)
-        self._controller: WindowHandleController = WindowHandleController(self._driver)
-        self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver, settings)
-        self.handle: WindowHandleDriverMethods = WindowHandleDriverMethods(browser_driver, settings, self._controller)
-        self.open: WindowOpenDriverMethods = WindowOpenDriverMethods(browser_driver, settings, self._controller)
-        self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver, settings)
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        super().__init__(browser_driver)
+        self._controller: WindowHandleController = WindowHandleController(self._browser_driver.webdriver)
+        self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver)
+        self.handle: WindowHandleDriverMethods = WindowHandleDriverMethods(browser_driver, self._controller)
+        self.open: WindowOpenDriverMethods = WindowOpenDriverMethods(browser_driver, self._controller)
+        self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver)
 
     def close(self) -> None:
         """Close current tab or window."""

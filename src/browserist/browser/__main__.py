@@ -48,21 +48,21 @@ class Browser:
             case _:
                 pass
 
-        self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver, settings)
-        self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver, settings)
-        self.combo: ComboDriverMethods = ComboDriverMethods(self._browser_driver, settings)
-        self.get: GetDriverMethods = GetDriverMethods(self._browser_driver, settings)
-        self.iframe: IframeDriverMethods = IframeDriverMethods(self._browser_driver, settings)
-        self.input: InputDriverMethods = InputDriverMethods(self._browser_driver, settings)
-        self.mouse: MouseDriverMethods = MouseDriverMethods(self._browser_driver, settings)
-        self.open: OpenDriverMethods = OpenDriverMethods(self._browser_driver, settings)
-        self.screen: ScreenSizeDriverMethods = ScreenSizeDriverMethods(self._browser_driver, settings)
-        self.screenshot: ScreenshotDriverMethods = ScreenshotDriverMethods(self._browser_driver, settings)
-        self.scroll: ScrollDriverMethods = ScrollDriverMethods(self._browser_driver, settings)
-        self.select: SelectDriverMethods = SelectDriverMethods(self._browser_driver, settings)
-        self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver, settings)
-        self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver, settings)
-        self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver, settings)
+        self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver)
+        self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver)
+        self.combo: ComboDriverMethods = ComboDriverMethods(self._browser_driver)
+        self.get: GetDriverMethods = GetDriverMethods(self._browser_driver)
+        self.iframe: IframeDriverMethods = IframeDriverMethods(self._browser_driver)
+        self.input: InputDriverMethods = InputDriverMethods(self._browser_driver)
+        self.mouse: MouseDriverMethods = MouseDriverMethods(self._browser_driver)
+        self.open: OpenDriverMethods = OpenDriverMethods(self._browser_driver)
+        self.screen: ScreenSizeDriverMethods = ScreenSizeDriverMethods(self._browser_driver)
+        self.screenshot: ScreenshotDriverMethods = ScreenshotDriverMethods(self._browser_driver)
+        self.scroll: ScrollDriverMethods = ScrollDriverMethods(self._browser_driver)
+        self.select: SelectDriverMethods = SelectDriverMethods(self._browser_driver)
+        self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver)
+        self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
+        self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
 
     def __enter__(self) -> Browser:
         return self
