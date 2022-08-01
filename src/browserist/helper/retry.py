@@ -2,6 +2,7 @@ import time
 
 from ..constant import interval, timeout
 from ..exception.retry import RetryTimeoutException
+from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
 from ..model.type.callable import DriverGetBoolCallable, DriverGetTextCallable
 
@@ -10,12 +11,12 @@ def calculate_number_of_retries(total_time: int, interval: int | float) -> int:
     return int(total_time // interval)
 
 
-def get_text(driver: object, settings: BrowserSettings, input: str, func: DriverGetTextCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str:
-    text = func(driver, settings, input)
+def get_text(browser_driver: BrowserDriver, input: str, func: DriverGetTextCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str:
+    text = func(browser_driver, input)
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while not text and retries_left > 0:
         time.sleep(wait_interval_seconds)
-        text = func(driver, settings, input)
+        text = func(browser_driver, input)
         retries_left -= 1
         if retries_left == 0:
             raise RetryTimeoutException(func)

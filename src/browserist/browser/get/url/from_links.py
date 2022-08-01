@@ -1,8 +1,8 @@
-from ....model.browser.base.settings import BrowserSettings
+from ....model.browser.base.driver import BrowserDriver
 from ....model.type.xpath import XPath
 from ..attribute.values import get_attribute_values
 
 
-def get_url_from_links(driver: object, settings: BrowserSettings, xpath: str, timeout: int) -> list[str]:
+def get_url_from_links(browser_driver: BrowserDriver, xpath: str, timeout: int) -> list[str]:
     xpath = XPath(xpath)
-    return get_attribute_values(driver, settings, xpath, "href", timeout)
+    return get_attribute_values(browser_driver, xpath, "href", timeout)
