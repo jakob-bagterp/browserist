@@ -24,14 +24,14 @@ class GetUrlDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_url_from_image(self._driver, self._settings, xpath, timeout)
+            return get_url_from_image(self._browser_driver, xpath, timeout)
 
     def from_images(self, xpath: str, timeout: int | None = None) -> list[str]:  # type: ignore
         """Get array of URLs from images, e.g. <img> tags. Assumes that the XPath targets multiple images."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_url_from_images(self._driver, self._settings, xpath, timeout)
+            return get_url_from_images(self._browser_driver, xpath, timeout)
 
     def from_link(self, xpath: str, timeout: int | None = None) -> str:  # type: ignore
         """Get URL from link, e.g. <a> tag or button.
@@ -40,11 +40,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_url_from_link(self._driver, self._settings, xpath, timeout)
+            return get_url_from_link(self._browser_driver, xpath, timeout)
 
     def from_links(self, xpath: str, timeout: int | None = None) -> list[str]:  # type: ignore
         """Get array of URLs from links, e.g. <a> tags or buttons. Assumes that the XPath targets multiple links."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            return get_url_from_links(self._driver, self._settings, xpath, timeout)
+            return get_url_from_links(self._browser_driver, xpath, timeout)
