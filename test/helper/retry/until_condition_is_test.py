@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 
-from browserist import Browser, helper
+from browserist import Browser, iteration_helper
 from browserist.constant import timeout
 from browserist.exception.retry import RetryTimeoutException
 
@@ -23,7 +23,7 @@ def return_bool(_: object, input: str) -> bool:
 def test_helper_retry_until_condition_is_true(input: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     with expectation:
-        _ = helper.retry.until_condition_is_true(
+        _ = iteration_helper.retry.until_condition_is_true(
             browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
 
 
@@ -34,5 +34,5 @@ def test_helper_retry_until_condition_is_true(input: str, expectation: Any, brow
 def test_helper_retry_until_condition_is_false(input: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
     with expectation:
-        _ = helper.retry.until_condition_is_false(
+        _ = iteration_helper.retry.until_condition_is_false(
             browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None

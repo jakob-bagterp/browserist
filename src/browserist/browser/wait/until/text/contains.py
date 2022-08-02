@@ -1,6 +1,6 @@
 import re
 
-from ..... import constant, helper
+from ..... import constant, iteration_helper
 from .....model.browser.base.settings import BrowserSettings
 from .....model.type.xpath import XPath
 from ....get.text import get_text
@@ -14,5 +14,5 @@ def wait_until_text_contains(driver: object, settings: BrowserSettings, xpath: s
 
     xpath = XPath(xpath)
     wait_for_element(driver, settings, xpath, timeout)
-    helper.retry.until_condition_is_true(driver, settings, xpath, regex,
-                                         func=does_element_text_contain, timeout=timeout)
+    iteration_helper.retry.until_condition_is_true(driver, settings, xpath, regex,
+                                                   func=does_element_text_contain, timeout=timeout)

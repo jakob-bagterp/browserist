@@ -1,4 +1,4 @@
-from ..... import constant, helper
+from ..... import constant, iteration_helper
 from .....model.browser.base.settings import BrowserSettings
 from .....model.type.xpath import XPath
 from ....get.text import get_text
@@ -11,4 +11,5 @@ def wait_until_text_changes(driver: object, settings: BrowserSettings, xpath: st
 
     xpath = XPath(xpath)
     wait_for_element(driver, settings, xpath, timeout)
-    helper.retry.until_condition_is_true(driver, settings, baseline_text, func=has_text_changed, timeout=timeout)
+    iteration_helper.retry.until_condition_is_true(
+        driver, settings, baseline_text, func=has_text_changed, timeout=timeout)

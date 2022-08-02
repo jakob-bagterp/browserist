@@ -1,4 +1,4 @@
-from .... import constant, helper
+from .... import constant, iteration_helper
 from ....model.browser.base.driver import BrowserDriver
 from ....model.type.xpath import XPath
 from ...wait.for_element import wait_for_element
@@ -12,4 +12,4 @@ def get_url_from_image(browser_driver: BrowserDriver, xpath: str, timeout: int) 
     xpath = XPath(xpath)
     driver = browser_driver.get_webdriver()
     wait_for_element(driver, browser_driver.settings, xpath, timeout)
-    return helper.retry.get_text(browser_driver, xpath, get_src_attribute_of_element)
+    return iteration_helper.retry.get_text(browser_driver, xpath, get_src_attribute_of_element)

@@ -1,4 +1,4 @@
-from ..... import helper
+from ..... import iteration_helper
 from .....model.browser.base.settings import BrowserSettings
 from .....model.type.url import URL
 from ....get.url.current import get_current_url
@@ -9,4 +9,5 @@ def wait_until_url_changes(driver: object, settings: BrowserSettings, baseline_u
         return get_current_url(driver) != baseline_url
 
     baseline_url = URL(baseline_url)
-    helper.retry.until_condition_is_true(driver, settings, baseline_url, func=has_url_changed, timeout=timeout)
+    iteration_helper.retry.until_condition_is_true(
+        driver, settings, baseline_url, func=has_url_changed, timeout=timeout)
