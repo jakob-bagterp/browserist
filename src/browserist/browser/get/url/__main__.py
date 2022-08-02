@@ -15,7 +15,7 @@ class GetUrlDriverMethods(DriverMethods):
         """Get URL of the current page."""
 
         if self._timeout_should_continue():
-            return get_current_url(self._driver)
+            return get_current_url(self._browser_driver)
 
     def from_image(self, xpath: str, timeout: int | None = None) -> str:  # type: ignore
         """Get URL source from image, e.g. <img> tag.
