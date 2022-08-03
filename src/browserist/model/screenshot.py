@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum, unique
 
-from .. import helper
+from .. import helper, screenshot_helper
 from .type.file_png import FilePNG
 
 
@@ -26,9 +26,9 @@ class ScreenshotTempDataHandler():
 
     def __post_init__(self) -> None:
         self.destination_file_path = FilePNG(self.destination_file_path)
-        self._temp_dir: str = helper.screenshot.controller.mediate_temp_dir(self.destination_dir)
+        self._temp_dir: str = screenshot_helper.controller.mediate_temp_dir(self.destination_dir)
         self._all_temp_file_paths: list[str] = []
-        self._temp_file_prefix: str = helper.screenshot.file.get_temp_prefix_without_iterator_and_file_type()
+        self._temp_file_prefix: str = screenshot_helper.file.get_temp_prefix_without_iterator_and_file_type()
         self._iteration: int = 1
 
     def get_temp_file_name(self) -> str:
@@ -36,18 +36,18 @@ class ScreenshotTempDataHandler():
 
     def get_temp_file_path(self) -> str:
         temp_file_name = self.get_temp_file_name()
-        return helper.screenshot.file.get_path(self._temp_dir, temp_file_name)
+        return screenshot_helper.file.get_path(self._temp_dir, temp_file_name)
 
     def save_screenshot(self, driver: object) -> None:
         temp_file_path = self.get_temp_file_path()
-        helper.screenshot.save(driver, temp_file_path)
+        screenshot_helper.save(driver, temp_file_path)
         self._all_temp_file_paths.append(temp_file_path)
 
     def increment_iteration(self) -> None:
         self._iteration += 1
 
     async def merge_temp_files_into_final_screenshot(self) -> None:
-        helper.screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
+        screenshot_helper.merge_images(self._all_temp_file_paths, self.destination_file_path)
 
     def remove_temp_files(self) -> None:
         helper.file.remove(self._all_temp_file_paths)

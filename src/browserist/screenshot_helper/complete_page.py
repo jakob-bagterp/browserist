@@ -1,11 +1,11 @@
 import asyncio
 
-from ...browser.scroll.check_if.is_end_of_page import check_if_scroll_is_end_of_page
-from ...browser.scroll.get.position import get_scroll_position
-from ...browser.scroll.page.down import scroll_page_down
-from ...browser.scroll.page.to_top import scroll_to_top_of_page
-from ...browser.scroll.to_position import scroll_to_position
-from ...model.screenshot import ScreenshotTempDataHandler
+from ..browser.scroll.check_if.is_end_of_page import check_if_scroll_is_end_of_page
+from ..browser.scroll.get.position import get_scroll_position
+from ..browser.scroll.page.down import scroll_page_down
+from ..browser.scroll.page.to_top import scroll_to_top_of_page
+from ..browser.scroll.to_position import scroll_to_position
+from ..model.screenshot import ScreenshotTempDataHandler
 
 
 def firefox(driver: object, destination_file_path: str) -> None:
