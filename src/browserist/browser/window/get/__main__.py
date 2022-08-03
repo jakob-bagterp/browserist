@@ -14,7 +14,7 @@ class WindowGetDriverMethods(DriverMethods):
         x, y = browser.window.get.position()"""
 
         if self._timeout_should_continue():
-            return get_window_position(self._driver)
+            return get_window_position(self._browser_driver)
 
     def size(self) -> tuple[int, int]:  # type: ignore
         """Get width and height of browser window on the screen in pixels. Usage:
@@ -22,4 +22,4 @@ class WindowGetDriverMethods(DriverMethods):
         width, height = browser.window.get.size()"""
 
         if self._timeout_should_continue():
-            return get_window_size(self._driver)
+            return get_window_size(self._browser_driver)
