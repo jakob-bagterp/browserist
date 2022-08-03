@@ -13,7 +13,7 @@ class ScreenSizeDriverMethods(DriverMethods):
         """Get inner height of the screen in pixels."""
 
         if self._timeout_should_continue():
-            return get_screen_height(self._driver)
+            return get_screen_height(self._browser_driver)
 
     def size(self) -> tuple[int, int]:  # type: ignore
         """Get inner width and height of the screen in pixels. Usage:
@@ -21,10 +21,10 @@ class ScreenSizeDriverMethods(DriverMethods):
         width, height = browser.screen.size()"""
 
         if self._timeout_should_continue():
-            return get_screen_size(self._driver)
+            return get_screen_size(self._browser_driver)
 
     def width(self) -> int:  # type: ignore
         """Get inner width of the screen in pixels."""
 
         if self._timeout_should_continue():
-            return get_screen_width(self._driver)
+            return get_screen_width(self._browser_driver)
