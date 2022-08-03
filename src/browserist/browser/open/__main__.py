@@ -24,4 +24,4 @@ class OpenDriverMethods(DriverMethods):
         ignore_https: Ignore whether the URL is "http://example.com" or "https://example.com"."""
 
         if self._timeout_should_continue():
-            open_url_if_not_current(self._driver, url, ignore_trailing_slash, ignore_parameters, ignore_https)
+            open_url_if_not_current(self._browser_driver, url, ignore_trailing_slash, ignore_parameters, ignore_https)
