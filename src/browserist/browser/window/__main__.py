@@ -17,7 +17,7 @@ class WindowDriverMethods(DriverMethods):
 
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
-        self._controller: WindowHandleController = WindowHandleController(self._browser_driver.webdriver)
+        self._controller: WindowHandleController = WindowHandleController(self._browser_driver)
         self.get: WindowGetDriverMethods = WindowGetDriverMethods(browser_driver)
         self.handle: WindowHandleDriverMethods = WindowHandleDriverMethods(browser_driver, self._controller)
         self.open: WindowOpenDriverMethods = WindowOpenDriverMethods(browser_driver, self._controller)

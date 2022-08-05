@@ -17,7 +17,7 @@ def open_new_tab_or_window(browser_driver: BrowserDriver,
     current_number_of_window_handles = count_window_handles(browser_driver, controller, selenium=True)
     driver = browser_driver.get_webdriver()
     driver.switch_to.new_window(tab_or_window.value)  # type: ignore
-    wait_until_number_of_window_handles_is(driver, current_number_of_window_handles + 1,
+    wait_until_number_of_window_handles_is(browser_driver, current_number_of_window_handles + 1,
                                            browser_driver.settings.timeout.seconds)
     new_handle_id = get_current_window_handle(browser_driver)
     controller.add_handle(new_handle_id, name)

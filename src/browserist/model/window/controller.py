@@ -3,19 +3,20 @@ from ...browser.window.handle.current import get_current_window_handle
 from ...exception.window_handle import (WindowHandleIdNotFoundError, WindowHandleIdNotUniqueError,
                                         WindowHandleIdNotValidError, WindowHandleNameNotFoundError,
                                         WindowHandleNameNotUniqueError, WindowHandleNameNotValidError)
+from ..browser.base.driver import BrowserDriver
 from .handle import WindowHandle
 
 
 class WindowHandleController:
     __slots__ = ["_window_handles", "_original_window_name", "_counter"]
 
-    def __init__(self, driver: object) -> None:
+    def __init__(self, browser_driver: BrowserDriver) -> None:
         self._counter: int = 1
         self._original_window_name = str(self._counter)
         self._window_handles: list[WindowHandle] = [
             WindowHandle(
                 name=self._original_window_name,
-                id=get_current_window_handle(driver),
+                id=get_current_window_handle(browser_driver),
             )]
 
     def add_handle(self, id: str, name: str | None = None) -> None:
