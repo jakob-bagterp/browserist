@@ -1,5 +1,6 @@
 import time
 
+from .. import helper
 from ..constant import interval, timeout
 from ..exception.retry import RetryTimeoutException
 from ..model.browser.base.driver import BrowserDriver
@@ -18,14 +19,16 @@ def get_text(browser_driver: BrowserDriver, input: str, func: DriverGetTextCalla
         text = func(browser_driver, input)
         retries_left -= 1
         if retries_left == 0:
+            browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
             raise RetryTimeoutException(func)
     return text
 
 
-def retry_iteration(retries_left: int, wait_interval_seconds: float, func: DriverGetBoolCallable) -> int:
+def retry_iteration(browser_driver: BrowserDriver, retries_left: int, wait_interval_seconds: float, func: DriverGetBoolCallable) -> int:
     time.sleep(wait_interval_seconds)
     retries_left -= 1
     if retries_left == 0:
+        browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
         raise RetryTimeoutException(func)
     return retries_left
 
@@ -33,10 +36,10 @@ def retry_iteration(retries_left: int, wait_interval_seconds: float, func: Drive
 def until_condition_is_true(browser_driver: BrowserDriver, *args: str | list[object], func: DriverGetBoolCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while func(browser_driver, *args) is False and retries_left > 0:
-        retries_left = retry_iteration(retries_left, wait_interval_seconds, func)
+        retries_left = retry_iteration(browser_driver, retries_left, wait_interval_seconds, func)
 
 
 def until_condition_is_false(browser_driver: BrowserDriver, *args: str | list[object], func: DriverGetBoolCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while func(browser_driver, *args) is True and retries_left > 0:
-        retries_left = retry_iteration(retries_left, wait_interval_seconds, func)
+        retries_left = retry_iteration(browser_driver, retries_left, wait_interval_seconds, func)
