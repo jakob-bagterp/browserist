@@ -1,0 +1,18 @@
+from typing import Callable
+
+from browserist.model.type.file_png import FilePNG
+from browserist.model.type.url import URL
+from browserist.model.type.xpath import XPath
+
+FilePNGCallable = Callable[[FilePNG], FilePNG]
+URLCallable = Callable[[URL], URL]
+XPathCallable = Callable[[XPath], XPath]
+
+
+def validate_representation(type: FilePNGCallable | URLCallable | XPathCallable, input: str) -> None:
+    """Test that the XPath tiny type represents itself as a an URL string."""
+
+    tiny_type_input = expected_output = input
+    tiny_type = type(tiny_type_input)
+    assert expected_output == tiny_type
+    assert expected_output == tiny_type.value

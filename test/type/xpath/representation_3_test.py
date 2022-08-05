@@ -1,3 +1,4 @@
+from _helper.type import validate_representation
 from _mock_data.xpath.test_set_3 import VALID_XPATH
 
 from browserist.model.type.xpath import XPath
@@ -6,7 +7,4 @@ from browserist.model.type.xpath import XPath
 def test_xpath_type_representation() -> None:
     """Test that the XPath tiny type represents itself as a an XPath string."""
 
-    xpath_input = expected_xpath_output = VALID_XPATH
-    xpath_type = XPath(xpath_input)
-    assert expected_xpath_output == xpath_type
-    assert expected_xpath_output == xpath_type.value
+    validate_representation(XPath, VALID_XPATH)
