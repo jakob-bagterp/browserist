@@ -18,8 +18,7 @@ class WindowOpenDriverMethods(DriverMethods):
         name: Can be used to switch to this tab with the "browser.window.switch_to(name)" method."""
 
         if self._timeout_should_continue():
-            open_new_tab_or_window(self._browser_driver.webdriver, self._controller, TabOrWindow.TAB,
-                                   self._browser_driver.settings.timeout.seconds, url, name)
+            open_new_tab_or_window(self._browser_driver, self._controller, TabOrWindow.TAB, url, name)
 
     def new_window(self, url: str | None = None, name: str | None = None) -> None:
         """Open and switch to new window. The URL and name of the window are optional arguments.
@@ -27,5 +26,4 @@ class WindowOpenDriverMethods(DriverMethods):
         name: Can be used to switch to this window with the "browser.window.switch_to(name)" method."""
 
         if self._timeout_should_continue():
-            open_new_tab_or_window(self._browser_driver.webdriver, self._controller, TabOrWindow.WINDOW,
-                                   self._browser_driver.settings.timeout.seconds, url, name)
+            open_new_tab_or_window(self._browser_driver, self._controller, TabOrWindow.WINDOW, url, name)
