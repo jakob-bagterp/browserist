@@ -22,18 +22,18 @@ class WaitUntilDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_element_disappears(self._driver, xpath, timeout)
+            wait_until_element_disappears(self._browser_driver, xpath, timeout)
 
     def images_have_loaded(self, xpath: str, timeout: int | None = None) -> None:
         """Wait until element doesn't exist. The image XPath can target one or more images."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_images_have_loaded(self._driver, self._settings, xpath, timeout)
+            wait_until_images_have_loaded(self._browser_driver, xpath, timeout)
 
     def number_of_window_handles_is(self, expected_handles: int, timeout: int | None = None) -> None:
         """Wait until number of window handles is."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_number_of_window_handles_is(self._driver, expected_handles, timeout)
+            wait_until_number_of_window_handles_is(self._browser_driver, expected_handles, timeout)

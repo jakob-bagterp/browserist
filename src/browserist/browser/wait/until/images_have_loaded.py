@@ -1,17 +1,18 @@
 from selenium.webdriver.common.by import By
 
 from .... import helper, iteration_helper
-from ....model.browser.base.settings import BrowserSettings
+from ....model.browser.base.driver import BrowserDriver
 from ....model.type.xpath import XPath
 from ..for_element import wait_for_element
 
 
-def wait_until_images_have_loaded(driver: object, settings: BrowserSettings, xpath: str, timeout: int) -> None:
-    def are_all_images_loaded(driver: object, _: BrowserSettings, elements: list[object]) -> bool:
-        return all(helper.image.is_element_loaded(driver, element) is not False for element in elements)
+def wait_until_images_have_loaded(browser_driver: BrowserDriver, xpath: str, timeout: int) -> None:
+    def are_all_images_loaded(browser_driver: BrowserDriver, elements: list[object]) -> bool:
+        return all(helper.image.is_element_loaded(browser_driver.webdriver, element) is not False for element in elements)
 
     xpath = XPath(xpath)
-    wait_for_element(driver, settings, xpath, timeout)
+    wait_for_element(browser_driver, xpath, timeout)
+    driver = browser_driver.get_webdriver()
     elements: list[object] = driver.find_elements(By.XPATH, xpath)  # type: ignore
     iteration_helper.retry.until_condition_is_true(
-        driver, settings, elements, func=are_all_images_loaded, timeout=timeout)
+        browser_driver.webdriver, browser_driver.settings, elements, func=are_all_images_loaded, timeout=timeout)

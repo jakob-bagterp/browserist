@@ -14,18 +14,18 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_page_title_changes(self._driver, self._settings, baseline_text, timeout)
+            wait_until_page_title_changes(self._browser_driver, baseline_text, timeout)
 
     def contains(self, page_title_fragment: str, timeout: int | None = None) -> None:
         """Wait until the page title has changed, e.g. after a redirect or update. The input can contain both a fragment or the full page title."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_page_title_contains(self._driver, page_title_fragment, timeout)
+            wait_until_page_title_contains(self._browser_driver, page_title_fragment, timeout)
 
     def equals(self, page_title: str, timeout: int | None = None) -> None:
         """Wait until the page title has changed, e.g. after a redirect or update. The input has to match the exact page title."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_page_title_equals(self._driver, page_title, timeout)
+            wait_until_page_title_equals(self._browser_driver, page_title, timeout)

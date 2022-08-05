@@ -14,18 +14,18 @@ class WaitUntilTextDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_text_changes(self._driver, self._settings, xpath, baseline_text, timeout)
+            wait_until_text_changes(self._browser_driver, xpath, baseline_text, timeout)
 
     def contains(self, xpath: str, regex: str, timeout: int | None = None) -> None:
         """Wait until the text of an element has changed, e.g. after a form action."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_text_contains(self._driver, self._settings, xpath, regex, timeout)
+            wait_until_text_contains(self._browser_driver, xpath, regex, timeout)
 
     def equals(self, xpath: str, regex: str, timeout: int | None = None) -> None:
         """Wait until the text of an element has changed, e.g. after a form action. The text is evaluated as an exact match."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_text_equals(self._driver, self._settings, xpath, regex, timeout)
+            wait_until_text_equals(self._browser_driver, xpath, regex, timeout)
