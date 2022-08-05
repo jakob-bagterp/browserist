@@ -13,4 +13,4 @@ def wait_until_url_equals(browser_driver: BrowserDriver, url: str, timeout: int)
         driver = browser_driver.get_webdriver()
         WebDriverWait(driver, timeout).until(EC.url_matches(url))  # type: ignore
     except TimeoutException:
-        raise WaitForUrlTimeoutException(driver, url) from TimeoutException
+        raise WaitForUrlTimeoutException(browser_driver, url) from TimeoutException
