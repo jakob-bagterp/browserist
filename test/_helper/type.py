@@ -16,3 +16,11 @@ def validate_representation(type: FilePNGCallable | URLCallable | XPathCallable,
     tiny_type = type(tiny_type_input)
     assert expected_output == tiny_type
     assert expected_output == tiny_type.value
+
+
+def validate_bypass(type: FilePNGCallable | URLCallable | XPathCallable, input: str) -> None:
+    """Test that if an input already is a validated tiny type element, bypass and don't create a new object."""
+
+    tiny_type = type(input)
+    assert tiny_type is type(tiny_type)
+    assert type(input) is not type(input)
