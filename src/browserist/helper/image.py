@@ -1,9 +1,12 @@
 from PIL import Image  # type: ignore
 
+from ..model.browser.base.driver import BrowserDriver
 
-def is_element_loaded(driver: object, element: object) -> bool:
+
+def is_element_loaded(browser_driver: BrowserDriver, element: object) -> bool:
     """Check if image element is loaded and ready in the DOM."""
 
+    driver = browser_driver.get_webdriver()
     is_image_loaded: bool = driver.execute_script(  # type: ignore
         "return arguments[0].complete && typeof arguments[0].naturalWidth != 'undefined' && arguments[0].naturalWidth > 0;",
         element)
