@@ -11,5 +11,5 @@ def get_text(browser_driver: BrowserDriver, xpath: str, timeout: int) -> str:
         return browser_driver.webdriver.find_element(By.XPATH, xpath).text  # type: ignore
 
     xpath = XPath(xpath)
-    wait_for_element(browser_driver.webdriver, browser_driver.settings, xpath, timeout)
+    wait_for_element(browser_driver, xpath, timeout)
     return iteration_helper.retry.get_text(browser_driver, xpath, get_inner_text_of_element)

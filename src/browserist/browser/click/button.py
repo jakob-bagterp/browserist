@@ -7,7 +7,7 @@ from ..wait.for_element import wait_for_element
 
 def click_button(browser_driver: BrowserDriver, xpath: str, timeout: int) -> None:
     xpath = XPath(xpath)
+    wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
-    wait_for_element(driver, browser_driver.settings, xpath, timeout)
     element = driver.find_element(By.XPATH, xpath)  # type: ignore
     element.click()

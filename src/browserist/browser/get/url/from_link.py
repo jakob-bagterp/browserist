@@ -10,6 +10,5 @@ def get_url_from_link(browser_driver: BrowserDriver, xpath: str, timeout: int) -
         return get_attribute_value(browser_driver, xpath, "href", constant.timeout.BYPASS)
 
     xpath = XPath(xpath)
-    driver = browser_driver.get_webdriver()
-    wait_for_element(driver, browser_driver.settings, xpath, timeout)
+    wait_for_element(browser_driver, xpath, timeout)
     return iteration_helper.retry.get_text(browser_driver, xpath, get_href_attribute_of_element)

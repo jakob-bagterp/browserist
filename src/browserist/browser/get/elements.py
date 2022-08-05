@@ -7,6 +7,6 @@ from ..wait.for_element import wait_for_element
 
 def get_elements(browser_driver: BrowserDriver, xpath: str, timeout: int) -> list[object]:
     xpath = XPath(xpath)
-    wait_for_element(browser_driver.webdriver, browser_driver.settings, xpath, timeout)
+    wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
     return driver.find_elements(By.XPATH, xpath)  # type: ignore

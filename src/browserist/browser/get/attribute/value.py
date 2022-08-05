@@ -7,6 +7,6 @@ from ...wait.for_element import wait_for_element
 
 def get_attribute_value(browser_driver: BrowserDriver, xpath: str, attribute: str, timeout: int) -> str:
     xpath = XPath(xpath)
+    wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
-    wait_for_element(driver, browser_driver.settings, xpath, timeout)
     return driver.find_element(By.XPATH, xpath).get_attribute(attribute)  # type: ignore

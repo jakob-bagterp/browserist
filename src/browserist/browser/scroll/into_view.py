@@ -9,7 +9,7 @@ from ..wait.for_element import wait_for_element
 
 def scroll_into_view(browser_driver: BrowserDriver, xpath: str, timeout: int, delay_seconds: float) -> None:
     xpath = XPath(xpath)
-    wait_for_element(browser_driver.webdriver, browser_driver.settings, xpath, timeout)
+    wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
     element: object = driver.find_element(By.XPATH, xpath)  # type: ignore
     driver.execute_script("arguments[0].scrollIntoView();", element)  # type: ignore

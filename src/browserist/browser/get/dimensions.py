@@ -7,7 +7,7 @@ from ..wait.for_element import wait_for_element
 
 def get_dimensions(browser_driver: BrowserDriver, xpath: str, timeout: int) -> tuple[int, int]:
     xpath = XPath(xpath)
-    wait_for_element(browser_driver.webdriver, browser_driver.settings, xpath, timeout)
+    wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
     # Returns dictionary object, e.g. {'height': 598, 'width': 479}:
     dimensions: dict[str, int] = driver.find_element(By.XPATH, xpath).size  # type: ignore
