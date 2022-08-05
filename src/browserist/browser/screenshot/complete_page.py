@@ -16,9 +16,9 @@ def get_screenshot_of_complete_page(browser_driver: BrowserDriver, file_name: st
 
     match browser_driver.settings.type:
         case BrowserType.FIREFOX:
-            screenshot_helper.complete_page.firefox(browser_driver.webdriver, destination_file_path)
+            screenshot_helper.complete_page.firefox(browser_driver, destination_file_path)
         case _:
             asyncio.run(
                 screenshot_helper.complete_page.default(
-                    browser_driver.webdriver, destination_file_path, destination_dir, delay_seconds)
+                    browser_driver, destination_file_path, destination_dir, delay_seconds)
             )

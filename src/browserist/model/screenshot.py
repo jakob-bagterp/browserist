@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from enum import Enum, unique
 
 from .. import helper, screenshot_helper
+from ..model.browser.base.driver import BrowserDriver
 from .type.file_png import FilePNG
 
 
@@ -38,9 +39,9 @@ class ScreenshotTempDataHandler():
         temp_file_name = self.get_temp_file_name()
         return screenshot_helper.file.get_path(self._temp_dir, temp_file_name)
 
-    def save_screenshot(self, driver: object) -> None:
+    def save_screenshot(self, browser_driver: BrowserDriver) -> None:
         temp_file_path = self.get_temp_file_path()
-        screenshot_helper.save(driver, temp_file_path)
+        screenshot_helper.save(browser_driver, temp_file_path)
         self._all_temp_file_paths.append(temp_file_path)
 
     def increment_iteration(self) -> None:

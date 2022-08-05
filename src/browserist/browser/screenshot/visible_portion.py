@@ -10,4 +10,4 @@ def get_screenshot_of_visible_portion(browser_driver: BrowserDriver, file_name: 
     file_name = screenshot_helper.controller.mediate_file_name(file_name, ScreenshotType.VISIBLE_PORTION)
     destination_dir = screenshot_helper.controller.mediate_destination_dir(browser_driver.settings, destination_dir)
     file_path = screenshot_helper.file.get_path(destination_dir, file_name)
-    screenshot_helper.save(browser_driver.webdriver, file_path)
+    screenshot_helper.save(browser_driver, file_path)
