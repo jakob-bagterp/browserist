@@ -12,18 +12,20 @@ class WindowOpenDriverMethods(DriverMethods):
         super().__init__(browser_driver)
         self._controller = controller
 
-    def new_tab(self, url: str | None = None, name: str | None = None) -> None:
+    def new_tab(self, url: str | None = None, name: str | None = None, timeout: int | None = None) -> None:
         """Open and switch to new tab in current window. The URL and name of the tab are optional arguments.
 
         name: Can be used to switch to this tab with the "browser.window.switch_to(name)" method."""
 
         if self._timeout_should_continue():
-            open_new_tab_or_window(self._browser_driver, self._controller, TabOrWindow.TAB, url, name)
+            timeout = self._mediate_timeout(timeout)
+            open_new_tab_or_window(self._browser_driver, self._controller, TabOrWindow.TAB, timeout, url, name)
 
-    def new_window(self, url: str | None = None, name: str | None = None) -> None:
+    def new_window(self, url: str | None = None, name: str | None = None, timeout: int | None = None) -> None:
         """Open and switch to new window. The URL and name of the window are optional arguments.
 
         name: Can be used to switch to this window with the "browser.window.switch_to(name)" method."""
 
         if self._timeout_should_continue():
-            open_new_tab_or_window(self._browser_driver, self._controller, TabOrWindow.WINDOW, url, name)
+            timeout = self._mediate_timeout(timeout)
+            open_new_tab_or_window(self._browser_driver, self._controller, TabOrWindow.WINDOW, timeout, url, name)
