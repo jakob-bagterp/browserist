@@ -15,7 +15,7 @@ def exception_handling_for_methods_with_2_arguments(
 ) -> None:
     for test in test_set.tests:
         with test.expectation:
-            _ = method(browser.driver, test.url) is not None
+            _ = method(browser._browser_driver, test.url) is not None
 
 
 def exception_handling_for_methods_with_3_arguments_or_more(
@@ -26,4 +26,4 @@ def exception_handling_for_methods_with_3_arguments_or_more(
 ) -> None:
     for test in test_set.tests:
         with test.expectation:
-            _ = method(browser.driver, test.url, *args) is not None
+            _ = method(browser._browser_driver, test.url, *args) is not None
