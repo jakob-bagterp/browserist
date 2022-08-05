@@ -14,10 +14,10 @@ class ScrollGetDriverMethods(DriverMethods):
         x, y = browser.scroll.get.position()"""
 
         if self._timeout_should_continue():
-            return get_scroll_position(self._driver)
+            return get_scroll_position(self._browser_driver)
 
     def total_height(self) -> int:  # type: ignore
         """Get total scroll height."""
 
         if self._timeout_should_continue():
-            return get_total_scroll_height(self._driver)
+            return get_total_scroll_height(self._browser_driver)
