@@ -10,7 +10,7 @@ XPathCallable = Callable[[XPath], XPath]
 
 
 def validate_representation(type: FilePNGCallable | URLCallable | XPathCallable, input: str) -> None:
-    """Test that the XPath tiny type represents itself as a an URL string."""
+    """Test that a tiny type represents itself as a string."""
 
     tiny_type_input = expected_output = input
     tiny_type = type(tiny_type_input)
