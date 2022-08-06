@@ -10,12 +10,12 @@ class InputDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def clear(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    def clear(self, xpath: str, timeout: float = timeout.DEFAULT) -> None:
         """Clear input form field."""
 
         input_clear(self._driver, xpath, timeout)
 
-    def value(self, xpath: str, value: str, timeout: int = timeout.DEFAULT) -> None:
+    def value(self, xpath: str, value: str, timeout: float = timeout.DEFAULT) -> None:
         """Input value into form field."""
 
         input_value(self._driver, xpath, value, timeout)

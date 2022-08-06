@@ -18,7 +18,7 @@ from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 def test_xpath_exception_handling_for_get_url_methods_1(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
-    timeout: int
+    timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
         browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_EXAMPLE_COM_LINK)
@@ -31,7 +31,7 @@ def test_xpath_exception_handling_for_get_url_methods_1(
 def test_xpath_exception_handling_for_get_url_methods_2(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
-    timeout: int
+    timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
         browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE)

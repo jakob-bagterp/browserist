@@ -20,9 +20,9 @@ class CookieBannerSettings:
 
     button_xpath: str
     url: str | None = None
-    has_loaded_wait_seconds: int | None = None
+    has_loaded_wait_seconds: float | None = None
     has_loaded_xpath: str | None = None
-    has_disappeared_wait_seconds: int | None = None
+    has_disappeared_wait_seconds: float | None = None
 
     def __post_init__(self) -> None:
         self.button_xpath = XPath(self.button_xpath)

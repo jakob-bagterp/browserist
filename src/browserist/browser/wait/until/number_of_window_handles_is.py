@@ -6,7 +6,7 @@ from ....constant import timeout
 from ....exception.timeout import WaitForWindowTimeoutException
 
 
-def wait_until_number_of_window_handles_is(driver: object, expected_handles: int, timeout: int = timeout.DEFAULT) -> None:
+def wait_until_number_of_window_handles_is(driver: object, expected_handles: int, timeout: float = timeout.DEFAULT) -> None:
     if expected_handles < 0:
         raise ValueError("Expected handles must be greater than or equal to 0.")
     try:

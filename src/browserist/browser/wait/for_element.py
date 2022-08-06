@@ -10,7 +10,7 @@ from ...exception.timeout import WaitForElementTimeoutException
 from ...model.type.xpath import XPath
 
 
-def wait_for_element(driver: object, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+def wait_for_element(driver: object, xpath: str, timeout: float = timeout.DEFAULT) -> None:
     xpath = XPath(xpath)
     if timeout == constant.timeout.BYPASS:
         return
