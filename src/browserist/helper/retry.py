@@ -5,7 +5,7 @@ from ..exception.retry import RetryTimeoutException
 from ..model.type.callable import DriverGetBoolCallable, DriverGetTextCallable
 
 
-def calculate_number_of_retries(total_time: int, interval: int | float) -> int:
+def calculate_number_of_retries(total_time: int | float, interval: int | float) -> int:
     return int(total_time // interval)
 
 
