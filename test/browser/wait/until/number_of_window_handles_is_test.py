@@ -15,6 +15,7 @@ from browserist.exception.timeout import WaitForWindowTimeoutException
     (1, 1, 1, pytest.raises(WaitForWindowTimeoutException)),
     (0, 1, 1, pytest.raises(WaitForWindowTimeoutException)),
     (1, 0, 1, pytest.raises(WaitForWindowTimeoutException)),
+    (0, 0, -1, pytest.raises(ValueError)),
 ])
 def test_wait_until_number_of_window_handles_is(open_new_tabs: int, open_new_windows: int, expected_handles: int, expected_exception: Any, browser_default_headless_scope_function: Browser) -> None:
     """As the browser already has one tab open by default, we test the number of new windows or tabs plus 1."""
