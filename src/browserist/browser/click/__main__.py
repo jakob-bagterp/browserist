@@ -16,5 +16,6 @@ class ClickDriverMethods(DriverMethods):
         click_button(self._driver, xpath, timeout)
 
     def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float = timeout.DEFAULT) -> None:
+        """Click button if contains certain text or a regular expression."""
 
         click_button_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
