@@ -38,7 +38,7 @@ class ScreenshotTempDataHandler():
         temp_file_name = self.get_temp_file_name()
         return helper.screenshot.file.get_path(self._temp_dir, temp_file_name)
 
-    def save_screenshot(self, driver: object) -> None:
+    async def save_screenshot(self, driver: object) -> None:
         temp_file_path = self.get_temp_file_path()
         helper.screenshot.save(driver, temp_file_path)
         self._all_temp_file_paths.append(temp_file_path)
