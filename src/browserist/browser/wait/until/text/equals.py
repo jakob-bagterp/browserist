@@ -1,6 +1,6 @@
 import re
 
-from ..... import constant, iteration_helper
+from ..... import constant, helper_iteration
 from .....model.browser.base.driver import BrowserDriver
 from .....model.type.xpath import XPath
 from ....get.text import get_text
@@ -14,4 +14,4 @@ def wait_until_text_equals(browser_driver: BrowserDriver, xpath: str, regex: str
 
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
-    iteration_helper.retry.until_condition_is_true(browser_driver, xpath, regex, func=is_element_text, timeout=timeout)
+    helper_iteration.retry.until_condition_is_true(browser_driver, xpath, regex, func=is_element_text, timeout=timeout)
