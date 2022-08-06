@@ -34,4 +34,4 @@ class ComboDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            combo_search(self._browser_driver, term, settings, timeout)
+            combo_search(self, term, settings, timeout)
