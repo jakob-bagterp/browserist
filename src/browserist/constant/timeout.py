@@ -1,14 +1,14 @@
-BYPASS: int = 0
+BYPASS: float = 0
 """No timeout."""
 
-VERY_SHORT: int = 1
+VERY_SHORT: float = 1
 """Very short timeout: 1 second."""
 
-SHORT: int = 3
+SHORT: float = 3
 """Short timeout: 3 seconds."""
 
-DEFAULT: int = 5
+DEFAULT: float = 5
 """Default timeout: 5 seconds."""
 
-LONG: int = 10
+LONG: float = 10
 """Long timeout: 10 seconds."""

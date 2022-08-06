@@ -6,7 +6,7 @@ from .....constant import timeout
 from .....exception.timeout import WaitForUrlTimeoutException
 
 
-def wait_until_url_contains(driver: object, url_fragment: str, timeout: int = timeout.DEFAULT) -> None:
+def wait_until_url_contains(driver: object, url_fragment: str, timeout: float = timeout.DEFAULT) -> None:
     try:
         WebDriverWait(driver, timeout).until(EC.url_contains(url_fragment))  # type: ignore
     except TimeoutException:

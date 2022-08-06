@@ -9,7 +9,7 @@ from ...model.type.xpath import XPath
 from ..wait.for_element import wait_for_element
 
 
-def scroll_into_view(driver: object, xpath: str, timeout: int, delay_seconds: float) -> None:
+def scroll_into_view(driver: object, xpath: str, timeout: float, delay_seconds: float) -> None:
     xpath = XPath(xpath)
     try:
         wait_for_element(driver, xpath, timeout)

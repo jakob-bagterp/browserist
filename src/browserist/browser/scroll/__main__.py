@@ -32,12 +32,12 @@ class ScrollDriverMethods(DriverMethods):
 
         scroll_down_by(self._driver, pixels, delay_seconds)
 
-    def into_view(self, xpath: str, timeout: int = timeout.DEFAULT, delay_seconds: float = 1) -> None:
+    def into_view(self, xpath: str, timeout: float = timeout.DEFAULT, delay_seconds: float = 1) -> None:
         """Find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_into_view(self._driver, xpath, timeout, delay_seconds)
 
-    def into_view_if_not_visible(self, xpath: str, timeout: int = timeout.DEFAULT, delay_seconds: float = 1) -> None:
+    def into_view_if_not_visible(self, xpath: str, timeout: float = timeout.DEFAULT, delay_seconds: float = 1) -> None:
         """If not visible, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         scroll_into_view_if_not_visible(self._driver, xpath, timeout, delay_seconds)
