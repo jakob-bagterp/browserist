@@ -1,10 +1,10 @@
-from .. import constant, helper, screenshot_helper
+from .. import constant, helper, helper_screenshot
 from ..model.browser.base.settings import BrowserSettings
 from ..model.screenshot import ScreenshotType
 
 
 def mediate_file_name(file_name: str | None, screenshot_type: ScreenshotType | None = None) -> str:
-    return screenshot_helper.file.get_default_name(screenshot_type) if file_name is None else file_name
+    return helper_screenshot.file.get_default_name(screenshot_type) if file_name is None else file_name
 
 
 def mediate_destination_dir(settings: BrowserSettings, destination_dir: str | None = None) -> str:
