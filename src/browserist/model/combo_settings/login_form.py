@@ -20,7 +20,7 @@ class LoginForm1Step:
 
     # Shared defaults:
     url: str | None = None
-    post_login_wait_seconds: int | None = None
+    post_login_wait_seconds: float | None = None
     post_login_url_contains: str | None = None
     post_login_element_xpath: str | None = None
 
@@ -50,7 +50,7 @@ class LoginForm2Steps:
 
     # Shared defaults:
     url: str | None = None
-    post_login_wait_seconds: int | None = None
+    post_login_wait_seconds: float | None = None
     post_login_url_contains: str | None = None
     post_login_element_xpath: str | None = None
 

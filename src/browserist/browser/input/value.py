@@ -8,7 +8,7 @@ from ...model.type.xpath import XPath
 from ..wait.for_element import wait_for_element
 
 
-def input_value(driver: object, xpath: str, value: str, timeout: int = timeout.DEFAULT) -> None:
+def input_value(driver: object, xpath: str, value: str, timeout: float = timeout.DEFAULT) -> None:
     xpath = XPath(xpath)
     wait_for_element(driver, xpath, timeout)
     try:

@@ -9,7 +9,7 @@ def calculate_number_of_retries(total_time: int, interval: int | float) -> int:
     return int(total_time // interval)
 
 
-def get_text(driver: object, input: str, func: DriverGetTextCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str:
+def get_text(driver: object, input: str, func: DriverGetTextCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str:
     text = func(driver, input)
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while not text and retries_left > 0:
@@ -21,7 +21,7 @@ def get_text(driver: object, input: str, func: DriverGetTextCallable, timeout: i
     return text
 
 
-def until_condition_is_true(driver: object, *args: str | list[object], func: DriverGetBoolCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
+def until_condition_is_true(driver: object, *args: str | list[object], func: DriverGetBoolCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while func(driver, *args) is False and retries_left > 0:
         time.sleep(wait_interval_seconds)
@@ -30,7 +30,7 @@ def until_condition_is_true(driver: object, *args: str | list[object], func: Dri
             raise RetryTimeoutException(func)
 
 
-def until_condition_is_false(driver: object, *args: str | list[object], func: DriverGetBoolCallable, timeout: int = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
+def until_condition_is_false(driver: object, *args: str | list[object], func: DriverGetBoolCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while func(driver, *args) is True and retries_left > 0:
         time.sleep(wait_interval_seconds)

@@ -9,7 +9,7 @@ class MouseDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver, settings: BrowserSettings) -> None:
         super().__init__(browser_driver, settings)
 
-    def hover(self, xpath: str, timeout: int = timeout.DEFAULT) -> None:
+    def hover(self, xpath: str, timeout: float = timeout.DEFAULT) -> None:
         """Simulate moving the mouse cursor over the middle of an element."""
 
         mouse_hover(self._driver, xpath, timeout)
