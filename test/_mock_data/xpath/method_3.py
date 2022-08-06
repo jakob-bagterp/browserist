@@ -33,7 +33,7 @@ def exception_handling_for_methods_with_3_arguments_or_more(
 
 def exception_handling_for_screenshot_methods(
     browser: Browser,
-    method: BrowserMethodWith5ArgumentsCallable,
+    method: BrowserMethodWith4ArgumentsCallable,
     file_name: str,
     temp_dir: str,
     test_set: XPathTestSet = XPATH_TEST_SET_EXAMPLE_COM_DEFAULT,
