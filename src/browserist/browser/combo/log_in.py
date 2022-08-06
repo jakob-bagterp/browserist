@@ -13,9 +13,6 @@ from ..wait.until.url.contains import wait_until_url_contains
 
 
 def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float) -> None:
-    timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
-    browser_driver: BrowserDriver = driver_method._browser_driver
-
     def login_form_1_step(browser_driver: BrowserDriver, timeout_should_continue: TimeoutShouldContinueCallable, login_form: LoginForm1Step, timeout: float) -> None:
         if timeout_should_continue():
             input_value(browser_driver, login_form.username_input_xpath, login_credentials.username, timeout)
@@ -33,6 +30,9 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
             input_value(browser_driver, login_form.password_input_xpath, login_credentials.password, timeout)
         if timeout_should_continue():
             click_button(browser_driver, login_form.password_submit_button_xpath, timeout)
+
+    timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
+    browser_driver: BrowserDriver = driver_method._browser_driver
 
     if login_form.url is not None and timeout_should_continue():
         open_url_if_not_current(browser_driver, login_form.url)
