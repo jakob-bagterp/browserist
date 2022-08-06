@@ -11,4 +11,4 @@ def check_if_is_image_loaded(browser_driver: BrowserDriver, xpath: str, timeout:
     wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
     element: object = driver.find_element(By.XPATH, xpath)  # type: ignore
-    return image_helper.is_element_loaded(browser_driver, element)
+    return image_helper.is_element_loaded(driver, element)

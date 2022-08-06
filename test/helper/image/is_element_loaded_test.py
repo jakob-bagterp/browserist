@@ -14,4 +14,4 @@ def test_is_element_loaded(xpath: str, expected: bool, browser_default_headless:
     browser = browser_default_headless
     browser.open.url(internal_url.W3SCHOOLS_COM)
     element = browser.get.element(xpath)
-    assert image_helper.is_element_loaded(browser._browser_driver, element) is expected
+    assert image_helper.is_element_loaded(browser.driver, element) is expected
