@@ -27,7 +27,7 @@ def test_window_handle_controller_add_handle(id: str, name: str | None, expected
 ])
 def test_window_handle_controller_add_handle_id_invalid_error(id: str, name: str | None, expectation: Any, window_handle_controller: WindowHandleController) -> None:
     with expectation:
-        window_handle_controller.add_handle(id, name) is not None
+        _ = window_handle_controller.add_handle(id, name) is not None
 
 
 @pytest.mark.parametrize("id, name, expectation", [
@@ -36,7 +36,7 @@ def test_window_handle_controller_add_handle_id_invalid_error(id: str, name: str
 ])
 def test_window_handle_controller_add_handle_id_already_exist_error(id: str, name: str | None, expectation: Any, window_handle_controller: WindowHandleController) -> None:
     with expectation:
-        window_handle_controller.add_handle(id, name) is not None
+        _ = window_handle_controller.add_handle(id, name) is not None
 
 
 @pytest.mark.parametrize("id, name, expectation", [
@@ -45,4 +45,4 @@ def test_window_handle_controller_add_handle_id_already_exist_error(id: str, nam
 ])
 def test_window_handle_controller_add_handle_name_error(id: str, name: str | None, expectation: Any, window_handle_controller: WindowHandleController) -> None:
     with expectation:
-        window_handle_controller.add_handle(id, name) is not None
+        _ = window_handle_controller.add_handle(id, name) is not None

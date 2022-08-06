@@ -17,4 +17,4 @@ def test_wait_until_page_title_equals(url: str, page_title: str, expectation: An
     browser = browser_default_headless
     with expectation:
         browser.open.url(url)
-        browser.wait.until.page_title.equals(page_title, timeout.VERY_SHORT) is not None
+        _ = browser.wait.until.page_title.equals(page_title, timeout.VERY_SHORT) is not None
