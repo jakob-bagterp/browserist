@@ -15,7 +15,7 @@ class DriverMethods:
 
         return helper.timeout.should_continue(self._browser_driver.settings)
 
-    def _mediate_timeout(self, timeout: int | None) -> int:
+    def _mediate_timeout(self, timeout: float | None) -> float:
         """Mediate whether timeout seconds should use a global or a local setting."""
 
         return helper.timeout.mediate_timeout(self._browser_driver.settings, timeout)
