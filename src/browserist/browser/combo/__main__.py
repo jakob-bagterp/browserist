@@ -27,7 +27,7 @@ class ComboDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            combo_log_in(self._browser_driver, login_credentials, login_form, timeout)
+            combo_log_in(self, login_credentials, login_form, timeout)
 
     def search(self, term: str, settings: SearchSettings, timeout: int | None = None) -> None:
         """Standardised combination of methods to perform search."""
