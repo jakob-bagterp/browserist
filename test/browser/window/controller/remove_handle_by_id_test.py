@@ -23,7 +23,7 @@ def test_window_handle_controller_remove_handle_by_id(id: str, window_handle_con
 ])
 def test_window_handle_controller_remove_handle_by_id_invalid_error(id: str, expectation: Any, window_handle_controller: WindowHandleController) -> None:
     with expectation:
-        window_handle_controller.remove_handle_by_id(id) is not None
+        _ = window_handle_controller.remove_handle_by_id(id) is not None
 
 
 @pytest.mark.parametrize("id, expectation", [
@@ -32,4 +32,4 @@ def test_window_handle_controller_remove_handle_by_id_invalid_error(id: str, exp
 ])
 def test_window_handle_controller_remove_handle_by_id_not_found_error(id: str, expectation: Any, window_handle_controller: WindowHandleController) -> None:
     with expectation:
-        window_handle_controller.remove_handle_by_id(id) is not None
+        _ = window_handle_controller.remove_handle_by_id(id) is not None
