@@ -11,3 +11,5 @@ BrowserMethodWith3ArgumentsCallable = Callable[[object, str, Any], None]
 BrowserMethodWith4ArgumentsCallable = Callable[[object, str, Any, Any], None]
 
 BrowserMethodWith5ArgumentsCallable = Callable[[object, str, Any, Any, Any], None]
+
+TimeoutShouldContinueCallable = Callable[[], bool]
