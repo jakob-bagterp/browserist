@@ -13,19 +13,25 @@ class ComboDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def cookie_banner(self, settings: CookieBannerSettings) -> None:
+    def cookie_banner(self, settings: CookieBannerSettings, timeout: int | None = None) -> None:
         """Standardised combination of methods to accept or decline cookies."""
 
-        combo_cookie_banner(self._browser_driver, settings)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            combo_cookie_banner(self._browser_driver, settings, timeout)
 
-    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps) -> None:
+    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: int | None = None) -> None:
         """Standardised combination of methods to log in.
 
         wait_seconds: Extra seconds in addition to timeout to make sure the login is processed and that the user is redirected succesfully."""
 
-        combo_log_in(self._browser_driver, login_credentials, login_form)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            combo_log_in(self._browser_driver, login_credentials, login_form, timeout)
 
-    def search(self, term: str, settings: SearchSettings) -> None:
+    def search(self, term: str, settings: SearchSettings, timeout: int | None = None) -> None:
         """Standardised combination of methods to perform search."""
 
-        combo_search(self._browser_driver, term, settings)
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            combo_search(self._browser_driver, term, settings, timeout)
