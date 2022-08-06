@@ -17,4 +17,4 @@ def test_wait_for_element(xpath: str, expectation: Any, browser_default_headless
     browser = browser_default_headless
     browser.open.url(internal_url.EXAMPLE_COM)
     with expectation:
-        browser.wait.for_element(xpath, timeout.VERY_SHORT) is not None
+        _ = browser.wait.for_element(xpath, timeout.VERY_SHORT) is not None

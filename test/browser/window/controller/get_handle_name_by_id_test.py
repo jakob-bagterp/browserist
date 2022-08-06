@@ -24,4 +24,4 @@ def test_window_handle_controller_get_handle_name_by_id(id: str, expected_handle
 ])
 def test_window_handle_controller_get_handle_name_by_id_not_found_error(id: str, expectation: Any, window_handle_controller: WindowHandleController) -> None:
     with expectation:
-        window_handle_controller.get_handle_name_by_id(id) is not None
+        _ = window_handle_controller.get_handle_name_by_id(id) is not None

@@ -18,4 +18,4 @@ def test_wait_until_url_equals(url1: str, url2: str, expectation: Any, browser_d
     with expectation:
         browser.open.url(url1)
         browser.open.url(url2)
-        browser.wait.until.url.equals(url1, timeout.VERY_SHORT) is not None
+        _ = browser.wait.until.url.equals(url1, timeout.VERY_SHORT) is not None
