@@ -26,7 +26,7 @@ def test_xpath_exception_handling_for_click_methods_2(
     method: BrowserMethodWith5ArgumentsCallable,
     text: str,
     ignore_case: bool,
-    timeout: int
+    timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
         browser_default_headless, method, text, ignore_case, timeout)

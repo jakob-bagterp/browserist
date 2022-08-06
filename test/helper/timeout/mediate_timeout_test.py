@@ -19,5 +19,5 @@ BROWSER_SETTINGS = BrowserSettings(timeout=TIMEOUT_SETTINGS)
     (timeout.VERY_SHORT, timeout.VERY_SHORT),
     (2, 2),
 ])
-def test_helper_mediate_timeout(timeout: int | None, expected_timeout: int) -> None:
+def test_helper_mediate_timeout(timeout: float | None, expected_timeout: float) -> None:
     assert helper.timeout.mediate_timeout(BROWSER_SETTINGS, timeout) == expected_timeout

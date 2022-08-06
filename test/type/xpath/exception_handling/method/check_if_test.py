@@ -35,7 +35,7 @@ def test_xpath_exception_handling_for_check_if_methods_1(
 def test_xpath_exception_handling_for_check_if_methods_2(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
-    timeout: int
+    timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
         browser_default_headless, method, timeout)
@@ -49,7 +49,7 @@ def test_xpath_exception_handling_for_check_if_methods_3(
     method: BrowserMethodWith5ArgumentsCallable,
     text: str,
     ignore_case: bool,
-    timeout: int
+    timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
         browser_default_headless, method, text, ignore_case, timeout)

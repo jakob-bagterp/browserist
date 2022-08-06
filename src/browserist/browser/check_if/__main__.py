@@ -26,7 +26,7 @@ class CheckIfDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return check_if_does_exist(self._browser_driver, xpath)
 
-    def is_clickable(self, xpath: str, timeout: int | None = None) -> bool:  # type: ignore
+    def is_clickable(self, xpath: str, timeout: float | None = None) -> bool:  # type: ignore
         """Check if element is clickable."""
 
         if self._timeout_should_continue():

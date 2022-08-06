@@ -16,6 +16,6 @@ def test_xpath_exception_handling_for_get_attribute_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
     attribute: str,
-    timeout: int
+    timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(browser_default_headless, method, attribute, timeout)

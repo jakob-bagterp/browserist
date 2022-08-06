@@ -11,7 +11,7 @@ from ..wait.for_element import wait_for_element
 from ..wait.until.element_disappears import wait_until_element_disappears
 
 
-def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBannerSettings, timeout: int) -> None:
+def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBannerSettings, timeout: float) -> None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
     browser_driver: BrowserDriver = driver_method._browser_driver
 

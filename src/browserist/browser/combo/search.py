@@ -9,7 +9,7 @@ from ..wait.for_element import wait_for_element
 from ..wait.until.url.contains import wait_until_url_contains
 
 
-def combo_search(driver_method: DriverMethods, term: str, search: SearchSettings, timeout: int) -> None:
+def combo_search(driver_method: DriverMethods, term: str, search: SearchSettings, timeout: float) -> None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
     browser_driver: BrowserDriver = driver_method._browser_driver
 

@@ -8,7 +8,7 @@ class IframeDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def switch_to(self, xpath: str, timeout: int | None = None) -> None:
+    def switch_to(self, xpath: str, timeout: float | None = None) -> None:
         """Switch to iframe."""
 
         if self._timeout_should_continue():

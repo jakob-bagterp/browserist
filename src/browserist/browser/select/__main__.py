@@ -8,7 +8,7 @@ class SelectDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def input_field(self, xpath: str, timeout: int | None = None) -> None:
+    def input_field(self, xpath: str, timeout: float | None = None) -> None:
         """Select input field, similar to clicking the mouse on a form field."""
 
         if self._browser_driver.settings.headless:

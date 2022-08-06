@@ -14,7 +14,7 @@ from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 def test_xpath_exception_handling_for_iframe_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable,
-    timeout: int
+    timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
         browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_W3SCHOOLS_COM_IFRAME)
