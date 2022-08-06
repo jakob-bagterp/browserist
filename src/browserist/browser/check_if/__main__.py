@@ -13,7 +13,7 @@ class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> bool:  # type: ignore
+    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None) -> bool:  # type: ignore
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
         if self._timeout_should_continue():
@@ -51,7 +51,7 @@ class CheckIfDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return check_if_is_enabled(self._browser_driver, xpath)
 
-    def is_image_loaded(self, xpath: str, timeout: int | None = None) -> bool:  # type: ignore
+    def is_image_loaded(self, xpath: str, timeout: float | None = None) -> bool:  # type: ignore
         """Check is image is loaded and ready in the DOM."""
 
         if self._timeout_should_continue():

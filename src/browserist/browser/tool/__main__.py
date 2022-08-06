@@ -21,7 +21,7 @@ class ToolDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return helper.url.is_valid(url)
 
-    def count_elements(self, xpath: str, timeout: int | None = None) -> int:  # type: ignore
+    def count_elements(self, xpath: str, timeout: float | None = None) -> int:  # type: ignore
         """Count number of elements."""
 
         if self._timeout_should_continue():

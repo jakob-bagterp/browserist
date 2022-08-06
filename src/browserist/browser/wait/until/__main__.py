@@ -17,21 +17,21 @@ class WaitUntilDriverMethods(DriverMethods):
         self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver)
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver)
 
-    def element_disappears(self, xpath: str, timeout: int | None = None) -> None:
+    def element_disappears(self, xpath: str, timeout: float | None = None) -> None:
         """Wait until element doesn't exist."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_until_element_disappears(self._browser_driver, xpath, timeout)
 
-    def images_have_loaded(self, xpath: str, timeout: int | None = None) -> None:
+    def images_have_loaded(self, xpath: str, timeout: float | None = None) -> None:
         """Wait until element doesn't exist. The image XPath can target one or more images."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_until_images_have_loaded(self._browser_driver, xpath, timeout)
 
-    def number_of_window_handles_is(self, expected_handles: int, timeout: int | None = None) -> None:
+    def number_of_window_handles_is(self, expected_handles: int, timeout: float | None = None) -> None:
         """Wait until number of window handles is."""
 
         if self._timeout_should_continue():

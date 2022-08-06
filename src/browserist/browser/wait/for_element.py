@@ -10,7 +10,7 @@ from ...model.browser.base.driver import BrowserDriver
 from ...model.type.xpath import XPath
 
 
-def wait_for_element(browser_driver: BrowserDriver, xpath: str, timeout: int) -> None:
+def wait_for_element(browser_driver: BrowserDriver, xpath: str, timeout: float) -> None:
     xpath = XPath(xpath)
     if timeout == constant.timeout.BYPASS:
         return

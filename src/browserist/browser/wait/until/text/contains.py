@@ -7,7 +7,7 @@ from ....get.text import get_text
 from ...for_element import wait_for_element
 
 
-def wait_until_text_contains(browser_driver: BrowserDriver, xpath: str, regex: str, timeout: int) -> None:
+def wait_until_text_contains(browser_driver: BrowserDriver, xpath: str, regex: str, timeout: float) -> None:
     def does_element_text_contain(browser_driver: BrowserDriver, xpath: str, regex: str) -> bool:
         text = get_text(browser_driver, xpath, constant.timeout.BYPASS)
         return bool(re.search(regex, text, re.IGNORECASE))

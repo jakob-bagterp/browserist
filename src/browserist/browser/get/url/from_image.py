@@ -5,7 +5,7 @@ from ...wait.for_element import wait_for_element
 from ..attribute.value import get_attribute_value
 
 
-def get_url_from_image(browser_driver: BrowserDriver, xpath: str, timeout: int) -> str:
+def get_url_from_image(browser_driver: BrowserDriver, xpath: str, timeout: float) -> str:
     def get_src_attribute_of_element(browser_driver: BrowserDriver, xpath: str) -> str:
         return get_attribute_value(browser_driver, xpath, "src", constant.timeout.BYPASS)
 

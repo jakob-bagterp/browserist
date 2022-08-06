@@ -5,7 +5,7 @@ from ....get.text import get_text
 from ...for_element import wait_for_element
 
 
-def wait_until_text_changes(browser_driver: BrowserDriver, xpath: str, baseline_text: str, timeout: int) -> None:
+def wait_until_text_changes(browser_driver: BrowserDriver, xpath: str, baseline_text: str, timeout: float) -> None:
     def has_text_changed(browser_driver: BrowserDriver, baseline_text: str) -> bool:
         return get_text(browser_driver, xpath, constant.timeout.BYPASS) != baseline_text
 

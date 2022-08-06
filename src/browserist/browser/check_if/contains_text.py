@@ -5,7 +5,7 @@ from ...model.type.xpath import XPath
 from ..get.text import get_text
 
 
-def check_if_contains_text(browser_driver: BrowserDriver, xpath: str, regex: str, ignore_case: bool, timeout: int) -> bool:
+def check_if_contains_text(browser_driver: BrowserDriver, xpath: str, regex: str, ignore_case: bool, timeout: float) -> bool:
     xpath = XPath(xpath)
     current_text = get_text(browser_driver, xpath, timeout)
     if ignore_case:

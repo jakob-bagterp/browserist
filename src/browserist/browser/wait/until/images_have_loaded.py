@@ -6,7 +6,7 @@ from ....model.type.xpath import XPath
 from ..for_element import wait_for_element
 
 
-def wait_until_images_have_loaded(browser_driver: BrowserDriver, xpath: str, timeout: int) -> None:
+def wait_until_images_have_loaded(browser_driver: BrowserDriver, xpath: str, timeout: float) -> None:
     def are_all_images_loaded(browser_driver: BrowserDriver, elements: list[object]) -> bool:
         return all(image_helper.is_element_loaded(browser_driver, element) is not False for element in elements)
 

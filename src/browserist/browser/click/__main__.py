@@ -8,14 +8,14 @@ class ClickDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def button(self, xpath: str, timeout: int | None = None) -> None:
+    def button(self, xpath: str, timeout: float | None = None) -> None:
         """Click button."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             click_button(self._browser_driver, xpath, timeout)
 
-    def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: int | None = None) -> None:
+    def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None) -> None:
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)

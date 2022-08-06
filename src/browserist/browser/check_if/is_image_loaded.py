@@ -6,7 +6,7 @@ from ...model.type.xpath import XPath
 from ..wait.for_element import wait_for_element
 
 
-def check_if_is_image_loaded(browser_driver: BrowserDriver, xpath: str, timeout: int) -> bool:
+def check_if_is_image_loaded(browser_driver: BrowserDriver, xpath: str, timeout: float) -> bool:
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()

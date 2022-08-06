@@ -8,7 +8,7 @@ from .....model.browser.base.driver import BrowserDriver
 from .....model.type.url import URL
 
 
-def wait_until_url_equals(browser_driver: BrowserDriver, url: str, timeout: int) -> None:
+def wait_until_url_equals(browser_driver: BrowserDriver, url: str, timeout: float) -> None:
     url = URL(url)
     try:
         driver = browser_driver.get_webdriver()
