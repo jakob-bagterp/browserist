@@ -17,4 +17,4 @@ def test_wait_until_element_disappears(xpath: str, expectation: Any, browser_def
     browser = browser_default_headless
     with expectation:
         browser.open.url(internal_url.EXAMPLE_COM)
-        browser.wait.until.element_disappears(xpath, timeout.VERY_SHORT) is not None
+        _ = browser.wait.until.element_disappears(xpath, timeout.VERY_SHORT) is not None

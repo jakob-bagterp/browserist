@@ -17,4 +17,4 @@ def test_wait_until_text_changes(baseline_text: str, expectation: Any, browser_d
     browser = browser_default_headless
     with expectation:
         browser.open.url(internal_url.EXAMPLE_COM)
-        browser.wait.until.page_title.changes(baseline_text, timeout.VERY_SHORT) is not None
+        _ = browser.wait.until.page_title.changes(baseline_text, timeout.VERY_SHORT) is not None

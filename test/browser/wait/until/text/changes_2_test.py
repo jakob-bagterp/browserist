@@ -19,4 +19,4 @@ def test_wait_until_text_changes(xpath: str, baseline_text: str, expectation: An
     browser = browser_default_headless
     with expectation:
         browser.open.url(internal_url.EXAMPLE_COM)
-        browser.wait.until.text.changes(xpath, baseline_text, timeout.VERY_SHORT) is not None
+        _ = browser.wait.until.text.changes(xpath, baseline_text, timeout.VERY_SHORT) is not None

@@ -22,4 +22,4 @@ def test_wait_until_text_equals(xpath: str, regex: str, expectation: Any, browse
     browser = browser_default_headless
     with expectation:
         browser.open.url(internal_url.EXAMPLE_COM)
-        browser.wait.until.text.equals(xpath, regex, timeout.VERY_SHORT) is not None
+        _ = browser.wait.until.text.equals(xpath, regex, timeout.VERY_SHORT) is not None

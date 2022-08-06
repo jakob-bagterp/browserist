@@ -17,4 +17,4 @@ def test_mouse_hover(xpath: str, expectation: Any, browser_default_headless: Bro
     browser = browser_default_headless
     browser.open.url(internal_url.EXAMPLE_COM)
     with expectation:
-        browser.mouse.hover(xpath, timeout.VERY_SHORT) is not None
+        _ = browser.mouse.hover(xpath, timeout.VERY_SHORT) is not None
