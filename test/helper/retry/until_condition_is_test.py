@@ -24,7 +24,7 @@ def test_helper_retry_until_condition_is_true(input: str, expectation: Any, brow
     browser = browser_default_headless
     with expectation:
         _ = iteration_helper.retry.until_condition_is_true(
-            browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
+            browser._browser_driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
 
 
 @pytest.mark.parametrize("input, expectation", [
@@ -35,4 +35,4 @@ def test_helper_retry_until_condition_is_false(input: str, expectation: Any, bro
     browser = browser_default_headless
     with expectation:
         _ = iteration_helper.retry.until_condition_is_false(
-            browser.driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
+            browser._browser_driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
