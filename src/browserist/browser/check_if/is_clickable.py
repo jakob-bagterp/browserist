@@ -11,7 +11,7 @@ def check_if_is_clickable(browser_driver: BrowserDriver, xpath: str) -> bool:
     xpath = XPath(xpath)
     try:
         driver = browser_driver.get_webdriver()
-        element: object = WebDriverWait(driver, timeout.BYPASS).until(
+        element = WebDriverWait(driver, timeout.BYPASS).until(
             EC.element_to_be_clickable((By.XPATH, xpath)))  # type: ignore
         return element is not None
     except Exception:
