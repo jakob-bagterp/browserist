@@ -3,7 +3,7 @@ from _mock_data.xpath.method_3 import exception_handling_for_methods_with_3_argu
 from _mock_data.xpath.test_set_3 import XPATH_TEST_SET_W3SCHOOLS_COM_INPUT
 
 from browserist import Browser
-from browserist.browser.select.input_field import select_input_field
+from browserist.browser.input.select import select_input_field
 from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 
