@@ -14,7 +14,7 @@ class CheckIfDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def contains_any_text(self, xpath: str) -> bool:
+    def contains_any_text(self, xpath: str) -> bool:  # type: ignore
         """Check if element contains any text."""
 
         if self._timeout_should_continue():
@@ -56,7 +56,7 @@ class CheckIfDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return check_if_is_enabled(self._browser_driver, xpath)
 
-    def is_image_loaded(self, xpath: str) -> bool:
+    def is_image_loaded(self, xpath: str) -> bool:  # type: ignore
         """Check is image is loaded and ready in the DOM."""
 
         if self._timeout_should_continue():
