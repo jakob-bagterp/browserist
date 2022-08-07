@@ -1,21 +1,21 @@
-from _config.timeout_settings import DEFAULT_NO_TIMEOUT
+from _config import timeout_settings
 
 from browserist import BrowserSettings, BrowserType
 
 DEFAULT = BrowserSettings(
     type=BrowserType.EDGE,
-    timeout=DEFAULT_NO_TIMEOUT
+    timeout=timeout_settings.DEFAULT_CONTINUE
 )
 
 HEADLESS = BrowserSettings(
     type=BrowserType.EDGE,
     headless=True,
-    timeout=DEFAULT_NO_TIMEOUT
+    timeout=timeout_settings.DEFAULT_CONTINUE
 )
 
 HEADLESS_AND_DISABLE_IMAGES = BrowserSettings(
     type=BrowserType.EDGE,
     headless=True,
     disable_images=True,
-    timeout=DEFAULT_NO_TIMEOUT
+    timeout=timeout_settings.DEFAULT_CONTINUE
 )

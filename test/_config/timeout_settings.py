@@ -1,5 +1,5 @@
 from browserist import TimeoutSettings, TimeoutStrategy
 
-DEFAULT_NO_TIMEOUT = TimeoutSettings(
+DEFAULT_CONTINUE = TimeoutSettings(
     strategy=TimeoutStrategy.CONTINUE
 )
