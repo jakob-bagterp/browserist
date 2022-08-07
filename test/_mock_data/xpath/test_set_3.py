@@ -41,6 +41,16 @@ XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE = XPathTestSet(
     ]
 )
 
+VALID_XPATH_W3SCHOOLS_COM_HEADLINE = "/html/body/div[5]/div[1]/div/h1"
+
+XPATH_TEST_SET_W3SCHOOLS_COM_HEADLINE = XPathTestSet(
+    url=internal_url.W3SCHOOLS_COM,
+    tests=[
+        XPathExpectation(VALID_XPATH_W3SCHOOLS_COM_HEADLINE, does_not_raise()),
+        XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
+    ]
+)
+
 VALID_XPATH_W3SCHOOLS_COM_IFRAME = "//*[@id='howto_iframe']"
 
 XPATH_TEST_SET_W3SCHOOLS_COM_IFRAME = XPathTestSet(

@@ -20,12 +20,11 @@ class CheckIfDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return check_if_contains_any_text(self._browser_driver, xpath)
 
-    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None) -> bool:  # type: ignore
+    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True) -> bool:  # type: ignore
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
         if self._timeout_should_continue():
-            timeout = self._mediate_timeout(timeout)
-            return check_if_contains_text(self._browser_driver, xpath, regex, ignore_case, timeout)
+            return check_if_contains_text(self._browser_driver, xpath, regex, ignore_case)
 
     def does_exist(self, xpath: str) -> bool:  # type: ignore
         """Check if element exists."""
