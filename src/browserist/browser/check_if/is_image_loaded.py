@@ -1,4 +1,3 @@
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 from ... import helper
@@ -12,5 +11,5 @@ def check_if_is_image_loaded(browser_driver: BrowserDriver, xpath: str) -> bool:
         driver = browser_driver.get_webdriver()
         element: object = driver.find_element(By.XPATH, xpath)  # type: ignore
         return helper.image.is_element_loaded(driver, element)
-    except (NoSuchElementException, Exception):
+    except Exception:
         return False

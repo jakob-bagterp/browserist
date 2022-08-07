@@ -1,4 +1,3 @@
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 from ...model.browser.base.driver import BrowserDriver
@@ -11,5 +10,5 @@ def check_if_is_displayed(browser_driver: BrowserDriver, xpath: str) -> bool:
         driver = browser_driver.get_webdriver()
         element = driver.find_element(By.XPATH, xpath)  # type: ignore
         return element.is_displayed()  # type: ignore
-    except (NoSuchElementException, Exception):
+    except Exception:
         return False

@@ -12,7 +12,7 @@ from browserist.exception.retry import RetryTimeoutException
 @pytest.mark.parametrize("xpath, expectation", [
     ("/html/body/div/p[2]/a", does_not_raise()),
     ("/html/body/div/h1", does_not_raise()),
-    ("/html/body/div/h1/div", pytest.raises(RetryTimeoutException)),  # Element doesn't exist.
+    ("/does/not/exist", pytest.raises(RetryTimeoutException)),
 ])
 def test_wait_until_element_is_clickable(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = browser_default_headless

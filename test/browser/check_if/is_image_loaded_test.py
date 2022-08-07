@@ -9,6 +9,7 @@ from browserist import Browser
     ("//*[@id='bgcodeimg2']/div/img", True),
     ("//*[@id='Frontend']/img", True),
     ("//*[@id='Backend']/img", True),
+    ("/does/not/exist", False),
 ])
 def test_check_if_is_image_loaded(xpath: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
