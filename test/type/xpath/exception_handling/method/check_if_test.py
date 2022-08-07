@@ -13,7 +13,7 @@ from browserist.browser.check_if.is_enabled import check_if_is_enabled
 from browserist.browser.check_if.is_image_loaded import check_if_is_image_loaded
 from browserist.constant import timeout
 from browserist.model.type.callable import (BrowserMethodWith2ArgumentsCallable, BrowserMethodWith3ArgumentsCallable,
-                                            BrowserMethodWith5ArgumentsCallable)
+                                            BrowserMethodWith4ArgumentsCallable)
 
 
 @pytest.mark.parametrize("method", [
@@ -43,15 +43,14 @@ def test_xpath_exception_handling_for_check_if_methods_2(
         browser_default_headless, method, timeout)
 
 
-@pytest.mark.parametrize("method, text, ignore_case, timeout", [
-    (check_if_contains_text, "More information...", True, timeout.VERY_SHORT),
+@pytest.mark.parametrize("method, text, ignore_case", [
+    (check_if_contains_text, "More information...", True),
 ])
 def test_xpath_exception_handling_for_check_if_methods_3(
     browser_default_headless: Browser,
-    method: BrowserMethodWith5ArgumentsCallable,
+    method: BrowserMethodWith4ArgumentsCallable,
     text: str,
-    ignore_case: bool,
-    timeout: float
+    ignore_case: bool
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, text, ignore_case, timeout)
+        browser_default_headless, method, text, ignore_case)
