@@ -17,7 +17,8 @@ class CheckIfDriverMethods(DriverMethods):
     def contains_any_text(self, xpath: str) -> bool:
         """Check if element contains any text."""
 
-        return check_if_contains_any_text(self._browser_driver.webdriver, xpath)
+        if self._timeout_should_continue():
+            return check_if_contains_any_text(self._browser_driver, xpath)
 
     def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None) -> bool:  # type: ignore
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
