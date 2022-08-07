@@ -45,7 +45,7 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_is_enabled(self._driver, xpath)
 
-    def is_image_loaded(self, xpath: str, timeout: float = timeout.DEFAULT) -> bool:
+    def is_image_loaded(self, xpath: str) -> bool:
         """Check is image is loaded and ready in the DOM."""
 
-        return check_if_is_image_loaded(self._driver, xpath, timeout)
+        return check_if_is_image_loaded(self._driver, xpath)
