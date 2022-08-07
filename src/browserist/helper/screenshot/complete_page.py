@@ -22,7 +22,7 @@ async def default(driver: object, destination_file_path: str, destination_dir: s
     async def get_screenshot_of_visible_portion_and_scroll_down(driver: object, handler: ScreenshotTempDataHandler, delay_seconds: float) -> None:
         task_save_screenshot = asyncio.create_task(handler.save_screenshot(driver))
         task_scroll_page_down = asyncio.create_task(async_scroll_page_down(driver, delay_seconds))
-        await task_save_screenshot, task_scroll_page_down
+        await asyncio.gather(task_save_screenshot, task_scroll_page_down)
         handler.increment_iteration()
 
     # Save inital scroll position so we can return to it later.
@@ -40,5 +40,5 @@ async def default(driver: object, destination_file_path: str, destination_dir: s
     # Merge screenshots, return to initial scroll position, and tidy up temp files.
     task_merge_temp_files_into_final_screenshot = asyncio.create_task(handler.merge_temp_files_into_final_screenshot())
     task_scroll_to_position = asyncio.create_task(async_scroll_to_position(driver, x_inital, y_initial, delay_seconds))
-    await task_merge_temp_files_into_final_screenshot, task_scroll_to_position
+    await asyncio.gather(task_merge_temp_files_into_final_screenshot, task_scroll_to_position)
     handler.remove_temp_files()
