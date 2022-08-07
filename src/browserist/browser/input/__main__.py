@@ -1,6 +1,8 @@
+from ...exception.headless import MethodNotSupportedInHeadlessModeException
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .clear import input_clear
+from .select import select_input_field
 from .value import input_value
 
 
@@ -14,6 +16,17 @@ class InputDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             input_clear(self._browser_driver, xpath, timeout)
+
+    def select(self, xpath: str, timeout: float | None = None) -> None:
+        """Select input field, similar to clicking the mouse on a form field."""
+
+        if self._browser_driver.settings.headless:
+            raise MethodNotSupportedInHeadlessModeException(
+                "browser.input.select", "headless mode doesn't support interactions")
+
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            select_input_field(self._browser_driver, xpath, timeout)
 
     def value(self, xpath: str, value: str, timeout: float | None = None) -> None:
         """Input value into form field."""

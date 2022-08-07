@@ -19,7 +19,6 @@ from .open.__main__ import OpenDriverMethods
 from .screen.__main__ import ScreenSizeDriverMethods
 from .screenshot.__main__ import ScreenshotDriverMethods
 from .scroll.__main__ import ScrollDriverMethods
-from .select.__main__ import SelectDriverMethods
 from .tool.__main__ import ToolDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
@@ -59,7 +58,6 @@ class Browser:
         self.screen: ScreenSizeDriverMethods = ScreenSizeDriverMethods(self._browser_driver)
         self.screenshot: ScreenshotDriverMethods = ScreenshotDriverMethods(self._browser_driver)
         self.scroll: ScrollDriverMethods = ScrollDriverMethods(self._browser_driver)
-        self.select: SelectDriverMethods = SelectDriverMethods(self._browser_driver)
         self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver)
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
