@@ -3,14 +3,14 @@ from _mock_data.xpath.method_3 import exception_handling_for_methods_with_3_argu
 from _mock_data.xpath.test_set_3 import XPATH_TEST_SET_W3SCHOOLS_COM_INPUT
 
 from browserist import Browser
-from browserist.browser.input.clear import input_clear
+from browserist.browser.input.clear import clear_input_field
 from browserist.browser.input.value import input_value
 from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable, BrowserMethodWith4ArgumentsCallable
 
 
 @pytest.mark.parametrize("method", [
-    input_clear,
+    clear_input_field,
 ])
 def test_xpath_exception_handling_for_input_methods_1(
     browser_default_headless: Browser,
