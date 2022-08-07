@@ -16,6 +16,7 @@ from browserist.model.type.callable import (BrowserMethodWith2ArgumentsCallable,
 
 
 @pytest.mark.parametrize("method", [
+    check_if_is_image_loaded,
     check_if_does_exist,
     check_if_is_disabled,
     check_if_is_displayed,
@@ -29,7 +30,6 @@ def test_xpath_exception_handling_for_check_if_methods_1(
 
 
 @pytest.mark.parametrize("method, timeout", [
-    (check_if_is_image_loaded, timeout.VERY_SHORT),
     (check_if_is_clickable, timeout.VERY_SHORT),
 ])
 def test_xpath_exception_handling_for_check_if_methods_2(
