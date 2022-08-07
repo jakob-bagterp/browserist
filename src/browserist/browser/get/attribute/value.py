@@ -9,4 +9,5 @@ def get_attribute_value(browser_driver: BrowserDriver, xpath: str, attribute: st
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
-    return driver.find_element(By.XPATH, xpath).get_attribute(attribute)  # type: ignore
+    element = driver.find_element(By.XPATH, xpath)  # type: ignore
+    return element.get_attribute(attribute)  # type: ignore
