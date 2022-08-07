@@ -8,7 +8,7 @@ from ...model.type.xpath import XPath
 from ..wait.for_element import wait_for_element
 
 
-def input_clear(driver: object, xpath: str, timeout: float = timeout.DEFAULT) -> None:
+def clear_input_field(driver: object, xpath: str, timeout: float = timeout.DEFAULT) -> None:
     xpath = XPath(xpath)
     wait_for_element(driver, xpath, timeout)
     try:
