@@ -8,4 +8,5 @@ from ...wait.for_element import wait_for_element
 def get_attribute_value(driver: object, xpath: str, attribute: str, timeout: float = timeout.DEFAULT) -> str:
     xpath = XPath(xpath)
     wait_for_element(driver, xpath, timeout)
-    return driver.find_element(By.XPATH, xpath).get_attribute(attribute)  # type: ignore
+    element = driver.find_element(By.XPATH, xpath)  # type: ignore
+    return element.get_attribute(attribute)  # type: ignore
