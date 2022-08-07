@@ -21,10 +21,10 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_contains_any_text(self._driver, xpath)
 
-    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float = timeout.DEFAULT) -> bool:
+    def contains_text(self, xpath: str, regex: str, ignore_case: bool = True) -> bool:
         """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
 
-        return check_if_contains_text(self._driver, xpath, regex, ignore_case, timeout)
+        return check_if_contains_text(self._driver, xpath, regex, ignore_case)
 
     def does_exist(self, xpath: str) -> bool:
         """Check if element exists."""
@@ -51,7 +51,7 @@ class CheckIfDriverMethods(DriverMethods):
 
         return check_if_is_enabled(self._driver, xpath)
 
-    def is_image_loaded(self, xpath: str) -> bool:
+    def is_image_loaded(self, xpath: str, timeout: float = timeout.DEFAULT) -> bool:
         """Check is image is loaded and ready in the DOM."""
 
-        return check_if_is_image_loaded(self._driver, xpath)
+        return check_if_is_image_loaded(self._driver, xpath, timeout)
