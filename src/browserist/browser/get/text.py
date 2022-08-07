@@ -9,7 +9,7 @@ from ..wait.for_element import wait_for_element
 def get_text(driver: object, xpath: str, timeout: float = timeout.DEFAULT) -> str:
     def get_inner_text_of_element(driver: object, xpath: str) -> str:
         element = driver.find_element(By.XPATH, xpath)  # type: ignore
-        return str(element.text)  # type: ignore
+        return str(element.text)
 
     xpath = XPath(xpath)
     wait_for_element(driver, xpath, timeout)

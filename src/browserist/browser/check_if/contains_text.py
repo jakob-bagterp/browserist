@@ -9,7 +9,7 @@ def check_if_contains_text(driver: object, xpath: str, regex: str, ignore_case: 
     xpath = XPath(xpath)
     try:
         element = driver.find_element(By.XPATH, xpath)  # type: ignore
-        text = str(element.text)  # type: ignore
+        text = str(element.text)
         if ignore_case:
             match = re.search(regex, text, re.IGNORECASE)
         else:

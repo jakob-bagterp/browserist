@@ -9,4 +9,4 @@ def select_input_field(driver: object, xpath: str, timeout: float = timeout.DEFA
     xpath = XPath(xpath)
     wait_for_element(driver, xpath, timeout)
     element = driver.find_element(By.XPATH, xpath)  # type: ignore
-    element.click()  # type: ignore
+    element.click()
