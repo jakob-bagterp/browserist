@@ -20,7 +20,7 @@ class WaitUntilDriverMethods(DriverMethods):
         self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver, settings)
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver, settings)
 
-    def contains_text(self, xpath: str, timeout: float = timeout.DEFAULT) -> None:
+    def contains_any_text(self, xpath: str, timeout: float = timeout.DEFAULT) -> None:
         """Wait until element contains any text (use other method to check for specific text)."""
 
         wait_until_element_contains_any_text(self._driver, xpath, timeout)
