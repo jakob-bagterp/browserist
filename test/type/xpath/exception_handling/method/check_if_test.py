@@ -3,6 +3,7 @@ from _mock_data.xpath.method_3 import (exception_handling_for_methods_with_2_arg
                                        exception_handling_for_methods_with_3_arguments_or_more)
 
 from browserist import Browser
+from browserist.browser.check_if.contains_any_text import check_if_contains_any_text
 from browserist.browser.check_if.contains_text import check_if_contains_text
 from browserist.browser.check_if.does_exist import check_if_does_exist
 from browserist.browser.check_if.is_clickable import check_if_is_clickable
@@ -14,6 +15,7 @@ from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable, 
 
 
 @pytest.mark.parametrize("method", [
+    check_if_contains_any_text,
     check_if_does_exist,
     check_if_is_clickable,
     check_if_is_disabled,
