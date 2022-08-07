@@ -7,8 +7,8 @@ from ...model.type.xpath import XPath
 
 def check_if_does_exist(browser_driver: BrowserDriver, xpath: str) -> bool:
     xpath = XPath(xpath)
-    driver = browser_driver.get_webdriver()
     try:
+        driver = browser_driver.get_webdriver()
         element: object = driver.find_element(By.XPATH, xpath)  # type: ignore
         return element is not None
     except (NoSuchElementException, Exception):
