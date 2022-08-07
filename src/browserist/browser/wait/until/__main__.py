@@ -2,6 +2,7 @@ from ....constant import timeout
 from ....model.browser.base.driver import BrowserDriver
 from ....model.browser.base.settings import BrowserSettings
 from ....model.driver_methods import DriverMethods
+from .contains_any_text import wait_until_element_contains_any_text
 from .element_disappears import wait_until_element_disappears
 from .images_have_loaded import wait_until_images_have_loaded
 from .number_of_window_handles_is import wait_until_number_of_window_handles_is
@@ -18,6 +19,11 @@ class WaitUntilDriverMethods(DriverMethods):
         self.page_title: WaitUntilPageTitleDriverMethods = WaitUntilPageTitleDriverMethods(browser_driver, settings)
         self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver, settings)
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver, settings)
+
+    def contains_text(self, xpath: str, timeout: float = timeout.DEFAULT) -> None:
+        """Wait until element contains any text (use other method to check for specific text)."""
+
+        wait_until_element_contains_any_text(self._driver, xpath, timeout)
 
     def element_disappears(self, xpath: str, timeout: float = timeout.DEFAULT) -> None:
         """Wait until element doesn't exist."""
