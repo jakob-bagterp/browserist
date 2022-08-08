@@ -51,12 +51,14 @@ class ScrollDriverMethods(DriverMethods):
     def left_by(self, pixels: int, delay_seconds: float = 1) -> None:
         """If possible, scroll left in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
 
-        scroll_left_by(self._driver, pixels, delay_seconds)
+        if self._timeout_should_continue():
+            scroll_left_by(self._browser_driver, pixels, delay_seconds)
 
     def right_by(self, pixels: int, delay_seconds: float = 1) -> None:
         """If possible, scroll right in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
 
-        scroll_right_by(self._driver, pixels, delay_seconds)
+        if self._timeout_should_continue():
+            scroll_right_by(self._browser_driver, pixels, delay_seconds)
 
     def to_position(self, x: int, y: int, delay_seconds: float = 1) -> None:
         """If possible, scroll to coordinate X and Y pixels of page as absolute position. Add custom delay in seconds to ensure the view is updated after scroll."""
