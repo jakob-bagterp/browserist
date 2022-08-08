@@ -7,6 +7,9 @@ _web_mock_data_directory = directory.get_path_for_web_mock_data()
 EXAMPLE_COM: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/example_com.html")
 
+SCROLL_CANVAS: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/scroll_canvas.html")
+
 W3SCHOOLS_COM: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/w3schools_com.html")
 

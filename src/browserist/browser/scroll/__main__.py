@@ -6,7 +6,9 @@ from .down_by import scroll_down_by
 from .get.__main__ import ScrollGetDriverMethods
 from .into_view import scroll_into_view
 from .into_view_if_not_visible import scroll_into_view_if_not_visible
+from .left_by import scroll_left_by
 from .page.__main__ import ScrollPageDriverMethods
+from .right_by import scroll_right_by
 from .to_position import scroll_to_position
 from .up_by import scroll_up_by
 
@@ -45,6 +47,16 @@ class ScrollDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             scroll_into_view_if_not_visible(self._browser_driver, xpath, timeout, delay_seconds)
+
+    def left_by(self, pixels: int, delay_seconds: float = 1) -> None:
+        """If possible, scroll left in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
+
+        scroll_left_by(self._driver, pixels, delay_seconds)
+
+    def right_by(self, pixels: int, delay_seconds: float = 1) -> None:
+        """If possible, scroll right in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
+
+        scroll_right_by(self._driver, pixels, delay_seconds)
 
     def to_position(self, x: int, y: int, delay_seconds: float = 1) -> None:
         """If possible, scroll to coordinate X and Y pixels of page as absolute position. Add custom delay in seconds to ensure the view is updated after scroll."""
