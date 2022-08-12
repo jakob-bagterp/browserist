@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
 
 from .... import helper
 from ....exception.timeout import WaitForWindowTimeoutException
+from ....helper.timeout import should_continue
 from ....model.browser.base.driver import BrowserDriver
 
 
@@ -15,7 +16,9 @@ def wait_until_number_of_window_handles_is(browser_driver: BrowserDriver, expect
         WebDriverWait(driver, timeout).until(EC.number_of_windows_to_be(expected_handles))  # type: ignore
     except TimeoutException:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
-        raise WaitForWindowTimeoutException() from TimeoutException
+        if not should_continue(browser_driver.settings):
+            raise WaitForWindowTimeoutException() from TimeoutException
     except Exception:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
-        raise WaitForWindowTimeoutException() from Exception
+        if not should_continue(browser_driver.settings):
+            raise WaitForWindowTimeoutException() from Exception

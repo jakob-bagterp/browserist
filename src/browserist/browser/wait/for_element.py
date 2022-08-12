@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
 from ... import constant, helper
 from ...exception.element import NoElementFoundException
 from ...exception.timeout import WaitForElementTimeoutException
+from ...helper.timeout import should_continue
 from ...model.browser.base.driver import BrowserDriver
 from ...model.type.xpath import XPath
 
@@ -19,10 +20,13 @@ def wait_for_element(browser_driver: BrowserDriver, xpath: str, timeout: float) 
         WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))  # type: ignore
     except TimeoutException:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
-        raise WaitForElementTimeoutException(browser_driver, xpath) from TimeoutException
+        if not should_continue(browser_driver.settings):
+            raise WaitForElementTimeoutException(browser_driver, xpath) from TimeoutException
     except NoSuchElementException:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
-        raise NoElementFoundException(browser_driver, xpath) from NoSuchElementException
+        if not should_continue(browser_driver.settings):
+            raise NoElementFoundException(browser_driver, xpath) from NoSuchElementException
     except Exception:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
-        raise WaitForElementTimeoutException(browser_driver, xpath) from Exception
+        if not should_continue(browser_driver.settings):
+            raise WaitForElementTimeoutException(browser_driver, xpath) from Exception
