@@ -4,6 +4,7 @@ import pytest
 from _config import timeout_settings
 from _config.timeout_strategy import BrowserCallable
 from _helper.timeout import reset_to_not_timed_out
+from _mock_data import does_not_exist
 from _mock_data.url import internal_url
 
 from browserist import Browser, BrowserSettings
@@ -19,14 +20,14 @@ browser = Browser(browser_settings)
 
 
 @pytest.mark.parametrize("browser, browser_function, args", [
-    (browser, browser.wait.for_element, ("/does/not/exist", timeout.VERY_SHORT)),
+    (browser, browser.wait.for_element, (does_not_exist.XPATH, timeout.VERY_SHORT)),
     (browser, browser.wait.until.number_of_window_handles_is, (2, timeout.VERY_SHORT)),
     (browser, browser.wait.until.page_title.contains, ("does not exist", timeout.VERY_SHORT)),
     (browser, browser.wait.until.page_title.changes, ("does not exist", timeout.VERY_SHORT)),
     (browser, browser.wait.until.page_title.equals, ("does not exist", timeout.VERY_SHORT)),
-    (browser, browser.wait.until.text.contains, ("/does/not/exist", "does not exist", timeout.VERY_SHORT)),
-    (browser, browser.wait.until.text.changes, ("/does/not/exist", "does not exist", timeout.VERY_SHORT)),
-    (browser, browser.wait.until.text.equals, ("/does/not/exist", "does not exist", timeout.VERY_SHORT)),
+    (browser, browser.wait.until.text.contains, (does_not_exist.XPATH, "does not exist", timeout.VERY_SHORT)),
+    (browser, browser.wait.until.text.changes, (does_not_exist.XPATH, "does not exist", timeout.VERY_SHORT)),
+    (browser, browser.wait.until.text.equals, (does_not_exist.XPATH, "does not exist", timeout.VERY_SHORT)),
     (browser, browser.wait.until.url.contains, ("https://www.does-not-exist.com", timeout.VERY_SHORT)),
     (browser, browser.wait.until.url.changes, ("https://www.does-not-exist.com", timeout.VERY_SHORT)),
     (browser, browser.wait.until.url.equals, ("https://www.does-not-exist.com", timeout.VERY_SHORT)),

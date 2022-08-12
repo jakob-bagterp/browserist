@@ -1,4 +1,5 @@
 import pytest
+from _mock_data import does_not_exist
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -9,7 +10,7 @@ from browserist import Browser
     ("//*[@id='bgcodeimg2']/div/img", True),
     ("//*[@id='Frontend']/img", True),
     ("//*[@id='Backend']/img", True),
-    ("/does/not/exist", False),
+    (does_not_exist.XPATH, False),
 ])
 def test_check_if_is_image_loaded(xpath: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = browser_default_headless
