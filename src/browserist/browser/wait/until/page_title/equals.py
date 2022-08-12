@@ -14,3 +14,6 @@ def wait_until_page_title_equals(browser_driver: BrowserDriver, page_title: str,
     except TimeoutException:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
         raise WaitForPageTitleToChangeTimeoutException(browser_driver, page_title) from TimeoutException
+    except Exception:
+        browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
+        raise WaitForPageTitleToChangeTimeoutException(browser_driver, page_title) from Exception

@@ -16,3 +16,6 @@ def wait_until_number_of_window_handles_is(browser_driver: BrowserDriver, expect
     except TimeoutException:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
         raise WaitForWindowTimeoutException() from TimeoutException
+    except Exception:
+        browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
+        raise WaitForWindowTimeoutException() from Exception

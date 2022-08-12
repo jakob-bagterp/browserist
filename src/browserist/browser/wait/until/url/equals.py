@@ -16,3 +16,6 @@ def wait_until_url_equals(browser_driver: BrowserDriver, url: str, timeout: floa
     except TimeoutException:
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
         raise WaitForUrlTimeoutException(browser_driver, url) from TimeoutException
+    except Exception:
+        browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
+        raise WaitForUrlTimeoutException(browser_driver, url) from Exception

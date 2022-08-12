@@ -21,4 +21,8 @@ def wait_for_element(browser_driver: BrowserDriver, xpath: str, timeout: float) 
         browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
         raise WaitForElementTimeoutException(browser_driver, xpath) from TimeoutException
     except NoSuchElementException:
+        browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
         raise NoElementFoundException(browser_driver, xpath) from NoSuchElementException
+    except Exception:
+        browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
+        raise WaitForElementTimeoutException(browser_driver, xpath) from Exception
