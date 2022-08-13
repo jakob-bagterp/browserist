@@ -1,10 +1,11 @@
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
 
 
 def test_window_get_position(browser_default: Browser) -> None:
-    browser = browser_default
+    browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
     x_default, y_default = browser.window.get.position()
     x_new = x_default + 20

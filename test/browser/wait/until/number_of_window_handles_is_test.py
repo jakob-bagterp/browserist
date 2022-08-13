@@ -2,6 +2,7 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 
 from browserist import Browser
 from browserist.constant import timeout
@@ -20,7 +21,7 @@ from browserist.exception.timeout import WaitForWindowTimeoutException
 def test_wait_until_number_of_window_handles_is(open_new_tabs: int, open_new_windows: int, expected_handles: int, expected_exception: Any, browser_default_headless_scope_function: Browser) -> None:
     """As the browser already has one tab open by default, we test the number of new windows or tabs plus 1."""
 
-    browser = browser_default_headless_scope_function
+    browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     with expected_exception:
         for _ in range(open_new_tabs):
             browser.window.open.new_tab()

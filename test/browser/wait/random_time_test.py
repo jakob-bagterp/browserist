@@ -1,6 +1,7 @@
 import time
 
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 
 from browserist import Browser
 
@@ -10,7 +11,7 @@ from browserist import Browser
     (2, 4),
 ])
 def test_wait_random_time(min_seconds: int, max_seconds: int, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     start_time_ns = time.perf_counter_ns()
     browser.wait.random_time(min_seconds, max_seconds)
     stop_time_ns = time.perf_counter_ns()

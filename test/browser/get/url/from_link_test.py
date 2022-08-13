@@ -1,4 +1,5 @@
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -11,6 +12,6 @@ from browserist import Browser
     (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[6]/div/div[1]/a[1]", "https://www.w3schools.com/sql/default.asp"),
 ])
 def test_get_url_from_link(url: str, xpath: str, expected_url: str, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(url)
     assert browser.get.url.from_link(xpath) == expected_url

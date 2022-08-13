@@ -1,4 +1,5 @@
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -9,7 +10,7 @@ from browserist import Browser
     100,
 ])
 def test_scroll_down_by(pixels: int, browser_default_headless_scope_function: Browser) -> None:
-    browser = browser_default_headless_scope_function
+    browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser.scroll.page.to_top()
     browser.scroll.down_by(pixels)

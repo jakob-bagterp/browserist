@@ -1,4 +1,5 @@
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -15,6 +16,6 @@ from browserist.helper.directory import update_path_format_if_windows
     (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[8]/div/div[30]", "class", "w3-col l6 s12 w3-center"),
 ])
 def test_get_attribute_value(url: str, xpath: str, attribute: str, expected_attribute: str, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(url)
     assert browser.get.attribute.value(xpath, attribute) == expected_attribute

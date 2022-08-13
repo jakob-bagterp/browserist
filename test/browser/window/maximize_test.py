@@ -1,3 +1,4 @@
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -6,7 +7,7 @@ from browserist import Browser
 def test_window_maximize(browser_default: Browser) -> None:
     """This test may fail if tested on a multiple screens setup."""
 
-    browser = browser_default
+    browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.window.set.size(1, 1)
     default_width, default_height = browser.window.get.size()

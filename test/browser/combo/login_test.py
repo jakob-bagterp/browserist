@@ -4,6 +4,7 @@ import pytest
 from _config.combo.cookie_banner import JYLLANDSPOSTEN_ACCEPT_COOKIES
 from _config.combo.log_in import (AMAZON_LOGIN_CREDENTIALS, AMAZON_LOGIN_FORM, JYLLANDSPOSTEN_LOGIN_CREDENTIALS,
                                   JYLLANDSPOSTEN_LOGIN_FORM)
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import external_url
 
 from browserist import Browser, CookieBannerSettings, LoginCredentials, LoginForm1Step, LoginForm2Steps
@@ -23,7 +24,7 @@ def test_combo_login_with_1_and_2_steps(
 ) -> None:
 
     with expectation_of_no_exceptions_raised():
-        browser = browser_default_disable_images
+        browser = reset_to_not_timed_out(browser_default_disable_images)
         browser.open.url(url)
         if cookie_banner_settings:
             browser.combo.cookie_banner(cookie_banner_settings)

@@ -1,3 +1,4 @@
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -6,7 +7,7 @@ _common_xpath = "html/body"
 
 
 def test_iframe_switch_to(browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.W3SCHOOLS_COM)
     default_page_text_1 = browser.get.text(_common_xpath)
     browser.iframe.switch_to("//*[@id='howto_iframe']")
