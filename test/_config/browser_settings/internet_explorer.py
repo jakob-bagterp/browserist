@@ -1,21 +1,16 @@
-from _config import timeout_settings
-
 from browserist import BrowserSettings, BrowserType
 
 DEFAULT = BrowserSettings(
-    type=BrowserType.INTERNET_EXPLORER,
-    timeout=timeout_settings.DEFAULT_CONTINUE
+    type=BrowserType.INTERNET_EXPLORER
 )
 
 HEADLESS = BrowserSettings(
     type=BrowserType.INTERNET_EXPLORER,
-    headless=True,
-    timeout=timeout_settings.DEFAULT_CONTINUE
+    headless=True
 )
 
 HEADLESS_AND_DISABLE_IMAGES = BrowserSettings(
     type=BrowserType.INTERNET_EXPLORER,
     headless=True,
-    disable_images=True,
-    timeout=timeout_settings.DEFAULT_CONTINUE
+    disable_images=True
 )
