@@ -29,7 +29,7 @@ browser = Browser(browser_settings)
     (browser, browser.wait.until.text.changes, ("/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT)),
     (browser, browser.wait.until.text.equals, ("/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT)),
     (browser, browser.wait.until.url.contains, (does_not_exist.URL, timeout.VERY_SHORT)),
-    (browser, browser.wait.until.url.changes, (does_not_exist.URL, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.url.changes, (internal_url.EXAMPLE_COM, timeout.VERY_SHORT)),
     (browser, browser.wait.until.url.equals, (does_not_exist.URL, timeout.VERY_SHORT)),
 ])
 def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
