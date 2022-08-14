@@ -30,4 +30,4 @@ class ToolDriverMethods(DriverMethods):
     def execute_script(self, script: str) -> None:
         """Execute JavaScript."""
 
-        return tool_execute_script(self._driver, script)
+        tool_execute_script(self._driver, script)
