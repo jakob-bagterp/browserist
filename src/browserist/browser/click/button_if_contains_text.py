@@ -1,5 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 
+from ... import constant
 from ...constant import timeout
 from ...exception.element import NoElementFoundException, NoElementFoundWithTextConditionException
 from ...exception.timeout import WaitForElementTimeoutException
@@ -14,7 +15,8 @@ def click_button_if_contains_text(driver: object, xpath: str, regex: str, ignore
     try:
         wait_for_element(driver, xpath, timeout)
         if check_if_contains_text(driver, xpath, regex, ignore_case):
-            click_button(driver, xpath, timeout)
+            # We bypass the timeout since we know the element is present following the wait_for_element() check:
+            click_button(driver, xpath, constant.timeout.BYPASS)
         else:
             raise NoElementFoundWithTextConditionException(driver, xpath, regex)
     except TimeoutException:
