@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 from ....exception.element import NoElementFoundException
+from ....exception.scroll import ScrollException
 from ....helper.timeout import set_is_timed_out, should_continue
 from ....model.browser.base.driver import BrowserDriver
 
@@ -21,3 +22,7 @@ def scroll_to_end_of_page(browser_driver: BrowserDriver, delay_seconds: float) -
         browser_driver.settings = set_is_timed_out(browser_driver.settings)
         if not should_continue(browser_driver.settings):
             raise NoElementFoundException(browser_driver, "body") from NoSuchElementException
+    except Exception:
+        browser_driver.settings = set_is_timed_out(browser_driver.settings)
+        if not should_continue(browser_driver.settings):
+            raise ScrollException() from Exception
