@@ -19,27 +19,24 @@ browser_settings = BrowserSettings(
 browser = Browser(browser_settings)
 
 
-@pytest.mark.parametrize("browser, url, browser_function, args", [
-    (browser, internal_url.EXAMPLE_COM, browser.click.button_if_contains_text,
+@pytest.mark.parametrize("browser, browser_function, args", [
+    (browser, browser.click.button_if_contains_text,
      ("/html/body/div/p[2]/a", does_not_exist.TEXT, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.input.select, ("/html/body/div/p[2]/a", timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.for_element, (does_not_exist.XPATH, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.number_of_window_handles_is, (2, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.page_title.contains, (does_not_exist.TEXT, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.page_title.changes, ("Example Domain", timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.page_title.equals, (does_not_exist.TEXT, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.text.contains,
-     ("/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.text.changes,
-     ("/html/body/div/h1", "Example Domain", timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.text.equals,
-     ("/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.url.contains, (does_not_exist.URL, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.url.changes, (internal_url.EXAMPLE_COM, timeout.VERY_SHORT)),
-    (browser, internal_url.EXAMPLE_COM, browser.wait.until.url.equals, (does_not_exist.URL, timeout.VERY_SHORT)),
+    (browser, browser.input.select, ("/html/body/div/p[2]/a", timeout.VERY_SHORT)),
+    (browser, browser.wait.for_element, (does_not_exist.XPATH, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.number_of_window_handles_is, (2, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.page_title.contains, (does_not_exist.TEXT, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.page_title.changes, ("Example Domain", timeout.VERY_SHORT)),
+    (browser, browser.wait.until.page_title.equals, (does_not_exist.TEXT, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.text.contains, ("/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.text.changes, ("/html/body/div/h1", "Example Domain", timeout.VERY_SHORT)),
+    (browser, browser.wait.until.text.equals, ("/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.url.contains, (does_not_exist.URL, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.url.changes, (internal_url.EXAMPLE_COM, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.url.equals, (does_not_exist.URL, timeout.VERY_SHORT)),
 ])
-def test_set_timeout(browser: Browser, url: str, browser_function: BrowserCallable, args: Any) -> None:
-    browser.open.url(url)
+def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
+    browser.open.url(internal_url.EXAMPLE_COM)
     browser = reset_to_not_timed_out(browser)
     assert browser._browser_driver.settings.timeout._is_timed_out is False
     _ = browser_function(*args)
