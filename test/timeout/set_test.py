@@ -53,3 +53,5 @@ def test_set_timeout_for_page_without_body(browser: Browser, browser_function: B
     assert browser._browser_driver.settings.timeout._is_timed_out is False
     _ = browser_function(*args)
     assert browser._browser_driver.settings.timeout._is_timed_out is True
+
+# TODO: Add more tests for None return type methods.
