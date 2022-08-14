@@ -54,7 +54,7 @@ def test_set_timeout_for_page_without_body(browser: Browser, browser_function: B
         var body = html[0];
         body.removeChild(document.body);
     """
-    browser.driver.execute_script(script_remove_body_element)
+    browser.tool.execute_script(script_remove_body_element)
     assert browser._browser_driver.settings.timeout._is_timed_out is False
     _ = browser_function(*args)
     assert browser._browser_driver.settings.timeout._is_timed_out is True
