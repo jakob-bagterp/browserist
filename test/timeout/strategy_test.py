@@ -2,10 +2,11 @@ from typing import Any
 
 import pytest
 from _config.timeout_strategy import BrowserCallable
-from _helper.timeout import reset_to_not_timed_out, set_to_timed_out
+from _helper.timeout import (reset_to_not_timed_out, set_timeout_strategy_to_continue, set_timeout_strategy_to_stop,
+                             set_to_timed_out)
 from _mock_data.url import internal_url
 
-from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrategy
+from browserist import Browser, BrowserSettings, TimeoutSettings
 
 browser_settings = BrowserSettings(
     headless=True,
@@ -32,7 +33,7 @@ METHODS_WITH_RETURN_VALUES = [
 def test_timeout_strategy_stop(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     """Ensure that methods with return values are skipped when the timeout is set to stop."""
 
-    browser._browser_driver.settings.timeout.strategy = TimeoutStrategy.STOP
+    browser = set_timeout_strategy_to_stop(browser)
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser = set_to_timed_out(browser)
     assert browser_function(*args) is None
@@ -44,7 +45,7 @@ def test_timeout_strategy_stop(browser: Browser, browser_function: BrowserCallab
 def test_timeout_strategy_continue(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     """Ensure that methods with return values aren't skipped when the timeout is set to continue."""
 
-    browser._browser_driver.settings.timeout.strategy = TimeoutStrategy.CONTINUE
+    browser = set_timeout_strategy_to_continue(browser)
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser = set_to_timed_out(browser)
     assert browser_function(*args) is not None
