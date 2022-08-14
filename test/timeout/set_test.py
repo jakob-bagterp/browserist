@@ -36,8 +36,8 @@ browser = Browser(browser_settings)
     (browser, browser.wait.until.url.equals, (does_not_exist.URL, timeout.VERY_SHORT)),
 ])
 def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
-    browser.open.url(internal_url.EXAMPLE_COM)
     browser = reset_to_not_timed_out(browser)
+    browser.open.url(internal_url.EXAMPLE_COM)
     assert browser._browser_driver.settings.timeout._is_timed_out is False
     _ = browser_function(*args)
     assert browser._browser_driver.settings.timeout._is_timed_out is True
