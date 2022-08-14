@@ -2,6 +2,7 @@ from ... import helper
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .count_elements import tool_count_elements
+from .execute_script import tool_execute_script
 from .is_input_valid import tool_is_input_valid
 
 
@@ -27,3 +28,8 @@ class ToolDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return tool_count_elements(self._browser_driver, xpath, timeout)
+
+    def execute_script(self, script: str) -> None:
+        """Execute JavaScript."""
+
+        return tool_execute_script(self._browser_driver.webdriver, script)
