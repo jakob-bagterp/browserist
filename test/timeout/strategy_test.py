@@ -5,11 +5,12 @@ from _config.timeout_strategy import BrowserCallable
 from _helper.timeout import reset_to_not_timed_out, set_to_timed_out
 from _mock_data.url import internal_url
 
-from browserist import Browser, BrowserSettings, TimeoutStrategy
+from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrategy
 
 browser_settings = BrowserSettings(
     headless=True,
     disable_images=True,
+    timeout=TimeoutSettings(seconds=1)
 )
 
 browser = Browser(browser_settings)
