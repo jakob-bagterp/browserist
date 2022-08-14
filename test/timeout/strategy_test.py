@@ -16,6 +16,13 @@ browser = Browser(browser_settings)
 
 METHODS_WITH_RETURN_VALUES = [
     (browser, browser.check_if.contains_any_text, ["/html/body/div/h1"]),
+    (browser, browser.check_if.contains_text, ["/html/body/div/h1", "Example Domain"]),
+    (browser, browser.check_if.does_exist, ["/html/body/div/h1"]),
+    (browser, browser.check_if.is_clickable, ["/html/body/div/p[2]/a"]),
+    (browser, browser.check_if.is_disabled, ["/html/body/div/h1"]),
+    (browser, browser.check_if.is_displayed, ["/html/body/div/h1"]),
+    (browser, browser.check_if.is_enabled, ["/html/body/div/h1"]),
+    (browser, browser.check_if.is_image_loaded, ["/html/body/div/h1"]),
     (browser, browser.get.url.current, []),
 ]
 
