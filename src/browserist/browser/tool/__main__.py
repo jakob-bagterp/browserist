@@ -1,3 +1,5 @@
+from typing import Any
+
 from ... import helper
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
@@ -29,8 +31,8 @@ class ToolDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             return tool_count_elements(self._browser_driver, xpath, timeout)
 
-    def execute_script(self, script: str) -> None:
+    def execute_script(self, script: str) -> Any:
         """Execute JavaScript."""
 
         if self._timeout_should_continue():
-            execute_script(self._browser_driver, script)
+            return execute_script(self._browser_driver, script) or None
