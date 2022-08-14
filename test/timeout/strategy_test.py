@@ -15,14 +15,14 @@ browser_settings = BrowserSettings(
 browser = Browser(browser_settings)
 
 METHODS_WITH_RETURN_VALUES = [
-    (browser, browser.check_if.contains_any_text, ["/html/body/div/h1"]),
-    (browser, browser.check_if.contains_text, ["/html/body/div/h1", "Example Domain"]),
-    (browser, browser.check_if.does_exist, ["/html/body/div/h1"]),
-    (browser, browser.check_if.is_clickable, ["/html/body/div/p[2]/a"]),
-    (browser, browser.check_if.is_disabled, ["/html/body/div/h1"]),
-    (browser, browser.check_if.is_displayed, ["/html/body/div/h1"]),
-    (browser, browser.check_if.is_enabled, ["/html/body/div/h1"]),
-    (browser, browser.check_if.is_image_loaded, ["/html/body/div/h1"]),
+    (browser, browser.check_if.contains_any_text, ["//*[@id='main']/div[1]/div/h1"]),
+    (browser, browser.check_if.contains_text, ["//*[@id='main']/div[1]/div/h1", "Learn to Code"]),
+    (browser, browser.check_if.does_exist, ["//*[@id='main']/div[1]/div/h1"]),
+    (browser, browser.check_if.is_clickable, ["//*[@id='main']/div[1]/div/h4/a"]),
+    (browser, browser.check_if.is_disabled, ["//*[@id='main']/div[1]/div/h1"]),
+    (browser, browser.check_if.is_displayed, ["//*[@id='main']/div[1]/div/h1"]),
+    (browser, browser.check_if.is_enabled, ["//*[@id='main']/div[1]/div/h1"]),
+    (browser, browser.check_if.is_image_loaded, ["//*[@id='Frontend']/img"]),
     (browser, browser.get.url.current, []),
 ]
 
@@ -33,7 +33,7 @@ def test_timeout_strategy_stop(browser: Browser, browser_function: BrowserCallab
 
     browser._browser_driver.settings.timeout.strategy = TimeoutStrategy.STOP
     browser = set_to_timed_out(browser)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.W3SCHOOLS_COM)
     assert browser_function(*args) is None
     browser = reset_to_not_timed_out(browser)
     assert browser_function(*args) is not None
@@ -45,7 +45,7 @@ def test_timeout_strategy_continue(browser: Browser, browser_function: BrowserCa
 
     browser._browser_driver.settings.timeout.strategy = TimeoutStrategy.CONTINUE
     browser = set_to_timed_out(browser)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.W3SCHOOLS_COM)
     assert browser_function(*args) is not None
     browser = reset_to_not_timed_out(browser)
     assert browser_function(*args) is not None
