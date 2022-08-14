@@ -1,10 +1,9 @@
 import time
 from typing import Any
 
-from .. import helper
 from ..constant import interval, timeout
 from ..exception.retry import RetryTimeoutException
-from ..helper.timeout import should_continue
+from ..helper.timeout import set_is_timed_out, should_continue
 from ..model.browser.base.driver import BrowserDriver
 from ..model.type.callable import DriverGetBoolCallable, DriverGetTextCallable
 
@@ -21,7 +20,7 @@ def get_text(browser_driver: BrowserDriver, input: str, func: DriverGetTextCalla
         text = func(browser_driver, input)
         retries_left -= 1
         if retries_left == 0:
-            browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
+            browser_driver.settings = set_is_timed_out(browser_driver.settings)
             if not should_continue(browser_driver.settings):
                 raise RetryTimeoutException(func)
     return text
@@ -31,7 +30,7 @@ def retry_iteration(browser_driver: BrowserDriver, retries_left: int, wait_inter
     time.sleep(wait_interval_seconds)
     retries_left -= 1
     if retries_left == 0:
-        browser_driver.settings = helper.timeout.set_is_timed_out(browser_driver.settings)
+        browser_driver.settings = set_is_timed_out(browser_driver.settings)
         if not should_continue(browser_driver.settings):
             raise RetryTimeoutException(func)
     return retries_left
