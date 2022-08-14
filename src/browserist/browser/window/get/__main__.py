@@ -3,6 +3,7 @@ from ....model.driver_methods import DriverMethods
 from .height import get_window_height
 from .position import get_window_position
 from .size import get_window_size
+from .width import get_window_width
 
 
 class WindowGetDriverMethods(DriverMethods):
@@ -30,3 +31,9 @@ class WindowGetDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return get_window_size(self._browser_driver)
+
+    def width(self) -> int:  # type: ignore
+        """Get the width of browser window on the screen in pixels."""
+
+        if self._timeout_should_continue():
+            return get_window_width(self._browser_driver)
