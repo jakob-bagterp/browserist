@@ -33,8 +33,8 @@ def test_timeout_strategy_stop(browser: Browser, browser_function: BrowserCallab
     """Ensure that methods with return values are skipped when the timeout is set to stop."""
 
     browser._browser_driver.settings.timeout.strategy = TimeoutStrategy.STOP
-    browser = set_to_timed_out(browser)
     browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser = set_to_timed_out(browser)
     assert browser_function(*args) is None
     browser = reset_to_not_timed_out(browser)
     assert browser_function(*args) is not None
@@ -45,8 +45,8 @@ def test_timeout_strategy_continue(browser: Browser, browser_function: BrowserCa
     """Ensure that methods with return values aren't skipped when the timeout is set to continue."""
 
     browser._browser_driver.settings.timeout.strategy = TimeoutStrategy.CONTINUE
-    browser = set_to_timed_out(browser)
     browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser = set_to_timed_out(browser)
     assert browser_function(*args) is not None
     browser = reset_to_not_timed_out(browser)
     assert browser_function(*args) is not None
