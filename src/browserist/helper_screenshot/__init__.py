@@ -1,13 +1,15 @@
 __all__ = ["complete_page", "controller", "file", "save", "save_element"]
 
 
-from ... import helper
+from .. import helper
+from ..model.browser.base.driver import BrowserDriver
 from . import complete_page, controller, file
 
 
-def save(driver: object, file_path: str) -> None:
+def save(browser_driver: BrowserDriver, file_path: str) -> None:
     """Take screenshot of visible portion. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takescreenshot"""
 
+    driver = browser_driver.get_webdriver()
     driver.save_screenshot(file_path)  # type: ignore
 
 

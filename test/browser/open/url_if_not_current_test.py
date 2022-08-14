@@ -1,4 +1,5 @@
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import external_url, internal_url
 
 from browserist import Browser, helper
@@ -12,7 +13,7 @@ from browserist import Browser, helper
 def test_open_url_if_not_current(url1: str, url2: str, browser_default_headless: Browser) -> None:
     url1 = helper.url.ensure_trailing_slash(url1)
     url2 = helper.url.ensure_trailing_slash(url2)
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url_if_not_current(url1)
     get_url1 = helper.url.ensure_trailing_slash(browser.get.url.current())
     browser.open.url_if_not_current(url2)
@@ -27,7 +28,7 @@ def test_open_url_if_not_current(url1: str, url2: str, browser_default_headless:
     (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}/", False, False),
 ])
 def test_open_url_if_not_current_ignore_trailing_slash(url1: str, url2: str, ignore_trailing_slash: bool, expected: bool, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url_if_not_current(url1)
     get_url1 = browser.get.url.current()
     browser.open.url_if_not_current(url2, ignore_trailing_slash=ignore_trailing_slash)
@@ -42,7 +43,7 @@ def test_open_url_if_not_current_ignore_trailing_slash(url1: str, url2: str, ign
     (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}?foo=bar", False, False),
 ])
 def test_open_url_if_not_current_ignore_parameters(url1: str, url2: str, ignore_parameters: bool, expected: bool, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url_if_not_current(url1)
     get_url1 = browser.get.url.current()
     browser.open.url_if_not_current(url2, ignore_parameters=ignore_parameters)
@@ -61,7 +62,7 @@ def test_open_url_if_not_current_ignore_parameters(url1: str, url2: str, ignore_
     ("https://example.com", "https://example.com", False, True),
 ])
 def test_open_url_if_not_current_ignore_https(url1: str, url2: str, ignore_https: bool, expected: bool, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url_if_not_current(url1)
     get_url1 = browser.get.url.current()
     browser.open.url_if_not_current(url2, ignore_https=ignore_https)

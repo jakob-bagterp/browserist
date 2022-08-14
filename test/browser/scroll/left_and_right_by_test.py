@@ -1,3 +1,4 @@
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -10,7 +11,7 @@ DIFFERENCE_BETWEEN_LEFT_AND_RIGHT: int = abs(RIGHT_BY_100_PIXELS - LEFT_BY_20_PI
 
 
 def test_scroll_left_and_right_by(browser_default_headless_scope_function: Browser) -> None:
-    browser = browser_default_headless_scope_function
+    browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(internal_url.SCROLL_CANVAS)
     x_0, y_0 = browser.scroll.get.position()
     assert x_0 == y_0 == 0

@@ -1,20 +1,13 @@
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 
-from ...constant import timeout
-from ...exception.element import NoElementFoundException
-from ...exception.timeout import WaitForElementTimeoutException
+from ...model.browser.base.driver import BrowserDriver
 from ...model.type.xpath import XPath
 from ..wait.for_element import wait_for_element
 
 
-def clear_input_field(driver: object, xpath: str, timeout: float = timeout.DEFAULT) -> None:
+def clear_input_field(browser_driver: BrowserDriver, xpath: str, timeout: float) -> None:
     xpath = XPath(xpath)
-    wait_for_element(driver, xpath, timeout)
-    try:
-        input_field = driver.find_element(By.XPATH, xpath)  # type: ignore
-        input_field.clear()
-    except TimeoutException:
-        raise WaitForElementTimeoutException(driver, xpath) from TimeoutException
-    except NoSuchElementException:
-        raise NoElementFoundException(driver, xpath) from NoSuchElementException
+    wait_for_element(browser_driver, xpath, timeout)
+    driver = browser_driver.get_webdriver()
+    input_field = driver.find_element(By.XPATH, xpath)  # type: ignore
+    input_field.clear()

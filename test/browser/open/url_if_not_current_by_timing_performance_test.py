@@ -1,6 +1,7 @@
 import time
 
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import external_url, internal_url
 
 from browserist import Browser
@@ -21,7 +22,7 @@ def test_open_url_if_not_current_by_timing_performance_test(url1: str, url2: str
     This test is likely to fail, especially on GitHub Actions. Only run on a local machine."""
 
     is_same_url = url1 == url2
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(url1)
     time_start = time.perf_counter_ns()
     browser.open.url_if_not_current(url2)

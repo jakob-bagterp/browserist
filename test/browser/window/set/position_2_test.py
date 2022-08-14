@@ -1,4 +1,5 @@
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -9,7 +10,7 @@ from browserist import Browser
     (10, 30, 0, 70),
 ])
 def test_window_set_position(x1: int, y1: int, x2: int, y2: int, browser_default: Browser) -> None:
-    browser = browser_default
+    browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.window.set.position(x1, y1)
     browser.window.set.position(x2, y2)

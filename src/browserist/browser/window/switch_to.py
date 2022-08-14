@@ -1,8 +1,10 @@
 from ... import helper
+from ...model.browser.base.driver import BrowserDriver
 from ...model.window.controller import WindowHandleController
 
 
-def switch_to_window(driver: object, controller: WindowHandleController, window_handle: str) -> None:
+def switch_to_window(browser_driver: BrowserDriver, controller: WindowHandleController, window_handle: str) -> None:
+    driver = browser_driver.get_webdriver()
     if helper.window_handle.is_valid_id(window_handle):
         driver.switch_to.window(window_handle)  # type: ignore
     else:

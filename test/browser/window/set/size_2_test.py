@@ -1,4 +1,5 @@
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -10,7 +11,7 @@ from browserist import Browser
     (100, 100, 200, 100),
 ])
 def test_window_set_size(width1: int, height1: int, width2: int, height2: int, browser_default: Browser) -> None:
-    browser = browser_default
+    browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.window.set.size(width1, height1)
     get_width1, get_height1 = browser.window.get.size()

@@ -2,6 +2,7 @@ from contextlib import nullcontext as does_not_raise
 from typing import Any
 
 import pytest
+from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -14,7 +15,7 @@ from browserist.exception.timeout import WaitForElementTimeoutException
     (internal_url.W3SCHOOLS_COM, "//input[@id='search2']/div", pytest.raises(WaitForElementTimeoutException)),
 ])
 def test_clear_input_field(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
-    browser = browser_default_headless
+    browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
         browser.open.url(url)
         browser.input.clear(xpath, timeout.VERY_SHORT)

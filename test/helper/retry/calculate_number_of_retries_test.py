@@ -1,6 +1,6 @@
 import pytest
 
-from browserist import helper
+from browserist import helper_iteration
 
 
 @pytest.mark.parametrize("total_time, interval, expected_retries", [
@@ -9,4 +9,4 @@ from browserist import helper
     (10, 0.50, 20),
 ])
 def test_helper_calculate_number_of_retries(total_time: int, interval: float, expected_retries: int) -> None:
-    assert helper.retry.calculate_number_of_retries(total_time, interval) == expected_retries
+    assert helper_iteration.retry.calculate_number_of_retries(total_time, interval) == expected_retries
