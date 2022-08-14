@@ -41,3 +41,20 @@ def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: 
     assert browser._browser_driver.settings.timeout._is_timed_out is False
     _ = browser_function(*args)
     assert browser._browser_driver.settings.timeout._is_timed_out is True
+
+
+@pytest.mark.parametrize("browser, browser_function, args", [
+    (browser, browser.scroll.page.to_end, ()),
+])
+def test_set_timeout_for_page_without_body(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
+    browser = reset_to_not_timed_out(browser)
+    browser.open.url(internal_url.NO_BODY)
+    script_remove_body_element = """
+        var html = document.getElementsByTagName('html');
+        var body = html[0];
+        body.removeChild(document.body);
+    """
+    browser.driver.execute_script(script_remove_body_element)
+    assert browser._browser_driver.settings.timeout._is_timed_out is False
+    _ = browser_function(*args)
+    assert browser._browser_driver.settings.timeout._is_timed_out is True
