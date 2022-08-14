@@ -20,6 +20,9 @@ browser = Browser(browser_settings)
 
 
 @pytest.mark.parametrize("browser, browser_function, args", [
+    (browser, browser.click.button_if_contains_text,
+     ("/html/body/div/p[2]/a", does_not_exist.TEXT, timeout.VERY_SHORT)),
+    (browser, browser.input.select, ("/html/body/div/p[2]/a", timeout.VERY_SHORT)),
     (browser, browser.wait.for_element, (does_not_exist.XPATH, timeout.VERY_SHORT)),
     (browser, browser.wait.until.number_of_window_handles_is, (2, timeout.VERY_SHORT)),
     (browser, browser.wait.until.page_title.contains, (does_not_exist.TEXT, timeout.VERY_SHORT)),
