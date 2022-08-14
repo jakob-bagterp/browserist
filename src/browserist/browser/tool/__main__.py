@@ -32,4 +32,5 @@ class ToolDriverMethods(DriverMethods):
     def execute_script(self, script: str) -> None:
         """Execute JavaScript."""
 
-        tool_execute_script(self._browser_driver.webdriver, script)
+        if self._timeout_should_continue():
+            tool_execute_script(self._browser_driver, script)

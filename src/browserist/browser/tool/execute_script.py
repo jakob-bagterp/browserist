@@ -1,2 +1,6 @@
-def tool_execute_script(driver: object, script: str) -> None:
+from ...model.browser.base.driver import BrowserDriver
+
+
+def tool_execute_script(browser_driver: BrowserDriver, script: str) -> None:
+    driver = browser_driver.get_webdriver()
     driver.execute_script(script)  # type: ignore
