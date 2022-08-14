@@ -21,8 +21,10 @@ class InputDriverMethods(DriverMethods):
         """Select input field, similar to clicking the mouse on a form field."""
 
         if self._browser_driver.settings.headless:
-            raise MethodNotSupportedInHeadlessModeException(
-                "browser.input.select", "headless mode doesn't support interactions")
+            self._set_is_timed_out()
+            if not self._timeout_should_continue():
+                raise MethodNotSupportedInHeadlessModeException(
+                    "browser.input.select", "headless mode doesn't support interactions")
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
