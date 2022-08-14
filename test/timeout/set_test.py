@@ -23,7 +23,7 @@ browser = Browser(browser_settings)
     (browser, browser.wait.for_element, (does_not_exist.XPATH, timeout.VERY_SHORT)),
     (browser, browser.wait.until.number_of_window_handles_is, (2, timeout.VERY_SHORT)),
     (browser, browser.wait.until.page_title.contains, (does_not_exist.TEXT, timeout.VERY_SHORT)),
-    (browser, browser.wait.until.page_title.changes, (does_not_exist.TEXT, timeout.VERY_SHORT)),
+    (browser, browser.wait.until.page_title.changes, ("Example Domain", timeout.VERY_SHORT)),
     (browser, browser.wait.until.page_title.equals, (does_not_exist.TEXT, timeout.VERY_SHORT)),
     (browser, browser.wait.until.text.contains, ("/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT)),
     (browser, browser.wait.until.text.changes, ("/html/body/div/h1", "Example Domain", timeout.VERY_SHORT)),
