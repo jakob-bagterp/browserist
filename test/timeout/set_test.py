@@ -4,7 +4,7 @@ import pytest
 from _config import timeout_settings
 from _config.timeout_strategy import BrowserCallable
 from _helper.timeout import reset_to_not_timed_out
-from _mock_data import does_not_exist
+from _mock_data import does_not_exist, script
 from _mock_data.url import internal_url
 
 from browserist import Browser, BrowserSettings
@@ -49,12 +49,7 @@ def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: 
 def test_set_timeout_for_page_without_body(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     browser = reset_to_not_timed_out(browser)
     browser.open.url(internal_url.NO_BODY)
-    script_remove_body_element = """
-        var html = document.getElementsByTagName('html');
-        var body = html[0];
-        body.removeChild(document.body);
-    """
-    browser.tool.execute_script(script_remove_body_element)
+    browser.tool.execute_script(script.REMOVE_BODY_ELEMENT)
     assert browser._browser_driver.settings.timeout._is_timed_out is False
     _ = browser_function(*args)
     assert browser._browser_driver.settings.timeout._is_timed_out is True
