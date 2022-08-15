@@ -35,4 +35,4 @@ class ToolDriverMethods(DriverMethods):
         """Execute JavaScript."""
 
         if self._timeout_should_continue():
-            return execute_script(self._browser_driver, script) or None
+            return execute_script(self._browser_driver, script)
