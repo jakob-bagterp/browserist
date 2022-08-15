@@ -31,8 +31,8 @@ class ToolDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             return tool_count_elements(self._browser_driver, xpath, timeout)
 
-    def execute_script(self, script: str) -> Any:
-        """Execute JavaScript."""
+    def execute_script(self, script: str, element: object | None = None) -> Any:
+        """Execute JavaScript. The element is optional."""
 
         if self._timeout_should_continue():
-            return execute_script(self._browser_driver, script)
+            return execute_script(self._browser_driver, script, element)
