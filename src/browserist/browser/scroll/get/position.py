@@ -1,8 +1,8 @@
 from ....model.browser.base.driver import BrowserDriver
+from ...tool.execute_script import execute_script
 
 
 def get_scroll_position(browser_driver: BrowserDriver) -> tuple[int, int]:
-    driver = browser_driver.get_webdriver()
-    x = int(driver.execute_script("return window.pageXOffset;"))  # type: ignore
-    y = int(driver.execute_script("return window.pageYOffset;"))  # type: ignore
+    x = int(execute_script(browser_driver, "return window.pageXOffset;"))
+    y = int(execute_script(browser_driver, "return window.pageYOffset;"))
     return x, y
