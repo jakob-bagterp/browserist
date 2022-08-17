@@ -44,6 +44,19 @@ class ScreenshotTempDataHandler():
         helper_screenshot.save(browser_driver, temp_file_path)
         self._all_temp_file_paths.append(temp_file_path)
 
+    async def save_screenshot_and_incremental_merge_complete_page(self, browser_driver: BrowserDriver) -> None:
+        """Save screenshot and merge this incrementally add this to the complete page screenshot (instead of merging all screenshots add the end)."""
+
+        await self.save_screenshot(browser_driver)
+        match (len(self._all_temp_file_paths)):
+            case 1:  # First screenshot.
+                return
+            case 2:  # Second screenshot.
+                helper_screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
+            case _:
+                image_base_and_latest_screenshot = [self.destination_file_path, self._all_temp_file_paths[-1]]
+                helper_screenshot.merge_images(image_base_and_latest_screenshot, self.destination_file_path)
+
     def increment_iteration(self) -> None:
         self._iteration += 1
 
