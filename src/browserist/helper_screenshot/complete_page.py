@@ -44,13 +44,16 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
     while check_if_scroll_is_end_of_page(browser_driver) is not True:
         await get_screenshot_of_visible_portion_and_scroll_down(browser_driver, handler, delay_seconds)
 
-    # Handle if first screenshot covered the complete page, return to initial scroll position, and tidy up temp files.
+    # Handle if first screenshot covers the complete page, return to initial scroll position, and tidy up temp files.
+    wait_until_eventual_file_copy_is_done = asyncio.Event()
     task_check_and_handle_if_only_one_screenshot_was_taken = asyncio.create_task(
-        handler.check_and_handle_if_only_one_screenshot_was_taken())
+        handler.check_and_handle_if_only_one_screenshot_was_taken(wait_until_eventual_file_copy_is_done))
+    task_remove_temp_files = asyncio.create_task(
+        handler.remove_temp_files(wait_until_eventual_file_copy_is_done))
     task_scroll_to_position = asyncio.create_task(
         async_scroll_to_position(browser_driver, x_inital, y_initial, delay_seconds))
     await asyncio.gather(
         task_check_and_handle_if_only_one_screenshot_was_taken,
+        task_remove_temp_files,
         task_scroll_to_position
     )
-    handler.remove_temp_files()

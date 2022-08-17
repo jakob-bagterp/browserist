@@ -1,3 +1,4 @@
+from asyncio import Event
 from dataclasses import dataclass
 from enum import Enum, unique
 
@@ -57,11 +58,12 @@ class ScreenshotTempDataHandler():
                 image_base_and_latest_screenshot = [self.destination_file_path, self._all_temp_file_paths[-1]]
                 helper_screenshot.merge_images(image_base_and_latest_screenshot, self.destination_file_path)
 
-    async def check_and_handle_if_only_one_screenshot_was_taken(self) -> None:
+    async def check_and_handle_if_only_one_screenshot_was_taken(self, is_file_copy_done: Event) -> None:
         """If only one screenshot was taken, copy this to the final screenshot."""
 
         if len(self._all_temp_file_paths) == 1:
             helper.file.copy(self._all_temp_file_paths[0], self.destination_file_path)
+        is_file_copy_done.set()
 
     def increment_iteration(self) -> None:
         self._iteration += 1
@@ -69,5 +71,6 @@ class ScreenshotTempDataHandler():
     async def merge_temp_files_into_final_screenshot(self) -> None:
         helper_screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
 
-    def remove_temp_files(self) -> None:
+    async def remove_temp_files(self, until_file_copy_is_done: Event) -> None:
+        await until_file_copy_is_done.wait()
         helper.file.remove(self._all_temp_file_paths)
