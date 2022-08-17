@@ -57,6 +57,12 @@ class ScreenshotTempDataHandler():
                 image_base_and_latest_screenshot = [self.destination_file_path, self._all_temp_file_paths[-1]]
                 helper_screenshot.merge_images(image_base_and_latest_screenshot, self.destination_file_path)
 
+    async def check_and_handle_if_only_one_screenshot_was_taken(self) -> None:
+        """If only one screenshot was taken, copy this to the final screenshot."""
+
+        if len(self._all_temp_file_paths) == 1:
+            helper.file.copy(self._all_temp_file_paths[0], self.destination_file_path)
+
     def increment_iteration(self) -> None:
         self._iteration += 1
 
