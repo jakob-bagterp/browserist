@@ -26,7 +26,10 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
             handler.save_screenshot(browser_driver))
         task_scroll_page_down = asyncio.create_task(
             async_scroll_page_down(browser_driver, delay_seconds))
-        await asyncio.gather(task_save_screenshot, task_scroll_page_down)
+        await asyncio.gather(
+            task_save_screenshot,
+            task_scroll_page_down
+        )
         handler.increment_iteration()
 
     # Save inital scroll position so we can return to it later.
@@ -46,5 +49,8 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
         handler.merge_temp_files_into_final_screenshot())
     task_scroll_to_position = asyncio.create_task(
         async_scroll_to_position(browser_driver, x_inital, y_initial, delay_seconds))
-    await asyncio.gather(task_merge_temp_files_into_final_screenshot, task_scroll_to_position)
+    await asyncio.gather(
+        task_merge_temp_files_into_final_screenshot,
+        task_scroll_to_position
+    )
     handler.remove_temp_files()
