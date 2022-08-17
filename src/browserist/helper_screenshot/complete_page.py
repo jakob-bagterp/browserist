@@ -19,7 +19,7 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
         scroll_page_down(browser_driver, delay_seconds)
 
     async def async_scroll_to_position(browser_driver: BrowserDriver, x: int, y: int, delay_seconds: float) -> None:
-        scroll_to_position(browser_driver, x_inital, y_initial, delay_seconds)
+        scroll_to_position(browser_driver, x, y, delay_seconds)
 
     async def get_screenshot_of_visible_portion_and_scroll_down(browser_driver: BrowserDriver, handler: ScreenshotTempDataHandler, delay_seconds: float) -> None:
         task_save_screenshot = asyncio.create_task(
