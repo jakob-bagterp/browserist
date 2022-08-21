@@ -15,9 +15,6 @@ def firefox(browser_driver: BrowserDriver, destination_file_path: str) -> None:
 
 
 async def default(browser_driver: BrowserDriver, destination_file_path: str, destination_dir: str, delay_seconds: float) -> None:
-    async def initialize_temp_data_handler(destination_dir: str, destination_file_path: str) -> ScreenshotTempDataHandler:
-        return ScreenshotTempDataHandler(destination_dir=destination_dir, destination_file_path=destination_file_path)
-
     async def async_scroll_to_top_of_page(browser_driver: BrowserDriver, delay_seconds: float) -> None:
         scroll_to_top_of_page(browser_driver, delay_seconds=0)
         # Instead of a blocking wait/delay in the above method, let's release the working thread to do something else:
@@ -46,7 +43,8 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
     # Prepare for iteration from the top of the page.
     _, handler = await asyncio.gather(
         async_scroll_to_top_of_page(browser_driver, delay_seconds),
-        initialize_temp_data_handler(destination_dir, destination_file_path)
+        asyncio.to_thread(
+            ScreenshotTempDataHandler, destination_dir=destination_dir, destination_file_path=destination_file_path)
     )
 
     # Take screenshots of the visible portion until we reach the end of the page.
