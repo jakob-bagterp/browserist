@@ -1,6 +1,8 @@
 __all__ = ["complete_page", "controller", "file", "save", "save_element"]
 
 
+from PIL import Image  # type: ignore
+
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
 from . import complete_page, controller, file
@@ -17,6 +19,10 @@ def save_element(element: object, file_path: str) -> None:
     """Take screenshot of element. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
 
     element.screenshot(file_path)  # type: ignore
+
+
+def merge_two_images_without_save(image_1: Image, image_2: Image) -> Image:  # type: ignore
+    return helper.image.merge_vertically(image_1, image_2)
 
 
 def merge_images_and_save(all_temp_file_paths: list[str], save_file_path: str) -> None:
