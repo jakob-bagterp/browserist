@@ -19,7 +19,7 @@ def save_element(element: object, file_path: str) -> None:
     element.screenshot(file_path)  # type: ignore
 
 
-def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
+def merge_images_and_save(all_temp_file_paths: list[str], save_file_path: str) -> None:
     if not all_temp_file_paths:
         return
     image_base = helper.image.open(all_temp_file_paths[0])

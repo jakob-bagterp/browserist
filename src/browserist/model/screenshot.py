@@ -53,13 +53,13 @@ class ScreenshotTempDataHandler():
                 helper.file.copy(self._all_temp_file_paths[index], self.destination_file_path)
             case _:  # Second and later screenshots are merged with the base image.
                 image_base_and_latest_screenshot = [self.destination_file_path, self._all_temp_file_paths[index]]
-                helper_screenshot.merge_images(image_base_and_latest_screenshot, self.destination_file_path)
+                helper_screenshot.merge_images_and_save(image_base_and_latest_screenshot, self.destination_file_path)
 
     def increment_iteration(self) -> None:
         self._iteration += 1
 
     async def merge_temp_files_into_final_screenshot(self) -> None:
-        helper_screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
+        helper_screenshot.merge_images_and_save(self._all_temp_file_paths, self.destination_file_path)
 
     async def remove_temp_files(self) -> None:
         helper.file.remove(self._all_temp_file_paths)
