@@ -71,6 +71,6 @@ class ScreenshotTempDataHandler():
     async def merge_temp_files_into_final_screenshot(self) -> None:
         helper_screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
 
-    async def remove_temp_files(self, until_file_copy_is_done: Event) -> None:
-        await until_file_copy_is_done.wait()
+    async def remove_temp_files(self, is_file_copy_done: Event) -> None:
+        await is_file_copy_done.wait()
         helper.file.remove(self._all_temp_file_paths)
