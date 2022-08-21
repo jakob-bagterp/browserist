@@ -65,4 +65,5 @@ class ScreenshotTempDataHandler():
         helper.image.save(self._screenshot, self.destination_file_path)
 
     def remove_temp_files(self) -> None:
+        self._screenshot.close()
         helper.file.remove(self._all_temp_file_paths)
