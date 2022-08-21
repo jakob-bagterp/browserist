@@ -1,4 +1,4 @@
-__all__ = ["complete_page", "controller", "file", "save", "save_element"]
+__all__ = ["complete_page", "controller", "file", "save", "save_element", "merge_two_images_without_save"]
 
 
 from PIL import Image  # type: ignore
@@ -23,14 +23,3 @@ def save_element(element: object, file_path: str) -> None:
 
 def merge_two_images_without_save(image_1: Image, image_2: Image) -> Image:  # type: ignore
     return helper.image.merge_vertically(image_1, image_2)
-
-
-def merge_images_and_save(all_temp_file_paths: list[str], save_file_path: str) -> None:
-    if not all_temp_file_paths:
-        return
-    image_base = helper.image.open(all_temp_file_paths[0])
-    if len(all_temp_file_paths) > 1:
-        for file_path in all_temp_file_paths[1:]:
-            image_extend_to_base = helper.image.open(file_path)
-            image_base = helper.image.merge_vertically(image_base, image_extend_to_base)
-    helper.image.save(image_base, save_file_path)

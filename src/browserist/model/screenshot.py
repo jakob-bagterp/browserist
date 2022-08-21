@@ -64,8 +64,5 @@ class ScreenshotTempDataHandler():
     async def save_complete_page_screenshot(self) -> None:
         helper.image.save(self._screenshot, self.destination_file_path)
 
-    async def merge_temp_files_into_final_screenshot(self) -> None:
-        helper_screenshot.merge_images_and_save(self._all_temp_file_paths, self.destination_file_path)
-
     async def remove_temp_files(self) -> None:
         helper.file.remove(self._all_temp_file_paths)
