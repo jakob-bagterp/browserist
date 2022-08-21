@@ -61,7 +61,7 @@ class ScreenshotTempDataHandler():
     def increment_iteration(self) -> None:
         self._iteration += 1
 
-    def save_complete_page_screenshot(self) -> None:
+    async def save_complete_page_screenshot(self) -> None:
         helper.image.save(self._screenshot, self.destination_file_path)
 
     def remove_temp_files(self) -> None:
