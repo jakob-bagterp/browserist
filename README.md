@@ -1,4 +1,4 @@
-[![Latest version](https://img.shields.io/static/v1?label=version&message=1.0.0&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=1.0.1&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
 ![Python >=3.10](https://img.shields.io/static/v1?label=python&message=>=3.10&color=blueviolet)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
 [![Test](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml)
