@@ -1,5 +1,7 @@
-__all__ = ["complete_page", "controller", "file", "save", "save_element"]
+__all__ = ["complete_page", "controller", "file", "save", "save_element", "merge_two_images_without_save"]
 
+
+from PIL import Image  # type: ignore
 
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
@@ -19,12 +21,5 @@ def save_element(element: object, file_path: str) -> None:
     element.screenshot(file_path)  # type: ignore
 
 
-def merge_images(all_temp_file_paths: list[str], save_file_path: str) -> None:
-    if not all_temp_file_paths:
-        return
-    merged_image = helper.image.open(all_temp_file_paths[0])
-    if len(all_temp_file_paths) > 1:
-        for file_path in all_temp_file_paths[1:]:
-            image_add = helper.image.open(file_path)
-            merged_image = helper.image.merge_vertically(merged_image, image_add)
-    helper.image.save(merged_image, save_file_path)
+def merge_two_images_without_save(image_1: Image, image_2: Image) -> Image:  # type: ignore
+    return helper.image.merge_vertically(image_1, image_2)

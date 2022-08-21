@@ -18,6 +18,8 @@ def merge_vertically(image_base: Image, image_add: Image) -> Image:  # type: ign
     merged_image = Image.new("RGB", (merged_image_width, merged_image_height))
     merged_image.paste(image_base, (0, 0))
     merged_image.paste(image_add, (0, image_base.height))
+    image_base.close()
+    image_add.close()
     return merged_image
 
 

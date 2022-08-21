@@ -9,7 +9,7 @@ class ScreenshotDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def complete_page(self, file_name: str | None = None, destination_dir: str | None = None, delay_seconds: float = 1) -> None:
+    def complete_page(self, file_name: str | None = None, destination_dir: str | None = None, delay_seconds: float = 0.25) -> None:
         """Take screenshot of complete page and save as PNG image. Default destination directory is from where the script is executed. Examples:
 
         browser.screenshot.complete_page() # Default file name and destination
