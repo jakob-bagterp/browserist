@@ -52,7 +52,7 @@ class BrowserDriver(ABC):
         raise NotImplementedError
 
     def set_options_and_profile(self) -> None:
-        """Internal task initialiser that runs the configuration methods to disable images, enable headless, etc."""
+        """Internal task initializer that runs the configuration methods to disable images, enable headless, etc."""
 
         self.disable_images()
         self.enable_headless()
