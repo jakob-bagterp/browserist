@@ -56,6 +56,8 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
     # Merge screenshots, return to initial scroll position, and tidy up temp files.
     await asyncio.gather(
         async_scroll_to_position(browser_driver, x_inital, y_initial, delay_seconds),
-        handler.save_complete_page_screenshot(),
-        handler.remove_temp_files()
+        asyncio.to_thread(
+            handler.save_complete_page_screenshot),
+        asyncio.to_thread(
+            handler.remove_temp_files)
     )
