@@ -48,7 +48,7 @@ class ScreenshotTempDataHandler():
         self._all_temp_file_paths.append(temp_file_path)
 
     async def incremental_merge_temp_screenshots(self) -> None:
-        """Merge a screenshot iteration incrementally into the complete page screenshot (instead of merging all screenshots at the end)."""
+        """Merge a screenshot iteration incrementally into the complete page screenshot in RAM (instead of merging all screenshots at the end)."""
 
         index = self._iteration - 1
         match (self._iteration):
