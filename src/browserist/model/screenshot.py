@@ -65,5 +65,6 @@ class ScreenshotTempDataHandler():
         helper.image.save(self._screenshot, self.destination_file_path)
 
     async def remove_temp_files(self) -> None:
+        # Rememeber to close image so we avoid PermissionError on especially Windows when trying to remove temporary files:
         self._screenshot.close()
         await helper.file.async_remove(self._all_temp_file_paths)
