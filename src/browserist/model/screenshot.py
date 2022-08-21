@@ -1,4 +1,3 @@
-from asyncio import Event
 from dataclasses import dataclass
 from enum import Enum, unique
 
@@ -40,37 +39,27 @@ class ScreenshotTempDataHandler():
         temp_file_name = self.get_temp_file_name()
         return helper_screenshot.file.get_path(self._temp_dir, temp_file_name)
 
-    async def save_screenshot(self, browser_driver: BrowserDriver) -> None:
+    def save_screenshot(self, browser_driver: BrowserDriver) -> None:
         temp_file_path = self.get_temp_file_path()
         helper_screenshot.save(browser_driver, temp_file_path)
         self._all_temp_file_paths.append(temp_file_path)
 
-    async def save_screenshot_and_incremental_merge_complete_page(self, browser_driver: BrowserDriver) -> None:
-        """Save screenshot and merge this incrementally add this to the complete page screenshot (instead of merging all screenshots add the end)."""
+    def incremental_merge_screenshot_iteration_with_complete_page(self, iteration: int) -> None:
+        """Merge a screenshot iteration incrementally into the complete page screenshot (instead of merging all screenshots at the end)."""
 
-        await self.save_screenshot(browser_driver)
-        match (len(self._all_temp_file_paths)):
-            case 1:  # First screenshot.
-                return
-            case 2:  # Second screenshot.
-                helper_screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
-            case _:
-                image_base_and_latest_screenshot = [self.destination_file_path, self._all_temp_file_paths[-1]]
+        index = iteration - 1
+        match (iteration):
+            case 1:  # First screenshot is copied to the image base as preparation for the final screenshot.
+                helper.file.copy(self._all_temp_file_paths[index], self.destination_file_path)
+            case _:  # Second and later screenshots are merged with the base image.
+                image_base_and_latest_screenshot = [self.destination_file_path, self._all_temp_file_paths[index]]
                 helper_screenshot.merge_images(image_base_and_latest_screenshot, self.destination_file_path)
 
-    async def check_and_handle_if_only_one_screenshot_was_taken(self, is_file_copy_done: Event) -> None:
-        """If only one screenshot was taken, copy this to the final screenshot."""
-
-        if len(self._all_temp_file_paths) == 1:
-            helper.file.copy(self._all_temp_file_paths[0], self.destination_file_path)
-        is_file_copy_done.set()
-
-    async def increment_iteration(self) -> None:
+    def increment_iteration(self) -> None:
         self._iteration += 1
 
-    async def merge_temp_files_into_final_screenshot(self) -> None:
+    def merge_temp_files_into_final_screenshot(self) -> None:
         helper_screenshot.merge_images(self._all_temp_file_paths, self.destination_file_path)
 
-    async def remove_temp_files(self, is_file_copy_done: Event) -> None:
-        await is_file_copy_done.wait()
+    async def remove_temp_files(self) -> None:
         helper.file.remove(self._all_temp_file_paths)

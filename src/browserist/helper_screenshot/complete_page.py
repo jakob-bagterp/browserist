@@ -31,11 +31,12 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
         await asyncio.sleep(delay_seconds)
 
     async def get_screenshot_of_visible_portion_and_scroll_down(browser_driver: BrowserDriver, handler: ScreenshotTempDataHandler, delay_seconds: float) -> None:
+        handler.save_screenshot(browser_driver)
         await asyncio.gather(
-            handler.save_screenshot_and_incremental_merge_complete_page(browser_driver),
+            asyncio.to_thread(handler.incremental_merge_screenshot_iteration_with_complete_page, handler._iteration),
             async_scroll_page_down(browser_driver, delay_seconds),
-            handler.increment_iteration()
         )
+        handler.increment_iteration()
 
     # Save inital scroll position so we can return to it later.
     x_inital, y_initial = get_scroll_position(browser_driver)
@@ -53,9 +54,7 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
         await get_screenshot_of_visible_portion_and_scroll_down(browser_driver, handler, delay_seconds)
 
     # Handle if first screenshot covers the complete page, return to initial scroll position, and tidy up temp files.
-    wait_until_eventual_file_copy_is_done = asyncio.Event()
     await asyncio.gather(
         async_scroll_to_position(browser_driver, x_inital, y_initial, delay_seconds),
-        handler.check_and_handle_if_only_one_screenshot_was_taken(wait_until_eventual_file_copy_is_done),
-        handler.remove_temp_files(wait_until_eventual_file_copy_is_done)
+        handler.remove_temp_files()
     )
