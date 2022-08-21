@@ -36,9 +36,9 @@ async def default(browser_driver: BrowserDriver, destination_file_path: str, des
     async def get_screenshot_of_visible_portion_and_scroll_down(browser_driver: BrowserDriver, handler: ScreenshotTempDataHandler, delay_seconds: float) -> None:
         await asyncio.gather(
             handler.save_screenshot_and_incremental_merge_complete_page(browser_driver),
-            async_scroll_page_down(browser_driver, delay_seconds)
+            async_scroll_page_down(browser_driver, delay_seconds),
+            handler.increment_iteration()
         )
-        handler.increment_iteration()
 
     # Save inital scroll position so we can return to it later.
     x_inital, y_initial = get_scroll_position(browser_driver)
