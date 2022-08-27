@@ -1,14 +1,12 @@
 from _helper.timeout import reset_to_not_timed_out
+from _mock_data import script
 from _mock_data.url import internal_url
 
 from browserist import Browser
 
 HEADLINE_XPATH = "/html/body/div/h1"
 
-REMOVE_HEADLINE_JAVASCRIPT = f"""
-    var element = document.evaluate('{HEADLINE_XPATH}', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    element.remove();
-"""
+REMOVE_HEADLINE_JAVASCRIPT = script.remove_element(HEADLINE_XPATH)
 
 
 def test_refresh(browser_default_headless: Browser) -> None:
