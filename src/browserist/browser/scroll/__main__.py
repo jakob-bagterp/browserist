@@ -42,7 +42,7 @@ class ScrollDriverMethods(DriverMethods):
             scroll_into_view(self._browser_driver, xpath, timeout, delay_seconds)
 
     def into_view_if_not_in_viewport(self, xpath: str, timeout: float | None = None, delay_seconds: float = 1) -> None:
-        """If not visible, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If not visible in the current viewport, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
