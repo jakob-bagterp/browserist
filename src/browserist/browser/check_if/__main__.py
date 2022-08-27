@@ -8,6 +8,7 @@ from .is_disabled import check_if_is_disabled
 from .is_displayed import check_if_is_displayed
 from .is_enabled import check_if_is_enabled
 from .is_image_loaded import check_if_is_image_loaded
+from .is_in_viewport import check_if_is_in_viewport
 
 
 class CheckIfDriverMethods(DriverMethods):
@@ -61,3 +62,9 @@ class CheckIfDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return check_if_is_image_loaded(self._browser_driver, xpath)
+
+    def is_in_viewport(self, xpath: str) -> bool:  # type: ignore
+        """Check whether an element is visible in the current viewport."""
+
+        if self._timeout_should_continue():
+            return check_if_is_in_viewport(self._browser_driver, xpath)
