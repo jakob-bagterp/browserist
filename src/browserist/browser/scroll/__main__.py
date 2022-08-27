@@ -5,7 +5,7 @@ from .check_if.__main__ import ScrollCheckIfDriverMethods
 from .down_by import scroll_down_by
 from .get.__main__ import ScrollGetDriverMethods
 from .into_view import scroll_into_view
-from .into_view_if_not_visible import scroll_into_view_if_not_visible
+from .into_view_if_not_visible import scroll_into_view_if_not_in_viewport
 from .left_by import scroll_left_by
 from .page.__main__ import ScrollPageDriverMethods
 from .right_by import scroll_right_by
@@ -41,12 +41,12 @@ class ScrollDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             scroll_into_view(self._browser_driver, xpath, timeout, delay_seconds)
 
-    def into_view_if_not_visible(self, xpath: str, timeout: float | None = None, delay_seconds: float = 1) -> None:
-        """If not visible, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
+    def into_view_if_not_in_viewport(self, xpath: str, timeout: float | None = None, delay_seconds: float = 1) -> None:
+        """If not visible in the current viewport, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            scroll_into_view_if_not_visible(self._browser_driver, xpath, timeout, delay_seconds)
+            scroll_into_view_if_not_in_viewport(self._browser_driver, xpath, timeout, delay_seconds)
 
     def left_by(self, pixels: int, delay_seconds: float = 1) -> None:
         """If possible, scroll left in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
