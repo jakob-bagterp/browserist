@@ -6,6 +6,20 @@ from lxml.etree import XPathSyntaxError
 from ..model.type.xpath import XPath
 
 
+def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
+    """It's recommended to use only single quotes in XPath expressions. It that for some reason isn't the case, this helper converts double to single quotes and handles edge cases of apostrophes. Other functions, e.g. using JavaScript, may break if single and double quotes aren't reliable."""
+
+    def convert_double_to_single_quotes(xpath: str) -> str:
+        return xpath.replace("\"", "\'")
+
+    if "\"" in xpath:
+        if "\'" in xpath:  # If contains both single and double quotes.
+            # TODO: Handle strings with mixed single and double quotes.
+            return xpath
+        return convert_double_to_single_quotes(xpath)
+    return xpath
+
+
 def is_valid(xpath: str) -> bool:
     try:
         return bool(lxml.etree.XPath(xpath))
