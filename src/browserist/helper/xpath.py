@@ -12,8 +12,12 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
     def convert_double_to_single_quotes(xpath: str) -> str:
         return xpath.replace("\"", "\'")
 
+    def convert_double_and_single_quotes_to_literals(xpath: str) -> str:
+        return xpath.replace('"', '\"').replace("'", "\'")
+
     if "\"" in xpath:
         if "\'" in xpath:  # If contains mix of both single and double quotes.
+            xpath = convert_double_and_single_quotes_to_literals(xpath)
             # TODO: Handle strings with mixed single and double quotes.
             return xpath
         return convert_double_to_single_quotes(xpath)
