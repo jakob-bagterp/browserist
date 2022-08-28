@@ -8,7 +8,9 @@ from browserist import helper
     (VALID_XPATH, VALID_XPATH),
     ("//button[contains(text(), \"Double Quotes\")]", "//button[contains(text(), 'Double Quotes')]"),
     ('//button[contains(text(), "Double Quotes")]', "//button[contains(text(), 'Double Quotes')]"),
-    # TODO: Add test with mix of single and double quotes.
+    ("//div[@name=\"Bob's Pizza\"]", "//div[@name=concat('\"Bob', '\'s Pizza', '\"')]"),
+    ("//div[@name='\"Pizza\" Pam']", "//div[@name=concat('\'', '\"Pizza\" Pam', '\'')]"),
+    ('//div[@name="Shouldn\'t Be"]', "//div[@name=concat('\"Shouldn', '\'t Be', '\"')]"),
 ])
 def test_ensure_encoding_of_single_and_double_quotes(xpath: str, expected_output: str) -> None:
     assert helper.xpath.is_valid(xpath)
