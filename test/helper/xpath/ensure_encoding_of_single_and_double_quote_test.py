@@ -7,6 +7,7 @@ from browserist import helper
 @pytest.mark.parametrize("xpath, expected_output", [
     (VALID_XPATH, VALID_XPATH),
     ("//button[contains(text(), \"Double Quotes\")]", "//button[contains(text(), 'Double Quotes')]"),
+    ('//button[contains(text(), "Double Quotes")]', "//button[contains(text(), 'Double Quotes')]"),
     # TODO: Add test with mix of single and double quotes.
 ])
 def test_ensure_encoding_of_single_and_double_quotes(xpath: str, expected_output: str) -> None:
