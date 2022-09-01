@@ -28,5 +28,3 @@ jobs:
         pip install tox tox-gh-actions
     - name: Run tests with Tox
       run: tox
-    - name: Codecov
-      uses: codecov/codecov-action@v3.1.0
