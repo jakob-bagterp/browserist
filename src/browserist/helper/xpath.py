@@ -3,6 +3,7 @@ from typing import Any
 import lxml.etree  # type: ignore
 from lxml.etree import XPathSyntaxError
 
+from ..constant.literal import DOUBLE_QUOTE, SINGLE_QUOTE
 from ..model.type.xpath import XPath
 
 
@@ -10,13 +11,13 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
     """It's recommended to use only single quotes in XPath expressions. It that for some reason isn't the case, this helper converts double to single quotes and handles edge cases of apostrophes. Other functions, e.g. using JavaScript, may break if single and double quotes aren't reliable."""
 
     def convert_double_to_single_quotes(xpath: str) -> str:
-        return xpath.replace("\"", "\'")
+        return xpath.replace(DOUBLE_QUOTE, SINGLE_QUOTE)
 
     def convert_double_and_single_quotes_to_literals(xpath: str) -> str:
-        return xpath.replace('"', '\"').replace("'", "\'")
+        return xpath.replace('"', DOUBLE_QUOTE).replace("'", SINGLE_QUOTE)
 
-    if "\"" in xpath:
-        if "\'" in xpath:  # If contains mix of both single and double quotes.
+    if DOUBLE_QUOTE in xpath:
+        if SINGLE_QUOTE in xpath:  # If contains mix of both single and double quotes.
             xpath = convert_double_and_single_quotes_to_literals(xpath)
             # TODO: Handle strings with mixed single and double quotes.
             return xpath
