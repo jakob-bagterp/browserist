@@ -24,6 +24,12 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
             ensure_all_double_quotes_are_literals(xpath)
         )
 
+    def convert_string_of_double_and_single_quotes_to_concat(xpath: str) -> str:
+        """Example: Converts "Fred's \"Fancy Pizza\"" to "concat('Fred', "'", 's "Fancy Pizza"')"""""
+
+        xpath = convert_double_and_single_quotes_to_literals(xpath)
+        return "concat('" + xpath.replace("'", "', \"'\" ,'") + "')"
+
     if DOUBLE_QUOTE in xpath:
         if SINGLE_QUOTE in xpath:  # If contains mix of both single and double quotes.
             xpath = convert_double_and_single_quotes_to_literals(xpath)
