@@ -14,7 +14,15 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
         return xpath.replace(DOUBLE_QUOTE, SINGLE_QUOTE)
 
     def convert_double_and_single_quotes_to_literals(xpath: str) -> str:
-        return xpath.replace('"', DOUBLE_QUOTE).replace("'", SINGLE_QUOTE)
+        def ensure_all_double_quotes_are_literals(xpath: str) -> str:
+            return xpath.replace(DOUBLE_QUOTE, '"').replace('"', DOUBLE_QUOTE)
+
+        def ensure_all_single_quotes_are_literals(xpath: str) -> str:
+            return xpath.replace(SINGLE_QUOTE, "'").replace("'", SINGLE_QUOTE)
+
+        return ensure_all_single_quotes_are_literals(
+            ensure_all_double_quotes_are_literals(xpath)
+        )
 
     if DOUBLE_QUOTE in xpath:
         if SINGLE_QUOTE in xpath:  # If contains mix of both single and double quotes.
