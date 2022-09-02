@@ -13,26 +13,13 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
     def convert_double_to_single_quotes(xpath: str) -> str:
         return xpath.replace(DOUBLE_QUOTE, SINGLE_QUOTE)
 
-    def convert_double_and_single_quotes_to_literals(xpath: str) -> str:
-        def ensure_all_double_quotes_are_literals(xpath: str) -> str:
-            return xpath.replace(DOUBLE_QUOTE, '"').replace('"', DOUBLE_QUOTE)
-
-        def ensure_all_single_quotes_are_literals(xpath: str) -> str:
-            return xpath.replace(SINGLE_QUOTE, "'").replace("'", SINGLE_QUOTE)
-
-        return ensure_all_single_quotes_are_literals(
-            ensure_all_double_quotes_are_literals(xpath)
-        )
-
     def convert_string_of_double_and_single_quotes_to_concat(xpath: str) -> str:
         """Example: Converts "Fred's \"Fancy Pizza\"" to "concat('Fred', "'", 's "Fancy Pizza"')"""""
 
-        xpath = convert_double_and_single_quotes_to_literals(xpath)
         return "concat('" + xpath.replace("'", "', \"'\" ,'") + "')"
 
     if DOUBLE_QUOTE in xpath:
         if SINGLE_QUOTE in xpath:  # If contains mix of both single and double quotes.
-            xpath = convert_double_and_single_quotes_to_literals(xpath)
             # TODO: Handle strings with mixed single and double quotes.
             return xpath
         return convert_double_to_single_quotes(xpath)
