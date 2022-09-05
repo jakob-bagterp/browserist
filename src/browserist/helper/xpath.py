@@ -3,7 +3,7 @@ from typing import Any
 import lxml.etree  # type: ignore
 from lxml.etree import XPathSyntaxError
 
-from ..constant.char import DOUBLE_QUOTE, SINGLE_QUOTE
+from ..constant.char import DOUBLE_QUOTE, QUOTES, SINGLE_QUOTE
 from ..model.type.xpath import XPath
 
 
@@ -20,11 +20,14 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
 
         return "concat('" + xpath.replace("'", "', \"'\" ,'") + "')"
 
-    if DOUBLE_QUOTE in xpath:
-        if SINGLE_QUOTE in xpath:  # If contains mix of both single and double quotes.
+    if any(quote in xpath for quote in QUOTES):
+        if DOUBLE_QUOTE not in xpath:
+            return xpath
+        if SINGLE_QUOTE not in xpath:
+            return convert_double_to_single_quotes(xpath)
+        else:  # If contains mix of both single and double quotes.
             # TODO: Handle strings with mixed single and double quotes.
             return xpath
-        return convert_double_to_single_quotes(xpath)
     return xpath
 
 
