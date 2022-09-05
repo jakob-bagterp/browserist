@@ -11,6 +11,8 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
     """It's recommended to use only single quotes in XPath expressions. It that for some reason isn't the case, this helper converts double to single quotes and handles edge cases of apostrophes. Other functions, e.g. using JavaScript, may break if single and double quotes aren't reliable."""
 
     def convert_double_to_single_quotes(xpath: str) -> str:
+        """Disclaimer: Should be used with care and only when a string doesn't have single quotes. Otherwise and if used on mix of single and double quotes, it may lead to syntax issue."""
+
         return xpath.replace(DOUBLE_QUOTE, SINGLE_QUOTE)
 
     def convert_string_of_double_and_single_quotes_to_concat(xpath: str) -> str:
