@@ -25,15 +25,16 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
 
     has_single_quote = check_if_has_char(xpath, SINGLE_QUOTE)
     has_double_quote = check_if_has_char(xpath, DOUBLE_QUOTE)
-    if any([has_single_quote, has_double_quote]):
-        if has_double_quote:
-            return xpath
-        if has_single_quote:
-            return convert_double_to_single_quotes(xpath)
-        else:  # If contains mix of both single and double quotes.
-            # TODO: Handle strings with mixed single and double quotes.
-            return xpath
-    return xpath
+
+    if not any([has_single_quote, has_double_quote]):
+        return xpath
+    elif has_double_quote:
+        return xpath
+    elif has_single_quote:
+        return convert_double_to_single_quotes(xpath)
+    else:  # If contains mix of both single and double quotes.
+        # TODO: Handle strings with mixed single and double quotes.
+        return xpath
 
 
 def is_valid(xpath: str) -> bool:
