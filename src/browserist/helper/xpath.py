@@ -28,9 +28,9 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
 
     if not any([has_single_quote, has_double_quote]):
         return xpath
-    elif has_double_quote:
+    elif not has_double_quote:
         return xpath
-    elif has_single_quote:
+    elif not has_single_quote:
         return convert_double_to_single_quotes(xpath)
     else:  # If contains mix of both single and double quotes.
         # TODO: Handle strings with mixed single and double quotes.
