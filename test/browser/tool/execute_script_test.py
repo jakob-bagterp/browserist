@@ -1,4 +1,4 @@
-from _mock_data import script
+from _helper import script
 from _mock_data.url import internal_url
 
 from browserist import Browser
