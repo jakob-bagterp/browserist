@@ -3,7 +3,7 @@ from typing import Any
 import lxml.etree  # type: ignore
 from lxml.etree import XPathSyntaxError
 
-from ..constant.literal import DOUBLE_QUOTE, SINGLE_QUOTE
+from ..constant.char import DOUBLE_QUOTE, SINGLE_QUOTE
 from ..model.type.xpath import XPath
 
 
