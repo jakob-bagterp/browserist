@@ -1,3 +1,4 @@
+import re
 from typing import Any
 
 import lxml.etree  # type: ignore
@@ -15,13 +16,24 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
 
         return xpath.replace(DOUBLE_QUOTE, SINGLE_QUOTE)
 
-    def convert_string_of_double_and_single_quotes_to_concat(xpath: str) -> str:
-        """Example: Converts "Fred's \"Fancy Pizza\"" to "concat('Fred', "'", 's "Fancy Pizza"')"""""
-
-        return "concat('" + xpath.replace("'", "', \"'\" ,'") + "')"
-
     def check_if_has_char(xpath: str, char: str) -> bool:
         return char in xpath
+
+    def mediate_xpath_and_concat(xpath: str) -> str:
+        """TODO: TBC"""
+
+        def concat_double_and_single_quotes(xpath: str) -> str:
+            """Example: Converts "Fred's \"Fancy Pizza\"" to "concat('Fred', "'", 's "Fancy Pizza"')"""""
+
+            return "concat('" + xpath.replace("'", "', \"'\" ,'") + "')"
+
+        list_temp = re.split(r"=|]", xpath)
+        list_final: list[str] = []
+        for split_item in list_temp:
+            if split_item.startswith("=") and SINGLE_QUOTE in split_item:
+                split_item = f"={concat_double_and_single_quotes(split_item)}"
+            list_final.append(split_item)
+        return "".join(list_final)
 
     has_single_quote = check_if_has_char(xpath, SINGLE_QUOTE)
     has_double_quote = check_if_has_char(xpath, DOUBLE_QUOTE)
@@ -33,8 +45,7 @@ def ensure_encoding_of_single_and_double_quotes(xpath: str) -> str:
     elif not has_single_quote:
         return convert_double_to_single_quotes(xpath)
     else:  # If contains mix of both single and double quotes.
-        # TODO: Handle strings with mixed single and double quotes.
-        return xpath
+        return mediate_xpath_and_concat(xpath)
 
 
 def is_valid(xpath: str) -> bool:
