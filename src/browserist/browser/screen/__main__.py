@@ -1,7 +1,7 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .height import get_screen_height
-from .set import set_screen_size
+from .set_size import set_screen_size
 from .size import get_screen_size
 from .width import get_screen_width
 
@@ -16,7 +16,7 @@ class ScreenSizeDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return get_screen_height(self._browser_driver)
 
-    def set(self, width: int, height: int) -> None:
+    def set_size(self, width: int, height: int) -> None:
         """When the inner screen size doesn't have the same dimensions as the outer window size, this attempts to set the screen size."""
 
         if self._timeout_should_continue():
