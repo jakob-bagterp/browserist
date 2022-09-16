@@ -13,5 +13,5 @@ def test_set_screen_size_headless(width: int, height: int, browser_default_headl
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.screen.set_size(width, height)
-    width_check, height_check = browser.screen.size()
+    width_check, height_check = browser.screen.get_size()
     assert width == width_check and height == height_check
