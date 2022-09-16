@@ -9,7 +9,7 @@ def set_screen_size(browser_driver: BrowserDriver, width: int, height: int) -> N
 
     # 2nd pass if 1st pass doesn't match:
     width_check, height_check = get_screen_size(browser_driver)
-    if width != width_check and height != height_check:
+    if width != width_check or height != height_check:
         width_adjusted = width + (width - width_check)
-        height_adjusted = height + (height - width_check)
+        height_adjusted = height + (height - height_check)
         set_window_size(browser_driver, width_adjusted, height_adjusted)
