@@ -41,7 +41,7 @@ METHODS_WITH_RETURN_VALUES = [
     (browser, browser.get.url.from_link, ["//*[@id='main']/div[1]/div/h4/a"]),
     (browser, browser.get.url.from_links, ["//a"]),
     (browser, browser.screen.height, []),
-    (browser, browser.screen.size, []),
+    (browser, browser.screen.get_size, []),
     (browser, browser.screen.width, []),
     (browser, browser.scroll.check_if.is_end_of_page, []),
     (browser, browser.scroll.check_if.is_top_of_page, []),

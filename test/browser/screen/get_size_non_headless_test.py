@@ -7,6 +7,6 @@ from browserist import Browser
 def test_get_screen_size_non_headless(browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
-    screen_width, screen_height = browser.screen.size()
+    screen_width, screen_height = browser.screen.get_size()
     window_width, window_height = browser.window.get.size()
     assert window_width >= screen_width > 0 and window_height > screen_height > 0
