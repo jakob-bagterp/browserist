@@ -7,7 +7,7 @@ from py.path import local
 
 from browserist import Browser
 
-MINIMUM_FILE_SIZE_EXAMPLE_COM = 15_000  # Single page screenshot.
+MINIMUM_FILE_SIZE_EXAMPLE_COM = 12_500  # Single page screenshot.
 
 MINIMUM_FILE_SIZE_W3SCHOOLS_COM = 700_000  # Merge of multiple, e.g. 15-18, files.
 
