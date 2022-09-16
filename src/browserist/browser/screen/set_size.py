@@ -1,6 +1,6 @@
 from ...model.browser.base.driver import BrowserDriver
 from ..window.set.size import set_window_size
-from .size import get_screen_size
+from .get_size import get_screen_size
 
 
 def set_screen_size(browser_driver: BrowserDriver, width: int, height: int) -> None:
