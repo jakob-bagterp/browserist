@@ -4,7 +4,6 @@ from ...model.viewport.device import DeviceViewport
 from .get.__main__ import ViewportGetDriverMethods
 from .set_size import set_viewport_size
 from .set_size_by_device import set_viewport_size_by_device
-from .width import get_viewport_width
 
 
 class ViewportDriverMethods(DriverMethods):
@@ -29,9 +28,3 @@ class ViewportDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return set_viewport_size_by_device(self._browser_driver, device)
-
-    def width(self) -> int:  # type: ignore
-        """Get inner width of the viewport in pixels."""
-
-        if self._timeout_should_continue():
-            return get_viewport_width(self._browser_driver)

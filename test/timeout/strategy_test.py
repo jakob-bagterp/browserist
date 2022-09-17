@@ -49,7 +49,7 @@ METHODS_WITH_RETURN_VALUES = [
     (browser, browser.tool.count_elements, ["//h2"]),
     (browser, browser.viewport.get.height, []),
     (browser, browser.viewport.get.size, []),
-    (browser, browser.viewport.width, []),
+    (browser, browser.viewport.get.width, []),
     (browser, browser.window.get.height, []),
     (browser, browser.window.get.position, []),
     (browser, browser.window.get.size, []),

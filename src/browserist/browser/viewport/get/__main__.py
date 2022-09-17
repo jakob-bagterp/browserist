@@ -2,6 +2,7 @@ from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
 from .height import get_viewport_height
 from .size import get_viewport_size
+from .width import get_viewport_width
 
 
 class ViewportGetDriverMethods(DriverMethods):
@@ -21,3 +22,9 @@ class ViewportGetDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return get_viewport_size(self._browser_driver)
+
+    def width(self) -> int:  # type: ignore
+        """Get inner width of the viewport in pixels."""
+
+        if self._timeout_should_continue():
+            return get_viewport_width(self._browser_driver)
