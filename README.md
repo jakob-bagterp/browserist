@@ -183,8 +183,8 @@ with Browser(settings) as browser:
 | `TimeoutStrategy.STOP`     | Default. Fail fast upon timeout and raise errors.                   |
 | `TimeoutStrategy.CONTINUE` | Continue despite timeouts and most errors (syntax errors excluded). |
 
-## Emulate Screen Size of Common Devices
-You can set the screen size to emulate common devices or set a custom screen size. Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser window or the working screen. Example:
+## Emulate Viewport of Common Devices
+You can set the viewport size to emulate common devices or set a custom size. Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser window or the monitor. Example:
 
 ```python
 from browserist import Browser, BrowserSettings, common_devices
@@ -192,7 +192,7 @@ from browserist import Browser, BrowserSettings, common_devices
 settings = BrowserSettings(headless = True)
 
 with Browser(settings) as browser:
-    browser.screen.set_size_by_device(common_devices.Apple.IPHONE_SE)
+    browser.viewport.set_size_by_device(common_devices.Apple.IPHONE_SE)
     browser.open.url("http://example.com/")
-    browser.screen.set_size(768, 1024)
+    browser.viewport.set_size(768, 1024)
 ```
