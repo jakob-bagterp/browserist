@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 
-from ..device import DeviceViewport
+from ..device import DeviceViewportSize
 
 
 @dataclass
 class SamsungDevices:
-    GALAXY_S8_PLUS: DeviceViewport = DeviceViewport(360, 740)
-    GALAXY_S20_ULTRA: DeviceViewport = DeviceViewport(412, 915)
-    GALAXY_FOLD: DeviceViewport = DeviceViewport(280, 653)
-    GALAXY_A51_71: DeviceViewport = DeviceViewport(412, 914)
+    GALAXY_S8_PLUS: DeviceViewportSize = DeviceViewportSize(360, 740)
+    GALAXY_S20_ULTRA: DeviceViewportSize = DeviceViewportSize(412, 915)
+    GALAXY_FOLD: DeviceViewportSize = DeviceViewportSize(280, 653)
+    GALAXY_A51_71: DeviceViewportSize = DeviceViewportSize(412, 914)

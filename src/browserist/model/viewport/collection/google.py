@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from ..device import DeviceViewport
+from ..device import DeviceViewportSize
 
 
 @dataclass
 class GoogleDevices:
-    PIXEL_5: DeviceViewport = DeviceViewport(393, 851)
-    NEST_HUB: DeviceViewport = DeviceViewport(1024, 600)
-    NEST_HUB_MAX: DeviceViewport = DeviceViewport(1280, 800)
+    PIXEL_5: DeviceViewportSize = DeviceViewportSize(393, 851)
+    NEST_HUB: DeviceViewportSize = DeviceViewportSize(1024, 600)
+    NEST_HUB_MAX: DeviceViewportSize = DeviceViewportSize(1280, 800)

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from ....constant import directory
 from ....helper import operating_system
-from ....model.viewport.device import DeviceViewport
+from ....model.viewport.device import DeviceViewportSize
 from .page_load_strategy import PageLoadStrategy
 from .timeout.settings import TimeoutSettings
 from .type import BrowserType
@@ -25,4 +25,4 @@ class BrowserSettings:
     path_to_executable: str | None = None
     screenshot_dir: str = directory.CURRENT
     timeout: TimeoutSettings = TimeoutSettings()
-    viewport: DeviceViewport | tuple[int, int] | None = None
+    viewport: DeviceViewportSize | tuple[int, int] | None = None
