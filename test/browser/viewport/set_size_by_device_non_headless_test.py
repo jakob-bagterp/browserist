@@ -1,6 +1,6 @@
 import pytest
 from _helper.timeout import reset_to_not_timed_out
-from _mock_data.device_screen_size import DEVICE_520_666, DEVICE_666_420
+from _mock_data.device_viewport import DEVICE_520_666, DEVICE_666_420
 from _mock_data.url import internal_url
 
 from browserist import Browser, DeviceScreenSize
