@@ -8,6 +8,7 @@ from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
 from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
 from ..model.browser.extension.safari import SafariBrowserExtension
+from ..model.screen_size.device import DeviceScreenSize
 from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods
 from .combo.__main__ import ComboDriverMethods
@@ -61,6 +62,12 @@ class Browser:
         self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver)
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
+
+        if type(settings.screen_size) is DeviceScreenSize:
+            self.screen.set_size_by_device(settings.screen_size)
+        elif type(settings.screen_size) is tuple:
+            width, height = settings.screen_size
+            self.screen.set_size(width, height)
 
     def __enter__(self) -> Browser:
         return self
