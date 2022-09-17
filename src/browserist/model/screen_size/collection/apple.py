@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .device import DeviceScreenSize
+from ..device import DeviceScreenSize
 
 
 @dataclass
