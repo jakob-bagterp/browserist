@@ -12,6 +12,6 @@ from browserist import Browser
 def test_set_viewport_headless(width: int, height: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.EXAMPLE_COM)
-    browser.viewport.set_size(width, height)
+    browser.viewport.set.size(width, height)
     width_check, height_check = browser.viewport.get_size()
     assert width == width_check and height == height_check

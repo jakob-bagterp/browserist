@@ -194,5 +194,5 @@ settings = BrowserSettings(headless = True)
 with Browser(settings) as browser:
     browser.viewport.set_size_by_device(common_devices.Apple.IPHONE_SE)
     browser.open.url("http://example.com/")
-    browser.viewport.set_size(768, 1024)
+    browser.viewport.set.size(768, 1024)
 ```
