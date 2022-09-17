@@ -29,7 +29,7 @@ class ScreenSizeDriverMethods(DriverMethods):
     def set_size(self, width: int, height: int) -> None:
         """Set custom screen size. When the inner screen size doesn't have the same dimensions as the outer window size, this attempts to set the screen size.
 
-        Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser or the working screen."""
+        Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser window or the working screen."""
 
         if self._timeout_should_continue():
             return set_screen_size(self._browser_driver, width, height)
@@ -37,7 +37,7 @@ class ScreenSizeDriverMethods(DriverMethods):
     def set_size_by_device(self, device: DeviceScreenSize) -> None:
         """Attempt to set the screen size by device types, e.g. iPhone, iPad or other common devices.
 
-        Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser or the working screen."""
+        Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser window or the working screen."""
 
         if self._timeout_should_continue():
             return set_screen_size_by_device(self._browser_driver, device)
