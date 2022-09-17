@@ -8,7 +8,7 @@ from .set_size_by_device import set_screen_size_by_device
 from .width import get_screen_width
 
 
-class ScreenSizeDriverMethods(DriverMethods):
+class ViewportDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
