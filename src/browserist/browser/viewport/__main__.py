@@ -1,7 +1,7 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from ...model.viewport.device import DeviceViewport
-from .get_size import get_screen_size
+from .get_size import get_viewport_size
 from .height import get_screen_height
 from .set_size import set_screen_size
 from .set_size_by_device import set_screen_size_by_device
@@ -18,7 +18,7 @@ class ViewportDriverMethods(DriverMethods):
         width, height = browser.viewport.get_size()"""
 
         if self._timeout_should_continue():
-            return get_screen_size(self._browser_driver)
+            return get_viewport_size(self._browser_driver)
 
     def height(self) -> int:  # type: ignore
         """Get inner height of the viewport in pixels."""
