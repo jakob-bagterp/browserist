@@ -1,4 +1,4 @@
-[![Latest version](https://img.shields.io/static/v1?label=version&message=1.0.1&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=1.1.1&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
 ![Python >=3.10](https://img.shields.io/static/v1?label=python&message=>=3.10&color=blueviolet)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
 [![Test](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml)
@@ -182,3 +182,17 @@ with Browser(settings) as browser:
 | -------------------------- | ------------------------------------------------------------------- |
 | `TimeoutStrategy.STOP`     | Default. Fail fast upon timeout and raise errors.                   |
 | `TimeoutStrategy.CONTINUE` | Continue despite timeouts and most errors (syntax errors excluded). |
+
+## Emulate Viewport of Common Devices
+You can set the viewport to emulate common device sizes or to a custom size. Note that it's recommended to run emulations in headless mode since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor. Example:
+
+```python
+from browserist import Browser, BrowserSettings, common_devices
+
+settings = BrowserSettings(headless = True)
+
+with Browser(settings) as browser:
+    browser.viewport.set.size_by_device(common_devices.Apple.IPHONE_SE)
+    browser.open.url("http://example.com/")
+    browser.viewport.set.size(768, 1024)
+```

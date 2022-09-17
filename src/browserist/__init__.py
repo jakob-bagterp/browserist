@@ -1,5 +1,5 @@
-__all__ = ["Browser", "BrowserSettings", "BrowserType", "CookieBannerSettings", "LoginCredentials",
-           "LoginForm1Step", "LoginForm2Steps", "PageLoadStrategy", "SearchSettings", "TimeoutSettings", "TimeoutStrategy"]
+__all__ = ["Browser", "BrowserSettings", "BrowserType", "common_devices", "CookieBannerSettings", "DeviceViewportSize",
+           "LoginCredentials", "LoginForm1Step", "LoginForm2Steps", "PageLoadStrategy", "SearchSettings", "TimeoutSettings", "TimeoutStrategy"]
 
 from .browser.__main__ import Browser
 from .model.browser.base.page_load_strategy import PageLoadStrategy
@@ -11,4 +11,6 @@ from .model.combo_settings.cookie_banner import CookieBannerSettings
 from .model.combo_settings.login_credentials import LoginCredentials
 from .model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
 from .model.combo_settings.search import SearchSettings
+from .model.viewport import common_devices
+from .model.viewport.device import DeviceViewportSize
 from .version import __version__  # noqa

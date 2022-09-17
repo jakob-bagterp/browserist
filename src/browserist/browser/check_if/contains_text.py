@@ -12,10 +12,7 @@ def check_if_contains_text(browser_driver: BrowserDriver, xpath: str, regex: str
         driver = browser_driver.get_webdriver()
         element = driver.find_element(By.XPATH, xpath)  # type: ignore
         text = str(element.text)
-        if ignore_case:
-            match = re.search(regex, text, re.IGNORECASE)
-        else:
-            match = re.search(regex, text)
+        match = re.search(regex, text, re.IGNORECASE) if ignore_case else re.search(regex, text)
         return bool(match)
     except Exception:
         return False
