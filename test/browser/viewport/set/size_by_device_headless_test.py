@@ -15,6 +15,6 @@ from browserist import Browser, DeviceViewport, common_devices
 def test_set_viewport_by_device_headless(device: DeviceViewport, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.EXAMPLE_COM)
-    browser.viewport.set_size_by_device(device)
+    browser.viewport.set.size_by_device(device)
     width_check, height_check = browser.viewport.get.size()
     assert device.width == width_check and device.height == height_check

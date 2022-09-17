@@ -64,10 +64,10 @@ class Browser:
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
 
         if type(settings.viewport) is DeviceViewport:
-            self.viewport.set_size_by_device(settings.viewport)
+            self.viewport.set.size_by_device(settings.viewport)
         elif type(settings.viewport) is tuple:
             width, height = settings.viewport
-            self.viewport.set_size(width, height)
+            self.viewport.set.size(width, height)
 
     def __enter__(self) -> Browser:
         return self
