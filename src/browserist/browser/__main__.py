@@ -8,7 +8,7 @@ from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
 from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
 from ..model.browser.extension.safari import SafariBrowserExtension
-from ..model.screen_size.device import DeviceScreenSize
+from ..model.viewport.device import DeviceViewport
 from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods
 from .combo.__main__ import ComboDriverMethods
@@ -17,10 +17,10 @@ from .iframe.__main__ import IframeDriverMethods
 from .input.__main__ import InputDriverMethods
 from .mouse.__main__ import MouseDriverMethods
 from .open.__main__ import OpenDriverMethods
-from .screen.__main__ import ScreenSizeDriverMethods
 from .screenshot.__main__ import ScreenshotDriverMethods
 from .scroll.__main__ import ScrollDriverMethods
 from .tool.__main__ import ToolDriverMethods
+from .viewport.__main__ import ViewportDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
 
@@ -29,7 +29,7 @@ class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
 
     __slots__ = ["_browser_driver", "driver", "ie", "safari",
-                 "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "screen", "screenshot", "scroll", "select", "tool", "wait", "window"]
+                 "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "screenshot", "scroll", "select", "tool", "viewport", "wait", "window"]
 
     def __init__(self, settings: BrowserSettings | None = None) -> None:
         """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
@@ -56,18 +56,18 @@ class Browser:
         self.input: InputDriverMethods = InputDriverMethods(self._browser_driver)
         self.mouse: MouseDriverMethods = MouseDriverMethods(self._browser_driver)
         self.open: OpenDriverMethods = OpenDriverMethods(self._browser_driver)
-        self.screen: ScreenSizeDriverMethods = ScreenSizeDriverMethods(self._browser_driver)
         self.screenshot: ScreenshotDriverMethods = ScreenshotDriverMethods(self._browser_driver)
         self.scroll: ScrollDriverMethods = ScrollDriverMethods(self._browser_driver)
         self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver)
+        self.viewport: ViewportDriverMethods = ViewportDriverMethods(self._browser_driver)
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
 
-        if type(settings.screen_size) is DeviceScreenSize:
-            self.screen.set_size_by_device(settings.screen_size)
-        elif type(settings.screen_size) is tuple:
-            width, height = settings.screen_size
-            self.screen.set_size(width, height)
+        if type(settings.viewport) is DeviceViewport:
+            self.viewport.set_size_by_device(settings.viewport)
+        elif type(settings.viewport) is tuple:
+            width, height = settings.viewport
+            self.viewport.set_size(width, height)
 
     def __enter__(self) -> Browser:
         return self
