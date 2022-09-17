@@ -1,5 +1,5 @@
 from ....model.browser.base.driver import BrowserDriver
-from ...screen.height import get_screen_height
+from ...viewport.height import get_screen_height
 from ..by import scroll_by
 
 

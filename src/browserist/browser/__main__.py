@@ -17,10 +17,10 @@ from .iframe.__main__ import IframeDriverMethods
 from .input.__main__ import InputDriverMethods
 from .mouse.__main__ import MouseDriverMethods
 from .open.__main__ import OpenDriverMethods
-from .screen.__main__ import ScreenSizeDriverMethods
 from .screenshot.__main__ import ScreenshotDriverMethods
 from .scroll.__main__ import ScrollDriverMethods
 from .tool.__main__ import ToolDriverMethods
+from .viewport.__main__ import ScreenSizeDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
 
