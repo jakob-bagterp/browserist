@@ -13,5 +13,5 @@ def test_set_viewport_non_headless(width: int, height: int, browser_default: Bro
     browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.viewport.set_size(width, height)
-    width_check, height_check = browser.viewport.get_size()
+    width_check, height_check = browser.viewport.get.size()
     assert width == width_check and height == height_check

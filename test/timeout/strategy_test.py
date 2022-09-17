@@ -48,7 +48,7 @@ METHODS_WITH_RETURN_VALUES = [
     (browser, browser.tool.is_url_valid, [does_not_exist.URL]),
     (browser, browser.tool.count_elements, ["//h2"]),
     (browser, browser.viewport.height, []),
-    (browser, browser.viewport.get_size, []),
+    (browser, browser.viewport.get.size, []),
     (browser, browser.viewport.width, []),
     (browser, browser.window.get.height, []),
     (browser, browser.window.get.position, []),
