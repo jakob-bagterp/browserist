@@ -3,8 +3,8 @@ from ...model.driver_methods import DriverMethods
 from ...model.viewport.device import DeviceViewport
 from .get_size import get_viewport_size
 from .height import get_viewport_height
-from .set_size import set_screen_size
-from .set_size_by_device import set_screen_size_by_device
+from .set_size import set_viewport_size
+from .set_size_by_device import set_viewport_size_by_device
 from .width import get_viewport_width
 
 
@@ -32,7 +32,7 @@ class ViewportDriverMethods(DriverMethods):
         Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser window or the monitor."""
 
         if self._timeout_should_continue():
-            return set_screen_size(self._browser_driver, width, height)
+            return set_viewport_size(self._browser_driver, width, height)
 
     def set_size_by_device(self, device: DeviceViewport) -> None:
         """Attempt to set the viewport size by device types, e.g. iPhone, iPad or other common devices.
@@ -40,7 +40,7 @@ class ViewportDriverMethods(DriverMethods):
         Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser window or the monitor."""
 
         if self._timeout_should_continue():
-            return set_screen_size_by_device(self._browser_driver, device)
+            return set_viewport_size_by_device(self._browser_driver, device)
 
     def width(self) -> int:  # type: ignore
         """Get inner width of the viewport in pixels."""

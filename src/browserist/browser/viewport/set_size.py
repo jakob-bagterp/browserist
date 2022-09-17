@@ -3,7 +3,7 @@ from ..window.set.size import set_window_size
 from .get_size import get_viewport_size
 
 
-def set_screen_size(browser_driver: BrowserDriver, width: int, height: int) -> None:
+def set_viewport_size(browser_driver: BrowserDriver, width: int, height: int) -> None:
     # 1st pass:
     set_window_size(browser_driver, width, height)
 
