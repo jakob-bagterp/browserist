@@ -15,7 +15,7 @@ MAX_TIME_TO_OPEN_INTERNAL_PAGE = 10_000_000  # Nanoseconds.
     (internal_url.W3SCHOOLS_COM, internal_url.W3SCHOOLS_COM),
     (internal_url.W3SCHOOLS_COM, external_url.W3SCHOOLS_COM),
 ])
-def test_open_url_if_not_current_by_timing_performance_test(url1: str, url2: str, browser_default_headless: Browser) -> None:
+def test_open_url_if_not_current_by_timing_performance(url1: str, url2: str, browser_default_headless: Browser) -> None:
     """Ensure that not re-opening an existing URL is more efficient than reloading the pate.
     Tests the open.url_if_not_current() method indirectly by evaluating timing and network performance of differenc between opening an internal and external URL.
 
