@@ -3,14 +3,18 @@ from ...model.driver_methods import DriverMethods
 from ...model.viewport.device import DeviceViewport
 from .get_size import get_viewport_size
 from .height import get_viewport_height
+from .set.__main__ import ViewportSetDriverMethods
 from .set_size import set_viewport_size
 from .set_size_by_device import set_viewport_size_by_device
 from .width import get_viewport_width
 
 
 class ViewportDriverMethods(DriverMethods):
+    __slots__ = ["set"]
+
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
+        self.set: ViewportSetDriverMethods = ViewportSetDriverMethods(browser_driver)
 
     def get_size(self) -> tuple[int, int]:  # type: ignore
         """Get inner width and height of the viewport in pixels. Usage:
