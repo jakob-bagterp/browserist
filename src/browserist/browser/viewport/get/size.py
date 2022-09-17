@@ -1,4 +1,4 @@
-from ...model.browser.base.driver import BrowserDriver
+from ....model.browser.base.driver import BrowserDriver
 from .height import get_viewport_height
 from .width import get_viewport_width
 

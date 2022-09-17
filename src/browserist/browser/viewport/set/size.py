@@ -1,6 +1,6 @@
 from ....model.browser.base.driver import BrowserDriver
 from ...window.set.size import set_window_size
-from ..get_size import get_viewport_size
+from ..get.size import get_viewport_size
 
 
 def set_viewport_size(browser_driver: BrowserDriver, width: int, height: int) -> None:
