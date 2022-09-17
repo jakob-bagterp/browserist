@@ -6,7 +6,7 @@ from _mock_data.url import external_url, internal_url
 
 from browserist import Browser
 
-_max_time_to_open_internal_page = 10_000_000  # Nanoseconds.
+MAX_TIME_TO_OPEN_INTERNAL_PAGE = 10_000_000  # Nanoseconds.
 
 
 @pytest.mark.parametrize("url1, url2", [
@@ -29,6 +29,6 @@ def test_open_url_if_not_current_by_timing_performance_test(url1: str, url2: str
     time_stop = time.perf_counter_ns()
     time_difference = time_stop - time_start
     if is_same_url:
-        assert time_difference < _max_time_to_open_internal_page
+        assert time_difference < MAX_TIME_TO_OPEN_INTERNAL_PAGE
     else:
-        assert time_difference >= _max_time_to_open_internal_page
+        assert time_difference >= MAX_TIME_TO_OPEN_INTERNAL_PAGE
