@@ -14,7 +14,9 @@ class BrowserSettings:
 
     headless: If enabled, note that some interactable methods, e.g. "select", aren't supported.
 
-    screenshot_dir: Destination directory for screenshot files. If not set, default directory is from where the script is executed."""
+    screenshot_dir: Destination directory for screenshot files. If not set, default directory is from where the script is executed.
+
+    viewport: Emulate a viewport size upon initiation by either a common device or a custom value in pixels "(width, height)". If no value, the browser's default is used."""
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False
