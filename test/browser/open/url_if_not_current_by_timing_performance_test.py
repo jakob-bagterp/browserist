@@ -6,7 +6,7 @@ from _mock_data.url import external_url, internal_url
 
 from browserist import Browser
 
-_max_time_to_open_internal_page = 10 * 1000 * 1000  # Nanoseconds.
+_max_time_to_open_internal_page = 10_000_000  # Nanoseconds.
 
 
 @pytest.mark.parametrize("url1, url2", [
