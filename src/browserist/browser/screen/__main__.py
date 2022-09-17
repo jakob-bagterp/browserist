@@ -4,7 +4,7 @@ from ...model.screen_size.device import DeviceScreenSize
 from .get_size import get_screen_size
 from .height import get_screen_height
 from .set_size import set_screen_size
-from .set_size_by_device import set_size_by_device
+from .set_size_by_device import set_screen_size_by_device
 from .width import get_screen_width
 
 
@@ -36,7 +36,7 @@ class ScreenSizeDriverMethods(DriverMethods):
         """Attempt to set the screen size by device types, e.g. iPhone, iPad or other common devices, for emulation."""
 
         if self._timeout_should_continue():
-            return set_size_by_device(self._browser_driver, device)
+            return set_screen_size_by_device(self._browser_driver, device)
 
     def width(self) -> int:  # type: ignore
         """Get inner width of the screen in pixels."""
