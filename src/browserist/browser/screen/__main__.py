@@ -33,7 +33,7 @@ class ScreenSizeDriverMethods(DriverMethods):
             return set_screen_size(self._browser_driver, width, height)
 
     def set_size_by_device(self, device: DeviceScreenSize) -> None:
-        """When the inner screen size doesn't have the same dimensions as the outer window size, this attempts to set the screen size."""
+        """Attempt to set the screen size by device types, e.g. iPhone, iPad or other common devices, for emulation."""
 
         if self._timeout_should_continue():
             return set_size_by_device(self._browser_driver, device)
