@@ -1,6 +1,6 @@
 from ....model.browser.base.driver import BrowserDriver
-from ..height import get_viewport_height
 from ..width import get_viewport_width
+from .height import get_viewport_height
 
 
 def get_viewport_size(browser_driver: BrowserDriver) -> tuple[int, int]:
