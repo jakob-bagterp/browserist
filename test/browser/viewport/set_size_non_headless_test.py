@@ -9,7 +9,7 @@ from browserist import Browser
     (1024, 600),
     (666, 666),
 ])
-def test_set_screen_size_non_headless(width: int, height: int, browser_default: Browser) -> None:
+def test_set_viewport_non_headless(width: int, height: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
     browser.viewport.set_size(width, height)
