@@ -23,4 +23,4 @@ class BrowserSettings:
     path_to_executable: str | None = None
     screenshot_dir: str = directory.CURRENT
     timeout: TimeoutSettings = TimeoutSettings()
-    screen_size: DeviceScreenSize | tuple[int, int] | None = None
+    viewport: DeviceScreenSize | tuple[int, int] | None = None

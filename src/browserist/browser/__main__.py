@@ -63,10 +63,10 @@ class Browser:
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
 
-        if type(settings.screen_size) is DeviceScreenSize:
-            self.viewport.set_size_by_device(settings.screen_size)
-        elif type(settings.screen_size) is tuple:
-            width, height = settings.screen_size
+        if type(settings.viewport) is DeviceScreenSize:
+            self.viewport.set_size_by_device(settings.viewport)
+        elif type(settings.viewport) is tuple:
+            width, height = settings.viewport
             self.viewport.set_size(width, height)
 
     def __enter__(self) -> Browser:
