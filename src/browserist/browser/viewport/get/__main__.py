@@ -10,13 +10,13 @@ class ViewportGetDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def height(self) -> int:  # type: ignore
-        """Get inner height of the viewport in pixels."""
+        """Get height of the viewport in pixels."""
 
         if self._timeout_should_continue():
             return get_viewport_height(self._browser_driver)
 
     def size(self) -> tuple[int, int]:  # type: ignore
-        """Get inner width and height of the viewport in pixels. Usage:
+        """Get width and height of the viewport in pixels. Usage:
 
         width, height = browser.viewport.get.size()"""
 
@@ -24,7 +24,7 @@ class ViewportGetDriverMethods(DriverMethods):
             return get_viewport_size(self._browser_driver)
 
     def width(self) -> int:  # type: ignore
-        """Get inner width of the viewport in pixels."""
+        """Get width of the viewport in pixels."""
 
         if self._timeout_should_continue():
             return get_viewport_width(self._browser_driver)

@@ -184,7 +184,7 @@ with Browser(settings) as browser:
 | `TimeoutStrategy.CONTINUE` | Continue despite timeouts and most errors (syntax errors excluded). |
 
 ## Emulate Viewport of Common Devices
-You can set the viewport size to emulate common devices or set a custom size. Note that it's recommended to run emulations in headless mode as an open browser may have minimum and maximum dimensions, either limited by the browser window or the monitor. Example:
+You can set the viewport to emulate common device sizes or to a custom size. Note that it's recommended to run emulations in headless mode since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor. Example:
 
 ```python
 from browserist import Browser, BrowserSettings, common_devices
