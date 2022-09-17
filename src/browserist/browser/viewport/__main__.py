@@ -1,6 +1,6 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
-from ...model.screen_size.device import DeviceScreenSize
+from ...model.viewport.device import DeviceScreenSize
 from .get_size import get_screen_size
 from .height import get_screen_height
 from .set_size import set_screen_size

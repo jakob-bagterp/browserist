@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 from ....constant import directory
 from ....helper import operating_system
-from ....model.screen_size.device import DeviceScreenSize
+from ....model.viewport.device import DeviceScreenSize
 from .page_load_strategy import PageLoadStrategy
 from .timeout.settings import TimeoutSettings
 from .type import BrowserType

@@ -11,6 +11,6 @@ from .model.combo_settings.cookie_banner import CookieBannerSettings
 from .model.combo_settings.login_credentials import LoginCredentials
 from .model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
 from .model.combo_settings.search import SearchSettings
-from .model.screen_size import common_devices
-from .model.screen_size.device import DeviceScreenSize
+from .model.viewport import common_devices
+from .model.viewport.device import DeviceScreenSize
 from .version import __version__  # noqa

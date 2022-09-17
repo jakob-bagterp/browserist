@@ -8,7 +8,7 @@ from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
 from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
 from ..model.browser.extension.safari import SafariBrowserExtension
-from ..model.screen_size.device import DeviceScreenSize
+from ..model.viewport.device import DeviceScreenSize
 from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods
 from .combo.__main__ import ComboDriverMethods
