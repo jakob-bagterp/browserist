@@ -8,7 +8,7 @@ from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
 from ..model.browser.extension.internet_explorer import InternetExplorerBrowserExtension
 from ..model.browser.extension.safari import SafariBrowserExtension
-from ..model.viewport.device import DeviceScreenSize
+from ..model.viewport.device import DeviceViewport
 from .check_if.__main__ import CheckIfDriverMethods
 from .click.__main__ import ClickDriverMethods
 from .combo.__main__ import ComboDriverMethods
@@ -63,7 +63,7 @@ class Browser:
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
 
-        if type(settings.viewport) is DeviceScreenSize:
+        if type(settings.viewport) is DeviceViewport:
             self.viewport.set_size_by_device(settings.viewport)
         elif type(settings.viewport) is tuple:
             width, height = settings.viewport

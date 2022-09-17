@@ -1,5 +1,5 @@
-from browserist import DeviceScreenSize
+from browserist import DeviceViewport
 
-DEVICE_520_666 = DeviceScreenSize(520, 666)
+DEVICE_520_666 = DeviceViewport(520, 666)
 
-DEVICE_666_420 = DeviceScreenSize(666, 420)
+DEVICE_666_420 = DeviceViewport(666, 420)
