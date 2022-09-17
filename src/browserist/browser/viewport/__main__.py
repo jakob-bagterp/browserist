@@ -5,7 +5,7 @@ from .get_size import get_viewport_size
 from .height import get_viewport_height
 from .set_size import set_screen_size
 from .set_size_by_device import set_screen_size_by_device
-from .width import get_screen_width
+from .width import get_viewport_width
 
 
 class ViewportDriverMethods(DriverMethods):
@@ -46,4 +46,4 @@ class ViewportDriverMethods(DriverMethods):
         """Get inner width of the viewport in pixels."""
 
         if self._timeout_should_continue():
-            return get_screen_width(self._browser_driver)
+            return get_viewport_width(self._browser_driver)
