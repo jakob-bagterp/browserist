@@ -13,6 +13,6 @@ from browserist import Browser, DeviceScreenSize
 def test_set_screen_size_by_device_headless(device: DeviceScreenSize, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.EXAMPLE_COM)
-    browser.screen.set_size_by_device(device)
-    width_check, height_check = browser.screen.get_size()
+    browser.viewport.set_size_by_device(device)
+    width_check, height_check = browser.viewport.get_size()
     assert device.width == width_check and device.height == height_check

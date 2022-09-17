@@ -15,7 +15,7 @@ class ViewportDriverMethods(DriverMethods):
     def get_size(self) -> tuple[int, int]:  # type: ignore
         """Get inner width and height of the viewport in pixels. Usage:
 
-        width, height = browser.screen.get_size()"""
+        width, height = browser.viewport.get_size()"""
 
         if self._timeout_should_continue():
             return get_screen_size(self._browser_driver)
