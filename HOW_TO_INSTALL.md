@@ -1,4 +1,3 @@
-
 # How to Install Browserist
 ## PyPI
 Assuming that Python is installed already, execute this command in the terminal:

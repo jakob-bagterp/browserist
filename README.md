@@ -23,7 +23,7 @@ Main features of Browserist:
 * [Selenium](https://www.selenium.dev)
 * Relevant browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
-## How to Install Browserist
+## How to Install
 Find a guide [here](./HOW_TO_INSTALL.md).
 
 ## Getting Started
