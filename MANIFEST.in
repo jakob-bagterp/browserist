@@ -1,3 +1,4 @@
+include HOW_TO_INSTALL.md
 include LICENSE.md
 include pyproject.toml
 include README.md

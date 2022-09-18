@@ -23,56 +23,11 @@ Main features of Browserist:
 * [Selenium](https://www.selenium.dev)
 * Relevant browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
-## Installation
-### PyPI
-Assuming that Python is installed already, execute this command in the terminal:
-
-```shell
-pip3 install browserist
-```
-
-If you already have installed Browserist, use this command to upgrade to latest version:
-
-```shell
-pip3 install --upgrade browserist
-```
-
-### Homebrew
-If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap Browserist:
-
-```shell
-brew tap jakob-bagterp/browserist
-```
-
-And then install:
-
-```shell
-brew install browserist
-```
-
-### Recommended Add-Ons
-#### ChromeDriver for Google Chrome
-```shell
-pip3 install chromedriver
-```
-
-```shell
-brew install chromedriver
-```
-
-More info [here](https://chromedriver.chromium.org).
-
-#### Microsoft Edge Driver
-More info and download [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
-
-#### GeckoDriver for Mozilla Firefox
-```shell
-brew install geckodriver
-```
-
-More info [here](https://github.com/mozilla/geckodriver).
+## How to Install Browserist
+Find a guide [here](./HOW_TO_INSTALL.md).
 
 ## Getting Started
+
 The default browser is Chrome (except Edge for Windows). Simply type:
 
 ```python
