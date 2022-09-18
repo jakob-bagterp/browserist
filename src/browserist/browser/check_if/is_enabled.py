@@ -9,6 +9,6 @@ def check_if_is_enabled(browser_driver: BrowserDriver, xpath: str) -> bool:
     try:
         driver = browser_driver.get_webdriver()
         element = driver.find_element(By.XPATH, xpath)  # type: ignore
-        return element.is_enabled()  # type: ignore
+        return bool(element.is_enabled())  # type: ignore
     except Exception:
         return False
