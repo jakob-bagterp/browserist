@@ -32,21 +32,13 @@ class Browser:
                  "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "screenshot", "scroll", "select", "tool", "viewport", "wait", "window"]
 
     def __init__(self, settings: BrowserSettings | None = None) -> None:
-        """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
+        """Initiates the browser driver whether the settings call for Chrome, Firefox, etc."""
 
         if settings is None:
             settings = BrowserSettings()  # Use default settings if no custom settings are given.
 
         self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
-        self.driver: object = self._browser_driver.webdriver
-
-        match self._browser_driver.settings.type:
-            case BrowserType.INTERNET_EXPLORER:
-                self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
-            case BrowserType.SAFARI:
-                self.safari: SafariBrowserExtension = SafariBrowserExtension(self._browser_driver)
-            case _:
-                pass
+        self.driver: object = self._browser_driver.get_webdriver()
 
         self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver)
         self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver)
@@ -69,6 +61,14 @@ class Browser:
             case tuple():
                 width, height = settings.viewport
                 self.viewport.set.size(width, height)
+            case _:
+                pass
+
+        match settings.type:
+            case BrowserType.INTERNET_EXPLORER:
+                self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
+            case BrowserType.SAFARI:
+                self.safari: SafariBrowserExtension = SafariBrowserExtension(self._browser_driver)
             case _:
                 pass
 
