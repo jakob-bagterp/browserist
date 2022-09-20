@@ -40,7 +40,7 @@ class Browser:
         self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
         self.driver: object = self._browser_driver.webdriver
 
-        match self._browser_driver.settings.type:
+        match settings.type:
             case BrowserType.INTERNET_EXPLORER:
                 self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
             case BrowserType.SAFARI:
