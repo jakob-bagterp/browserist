@@ -10,7 +10,7 @@ on:
 
 jobs:
   codecov:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
@@ -51,6 +51,6 @@ jobs:
         --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
     - name: Upload coverage to Codecov
       run: |
-        curl -Os https://uploader.codecov.io/latest/macos/codecov
+        curl -Os https://uploader.codecov.io/latest/linux/codecov
         chmod +x codecov
         ./codecov -t ${{ secrets.CODECOV_TOKEN }}
