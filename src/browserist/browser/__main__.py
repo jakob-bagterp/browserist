@@ -32,7 +32,7 @@ class Browser:
                  "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "screenshot", "scroll", "select", "tool", "viewport", "wait", "window"]
 
     def __init__(self, settings: BrowserSettings | None = None) -> None:
-        """Initiates the browser driver whether the settings calls for Chrome, Firefox, etc."""
+        """Initiates the browser driver whether the settings call for Chrome, Firefox, etc."""
 
         if settings is None:
             settings = BrowserSettings()  # Use default settings if no custom settings are given.
