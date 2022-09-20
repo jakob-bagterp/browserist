@@ -1,7 +1,7 @@
 codecov==2.1.12
 coverage==6.4.4
 flake8==5.0.4
-keyring==23.9.1
+keyring==23.9.3
 lxml==4.9.1
 mypy==0.961
 pillow==9.2.0
