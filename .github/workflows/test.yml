@@ -31,6 +31,7 @@ jobs:
     - name: Run tests with Tox
       run: tox
     - name: Generate coverage report
+        # The list of "--ignore=..." arguments should be identical to the exclusion list in Tox.ini, though without comments:
       run: >
         pytest --cov=./ --cov-report=xml
         --ignore=test/browser/combo/cookie_banner_test.py
