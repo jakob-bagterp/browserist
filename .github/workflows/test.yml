@@ -27,11 +27,40 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install tox tox-gh-actions pytest pytest-cov selenium pillow lxml keyring
+        pip install tox tox-gh-actions pytest pytest-cov selenium pillow lxml
     - name: Run tests with Tox
       run: tox
     - name: Generate coverage report
-      run: pytest --cov=./ --cov-report=xml
+      run: >-
+        pytest --cov=./ --cov-report=xml
+        # Ignore tests that require a non-headless browser and are only supported on a local machine:
+        --ignore=test/browser/combo/cookie_banner_test.py
+        --ignore=test/browser/combo/login_test.py
+        --ignore=test/browser/combo/search_test.py
+        --ignore=test/browser/input/select_headless_exception_test.py
+        --ignore=test/browser/viewport/get/height_non_headless_test.py
+        --ignore=test/browser/viewport/get/size_non_headless_1_test.py
+        --ignore=test/browser/viewport/get/width_non_headless_test.py
+        --ignore=test/browser/viewport/set/size_non_headless_2_test.py
+        --ignore=test/browser/viewport/set/size_by_device_non_headless_test.py
+        --ignore=test/browser/window/get/height_1_test.py
+        --ignore=test/browser/window/get/position_1_test.py
+        --ignore=test/browser/window/get/size_1_test.py
+        --ignore=test/browser/window/get/width_1_test.py
+        --ignore=test/browser/window/set/position_2_test.py
+        --ignore=test/browser/window/set/size_2_test.py
+        --ignore=test/browser/window/fullscreen_test.py
+        --ignore=test/browser/window/maximize_test.py
+        --ignore=test/browser/window/minimize_test.py
+        # Ignore tests that evalaute methods indirectly by timing and/or network performance,
+        # and so they likely to fail on GitHub Actions. Only run on a local machine:
+        --ignore=test/browser/open/url_if_not_current_by_timing_performance_test.py
+        --ignore=test/browser/wait/random_time_test.py
+        # Fails on GitHub Actions, but not when running Pytest on a local machine:
+        --ignore=test/browser/check_if/is_image_loaded_test.py
+        --ignore=test/browser/wait/until/images_have_loaded_test.py
+        --ignore=test/helper/image/is_element_loaded_test.py
+        --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3.1.1
       with:
