@@ -121,25 +121,11 @@ If you want a headless browser with Selenium, you typically would use different 
 ```python
 from browserist import Browser, BrowserSettings, BrowserType
 
-chrome = BrowserSettings(
-    type = BrowserType.CHROME,
-    headless = True,
-    disable_images = True
-)
+chrome = BrowserSettings(type = BrowserType.CHROME, headless = True, disable_images = True)
+edge = BrowserSettings(type = BrowserType.EDGE, headless = True, disable_images = True)
+firefox = BrowserSettings(type = BrowserType.FIREFOX, headless = True, disable_images = True)
 
-firefox = BrowserSettings(
-    type = BrowserType.FIREFOX,
-    headless = True,
-    disable_images = True
-)
-
-edge = BrowserSettings(
-    type = BrowserType.EDGE,
-    headless = True,
-    disable_images = True
-)
-
-for settings in [chrome, firefox, edge]:
+for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:
         browser.open.url("http://example.com/")
 ```
