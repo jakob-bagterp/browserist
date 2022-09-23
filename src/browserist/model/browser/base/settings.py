@@ -23,6 +23,6 @@ class BrowserSettings:
     disable_images: bool = False
     page_load_strategy: PageLoadStrategy = PageLoadStrategy.NORMAL
     path_to_executable: str | None = None
-    screenshot_dir: str = directory.CURRENT
+    screenshot_dir: str = directory.PROJECT_WORKING_DIR
     timeout: TimeoutSettings = TimeoutSettings()
     viewport: DeviceViewportSize | tuple[int, int] | None = None

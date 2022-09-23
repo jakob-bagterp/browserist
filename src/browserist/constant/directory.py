@@ -1,2 +1,1 @@
-CURRENT: str = "./"
-"""Current directory: \"./\""""
+PROJECT_WORKING_DIR: str = "./"
