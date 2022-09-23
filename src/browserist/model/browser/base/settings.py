@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from pathlib import Path
 
 from ....constant import directory
 from ....helper import operating_system
@@ -24,5 +25,6 @@ class BrowserSettings:
     page_load_strategy: PageLoadStrategy = PageLoadStrategy.NORMAL
     path_to_executable: str | None = None
     screenshot_dir: str = directory.PROJECT_WORKING_DIR
+    screenshot_dir: Path = directory.PROJECT_WORKING_DIR
     timeout: TimeoutSettings = TimeoutSettings()
     viewport: DeviceViewportSize | tuple[int, int] | None = None
