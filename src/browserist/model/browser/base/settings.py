@@ -23,7 +23,7 @@ class BrowserSettings:
     headless: bool = False
     disable_images: bool = False
     page_load_strategy: PageLoadStrategy = PageLoadStrategy.NORMAL
-    path_to_executable: str | None = None
+    path_to_executable: Path | None = None
     screenshot_dir: Path = directory.PROJECT_WORKING_DIR
     timeout: TimeoutSettings = TimeoutSettings()
     viewport: DeviceViewportSize | tuple[int, int] | None = None
