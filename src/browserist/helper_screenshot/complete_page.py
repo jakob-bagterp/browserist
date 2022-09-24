@@ -1,5 +1,6 @@
 import asyncio
 
+from .. import helper_screenshot
 from ..browser.scroll.check_if.is_end_of_page import check_if_scroll_is_end_of_page
 from ..browser.scroll.get.position import get_scroll_position
 from ..browser.scroll.page.down import scroll_page_down
@@ -9,7 +10,8 @@ from ..model.browser.base.driver import BrowserDriver
 from ..model.screenshot import ScreenshotTempDataHandler
 
 
-def firefox(browser_driver: BrowserDriver, destination_file_path: str) -> None:
+def firefox(browser_driver: BrowserDriver, file_name: str, destination_dir: str) -> None:
+    destination_file_path = helper_screenshot.file.get_path(file_name, destination_dir)
     driver = browser_driver.get_webdriver()
     driver.get_full_page_screenshot_as_file(destination_file_path)  # type: ignore
 
