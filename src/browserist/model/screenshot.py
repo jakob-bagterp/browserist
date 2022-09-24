@@ -21,14 +21,15 @@ class ScreenshotType(Enum):
 class ScreenshotTempDataHandler():
     """Class to handle iteration details and general data for screenshot of complete page, e.g. file and directory names."""
 
-    __slots__ = ["destination_dir", "destination_file_path",
-                 "_all_temp_file_paths", "_iteration", "_screenshot", "_temp_dir", "_temp_file_prefix"]
+    __slots__ = ["file_name", "destination_dir",
+                 "_all_temp_file_paths", "_destination_file_path", "_iteration", "_screenshot", "_temp_dir", "_temp_file_prefix"]
 
+    file_name: str
     destination_dir: str
-    destination_file_path: str
 
     def __post_init__(self) -> None:
-        self.destination_file_path = FilePNG(self.destination_file_path)
+        self.file_name: str = FilePNG(self.file_name)
+        self._destination_file_path: str = helper_screenshot.file.get_path(self.file_name, self.destination_dir)
         self._temp_dir: str = helper_screenshot.controller.mediate_temp_dir(self.destination_dir)
         self._all_temp_file_paths: list[str] = []
         self._temp_file_prefix: str = helper_screenshot.file.get_temp_prefix_without_iterator_and_file_type()
@@ -62,7 +63,7 @@ class ScreenshotTempDataHandler():
         self._iteration += 1
 
     async def save_complete_page_screenshot(self) -> None:
-        helper.image.save(self._screenshot, self.destination_file_path)
+        helper.image.save(self._screenshot, self._destination_file_path)
 
     async def remove_temp_files(self) -> None:
         # Rememeber to close image so we avoid PermissionError on especially Windows when trying to remove temporary files:
