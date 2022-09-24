@@ -12,7 +12,7 @@ def get_screenshot_of_complete_page(browser_driver: BrowserDriver, file_name: st
     if file_name is not None:
         file_name = FilePNG(file_name)
     file_name = helper_screenshot.controller.mediate_file_name(file_name, ScreenshotType.COMPLETE_PAGE)
-    destination_file_path = helper_screenshot.file.get_path(destination_dir, file_name)
+    destination_file_path = helper_screenshot.file.get_path(file_name, destination_dir)
 
     match browser_driver.settings.type:
         case BrowserType.FIREFOX:

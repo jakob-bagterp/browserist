@@ -18,7 +18,7 @@ def get_temp_prefix_without_iterator_and_file_type() -> str:
     return f"{timestamp}_{constant.screenshot.TEMP_FILE}"
 
 
-def get_path(destination_dir: str, file_name: str) -> str:
+def get_path(file_name: str, destination_dir: str) -> str:
     """Merge destination directory and file name into a single path. Assumes that the directory is valid and exists."""
 
     destination_dir = helper.directory.ensure_trailing_slash(destination_dir)
