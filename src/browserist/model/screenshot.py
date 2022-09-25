@@ -6,6 +6,7 @@ from PIL import Image  # type: ignore
 from .. import helper, helper_screenshot
 from ..model.browser.base.driver import BrowserDriver
 from .type.file_png import FilePNG
+from .type.path import FilePath
 
 
 @unique
@@ -25,11 +26,11 @@ class ScreenshotTempDataHandler():
                  "_all_temp_file_paths", "_destination_file_path", "_iteration", "_screenshot", "_temp_dir", "_temp_file_prefix"]
 
     file_name: FilePNG
-    destination_dir: str
+    destination_dir: FilePath
 
     def __post_init__(self) -> None:
         self._destination_file_path: str = helper_screenshot.file.get_path(self.file_name, self.destination_dir)
-        self._temp_dir: str = helper_screenshot.controller.mediate_temp_dir(self.destination_dir)
+        self._temp_dir: FilePath = helper_screenshot.controller.mediate_temp_dir(self.destination_dir)
         self._all_temp_file_paths: list[str] = []
         self._temp_file_prefix: str = helper_screenshot.file.get_temp_prefix_without_iterator_and_file_type()
         self._iteration: int = 1

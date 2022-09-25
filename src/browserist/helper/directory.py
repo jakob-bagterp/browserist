@@ -3,10 +3,11 @@ import re
 import urllib
 
 from ..constant import directory
+from ..model.type.path import FilePath
 from . import operating_system
 
 
-def create_if_not_exists(dir_name: str) -> None:
+def create_if_not_exists(dir_name: FilePath) -> None:
     if dir_name == directory.PROJECT_WORKING_DIR:
         return
     if not os.path.exists(dir_name):
