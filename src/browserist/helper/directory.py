@@ -14,10 +14,6 @@ def create_if_not_exists(dir_name: FilePath) -> None:
         os.mkdir(dir_name)
 
 
-def ensure_trailing_slash(dir_name: str) -> str:
-    return dir_name if dir_name[-1] == "/" else f"{dir_name}/"
-
-
 def encode_path_as_url(path: str) -> str:
     url_encoded_path = str(urllib.parse.quote(path, safe="/:"))
     return url_encoded_path.replace("%2520", "%20")  # Handle edge cases.
