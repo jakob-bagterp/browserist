@@ -1,5 +1,7 @@
 from PIL import Image  # type: ignore
 
+from ..model.type.path import FilePath
+
 
 def is_element_loaded(driver: object, element: object) -> bool:
     """Check if image element is loaded and ready in the DOM."""
@@ -30,7 +32,7 @@ def open(file_path: str) -> Image:  # type: ignore
     return Image.open(file_path)
 
 
-def save(image: Image, file_path: str) -> Image:  # type: ignore
+def save(image: Image, file_path: FilePath) -> Image:  # type: ignore
     """Save image to file path."""
 
     return image.save(file_path)

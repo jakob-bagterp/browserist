@@ -29,7 +29,7 @@ class ScreenshotTempDataHandler():
     destination_dir: FilePath
 
     def __post_init__(self) -> None:
-        self._destination_file_path: str = helper_screenshot.file.get_path(self.file_name, self.destination_dir)
+        self._destination_file_path: FilePath = helper_screenshot.file.get_path(self.file_name, self.destination_dir)
         self._temp_dir: FilePath = helper_screenshot.controller.mediate_temp_dir(self.destination_dir)
         self._all_temp_file_paths: list[str] = []
         self._temp_file_prefix: str = helper_screenshot.file.get_temp_prefix_without_iterator_and_file_type()

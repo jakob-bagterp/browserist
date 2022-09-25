@@ -1,7 +1,8 @@
-from .. import constant, helper
+from .. import constant
 from ..helper.date_time import get_current_date_and_time, get_timestamp
 from ..model.screenshot import ScreenshotType
 from ..model.type.file_png import FilePNG
+from ..model.type.path import FilePath
 
 
 def get_default_name(screenshot_type: ScreenshotType | None = None) -> FilePNG:
@@ -19,8 +20,8 @@ def get_temp_prefix_without_iterator_and_file_type() -> str:
     return f"{timestamp}_{constant.screenshot.TEMP_FILE}"
 
 
-def get_path(file_name: FilePNG, destination_dir: str) -> str:
+def get_path(file_name: FilePNG, destination_dir: FilePath) -> FilePath:
     """Merge destination directory and file name into a single path. Assumes that the directory is valid and exists."""
 
-    destination_dir = helper.directory.ensure_trailing_slash(destination_dir)
-    return f"{destination_dir}{file_name}"
+    destination_dir_path = destination_dir.path.joinpath(file_name)
+    return FilePath(destination_dir_path)
