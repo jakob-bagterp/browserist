@@ -11,12 +11,12 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.INTERNET_EXPLORER
 
     def set_webdriver(self) -> object:
-        if self.settings.path_to_executable is None:
+        if self.settings._path_to_executable is None:
             return webdriver.Ie(
                 options=self.ie_options)
         else:
             return webdriver.Ie(
-                executable_path=self.settings.path_to_executable.resolve(),
+                executable_path=self.settings._path_to_executable,
                 options=self.ie_options)
 
     def disable_images(self) -> None:
