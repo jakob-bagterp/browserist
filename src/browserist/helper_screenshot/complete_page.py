@@ -9,15 +9,16 @@ from ..browser.scroll.to_position import scroll_to_position
 from ..model.browser.base.driver import BrowserDriver
 from ..model.screenshot import ScreenshotTempDataHandler
 from ..model.type.file_png import FilePNG
+from ..model.type.path import FilePath
 
 
-def firefox(browser_driver: BrowserDriver, file_name: FilePNG, destination_dir: str) -> None:
+def firefox(browser_driver: BrowserDriver, file_name: FilePNG, destination_dir: FilePath) -> None:
     destination_file_path = helper_screenshot.file.get_path(file_name, destination_dir)
     driver = browser_driver.get_webdriver()
     driver.get_full_page_screenshot_as_file(destination_file_path)  # type: ignore
 
 
-async def default(browser_driver: BrowserDriver, file_name: FilePNG, destination_dir: str, delay_seconds: float) -> None:
+async def default(browser_driver: BrowserDriver, file_name: FilePNG, destination_dir: FilePath, delay_seconds: float) -> None:
     async def async_scroll_to_top_of_page(browser_driver: BrowserDriver, delay_seconds: float) -> None:
         scroll_to_top_of_page(browser_driver, delay_seconds=0)
         # Instead of a blocking wait/delay in the above method, let's release the working thread to do something else:
