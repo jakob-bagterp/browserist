@@ -20,8 +20,9 @@ class BrowserSettings:
 
     viewport: Emulate a viewport size upon initiation by either a common device or a custom value in pixels "(width, height)". If no value, the browser's default is used."""
 
-    __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
-                 "_path_to_executable", "_screenshot_dir"]
+    # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
+    # __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
+    #             "_path_to_executable", "_screenshot_dir"]
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False
