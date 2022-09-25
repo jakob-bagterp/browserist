@@ -2,13 +2,14 @@ from .. import constant, helper, helper_screenshot
 from ..model.browser.base.settings import BrowserSettings
 from ..model.screenshot import ScreenshotType
 from ..model.type.file_png import FilePNG
+from ..model.type.path import FilePath
 
 
 def mediate_file_name(file_name: FilePNG | None, screenshot_type: ScreenshotType | None = None) -> FilePNG:
     return helper_screenshot.file.get_default_name(screenshot_type) if file_name is None else file_name
 
 
-def mediate_destination_dir(settings: BrowserSettings, destination_dir: str | None = None) -> str:
+def mediate_destination_dir(settings: BrowserSettings, destination_dir: FilePath | None = None) -> FilePath:
     if destination_dir is None:
         return settings._screenshot_dir
     helper.directory.create_if_not_exists(destination_dir)
