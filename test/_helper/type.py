@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Callable
 
 from browserist.model.type.file_png import FilePNG
@@ -18,6 +19,19 @@ def validate_representation(type: FilePNGCallable | URLCallable | XPathCallable,
     tiny_type = type(input)
     assert expected_output == tiny_type
     assert expected_output == tiny_type.value
+
+
+def validate_representation_file_path(type: FilePathCallable, input: str | Path) -> None:
+    """Test that the FilePath tiny type represents itself as a string."""
+
+    expected_output = input
+    file_path = type(input)
+    if isinstance(input, Path):
+        assert expected_output == file_path.path
+        assert str(expected_output.resolve()) == file_path == str(file_path.path.resolve())
+    else:
+        assert expected_output == file_path
+        assert expected_output == str(file_path.path.resolve())
 
 
 def validate_bypass(type: FilePathCallable | FilePNGCallable | URLCallable | XPathCallable, input: str) -> None:
