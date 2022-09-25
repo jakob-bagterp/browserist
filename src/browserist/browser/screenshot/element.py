@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from ... import helper_screenshot
 from ...constant import timeout
 from ...model.browser.base.driver import BrowserDriver
@@ -7,7 +9,7 @@ from ...model.type.xpath import XPath
 from ..get.element import get_element
 
 
-def get_screenshot_of_element(browser_driver: BrowserDriver, xpath: str, file_name: str | None = None, destination_dir: str | None = None) -> None:
+def get_screenshot_of_element(browser_driver: BrowserDriver, xpath: str, file_name: str | None = None, destination_dir: str | Path | None = None) -> None:
     xpath = XPath(xpath)
     if file_name is not None:
         file_name = FilePNG(file_name)

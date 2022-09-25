@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from .. import constant, helper, helper_screenshot
 from ..model.browser.base.settings import BrowserSettings
 from ..model.screenshot import ScreenshotType
@@ -9,11 +11,12 @@ def mediate_file_name(file_name: FilePNG | None, screenshot_type: ScreenshotType
     return helper_screenshot.file.get_default_name(screenshot_type) if file_name is None else file_name
 
 
-def mediate_destination_dir(settings: BrowserSettings, destination_dir: FilePath | None = None) -> FilePath:
+def mediate_destination_dir(settings: BrowserSettings, destination_dir: str | Path | None = None) -> FilePath:
     if destination_dir is None:
         return settings._screenshot_dir
+    destination_dir = FilePath(destination_dir)
     helper.directory.create_if_not_exists(destination_dir)
-    return helper.directory.ensure_trailing_slash(destination_dir)
+    return destination_dir
 
 
 def mediate_temp_dir(destination_dir: str) -> str:

@@ -1,14 +1,14 @@
 import asyncio
+from pathlib import Path
 
 from ... import helper_screenshot
 from ...model.browser.base.driver import BrowserDriver
 from ...model.browser.base.type import BrowserType
 from ...model.screenshot import ScreenshotType
 from ...model.type.file_png import FilePNG
-from ...model.type.path import FilePath
 
 
-def get_screenshot_of_complete_page(browser_driver: BrowserDriver, file_name: str | None = None, destination_dir: FilePath | None = None, delay_seconds: float = 1) -> None:
+def get_screenshot_of_complete_page(browser_driver: BrowserDriver, file_name: str | None = None, destination_dir: str | Path | None = None, delay_seconds: float = 1) -> None:
     destination_dir = helper_screenshot.controller.mediate_destination_dir(browser_driver.settings, destination_dir)
     if file_name is not None:
         file_name = FilePNG(file_name)

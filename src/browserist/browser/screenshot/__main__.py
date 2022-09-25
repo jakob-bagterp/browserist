@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .complete_page import get_screenshot_of_complete_page
@@ -9,7 +11,7 @@ class ScreenshotDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def complete_page(self, file_name: str | None = None, destination_dir: str | None = None, delay_seconds: float = 0.25) -> None:
+    def complete_page(self, file_name: str | None = None, destination_dir: str | Path | None = None, delay_seconds: float = 0.25) -> None:
         """Take screenshot of complete page and save as PNG image. Default destination directory is from where the script is executed. Examples:
 
         browser.screenshot.complete_page() # Default file name and destination
@@ -27,7 +29,7 @@ class ScreenshotDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             get_screenshot_of_complete_page(self._browser_driver, file_name, destination_dir, delay_seconds)
 
-    def element(self, xpath: str, file_name: str | None = None, destination_dir: str | None = None) -> None:
+    def element(self, xpath: str, file_name: str | None = None, destination_dir: str | Path | None = None) -> None:
         """Take screenshot of visible portion and save as PNG image. Default destination directory is from where the script is executed. Examples:
 
         browser.screenshot.element("/element/xpath") # Default file name and destination
@@ -43,7 +45,7 @@ class ScreenshotDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             get_screenshot_of_element(self._browser_driver, xpath, file_name, destination_dir)
 
-    def visible_portion(self, file_name: str | None = None, destination_dir: str | None = None) -> None:
+    def visible_portion(self, file_name: str | None = None, destination_dir: str | Path | None = None) -> None:
         """Take screenshot of visible portion and save as PNG image. Default destination directory is from where the script is executed. Examples:
 
         browser.screenshot.visible_portion() # Default file name and destination
