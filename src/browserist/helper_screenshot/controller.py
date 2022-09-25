@@ -13,6 +13,7 @@ def mediate_file_name(file_name: FilePNG | None, screenshot_type: ScreenshotType
 
 def mediate_destination_dir(settings: BrowserSettings, destination_dir: str | Path | None = None) -> FilePath:
     if destination_dir is None:
+        # As the default screenshot directory is the project's working directory, we don't need to create it.
         return settings._screenshot_dir
     destination_dir = FilePath(destination_dir)
     helper.directory.create_if_not_exists(destination_dir)
