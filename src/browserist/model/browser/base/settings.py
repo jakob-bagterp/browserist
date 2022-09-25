@@ -21,17 +21,18 @@ class BrowserSettings:
     viewport: Emulate a viewport size upon initiation by either a common device or a custom value in pixels "(width, height)". If no value, the browser's default is used."""
 
     __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
-                 "_path_to_executable"]
+                 "_path_to_executable", "_screenshot_dir"]
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False
     disable_images: bool = False
     page_load_strategy: PageLoadStrategy = PageLoadStrategy.NORMAL
     path_to_executable: str | Path | None = None
-    screenshot_dir: Path = directory.PROJECT_WORKING_DIR
+    screenshot_dir: str | Path = directory.PROJECT_WORKING_DIR
     timeout: TimeoutSettings = TimeoutSettings()
     viewport: DeviceViewportSize | tuple[int, int] | None = None
 
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
             self.path_to_executable)
+        self._screenshot_dir: FilePath = FilePath(self.screenshot_dir)
