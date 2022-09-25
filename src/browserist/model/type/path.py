@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 class FilePath(str):
-    """Class to handle directory or file paths as "tiny type"."""
+    """Class to handle directory or file paths as "tiny type". It converts and stores the value as a Path object. Intended for internal use only and to handle both string and Path inputs."""
 
     __slots__ = ["path"]
 
