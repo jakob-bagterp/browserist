@@ -10,12 +10,12 @@ class OperaBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.OPERA
 
     def set_webdriver(self) -> object:
-        if self.settings.path_to_executable is None:
+        if self.settings._path_to_executable is None:
             return webdriver.Opera(  # type: ignore
                 options=self.chrome_options)
         else:
             return webdriver.Opera(  # type: ignore
-                executable_path=self.settings.path_to_executable,
+                executable_path=self.settings._path_to_executable,
                 options=self.chrome_options)
 
     def disable_images(self) -> None:

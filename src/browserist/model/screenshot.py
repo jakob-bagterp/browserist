@@ -6,6 +6,7 @@ from PIL import Image  # type: ignore
 from .. import helper, helper_screenshot
 from ..model.browser.base.driver import BrowserDriver
 from .type.file_png import FilePNG
+from .type.path import FilePath
 
 
 @unique
@@ -18,29 +19,29 @@ class ScreenshotType(Enum):
 
 
 @dataclass(kw_only=True)
-class ScreenshotTempDataHandler():
+class ScreenshotTempDataHandler:
     """Class to handle iteration details and general data for screenshot of complete page, e.g. file and directory names."""
 
-    __slots__ = ["destination_dir", "destination_file_path",
-                 "_all_temp_file_paths", "_iteration", "_screenshot", "_temp_dir", "_temp_file_prefix"]
+    __slots__ = ["file_name", "destination_dir",
+                 "_all_temp_file_paths", "_destination_file_path", "_iteration", "_screenshot", "_temp_dir", "_temp_file_prefix"]
 
-    destination_dir: str
-    destination_file_path: str
+    file_name: FilePNG
+    destination_dir: FilePath
 
     def __post_init__(self) -> None:
-        self.destination_file_path = FilePNG(self.destination_file_path)
-        self._temp_dir: str = helper_screenshot.controller.mediate_temp_dir(self.destination_dir)
-        self._all_temp_file_paths: list[str] = []
+        self._destination_file_path: FilePath = helper_screenshot.file.get_path(self.file_name, self.destination_dir)
+        self._temp_dir: FilePath = helper_screenshot.controller.mediate_temp_dir(self.destination_dir)
+        self._all_temp_file_paths: list[FilePath] = []
         self._temp_file_prefix: str = helper_screenshot.file.get_temp_prefix_without_iterator_and_file_type()
         self._iteration: int = 1
         self._screenshot: Image  # type: ignore
 
-    def get_temp_file_name(self) -> str:
-        return f"{self._temp_file_prefix}_{self._iteration}.png"
+    def get_temp_file_name(self) -> FilePNG:
+        return FilePNG(f"{self._temp_file_prefix}_{self._iteration}.png")
 
-    def get_temp_file_path(self) -> str:
+    def get_temp_file_path(self) -> FilePath:
         temp_file_name = self.get_temp_file_name()
-        return helper_screenshot.file.get_path(self._temp_dir, temp_file_name)
+        return helper_screenshot.file.get_path(temp_file_name, self._temp_dir)
 
     async def save_temp_screenshot(self, browser_driver: BrowserDriver) -> None:
         temp_file_path = self.get_temp_file_path()
@@ -62,7 +63,7 @@ class ScreenshotTempDataHandler():
         self._iteration += 1
 
     async def save_complete_page_screenshot(self) -> None:
-        helper.image.save(self._screenshot, self.destination_file_path)
+        helper.image.save(self._screenshot, self._destination_file_path)
 
     async def remove_temp_files(self) -> None:
         # Rememeber to close image so we avoid PermissionError on especially Windows when trying to remove temporary files:
