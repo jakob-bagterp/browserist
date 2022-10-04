@@ -1,5 +1,5 @@
-from pathlib import Path
 from collections.abc import Callable
+from pathlib import Path
 
 from browserist.model.type.file_png import FilePNG
 from browserist.model.type.path import FilePath
