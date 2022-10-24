@@ -4,7 +4,7 @@ from _mock_data.url import internal_url
 
 from browserist import Browser
 
-MARGIN = 0.10  # 10%
+MARGIN = 0.12  # 12%
 
 
 @pytest.mark.parametrize("url, expected_total_scroll_height", [

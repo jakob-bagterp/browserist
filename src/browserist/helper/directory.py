@@ -3,18 +3,15 @@ import re
 import urllib
 
 from ..constant import directory
+from ..model.type.path import FilePath
 from . import operating_system
 
 
-def create_if_not_exists(dir_name: str) -> None:
-    if dir_name == directory.CURRENT:
+def create_if_not_exists(dir_name: FilePath) -> None:
+    if dir_name == directory.PROJECT_WORKING_DIR:
         return
     if not os.path.exists(dir_name):
         os.mkdir(dir_name)
-
-
-def ensure_trailing_slash(dir_name: str) -> str:
-    return dir_name if dir_name[-1] == "/" else f"{dir_name}/"
 
 
 def encode_path_as_url(path: str) -> str:

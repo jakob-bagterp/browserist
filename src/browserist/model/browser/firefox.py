@@ -10,12 +10,12 @@ class FirefoxBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.FIREFOX
 
     def set_webdriver(self) -> object:
-        if self.settings.path_to_executable is None:
+        if self.settings._path_to_executable is None:
             return webdriver.Firefox(  # type: ignore
                 options=self.firefox_options)
         else:
             return webdriver.Firefox(  # type: ignore
-                executable_path=self.settings.path_to_executable,
+                executable_path=self.settings._path_to_executable,
                 options=self.firefox_options)
 
     def disable_images(self) -> None:

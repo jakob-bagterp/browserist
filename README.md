@@ -1,6 +1,7 @@
-[![Latest version](https://img.shields.io/static/v1?label=version&message=1.0.1&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=1.1.3&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
 ![Python >=3.10](https://img.shields.io/static/v1?label=python&message=>=3.10&color=blueviolet)
 [![MIT license](https://img.shields.io/static/v1?label=license&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
+[![Codecov](https://codecov.io/gh/jakob-bagterp/browserist/branch/master/graph/badge.svg?token=1JL65T099J)](https://codecov.io/gh/jakob-bagterp/browserist)
 [![Test](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml)
 
 # 👩‍💻 Browserist Extension for Selenium 👨‍💻
@@ -23,56 +24,11 @@ Main features of Browserist:
 * [Selenium](https://www.selenium.dev)
 * Relevant browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
-## Installation
-### PyPI
-Assuming that Python is installed already, execute this command in the terminal:
-
-```shell
-pip3 install browserist
-```
-
-If you already have installed Browserist, use this command to upgrade to latest version:
-
-```shell
-pip3 install --upgrade browserist
-```
-
-### Homebrew
-If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap Browserist:
-
-```shell
-brew tap jakob-bagterp/browserist
-```
-
-And then install:
-
-```shell
-brew install browserist
-```
-
-### Recommended Add-Ons
-#### ChromeDriver for Google Chrome
-```shell
-pip3 install chromedriver
-```
-
-```shell
-brew install chromedriver
-```
-
-More info [here](https://chromedriver.chromium.org).
-
-#### Microsoft Edge Driver
-More info and download [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
-
-#### GeckoDriver for Mozilla Firefox
-```shell
-brew install geckodriver
-```
-
-More info [here](https://github.com/mozilla/geckodriver).
+## How to Install
+Find a guide [here](./HOW_TO_INSTALL.md).
 
 ## Getting Started
+
 The default browser is Chrome (except Edge for Windows). Simply type:
 
 ```python
@@ -182,3 +138,17 @@ with Browser(settings) as browser:
 | -------------------------- | ------------------------------------------------------------------- |
 | `TimeoutStrategy.STOP`     | Default. Fail fast upon timeout and raise errors.                   |
 | `TimeoutStrategy.CONTINUE` | Continue despite timeouts and most errors (syntax errors excluded). |
+
+## Emulate Viewport of Common Devices
+You can set the viewport to emulate common device sizes or to a custom size. Note that it's recommended to run emulations in headless mode since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor. Example:
+
+```python
+from browserist import Browser, BrowserSettings, common_devices
+
+settings = BrowserSettings(headless = True)
+
+with Browser(settings) as browser:
+    browser.viewport.set.size_by_device(common_devices.Apple.IPHONE_SE)
+    browser.open.url("http://example.com/")
+    browser.viewport.set.size(768, 1024)
+```

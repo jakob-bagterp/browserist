@@ -21,7 +21,7 @@ class BrowserDriver(ABC):
         """Initiates basic properties of the Selenium web driver."""
 
         self.settings = settings
-        helper.directory.create_if_not_exists(self.settings.screenshot_dir)
+        helper.directory.create_if_not_exists(self.settings._screenshot_dir)
 
         match(self.settings.type):
             case BrowserType.CHROME | BrowserType.OPERA:
@@ -33,7 +33,7 @@ class BrowserDriver(ABC):
             case BrowserType.INTERNET_EXPLORER:
                 self.ie_options: IEOptions = IEOptions()  # type: ignore
             case BrowserType.SAFARI:
-                self.safari_options: SafariOptions = SafariOptions()  # type: ignore
+                self.safari_options: SafariOptions = SafariOptions()
 
         self.ensure_browser_type()
         self.set_options_and_profile()

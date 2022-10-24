@@ -8,5 +8,11 @@ from ..wait.for_element import wait_for_element
 def get_element(browser_driver: BrowserDriver, xpath: str, timeout: float) -> object:
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
+    return get_element_without_wait(browser_driver, xpath)
+
+
+def get_element_without_wait(browser_driver: BrowserDriver, xpath: XPath) -> object:
+    """Variation of the get_element() method for internal use only. It assumes that the XPath has already been validated."""
+
     driver = browser_driver.get_webdriver()
     return driver.find_element(By.XPATH, xpath)  # type: ignore
