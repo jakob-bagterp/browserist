@@ -33,7 +33,7 @@ class BrowserDriver(ABC):
             case BrowserType.INTERNET_EXPLORER:
                 self.ie_options: IEOptions = IEOptions()  # type: ignore
             case BrowserType.SAFARI:
-                self.safari_options: SafariOptions = SafariOptions()  # type: ignore
+                self.safari_options: SafariOptions = SafariOptions()
 
         self.ensure_browser_type()
         self.set_options_and_profile()
