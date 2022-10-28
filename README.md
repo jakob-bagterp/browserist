@@ -97,7 +97,7 @@ search_button.click()
 driver.quit()
 ```
 
-Browserist does the same with less and cleaner code, yet with higher stability and without explicit/implicit waits:
+Browserist does the same with less and cleaner code, yet also with increased stability and without explicit/implicit waits:
 
 ```python
 from browserist import Browser
