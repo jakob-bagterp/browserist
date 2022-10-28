@@ -116,7 +116,7 @@ As you can't click a button that's not ready in the DOM, Browserist simply check
 | Consequence: | _Code breaks_ | _Stable and fast_  |     _Slow_     |
 
 ## Settings
-If you want a headless browser with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised. As an example, you can easily scale test runs across different browsers in a lightweight, headless configuration:
+If you want a headless browser with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised. For example, you can easily scale test runs across different browsers in a lightweight, headless configuration:
 
 ```python
 from browserist import Browser, BrowserSettings, BrowserType
@@ -134,16 +134,16 @@ Use `BrowserSettings` with the following options:
 
 | Setting              | Option                                    | Description |
 | -------------------- | ----------------------------------------- | ----------- |
-| `type`               | `BrowserType`                             | Select browser (Chrome, Edge, Firefox, etc.). |
+| `type`               | `BrowserType`                             | Set browser type, e.g. Chrome, Edge, Firefox, etc. |
 | `headless`           | `True` or `False`                         | Run the browser in headless mode. May not be supported by all browsers. |
-| `disable_images`     | `True` or `False`                         | Don't request nor render images, which typically improves loading speed. May not be supported by all browsers. |
-| `page_load_strategy` | `PageLoadStrategy`                        | Select page load strategy. |
+| `disable_images`     | `True` or `False`                         | Neither request nor render images, which typically improves loading speed. May not be supported by all browsers. |
+| `page_load_strategy` | `PageLoadStrategy`                        | Set page load strategy. |
 | `path_to_executable` | Path to file                              | If the browser executable isn't in a default folder, select which file to use. |
-| `screenshot_dir`     | Path to directory                         | Select where to save sreenshots. Default is current directory. |
-| `timeout`            | `TimeoutSettings`                         | Select timeout strategy and settings. |
-| `viewport`           | `DeviceViewportSize` or `(width, height)` | Emulate viewport as deview or set as custom value in pixels. |
+| `screenshot_dir`     | Path to directory                         | Set where to save sreenshots. Default is the directory of Browserist. |
+| `timeout`            | `TimeoutSettings`                         | Set timeout strategy and settings. |
+| `viewport`           | `DeviceViewportSize` or `(width, height)` | Emulate viewport size as device or set custom value in pixels. |
 
-### Timeout Strategy and Settings
+### Timeout Strategy
 What happens if a function times out: Should the browser stop or continue its operation?
 
 Define a general strategy and timeout in seconds:
