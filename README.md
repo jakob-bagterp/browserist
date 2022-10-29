@@ -97,7 +97,7 @@ search_button.click()
 driver.quit()
 ```
 
-Browserist does the same with less and cleaner code, yet with higher stability and without explicit/implicit waits:
+Browserist does the same with less and cleaner code, yet also with increased stability and without explicit/implicit waits:
 
 ```python
 from browserist import Browser
@@ -115,7 +115,35 @@ As you can't click a button that's not ready in the DOM, Browserist simply check
 | Example:     | time.sleep(1) | wait.for_element() | time.sleep(10) |
 | Consequence: | _Code breaks_ | _Stable and fast_  |     _Slow_     |
 
-## Timeout Strategy and Settings
+## Settings
+If you want a headless browser with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised. For example, you can easily scale test runs across different browsers in a lightweight, headless configuration:
+
+```python
+from browserist import Browser, BrowserSettings, BrowserType
+
+chrome = BrowserSettings(type = BrowserType.CHROME, headless = True, disable_images = True)
+edge = BrowserSettings(type = BrowserType.EDGE, headless = True, disable_images = True)
+firefox = BrowserSettings(type = BrowserType.FIREFOX, headless = True, disable_images = True)
+
+for settings in [chrome, edge, firefox]:
+    with Browser(settings) as browser:
+        browser.open.url("http://example.com/")
+```
+
+Use `BrowserSettings` with the following options:
+
+| Setting              | Option                                    | Default                              | Description                                                                                                      |
+| -------------------- | ----------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| `type`               | `BrowserType`                             | `BrowserType.CHROME`                 | Set browser type, e.g. Chrome, Edge, Firefox, etc.                                                               |
+| `headless`           | `True` or `False`                         | `False`                              | Run the browser in headless mode. May not be supported by all browsers.                                          |
+| `disable_images`     | `True` or `False`                         | `False`                              | Neither request nor render images, which typically improves loading speed. May not be supported by all browsers. |
+| `page_load_strategy` | `PageLoadStrategy`                        | `PageLoadStrategy.NORMAL`            | Set page load strategy.                                                                                          |
+| `path_to_executable` | Path to file                              | System default                       | If the browser executable isn't in a default folder, select which file to use.                                   |
+| `screenshot_dir`     | Path to directory                         | System default                       | Set where to save sreenshots. Default is the directory of Browserist.                                            |
+| `timeout`            | `TimeoutSettings`                         | `TimeoutStrategy.STOP` and 5 seconds | Set timeout strategy and time.                                                                                   |
+| `viewport`           | `DeviceViewportSize` or `(width, height)` | Browser default                      | Emulate viewport size as device or set custom value in pixels.                                                   |
+
+### Timeout Strategy
 What happens if a function times out: Should the browser stop or continue its operation?
 
 Define a general strategy and timeout in seconds:
@@ -133,13 +161,13 @@ with Browser(settings) as browser:
     browser.open.url("http://example.com/")
 ```
 
-### Strategy Options
+#### Strategy Options
 | Option                     | Description                                                         |
 | -------------------------- | ------------------------------------------------------------------- |
 | `TimeoutStrategy.STOP`     | Default. Fail fast upon timeout and raise errors.                   |
 | `TimeoutStrategy.CONTINUE` | Continue despite timeouts and most errors (syntax errors excluded). |
 
-## Emulate Viewport of Common Devices
+### Emulate Viewport of Common Devices
 You can set the viewport to emulate common device sizes or to a custom size. Note that it's recommended to run emulations in headless mode since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor. Example:
 
 ```python
