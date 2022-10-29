@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from ..device import DeviceViewportSize
 
 
-@dataclass
+@dataclass(slots=True, frozen=True)
 class AppleDevices:
     """Reference: https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html"""
 
