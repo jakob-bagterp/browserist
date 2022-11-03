@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from ..device import DeviceViewportSize
 
 
-@dataclass
+@dataclass(slots=True, frozen=True)
 class SamsungDevices:
     GALAXY_S8_PLUS = DeviceViewportSize(360, 740)
     GALAXY_S20_ULTRA = DeviceViewportSize(412, 915)
