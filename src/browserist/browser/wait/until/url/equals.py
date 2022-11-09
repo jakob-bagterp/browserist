@@ -12,7 +12,7 @@ def wait_until_url_equals(browser_driver: BrowserDriver, url: str, timeout: floa
     url = URL(url)
     try:
         driver = browser_driver.get_webdriver()
-        WebDriverWait(driver, timeout).until(EC.url_matches(url))  # type: ignore
+        WebDriverWait(driver, timeout).until(EC.url_matches(url))
     except TimeoutException:
         browser_driver.settings = set_is_timed_out(browser_driver.settings)
         if not should_continue(browser_driver.settings):
