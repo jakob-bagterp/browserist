@@ -17,17 +17,22 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     browser_driver: BrowserDriver = driver_method._browser_driver
     has_cookie_banner_been_clicked: bool | None = None
 
+    # Load cookie banner:
     if cookie_banner.url is not None and timeout_should_continue():
         open_url_if_not_current(browser_driver, cookie_banner.url)
     if cookie_banner.has_loaded_wait_seconds is not None:
         time.sleep(cookie_banner.has_loaded_wait_seconds)
     if cookie_banner.has_loaded_xpath is not None and timeout_should_continue():
         wait_for_element(browser_driver, cookie_banner.has_loaded_xpath, timeout)
+
+    # Click cookie banner button:
     if timeout_should_continue():
         wait_for_element(browser_driver, cookie_banner.button_xpath, timeout)
         if check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
             has_cookie_banner_been_clicked = False
         click_button_without_wait(browser_driver, cookie_banner.button_xpath)  # type: ignore
+
+    # Wait for cookie banner to disappear and allow cookie value to be saved:
     if cookie_banner.has_disappeared_wait_seconds is not None:
         time.sleep(cookie_banner.has_disappeared_wait_seconds)
     else:
