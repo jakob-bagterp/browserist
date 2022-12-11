@@ -5,8 +5,8 @@ from enum import Enum, unique
 class ComboHandlingState(Enum):
     """Class to define handling states of combo method."""
 
-    # Intended as inital value for handling variable. Will be evaluated to False for conditional if statements:
-    NOT_STARTED = None
+    # Intended as inital value for handling variable:
+    NOT_STARTED = None  # NB: Will be evaluated similar to False when used in conditional if statements.
 
     # Combo flow in progress and initial checks completed successfully:
     NOT_YET = False
