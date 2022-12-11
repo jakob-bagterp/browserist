@@ -34,7 +34,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         time.sleep(constant.timeout.VERY_SHORT)
     if timeout_should_continue():
         wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
-        if not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
+        if has_cookie_banner_been_clicked is not None and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
             has_cookie_banner_been_clicked = True
 
     return has_cookie_banner_been_clicked
