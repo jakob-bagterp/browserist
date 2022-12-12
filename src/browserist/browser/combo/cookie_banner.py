@@ -30,7 +30,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     if timeout_should_continue():
         wait_for_element(browser_driver, cookie_banner.button_xpath, timeout)
         if check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
-            has_cookie_banner_been_handled = has_cookie_banner_been_handled.NOT_YET
+            has_cookie_banner_been_handled = ComboHandlingState.NOT_YET
         click_button_without_wait(browser_driver, cookie_banner.button_xpath)  # type: ignore
 
     # Wait for cookie banner to disappear and allow cookie value to be saved:
@@ -41,6 +41,6 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     if timeout_should_continue():
         wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
         if has_cookie_banner_been_handled is not ComboHandlingState.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
-            has_cookie_banner_been_handled = has_cookie_banner_been_handled.YES_AND_WITH_SUCCESS
+            has_cookie_banner_been_handled = ComboHandlingState.YES_AND_WITH_SUCCESS
 
     return has_cookie_banner_been_handled.value
