@@ -3,7 +3,7 @@ import time
 from ... import constant
 from ...model.browser.base.driver import BrowserDriver
 from ...model.combo_settings.cookie_banner import CookieBannerSettings
-from ...model.combo_settings.handling_state import ComboHandlingState
+from ...model.combo_settings.handling_state import ComboHandlingState, IsComboHandled
 from ...model.driver_methods import DriverMethods
 from ...model.type.callable import TimeoutShouldContinueCallable
 from ..check_if.is_displayed import check_if_is_displayed
@@ -16,7 +16,7 @@ from ..wait.until.element_disappears import wait_until_element_disappears
 def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBannerSettings, timeout: float) -> bool | None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
     browser_driver: BrowserDriver = driver_method._browser_driver
-    has_cookie_banner_been_handled: ComboHandlingState = ComboHandlingState.NOT_STARTED
+    handling_state: ComboHandlingState = ComboHandlingState()
 
     # Load cookie banner:
     if cookie_banner.url is not None and timeout_should_continue():
@@ -30,7 +30,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     if timeout_should_continue():
         wait_for_element(browser_driver, cookie_banner.button_xpath, timeout)
         if check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
-            has_cookie_banner_been_handled = ComboHandlingState.NOT_YET
+            handling_state.current = IsComboHandled.NOT_YET_BUT_SOON
         click_button_without_wait(browser_driver, cookie_banner.button_xpath)  # type: ignore
 
     # Wait for cookie banner to disappear and allow cookie value to be saved:
@@ -40,7 +40,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         time.sleep(constant.timeout.VERY_SHORT)
     if timeout_should_continue():
         wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
-        if has_cookie_banner_been_handled is not ComboHandlingState.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
-            has_cookie_banner_been_handled = ComboHandlingState.YES_AND_WITH_SUCCESS
+        if handling_state.current is not IsComboHandled.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
+            handling_state.current = IsComboHandled.YES_AND_WITH_SUCCESS
 
-    return has_cookie_banner_been_handled.value
+    return handling_state.get_current_state()
