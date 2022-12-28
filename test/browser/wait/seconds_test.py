@@ -6,7 +6,7 @@ from _helper.timeout import reset_to_not_timed_out
 
 from browserist import Browser
 
-TIMING_MARGIN = 10 / 100  # 10%
+TIMING_MARGIN = 20 / 100  # 20%
 
 
 @pytest.mark.parametrize("seconds", [
