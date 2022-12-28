@@ -42,6 +42,7 @@ jobs:
         --ignore=test/browser/window/minimize_test.py
         --ignore=test/browser/open/url_if_not_current_by_timing_performance_test.py
         --ignore=test/browser/wait/random_seconds_test.py
+        --ignore=test/browser/wait/seconds_test.py
         --ignore=test/browser/check_if/is_image_loaded_test.py
         --ignore=test/browser/wait/until/images_have_loaded_test.py
         --ignore=test/helper/image/is_element_loaded_test.py
