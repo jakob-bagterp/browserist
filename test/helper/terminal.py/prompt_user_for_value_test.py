@@ -10,5 +10,5 @@ from browserist import helper
 ])
 def test_prompt_user_for_value(user_input: str, validate_input_regex: str | None, monkeypatch: MonkeyPatch) -> None:
     monkeypatch.setattr("builtins.input", lambda _: user_input)
-    output = helper.terminal.prompt_user_for_value("Input a  value: ", validate_input_regex)
+    output = helper.terminal.prompt_user_for_value("Input a value:", validate_input_regex)
     assert user_input == output
