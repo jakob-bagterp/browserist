@@ -21,3 +21,14 @@ def test_input_value_exceptions(url: str, xpath: str, expectation: Any, browser_
     with expectation:
         browser.open.url(url)
         browser.input.value(xpath, "some text", timeout.VERY_SHORT)
+
+
+@pytest.mark.parametrize("value", [
+    ("search input"),
+])
+def test_input_value(value: str, browser_default_headless: Browser) -> None:
+    browser = reset_to_not_timed_out(browser_default_headless)
+    browser.open.url(internal_url.W3SCHOOLS_COM)
+    assert browser.get.attribute.value(SEARCH_INPUT_XPATH, "value") == ""
+    browser.input.value(SEARCH_INPUT_XPATH, value, timeout.VERY_SHORT)
+    assert browser.get.attribute.value(SEARCH_INPUT_XPATH, "value") == value
