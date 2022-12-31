@@ -14,7 +14,7 @@ from browserist.exception.timeout import WaitForElementTimeoutException
     (internal_url.W3SCHOOLS_COM, "//input[@id='search2']", does_not_raise()),
     (internal_url.W3SCHOOLS_COM, "//input[@id='search2']/div", pytest.raises(WaitForElementTimeoutException)),
 ])
-def test_input_value(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
+def test_input_value_exceptions(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
         browser.open.url(url)
