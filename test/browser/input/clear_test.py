@@ -15,8 +15,19 @@ from browserist.exception.timeout import WaitForElementTimeoutException
     (internal_url.W3SCHOOLS_COM, xpath.w3schools_com.SEARCH_INPUT, does_not_raise()),
     (internal_url.W3SCHOOLS_COM, f"{xpath.w3schools_com.SEARCH_INPUT}/div", pytest.raises(WaitForElementTimeoutException)),
 ])
-def test_clear_input_field(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
+def test_clear_input_field_exceptions(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
         browser.open.url(url)
         browser.input.clear(xpath, timeout.VERY_SHORT)
+
+
+def test_clear_input_field(value: str, browser_default_headless: Browser) -> None:
+    browser = reset_to_not_timed_out(browser_default_headless)
+    browser.open.url(internal_url.W3SCHOOLS_COM)
+    assert browser.get.attribute.value(xpath.w3schools_com.SEARCH_INPUT, "value") == ""
+    search_input = "search input"
+    browser.input.value(xpath.w3schools_com.SEARCH_INPUT, search_input, timeout.VERY_SHORT)
+    assert browser.get.attribute.value(xpath.w3schools_com.SEARCH_INPUT, "value") == search_input
+    browser.input.clear(xpath.w3schools_com.SEARCH_INPUT, timeout.VERY_SHORT)
+    assert browser.get.attribute.value(xpath.w3schools_com.SEARCH_INPUT, "value") == ""
