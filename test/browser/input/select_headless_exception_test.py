@@ -14,7 +14,7 @@ from browserist.exception.headless import MethodNotSupportedInHeadlessModeExcept
     (default.DEFAULT, does_not_raise()),
     (default.HEADLESS, pytest.raises(MethodNotSupportedInHeadlessModeException)),
 ])
-def test_headless_mode_in_select_input_field(browser_settings: BrowserSettings, expectation: Any) -> None:
+def test_headless_mode_in_select_input_field_exceptions(browser_settings: BrowserSettings, expectation: Any) -> None:
     with Browser(browser_settings) as browser:
         with expectation:
             browser.open.url(internal_url.EXAMPLE_COM)
