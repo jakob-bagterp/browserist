@@ -22,7 +22,7 @@ def test_clear_input_field_exceptions(url: str, xpath: str, expectation: Any, br
         browser.input.clear(xpath, timeout.VERY_SHORT)
 
 
-def test_clear_input_field(value: str, browser_default_headless: Browser) -> None:
+def test_clear_input_field(browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.W3SCHOOLS_COM)
     assert browser.get.attribute.value(xpath.w3schools_com.SEARCH_INPUT, "value") == ""
