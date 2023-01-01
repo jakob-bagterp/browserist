@@ -13,8 +13,8 @@ from browserist.exception.timeout import WaitForElementTimeoutException
 
 
 @pytest.mark.parametrize("url, xpath, expectation", [
-    (internal_url.W3SCHOOLS_COM, xpath.w3schools_com.SEARCH_INPUT, does_not_raise()),
-    (internal_url.W3SCHOOLS_COM, f"{xpath.w3schools_com.SEARCH_INPUT}/div", pytest.raises(WaitForElementTimeoutException)),
+    (internal_url.W3SCHOOLS_COM, xpath.W3SchoolsCom.SEARCH_INPUT, does_not_raise()),
+    (internal_url.W3SCHOOLS_COM, f"{xpath.W3SchoolsCom.SEARCH_INPUT}/div", pytest.raises(WaitForElementTimeoutException)),
 ])
 def test_input_value_exceptions(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
@@ -29,6 +29,6 @@ def test_input_value_exceptions(url: str, xpath: str, expectation: Any, browser_
 def test_input_value(value: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.W3SCHOOLS_COM)
-    assert browser.get.attribute.value(xpath.w3schools_com.SEARCH_INPUT, "value") == EMPTY_STRING
-    browser.input.value(xpath.w3schools_com.SEARCH_INPUT, value, timeout.VERY_SHORT)
-    assert browser.get.attribute.value(xpath.w3schools_com.SEARCH_INPUT, "value") == value
+    assert browser.get.attribute.value(xpath.W3SchoolsCom.SEARCH_INPUT, "value") == EMPTY_STRING
+    browser.input.value(xpath.W3SchoolsCom.SEARCH_INPUT, value, timeout.VERY_SHORT)
+    assert browser.get.attribute.value(xpath.W3SchoolsCom.SEARCH_INPUT, "value") == value
