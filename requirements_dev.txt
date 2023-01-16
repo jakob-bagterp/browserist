@@ -7,4 +7,4 @@ pillow==9.4.0
 pre-commit==2.21.0
 pytest==7.2.0
 pytest-cov==4.0.0
-tox==4.2.8
+tox==4.3.0
