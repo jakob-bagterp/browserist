@@ -27,11 +27,11 @@ class BrowserDriver(ABC):
             case BrowserType.CHROME | BrowserType.OPERA:
                 self.chrome_options: ChromeOptions = ChromeOptions()
             case BrowserType.EDGE:
-                self.edge_options: EdgeOptions = EdgeOptions()  # type: ignore
+                self.edge_options: EdgeOptions = EdgeOptions()
             case BrowserType.FIREFOX:
-                self.firefox_options: FirefoxOptions = FirefoxOptions()  # type: ignore
+                self.firefox_options: FirefoxOptions = FirefoxOptions()
             case BrowserType.INTERNET_EXPLORER:
-                self.ie_options: IEOptions = IEOptions()  # type: ignore
+                self.ie_options: IEOptions = IEOptions()
             case BrowserType.SAFARI:
                 self.safari_options: SafariOptions = SafariOptions()
 

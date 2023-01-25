@@ -11,10 +11,10 @@ class FirefoxBrowserDriver(BrowserDriver):
 
     def set_webdriver(self) -> object:
         if self.settings._path_to_executable is None:
-            return webdriver.Firefox(  # type: ignore
+            return webdriver.Firefox(
                 options=self.firefox_options)
         else:
-            return webdriver.Firefox(  # type: ignore
+            return webdriver.Firefox(
                 executable_path=self.settings._path_to_executable,
                 options=self.firefox_options)
 
