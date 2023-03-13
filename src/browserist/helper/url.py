@@ -48,4 +48,4 @@ def remove_parameters(url: str) -> str:
 
 
 def get_domain_from_url(url: str) -> str:
-    return "wwww.example.com"  # TODO: Update function from standard library, e.g. maybe use urlparse?
+    return (urlparse(url).netloc)
