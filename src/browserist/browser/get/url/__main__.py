@@ -1,6 +1,7 @@
 from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
 from .current import get_current_url
+from .current_domain import get_current_domain
 from .from_image import get_url_from_image
 from .from_images import get_url_from_images
 from .from_link import get_url_from_link
@@ -16,6 +17,12 @@ class GetUrlDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return get_current_url(self._browser_driver)
+
+    def current_domain(self) -> str:  # type: ignore
+        """Get domain of the current page, e.g. www.example.com."""
+
+        if self._timeout_should_continue():
+            return get_current_domain(self._browser_driver)
 
     def from_image(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
         """Get URL source from image, e.g. <img> tag.
