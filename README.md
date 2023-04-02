@@ -19,16 +19,10 @@ Main features of Browserist:
 * Extended library of browser automation functions and tools without elaborate code
 * Supports IntelliSense type hints and other capabilites of Python 3.10 that makes development more efficient
 
-## Prerequisites
-* Python 3.10 or higher
-* [Selenium](https://www.selenium.dev)
-* Relevant browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
-
 ## How to Install
-Find a guide [here](https://github.com/jakob-bagterp/browserist/blob/master/INSTALLATION.md).
+Ready to try? [Learn how to install](https://github.com/jakob-bagterp/browserist/blob/master/INSTALLATION.md).
 
 ## Getting Started
-
 The default browser is Chrome (except Edge for Windows). Simply type:
 
 ```python

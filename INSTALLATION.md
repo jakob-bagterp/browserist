@@ -5,6 +5,10 @@
 [![Test](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml)
 
 # 👩‍💻 How to Install Browserist 👨‍💻
+## Prerequisites
+* Python 3.10 or higher
+* [Selenium](https://www.selenium.dev)
+* Relevant browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
 ## PyPI
 Assuming that Python is installed already, execute this command in the terminal:
@@ -53,3 +57,6 @@ brew install geckodriver
 ```
 
 More info [here](https://github.com/mozilla/geckodriver).
+
+## Getting Started
+Ready to go? [Learn how to use Browserist](https://github.com/jakob-bagterp/browserist/blob/master/README.md).
