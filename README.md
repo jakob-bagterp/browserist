@@ -25,7 +25,7 @@ Main features of Browserist:
 * Relevant browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
 ## How to Install
-Find a guide [here](./HOW_TO_INSTALL.md).
+Find a guide [here](https://github.com/jakob-bagterp/browserist/blob/master/INSTALLATION.md).
 
 ## Getting Started
 
