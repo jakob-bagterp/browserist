@@ -1,7 +1,9 @@
+chromedriver==109.0.5414.74
 coverage==7.2.2
 flake8==6.0.0
 keyring==23.13.1
 lxml==4.9.2
+msedgedriver=112.0.1722.34
 mypy==1.1.1
 pillow==9.5.0
 pre-commit==3.2.1
