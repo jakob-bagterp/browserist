@@ -43,13 +43,13 @@ class BrowserDriver(ABC):
     def ensure_browser_type(self) -> None:
         """Method to ensure the correct browser type if a specific browser instance is created directly from a subclass (e.g. FirefoxBrowserDriver) without the optional settings as argument, simply as Chrome is default browser."""
 
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
     def set_webdriver(self) -> object:
         """Method to set web driver based on the settings."""
 
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     def set_options_and_profile(self) -> None:
         """Internal task initializer that runs the configuration methods to disable images, enable headless, etc."""
@@ -62,19 +62,19 @@ class BrowserDriver(ABC):
     def disable_images(self) -> None:
         """Method to configure web driver to disable download of images for faster browsing."""
 
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
     def enable_headless(self) -> None:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
 
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
     def set_page_load_strategy(self) -> None:
         """Method to set the page load strategy to define whether the web driver should wait until all assets are downloaded (slower) or not (faster)."""
 
-        raise NotImplementedError
+        raise NotImplementedError  # pragma: no cover
 
     def get_webdriver(self) -> object:
         """Returns the Selenium web driver."""
