@@ -174,3 +174,13 @@ with Browser(settings) as browser:
     browser.open.url("http://example.com/")
     browser.viewport.set.size(768, 1024)
 ```
+
+# Thank You for Supporting
+## Donate
+This module is free to use. And if you like it, feel free to [buy me a coffee](https://github.com/sponsors/jakob-bagterp).
+
+## Contribute
+If you have suggestions or changes to the module, feel free to add to the code and create a [pull request](https://github.com/jakob-bagterp/browserist/pulls).
+
+## Report Bugs
+Report bugs and issues [here](https://github.com/jakob-bagterp/browserist/issues).
