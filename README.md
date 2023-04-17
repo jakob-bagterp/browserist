@@ -1,5 +1,5 @@
 [![Latest version](https://img.shields.io/static/v1?label=version&message=1.4.4&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
-![Python >=3.10](https://img.shields.io/static/v1?label=python&message=>=3.10&color=blueviolet)
+![Python 3.10 | 3.11 or higher](https://img.shields.io/static/v1?label=python&message=3.10%20|%203.11%2B&color=blueviolet)
 [![Apache 2.0 license](https://img.shields.io/static/v1?label=license&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
 [![Codecov](https://codecov.io/gh/jakob-bagterp/browserist/branch/master/graph/badge.svg?token=1JL65T099J)](https://codecov.io/gh/jakob-bagterp/browserist)
 [![Test](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml)
@@ -174,3 +174,13 @@ with Browser(settings) as browser:
     browser.open.url("http://example.com/")
     browser.viewport.set.size(768, 1024)
 ```
+
+# Thank You for Supporting
+## Donate
+This module is free to use. And if you like it, feel free to [buy me a coffee](https://github.com/sponsors/jakob-bagterp).
+
+## Contribute
+If you have suggestions or changes to the module, feel free to add to the code and create a [pull request](https://github.com/jakob-bagterp/browserist/pulls).
+
+## Report Bugs
+Report bugs and issues [here](https://github.com/jakob-bagterp/browserist/issues).
