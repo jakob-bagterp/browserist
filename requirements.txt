@@ -1,4 +1,4 @@
 chromedriver==109.0.5414.74
 lxml==4.9.2
 pillow==9.5.0
-selenium==4.9.0
+selenium==4.9.1
