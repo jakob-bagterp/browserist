@@ -15,7 +15,7 @@ class PromptDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             prompt_and_input_value(self._browser_driver, xpath, prompt_message, validate_input_regex, timeout)
 
-    def prompt_proceed_yes_or_no(self) -> bool:
+    def proceed_yes_or_no(self) -> bool:
         """Prompt user whether to proceed or not through the terminal."""
 
         if self._timeout_should_continue():
