@@ -9,6 +9,7 @@ from .is_displayed import check_if_is_displayed
 from .is_enabled import check_if_is_enabled
 from .is_image_loaded import check_if_is_image_loaded
 from .is_in_viewport import check_if_is_in_viewport
+from .is_selected import check_if_is_selected
 
 
 class CheckIfDriverMethods(DriverMethods):
@@ -68,3 +69,9 @@ class CheckIfDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return check_if_is_in_viewport(self._browser_driver, xpath)
+
+    def is_selected(self, xpath: str) -> bool:  # type: ignore
+        """Check whether element is selected, e.g. checkbox or radio button."""
+
+        if self._timeout_should_continue():
+            return check_if_is_selected(self._browser_driver, xpath)
