@@ -26,6 +26,7 @@ METHODS_WITH_RETURN_VALUES = [
     (browser, browser.check_if.is_displayed, ["//*[@id='main']/div[1]/div/h1"]),
     (browser, browser.check_if.is_enabled, ["//*[@id='main']/div[1]/div/h1"]),
     (browser, browser.check_if.is_image_loaded, ["//*[@id='Frontend']/img"]),
+    (browser, browser.check_if.is_selected, ["//*[@id='main']/div[1]/div/h1"]),
     (browser, browser.get.attribute.value, ["//*[@id='main']/div[1]/div/h4/a", "href"]),
     (browser, browser.get.attribute.values, ["//*[@id='main']//a", "href"]),
     (browser, browser.get.dimensions, ["//*[@id='main']/div[1]/div/h1"]),
