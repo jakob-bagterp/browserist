@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 
 from ... import factory
 from .base.driver import BrowserDriver
@@ -10,13 +11,9 @@ class ChromeBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.CHROME
 
     def set_webdriver(self) -> object:
-        if self.settings._path_to_executable is None:
-            return webdriver.Chrome(
-                options=self.chrome_options)
-        else:
-            return webdriver.Chrome(
-                executable_path=self.settings._path_to_executable,
-                options=self.chrome_options)
+        return webdriver.Chrome(
+            service=self.chrome_service,
+            options=self.chrome_options)
 
     def disable_images(self) -> None:
         self = factory.chromium.disable_images(self)  # type: ignore
@@ -26,3 +23,9 @@ class ChromeBrowserDriver(BrowserDriver):
 
     def set_page_load_strategy(self) -> None:
         self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)  # type: ignore
+
+    def set_service(self) -> ChromeService:
+        if self.settings._path_to_executable is None:
+            return ChromeService()
+        else:
+            return ChromeService(executable_path=self.settings._path_to_executable)
