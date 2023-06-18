@@ -17,7 +17,7 @@ def wait_for_element(browser_driver: BrowserDriver, xpath: str, timeout: float) 
         return
     try:
         driver = browser_driver.get_webdriver()
-        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))  # type: ignore
+        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
     except TimeoutException:
         browser_driver.settings = set_is_timed_out(browser_driver.settings)
         if not should_continue(browser_driver.settings):
