@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.edge.service import Service as EdgeService
 
 from ... import factory
 from .base.driver import BrowserDriver
@@ -10,13 +11,9 @@ class EdgeBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.EDGE
 
     def set_webdriver(self) -> object:
-        if self.settings._path_to_executable is None:
-            return webdriver.Edge(
-                options=self.edge_options)
-        else:
-            return webdriver.Edge(
-                executable_path=self.settings._path_to_executable,
-                options=self.edge_options)
+        return webdriver.Edge(
+            service=self.edge_service,
+            options=self.edge_options)
 
     def disable_images(self) -> None:
         if self.settings.disable_images:
@@ -33,3 +30,9 @@ class EdgeBrowserDriver(BrowserDriver):
 
     def set_page_load_strategy(self) -> None:
         self.edge_options = factory.set.page_load_strategy(self, self.edge_options)  # type: ignore
+
+    def set_service(self) -> EdgeService:
+        if self.settings._path_to_executable is None:
+            return EdgeService()
+        else:
+            return EdgeService(executable_path=self.settings._path_to_executable)

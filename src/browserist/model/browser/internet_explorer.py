@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.ie.service import Service as IEService
 
 from ... import factory
 from ...exception.headless import HeadlessNotSupportedException
@@ -11,13 +12,9 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.INTERNET_EXPLORER
 
     def set_webdriver(self) -> object:
-        if self.settings._path_to_executable is None:
-            return webdriver.Ie(
-                options=self.ie_options)
-        else:
-            return webdriver.Ie(
-                executable_path=self.settings._path_to_executable,
-                options=self.ie_options)
+        return webdriver.Ie(
+            service=self.ie_service,
+            options=self.ie_options)
 
     def disable_images(self) -> None:
         factory.internet_explorer.disable_images(self)
@@ -27,3 +24,9 @@ class InternetExplorerBrowserDriver(BrowserDriver):
 
     def set_page_load_strategy(self) -> None:
         self.ie_options = factory.set.page_load_strategy(self, self.ie_options)  # type: ignore
+
+    def set_service(self) -> IEService:
+        if self.settings._path_to_executable is None:
+            return IEService()
+        else:
+            return IEService(executable_path=self.settings._path_to_executable)

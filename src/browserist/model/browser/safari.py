@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.safari.service import Service as SafariService
 
 from ... import factory
 from ...exception.headless import HeadlessNotSupportedException
@@ -11,13 +12,9 @@ class SafariBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.SAFARI
 
     def set_webdriver(self) -> object:
-        if self.settings._path_to_executable is None:
-            return webdriver.Safari(
-                options=self.safari_options)
-        else:
-            return webdriver.Safari(
-                executable_path=self.settings._path_to_executable,
-                options=self.safari_options)
+        return webdriver.Safari(
+            service=self.safari_service,
+            options=self.safari_options)
 
     def disable_images(self) -> None:
         factory.safari.disable_images(self)
@@ -27,3 +24,9 @@ class SafariBrowserDriver(BrowserDriver):
 
     def set_page_load_strategy(self) -> None:
         self.safari_options = factory.set.page_load_strategy(self, self.safari_options)  # type: ignore
+
+    def set_service(self) -> SafariService:
+        if self.settings._path_to_executable is None:
+            return SafariService()
+        else:
+            return SafariService(executable_path=self.settings._path_to_executable)
