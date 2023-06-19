@@ -16,7 +16,7 @@ class XPath(str):
     def __init__(self, xpath: str) -> None:
         if not helper.xpath.is_valid(xpath):
             raise XPathSyntaxError(xpath)
-        self.value: str = xpath
+        self.value: str = helper.xpath.ensure_encoding_of_single_and_double_quotes(xpath)
 
     def __str__(self) -> str:
         return self.value
