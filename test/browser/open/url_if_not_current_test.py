@@ -8,7 +8,7 @@ from browserist import Browser, helper
 @pytest.mark.parametrize("url1, url2", [
     (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM),
     (internal_url.W3SCHOOLS_COM, external_url.EXAMPLE_COM),
-    (external_url.EXAMPLE_COM, external_url.IANA_ORG),
+    (external_url.EXAMPLE_COM, external_url.IANA_ORG_RESERVED_DOMAINS),
 ])
 def test_open_url_if_not_current(url1: str, url2: str, browser_default_headless: Browser) -> None:
     url1 = helper.url.ensure_trailing_slash(url1)
