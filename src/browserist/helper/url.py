@@ -45,3 +45,7 @@ def mediate_https(url1: str, url2: str) -> tuple[str, str]:
 
 def remove_parameters(url: str) -> str:
     return url if "?" not in url else url.split("?")[0]
+
+
+def get_domain_from_url(url: str) -> str:
+    return (urlparse(url).netloc)

@@ -6,7 +6,7 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("url, xpath, expected_url", [
-    (internal_url.EXAMPLE_COM, "/html/body/div/p[2]/a", external_url.IANA_ORG),
+    (internal_url.EXAMPLE_COM, "/html/body/div/p[2]/a", external_url.IANA_ORG_EXAMPLE_DOMAINS),
     (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[2]/div/div[1]/a[1]",
      "https://www.w3schools.com/html/default.asp"),
 ])

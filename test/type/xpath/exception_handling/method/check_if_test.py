@@ -11,6 +11,7 @@ from browserist.browser.check_if.is_disabled import check_if_is_disabled
 from browserist.browser.check_if.is_displayed import check_if_is_displayed
 from browserist.browser.check_if.is_enabled import check_if_is_enabled
 from browserist.browser.check_if.is_image_loaded import check_if_is_image_loaded
+from browserist.browser.check_if.is_selected import check_if_is_selected
 from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable, BrowserMethodWith4ArgumentsCallable
 
 
@@ -22,6 +23,7 @@ from browserist.model.type.callable import BrowserMethodWith2ArgumentsCallable, 
     check_if_is_disabled,
     check_if_is_displayed,
     check_if_is_enabled,
+    check_if_is_selected,
 ])
 def test_xpath_exception_handling_for_check_if_methods_1(
     browser_default_headless: Browser,

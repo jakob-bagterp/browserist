@@ -11,7 +11,7 @@ def id_already_exists(id: str, window_handles: list[WindowHandle]) -> bool:
     return id in [window_handle.id for window_handle in window_handles]
 
 
-WINDOW_HANDLE_ID_PATTERN = re.compile(r"^CDwindow-[A-Z0-9]{32}$")
+WINDOW_HANDLE_ID_PATTERN = re.compile(r"^(CDwindow-)?[A-Z0-9]{32}$")
 
 
 def is_valid_id(id: str) -> bool:

@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 from ... import factory
 from .base.driver import BrowserDriver
@@ -10,13 +11,9 @@ class FirefoxBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.FIREFOX
 
     def set_webdriver(self) -> object:
-        if self.settings._path_to_executable is None:
-            return webdriver.Firefox(  # type: ignore
-                options=self.firefox_options)
-        else:
-            return webdriver.Firefox(  # type: ignore
-                executable_path=self.settings._path_to_executable,
-                options=self.firefox_options)
+        return webdriver.Firefox(
+            service=self.firefox_service,
+            options=self.firefox_options)
 
     def disable_images(self) -> None:
         if self.settings.disable_images:
@@ -29,3 +26,9 @@ class FirefoxBrowserDriver(BrowserDriver):
 
     def set_page_load_strategy(self) -> None:
         self.firefox_options = factory.set.page_load_strategy(self, self.firefox_options)  # type: ignore
+
+    def set_service(self) -> FirefoxService:
+        if self.settings._path_to_executable is None:
+            return FirefoxService()
+        else:
+            return FirefoxService(executable_path=self.settings._path_to_executable)
