@@ -7,8 +7,8 @@ build:
   tools:
     python: "3.10"
 
-sphinx:
-   configuration: docs/configuration.py
+mkdocs:
+  configuration: mkdocs.yml
 
 python:
    install:
