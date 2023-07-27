@@ -44,27 +44,6 @@ with Browser() as browser:
     browser.open.url("http://example.com/")
 ```
 
-### Browser Types
-If you want to use other browser types, e.g. Firefox, Edge, etc., define this in the settings:
-
-```python
-from browserist import Browser, BrowserSettings, BrowserType
-
-settings = BrowserSettings(type = BrowserType.FIREFOX)
-with Browser(settings) as browser:
-    browser.open.url("http://example.com/")
-```
-
-#### Supported Browsers
-| Name              | Type                            |
-| ----------------- | ------------------------------- |
-| Chrome            | `BrowserType.CHROME`            |
-| Edge              | `BrowserType.EDGE`              |
-| Firefox           | `BrowserType.FIREFOX`           |
-| Internet Explorer | `BrowserType.INTERNET_EXPLORER` |
-| Opera             | `BrowserType.OPERA`             |
-| Safari            | `BrowserType.SAFARI`            |
-
 ## Settings
 If you want a headless browser with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised. For example, you can easily scale test runs across different browsers in a lightweight, headless configuration:
 

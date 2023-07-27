@@ -10,6 +10,7 @@ nav:
   - User Guide:
     - Navigation: "user-guide/navigation.md"
     - Settings:
+      - Browser Types: "user-guide/settings/browser-types.md"
       - Timeout Strategy: "user-guide/settings/timeout-strategy.md"
       - Viewport: "user-guide/settings/viewport.md"
       - Overview: "user-guide/settings/overview.md"
