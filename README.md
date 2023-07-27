@@ -65,16 +65,6 @@ with Browser(settings) as browser:
 | Opera             | `BrowserType.OPERA`             |
 | Safari            | `BrowserType.SAFARI`            |
 
-### Navigation
-Similar to Selenium, use simple commands to automate the browser:
-
-| Action  | How                 | Description                        |
-| ------- | ------------------- | ---------------------------------- |
-| Forward | `browser.forward()` | Press the browser's back button    |
-| Back    | `browser.back()`    | Press the browser's forward button |
-| Refresh | `browser.refresh()` | Refresh the current page           |
-| Quit    | `browser.quit()`    | Close the browser                  |
-
 ## Improved Stability and Less Code
 Browserist improves stability with less code. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
 

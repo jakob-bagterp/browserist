@@ -6,6 +6,8 @@ nav:
     - Installation: "getting-started/installation.md"
     - Browser Drivers: "getting-started/browser-drivers.md"
     - First Script: "getting-started/first-script.md"
+  - User Guide:
+    - Navigation: "user-guide/navigation.md"
   - More Info:
     - About: "notes/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
