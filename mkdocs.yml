@@ -23,6 +23,10 @@ nav:
       - check_if: "reference/browser/check_if.md"
       - click: "reference/browser/click.md"
       - combo: "reference/browser/combo.md"
+      - get:
+        - _: "reference/browser/get/_.md"
+        - attribute: "reference/browser/get/attribute.md"
+        - url: "reference/browser/get/url.md"
   - More Info:
     - About: "more-info/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
