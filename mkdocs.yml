@@ -1,4 +1,5 @@
 site_name: Browserist
+site_url: https://browserist.readthedocs.io
 
 nav:
   - Home:
