@@ -44,6 +44,13 @@ nav:
       - viewport:
         - get: "reference/browser/viewport/get.md"
         - set: "reference/browser/viewport/set.md"
+      - wait:
+        - _: "reference/browser/wait/_.md"
+        - until:
+          - _: "reference/browser/wait/until/_.md"
+          - page_title: "reference/browser/wait/until/page_title.md"
+          - text: "reference/browser/wait/until/text.md"
+          - url: "reference/browser/wait/until/url.md"
   - More Info:
     - About: "more-info/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
