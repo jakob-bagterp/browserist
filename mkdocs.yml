@@ -11,7 +11,7 @@ nav:
     - Performance:
       - Parallelisation: "user-guide/performance/parallelisation.md"
   - More Info:
-    - About: "notes/about.md"
+    - About: "more-info/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
     - License: "https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md"
     - Release Notes: "https://github.com/jakob-bagterp/browserist/releases"
