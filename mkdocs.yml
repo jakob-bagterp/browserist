@@ -5,10 +5,11 @@ nav:
   - Home:
     - Getting Started:
       - Installation: "getting-started/installation.md"
-  - Notes:
+  - More Info:
     - About: "notes/about.md"
-    - License: "../license.md"
-    - Release Notes: "notes/release-notes.md"
+    - Source Code: "https://github.com/jakob-bagterp/browserist"
+    - License: "https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md"
+    - Release Notes: "https://github.com/jakob-bagterp/browserist/releases"
 
 markdown_extensions:
   - toc:
