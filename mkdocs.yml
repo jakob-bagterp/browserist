@@ -18,6 +18,11 @@ nav:
       - Headless Mode: "user-guide/performance/headless-mode.md"
       - Ignore Images: "user-guide/performance/ignore-images.md"
       - Parallelisation: "user-guide/performance/parallelisation.md"
+  - Reference:
+    - browser:
+      - check_if: "reference/browser/check_if.md"
+      - click: "reference/browser/click.md"
+      - combo: "reference/browser/combo.md"
   - More Info:
     - About: "more-info/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
