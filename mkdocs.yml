@@ -6,6 +6,7 @@ nav:
     - Installation: "getting-started/installation.md"
     - Browser Drivers: "getting-started/browser-drivers.md"
     - First Script: "getting-started/first-script.md"
+    - Difference from Selenium: "getting-started/difference-from-selenium.md"
   - User Guide:
     - Navigation: "user-guide/navigation.md"
     - Settings:
