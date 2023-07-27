@@ -1,5 +1,9 @@
 site_name: Browserist
 site_url: https://browserist.readthedocs.io
+site_description: "Python extension for the Selenium web driver that makes browser automation even easier"
+site_author: Jakob Bagterp
+copyright: © 2022, Jakob Bagterp. All Rights Reserved.
+repo_url: https://github.com/jakob-bagterp/browserist
 
 nav:
   - Getting Started:
