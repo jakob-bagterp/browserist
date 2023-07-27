@@ -27,6 +27,12 @@ nav:
         - _: "reference/browser/get/_.md"
         - attribute: "reference/browser/get/attribute.md"
         - url: "reference/browser/get/url.md"
+      - iframe: "reference/browser/iframe.md"
+      - input: "reference/browser/input.md"
+      - mouse: "reference/browser/mouse.md"
+      - open: "reference/browser/open.md"
+      - prompt: "reference/browser/prompt.md"
+      - screenshot: "reference/browser/screenshot.md"
   - More Info:
     - About: "more-info/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
