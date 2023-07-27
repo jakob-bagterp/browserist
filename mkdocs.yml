@@ -72,7 +72,7 @@ markdown_extensions:
       permalink: "#"
 
 theme:
-  name: readthedocs
+  name: material
   highlightjs: true
 
 plugins:
