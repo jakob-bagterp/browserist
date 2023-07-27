@@ -8,6 +8,8 @@ nav:
     - First Script: "getting-started/first-script.md"
   - User Guide:
     - Navigation: "user-guide/navigation.md"
+    - Settings:
+      - Timeout Strategy: "user-guide/settings/timeout-strategy.md"
     - Performance:
       - Parallelisation: "user-guide/performance/parallelisation.md"
   - More Info:
