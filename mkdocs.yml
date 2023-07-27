@@ -73,6 +73,9 @@ markdown_extensions:
 
 theme:
   name: material
+  features:
+    - search.suggest
+    - search.highlight
   highlightjs: true
 
 extra:
@@ -97,7 +100,8 @@ extra:
             feedback form</a>.
 
 plugins:
-  - search
+  - search:
+      lang: en
   - mkdocstrings:
       handlers:
         python:
