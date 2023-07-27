@@ -10,6 +10,7 @@ nav:
     - Navigation: "user-guide/navigation.md"
     - Settings:
       - Timeout Strategy: "user-guide/settings/timeout-strategy.md"
+      - Viewport: "user-guide/settings/viewport.md"
     - Performance:
       - Parallelisation: "user-guide/performance/parallelisation.md"
   - More Info:
