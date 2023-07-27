@@ -79,6 +79,22 @@ extra:
   analytics:
     provider: google
     property: G-M37EX3JGHL
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thank you for your feedback!
+        - icon: material/thumb-down-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thank you for your feedback! Help us improve this page by using our
+            <a href="https://github.com/jakob-bagterp/browserist/issues/new/?title=[Feedback]+{title}+-+{url}"
+            target="_blank" rel="noopener">
+            feedback form</a>.
 
 plugins:
   - search
