@@ -6,7 +6,7 @@ You can run Browserist as a normal, linear script or with various methods for co
 * Multi-processing
 
 ## Which Method is Faster?
-Multi-processing and multi-threading are the fastest methods, sometimes twice as fast as running the same job in linear or asynchronous mode. For instance, the code examples below yield the results like this in seconds:
+Multi-processing and multi-threading are the fastest methods, sometimes twice as fast as running the same job in linear or asynchronous mode. For instance, measuring execution time of the code examples below yield the results like this in seconds:
 
 | Method           | Average | Min   | Max   |
 | ---------------- | ------- | ----- | ----- |
