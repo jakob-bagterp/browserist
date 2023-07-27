@@ -2,9 +2,10 @@ site_name: Browserist
 site_url: https://browserist.readthedocs.io
 
 nav:
-  - Home:
-    - Getting Started:
-      - Installation: "getting-started/installation.md"
+  - Getting Started:
+    - Installation: "getting-started/installation.md"
+    - Browser Drivers: "getting-started/browser-drivers.md"
+    - First Script: "getting-started/first-script.md"
   - More Info:
     - About: "notes/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
