@@ -1,6 +1,6 @@
 # 👩‍💻 How to Install Browserist
 ## Prerequisites
-* Python 3.10 or higher
+* [Python 3.10 or higher](https://www.python.org)
 * [Selenium](https://www.selenium.dev)
 * Relevant browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
