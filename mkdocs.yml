@@ -75,6 +75,11 @@ theme:
   name: material
   highlightjs: true
 
+extra:
+  analytics:
+    provider: google
+    property: G-M37EX3JGHL
+
 plugins:
   - search
   - mkdocstrings:
