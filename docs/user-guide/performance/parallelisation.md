@@ -16,7 +16,9 @@ Multi-processing and multi-threading are the fastest methods, sometimes twice as
 | Multi-processing | 4.20    | 3.69  | 6.05  |
 
 ### Even Faster with Headless and Ignore Images
-Gain even more performance by running the browsers in headless mode and with images disabled, e.g. `BrowserSettings(type=BrowserType.CHROME, headless=True, disable_images=True)`. Including the added benefit that headless mode allows you to run the job as a background task while doing something else. Results in seconds:
+Gain even more performance by running the browsers in [headless mode](headless-mode.md) and with [images disabled](ignore-images.md), e.g. `BrowserSettings(type=BrowserType.CHROME, headless=True, disable_images=True)`. Including the added benefit that headless mode allows you to run the job as a background task while doing something else.
+
+Results in seconds:
 
 | Method           | Average | Min   | Max   |
 | ---------------- | ------- | ----- | ----- |

@@ -44,21 +44,6 @@ with Browser() as browser:
     browser.open.url("http://example.com/")
 ```
 
-## Settings
-If you want a headless browser with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised. For example, you can easily scale test runs across different browsers in a lightweight, headless configuration:
-
-```python
-from browserist import Browser, BrowserSettings, BrowserType
-
-chrome = BrowserSettings(type = BrowserType.CHROME, headless = True, disable_images = True)
-edge = BrowserSettings(type = BrowserType.EDGE, headless = True, disable_images = True)
-firefox = BrowserSettings(type = BrowserType.FIREFOX, headless = True, disable_images = True)
-
-for settings in [chrome, edge, firefox]:
-    with Browser(settings) as browser:
-        browser.open.url("http://example.com/")
-```
-
 
 # Thank You for Supporting
 ## Donate
