@@ -67,10 +67,6 @@ nav:
     - License: "https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md"
     - Release Notes: "https://github.com/jakob-bagterp/browserist/releases"
 
-markdown_extensions:
-  - toc:
-      permalink: "#"
-
 theme:
   name: material
   features:
@@ -84,7 +80,18 @@ theme:
     - navigation.sections
     - navigation.path
     - navigation.indexes
-  highlightjs: true
+    - content.code.copy
+    - content.code.select
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+      pygments_lang_class: true
+      auto_title: true
+  - pymdownx.superfences
 
 extra:
   analytics:
