@@ -11,8 +11,7 @@ nav:
     - Browser Drivers: "getting-started/browser-drivers.md"
     - First Script: "getting-started/first-script.md"
     - Difference from Selenium: "getting-started/difference-from-selenium.md"
-    - Tutorials:
-      - Placeholder: "getting-started/tutorials/placeholder.md"
+    # - Tutorials: TODO
   - User Guide:
     - Navigation: "user-guide/navigation.md"
     - Settings:
