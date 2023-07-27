@@ -35,6 +35,15 @@ nav:
       - open: "reference/browser/open.md"
       - prompt: "reference/browser/prompt.md"
       - screenshot: "reference/browser/screenshot.md"
+      - scroll:
+        - _: "reference/browser/scroll/_.md"
+        - check_if: "reference/browser/scroll/check_if.md"
+        - get: "reference/browser/scroll/get.md"
+        - page: "reference/browser/scroll/page.md"
+      - tool: "reference/browser/tool.md"
+      - viewport:
+        - get: "reference/browser/viewport/get.md"
+        - set: "reference/browser/viewport/set.md"
   - More Info:
     - About: "more-info/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
