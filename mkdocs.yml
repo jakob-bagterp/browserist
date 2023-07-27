@@ -8,6 +8,8 @@ nav:
     - First Script: "getting-started/first-script.md"
   - User Guide:
     - Navigation: "user-guide/navigation.md"
+    - Performance:
+      - Parallelisation: "user-guide/performance/parallelisation.md"
   - More Info:
     - About: "notes/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
