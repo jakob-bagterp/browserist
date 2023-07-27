@@ -51,6 +51,12 @@ nav:
           - page_title: "reference/browser/wait/until/page_title.md"
           - text: "reference/browser/wait/until/text.md"
           - url: "reference/browser/wait/until/url.md"
+      - window:
+        - _: "reference/browser/window/_.md"
+        - get: "reference/browser/window/get.md"
+        - handle: "reference/browser/window/handle.md"
+        - open: "reference/browser/window/open.md"
+        - set: "reference/browser/window/set.md"
   - More Info:
     - About: "more-info/about.md"
     - Source Code: "https://github.com/jakob-bagterp/browserist"
