@@ -36,25 +36,51 @@ class WindowDriverMethods(DriverMethods):
             window_fullscreen(self._browser_driver)
 
     def maximize(self) -> None:
-        """Enlarges the window. For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars."""
+        """Enlarge the browser window to maximum allowed size.
+
+        Note:
+            For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars.
+        """
 
         if self._timeout_should_continue():
             window_maximize(self._browser_driver)
 
     def minimize(self) -> None:
-        """Minimizes the window of current browsing context. The exact behavior of this command is specific to individual window managers. Minimize Window typically hides the window in the system tray."""
+        """Minimizes the window of current browsing context.
+
+        Note:
+            The exact behavior of this command is specific to individual window managers. Minimize Window typically hides the window in the system tray.
+        """
 
         if self._timeout_should_continue():
             window_minimize(self._browser_driver)
 
     def switch_to(self, window_handle: str) -> None:
-        """Switch to window/tab by handle ID or name."""
+        """Switch to window/tab by handle ID or name.
+
+        Args:
+            window_handle (str): Handle ID or name of window/tab to switch to.
+
+        Example:
+            ```python title=""
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.window.open.new_tab("https://www.example.com", "tab_1")
+                browser.window.open.new_tab("https://www.google.com", "tab_2")
+                browser.window.switch_to("tab_1")
+            ```
+        """
 
         if self._timeout_should_continue():
             switch_to_window(self._browser_driver, self._controller, window_handle)
 
     def switch_to_original_window(self) -> None:
-        """Switch to initial window/tab."""
+        """Switch to initial window/tab.
+
+        Note:
+            Browserist automatically remembers the handle ID of the initial window/tab when the browser is first opened.
+        """
 
         if self._timeout_should_continue():
             original_window_handle_id = self._controller.get_handle_id_by_name(self._controller._original_window_name)
