@@ -23,51 +23,95 @@ class ScrollDriverMethods(DriverMethods):
         self.page: ScrollPageDriverMethods = ScrollPageDriverMethods(browser_driver)
 
     def by(self, x: int, y: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll by X and Y pixels as relative position. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If possible, scroll by X and Y pixels as relative to current position.
+
+        Args:
+            x (int): In pixels. Scroll on horisontal X axis as relative to current position. Can be positive or negative.
+            y (int): In pixels. Scroll on vertical Y axis as relative to current position. Can be positive or negative.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             scroll_by(self._browser_driver, x, y, delay_seconds)
 
     def down_by(self, pixels: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll down in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If possible, scroll down by Y pixels. Horisontal position is unchanged.
+
+        Args:
+            pixels (int): Amount to scroll down as relative to current position.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             scroll_down_by(self._browser_driver, pixels, delay_seconds)
 
     def into_view(self, xpath: str, timeout: float | None = None, delay_seconds: float = 1) -> None:
-        """Find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """Find element and scroll up or down until element is visible.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             scroll_into_view(self._browser_driver, xpath, timeout, delay_seconds)
 
     def into_view_if_not_in_viewport(self, xpath: str, timeout: float | None = None, delay_seconds: float = 1) -> None:
-        """If not visible in the current viewport, find element and scroll up or down until element is visible. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If not visible in the current viewport, find element and scroll up or down until element is visible.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             scroll_into_view_if_not_in_viewport(self._browser_driver, xpath, timeout, delay_seconds)
 
     def left_by(self, pixels: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll left in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If possible, scroll left by X pixels. Horisontal position is unchanged.
+
+        Args:
+            pixels (int): Amount to scroll left as relative to current position.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             scroll_left_by(self._browser_driver, pixels, delay_seconds)
 
     def right_by(self, pixels: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll right in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If possible, scroll right by X pixels. Horisontal position is unchanged.
+
+        Args:
+            pixels (int): Amount to scroll right as relative to current position.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             scroll_right_by(self._browser_driver, pixels, delay_seconds)
 
     def to_position(self, x: int, y: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll to coordinate X and Y pixels of page as absolute position. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If possible, scroll to coordinate X and Y pixels of page as absolute position.
+
+        Args:
+            x (int): Absolute position in pixels on horisontal X axis.
+            y (int): Absolute position in pixels on vertical Y axis.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             scroll_to_position(self._browser_driver, x, y, delay_seconds)
 
     def up_by(self, pixels: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll up in pixels. Horisontal position is unchanged. Add custom delay in seconds to ensure the view is updated after scroll."""
+        """If possible, scroll up by Y pixels. Horisontal position is unchanged.
+
+        Args:
+            pixels (int): Amount to scroll up as relative to current position.
+            delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+        """
 
         if self._timeout_should_continue():
             scroll_up_by(self._browser_driver, pixels, delay_seconds)
