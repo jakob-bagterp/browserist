@@ -31,7 +31,7 @@ nav:
       - Ignore Images: user-guide/performance/ignore-images.md
       - Parallelisation: user-guide/performance/parallelisation.md
   - Reference:
-    - Overview: reference/overview.md
+    - reference/index.md
     - browser:
       - check_if: reference/browser/check_if.md
       - click: reference/browser/click.md
