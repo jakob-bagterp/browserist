@@ -23,10 +23,13 @@ Main features of Browserist:
 
 ## How to Install
 Ready to try? [Learn how to install](https://github.com/jakob-bagterp/browserist/blob/master/INSTALLATION.md).
+TODO
 
 ## Getting Started
 TODO
 
+# Documentation
+TODO
 
 # Thank You for Supporting
 ## Donate
