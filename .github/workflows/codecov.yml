@@ -45,10 +45,10 @@ jobs:
         --ignore=test/browser/wait/random_seconds_test.py
         --ignore=test/browser/wait/seconds_test.py
         --ignore=test/browser/check_if/is_image_loaded_test.py
+        --ignore=test/browser/scroll/check_if/is_end_of_page_flow_test.py
         --ignore=test/browser/wait/until/images_have_loaded_test.py
         --ignore=test/helper/image/is_element_loaded_test.py
         --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
-        --ignore=test/scroll/check_if/is_end_of_page_flow_test.py
     - name: Upload coverage to Codecov
       run: |
         curl -Os https://uploader.codecov.io/latest/linux/codecov
