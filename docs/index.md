@@ -25,7 +25,10 @@ Main features of Browserist:
 
 :white_check_mark: Supports IntelliSense type hints and other capabilites of Python 3.10+ that makes development more efficient
 
-## Improved Stability and Less Code
+Ready to try? [Let's get started](./getting-started/index.md).
+
+## Difference from Selenium
+### Improved Stability and Less Code
 Browserist improves stability with less code compared to standard use of Selenium. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
 
 ```python title="With Selenium"
@@ -54,4 +57,10 @@ with Browser() as browser:
     browser.click.button("//xpath/to/button")
 ```
 
-Ready to try? [Let's get started](./getting-started/index.md).
+### Why Avoid Explicit or Implicit Waits?
+As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
+
+| Timing:      | Too short ->    | Just right (Browserist) | <- Too long      |
+| :----------- | :-----------:   | :---------------------: | :--------------: |
+| Example:     | `time.sleep(1)` | `wait.for_element()`    | `time.sleep(10)` |
+| Consequence: | _Code breaks_   | _Stable and fast_       | _Slow_           |
