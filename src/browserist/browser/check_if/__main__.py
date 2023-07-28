@@ -17,13 +17,29 @@ class CheckIfDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def contains_any_text(self, xpath: str) -> bool:  # type: ignore
-        """Check if element contains any text."""
+        """Check if element contains any text.
+
+        Args:
+            xpath (str): XPath of the element.
+
+        Returns:
+            bool: True if element contains any text, False otherwise.
+        """
 
         if self._timeout_should_continue():
             return check_if_contains_any_text(self._browser_driver, xpath)
 
     def contains_text(self, xpath: str, regex: str, ignore_case: bool = True) -> bool:  # type: ignore
-        """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match."""
+        """Check if element contains text. The condition works for both ordinary text (e.g. "Submit") or regular expression (e.g. r"colou?r"). Note it's a search for text, not a strict text match.
+
+        Args:
+            xpath (str): XPath of the element.
+            regex (str): Regular expression or text to search for.
+            ignore_case (bool, optional): Ignore case when searching for text. Defaults to True.
+
+        Returns:
+            bool: True if element contains text specified in the regex, False otherwise.
+        """
 
         if self._timeout_should_continue():
             return check_if_contains_text(self._browser_driver, xpath, regex, ignore_case)
