@@ -82,7 +82,7 @@ Find tutorials, code examples, list of all methods and much more [here](https://
 
 # Thank You for Supporting
 ## Donate
-This module is free to use. And if you like it, feel free to [buy me a coffee](https://github.com/sponsors/jakob-bagterp).
+This module is free to use. And if you like it, feel free to [sponsor the project](https://github.com/sponsors/jakob-bagterp).
 
 ## Contribute
 If you have suggestions or changes to the module, feel free to add to the code and create a [pull request](https://github.com/jakob-bagterp/browserist/pulls).
