@@ -9,14 +9,26 @@ class ClickDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def button(self, xpath: str, timeout: float | None = None) -> None:
-        """Click button."""
+        """Click button.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             click_button(self._browser_driver, xpath, timeout)
 
     def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None) -> None:
-        """Click button if contains certain text or a regular expression."""
+        """Click button if contains certain text or a regular expression.
+
+        Args:
+            xpath (str): XPath of the element.
+            regex (str): Regular expression or text to search for. The condition works for both ordinary text (e.g. `"Submit"`) or regular expression (e.g. `r"colou?r"`). Note it's a search for text, not a strict text match.
+            ignore_case (bool, optional): Ignore case when searching for text.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)

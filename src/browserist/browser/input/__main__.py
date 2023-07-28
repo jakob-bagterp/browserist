@@ -11,14 +11,27 @@ class InputDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def clear(self, xpath: str, timeout: float | None = None) -> None:
-        """Clear input form field."""
+        """Clear input form field.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             clear_input_field(self._browser_driver, xpath, timeout)
 
     def select(self, xpath: str, timeout: float | None = None) -> None:
-        """Select input field, similar to clicking the mouse on a form field."""
+        """Select input field, similar to clicking the mouse on a form field.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+
+        Raises:
+            MethodNotSupportedInHeadlessModeException: Raised if the browser is in headless mode.
+        """
 
         if self._browser_driver.settings.headless:
             self._set_is_timed_out()
@@ -31,7 +44,13 @@ class InputDriverMethods(DriverMethods):
             select_input_field(self._browser_driver, xpath, timeout)
 
     def value(self, xpath: str, value: str, timeout: float | None = None) -> None:
-        """Input value into form field."""
+        """Input value into form field.
+
+        Args:
+            xpath (str): XPath of the element.
+            value (str): Input value.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)

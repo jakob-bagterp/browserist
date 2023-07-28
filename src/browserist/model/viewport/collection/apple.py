@@ -2,10 +2,12 @@ from dataclasses import dataclass
 
 from ..device import DeviceViewportSize
 
+# Reference: https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html
+
 
 @dataclass(slots=True, frozen=True)
 class AppleDevices:
-    """Reference: https://developer.apple.com/library/archive/documentation/DeviceInformation/Reference/iOSDeviceCompatibility/Displays/Displays.html"""
+    """Viewport sizes for common Apple devices."""
 
     IPHONE_X = DeviceViewportSize(375, 812)
 
