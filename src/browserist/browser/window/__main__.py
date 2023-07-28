@@ -30,7 +30,7 @@ class WindowDriverMethods(DriverMethods):
             window_close(self._browser_driver, self._controller)
 
     def fullscreen(self) -> None:
-        """Fills the entire screen, similar to pressing F11 in most browsers."""
+        """Fills the entire screen. Similar to pressing F11 in most browsers."""
 
         if self._timeout_should_continue():
             window_fullscreen(self._browser_driver)
@@ -39,7 +39,7 @@ class WindowDriverMethods(DriverMethods):
         """Enlarge the browser window to maximum allowed size.
 
         Note:
-            For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars.
+            For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars. Obviously, the size of the browser window also depends on the device and its screen resolution.
         """
 
         if self._timeout_should_continue():

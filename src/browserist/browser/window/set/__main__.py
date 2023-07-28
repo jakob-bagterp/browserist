@@ -9,13 +9,23 @@ class WindowSetDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def position(self, x: int, y: int) -> None:
-        """Moves the window to the chosen coordinate of the screen in pixels."""
+        """Moves the window to the chosen coordinate of the screen in pixels.
+
+        Args:
+            x (int): In pixels. Absolute X coordinate of the screen on the horisontal axis.
+            y (int): In pixels. Absolute Y coordinate of the screen on the vertical axis.
+        """
 
         if self._timeout_should_continue():
             set_window_position(self._browser_driver, x, y)
 
     def size(self, width: int, height: int) -> None:
-        """Restores the window and sets the window size."""
+        """Restores the window and sets the window size.
+
+        Args:
+            width (int): Width of the window in pixels.
+            height (int): Height of the window in pixels.
+        """
 
         if self._timeout_should_continue():
             set_window_size(self._browser_driver, width, height)
