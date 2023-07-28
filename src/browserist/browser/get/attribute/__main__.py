@@ -9,22 +9,41 @@ class GetAttributeDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def value(self, xpath: str, attribute: str, timeout: float | None = None) -> str:  # type: ignore
-        """Get value from an attribute of an element. Examples:
+        """Get value from an attribute of an element.
 
-        Use "src" as attribute to get the source URL from an <img> image tag.
+        Args:
+            xpath (str): XPath of the element.
+            attribute (str): Attribute name.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
 
-        Use "href" as attribute to get the URL from an <a> link tag."""
+        Returns:
+            str: Value of the attribute.
+
+        Examples:
+            Use `"src"` as attribute to get the source URL from an `<img>` image tag.
+
+            Use `"href"` as attribute to get the URL from an `<a>` link tag.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_attribute_value(self._browser_driver, xpath, attribute, timeout)
 
     def values(self, xpath: str, attribute: str, timeout: float | None = None) -> list[str]:  # type: ignore
-        """Get values from an attribute of multiple elements. Assumes that the XPath targets multiple links. Examples:
+        """Get values from an attribute of multiple elements. Assumes that the XPath targets multiple links.
 
-        Use "src" as attribute to get the source URL from an <img> image tag.
+        Args:
+            xpath (str): XPath of the elements.
+            attribute (str): Attribute name.
+            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
 
-        Use "href" as attribute to get the URL from an <a> link tag."""
+        Returns:
+            list[str]: Values of the attribute.
+        Examples:
+            Use `"src"` as attribute to get the source URL from an `<img>` image tag.
+
+            Use `"href"` as attribute to get the URL from an `<a>` link tag.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
