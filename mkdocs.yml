@@ -126,9 +126,13 @@ plugins:
   - search:
       lang: en
   - mkdocstrings:
+      default_handler: python
       handlers:
         python:
           paths: [src]
           options:
             docstring_style: google
             show_source: false
+            show_bases: false
+            heading_level: 3
+            show_category_heading: true
