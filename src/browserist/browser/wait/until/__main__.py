@@ -20,35 +20,60 @@ class WaitUntilDriverMethods(DriverMethods):
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver)
 
     def contains_any_text(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element contains any text (use other method to check for specific text)."""
+        """Wait until element contains any text (use other method to check for specific text).
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_until_element_contains_any_text(self._browser_driver, xpath, timeout)
 
     def element_disappears(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element doesn't exist."""
+        """Wait until element doesn't exist.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element to disappear. If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_until_element_disappears(self._browser_driver, xpath, timeout)
 
     def images_have_loaded(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element doesn't exist. The image XPath can target one or more images."""
+        """Wait until element doesn't exist.
+
+        Args:
+            xpath (str): XPath of the element. Can target one or more images.
+            timeout (float | None, optional): In seconds. Timeout to wait for element(s) to be loaded. If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_until_images_have_loaded(self._browser_driver, xpath, timeout)
 
     def is_clickable(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element is clickable."""
+        """Wait until element is clickable.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_until_element_is_clickable(self._browser_driver, xpath, timeout)
 
     def number_of_window_handles_is(self, expected_handles: int, timeout: float | None = None) -> None:
-        """Wait until number of window handles is."""
+        """Wait until number of window handles is.
+
+        Args:
+            expected_handles (int): Expected number of window handles.
+            timeout (float | None, optional): In seconds. Timeout to wait for operation. If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
