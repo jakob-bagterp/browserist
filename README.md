@@ -22,14 +22,63 @@ Main features of Browserist:
 * Supports IntelliSense type hints and other capabilites of Python 3.10+ that makes development more efficient
 
 ## How to Install
-Ready to try? [Learn how to install](https://github.com/jakob-bagterp/browserist/blob/master/INSTALLATION.md).
-TODO
+Ready to try? With [PyPI](https://pypi.org/project/browserist/):
+
+```shell
+pip3 install browserist
+```
+
+Or with [Homebrew](https://brew.sh):
+
+```shell
+brew tap jakob-bagterp/browserist
+brew install browserist
+```
+
+Find more installation details [here](https://jakob-bagterp.github.io/browserist/getting-started/installation/).
 
 ## Getting Started
-TODO
+You're now ready to go:
 
-# Documentation
-TODO
+```python
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("http://example.com/")
+    browser.wait.seconds(5)
+```
+
+## Improved Stability and Less Code
+Browserist improves stability with less code compared to standard use of Selenium. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
+
+```python
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+
+driver.get("http://example.com/")
+driver.implicitly_wait(3)
+search_box = driver.find_element(By.XPATH, "//xpath/to/input")
+search_button = driver.find_element(By.XPATH, "//xpath/to/button")
+search_box.send_keys("Lorem ipsum")
+search_button.click()
+driver.quit()
+```
+
+Browserist does the same with less and cleaner code, yet also with increased stability and without explicit/implicit waits:
+
+```python
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("http://example.com/")
+    browser.input.value("//xpath/to/input", "Lorem ipsum")
+    browser.click.button("//xpath/to/button")
+```
+
+## Documentation
+Find tutorials, code examples, list of all methods and much more [here](https://jakob-bagterp.github.io).
 
 # Thank You for Supporting
 ## Donate
