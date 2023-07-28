@@ -12,7 +12,7 @@ Use `BrowserSettings` with the following options:
 | `timeout`            | `TimeoutSettings`                         | `TimeoutStrategy.STOP` and 5 seconds | Set timeout strategy and time.                                                                                   |
 | `viewport`           | `DeviceViewportSize` or `(width, height)` | Browser default                      | Emulate viewport size as device or set custom value in pixels.                                                   |
 
-## Example:
+## Example
 ```python
 from browserist import Browser, BrowserSettings, BrowserType, common_devices
 
