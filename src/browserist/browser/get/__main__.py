@@ -30,7 +30,7 @@ class GetDriverMethods(DriverMethods):
             tuple[int, int]: Width and height in pixels.
 
         Example:
-            ```python
+            ```python title=""
             width, height = browser.get.dimensions("/element/xpath")
             ```
         """
