@@ -23,5 +23,5 @@ def test_check_if_scroll_is_end_of_page_2(browser_default_headless: Browser) -> 
     browser.scroll.page.to_end()
     assert browser.scroll.check_if.is_end_of_page() is True
     # Now scroll a little up:
-    browser.scroll.up_by(1)
+    browser.scroll.up_by(2)
     assert browser.scroll.check_if.is_end_of_page() is False
