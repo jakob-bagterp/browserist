@@ -20,12 +20,5 @@ def test_check_if_scroll_is_end_of_page_2(browser_default_headless: Browser) -> 
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.W3SCHOOLS_COM)
     browser.scroll.page.to_end()
-    assert browser.scroll.check_if.is_end_of_page() is True
-
-
-def test_check_if_scroll_is_end_of_page_3(browser_default_headless: Browser) -> None:
-    browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.W3SCHOOLS_COM)
-    browser.scroll.page.to_end()
     browser.scroll.up_by(5)
     assert browser.scroll.check_if.is_end_of_page() is False
