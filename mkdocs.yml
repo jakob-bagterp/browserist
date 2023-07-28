@@ -29,7 +29,7 @@ nav:
       - click: "reference/browser/click.md"
       - combo: "reference/browser/combo.md"
       - get:
-        - _: "reference/browser/get/_.md"
+        - __main__: "reference/browser/get/_.md"
         - attribute: "reference/browser/get/attribute.md"
         - url: "reference/browser/get/url.md"
       - iframe: "reference/browser/iframe.md"
@@ -39,7 +39,7 @@ nav:
       - prompt: "reference/browser/prompt.md"
       - screenshot: "reference/browser/screenshot.md"
       - scroll:
-        - _: "reference/browser/scroll/_.md"
+        - __main__: "reference/browser/scroll/_.md"
         - check_if: "reference/browser/scroll/check_if.md"
         - get: "reference/browser/scroll/get.md"
         - page: "reference/browser/scroll/page.md"
@@ -48,14 +48,14 @@ nav:
         - get: "reference/browser/viewport/get.md"
         - set: "reference/browser/viewport/set.md"
       - wait:
-        - _: "reference/browser/wait/_.md"
+        - __main__: "reference/browser/wait/_.md"
         - until:
-          - _: "reference/browser/wait/until/_.md"
+          - __main__: "reference/browser/wait/until/_.md"
           - page_title: "reference/browser/wait/until/page_title.md"
           - text: "reference/browser/wait/until/text.md"
           - url: "reference/browser/wait/until/url.md"
       - window:
-        - _: "reference/browser/window/_.md"
+        - __main__: "reference/browser/window/_.md"
         - get: "reference/browser/window/get.md"
         - handle: "reference/browser/window/handle.md"
         - open: "reference/browser/window/open.md"
