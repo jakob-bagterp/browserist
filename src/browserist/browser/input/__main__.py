@@ -11,10 +11,10 @@ class InputDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def clear(self, xpath: str, timeout: float | None = None) -> None:
-        """Clear input form field.
+        """Clear any text input from form field.
 
         Args:
-            xpath (str): XPath of the element.
+            xpath (str): XPath of the input field.
             timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
         """
 
@@ -26,7 +26,7 @@ class InputDriverMethods(DriverMethods):
         """Select input field, similar to clicking the mouse on a form field.
 
         Args:
-            xpath (str): XPath of the element.
+            xpath (str): XPath of the input field.
             timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
 
         Raises:
