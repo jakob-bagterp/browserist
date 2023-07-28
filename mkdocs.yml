@@ -6,7 +6,11 @@ copyright: © 2022, Jakob Bagterp. All Rights Reserved.
 repo_url: https://github.com/jakob-bagterp/browserist
 
 nav:
-  - Home: index.md
+  - Home:
+    - Overview: "index.md"
+    - License: "https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md"
+    - Release Notes: "https://github.com/jakob-bagterp/browserist/releases"
+    - Source Code: "https://github.com/jakob-bagterp/browserist"
   - Getting Started:
     - Installation: "getting-started/installation.md"
     - Browser Drivers: "getting-started/browser-drivers.md"
@@ -61,11 +65,6 @@ nav:
         - handle: "reference/browser/window/handle.md"
         - open: "reference/browser/window/open.md"
         - set: "reference/browser/window/set.md"
-  - More Info:
-    - About: "more-info/about.md"
-    - Source Code: "https://github.com/jakob-bagterp/browserist"
-    - License: "https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md"
-    - Release Notes: "https://github.com/jakob-bagterp/browserist/releases"
 
 theme:
   name: material
