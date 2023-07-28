@@ -19,10 +19,10 @@ nav:
     # - Tutorials: TODO
   - User Guide:
     - Settings:
+      - Overview: user-guide/settings/overview.md
       - Browser Types: user-guide/settings/browser-types.md
       - Timeout Strategy: user-guide/settings/timeout-strategy.md
       - Viewport: user-guide/settings/viewport.md
-      - Overview: user-guide/settings/overview.md
     - Navigation: user-guide/navigation.md
     - Performance:
       - Headless Mode: user-guide/performance/headless-mode.md
