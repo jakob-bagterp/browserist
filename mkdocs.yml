@@ -87,6 +87,15 @@ theme:
     - navigation.indexes
     - content.code.copy
     - content.code.select
+  palette:
+    - scheme: default # Palette toggle for light mode
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate # Palette toggle for dark mode
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
 markdown_extensions:
   - toc:
