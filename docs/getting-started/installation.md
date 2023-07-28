@@ -5,7 +5,7 @@
 * [Relevant browser and driver](browser-drivers.md)
 
 !!! info
-    Default browsers are Chrome for Mac or Edge for Windows. Optional browsers: Firefox, Safari, Opera, Internet Explorer.
+    Default browser driver is Chrome, except for Windows where Edge is the default browser. Optional browsers: Firefox, Safari, Opera, Internet Explorer.
 
 Assuming that Python is installed already, you can install Browserist with either of the following package managers: PyPI or Homebrew.
 
