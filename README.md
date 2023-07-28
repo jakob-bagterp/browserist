@@ -25,24 +25,7 @@ Main features of Browserist:
 Ready to try? [Learn how to install](https://github.com/jakob-bagterp/browserist/blob/master/INSTALLATION.md).
 
 ## Getting Started
-The default browser is Chrome (except Edge for Windows). Simply type:
-
-```python
-from browserist import Browser
-
-browser = Browser()
-browser.open.url("http://example.com/")
-browser.quit()
-```
-
-Or use the built-in context manager so the browser automatically closes when done or if an error occurs:
-
-```python
-from browserist import Browser
-
-with Browser() as browser:
-    browser.open.url("http://example.com/")
-```
+TODO
 
 
 # Thank You for Supporting
