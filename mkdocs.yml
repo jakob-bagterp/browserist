@@ -18,12 +18,12 @@ nav:
     - Difference from Selenium: "getting-started/difference-from-selenium.md"
     # - Tutorials: TODO
   - User Guide:
-    - Navigation: "user-guide/navigation.md"
     - Settings:
       - Browser Types: "user-guide/settings/browser-types.md"
       - Timeout Strategy: "user-guide/settings/timeout-strategy.md"
       - Viewport: "user-guide/settings/viewport.md"
       - Overview: "user-guide/settings/overview.md"
+    - Navigation: "user-guide/navigation.md"
     - Performance:
       - Headless Mode: "user-guide/performance/headless-mode.md"
       - Ignore Images: "user-guide/performance/ignore-images.md"
