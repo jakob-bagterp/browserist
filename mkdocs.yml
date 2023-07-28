@@ -6,6 +6,7 @@ copyright: © 2022, Jakob Bagterp. All Rights Reserved.
 repo_url: https://github.com/jakob-bagterp/browserist
 
 nav:
+  - Home: index.md
   - Getting Started:
     - Installation: "getting-started/installation.md"
     - Browser Drivers: "getting-started/browser-drivers.md"
@@ -136,3 +137,4 @@ plugins:
             show_bases: false
             heading_level: 3
             show_category_heading: true
+            show_symbol_type_heading: true
