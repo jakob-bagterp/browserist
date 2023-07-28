@@ -1,4 +1,5 @@
 # Settings Overview
+## Options for `BrowserSettings`
 Use `BrowserSettings` with the following options:
 
 | Setting              | Option                                    | Default                              | Description                                                                                                      |
@@ -16,13 +17,15 @@ Use `BrowserSettings` with the following options:
 ```python
 from browserist import Browser, BrowserSettings, BrowserType, common_devices
 
+iphone_se = common_devices.Apple.IPHONE_SE
+
 settings = BrowserSettings(
     type = BrowserType.FIREFOX,
     headless = True,
-    disable_images = True
+    disable_images = True,
+    viewport = iphone_se
 )
 
 with Browser(settings) as browser:
-    browser.viewport.set.size_by_device(common_devices.Apple.IPHONE_SE)
     browser.open.url("http://example.com/")
 ```
