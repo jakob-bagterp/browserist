@@ -15,7 +15,7 @@ For PyPI, execute this command in the terminal:
 pip3 install browserist
 ```
 
-Keep package up to date with this command:
+Keep the package up to date with this command:
 
 ```shell
 pip3 install --upgrade browserist
@@ -29,4 +29,4 @@ brew tap jakob-bagterp/browserist
 brew install browserist
 ```
 
-Use the same commands to keep the package up date to.
+Use the same commands to keep the package up to date with Homebrew.
