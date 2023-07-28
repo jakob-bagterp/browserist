@@ -19,7 +19,7 @@ class GetAttributeDriverMethods(DriverMethods):
         Returns:
             str: Value of the attribute.
 
-        Examples:
+        Example:
             Use `"src"` as attribute to get the source URL from an `<img>` image tag.
 
             Use `"href"` as attribute to get the URL from an `<a>` link tag.
@@ -39,7 +39,8 @@ class GetAttributeDriverMethods(DriverMethods):
 
         Returns:
             list[str]: Values of the attribute.
-        Examples:
+
+        Example:
             Use `"src"` as attribute to get the source URL from an `<img>` image tag.
 
             Use `"href"` as attribute to get the URL from an `<a>` link tag.
