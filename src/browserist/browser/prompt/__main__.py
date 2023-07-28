@@ -15,7 +15,7 @@ class PromptDriverMethods(DriverMethods):
             xpath (str): XPath of form field to insert value into.
             prompt_message (str): Message to prompt user with in the terminal.
             validate_input_regex (str | None, optional): If provided, the input value will be validated against this regex.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
         if self._timeout_should_continue():

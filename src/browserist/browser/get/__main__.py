@@ -24,7 +24,7 @@ class GetDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the element.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             tuple[int, int]: Width and height in pixels.
@@ -44,7 +44,7 @@ class GetDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the element.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             object: Web element.
@@ -59,7 +59,7 @@ class GetDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the elements.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[object]: List of web elements.
@@ -94,7 +94,7 @@ class GetDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the element.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             str: Text from element.

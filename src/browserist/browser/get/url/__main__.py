@@ -40,7 +40,7 @@ class GetUrlDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the image. Should target an `<img>` tag.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             str: URL source of the image.
@@ -55,7 +55,7 @@ class GetUrlDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the images. Should target `<img>` tags.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[str]: List of image URLs.
@@ -73,7 +73,7 @@ class GetUrlDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the link. Should target an `<a>` tag.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             str: URL of the link.
@@ -88,7 +88,7 @@ class GetUrlDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the links. Should target `<a>` tags.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[str]: List of link URLs.

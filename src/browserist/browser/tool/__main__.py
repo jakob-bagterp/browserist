@@ -45,7 +45,7 @@ class ToolDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the elements.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             int: _description_

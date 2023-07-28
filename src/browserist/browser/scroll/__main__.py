@@ -50,7 +50,7 @@ class ScrollDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the element.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
         """
 
@@ -63,7 +63,7 @@ class ScrollDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the element.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
         """
 
