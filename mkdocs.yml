@@ -91,6 +91,11 @@ markdown_extensions:
       pygments_lang_class: true
       auto_title: true
   - pymdownx.superfences
+  - admonition
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra:
   analytics:
