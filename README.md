@@ -78,7 +78,7 @@ with Browser() as browser:
 ```
 
 ## Documentation
-Find tutorials, code examples, list of all methods and much more [here](https://jakob-bagterp.github.io).
+Find tutorials, code examples, list of all methods and much more [here](https://jakob-bagterp.github.io/browserist).
 
 # Thank You for Supporting
 ## Donate

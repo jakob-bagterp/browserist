@@ -7,17 +7,17 @@ repo_url: https://github.com/jakob-bagterp/browserist
 
 nav:
   - Home:
-    - Overview: index.md
+    - index.md
     - Donate: donate.md
     - Support and Contribution: support-and-contribution.md
     - License: https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md
     - Release Notes: https://github.com/jakob-bagterp/browserist/releases"
     - Source Code: https://github.com/jakob-bagterp/browserist"
   - Getting Started:
+    - getting-started/index.md
     - Installation: getting-started/installation.md
     - Browser Drivers: getting-started/browser-drivers.md
     - First Script: getting-started/first-script.md
-    - Difference from Selenium: getting-started/difference-from-selenium.md
     # - Tutorials: TODO
   - User Guide:
     - Settings:
@@ -31,7 +31,7 @@ nav:
       - Ignore Images: user-guide/performance/ignore-images.md
       - Parallelisation: user-guide/performance/parallelisation.md
   - Reference:
-    - Overview: reference/overview.md
+    - reference/index.md
     - browser:
       - check_if: reference/browser/check_if.md
       - click: reference/browser/click.md
