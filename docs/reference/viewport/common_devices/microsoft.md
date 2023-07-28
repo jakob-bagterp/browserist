@@ -1,3 +1,3 @@
 ::: browserist.model.viewport.collection.microsoft.MicrosoftDevices
-
-TODO: Expand dataclass.
+    options:
+      show_source: true

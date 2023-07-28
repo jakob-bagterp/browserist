@@ -1,3 +1,3 @@
 ::: browserist.model.viewport.collection.google.GoogleDevices
-
-TODO: Expand dataclass.
+    options:
+      show_source: true

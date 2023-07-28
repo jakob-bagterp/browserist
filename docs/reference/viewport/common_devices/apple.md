@@ -1,3 +1,3 @@
 ::: browserist.model.viewport.collection.apple.AppleDevices
-
-TODO: Expand dataclass.
+    options:
+      show_source: true

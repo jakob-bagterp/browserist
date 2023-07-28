@@ -5,6 +5,8 @@ from ..device import DeviceViewportSize
 
 @dataclass(slots=True, frozen=True)
 class GoogleDevices:
+    """Viewport sizes for common Google devices."""
+
     PIXEL_5 = DeviceViewportSize(393, 851)
     NEST_HUB = DeviceViewportSize(1024, 600)
     NEST_HUB_MAX = DeviceViewportSize(1280, 800)

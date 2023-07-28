@@ -1,3 +1,3 @@
 ::: browserist.model.viewport.collection.samsung.SamsungDevices
-
-TODO: Expand dataclass.
+    options:
+      show_source: true
