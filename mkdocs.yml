@@ -27,7 +27,7 @@ nav:
       - Viewport: user-guide/settings/viewport.md
     - Navigation: user-guide/navigation.md
     - Performance:
-      - Headless Mode: user-guide/performance/headless-mode.md
+      - Headless: user-guide/performance/headless.md
       - Ignore Images: user-guide/performance/ignore-images.md
       - Parallelisation: user-guide/performance/parallelisation.md
   - Reference:

@@ -14,7 +14,7 @@ with Browser(settings) as browser:
 ```
 
 !!! tip
-    It's recommended to run viewport emulations in [headless mode](../performance/headless-mode.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
+    It's recommended to run viewport emulations in [headless mode](../performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
 
 ## Custom Viewport Size
 Or specify the viewport size as width and height in pixels:
