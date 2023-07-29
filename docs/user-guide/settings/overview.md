@@ -27,5 +27,5 @@ settings = BrowserSettings(
 )
 
 with Browser(settings) as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("http://example.com")
 ```

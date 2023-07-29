@@ -44,7 +44,7 @@ You're now ready to go:
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("http://example.com")
     browser.wait.seconds(5)
 ```
 
@@ -72,7 +72,7 @@ Browserist does the same with less and cleaner code, yet also with increased sta
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("http://example.com")
     browser.input.value("//xpath/to/input", "Lorem ipsum")
     browser.click.button("//xpath/to/button")
 ```

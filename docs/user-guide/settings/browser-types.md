@@ -7,7 +7,7 @@ from browserist import Browser, BrowserSettings, BrowserType
 settings = BrowserSettings(type = BrowserType.FIREFOX)
 
 with Browser(settings) as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("http://example.com")
     browser.wait.seconds(5)
 ```
 

@@ -10,7 +10,7 @@ iphone_se = common_devices.Apple.IPHONE_SE
 
 with Browser(settings) as browser:
     browser.viewport.set.size_by_device(iphone_se)
-    browser.open.url("http://example.com/")
+    browser.open.url("http://example.com")
 ```
 
 !!! tip

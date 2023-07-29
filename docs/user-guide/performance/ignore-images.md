@@ -7,7 +7,7 @@ from browserist import Browser, BrowserSettings
 settings = BrowserSettings(disable_images = True)
 
 with Browser(settings) as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("http://example.com")
 ```
 
 The default setting for `disable_images` is `False`.
@@ -24,5 +24,5 @@ firefox = BrowserSettings(type = BrowserType.FIREFOX, disable_images = True)
 
 for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:
-        browser.open.url("http://example.com/")
+        browser.open.url("http://example.com")
 ```
