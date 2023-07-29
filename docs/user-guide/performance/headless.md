@@ -3,7 +3,7 @@
 Headless simply means running the browser in the background and without viewing the browser on the screen.
 
 ## How to Configure
-The default setting for `headless` is `False` in `BrowserSettings`. How to set the browser driver in headless mode:
+The default setting for `headless` is `False` in `BrowserSettings`. Simply alter this to `True`, and now your browser driver runs in headless mode:
 
 ```python
 from browserist import Browser, BrowserSettings
@@ -14,12 +14,15 @@ with Browser(settings) as browser:
     browser.open.url("https://example.com")
 ```
 
+!!! note
+    Not all browsers support headless mode, for instance Safari and Internet Explorer.
+
 ## Advantages and Disadvantages
 When you want to run an automated browser in the background while doing something else, headless mode is a good option. Also, headless mode often is faster and takes up less resources now that the browser doesn't have to render a window on the screen.
 
 In the other hand, the disadvantage is obviously that you can't observe what the browser is doing.
 
-!!! note
+!!! tip
     Not all websites support interaction with an automated browser in headless mode. Sometimes you then need to revert back to the default non-headless mode.
 
 ## Standardised Settings Across Browser Types

@@ -10,7 +10,7 @@ Multi-processing and multi-threading are the fastest methods, sometimes twice as
 
 | Method           | Improvement | Average | Min   | Max   |
 | ---------------- | ----------- | ------- | ----- | ----- |
-| Linear           | Baseline    | 8.59    | 8.55  | 8.62  |
+| Linear           | _Baseline_  | 8.59    | 8.55  | 8.62  |
 | Asynchronous     | 2 %         | 8.42    | 8.33  | 8.48  |
 | Multi-threading  | 103 %       | 4.24    | 4.20  | 4.29  |
 | Multi-processing | 105 %       | 4.20    | 3.69  | 6.05  |
