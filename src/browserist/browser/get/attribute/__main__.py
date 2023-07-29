@@ -14,7 +14,7 @@ class GetAttributeDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the element.
             attribute (str): Attribute name.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             str: Value of the attribute.
@@ -35,7 +35,7 @@ class GetAttributeDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the elements.
             attribute (str): Attribute name.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[str]: Values of the attribute.

@@ -14,7 +14,12 @@ class ComboDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def cookie_banner(self, settings: CookieBannerSettings, timeout: float | None = None) -> None:
-        """Standardised combination of methods to accept or decline cookies."""
+        """Standardised combination of methods to accept or decline cookies.
+
+        Args:
+            settings (CookieBannerSettings): Add settings class.
+            timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
@@ -23,14 +28,29 @@ class ComboDriverMethods(DriverMethods):
     def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> None:
         """Standardised combination of methods to log in.
 
-        wait_seconds: Extra seconds in addition to timeout to make sure the login is processed and that the user is redirected succesfully."""
+        Note:
+            Most websites process login in either one or two steps.
+            Use `LoginForm1Step` when username and password are prompted on the same page.
+            Use `LoginForm2Steps` when username is prompted first, and then the option to input password appears later on the same or a separate page. The two-step variation is often to verify whether a user exists or not before password can be entered (or should be redirected to a registration page).
+
+        Args:
+            login_credentials (LoginCredentials): Apply username and password here.
+            login_form (LoginForm1Step | LoginForm2Steps): Add settings class.
+            timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             combo_log_in(self, login_credentials, login_form, timeout)
 
     def search(self, term: str, settings: SearchSettings, timeout: float | None = None) -> None:
-        """Standardised combination of methods to perform search."""
+        """Standardised combination of methods to perform search.
+
+        Args:
+            term (str): Terms to search for.
+            settings (SearchSettings): Add settings class.
+            timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)

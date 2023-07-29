@@ -13,7 +13,7 @@ timeout_settings = TimeoutSettings(strategy = TimeoutStrategy.CONTINUE, seconds 
 settings = BrowserSettings(timeout = timeout_settings)
 
 with Browser(settings) as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("https://example.com")
 ```
 
 ## Strategy Options

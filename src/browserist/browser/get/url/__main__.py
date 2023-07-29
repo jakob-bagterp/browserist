@@ -13,20 +13,20 @@ class GetUrlDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def current(self) -> str:  # type: ignore
-        """Get URL of the current page, e.g. `https://www.example.com/`.
+        """Get URL of the current page, e.g. `https://example.com`.
 
         Returns:
-            str: URL of the current page, e.g. `https://www.example.com/`.
+            str: URL of the current page, e.g. `https://example.com`.
         """
 
         if self._timeout_should_continue():
             return get_current_url(self._browser_driver)
 
     def current_domain(self) -> str:  # type: ignore
-        """Get domain of the current page, e.g. www.example.com.
+        """Get domain of the current page, e.g. `example.com`.
 
         Returns:
-            str: Domain of the current page, e.g. `www.example.com`.
+            str: Domain of the current page, e.g. `example.com`.
         """
 
         if self._timeout_should_continue():
@@ -36,11 +36,11 @@ class GetUrlDriverMethods(DriverMethods):
         """Get URL source from image, i.e. `<img>` tag.
 
         Note:
-            This method assumes that the image shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method assumes that the image isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the image. Should target an `<img>` tag.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             str: URL source of the image.
@@ -55,7 +55,7 @@ class GetUrlDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the images. Should target `<img>` tags.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[str]: List of image URLs.
@@ -69,11 +69,11 @@ class GetUrlDriverMethods(DriverMethods):
         """Get URL from link or button, i.e. `<a>` tag.
 
         Note:
-            This method assumes that the link shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method assumes that the link isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the link. Should target an `<a>` tag.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             str: URL of the link.
@@ -88,7 +88,7 @@ class GetUrlDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the links. Should target `<a>` tags.
-            timeout (float | None, optional): Timeout in seconds. If `None`, the global timeout setting is used.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[str]: List of link URLs.
