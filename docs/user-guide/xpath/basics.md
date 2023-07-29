@@ -43,7 +43,7 @@ Sometimes even simply:
 ```
 
 !!! tip
-    What does the asterisk `*` mean? This is a _wildcard_ that targets all elements whether it's a `<div>`, `<h1>` or any other tag.
+    What does the asterisk `*` in `//*[@id='container']` mean? This is a _wildcard_ that targets all element types whether it's a `<div>`, `<h1>` or any other tag.
 
 ### Multiple Relative Expressions in One
 Let's imagine a more complicated page with several nested children to `<div id="container">`:
