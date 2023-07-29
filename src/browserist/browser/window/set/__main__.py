@@ -9,7 +9,7 @@ class WindowSetDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def position(self, x: int, y: int) -> None:
-        """Moves the window to the chosen coordinate of the screen in pixels.
+        """If possible, move the window to the chosen coordinate of the screen.
 
         Args:
             x (int): In pixels. Absolute X coordinate of the screen on the horisontal axis.
@@ -20,7 +20,10 @@ class WindowSetDriverMethods(DriverMethods):
             set_window_position(self._browser_driver, x, y)
 
     def size(self, width: int, height: int) -> None:
-        """Restores the window and sets the window size.
+        """If possible, restore the window and set the window size.
+
+        Note:
+            Window size is not the same as the [viewport](/browserist/user-guide/settings/viewport) size. The viewport is often smaller than the browser window that needs space for menus and buttons.
 
         Args:
             width (int): Width of the window in pixels.

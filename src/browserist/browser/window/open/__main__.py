@@ -26,7 +26,7 @@ class WindowOpenDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.window.open.new_tab("https://example.com", "tab_1")
-                browser.window.open.new_tab("https://www.google.com", "tab_2")
+                browser.window.open.new_tab("https://google.com", "tab_2")
                 browser.window.switch_to("tab_1")
             ```
         """
@@ -49,7 +49,7 @@ class WindowOpenDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.window.open.new_window("https://example.com", "window_1")
-                browser.window.open.new_window("https://www.google.com", "window_2")
+                browser.window.open.new_window("https://google.com", "window_2")
                 browser.window.switch_to("tab_1")
             ```
         """

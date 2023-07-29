@@ -19,7 +19,10 @@ class OpenDriverMethods(DriverMethods):
             open_url(self._browser_driver, url)
 
     def url_if_not_current(self, url: str, ignore_trailing_slash: bool = True, ignore_parameters: bool = False, ignore_https: bool = False) -> None:
-        """Open a URL if it isn't already the current URL. Useful when doing multiple operations on a page where.
+        """Open a URL if it isn't already the current URL.
+
+        Tip:
+            Useful when doing multiple operations on a page where you don't want to reload the page, but either A) only if it isn't a specific URL or B) to ensure that a process is only used on a specific page.
 
         Args:
             url (str): URL to open if not current URL, e.g. `"https://example.com"`.

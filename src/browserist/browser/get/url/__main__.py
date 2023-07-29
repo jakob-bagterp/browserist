@@ -13,10 +13,10 @@ class GetUrlDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def current(self) -> str:  # type: ignore
-        """Get URL of the current page, e.g. `https://example.com/`.
+        """Get URL of the current page, e.g. `https://example.com`.
 
         Returns:
-            str: URL of the current page, e.g. `https://example.com/`.
+            str: URL of the current page, e.g. `https://example.com`.
         """
 
         if self._timeout_should_continue():
@@ -36,7 +36,7 @@ class GetUrlDriverMethods(DriverMethods):
         """Get URL source from image, i.e. `<img>` tag.
 
         Note:
-            This method assumes that the image shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method assumes that the image isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the image. Should target an `<img>` tag.
@@ -69,7 +69,7 @@ class GetUrlDriverMethods(DriverMethods):
         """Get URL from link or button, i.e. `<a>` tag.
 
         Note:
-            This method assumes that the link shouldn't be empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method assumes that the link isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the link. Should target an `<a>` tag.
