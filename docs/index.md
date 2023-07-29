@@ -17,13 +17,13 @@ Main features of Browserist:
 
 :white_check_mark: Improves stability and speed
 
-:white_check_mark: Simple syntax
+:white_check_mark: Simple syntax and less code
 
-:white_check_mark: Hassle-free setup that works across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+:white_check_mark: Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
-:white_check_mark: Extended library of browser automation functions and tools without elaborate code
+:white_check_mark: Extensive framework of functions that makes browser automation easy
 
-:white_check_mark: Supports IntelliSense type hints and other capabilites of Python 3.10+ that makes development more efficient
+:white_check_mark: Supports IntelliSense and type hints that makes development more efficient
 
 Ready to try? [Let's get started](./getting-started/index.md).
 

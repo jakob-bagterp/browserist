@@ -16,10 +16,10 @@ Despite the [urban definition](https://www.urbandictionary.com/define.php?term=b
 Main features of Browserist:
 
 * Improves stability and speed
-* Simple syntax
-* Hassle-free setup that works across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
-* Extended library of browser automation functions and tools without elaborate code
-* Supports IntelliSense type hints and other capabilites of Python 3.10+ that makes development more efficient
+* Simple syntax and less code
+* Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+* Extensive framework of functions that makes browser automation easy
+* Supports IntelliSense and type hints that makes development more efficient
 
 ## How to Install
 Ready to try? With [PyPI](https://pypi.org/project/browserist/):
