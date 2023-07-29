@@ -13,8 +13,8 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
         """Wait until the page title changes compared to a baseline text, e.g. after a page reload or update.
 
         Args:
-            baseline_text (str): Baseline text to compare current page title to.
-            timeout (float | None, optional): In seconds. Timeout to wait for the page title to change. If `None`, the global timeout setting is used (default 5 seconds).
+            baseline_text (str): Baseline text to compare current page title against. It's evaluated as any change.
+            timeout (float | None, optional): In seconds. Timeout to wait for page title to change. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
         if self._timeout_should_continue():
@@ -22,11 +22,11 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
             wait_until_page_title_changes(self._browser_driver, baseline_text, timeout)
 
     def contains(self, page_title_fragment: str, timeout: float | None = None) -> None:
-        """Wait until the page title has changed and contains a specified text fragment, e.g. after a redirect or update.
+        """Wait until the page title contains a specified text fragment, e.g. after a redirect or update.
 
         Args:
             page_title_fragment (str): The input can contain both a fragment or the full page title.
-            timeout (float | None, optional): In seconds. Timeout to wait for the page title to contain the fragment. If `None`, the global timeout setting is used (default 5 seconds).
+            timeout (float | None, optional): In seconds. Timeout to wait for page title to contain text fragment. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
         if self._timeout_should_continue():
@@ -37,8 +37,8 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
         """Wait until the page title has changed to a specific text, e.g. after a redirect or update.
 
         Args:
-            page_title (str): Full page title to compare current page title to. The input has to match the exact page title.
-            timeout (float | None, optional): In seconds. Timeout to wait for the page title to fullfil the condition. If `None`, the global timeout setting is used (default 5 seconds).
+            page_title (str): Full page title to compare the new current page title against. Evaluated as an exact match.
+            timeout (float | None, optional): In seconds. Timeout to wait for page title to match specified text. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
         if self._timeout_should_continue():

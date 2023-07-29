@@ -20,7 +20,7 @@ class WaitUntilDriverMethods(DriverMethods):
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver)
 
     def contains_any_text(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element contains any text (use other method to check for specific text).
+        """Wait until element contains any text, e.g. an element in a single-page application that loads later than first page paint.
 
         Args:
             xpath (str): XPath of the element.
@@ -44,11 +44,22 @@ class WaitUntilDriverMethods(DriverMethods):
             wait_until_element_disappears(self._browser_driver, xpath, timeout)
 
     def images_have_loaded(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element doesn't exist.
+        """Wait until image(s) have loaded on the page.
 
         Args:
             xpath (str): XPath of the element. Can target one or more images.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s) to be loaded. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            As images often load after first page paint and sometimes require extra time to download, it's useful know when a specific image or all images have loaded. The example targets all image elements on a page:
+
+            ```python title=""
+            from browserist import Browser
+
+            browser = Browser()
+            browser.open.url("https://example.com")
+            browser.wait.until.images_have_loaded("//img")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -69,6 +80,9 @@ class WaitUntilDriverMethods(DriverMethods):
 
     def number_of_window_handles_is(self, expected_handles: int, timeout: float | None = None) -> None:
         """Wait until number of window handles is.
+
+        Note:
+            Useful when working with multiple tabs or browser windows as they sometimes take time to load.
 
         Args:
             expected_handles (int): Expected number of window handles.
