@@ -1,6 +1,8 @@
-# XPath Cheatsheet
+# Introduction to XPath
+Browserist is built as an extension to the Selenium framework and offers similar functionality. However, be aware of the differences.
+
 ## Why Use XPath?
-While Selenium offers many methods to target web elements – for instance `By.ID`, `By.CLASS_NAME`, etc. – Browserist solely uses XPath to locate web elements in the DOM of a web page. Why so?
+While Selenium offers several methods to target web elements – for instance `By.ID`, `By.CLASS_NAME`, etc. – Browserist solely uses XPath to locate web elements in the DOM of a web page. Why so?
 
 XPath is a powerful tool that similar to a Swiss Army knife gets the job done with compact, often less code. And so you only need to master as single language instead of multiple `By` class options and importing extra modules from Selenium.
 
@@ -26,10 +28,3 @@ driver.find_element(By.CLASS_NAME, "information")
 browser.get.element("//*[@class='information']")
 ```
 </div>
-
-## Tips
-Target all images on a page:
-
-```text title=""
-//img
-```
