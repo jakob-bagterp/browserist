@@ -59,7 +59,7 @@ Let's imagine a more complicated page with several nested children to `<div id="
 </main>
 ```
 
-How do we target the `<a>` link element efficiently? We can simply use multiple relative statements similar to this pattern `//...//...` in one expression:
+How do we target the `<a>` link element efficiently? We can simply use multiple relative statements similar to this pattern `//…//…` in one expression:
 
 ```text title=""
 //*[@id='container']//a
