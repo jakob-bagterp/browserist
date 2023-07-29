@@ -33,7 +33,7 @@ Most web pages or much more complicated that this with containers and several ot
 With a relative XPath expression, you can target an `id` attribute or other anchor points to simplify the expression. This also makes it more readable:
 
 ```text title=""
-//*[@id='container']/h1
+//div[@id='container']/h1
 ```
 
 Sometimes even simply:
@@ -42,8 +42,8 @@ Sometimes even simply:
 //h1
 ```
 
-!!! tip
-    What does the asterisk `*` in `//*[@id='container']` mean? This is a _wildcard_ that targets all element types whether it's a `<div>`, `<h1>` or any other tag.
+!!! tip "Tip: Use `*` as Wildcard Selector"
+    While `//div[@id='container']` targets a `<div>` element with a specific `id`, it's often favorable to use a generic selector. Try using the asterisk `*` in `//*[@id='container']` instead. This is a _wildcard_ that targets all element types whether it's a `<div>`, `<h1>` or any other tag.
 
 ### Multiple Relative Expressions in One
 Let's imagine a more complicated page with several nested children to `<div id="container">`:
