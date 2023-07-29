@@ -5,7 +5,7 @@ When you have [installed relevant packages](installation.md), you're ready to go
 from browserist import Browser
 
 browser = Browser()
-browser.open.url("http://example.com")
+browser.open.url("https://example.com")
 browser.wait.seconds(5)
 browser.quit()
 ```
@@ -16,6 +16,6 @@ Or use the built-in context manager so the browser automatically closes when don
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("http://example.com")
+    browser.open.url("https://example.com")
     browser.wait.seconds(5)
 ```

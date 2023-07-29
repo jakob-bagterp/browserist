@@ -29,12 +29,13 @@ nav:
       - Timeout Strategy: user-guide/settings/timeout-strategy.md
       - Viewport: user-guide/settings/viewport.md
     - Performance:
-      - Headless Mode: user-guide/performance/headless-mode.md
+      - Headless: user-guide/performance/headless.md
       - Ignore Images: user-guide/performance/ignore-images.md
       - Parallelisation: user-guide/performance/parallelisation.md
   - Reference:
     - reference/index.md
     - browser:
+      - __main__: reference/browser/__main__.md
       - check_if: reference/browser/check_if.md
       - click: reference/browser/click.md
       - combo: reference/browser/combo.md
@@ -164,3 +165,4 @@ plugins:
             show_root_toc_entry: false
             show_symbol_type_heading: true
             show_symbol_type_toc: true
+            merge_init_into_class: true

@@ -16,20 +16,43 @@ class WaitDriverMethods(DriverMethods):
     def for_element(self, xpath: str, timeout: float | None = None) -> None:
         """Wait until element is ready in the DOM and/or on the screen.
 
-        Especially useful for single-page app elements handled/modified by JavaScript, but also standard HTML that doesn't load immediately, this helper function ensures that DOM elements are ready before processing."""
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            Useful for single-page app elements handled by JavaScript, but also standard HTML that doesn't load immediately. This helper function ensures that DOM elements are ready before processing. The example waits for any H1 headline to be ready:
+
+            ```python title=""
+            from browserist import Browser
+
+            browser = Browser()
+            browser.open.url("https://example.com")
+            browser.wait.for_element("//h1")
+            ```
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_for_element(self._browser_driver, xpath, timeout)
 
     def random_seconds(self, min_seconds: float = 1, max_seconds: float = 5) -> None:
-        """Randomize sleep timing to make actions look less like a bot."""
+        """Sleep for a random amount of time to make actions look less like a bot. The waiting time will be somewhere between the speficied minimum and maximum seconds.
+
+        Args:
+            min_seconds (float, optional): Minimum seconds to wait.
+            max_seconds (float, optional): Maximum seconds to wait.
+        """
 
         if self._timeout_should_continue():
             wait_random_seconds(min_seconds, max_seconds)
 
     def seconds(self, seconds: float) -> None:
-        """Sleep for a fixed amount of time."""
+        """Sleep for a fixed amount of time.
+
+        Args:
+            seconds (float): Seconds to wait.
+        """
 
         if self._timeout_should_continue():
             wait_seconds(seconds)

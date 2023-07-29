@@ -9,13 +9,21 @@ class ScrollCheckIfDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def is_end_of_page(self) -> bool:  # type: ignore
-        """Check if current scroll position is at the end of the page."""
+        """Check if current scroll position is at the end of the page.
+
+        Returns:
+            bool: `True` if current scroll position is at the end of the page, `False` otherwise.
+        """
 
         if self._timeout_should_continue():
             return check_if_scroll_is_end_of_page(self._browser_driver)
 
     def is_top_of_page(self) -> bool:  # type: ignore
-        """Check if current scroll position is at the top of the page."""
+        """Check if current scroll position is at the top of the page.
+
+        Returns:
+            bool: `True` if current scroll position is at the top of the page, `False` otherwise.
+        """
 
         if self._timeout_should_continue():
             return check_if_scroll_is_top_of_page(self._browser_driver)

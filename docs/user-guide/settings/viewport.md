@@ -10,11 +10,11 @@ iphone_se = common_devices.Apple.IPHONE_SE
 
 with Browser(settings) as browser:
     browser.viewport.set.size_by_device(iphone_se)
-    browser.open.url("http://example.com")
+    browser.open.url("https://example.com")
 ```
 
 !!! tip
-    It's recommended to run viewport emulations in [headless mode](../performance/headless-mode.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
+    It's recommended to run viewport emulations in [headless mode](../performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
 
 ## Custom Viewport Size
 Or specify the viewport size as width and height in pixels:

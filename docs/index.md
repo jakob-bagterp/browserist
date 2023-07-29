@@ -17,13 +17,13 @@ Main features of Browserist:
 
 :white_check_mark: Improves stability and speed
 
-:white_check_mark: Simple syntax
+:white_check_mark: Simple syntax and less code
 
-:white_check_mark: Hassle-free setup that works across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+:white_check_mark: Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 
-:white_check_mark: Extended library of browser automation functions and tools without elaborate code
+:white_check_mark: Extensive framework of functions that makes browser automation easy
 
-:white_check_mark: Supports IntelliSense type hints and other capabilites of Python 3.10+ that makes development more efficient
+:white_check_mark: Supports IntelliSense and type hints that makes development more efficient
 
 Ready to try? [Let's get started](./getting-started/index.md).
 
@@ -37,7 +37,7 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
-driver.get("http://example.com/")
+driver.get("https://example.com")
 driver.implicitly_wait(3)
 search_box = driver.find_element(By.XPATH, "//xpath/to/input")
 search_button = driver.find_element(By.XPATH, "//xpath/to/button")
@@ -52,7 +52,7 @@ Browserist does the same with less and cleaner code, yet also with increased sta
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("http://example.com")
+    browser.open.url("https://example.com")
     browser.input.value("//xpath/to/input", "Lorem ipsum")
     browser.click.button("//xpath/to/button")
 ```
