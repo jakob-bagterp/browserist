@@ -36,13 +36,14 @@ With a relative XPath expression, you can target an `id` attribute or other anch
 //*[@id='container']/h1
 ```
 
-What does `*` mean? This is a _wildcard_ that targets all elements whether it's a `<div>`, `<h1>` or any other tag.
-
 Sometimes even simply:
 
 ```text title=""
 //h1
 ```
+
+!!! tip
+    What does the asterisk `*` mean? This is a _wildcard_ that targets all elements whether it's a `<div>`, `<h1>` or any other tag.
 
 ### Multiple Relative Expressions in One
 Let's imagine a more complicated page with several nested children to `<div id="container">`:
