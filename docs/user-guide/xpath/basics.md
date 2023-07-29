@@ -30,11 +30,13 @@ To target the `<h1>` headline element with an absolute XPath expression, use thi
 Most web pages or much more complicated that this with containers and several other, and so you often type cumbersome, long XPath expressions. Most often you want to avoid absolute XPath expressions.
 
 ### Relative XPath
-With a relative XPath expression, you can target IDs or other anchor points to simplify the expression. This also makes it more readable:
+With a relative XPath expression, you can target an `id` attribute or other anchor points to simplify the expression. This also makes it more readable:
 
 ```text title=""
 //*[@id='container']/h1
 ```
+
+What does `*` mean? This is a _wildcard_ that targets all elements whether it's a `<div>`, `<h1>` or any other tag.
 
 Sometimes even simply:
 
