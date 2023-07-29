@@ -20,12 +20,14 @@ nav:
     - First Script: getting-started/first-script.md
     # - Tutorials: TODO
   - User Guide:
+    - user-guide/index.md
+    - Navigation: user-guide/navigation.md
+    - XPath Cheatsheet: user-guide/xpath-cheatsheet.md
     - Settings:
       - Overview: user-guide/settings/overview.md
       - Browser Types: user-guide/settings/browser-types.md
       - Timeout Strategy: user-guide/settings/timeout-strategy.md
       - Viewport: user-guide/settings/viewport.md
-    - Navigation: user-guide/navigation.md
     - Performance:
       - Headless Mode: user-guide/performance/headless-mode.md
       - Ignore Images: user-guide/performance/ignore-images.md
