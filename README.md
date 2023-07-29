@@ -16,10 +16,10 @@ Despite the [urban definition](https://www.urbandictionary.com/define.php?term=b
 Main features of Browserist:
 
 * Improves stability and speed
-* Simple syntax
-* Hassle-free setup that works across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
-* Extended library of browser automation functions and tools without elaborate code
-* Supports IntelliSense type hints and other capabilites of Python 3.10+ that makes development more efficient
+* Simple syntax and less code
+* Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+* Extensive framework of functions that makes browser automation easy
+* Supports IntelliSense and type hints that makes development more efficient
 
 ## How to Install
 Ready to try? With [PyPI](https://pypi.org/project/browserist/):
@@ -44,7 +44,7 @@ You're now ready to go:
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("https://example.com")
     browser.wait.seconds(5)
 ```
 
@@ -57,7 +57,7 @@ from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
-driver.get("http://example.com/")
+driver.get("https://example.com")
 driver.implicitly_wait(3)
 search_box = driver.find_element(By.XPATH, "//xpath/to/input")
 search_button = driver.find_element(By.XPATH, "//xpath/to/button")
@@ -72,7 +72,7 @@ Browserist does the same with less and cleaner code, yet also with increased sta
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("https://example.com")
     browser.input.value("//xpath/to/input", "Lorem ipsum")
     browser.click.button("//xpath/to/button")
 ```

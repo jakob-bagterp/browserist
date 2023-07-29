@@ -33,7 +33,18 @@ class Browser:
                  "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "prompt", "screenshot", "scroll", "select", "tool", "viewport", "wait", "window"]
 
     def __init__(self, settings: BrowserSettings | None = None) -> None:
-        """Initiates the browser driver whether the settings call for Chrome, Firefox, etc."""
+        """Initiates the browser driver whether the settings call for Chrome, Edge, Firefox, etc.
+
+        Example:
+            ```python title=""
+            from browserist import Browser, BrowserSettings
+
+            settings = BrowserSettings(browser_type=BrowserType.FIREFOX)
+
+            with Browser(settings) as browser:
+                browser.open.url("https://example.com")
+            ```
+        """
 
         if settings is None:
             settings = BrowserSettings()  # Use default settings if no custom settings are given.

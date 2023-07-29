@@ -13,18 +13,46 @@ class WindowOpenDriverMethods(DriverMethods):
         self._controller = controller
 
     def new_tab(self, url: str | None = None, name: str | None = None, timeout: float | None = None) -> None:
-        """Open and switch to new tab in current window. The URL and name of the tab are optional arguments.
+        """Open and switch to new tab in current browser window.
 
-        name: Can be used to switch to this tab with the "browser.window.switch_to(name)" method."""
+        Args:
+            url (str | None, optional): If given, the URL will open in the new tab.
+            name (str | None, optional): Unique name to identify the tab so you later can switch back to this tab with the `browser.window.switch_to("some_name")` method.
+            timeout (float | None, optional): In seconds. Timeout to wait for the tab. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.window.open.new_tab("https://example.com", "tab_1")
+                browser.window.open.new_tab("https://google.com", "tab_2")
+                browser.window.switch_to("tab_1")
+            ```
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             open_new_tab_or_window(self._browser_driver, self._controller, TabOrWindow.TAB, timeout, url, name)
 
     def new_window(self, url: str | None = None, name: str | None = None, timeout: float | None = None) -> None:
-        """Open and switch to new window. The URL and name of the window are optional arguments.
+        """Open and switch to new browser window.
 
-        name: Can be used to switch to this window with the "browser.window.switch_to(name)" method."""
+        Args:
+            url (str | None, optional): If given, the URL will open in the new window.
+            name (str | None, optional): Unique name to identify the window so you later can switch back to this window with the `browser.window.switch_to("some_name")` method.
+            timeout (float | None, optional): In seconds. Timeout to wait for the window. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.window.open.new_window("https://example.com", "window_1")
+                browser.window.open.new_window("https://google.com", "window_2")
+                browser.window.switch_to("tab_1")
+            ```
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)

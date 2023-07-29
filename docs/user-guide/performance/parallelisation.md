@@ -5,36 +5,69 @@ You can run Browserist as a normal, linear script or with various methods for co
 * Multi-threading
 * Multi-processing
 
-## Which Method is Faster?
+## Which Method Is Faster?
 Multi-processing and multi-threading are the fastest methods, sometimes twice as fast as running the same job in linear or asynchronous mode. For instance, measuring execution time of the code examples below yield the results like this in seconds:
 
-| Method           | Average | Min   | Max   |
-| ---------------- | ------- | ----- | ----- |
-| Linear           | 8.59    | 8.55  | 8.62  |
-| Asynchronous     | 8.42    | 8.33  | 8.48  |
-| Multi-threading  | 4.24    | 4.20  | 4.29  |
-| Multi-processing | 4.20    | 3.69  | 6.05  |
+| Method           | Improvement | Average | Min   | Max   |
+| ---------------- | ----------- | ------- | ----- | ----- |
+| Linear           | _Baseline_  | 8.59    | 8.55  | 8.62  |
+| Asynchronous     | 2 %         | 8.42    | 8.33  | 8.48  |
+| Multi-threading  | 103 %       | 4.24    | 4.20  | 4.29  |
+| Multi-processing | 105 %       | 4.20    | 3.69  | 6.05  |
+
+Find code examples of the tests below.
 
 ### Even Faster with Headless and Ignore Images
-Gain even more performance by running the browsers in [headless mode](headless-mode.md) and with [images disabled](ignore-images.md), e.g. `BrowserSettings(type=BrowserType.CHROME, headless=True, disable_images=True)`. Including the added benefit that headless mode allows you to run the job as a background task while doing something else.
+Gain even more performance by running the browsers in [headless mode](headless.md) and with [images disabled](ignore-images.md), including the added benefit that headless mode allows you to run the job as a background task while doing something else. For example:
 
-Results in seconds:
+```python
+from browserist import Browser, BrowserSettings, BrowserType
 
-| Method           | Average | Min   | Max   |
-| ---------------- | ------- | ----- | ----- |
-| Linear           | 10.46   | 6.34  | 15.78 |
-| Asynchronous     | 8.01    | 6.15  | 12.11 |
-| Multi-threading  | 4.03    | 3.98  | 4.07  |
-| Multi-processing | 3.60    | 3.57  | 3.65  |
+settings = BrowserSettings(
+    type = BrowserType.CHROME,
+    headless = True,
+    disable_images = True)
+
+browser = Browser(settings)
+```
+
+Results in seconds and compared to previous method:
+
+| Method           | Improvement | Average | Min   | Max   |
+| ---------------- | ----------- | ------- | ----- | ----- |
+| Linear           | 2 %         | 8.46    | 6.34  | 12.78 |
+| Asynchronous     | 7 %         | 8.01    | 6.15  | 11.11 |
+| Multi-threading  | 113 %       | 4.03    | 3.98  | 4.07  |
+| Multi-processing | 139 %       | 3.60    | 3.57  | 3.65  |
 
 ## Code Examples
-Imagine that you want to scrape a website with multiple browser types: Chrome, Edge, Firefox. The following examples do the same job:
+Imagine that you want to scrape a website with multiple browser types: Chrome, Edge, Firefox. A simplified example of this:
 
-1. Open browser instance (Chrome, Edge, Firefox)
-2. Load website [example.com](http://example.com/)
+1. Open browser instance
+2. Load website [example.com](https://example.com) and do something
 3. Close browser instance
 
-Yet with four different methods.
+How the code could look:
+
+```python
+from browserist import Browser
+
+with Browser() as browser:
+    print("1. Opening X browser")
+    browser.open.url("https://example.com")
+    print("2. Page loaded with X browser")
+    print("3. Closing X browser")
+```
+
+This will print the following to the terminal:
+
+```text title=""
+1. Opening X browser
+2. Page loaded with X browser
+3. Closing X browser
+```
+
+Let's try this with four different methods from linear to concurrent processing and run the tests with three different browsers (Chrome, Edge, Firefox).
 
 ### Linear
 ```python
@@ -43,7 +76,7 @@ from browserist import Browser, BrowserSettings, BrowserType
 def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
-        browser.open.url("http://example.com/")
+        browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         print(f"3. Closing {settings.type.name} browser")
 
@@ -67,7 +100,7 @@ from browserist import Browser, BrowserSettings, BrowserType
 async def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
-        browser.open.url("http://example.com/")
+        browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         await asyncio.sleep(.1)
         print(f"3. Closing {settings.type.name} browser")
@@ -99,7 +132,7 @@ class BrowserThread(Thread):
     def run(self):
         with Browser(self.settings) as browser:
             print(f"1. Opening {self.settings.type.name} browser")
-            browser.open.url("http://example.com/")
+            browser.open.url("https://example.com")
             print(f"2. Page loaded with {self.settings.type.name} browser")
             print(f"3. Closing {self.settings.type.name} browser")
 
@@ -129,7 +162,7 @@ from browserist import Browser, BrowserSettings, BrowserType
 def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
-        browser.open.url("http://example.com/")
+        browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         print(f"3. Closing {settings.type.name} browser")
 

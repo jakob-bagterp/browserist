@@ -23,7 +23,7 @@ You're now ready to go:
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("https://example.com")
     browser.wait.seconds(5)
 ```
 
