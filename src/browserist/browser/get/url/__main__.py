@@ -23,7 +23,7 @@ class GetUrlDriverMethods(DriverMethods):
             return get_current_url(self._browser_driver)
 
     def current_domain(self) -> str:  # type: ignore
-        """Get domain of the current page, e.g. example.com.
+        """Get domain of the current page, e.g. `example.com`.
 
         Returns:
             str: Domain of the current page, e.g. `example.com`.
