@@ -25,6 +25,7 @@ nav:
     - Context Manager: user-guide/context-manager.md
     - XPath:
       - Intro: user-guide/xpath/intro.md
+      - Basics: user-guide/xpath/basics.md
       - Cheatsheet: user-guide/xpath/cheatsheet.md
     - Settings:
       - Overview: user-guide/settings/overview.md
