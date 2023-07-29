@@ -4,9 +4,9 @@ from ..model.type.url import URL
 
 
 def ensure_trailing_slash(url: str) -> str:
-    """When comparing URLs, e.g. "https://example.com" and "http://example.com", use this method to normalise the comparison."""
+    """When comparing URLs, e.g. "https://example.com" and "https://example.com/", use this method to normalise the comparison."""
 
-    if "?" in url:  # If the URL contains a parameter (e.g. https://example.com/search?page=1), ignore trailing slash.
+    if "?" in url:  # If the URL contains a parameter (e.g. "https://example.com/search?page=1"), ignore trailing slash.
         return url
     return url if url[-1] == "/" else f"{url}/"
 
