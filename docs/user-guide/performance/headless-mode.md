@@ -9,7 +9,7 @@ from browserist import Browser, BrowserSettings
 settings = BrowserSettings(headless = True)
 
 with Browser(settings) as browser:
-    browser.open.url("http://example.com/")
+    browser.open.url("https://example.com")
 ```
 
 The default setting for `headless` is `False`.
@@ -28,5 +28,5 @@ firefox = BrowserSettings(type = BrowserType.FIREFOX, headless = True)
 
 for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:
-        browser.open.url("http://example.com/")
+        browser.open.url("https://example.com")
 ```

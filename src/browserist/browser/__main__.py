@@ -42,7 +42,7 @@ class Browser:
             settings = BrowserSettings(browser_type=BrowserType.FIREFOX)
 
             with Browser(settings) as browser:
-                browser.open.url("https://www.example.com")
+                browser.open.url("https://example.com")
             ```
         """
 

@@ -31,7 +31,7 @@ Results in seconds:
 Imagine that you want to scrape a website with multiple browser types: Chrome, Edge, Firefox. The following examples do the same job:
 
 1. Open browser instance (Chrome, Edge, Firefox)
-2. Load website [example.com](http://example.com/)
+2. Load website [example.com](https://example.com)
 3. Close browser instance
 
 Yet with four different methods.
@@ -43,7 +43,7 @@ from browserist import Browser, BrowserSettings, BrowserType
 def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
-        browser.open.url("http://example.com/")
+        browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         print(f"3. Closing {settings.type.name} browser")
 
@@ -67,7 +67,7 @@ from browserist import Browser, BrowserSettings, BrowserType
 async def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
-        browser.open.url("http://example.com/")
+        browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         await asyncio.sleep(.1)
         print(f"3. Closing {settings.type.name} browser")
@@ -99,7 +99,7 @@ class BrowserThread(Thread):
     def run(self):
         with Browser(self.settings) as browser:
             print(f"1. Opening {self.settings.type.name} browser")
-            browser.open.url("http://example.com/")
+            browser.open.url("https://example.com")
             print(f"2. Page loaded with {self.settings.type.name} browser")
             print(f"3. Closing {self.settings.type.name} browser")
 
@@ -129,7 +129,7 @@ from browserist import Browser, BrowserSettings, BrowserType
 def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
-        browser.open.url("http://example.com/")
+        browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         print(f"3. Closing {settings.type.name} browser")
 

@@ -13,20 +13,20 @@ class GetUrlDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def current(self) -> str:  # type: ignore
-        """Get URL of the current page, e.g. `https://www.example.com/`.
+        """Get URL of the current page, e.g. `https://example.com/`.
 
         Returns:
-            str: URL of the current page, e.g. `https://www.example.com/`.
+            str: URL of the current page, e.g. `https://example.com/`.
         """
 
         if self._timeout_should_continue():
             return get_current_url(self._browser_driver)
 
     def current_domain(self) -> str:  # type: ignore
-        """Get domain of the current page, e.g. www.example.com.
+        """Get domain of the current page, e.g. example.com.
 
         Returns:
-            str: Domain of the current page, e.g. `www.example.com`.
+            str: Domain of the current page, e.g. `example.com`.
         """
 
         if self._timeout_should_continue():

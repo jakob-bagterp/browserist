@@ -66,7 +66,7 @@ class WindowDriverMethods(DriverMethods):
             from browserist import Browser
 
             with Browser() as browser:
-                browser.window.open.new_tab("https://www.example.com", "tab_1")
+                browser.window.open.new_tab("https://example.com", "tab_1")
                 browser.window.open.new_tab("https://www.google.com", "tab_2")
                 browser.window.switch_to("tab_1")
             ```
