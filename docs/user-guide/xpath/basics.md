@@ -55,7 +55,7 @@ Or even simpler:
 This way, the relative XPath simply searches for all child elements of the root node that matches the condition.
 
 !!! tip "Tip: Use `*` as Wildcard Selector"
-    While `//div[@id='container']` targets a `<div>` element with a specific `id`, it's often favourable to use a generic selector. Try using the asterisk `*` in `//*[@id='container']` instead. This is a _wildcard selector_ that targets all element types whether it's a `<div>`, `<h1>` or any other tag.
+    While `//div[@id='container']` targets a `<div>` element with a specific `id`, it's often favourable to use a generic selector. Try using the asterisk `*` in `//*[@id='container']` instead. This is a _wildcard selector_ that targets all element types whether it's a `<div>`, `<h1>`, or any other tag.
 
 ## Multiple Conditions in One Expression
 Let's imagine a more complicated page with several nested children to `<div id="container">` where we want to click the `<a>` link element:

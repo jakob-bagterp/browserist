@@ -43,5 +43,5 @@ Find more in-depth information in the [user guide](../user-guide/index.md) secti
 For advanced users, learn how to optimise performance:
 
 * [Headless mode](../user-guide/performance/headless.md)
-* [Ignore images](../user-guide/performance/ignore-images.md)
+* [Disable images](../user-guide/performance/disable-images.md)
 * [Run multiple browsers in parallel](../user-guide/performance/parallelisation.md)

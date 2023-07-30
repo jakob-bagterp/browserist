@@ -27,8 +27,8 @@ Multi-processing and multi-threading are the fastest methods, sometimes twice as
 
 Find code examples of the tests below.
 
-### Even Faster with Headless and Ignore Images
-Gain even more performance by running the browsers in [headless mode](headless.md) and with [images disabled](ignore-images.md), including the added benefit that headless mode allows you to run the job as a background task while doing something else. For example:
+### Even Faster with Headless and Disable Images
+Gain even more performance by running the browsers in [headless mode](headless.md) and with [images disabled](disable-images.md), including the added benefit that headless mode allows you to run the job as a background task while doing something else. For example:
 
 ```python
 from browserist import Browser, BrowserSettings, BrowserType

@@ -42,7 +42,7 @@ nav:
       - Viewport: user-guide/settings/viewport.md
     - Performance:
       - Headless: user-guide/performance/headless.md
-      - Ignore Images: user-guide/performance/ignore-images.md
+      - Disable Images: user-guide/performance/disable-images.md
       - Parallelisation: user-guide/performance/parallelisation.md
   - Reference:
     - reference/index.md
@@ -126,6 +126,7 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - attr_list
+  - tables
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
