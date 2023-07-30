@@ -21,12 +21,18 @@ Let's imagine a registration form on a web page where we want to target the `<in
 </div>
 ```
 
-Instead of targeting the index `//input[1]`, `//input[2]`, etc. or the `id` attribute, we can also target other attributes like `name`:
+Instead of targeting the index `//input[1]`, `//input[2]`, etc., we can be more specific and target the `id` attributes:
+
+```text title=""
+//input[@id='email']
+//input[@id='password']
+//input[@id='password_repeat']
+```
+
+Similarly, we can also target other attributes like `name`:
 
 ```text title=""
 //input[@name='email']
-//input[@name='password']
-//input[@name='password_repeat']
 ```
 
 This will often make your code more stable if the HTML layout changes while the `name` and `id` attributes often remain constant. Similarly, the submit button is easily located by the `type` attribute:
