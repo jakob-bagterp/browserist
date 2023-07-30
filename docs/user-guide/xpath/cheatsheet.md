@@ -22,19 +22,21 @@ Combine relative XPath expressions with indexing to target specific nodes:
 | XPath | Description |
 | ----- | ----------- |
 | `//ul[1]/li[3]` | Get the third `<li>` child node of the first `<ul>` list. |
+| `//ul[1]/li[position()>1]` | Get all `<li>` child nodes of the first `<ul>` list except the first one. |
 | `//form[@id='login']/input[3]` | Get the third `<input>` child node of a form with a specific `id`. |
 | `//h2[1]//p` | Of the first `<h2>` headline, get any of its child `<p>` paragrapds. |
 
 ### Attributes
-Get nodes with certain attributes:
+Get nodes with certain attributes with the `@` selector:
 
 | XPath | Description |
 | ----- | ----------- |
 | `//div[@class='some_class']` | Get all `<div>` nodes with with a specific `class` attribute. |
 | `//*[@id='some_id']` | Get all nodes with the `*` wildcard selector with a specific `id` attribute. |
+| `//input[@type="password"]` | Get all `<input>` nodes that are a password type. |
 
 ### Parents and Children
-As we most ofthen traverse down the hierachy, sometimes we need to get parent nodes:
+As we most often traverse down the hierachy with `/` or `//`, sometimes we need to get parent nodes with `..`:
 
 | XPath | Description |
 | ----- | ----------- |
@@ -44,7 +46,20 @@ As we most ofthen traverse down the hierachy, sometimes we need to get parent no
 
 See more examples in the [axes](#axes) section.
 
+### Several Paths
+Use the pipe `|` to combine several paths in union:
+
+| XPath | Description |
+| ----- | ----------- |
+| `//h2 | //h3` | Get all `<h2>` and `<h3>` headline nodes. |
+
 ## Text
+When you need just the content of a node, use the `text()` function:
+
+```text title=""
+//h1/text()
+```
+
 ### Exact Matching
 Target all `<button>` nodes with a specific text content:
 
