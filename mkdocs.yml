@@ -23,7 +23,16 @@ nav:
     - user-guide/index.md
     - Navigation: user-guide/navigation.md
     - Context Manager: user-guide/context-manager.md
-    - XPath Cheatsheet: user-guide/xpath-cheatsheet.md
+    - XPath:
+      - Intro: user-guide/xpath/intro.md
+      - Basics: user-guide/xpath/basics.md
+      - Tips and Tricks: user-guide/xpath/tips-and-tricks.md
+      - Cheatsheets:
+        - Simple Node Selection: user-guide/xpath/cheatsheets/simple-node-selection.md
+        - Text: user-guide/xpath/cheatsheets/text.md
+        - Links: user-guide/xpath/cheatsheets/links.md
+        - SEO: user-guide/xpath/cheatsheets/seo.md
+        - Axes: user-guide/xpath/cheatsheets/axes.md
     - Settings:
       - Overview: user-guide/settings/overview.md
       - Browser Types: user-guide/settings/browser-types.md
