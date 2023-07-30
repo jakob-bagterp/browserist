@@ -1,3 +1,12 @@
+---
+tags:
+    - Tutorial
+    - Settings
+    - Browser Types
+    - Chrome
+    - Firefox
+---
+
 # Settings Overview
 ## Options for `BrowserSettings`
 Use `BrowserSettings` with the following options:

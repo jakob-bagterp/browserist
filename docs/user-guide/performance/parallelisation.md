@@ -1,3 +1,13 @@
+---
+tags:
+    - Tutorial
+    - Performance
+    - Parallelisation
+    - Async
+    - Multi-Threading
+    - Multi-Processing
+---
+
 # Run Multiple Browsers in Parallel
 You can run Browserist as a normal, linear script or with various methods for concurrent processing:
 

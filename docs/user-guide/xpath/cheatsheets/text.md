@@ -1,3 +1,9 @@
+---
+tags:
+    - Tutorial
+    - XPath
+---
+
 # XPath Cheatsheet
 ## Text
 When you need just the content of a node, use the `text()` function:

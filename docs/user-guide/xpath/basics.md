@@ -1,3 +1,9 @@
+---
+tags:
+    - Tutorial
+    - XPath
+---
+
 # XPath Basics
 XPath is a query language that is used for traversing through not just an HTML document – but also XML, XSLT and other document types. It is used commonly to search particular elements or attributes with matching patterns, and XPath includes over 200 built-in functions.
 

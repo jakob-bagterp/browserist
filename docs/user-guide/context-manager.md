@@ -1,3 +1,8 @@
+---
+tags:
+    - Tutorial
+---
+
 # Context Manager
 ## How to Automatically Quit the Browser
 Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the context manager and `with` statements.

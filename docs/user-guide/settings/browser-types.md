@@ -1,3 +1,15 @@
+---
+tags:
+    - Tutorial
+    - Browser Types
+    - Chrome
+    - Edge
+    - Firefox
+    - Internet Explorer
+    - Opera
+    - Safari
+---
+
 # Browser Types
 ## Configure Browser Type
 If you want to use other browser types, e.g. Firefox, Edge, etc., define this in the settings:

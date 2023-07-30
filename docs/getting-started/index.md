@@ -1,3 +1,11 @@
+---
+tags:
+    - Automation
+    - Tutorial
+    - Installation
+    - Chrome
+    - PyPI
+---
 
 # 🚀 Get Started in 3 Easy Steps 🚀
 Ready to try? Let's get started:

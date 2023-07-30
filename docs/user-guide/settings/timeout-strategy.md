@@ -1,3 +1,9 @@
+---
+tags:
+    - Tutorial
+    - Settings
+---
+
 # Timeout Strategy
 What happens if a function times out: Should the browser stop or continue its operation?
 
