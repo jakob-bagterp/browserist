@@ -30,8 +30,10 @@ with Browser() as browser:
 ## Next Steps
 Find more tips for [installation of Browserist](installation.md) or [installation of other browser types](browser-drivers.md) in the documentation.
 
+Find more in-depth information in the [user guide](../user-guide/index.md) section.
+
 For advanced users, learn how to optimise performance:
 
-* Headless mode
-* Ignore images
-* Run multiple browsers in parallel
+* [Headless mode](../user-guide/performance/headless.md)
+* [Ignore images](../user-guide/performance/ignore-images.md)
+* [Run multiple browsers in parallel](../user-guide/performance/parallelisation.md)
