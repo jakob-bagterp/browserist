@@ -26,6 +26,7 @@ nav:
     - XPath:
       - Intro: user-guide/xpath/intro.md
       - Basics: user-guide/xpath/basics.md
+      - Tips and Tricks: user-guide/xpath/tips-and-tricks.md
       - Cheatsheet: user-guide/xpath/cheatsheet.md
     - Settings:
       - Overview: user-guide/settings/overview.md
