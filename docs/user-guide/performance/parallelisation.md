@@ -2,10 +2,8 @@
 tags:
     - Tutorial
     - Performance
-    - Parallelisation
-    - Async
-    - Multi-Threading
-    - Multi-Processing
+    - Headless
+    - Disable Images
 ---
 
 # Run Multiple Browsers in Parallel

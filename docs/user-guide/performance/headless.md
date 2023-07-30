@@ -3,6 +3,7 @@ tags:
     - Tutorial
     - Performance
     - Headless
+    - Settings
 ---
 
 # Run Browser in Headless Mode
