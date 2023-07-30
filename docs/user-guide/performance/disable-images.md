@@ -2,11 +2,11 @@
 tags:
     - Tutorial
     - Performance
-    - Ignore Images
+    - Disable Images
 ---
 
-# Ignore Images
-## Why Ignore Images?
+# Disable Images
+## Why Disable Images?
 It's often faster to load pages when you don't download images. So if you don't need to process images when scraping a web page, simply don't wait for such media data – often heavy payloads – and use less bandwidth.
 
 ## How to Configure
@@ -25,7 +25,7 @@ with Browser(settings) as browser:
     Not all browsers support disabling of images well: Both Safari and Internet Explorer requires us to update global settings in the operating system that may impact how these browsers behave outside Browserist.
 
 ## Standardised Settings Across Browser Types
-If you want to ignore image downloads with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised.
+If you want to disable image downloads with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised.
 
 For example, you can easily scale test runs across different browsers with a configuration like this:
 
