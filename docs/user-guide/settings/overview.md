@@ -3,8 +3,6 @@ tags:
     - Tutorial
     - Settings
     - Browser Types
-    - Chrome
-    - Firefox
 ---
 
 # Settings Overview
