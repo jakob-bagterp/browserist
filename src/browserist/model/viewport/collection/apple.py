@@ -7,7 +7,20 @@ from ..device import DeviceViewportSize
 
 @dataclass(slots=True, frozen=True)
 class AppleDevices:
-    """Viewport sizes for common Apple devices."""
+    """Viewport sizes for common Apple devices.
+
+    Example:
+        ```python title=""
+        from browserist import Browser, BrowserSettings, common_devices
+
+        settings = BrowserSettings(headless = True)
+        iphone_x = common_devices.Apple.IPHONE_X
+
+        with Browser(settings) as browser:
+            browser.viewport.set.size_by_device(iphone_x)
+            browser.open.url("https://example.com")
+        ```
+    """
 
     IPHONE_X = DeviceViewportSize(375, 812)
 
