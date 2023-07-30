@@ -1,3 +1,9 @@
+---
+tags:
+    - Automation
+    - Tutorial
+---
+
 # First Script
 When you have [installed relevant packages](installation.md), you're ready to go. Simply type:
 

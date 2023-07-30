@@ -1,3 +1,11 @@
+---
+tags:
+    - Automation
+    - Chrome
+    - Edge
+    - Firefox
+---
+
 # Recommended Add-Ons for Browserist
 Browserist supports automation of various browser drivers. Tips for installation of the most common drivers:
 

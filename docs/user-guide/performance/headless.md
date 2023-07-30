@@ -1,3 +1,10 @@
+---
+tags:
+    - Tutorial
+    - Performance
+    - Headless
+---
+
 # Run Browser in Headless Mode
 ## What Is Headless?
 Headless simply means running the browser in the background and without viewing the browser on the screen.

@@ -1,3 +1,9 @@
+---
+tags:
+    - Tutorial
+    - XPath
+---
+
 # XPath Cheatsheet
 ## Links
 Combine attributes and functions to target specific link nodes. But first, how to get all `<a>` link nodes:
