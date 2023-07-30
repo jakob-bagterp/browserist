@@ -2,9 +2,13 @@
 Browserist supports automation of various browser drivers. Tips for installation of the most common drivers:
 
 ## ChromeDriver for Google Chrome
+With [PyPI](https://pypi.org/project/chromedriver/):
+
 ```shell
 pip3 install chromedriver
 ```
+
+With [Homebrew](https://brew.sh):
 
 ```shell
 brew install chromedriver
@@ -16,6 +20,8 @@ More info [here](https://chromedriver.chromium.org).
 More info and download [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
 
 ## GeckoDriver for Mozilla Firefox
+With [Homebrew](https://brew.sh):
+
 ```shell
 brew install geckodriver
 ```
