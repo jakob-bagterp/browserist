@@ -8,7 +8,6 @@ XPath is a simple, yet powerful tool similar to a Swiss Army knife that gets the
 
 ## Syntax Comparison: Selenium vs. Browserist
 ### Get Element By ID
-<div class="grid" markdown>
 ```python title="Selenium"
 driver.find_element(By.ID, "lname")
 ```
@@ -16,10 +15,8 @@ driver.find_element(By.ID, "lname")
 ```python title="Browserist with XPath"
 browser.get.element("//*[@id='lname']")
 ```
-</div>
 
 ### Get Element By Class
-<div class="grid" markdown>
 ```python title="Selenium"
 driver.find_element(By.CLASS_NAME, "information")
 ```
@@ -27,4 +24,3 @@ driver.find_element(By.CLASS_NAME, "information")
 ```python title="Browserist with XPath"
 browser.get.element("//*[@class='information']")
 ```
-</div>
