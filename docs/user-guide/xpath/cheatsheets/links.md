@@ -50,13 +50,13 @@ Negate the above to get all non-blog links using the `not()` function:
 //a[not(contains(@href, 'blog'))]
 ```
 
-Get all blog links that about food using the `and` operator:
+Get all blog links about food using the `and` operator:
 
 ```text title=""
 //a[contains(@href, 'blog') and contains(@href, 'food')]
 ```
 
-Get all blog links that are not about food by combining the `and` and `not()` operators:
+Get all blog links that aren't about food by combining the `and` and `not()` operators:
 
 ```text title=""
 //a[contains(@href, 'blog') and not(contains(@href, 'food'))]
