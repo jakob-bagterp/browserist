@@ -161,7 +161,8 @@ extra:
 plugins:
   - search:
       lang: en
-  - tags
+  - tags:
+      tags_file: tags.md
   - mkdocstrings:
       default_handler: python
       handlers:
