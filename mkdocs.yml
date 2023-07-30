@@ -38,6 +38,7 @@ nav:
       - Overview: user-guide/settings/overview.md
       - Browser Types: user-guide/settings/browser-types.md
       - Timeout Strategy: user-guide/settings/timeout-strategy.md
+      - Page Load Strategy: user-guide/settings/page-load-strategy.md
       - Viewport: user-guide/settings/viewport.md
     - Performance:
       - Headless: user-guide/performance/headless.md
