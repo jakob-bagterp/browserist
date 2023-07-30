@@ -3,6 +3,9 @@ tags:
     - Tutorial
     - Settings
     - Browser Types
+    - Performance
+    - Headless
+    - Viewport
 ---
 
 # Settings Overview
