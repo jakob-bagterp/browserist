@@ -1,5 +1,5 @@
 # Tags
 
-List of all tags and pages:
+List of all tags and relevant pages:
 
 [TAGS]
