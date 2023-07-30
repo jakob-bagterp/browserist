@@ -1,3 +1,8 @@
+---
+tags:
+    - Tutorial
+---
+
 # Basic Navigation
 ## Standard Browser Buttons
 Similar to Selenium, use these simple commands to automate the browser:

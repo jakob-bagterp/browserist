@@ -1,3 +1,11 @@
+---
+tags:
+    - Tutorial
+    - Settings
+    - Viewport
+    - Headless
+---
+
 # Viewport Size
 ## Emulate Common Devices
 You can set the viewport to emulate common device sizes (e.g. various popular mobile phones or tablets). Example:

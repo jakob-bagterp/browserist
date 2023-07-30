@@ -1,3 +1,9 @@
+---
+tags:
+    - Tutorial
+    - XPath
+---
+
 # Tips and Tricks for XPath Expressions
 The right approach to XPath can make your life even easier as a browser automater. Let's take a few examples from intermediate to advanced level.
 

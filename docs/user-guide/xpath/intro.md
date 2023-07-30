@@ -1,3 +1,9 @@
+---
+tags:
+    - Selenium
+    - XPath
+---
+
 # Introduction to XPath
 Browserist is built as an extension to the Selenium framework and offers similar functionality. However, be aware of the differences.
 

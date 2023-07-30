@@ -1,3 +1,9 @@
+---
+tags:
+    - Tutorial
+    - XPath
+---
+
 # XPath Cheatsheet
 ## Search Engine Optimisation (SEO)
 Certain XPath expressions are especially useful for search engine optimisation.

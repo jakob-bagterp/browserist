@@ -1,3 +1,9 @@
+---
+tags:
+    - Tutorial
+    - XPath
+---
+
 # XPath Cheatsheet
 ## Simple Node Selection
 ### Absolute Expressions
