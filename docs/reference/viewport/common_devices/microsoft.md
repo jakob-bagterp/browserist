@@ -1,4 +1,4 @@
-# common_devices.microsoft
+# common_devices.Microsoft
 
 ::: browserist.model.viewport.collection.microsoft.MicrosoftDevices
     options:

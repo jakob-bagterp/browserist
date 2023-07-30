@@ -85,10 +85,10 @@ nav:
         - set: reference/browser/window/set.md
     - viewport:
       - common_devices:
-        - apple: reference/viewport/common_devices/apple.md
-        - google: reference/viewport/common_devices/google.md
-        - microsoft: reference/viewport/common_devices/microsoft.md
-        - samsung: reference/viewport/common_devices/samsung.md
+        - Apple: reference/viewport/common_devices/apple.md
+        - Google: reference/viewport/common_devices/google.md
+        - Microsoft: reference/viewport/common_devices/microsoft.md
+        - Samsung: reference/viewport/common_devices/samsung.md
 
 theme:
   name: material
