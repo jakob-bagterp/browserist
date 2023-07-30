@@ -33,6 +33,17 @@ Get nodes with certain attributes:
 | `//div[@class='some_class']` | Get all `<div>` nodes with with a specific `class` attribute. |
 | `//*[@id='some_id']` | Get all nodes with the `*` wildcard selector with a specific `id` attribute. |
 
+### Parents and Children
+As we most ofthen traverse down the hierachy, sometimes we need to get parent nodes:
+
+| XPath | Description |
+| ----- | ----------- |
+| `//h1/..` | Get the parents of any `<h1>` headline nodes. |
+| `//*[@id='some_id']/..` | Get the parent of a node with a specific `id`. |
+| `//li[1]/../li[9]` | Combine parents and children to jump to the ninth list element of the first list. |
+
+See more examples in the [axes](#axes) section.
+
 ## Text
 ### Exact Matching
 Target all `<button>` nodes with a specific text content:
@@ -170,3 +181,5 @@ Ensure that a web page has a robots meta tag:
 ```text title=""
 count(/html/head/meta[@name='robots'])
 ```
+
+## Axes
