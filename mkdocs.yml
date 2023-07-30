@@ -11,8 +11,8 @@ nav:
     - Donate: donate.md
     - Support and Contribution: support-and-contribution.md
     - License: https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md
-    - Release Notes: https://github.com/jakob-bagterp/browserist/releases"
-    - Source Code: https://github.com/jakob-bagterp/browserist"
+    - Release Notes: https://github.com/jakob-bagterp/browserist/releases
+    - Source Code: https://github.com/jakob-bagterp/browserist
     - Tags: tags.md
   - Getting Started:
     - getting-started/index.md
