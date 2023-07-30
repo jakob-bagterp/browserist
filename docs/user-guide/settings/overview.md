@@ -11,7 +11,7 @@ Use `BrowserSettings` with the following options:
 
 | Setting              | Option                                    | Default                              | Description                                                                                                      |
 | -------------------- | ----------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| `type`               | `BrowserType`                             | `BrowserType.CHROME`                 | Set browser type, e.g. Chrome, Edge, Firefox, etc.                                                               |
+| `type`               | `BrowserType`                             | `BrowserType.CHROME` (except `BrowserType.EDGE` for Windows) | Set browser type, e.g. Chrome, Edge, Firefox, etc.                                                               |
 | `headless`           | `True` or `False`                         | `False`                              | Run the browser in headless mode. May not be supported by all browsers.                                          |
 | `disable_images`     | `True` or `False`                         | `False`                              | Neither request nor render images, which typically improves loading speed. May not be supported by all browsers. |
 | `page_load_strategy` | `PageLoadStrategy`                        | `PageLoadStrategy.NORMAL`            | Set page load strategy.                                                                                          |
