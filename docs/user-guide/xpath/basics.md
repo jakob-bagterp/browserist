@@ -27,7 +27,7 @@ To target the `<h1>` headline element with an absolute XPath expression, use thi
 /html/body/main/div/h1
 ```
 
-Most web pages or much more complicated that this with containers and several other, and so you often type cumbersome, long XPath expressions. Most often you want to avoid absolute XPath expressions.
+This is also called a _full XPath_. Most web pages are much more complicated than this, e.g. with containers and other nested elements, and so you end up typing cumbersome, long XPath expressions. Most often you want to avoid absolute XPath expressions and use the relative variation instead.
 
 ### Relative XPath
 With a relative XPath expression, you can target an `id` attribute or other anchor points to simplify the expression. This also makes it more readable:
@@ -36,17 +36,19 @@ With a relative XPath expression, you can target an `id` attribute or other anch
 //div[@id='container']/h1
 ```
 
-Sometimes even simply:
+Or even simpler:
 
 ```text title=""
 //h1
 ```
 
-!!! tip "Tip: Use `*` as Wildcard Selector"
-    While `//div[@id='container']` targets a `<div>` element with a specific `id`, it's often favorable to use a generic selector. Try using the asterisk `*` in `//*[@id='container']` instead. This is a _wildcard_ that targets all element types whether it's a `<div>`, `<h1>` or any other tag.
+This way, the relative XPath simply searches for all child elements of the root node that matches the condition.
 
-### Multiple Relative Expressions in One
-Let's imagine a more complicated page with several nested children to `<div id="container">`:
+!!! tip "Tip: Use `*` as Wildcard Selector"
+    While `//div[@id='container']` targets a `<div>` element with a specific `id`, it's often favourable to use a generic selector. Try using the asterisk `*` in `//*[@id='container']` instead. This is a _wildcard selector_ that targets all element types whether it's a `<div>`, `<h1>` or any other tag.
+
+## Multiple Conditions in One Expression
+Let's imagine a more complicated page with several nested children to `<div id="container">` where we want to click the `<a>` link element:
 
 ```html
 <main>
@@ -62,7 +64,9 @@ Let's imagine a more complicated page with several nested children to `<div id="
 </main>
 ```
 
-How do we target the `<a>` link element efficiently? We can simply use multiple relative statements similar to this pattern `//…//…` in one expression:
+How do we target the `<a>` link element efficiently?
+
+We can simply use multiple relative statements similar to this pattern `//…//…` in one expression:
 
 ```text title=""
 //*[@id='container']//a
