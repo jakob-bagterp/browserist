@@ -31,6 +31,7 @@ nav:
       - Page Load Strategy: user-guide/settings/page-load-strategy.md
       - Viewport: user-guide/settings/viewport.md
     - Combo Methods:
+      - Cookie Banner: user-guide/combo-methods/cookie-banner.md
       - Search: user-guide/combo-methods/search.md
     - Performance:
       - Headless: user-guide/performance/headless.md
