@@ -109,10 +109,10 @@ class GetDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the elements.
-            timeout (float | None, optional): _description_. Defaults to None.
+            timeout (float | None, optional): In seconds. Timeout to wait for elements. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str]: _description_
+            list[str]: List of texts from elements.
         """
 
         if self._timeout_should_continue():

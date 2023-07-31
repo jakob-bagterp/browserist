@@ -64,3 +64,5 @@ As you can't click a button that's not ready in the DOM, Browserist simply check
 | :----------- | :-----------:   | :---------------------: | :--------------: |
 | Example:     | `time.sleep(1)` | `wait.for_element()`    | `time.sleep(10)` |
 | Consequence: | _Code breaks_   | _Stable and fast_       | _Slow_           |
+
+Ready to try? [Let's get started](./getting-started/index.md).
