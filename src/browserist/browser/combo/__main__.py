@@ -19,6 +19,20 @@ class ComboDriverMethods(DriverMethods):
         Args:
             settings (CookieBannerSettings): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser, CookieBannerSettings
+
+            accept_cookies = CookieBannerSettings(
+                url="https://example.com",
+                has_loaded_xpath="//xpath/to/cookie_banner",
+                button_xpath ="//xpath/to/accept_button")
+
+            with Browser() as browser:
+                browser.combo.cookie_banner(accept_cookies)
+                browser.open.url("https://example.com/some_page")
+            ```
         """
 
         if self._timeout_should_continue():
