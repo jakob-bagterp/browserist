@@ -8,6 +8,8 @@ tags:
 # Search Combo Method
 Imagine that you have a list of items and you want to search through them. You can use the search combo method and `SearchSettings` class to do this at scale.
 
+View all options in the [reference documentation](../../reference/browser/combo.md#searchsettings).
+
 ## Example
 ```python title=""
 from browserist import Browser, SearchSettings
