@@ -15,7 +15,7 @@ Use `BrowserSettings` with the following options:
 | Setting | Option | Default | Description |
 | ------- | ------ | ------- | ----------- |
 | `type` | `BrowserType` | `BrowserType.CHROME` (except `BrowserType.EDGE` for Windows) | Set [browser type](browser-types.md), e.g. Chrome, Edge, Firefox, etc. |
-| `headless` | `True` or `False` | `False` | Run the browser in [headless mode](../performance/headless.md). May not be supported by all browsers. |
+| `headless` | `True` or `False` | `False` | Run the browser in [headless mode](../performance/headless.md). May not be supported by all browsers, or some interaction methods, e.g. select, may not be supported. |
 | `disable_images` | `True` or `False` | `False` | [Neither request nor render images](../performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers. |
 | `page_load_strategy` | `PageLoadStrategy` | `PageLoadStrategy.NORMAL` | Set [page load strategy](page-load-strategy.md). |
 | `path_to_executable` | Path to file | System default | If the browser executable isn't in a default folder, select which file to use. |
