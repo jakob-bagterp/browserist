@@ -6,21 +6,19 @@ from ...model.type.xpath import XPath
 
 @dataclass(kw_only=True, slots=True)
 class SearchSettings:
-    """Object with data needed to accept or decline cookies from a banner.
+    """Object with data needed to make a search.
 
-    input_xpath: XPath for the search input field.
+    Args:
+        url (str | None, optional): URL for the search page.
+        input_xpath (str): XPath for the search input field.
+        button_xpath (str): XPath for the search button.
+        await_search_results_url_contains (str | None, optional): Optionally wait for the search results page URL to change.
+        await_search_results_xpath (str | None, optional): Optionally wait for a search result element to be ready.
+    """
 
-    button_xpath: XPath for the search button.
-
-    url: Optional URL for the search page.
-
-    await_search_results_url_contains: Optional wait for the search results page URL to change.
-
-    await_search_results_xpath: Optional wait for a search result element to be ready."""
-
+    url: str | None = None
     input_xpath: str
     button_xpath: str
-    url: str | None = None
     await_search_results_url_contains: str | None = None
     await_search_results_xpath: str | None = None
 
