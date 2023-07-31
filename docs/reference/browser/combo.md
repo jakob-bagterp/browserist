@@ -2,6 +2,8 @@
 
 ::: browserist.browser.combo.__main__.ComboDriverMethods
 
-## CookieBannerSettings
+## Configuration Classes
+
+### CookieBannerSettings
 
 ::: browserist.model.combo_settings.cookie_banner.CookieBannerSettings
