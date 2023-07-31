@@ -94,6 +94,7 @@ class ComboDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.combo.search("some search term", search_settings)
+                assert browser.tool.count_elements("//xpath/to/search_result_elements") > 0
             ```
         """
 
