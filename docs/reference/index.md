@@ -27,7 +27,7 @@ Examples of how to chain the methods:
 
 ```python
 browser.forward()
-browser.check_if.contains_any_text("/xpath/to/element")
+browser.check_if.contains_any_text("//xpath/to/element")
 browser.wait.seconds(5)
-browser.wait.until.contains_any_text("/xpath/to/element")
+browser.wait.until.contains_any_text("//xpath/to/element")
 ```

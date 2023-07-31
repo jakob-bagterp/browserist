@@ -19,6 +19,20 @@ class ComboDriverMethods(DriverMethods):
         Args:
             settings (CookieBannerSettings): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser, CookieBannerSettings
+
+            accept_cookies = CookieBannerSettings(
+                url = "https://example.com",
+                has_loaded_xpath = "//xpath/to/cookie_banner",
+                button_xpath = "//xpath/to/accept_button")
+
+            with Browser() as browser:
+                browser.combo.cookie_banner(accept_cookies)
+                browser.open.url("https://example.com/some_page")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -37,6 +51,24 @@ class ComboDriverMethods(DriverMethods):
             login_credentials (LoginCredentials): Apply username and password here.
             login_form (LoginForm1Step | LoginForm2Steps): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser, LoginForm1Step, LoginCredentials
+
+            login_credentials = LoginCredentials(
+                username = "some_username",
+                password = "some_password")
+
+            login_form = LoginForm1Step(
+                url = "https://example.com/login",
+                username_input_xpath = "//xpath/to/username_field",
+                password_input_xpath = "//xpath/to/password_field",
+                submit_button_xpath = "//xpath/to/login_button")
+
+            with Browser() as browser:
+                browser.combo.log_in(login_credentials, login_form)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -50,6 +82,20 @@ class ComboDriverMethods(DriverMethods):
             term (str): Terms to search for.
             settings (SearchSettings): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser, SearchSettings
+
+            search_settings = SearchSettings(
+                url = "https://google.com",
+                input_xpath = "//xpath/to/input_field",
+                button_xpath = "//xpath/to/search_button")
+
+            with Browser() as browser:
+                browser.combo.search("some search term", search_settings)
+                assert browser.tool.count_elements("//xpath/to/search_result_elements") > 0
+            ```
         """
 
         if self._timeout_should_continue():

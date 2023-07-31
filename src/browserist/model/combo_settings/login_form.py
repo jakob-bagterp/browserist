@@ -8,11 +8,15 @@ from ...model.type.xpath import XPath
 class LoginForm1Step:
     """Settings for login form page in 1 step where both username and password are displayed at once.
 
-    url: Optional URL to login page.
-
-    post_login_url_contains: Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
-
-    post_login_element_xpath: Upon successful login, optionally await this element to be loaded."""
+    Args:
+        url (str | None, optional): URL to login page.
+        username_input_xpath (str): XPath for username input field.
+        password_input_xpath (str): XPath for password input field.
+        submit_button_xpath (str): XPath for submit button.
+        post_login_wait_seconds (float | None, optional): Minor grace time to ensure the login has completed.
+        post_login_url_contains (str | None, optional): Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
+        post_login_element_xpath (str | None, optional): Upon successful login, optionally await this element to be loaded.
+    """
 
     username_input_xpath: str
     password_input_xpath: str
@@ -37,11 +41,16 @@ class LoginForm1Step:
 class LoginForm2Steps:
     """Settings for login form page in 2 steps where username is prompted first, and once confirmed, then the password can be entered.
 
-    url: Optional URL to login page.
-
-    post_login_url_contains: Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
-
-    post_login_element_xpath: Upon successful login, optionally await this element to be loaded."""
+    Args:
+        url (str | None, optional): URL to login page.
+        username_input_xpath (str): XPath for username input field.
+        username_submit_button_xpath (str): XPath for username submit button.
+        password_input_xpath (str): XPath for password input field.
+        password_submit_button_xpath (str): XPath for password submit button.
+        post_login_wait_seconds (float | None, optional): Minor grace time to ensure the login has completed.
+        post_login_url_contains (str | None, optional): Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
+        post_login_element_xpath (str | None, optional): Upon successful login, optionally await this element to be loaded.
+    """
 
     username_input_xpath: str
     username_submit_button_xpath: str  # Specific for this class.
