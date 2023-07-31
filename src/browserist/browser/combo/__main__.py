@@ -51,6 +51,24 @@ class ComboDriverMethods(DriverMethods):
             login_credentials (LoginCredentials): Apply username and password here.
             login_form (LoginForm1Step | LoginForm2Steps): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser, LoginForm1Step, LoginCredentials
+
+            login_credentials = LoginCredentials(
+                username = "some_username",
+                password = "some_password")
+
+            login_form = LoginForm1Step(
+                url = "https://example.com/login",
+                username_input_xpath = "//xpath/to/username_field",
+                password_input_xpath = "//xpath/to/password_field",
+                submit_button_xpath = "//xpath/to/login_button")
+
+            with Browser() as browser:
+                browser.combo.log_in(login_credentials, login_form)
+            ```
         """
 
         if self._timeout_should_continue():
