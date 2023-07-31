@@ -13,7 +13,7 @@ While Selenium offers several methods to target web elements – for instance `B
 XPath is a simple, yet powerful tool similar to a Swiss Army knife that gets the job done with compact code. And so you only need to master a single vocabulary instead of multiple `By` class options and importing extra modules from Selenium.
 
 ## Syntax Comparison: Selenium vs. Browserist
-### Get Element By ID
+### Get Element by ID
 ```python title="Selenium"
 driver.find_element(By.ID, "lname")
 ```
@@ -22,7 +22,7 @@ driver.find_element(By.ID, "lname")
 browser.get.element("//*[@id='lname']")
 ```
 
-### Get Element By Class
+### Get Element by Class
 ```python title="Selenium"
 driver.find_element(By.CLASS_NAME, "information")
 ```
