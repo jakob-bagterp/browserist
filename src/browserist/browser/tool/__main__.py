@@ -40,6 +40,19 @@ class ToolDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return helper.url.is_valid(url)
 
+    def is_xpath_valid(self, xpath: str) -> bool:  # type: ignore
+        """Check if input is a valid XPath expression.
+
+        Args:
+            xpath (str): Input XPath.
+
+        Returns:
+            bool: `True` if input is a valid XPath expression, `False` otherwise.
+        """
+
+        if self._timeout_should_continue():
+            return helper.xpath.is_valid(xpath)
+
     def count_elements(self, xpath: str, timeout: float | None = None) -> int:  # type: ignore
         """Count number of elements.
 
