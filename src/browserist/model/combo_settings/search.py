@@ -9,7 +9,7 @@ class SearchSettings:
     """Object with data needed to make a search.
 
     Args:
-        url (str | None, optional): URL for the search page.
+        url (str | None, optional): URL for the search page. Sometimes not needed if, for example, the search input field is available on all pages.
         input_xpath (str): XPath for the search input field.
         button_xpath (str): XPath for the search button.
         await_search_results_url_contains (str | None, optional): Optionally wait for the search results page URL to change.
