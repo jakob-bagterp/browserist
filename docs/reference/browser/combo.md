@@ -11,3 +11,11 @@
 ### LoginCredentials
 
 ::: browserist.model.combo_settings.login_credentials.LoginCredentials
+
+### LoginForm1Step
+
+::: browserist.model.combo_settings.login_form.LoginForm1Step
+
+### LoginForm2Steps
+
+::: browserist.model.combo_settings.login_form.LoginForm2Steps
