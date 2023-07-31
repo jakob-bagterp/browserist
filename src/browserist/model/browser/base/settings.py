@@ -14,11 +14,16 @@ from .type import BrowserType
 class BrowserSettings:
     """Class to configure the browser driver.
 
-    headless: If enabled, note that some interactable methods, e.g. "select", aren't supported.
-
-    screenshot_dir: Destination directory for screenshot files. If not set, default directory is from where the script is executed.
-
-    viewport: Emulate a viewport size upon initiation by either a common device or a custom value in pixels "(width, height)". If no value, the browser's default is used."""
+    Args:
+        type (BrowserType, optional): Set [browser type](../../user-guide/settings/browser-types.md), e.g. Chrome, Edge, Firefox, etc.
+        headless (bool, optional): Run the browser in [headless mode](../../user-guide/performance/headless.md). May not be supported by all browsers, or some interaction methods, e.g. select, may not be supported.
+        disable_images (bool, optional): [Neither request nor render images](../../user-guide/performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers.
+        page_load_strategy (PageLoadStrategy, optional): Set [page load strategy](../../user-guide/settings/page-load-strategy.md).
+        path_to_executable (str | Path | None, optional): If the browser executable isn't in a default folder, select which file to use.
+        screenshot_dir (str | Path, optional): Set where to save sreenshots. Default is the directory of Browserist.
+        timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../user-guide/settings/timeout-strategy.md).
+        viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../user-guide/settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
+    """
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
     # __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
