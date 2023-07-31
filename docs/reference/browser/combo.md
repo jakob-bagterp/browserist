@@ -7,3 +7,7 @@
 ### CookieBannerSettings
 
 ::: browserist.model.combo_settings.cookie_banner.CookieBannerSettings
+
+### LoginCredentials
+
+::: browserist.model.combo_settings.login_credentials.LoginCredentials
