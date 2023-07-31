@@ -60,9 +60,10 @@ with Browser() as browser:
 ### Why Avoid Explicit or Implicit Waits?
 As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
 
-| Timing:      | Too short ->    | Just right (Browserist) | <- Too long      |
-| :----------- | :-----------:   | :---------------------: | :--------------: |
-| Example:     | `time.sleep(1)` | `wait.for_element()`    | `time.sleep(10)` |
-| Consequence: | _Code breaks_   | _Stable and fast_       | _Slow_           |
+| Timing     | Consequence | Code | Description |
+| ---------- | ----------- | ---- | ----------- |
+| Too short  | :material-heart-broken: _Code breaks_ | `time.sleep(1)` | Wait for 1 second, hoping that an element is ready within a fixed amount of time. |
+| Just right | :material-check-all:  _Stable and fast_ | `wait.for_element()` | Browserist checks if an element is ready before interacting with it. |
+| Too long   | :material-speedometer-slow: _Slow_ | `time.sleep(10)` | Wait for 10 seconds, just to be sure an element is ready. |
 
 Ready to try? [Let's get started](./getting-started/index.md).

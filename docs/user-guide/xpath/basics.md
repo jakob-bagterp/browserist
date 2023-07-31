@@ -81,3 +81,5 @@ We can simply use multiple relative statements similar to this pattern `//â€¦//â
 ```text title=""
 //*[@id='container']//a
 ```
+
+Let's continue with more [XPath tips and tricks](tips-and-tricks.md).

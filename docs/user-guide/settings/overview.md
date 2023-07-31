@@ -33,8 +33,7 @@ settings = BrowserSettings(
     type = BrowserType.FIREFOX,
     headless = True,
     disable_images = True,
-    viewport = iphone_se
-)
+    viewport = iphone_se)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
