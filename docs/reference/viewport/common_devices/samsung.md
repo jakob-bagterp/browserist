@@ -1,4 +1,4 @@
-# common_devices.samsung
+# common_devices.Samsung
 
 ::: browserist.model.viewport.collection.samsung.SamsungDevices
     options:

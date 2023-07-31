@@ -3,6 +3,7 @@ tags:
     - Tutorial
     - Performance
     - Disable Images
+    - Settings
 ---
 
 # Disable Images

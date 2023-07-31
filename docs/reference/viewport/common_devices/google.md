@@ -1,4 +1,4 @@
-# common_devices.google
+# common_devices.Google
 
 ::: browserist.model.viewport.collection.google.GoogleDevices
     options:

@@ -1,4 +1,4 @@
-# common_devices.apple
+# common_devices.Apple
 
 ::: browserist.model.viewport.collection.apple.AppleDevices
     options:
