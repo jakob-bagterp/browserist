@@ -14,3 +14,8 @@ Find detailed info about setings, tutorials, tips and tricks in this section.
 * [Links](./xpath/cheatsheets/links.md)
 * [Search engine optimisation](./xpath/cheatsheets/seo.md)
 * [Axes](./xpath/cheatsheets/axes.md)
+
+### Combo Methods
+* [Cookie banner](./combo-methods/cookie-banner.md)
+* [Log in](./combo-methods/log-in.md)
+* [Search](./combo-methods/search.md)
