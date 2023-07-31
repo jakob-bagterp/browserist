@@ -8,10 +8,19 @@ tags:
 # Log In Combo Method
 Imagine that you have to automate tests of a web application that requires you to log in. Sometimes you want to ensure that multiple user roles can log in and do certains tasks. You can use the log in combo method and settings classes `LoginForm1Step`, `LoginForm2Steps`, and `LoginCredentials` to do this at scale.
 
-!!! note
-    Most websites process login in either one or two steps.
-    Use `LoginForm1Step` when username and password are prompted on the same page.
-    Use `LoginForm2Steps` when username is prompted first, and then the option to input password appears later on the same or a separate page. The two-step variation is often to verify whether a user exists or not before password can be entered (or should be redirected to a registration page).
+## One or Two Steps to Log In
+Most websites process login in either one or two steps. This often means that the username and password fields are either on the same page or on separate pages.
+
+Use `LoginForm1Step` when username and password are prompted on the same page.
+
+Use `LoginForm2Steps` when username is prompted first, and then the option to input password appears later on the same or a separate page. The two-step variation is often to verify whether a user exists or not before password can be entered (or should be redirected to a registration page).
+
+As `LoginCredentials` is independent of the login form, it works with both options.
+
+| Class | Step 1 | Step 2 | Post Login |
+| ----- | ------ | ------ | ---------- |
+| `LoginForm1Step` | Input username and password. Then click submit. | | [Multiple options](../../reference/browser/combo.md#loginform1step) to await confirmation or redirect. |
+| `LoginForm2Steps` | Input username and click submit. | Input password and click submit. | [Multiple options](../../reference/browser/combo.md#loginform2steps) to await confirmation or redirect. |
 
 ## Example
 ```python title=""
