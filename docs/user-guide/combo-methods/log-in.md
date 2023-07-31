@@ -2,6 +2,7 @@
 tags:
     - Tutorial
     - Settings
+    - Combo
 ---
 
 # Log In Combo Method

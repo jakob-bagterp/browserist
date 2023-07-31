@@ -2,6 +2,7 @@
 tags:
     - Tutorial
     - Settings
+    - Combo
 ---
 
 # Cookie Banner Combo Method

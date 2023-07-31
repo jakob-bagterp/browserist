@@ -2,6 +2,7 @@
 tags:
     - Tutorial
     - Settings
+    - Combo
 ---
 
 # Search Combo Method
