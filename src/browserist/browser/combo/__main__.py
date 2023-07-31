@@ -64,6 +64,19 @@ class ComboDriverMethods(DriverMethods):
             term (str): Terms to search for.
             settings (SearchSettings): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            from browserist import Browser, SearchSettings
+
+            search_settings = SearchSettings(
+                url = "https://google.com",
+                input_xpath = "//xpath/to/input_field",
+                button_xpath = "//xpath/to/search_button")
+
+            with Browser() as browser:
+                browser.combo.search("some search term", search_settings)
+            ```
         """
 
         if self._timeout_should_continue():
