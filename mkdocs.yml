@@ -32,6 +32,7 @@ nav:
       - Viewport: user-guide/settings/viewport.md
     - Combo Methods:
       - Cookie Banner: user-guide/combo-methods/cookie-banner.md
+      - Log In: user-guide/combo-methods/log-in.md
       - Search: user-guide/combo-methods/search.md
     - Performance:
       - Headless: user-guide/performance/headless.md
