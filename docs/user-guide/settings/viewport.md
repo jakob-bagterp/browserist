@@ -34,6 +34,13 @@ browser.viewport.set.size_by_device(ipad_air_2)
 !!! tip
     It's recommended to run viewport emulations in [headless mode](../performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
 
+### Available Common Devices
+Browserist provides a pre-defined collection of common devices, covering tablets and mobile phones from the most popular manufacturers. Find more information in the reference documentation and source code:
+
+* [Apple](../../reference/viewport/common_devices/apple.md)
+* [Google](../../reference/viewport/common_devices/google.md)
+* [Microsoft](../../reference/viewport/common_devices/microsoft.md)
+* [Samsung](../../reference/viewport/common_devices/samsung.md)
 
 ### Create Custom Devices
 You can also define custom device sizes for viewport emulation with the `DeviceViewportSize` class. Example:
