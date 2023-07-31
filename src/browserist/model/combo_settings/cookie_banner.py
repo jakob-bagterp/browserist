@@ -18,10 +18,10 @@ class CookieBannerSettings:
 
     has_disappeared_wait_seconds: Minor grace time to make sure the cookie banner has disappeared and that the cookie information has been saved before proceeding."""
 
-    button_xpath: str
     url: str | None = None
     has_loaded_wait_seconds: float | None = None
     has_loaded_xpath: str | None = None
+    button_xpath: str
     has_disappeared_wait_seconds: float | None = None
 
     def __post_init__(self) -> None:
