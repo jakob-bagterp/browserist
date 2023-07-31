@@ -25,9 +25,9 @@ class ComboDriverMethods(DriverMethods):
             from browserist import Browser, CookieBannerSettings
 
             accept_cookies = CookieBannerSettings(
-                url="https://example.com",
-                has_loaded_xpath="//xpath/to/cookie_banner",
-                button_xpath ="//xpath/to/accept_button")
+                url = "https://example.com",
+                has_loaded_xpath = "//xpath/to/cookie_banner",
+                button_xpath = "//xpath/to/accept_button")
 
             with Browser() as browser:
                 browser.combo.cookie_banner(accept_cookies)
