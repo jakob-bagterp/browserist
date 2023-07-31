@@ -39,7 +39,7 @@ class Browser:
             ```python title=""
             from browserist import Browser, BrowserSettings
 
-            settings = BrowserSettings(browser_type=BrowserType.FIREFOX)
+            settings = BrowserSettings(browser_type = BrowserType.FIREFOX)
 
             with Browser(settings) as browser:
                 browser.open.url("https://example.com")
