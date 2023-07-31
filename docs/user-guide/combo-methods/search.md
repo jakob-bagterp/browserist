@@ -5,7 +5,7 @@ tags:
 ---
 
 # Search Combo Method
-Imagine that you have a list of items and you want to search through them. You can use the search combo method to do this at scale.
+Imagine that you have a list of items and you want to search through them. You can use the search combo method and `SearchSettings` class to do this at scale.
 
 ## Example
 ```python title=""
