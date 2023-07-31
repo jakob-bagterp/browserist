@@ -48,7 +48,7 @@ class ToolDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            int: _description_
+            int: Number of elements.
         """
 
         if self._timeout_should_continue():
