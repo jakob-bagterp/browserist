@@ -34,8 +34,28 @@ browser.viewport.set.size_by_device(ipad_air_2)
 !!! tip
     It's recommended to run viewport emulations in [headless mode](../performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
 
+
+### Create Custom Devices
+You can also define custom device sizes for viewport emulation with the `DeviceViewportSize` class. Example:
+
+```python
+from browserist import Browser, BrowserSettings, DeviceViewportSize
+
+custom_device_1 = DeviceViewportSize(540, 720)
+custom_device_2 = DeviceViewportSize(912, 1368)
+custom_device_3 = DeviceViewportSize(1024, 768)
+
+settings = BrowserSettings(headless = True)
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+    for device in [custom_device_1, custom_device_2, custom_device_3]:
+        browser.viewport.set.size_by_device(device)
+        browser.screenshot.visible_portion()
+```
+
 ## Custom Viewport Size
-Or specify the viewport size in pixels as tuple for width and height, e.g. `(1024, 768)`:
+Alternatively, simply specify the viewport size in pixels as tuple for width and height, e.g. `(1024, 768)`:
 
 ```python
 from browserist import Browser, BrowserSettings
