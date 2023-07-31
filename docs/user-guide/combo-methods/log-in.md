@@ -22,7 +22,6 @@ As `LoginCredentials` is independent of the login form, it works with both optio
 | `LoginForm1Step` | Input username and password. Then click submit. | | [Multiple options](../../reference/browser/combo.md#loginform1step) to await confirmation or redirect. |
 | `LoginForm2Steps` | Input username and click submit. | Input password and click submit. | [Multiple options](../../reference/browser/combo.md#loginform2steps) to await confirmation or redirect. |
 
-
 ## Example
 ```python title=""
 from browserist import Browser, LoginForm1Step, LoginCredentials
