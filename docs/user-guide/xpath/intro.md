@@ -30,3 +30,5 @@ driver.find_element(By.CLASS_NAME, "information")
 ```python title="Browserist with XPath"
 browser.get.element("//*[@class='information']")
 ```
+
+Let's continue with [XPath basics](basics.md).
