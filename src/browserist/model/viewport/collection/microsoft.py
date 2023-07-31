@@ -11,11 +11,12 @@ class MicrosoftDevices:
         ```python title=""
         from browserist import Browser, BrowserSettings, common_devices
 
-        settings = BrowserSettings(headless = True)
         surface_pro_7 = common_devices.Microsoft.SURFACE_PRO_7
+        settings = BrowserSettings(
+            headless = True,
+            viewport = surface_pro_7)
 
         with Browser(settings) as browser:
-            browser.viewport.set.size_by_device(surface_pro_7)
             browser.open.url("https://example.com")
         ```
     """

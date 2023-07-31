@@ -11,11 +11,12 @@ class SamsungDevices:
         ```python title=""
         from browserist import Browser, BrowserSettings, common_devices
 
-        settings = BrowserSettings(headless = True)
         galaxy_s8_plus = common_devices.Samsung.GALAXY_S8_PLUS
+        settings = BrowserSettings(
+            headless = True,
+            viewport = galaxy_s8_plus)
 
         with Browser(settings) as browser:
-            browser.viewport.set.size_by_device(galaxy_s8_plus)
             browser.open.url("https://example.com")
         ```
     """

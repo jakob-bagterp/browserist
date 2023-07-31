@@ -13,11 +13,12 @@ class AppleDevices:
         ```python title=""
         from browserist import Browser, BrowserSettings, common_devices
 
-        settings = BrowserSettings(headless = True)
         iphone_x = common_devices.Apple.IPHONE_X
+        settings = BrowserSettings(
+            headless = True,
+            viewport = iphone_x)
 
         with Browser(settings) as browser:
-            browser.viewport.set.size_by_device(iphone_x)
             browser.open.url("https://example.com")
         ```
     """

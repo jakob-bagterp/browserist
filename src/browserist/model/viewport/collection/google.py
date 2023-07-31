@@ -11,11 +11,12 @@ class GoogleDevices:
         ```python title=""
         from browserist import Browser, BrowserSettings, common_devices
 
-        settings = BrowserSettings(headless = True)
         nest_hub_max = common_devices.Google.NEST_HUB_MAX
+        settings = BrowserSettings(
+            headless = True,
+            viewport = nest_hub_max)
 
         with Browser(settings) as browser:
-            browser.viewport.set.size_by_device(nest_hub_max)
             browser.open.url("https://example.com")
         ```
     """
