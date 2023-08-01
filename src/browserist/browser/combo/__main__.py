@@ -21,7 +21,7 @@ class ComboDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser, CookieBannerSettings
 
             accept_cookies = CookieBannerSettings(
@@ -53,7 +53,7 @@ class ComboDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser, LoginForm1Step, LoginCredentials
 
             login_credentials = LoginCredentials(
@@ -84,7 +84,7 @@ class ComboDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser, SearchSettings
 
             search_settings = SearchSettings(

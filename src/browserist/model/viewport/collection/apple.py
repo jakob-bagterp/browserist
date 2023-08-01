@@ -10,7 +10,7 @@ class AppleDevices:
     """Viewport sizes for common Apple devices.
 
     Example:
-        ```python title=""
+        ```python title="" linenums="1"
         from browserist import Browser, BrowserSettings, common_devices
 
         iphone_x = common_devices.Apple.IPHONE_X

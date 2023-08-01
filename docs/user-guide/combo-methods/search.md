@@ -11,7 +11,7 @@ Imagine that you have a list of items and you want to search through them. You c
 View all options in the [reference documentation](../../reference/browser/combo.md#searchsettings).
 
 ## Example
-```python title=""
+```python title="" linenums="1"
 from browserist import Browser, SearchSettings
 
 search_settings = SearchSettings(

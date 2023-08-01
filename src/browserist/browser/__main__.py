@@ -36,7 +36,7 @@ class Browser:
         """Initiates the browser driver whether the settings call for Chrome, Edge, Firefox, etc.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser, BrowserSettings
 
             settings = BrowserSettings(browser_type = BrowserType.FIREFOX)

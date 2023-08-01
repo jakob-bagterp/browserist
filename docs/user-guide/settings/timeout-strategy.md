@@ -12,7 +12,7 @@ Define a general strategy and timeout in seconds:
 * Default is `5` seconds per function (note that a function-specific timeout overrides this)
 * The strategy can be `TimeoutStrategy.STOP` (default) or `TimeoutStrategy.CONTINUE`
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrategy
 
 timeout_settings = TimeoutSettings(strategy = TimeoutStrategy.CONTINUE, seconds = 10)

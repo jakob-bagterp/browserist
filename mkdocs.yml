@@ -124,10 +124,13 @@ markdown_extensions:
       permalink: "#"
   - pymdownx.highlight:
       anchor_linenums: true
+      line_spans: __span
       use_pygments: true
       pygments_lang_class: true
       auto_title: true
+  - pymdownx.inlinehilite
   - pymdownx.details
+  - pymdownx.snippets
   - pymdownx.superfences
   - admonition
   - attr_list

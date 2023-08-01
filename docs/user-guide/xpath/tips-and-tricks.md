@@ -10,7 +10,7 @@ The right approach to XPath can make your life even easier as a browser automate
 ## Target Attributes
 Let's imagine a registration form on a web page where we want to target the `<input>` elements:
 
-```html
+```html linenums="1"
 <div class="container">
   <form id="registration_form">
     <label for="email">Email</label>
@@ -51,7 +51,7 @@ This will often make your code more stable if the HTML layout changes while the 
 ### Match Elements with Specific Text
 Sometimes you can't use attributes to easily target elements. A calendar is a good example of this. Let's imagine we want to select the first day of a given month:
 
-```html
+```html linenums="1"
 <div class="calendar">
   <div class="previous">&lt;<div>
   <div class="month">
@@ -98,7 +98,7 @@ The `…/li[text()='1']` part will return the first exact text match of `1` (and
 
 If you want to select other dates, why not create a function in Python that dynamically generates the XPath expression for you?
 
-```python
+```python linenums="1"
 def get_xpath_for_calendar_date(date: int) -> str:
     return f"//ul[@class='dates']/li[text()='{date}']"
 ```

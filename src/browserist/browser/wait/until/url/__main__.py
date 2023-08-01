@@ -17,7 +17,7 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for URL to change. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser
 
             browser = Browser()
@@ -40,7 +40,7 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for URL to contain the specified fragment. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser
 
             browser = Browser()
@@ -62,7 +62,7 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for URL to match the specified URL. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser
 
             browser = Browser()

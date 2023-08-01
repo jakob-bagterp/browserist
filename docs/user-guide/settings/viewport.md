@@ -12,7 +12,7 @@ The viewport is the portion of a web page visible in the browser window. Based o
 ## Emulate Common Devices
 You can set the viewport to emulate common device sizes (e.g. various popular mobile phones or tablets). Example:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, common_devices
 
 iphone_se = common_devices.Apple.IPHONE_SE
@@ -26,7 +26,7 @@ with Browser(settings) as browser:
 
 And you can later change the viewport to another device:
 
-```python
+```python linenums="1"
 ipad_air_2 = common_devices.Apple.IPAD_AIR_2
 browser.viewport.set.size_by_device(ipad_air_2)
 ```
@@ -45,7 +45,7 @@ Browserist provides a pre-defined collection of common devices, covering tablets
 ### Create Custom Devices
 You can also define custom device sizes for viewport emulation with the `DeviceViewportSize` class. Example:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, DeviceViewportSize
 
 custom_device_1 = DeviceViewportSize(540, 720)
@@ -64,7 +64,7 @@ with Browser(settings) as browser:
 ## Custom Viewport Size
 Alternatively, simply specify the viewport size in pixels as tuple for width and height, e.g. `(1024, 768)`:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(

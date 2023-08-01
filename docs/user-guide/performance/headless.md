@@ -13,7 +13,7 @@ Headless simply means running the browser in the background and without viewing 
 ## How to Configure
 The default setting for `headless` is `False` in `BrowserSettings`. Simply alter this to `True`, and now your browser driver runs in headless mode:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(headless = True)
@@ -38,7 +38,7 @@ If you want a headless browser with Selenium, you typically would use different 
 
 For example, you can easily scale test runs across different browsers in a lightweight, headless configuration:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
 chrome = BrowserSettings(type = BrowserType.CHROME, headless = True)

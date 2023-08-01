@@ -33,7 +33,7 @@ class ViewportSetDriverMethods(DriverMethods):
             device (DeviceViewportSize): Device type to emulate.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser, DeviceViewportSize
 
             browser = Browser()
