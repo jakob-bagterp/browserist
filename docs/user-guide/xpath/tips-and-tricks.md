@@ -105,3 +105,5 @@ def get_xpath_for_calendar_date(date: int) -> str:
 
 !!! tip Exact Matches or Contains Text
     While the `…/li[text()='1']` method locates the first exact match of `1`, it's sometimes favourable to locate the first non-exact match with the `…/li[contains(text(), '1')]` method. Despite the difference, either of the conditional methods would yield the correct answer in the calendar case.
+
+Learn more [pattern matching techniques for text](./cheatsheets/text.md) or tips for [node selection](./cheatsheets/node-selection.md) in the XPath cheatsheets section.

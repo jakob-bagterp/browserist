@@ -74,3 +74,9 @@ Get all links with a URL longer than 55 characters using the `string-length()` f
 ```text title=""
 //a[string-length(@href) > 55]
 ```
+
+## Other XPath Cheatsheets
+* [Node selection](node-selection.md)
+* [Text](text.md)
+* [Search engine optimisation (SEO)](seo.md)
+* [Axes](axes.md)
