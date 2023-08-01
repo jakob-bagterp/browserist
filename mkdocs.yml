@@ -19,7 +19,6 @@ nav:
     - Installation: getting-started/installation.md
     - Browser Drivers: getting-started/browser-drivers.md
     - First Script: getting-started/first-script.md
-    # - Tutorials: TODO
   - User Guide:
     - user-guide/index.md
     - Navigation: user-guide/navigation.md
