@@ -140,6 +140,13 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra:
+  social:
+    - icon: fontawesome/brands/github
+      name: Browserist on GitHub
+      link: https://github.com/jakob-bagterp/browserist
+    - icon: fontawesome/brands/linkedin
+      name: Jakob Bagterp on LinkedIn
+      link: https://www.linkedin.com/in/jakobbagterp/
   analytics:
     provider: google
     property: G-M37EX3JGHL
