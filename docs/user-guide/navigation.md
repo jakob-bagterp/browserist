@@ -15,7 +15,7 @@ Similar to Selenium, use these simple commands to automate the browser:
 | Quit    | `browser.quit()`    | Close the browser                  |
 
 ### Example
-```python
+```python linenums="1"
 from browserist import Browser
 
 browser = Browser()

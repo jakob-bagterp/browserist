@@ -53,7 +53,7 @@ class WaitUntilDriverMethods(DriverMethods):
         Example:
             As images often load after first page paint and sometimes require extra time to download, it's useful know when a specific image or all images have loaded. The example targets all image elements on a page:
 
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser
 
             browser = Browser()

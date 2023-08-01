@@ -28,7 +28,7 @@ Find code examples of the tests below.
 ### Even Faster with Headless and Disable Images
 Gain even more performance by running the browsers in [headless mode](headless.md) and with [images disabled](disable-images.md), including the added benefit that headless mode allows you to run the job as a background task while doing something else. For example:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
 settings = BrowserSettings(
@@ -57,7 +57,7 @@ Imagine that you want to scrape a website with multiple browser types: Chrome, E
 
 How the code could look:
 
-```python
+```python linenums="1"
 from browserist import Browser
 
 with Browser() as browser:
@@ -78,7 +78,7 @@ This will print the following to the terminal:
 Let's try this with four different methods from linear to concurrent processing and run the tests with three different browsers (Chrome, Edge, Firefox).
 
 ### Linear
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
 def open_website_with(settings: BrowserSettings):
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 ```
 
 ### Asynchronous
-```python
+```python linenums="1"
 import asyncio
 from browserist import Browser, BrowserSettings, BrowserType
 
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 ```
 
 ### Multi-Threading
-```python
+```python linenums="1"
 from threading import Thread
 from browserist import Browser, BrowserSettings, BrowserType
 
@@ -163,7 +163,7 @@ if __name__ == "__main__":
 ```
 
 ### Multi-Processing
-```python
+```python linenums="1"
 import multiprocessing
 from browserist import Browser, BrowserSettings, BrowserType
 

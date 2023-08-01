@@ -22,7 +22,7 @@ Class to configure page load strategy that is then passed on to the underlying [
 ## Example
 How to set the page load strategy when opening a new browser:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, PageLoadStrategy
 
 settings = BrowserSettings(page_load_strategy = PageLoadStrategy.EAGER)

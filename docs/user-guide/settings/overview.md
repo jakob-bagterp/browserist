@@ -24,7 +24,7 @@ Use `BrowserSettings` with the following options:
 | `viewport` | `DeviceViewportSize` or `(width, height)` | Browser default size | Emulate [viewport size](viewport.md) as device or set custom value in pixels. |
 
 ## Example
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType, common_devices
 
 iphone_se = common_devices.Apple.IPHONE_SE

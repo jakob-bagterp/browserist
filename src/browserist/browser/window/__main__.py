@@ -62,7 +62,7 @@ class WindowDriverMethods(DriverMethods):
             window_handle (str): Handle ID or name of window/tab to switch to.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser
 
             with Browser() as browser:

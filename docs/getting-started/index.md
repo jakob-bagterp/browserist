@@ -27,7 +27,7 @@ pip3 install chromedriver
 ## 3. First Script
 You're now ready to go:
 
-```python
+```python linenums="1"
 from browserist import Browser
 
 with Browser() as browser:

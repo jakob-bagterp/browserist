@@ -11,7 +11,7 @@ As you often need to accept cookie consent banners before you can scrape web pag
 View all options in the [reference documentation](../../reference/browser/combo.md#cookiebannersettings).
 
 ## Example
-```python title=""
+```python title="" linenums="1"
 from browserist import Browser, CookieBannerSettings
 
 accept_cookies = CookieBannerSettings(

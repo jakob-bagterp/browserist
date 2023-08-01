@@ -16,7 +16,7 @@ As an added benefit, the `with` statement prevents you from having unused browse
 #### With Context Manager
 It's recommended to do this:
 
-```python
+```python linenums="1"
 from browserist import Browser
 
 with Browser() as browser:
@@ -26,7 +26,7 @@ with Browser() as browser:
 #### Without Context Manager
 And not recommended to do this:
 
-```python
+```python linenums="1"
 from browserist import Browser
 
 browser = Browser()
