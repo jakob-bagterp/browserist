@@ -58,7 +58,10 @@ with Browser() as browser:
 ```
 
 ### Why Avoid Explicit or Implicit Waits?
-As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
+As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them. This makes the code more stable and less prone to errors.
+
+#### Sweet Spot of Browser Automation
+You don't want to be too fast nor too slow when automating a browser. You're simply dependant on too many factors that are beyond your control: internet speed, server response time, etc. The sweet spot is to be just right:
 
 | Timing     | Consequence | Code | Description |
 | ---------- | ----------- | ---- | ----------- |
