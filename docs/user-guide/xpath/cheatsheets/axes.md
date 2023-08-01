@@ -23,9 +23,3 @@ Instead of just traversing down the hierarchy, there are multiple axes to query 
 | `preceding` | Selects all nodes that appear before the current node in the document, except ancestors, attribute nodes and namespace nodes. | `//h1/preceding::*` |
 | `preceding-sibling` | Selects all siblings before the current node. | `//h1/preceding-sibling::*` |
 | `self` | Selects the current node. | `//h1/self::*` or `//h1` |
-
-## Other XPath Cheatsheets
-* [Node selection](node-selection.md)
-* [Text](text.md)
-* [Links](links.md)
-* [Search engine optimisation (SEO)](seo.md)

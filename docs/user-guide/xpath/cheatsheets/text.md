@@ -43,9 +43,3 @@ Get all submit buttons using the `normalize-space()` function that strips leadin
 ```text title=""
 //button[normalize-space()='submit']
 ```
-
-## Other XPath Cheatsheets
-* [Node selection](node-selection.md)
-* [Links](links.md)
-* [Search engine optimisation (SEO)](seo.md)
-* [Axes](axes.md)
