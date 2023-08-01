@@ -43,7 +43,7 @@ nav:
       - Basics: user-guide/xpath/basics.md
       - Tips and Tricks: user-guide/xpath/tips-and-tricks.md
       - Cheatsheets:
-        - Simple Node Selection: user-guide/xpath/cheatsheets/simple-node-selection.md
+        - Node Selection: user-guide/xpath/cheatsheets/node-selection.md
         - Text: user-guide/xpath/cheatsheets/text.md
         - Links: user-guide/xpath/cheatsheets/links.md
         - SEO: user-guide/xpath/cheatsheets/seo.md
