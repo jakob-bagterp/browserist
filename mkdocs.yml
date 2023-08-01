@@ -99,6 +99,7 @@ theme:
   features:
     - search.suggest
     - search.highlight
+    - navigation.footer
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.tracking
