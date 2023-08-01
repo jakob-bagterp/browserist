@@ -26,9 +26,9 @@ with Browser(settings) as browser:
 
 And you can later change the viewport to another device:
 
-```python linenums="1"
-ipad_air_2 = common_devices.Apple.IPAD_AIR_2
-browser.viewport.set.size_by_device(ipad_air_2)
+```python title="" linenums="10"
+    ipad_air_2 = common_devices.Apple.IPAD_AIR_2
+    browser.viewport.set.size_by_device(ipad_air_2)
 ```
 
 !!! tip
@@ -77,6 +77,6 @@ with Browser(settings) as browser:
 
 And you can change the viewport size later:
 
-```python
-browser.viewport.set.size(768, 1024)
+```python title="" linenums="9"
+    browser.viewport.set.size(768, 1024)
 ```
