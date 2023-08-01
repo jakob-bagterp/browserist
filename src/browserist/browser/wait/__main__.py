@@ -23,7 +23,7 @@ class WaitDriverMethods(DriverMethods):
         Example:
             Useful for single-page app elements handled by JavaScript, but also standard HTML that doesn't load immediately. This helper function ensures that DOM elements are ready before processing. The example waits for any H1 headline to be ready:
 
-            ```python title=""
+            ```python title="" linenums="1"
             from browserist import Browser
 
             browser = Browser()

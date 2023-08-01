@@ -71,7 +71,7 @@ class ScreenshotDriverMethods(DriverMethods):
             browser.screenshot.element("/element/xpath", "image.png", "./screenshots")
             ```
 
-             # Default file name and custom destination:
+            Default file name and custom destination:
             ```python title=""
             browser.screenshot.element("/element/xpath", destination_dir = "./screenshots")
             ```

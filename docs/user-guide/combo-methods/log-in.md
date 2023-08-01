@@ -23,7 +23,7 @@ As `LoginCredentials` is independent of the login form, it works with both optio
 | `LoginForm2Steps` | Input username and click submit. | Input password and click submit. | [Multiple options](../../reference/browser/combo.md#loginform2steps) to await confirmation or redirect. |
 
 ## Example
-```python title=""
+```python linenums="1"
 from browserist import Browser, LoginForm1Step, LoginCredentials
 
 user_1 = LoginCredentials(
@@ -40,6 +40,11 @@ login_form = LoginForm1Step(
     password_input_xpath = "//xpath/to/password_field",
     submit_button_xpath = "//xpath/to/login_button")
 
+```
+
+After the the settings classes are defined, let's attempt to log both users in:
+
+```python title="" linenums="17"
 for user in [user_1, user_2]:
     with Browser() as browser:
         browser.combo.log_in(user, login_form)

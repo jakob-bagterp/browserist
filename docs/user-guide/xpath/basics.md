@@ -17,7 +17,7 @@ An XPath expression can be written in two ways:
 
 For the examples below, let's imagine a simple web page:
 
-```html
+```html linenums="1"
 <html>
   <body>
     <main>
@@ -60,7 +60,7 @@ This way, the relative XPath simply searches for all child elements of the root 
 ## Multiple Conditions in One Expression
 Let's imagine a more complicated page with several nested children to `<div id="container">` where we want to click the `<a>` link element:
 
-```html
+```html linenums="1"
 <main>
   <div id="container">
     <section>

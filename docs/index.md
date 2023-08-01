@@ -31,7 +31,7 @@ Ready to try? [Let's get started](./getting-started/index.md).
 ### Improved Stability and Less Code
 Browserist improves stability with less code compared to standard use of Selenium. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
 
-```python title="With Selenium"
+```python title="With Selenium" linenums="1"
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -48,7 +48,7 @@ driver.quit()
 
 Browserist does the same with less and cleaner code, yet also with increased stability and without explicit/implicit waits:
 
-```python title="With Browserist"
+```python title="With Browserist" linenums="1"
 from browserist import Browser
 
 with Browser() as browser:
@@ -58,7 +58,10 @@ with Browser() as browser:
 ```
 
 ### Why Avoid Explicit or Implicit Waits?
-As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them:
+As you can't click a button that's not ready in the DOM, Browserist simply checks if elements are ready before interacting with them. This makes the code more stable and less prone to errors.
+
+#### Sweet Spot of Browser Automation
+You don't want to be too fast nor too slow when automating a browser. You're simply dependant on too many factors that are beyond your control: internet speed, server response time, etc. The sweet spot is to be just right:
 
 | Timing     | Consequence | Code | Description |
 | ---------- | ----------- | ---- | ----------- |

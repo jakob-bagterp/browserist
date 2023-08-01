@@ -25,7 +25,7 @@ browser.__main__
 
 Examples of how to chain the methods:
 
-```python
+```python linenums="1"
 browser.forward()
 browser.check_if.contains_any_text("//xpath/to/element")
 browser.wait.seconds(5)

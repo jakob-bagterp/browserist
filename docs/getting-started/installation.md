@@ -20,20 +20,20 @@ Assuming that Python is installed already, you can install Browserist with eithe
 ## PyPI
 For [PyPI](https://pypi.org/project/browserist/), execute this command in the terminal:
 
-```shell
+```shell title=""
 pip3 install browserist
 ```
 
 Keep the package up to date with this command:
 
-```shell
+```shell title=""
 pip3 install --upgrade browserist
 ```
 
 ## Homebrew
 If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap and install Browserist:
 
-```shell
+```shell title=""
 brew tap jakob-bagterp/browserist
 brew install browserist
 ```

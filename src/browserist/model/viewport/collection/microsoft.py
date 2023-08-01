@@ -8,7 +8,7 @@ class MicrosoftDevices:
     """Viewport sizes for common Microsoft devices.
 
     Example:
-        ```python title=""
+        ```python title="" linenums="1"
         from browserist import Browser, BrowserSettings, common_devices
 
         surface_pro_7 = common_devices.Microsoft.SURFACE_PRO_7

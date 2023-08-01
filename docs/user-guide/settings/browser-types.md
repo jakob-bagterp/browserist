@@ -14,7 +14,7 @@ tags:
 ## Configure Browser Type
 If you want to use other browser types, e.g. Firefox, Edge, etc., define this in the settings:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
 settings = BrowserSettings(type = BrowserType.FIREFOX)
@@ -39,7 +39,7 @@ More information about [installation of browser drivers](../../getting-started/b
 ## How to Run Multiple Browsers
 When you have multiple browser drivers installed, you can run them in sequence like this:
 
-```python
+```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
 chrome = BrowserSettings(type = BrowserType.CHROME)
