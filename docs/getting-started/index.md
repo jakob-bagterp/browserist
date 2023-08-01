@@ -7,7 +7,7 @@ tags:
     - PyPI
 ---
 
-# 🚀 Get Started in 3 Easy Steps 🚀
+# Get Started in 3 Easy Steps 🚀
 Ready to try? Let's get started:
 
 ## 1. Install Browserist Package

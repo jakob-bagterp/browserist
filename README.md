@@ -13,13 +13,14 @@
 
 Despite the [urban definition](https://www.urbandictionary.com/define.php?term=browserist), Browserist is a Python extension of the [Selenium web driver](https://www.selenium.dev/) that makes it even easier to use different browsers for testing and automation.
 
-Main features of Browserist:
+## Main Features
+With Browserist as an extension to Selenium, you get:
 
-* Improves stability and speed
+* Improved stability and speed
 * Simple syntax and less code
 * Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
 * Extensive framework of functions that makes browser automation easy
-* Supports IntelliSense and type hints that makes development more efficient
+* Efficient development workflow with IntelliSense and type hints
 
 ## How to Install
 Ready to try? With [PyPI](https://pypi.org/project/browserist/):

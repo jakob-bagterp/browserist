@@ -58,9 +58,3 @@ Use the pipe `|` to combine several paths in union:
 | XPath | Description |
 | ----- | ----------- |
 | `//h2 | //h3` | Get all `<h2>` and `<h3>` headline nodes. |
-
-## Other XPath Cheatsheets
-* [Text](text.md)
-* [Links](links.md)
-* [Search engine optimisation (SEO)](seo.md)
-* [Axes](axes.md)

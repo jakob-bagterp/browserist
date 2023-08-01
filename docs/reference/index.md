@@ -1,4 +1,4 @@
-# Browserist Documentation
+# Browserist Documentation 📚
 Your main resource when automating browsers with Browserist. Find details about all methods in this section.
 
 ## Structure
