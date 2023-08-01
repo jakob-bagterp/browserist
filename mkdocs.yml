@@ -2,7 +2,7 @@ site_name: Browserist
 site_url: https://jakob-bagterp.github.io/browserist
 site_description: "Python extension for the Selenium web driver that makes browser automation even easier"
 site_author: Jakob Bagterp
-copyright: © 2022, Jakob Bagterp. All Rights Reserved.
+copyright: Copyright © 2022 - 2023, Jakob Bagterp. All Rights Reserved.
 repo_url: https://github.com/jakob-bagterp/browserist
 
 nav:
@@ -19,7 +19,6 @@ nav:
     - Installation: getting-started/installation.md
     - Browser Drivers: getting-started/browser-drivers.md
     - First Script: getting-started/first-script.md
-    # - Tutorials: TODO
   - User Guide:
     - user-guide/index.md
     - Navigation: user-guide/navigation.md
@@ -43,7 +42,7 @@ nav:
       - Basics: user-guide/xpath/basics.md
       - Tips and Tricks: user-guide/xpath/tips-and-tricks.md
       - Cheatsheets:
-        - Simple Node Selection: user-guide/xpath/cheatsheets/simple-node-selection.md
+        - Node Selection: user-guide/xpath/cheatsheets/node-selection.md
         - Text: user-guide/xpath/cheatsheets/text.md
         - Links: user-guide/xpath/cheatsheets/links.md
         - SEO: user-guide/xpath/cheatsheets/seo.md
@@ -99,6 +98,7 @@ theme:
   features:
     - search.suggest
     - search.highlight
+    - navigation.footer
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.tracking
@@ -140,6 +140,13 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 extra:
+  social:
+    - icon: fontawesome/brands/github
+      name: Browserist on GitHub
+      link: https://github.com/jakob-bagterp/browserist
+    - icon: fontawesome/brands/linkedin
+      name: Jakob Bagterp on LinkedIn
+      link: https://www.linkedin.com/in/jakobbagterp/
   analytics:
     provider: google
     property: G-M37EX3JGHL

@@ -39,3 +39,9 @@ Ensure that a web page has a robots meta tag. Should not be 0 or larger than 1:
 ```text title=""
 count(/html/head/meta[@name='robots'])
 ```
+
+## Other XPath Cheatsheets
+* [Node selection](node-selection.md)
+* [Text](text.md)
+* [Links](links.md)
+* [Axes](axes.md)
