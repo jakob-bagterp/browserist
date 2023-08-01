@@ -19,7 +19,7 @@ Get all HTTPS links using the `starts-with()` function:
 //a[starts-with(@href, 'https')]
 ```
 
-Get all non-HTTPS links. As above but negated by the `non()` function:
+Get all non-HTTPS links. As above, but negated by the `non()` function:
 
 ```text title=""
 //a[not(starts-with(@href, 'https'))]

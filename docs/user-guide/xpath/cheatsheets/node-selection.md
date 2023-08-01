@@ -5,7 +5,7 @@ tags:
 ---
 
 # XPath Cheatsheet
-## Simple Node Selection
+## How to Select Nodes
 ### Absolute Expressions
 Use absolute XPath expressions to target a single node:
 
