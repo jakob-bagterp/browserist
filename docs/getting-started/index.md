@@ -13,14 +13,14 @@ Ready to try? Let's get started:
 ## 1. Install Browserist Package
 Assuming that [Python](https://www.python.org/) is already installed, execute this command in the terminal to install the Browserist package:
 
-```shell
+```shell title=""
 pip3 install browserist
 ```
 
 ## 2. Install Browser Driver
 Assuming that [Chrome](https://www.google.com/chrome/) is already installed, you also need a driver that automates the Chrome browser:
 
-```shell
+```shell title=""
 pip3 install chromedriver
 ```
 

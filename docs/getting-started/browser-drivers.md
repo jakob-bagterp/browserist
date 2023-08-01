@@ -12,13 +12,13 @@ Browserist supports automation of various browser drivers. Tips for installation
 ## ChromeDriver for Google Chrome
 With [PyPI](https://pypi.org/project/chromedriver/):
 
-```shell
+```shell title=""
 pip3 install chromedriver
 ```
 
 With [Homebrew](https://brew.sh):
 
-```shell
+```shell title=""
 brew install chromedriver
 ```
 
@@ -30,7 +30,7 @@ More info and download [here](https://developer.microsoft.com/en-us/microsoft-ed
 ## GeckoDriver for Mozilla Firefox
 With [Homebrew](https://brew.sh):
 
-```shell
+```shell title=""
 brew install geckodriver
 ```
 
