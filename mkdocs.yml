@@ -127,6 +127,7 @@ markdown_extensions:
       use_pygments: true
       pygments_lang_class: true
       auto_title: true
+  - pymdownx.details
   - pymdownx.superfences
   - admonition
   - attr_list
