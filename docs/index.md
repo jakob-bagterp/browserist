@@ -7,15 +7,17 @@
 [![Downloads](https://static.pepy.tech/badge/browserist)](https://pepy.tech/project/browserist)
 
 # Browserist – Python Extension for Selenium 👨‍💻
+## Introduction
 > ***browserist***
 > *1. The belief that web browsers account for differences in websites or web applications in all of their ability and that a particular web browser is superior to others.*
 > *2. Discrimination or prejudice based on web browser.*
 
 Despite the [urban definition](https://www.urbandictionary.com/define.php?term=browserist), Browserist is a Python extension of the [Selenium web driver](https://www.selenium.dev/) that makes it even easier to use different browsers for testing and automation.
 
-Main features of Browserist:
+## Main Features
+With Browserist as an extension to Selenium, you get:
 
-:white_check_mark: Improves stability and speed
+:white_check_mark: Improved stability and speed
 
 :white_check_mark: Simple syntax and less code
 
@@ -23,7 +25,7 @@ Main features of Browserist:
 
 :white_check_mark: Extensive framework of functions that makes browser automation easy
 
-:white_check_mark: Supports IntelliSense and type hints that makes development more efficient
+:white_check_mark: Efficient development workflow with IntelliSense and type hints
 
 Ready to try? [Let's get started](./getting-started/index.md).
 
