@@ -6,7 +6,7 @@
 [![Test](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/test.yml)
 [![Downloads](https://static.pepy.tech/badge/browserist)](https://pepy.tech/project/browserist)
 
-# 👩‍💻 Browserist – Python Extension for Selenium 👨‍💻
+# Browserist – Python Extension for Selenium 👨‍💻
 > ***browserist***
 > *1. The belief that web browsers account for differences in websites or web applications in all of their ability and that a particular web browser is superior to others.*
 > *2. Discrimination or prejudice based on web browser.*
