@@ -13,7 +13,7 @@ Browserist supports automation of various browser drivers. Tips for installation
 With [PyPI](https://pypi.org/project/chromedriver/):
 
 ```shell title=""
-pip3 install chromedriver
+pip install chromedriver
 ```
 
 With [Homebrew](https://brew.sh):
