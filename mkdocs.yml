@@ -147,6 +147,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       name: Jakob Bagterp on LinkedIn
       link: https://www.linkedin.com/in/jakobbagterp/
+    - icon: fontawesome/brands/instagram
+      name: Jakob Bagterp on Instagram
+      link: https://www.instagram.com/bagterp_photography/
   analytics:
     provider: google
     property: G-M37EX3JGHL
