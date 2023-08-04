@@ -114,12 +114,16 @@ theme:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
+      primary: light blue
+      accent: light blue
       toggle:
         icon: material/eye
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
+      primary: light blue
+      accent: light blue
       toggle:
         icon: material/eye-outline
         name: Switch to light mode
