@@ -105,6 +105,7 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.top
     - navigation.path
     - navigation.indexes
     - content.code.copy
