@@ -1,6 +1,9 @@
 name: docs
 
 on:
+  pull_request:
+    branches:
+      - "**"
   push:
     branches:
       - master
