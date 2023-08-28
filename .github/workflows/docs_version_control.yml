@@ -1,4 +1,4 @@
-name: docs new version release
+name: Mike update MkDocs version
 
 on:
   release:
