@@ -1,4 +1,4 @@
-name: codecov
+name: CodeCov
 
 on:
   push:
@@ -49,7 +49,7 @@ jobs:
         --ignore=test/browser/wait/until/images_have_loaded_test.py
         --ignore=test/helper/image/is_element_loaded_test.py
         --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
-    - name: Upload coverage to Codecov
+    - name: Upload coverage report to CodeCov
       run: |
         curl -Os https://uploader.codecov.io/latest/linux/codecov
         chmod +x codecov
