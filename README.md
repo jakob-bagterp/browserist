@@ -26,7 +26,7 @@ With Browserist as an extension to Selenium, you get:
 Ready to try? With [PyPI](https://pypi.org/project/browserist/):
 
 ```shell
-pip3 install browserist
+pip install browserist
 ```
 
 Or with [Homebrew](https://brew.sh):

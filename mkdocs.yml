@@ -1,6 +1,6 @@
-site_name: Browserist
+site_name: Browserist 👨‍💻
 site_url: https://jakob-bagterp.github.io/browserist
-site_description: "Python extension for the Selenium web driver that makes browser automation even easier"
+site_description: Python extension for the Selenium web driver that makes browser automation even easier
 site_author: Jakob Bagterp
 copyright: Copyright © 2022 - 2023, Jakob Bagterp. All Rights Reserved.
 repo_url: https://github.com/jakob-bagterp/browserist
@@ -105,18 +105,27 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.sections
+    - navigation.top
     - navigation.path
     - navigation.indexes
     - content.code.copy
     - content.code.select
   palette:
-    - scheme: default # Palette toggle for light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: light blue
       toggle:
-        icon: material/brightness-7
+        icon: material/eye
         name: Switch to dark mode
-    - scheme: slate # Palette toggle for dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent: light blue
       toggle:
-        icon: material/brightness-4
+        icon: material/eye-outline
         name: Switch to light mode
 
 markdown_extensions:
@@ -147,6 +156,9 @@ extra:
     - icon: fontawesome/brands/linkedin
       name: Jakob Bagterp on LinkedIn
       link: https://www.linkedin.com/in/jakobbagterp/
+    - icon: fontawesome/brands/instagram
+      name: Jakob Bagterp on Instagram
+      link: https://www.instagram.com/bagterp_photography/
   analytics:
     provider: google
     property: G-M37EX3JGHL
@@ -196,6 +208,24 @@ plugins:
             show_symbol_type_heading: true
             show_symbol_type_toc: true
             merge_init_into_class: true
+  - git-revision-date-localized:
+      enabled: true
+      type: timeago
+      enable_creation_date: true
+      fallback_to_build_date: true
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+          remove_comments: true
+      js_files:
+          - js/timeago_mkdocs_material.js
+      css_files:
+          - css/timeago.css
+          - assets/_mkdocstrings.css
 
 watch:
   - src
+
+dev_addr: 127.0.0.1:8001

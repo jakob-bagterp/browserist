@@ -1,15 +1,15 @@
-name: MkDocs
+name: Test MkDocs
 
 on:
+  pull_request:
+    branches:
+      - "**"
   push:
     branches:
       - master
 
-permissions:
-  contents: write
-
 jobs:
-  deploy-docs:
+  test-docs-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,4 +24,4 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r ./docs/requirements.txt
-      - run: mkdocs gh-deploy --force
+      - run: mkdocs build --strict --verbose

@@ -21,13 +21,13 @@ Assuming that Python is installed already, you can install Browserist with eithe
 For [PyPI](https://pypi.org/project/browserist/), execute this command in the terminal:
 
 ```shell title=""
-pip3 install browserist
+pip install browserist
 ```
 
 Keep the package up to date with this command:
 
 ```shell title=""
-pip3 install --upgrade browserist
+pip install --upgrade browserist
 ```
 
 ## Homebrew
