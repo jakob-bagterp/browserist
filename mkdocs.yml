@@ -53,7 +53,10 @@ nav:
       - __main__: reference/browser/__main__.md
       - check_if: reference/browser/check_if.md
       - click: reference/browser/click.md
-      - combo: reference/browser/combo.md
+      - combo:
+        - cookie_banner: reference/browser/combo/cookie-banner.md
+        - log_in: reference/browser/combo/log-in.md
+        - search: reference/browser/combo/search.md
       - get:
         - __main__: reference/browser/get/__main__.md
         - attribute: reference/browser/get/attribute.md
