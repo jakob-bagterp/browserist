@@ -10,7 +10,7 @@ class CookieBannerSettings:
 
     Args:
         url (str | None, optional): URL from where to handle the cookie banner.
-        iframe_xpath (str | None, optional): Used if the cookie banner is inside an iframe.
+        iframe_xpath (str | None, optional): Used if the cookie banner is inside an iframe. If used, all other XPath elements are relative to this iframe.
         has_loaded_wait_seconds (float | None, optional): Minor grace time to ensure the cookie banner has loaded. Often due an fade-in animation or similar transition.
         has_loaded_xpath (str | None , optional): Check if cookie banner has loaded so it's ready for interaction.
         button_xpath (str): Can be for either accept or decline cookies.
