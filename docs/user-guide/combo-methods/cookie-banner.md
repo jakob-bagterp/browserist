@@ -8,7 +8,7 @@ tags:
 # Cookie Banner Combo Method
 As you often need to accept cookie consent banners before you can scrape web pages, Browserist has a standardised method to do this at scale. The `CookieBannerSettings` class enables you to easily share the same settings across different browsers or scripts.
 
-View all options in the [reference documentation](../../reference/browser/combo.md#cookiebannersettings).
+View all options in the [reference documentation](../../reference/browser/combo/cookie-banner.md#cookiebannersettings).
 
 ## Example
 ```python title="" linenums="1"

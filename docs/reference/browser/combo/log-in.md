@@ -7,12 +7,11 @@ tags:
 # browser.combo
 
 ::: browserist.browser.combo.__main__.ComboDriverMethods
+    options:
+        members:
+            - log_in
 
 ## Configuration Classes
-### CookieBannerSettings
-
-::: browserist.model.combo_settings.cookie_banner.CookieBannerSettings
-
 ### LoginCredentials
 
 ::: browserist.model.combo_settings.login_credentials.LoginCredentials
@@ -24,7 +23,3 @@ tags:
 ### LoginForm2Steps
 
 ::: browserist.model.combo_settings.login_form.LoginForm2Steps
-
-### SearchSettings
-
-::: browserist.model.combo_settings.search.SearchSettings
