@@ -14,7 +14,7 @@ def calculate_number_of_retries(total_time: int | float, interval: int | float) 
     return int(total_time // interval)
 
 
-def get_text(browser_driver: BrowserDriver, input: str, func: DriverGetTextCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str:
+def get_text(browser_driver: BrowserDriver, input: str, func: DriverGetTextCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str | None:
     text = func(browser_driver, input)
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while not text and retries_left > 0:

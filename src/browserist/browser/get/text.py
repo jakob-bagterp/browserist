@@ -12,4 +12,5 @@ def get_text(browser_driver: BrowserDriver, xpath: str, timeout: float) -> str:
 
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
-    return helper_iteration.retry.get_text(browser_driver, xpath, get_inner_text_of_element)
+    text = helper_iteration.retry.get_text(browser_driver, xpath, get_inner_text_of_element)
+    return text if text is not None else ""
