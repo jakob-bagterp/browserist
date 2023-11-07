@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from types import TracebackType
 
+from selenium.webdriver.remote.webdriver import BaseWebDriver
+
 from .. import factory
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
@@ -50,7 +52,7 @@ class Browser:
             settings = BrowserSettings()  # Use default settings if no custom settings are given.
 
         self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
-        self.driver: object = self._browser_driver.get_webdriver()
+        self.driver: BaseWebDriver = self._browser_driver.get_webdriver()
 
         self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver)
         self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver)
