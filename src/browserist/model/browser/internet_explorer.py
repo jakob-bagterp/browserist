@@ -1,5 +1,5 @@
-from selenium import webdriver
 from selenium.webdriver.ie.service import Service as IEService
+from selenium.webdriver.ie.webdriver import WebDriver
 
 from ... import factory
 from ...exception.headless import HeadlessNotSupportedException
@@ -11,8 +11,8 @@ class InternetExplorerBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
         self.settings.type = BrowserType.INTERNET_EXPLORER
 
-    def set_webdriver(self) -> object:
-        return webdriver.Ie(
+    def set_webdriver(self) -> WebDriver:
+        return WebDriver(
             service=self.ie_service,
             options=self.ie_options)
 

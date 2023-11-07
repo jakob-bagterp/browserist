@@ -1,5 +1,5 @@
-from selenium import webdriver
 from selenium.webdriver.edge.service import Service as EdgeService
+from selenium.webdriver.edge.webdriver import WebDriver
 
 from ... import factory
 from .base.driver import BrowserDriver
@@ -10,8 +10,8 @@ class EdgeBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
         self.settings.type = BrowserType.EDGE
 
-    def set_webdriver(self) -> object:
-        return webdriver.Edge(
+    def set_webdriver(self) -> WebDriver:
+        return WebDriver(
             service=self.edge_service,
             options=self.edge_options)
 

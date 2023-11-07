@@ -7,4 +7,4 @@ def window_close(browser_driver: BrowserDriver, controller: WindowHandleControll
     current_window_handle_id = get_current_window_handle(browser_driver)
     controller.remove_handle_by_id(current_window_handle_id)
     driver = browser_driver.get_webdriver()
-    driver.close()  # type: ignore
+    driver.close()

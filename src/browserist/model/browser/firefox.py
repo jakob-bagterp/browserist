@@ -1,5 +1,5 @@
-from selenium import webdriver
 from selenium.webdriver.firefox.service import Service as FirefoxService
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 from ... import factory
 from .base.driver import BrowserDriver
@@ -10,8 +10,8 @@ class FirefoxBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
         self.settings.type = BrowserType.FIREFOX
 
-    def set_webdriver(self) -> object:
-        return webdriver.Firefox(
+    def set_webdriver(self) -> WebDriver:
+        return WebDriver(
             service=self.firefox_service,
             options=self.firefox_options)
 
