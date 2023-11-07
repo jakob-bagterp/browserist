@@ -17,7 +17,7 @@ class GetAttributeDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            str | None: Value of the attribute.
+            str | None: Value of the attribute. If the attribute does not exist, `None` is returned.
 
         Example:
             Use `"src"` as attribute to get the source URL from an `<img>` image tag.
@@ -38,7 +38,7 @@ class GetAttributeDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str | None]: Values of the attribute.
+            list[str | None]: Values of the attribute. If an attribute does not exist, `None` is added to the list.
 
         Example:
             Use `"src"` as attribute to get the source URL from an `<img>` image tag.

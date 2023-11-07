@@ -43,7 +43,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            str | None: URL source of the image.
+            str | None: URL source of the image. If the image does not exist, `None` is returned.
         """
 
         if self._timeout_should_continue():
@@ -58,7 +58,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str | None]: List of image URLs.
+            list[str | None]: List of image URLs. If an image does not exist, `None` is added to the list.
         """
 
         if self._timeout_should_continue():
@@ -76,7 +76,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            str | None: URL of the link.
+            str | None: URL of the link. If the link does not exist, `None` is returned.
         """
 
         if self._timeout_should_continue():
@@ -91,7 +91,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str | None]: List of link URLs.
+            list[str | None]: List of link URLs. If a link does not exist, `None` is added to the list.
         """
 
         if self._timeout_should_continue():
