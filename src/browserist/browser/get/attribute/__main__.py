@@ -8,7 +8,7 @@ class GetAttributeDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def value(self, xpath: str, attribute: str, timeout: float | None = None) -> str:  # type: ignore
+    def value(self, xpath: str, attribute: str, timeout: float | None = None) -> str | None:  # type: ignore
         """Get value from an attribute of an element.
 
         Args:
@@ -17,7 +17,7 @@ class GetAttributeDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            str: Value of the attribute.
+            str | None: Value of the attribute.
 
         Example:
             Use `"src"` as attribute to get the source URL from an `<img>` image tag.
@@ -29,7 +29,7 @@ class GetAttributeDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             return get_attribute_value(self._browser_driver, xpath, attribute, timeout)
 
-    def values(self, xpath: str, attribute: str, timeout: float | None = None) -> list[str]:  # type: ignore
+    def values(self, xpath: str, attribute: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
         """Get values from an attribute of multiple elements. Assumes that the XPath targets multiple links.
 
         Args:
@@ -38,7 +38,7 @@ class GetAttributeDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str]: Values of the attribute.
+            list[str | None]: Values of the attribute.
 
         Example:
             Use `"src"` as attribute to get the source URL from an `<img>` image tag.
