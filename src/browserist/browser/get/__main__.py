@@ -70,7 +70,15 @@ class GetDriverMethods(DriverMethods):
             return get_elements(self._browser_driver, xpath, timeout)
 
     def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[object]:  # type: ignore
-        """"Get multiple web elements by HTML tag. Examples: "img" as tag for all <img> images, "a" for all <a> links, etc."""
+        """"Get multiple web elements by HTML tag.
+
+        Args:
+            tag (str): HTML tag of the elements. For example, `img` as tag for all `<img>` images, `a` for all `<a>` links, etc.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Returns:
+            list[object]: List of web elements.
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
