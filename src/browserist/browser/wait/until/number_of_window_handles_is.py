@@ -1,7 +1,7 @@
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
+from selenium.webdriver.support.wait import WebDriverWait
 
 from ....exception.timeout import WaitForWindowTimeoutException
 from ....helper.timeout import set_is_timed_out, should_continue
