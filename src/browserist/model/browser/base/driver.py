@@ -9,7 +9,7 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.ie.service import Service as IEService
-from selenium.webdriver.remote.webdriver import BaseWebDriver
+from selenium.webdriver.remote.webdriver import BaseWebDriver, WebDriver
 from selenium.webdriver.safari.options import Options as SafariOptions
 from selenium.webdriver.safari.service import Service as SafariService
 
@@ -93,7 +93,7 @@ class BrowserDriver(ABC):
 
         raise NotImplementedError  # pragma: no cover
 
-    def get_webdriver(self) -> BaseWebDriver:
+    def get_webdriver(self) -> WebDriver:
         """Returns the Selenium web driver."""
 
-        return self.webdriver
+        return self.webdriver  # type: ignore

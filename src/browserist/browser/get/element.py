@@ -16,4 +16,4 @@ def get_element_without_wait(browser_driver: BrowserDriver, xpath: XPath) -> Web
     """Variation of the get_element() method for internal use only. It assumes that the XPath has already been validated."""
 
     driver = browser_driver.get_webdriver()
-    return driver.find_element(By.XPATH, xpath)  # type: ignore
+    return driver.find_element(By.XPATH, xpath)

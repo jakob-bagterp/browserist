@@ -13,7 +13,7 @@ def save(browser_driver: BrowserDriver, file_path: str) -> None:
     """Take screenshot of visible portion. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takescreenshot"""
 
     driver = browser_driver.get_webdriver()
-    driver.save_screenshot(file_path)  # type: ignore
+    driver.save_screenshot(file_path)
 
 
 def save_element(element: WebElement, file_path: str) -> None:

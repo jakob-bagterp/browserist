@@ -9,4 +9,4 @@ def switch_to_iframe(browser_driver: BrowserDriver, xpath: str, timeout: float) 
     wait_for_element(browser_driver, xpath, timeout)
     iframe_element = get_element_without_wait(browser_driver, xpath)
     driver = browser_driver.get_webdriver()
-    driver.switch_to.frame(iframe_element)  # type: ignore
+    driver.switch_to.frame(iframe_element)

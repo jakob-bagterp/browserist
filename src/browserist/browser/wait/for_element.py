@@ -1,6 +1,5 @@
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
-from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -17,7 +16,7 @@ def wait_for_element(browser_driver: BrowserDriver, xpath: str, timeout: float) 
     if timeout == constant.timeout.BYPASS:
         return
     try:
-        driver: WebDriver = browser_driver.get_webdriver()  # type: ignore
+        driver = browser_driver.get_webdriver()
         WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
     except TimeoutException:
         browser_driver.settings = set_is_timed_out(browser_driver.settings)

@@ -1,5 +1,4 @@
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -10,7 +9,7 @@ from .....model.browser.base.driver import BrowserDriver
 
 def wait_until_url_contains(browser_driver: BrowserDriver, url_fragment: str, timeout: float) -> None:
     try:
-        driver: WebDriver = browser_driver.get_webdriver()  # type: ignore
+        driver = browser_driver.get_webdriver()
         WebDriverWait(driver, timeout).until(EC.url_contains(url_fragment))
     except TimeoutException:
         browser_driver.settings = set_is_timed_out(browser_driver.settings)

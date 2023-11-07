@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from types import TracebackType
 
-from selenium.webdriver.remote.webdriver import BaseWebDriver
+from selenium.webdriver.remote.webdriver import WebDriver
 
 from .. import factory
 from ..model.browser.base.driver import BrowserDriver
@@ -52,7 +52,7 @@ class Browser:
             settings = BrowserSettings()  # Use default settings if no custom settings are given.
 
         self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
-        self.driver: BaseWebDriver = self._browser_driver.get_webdriver()
+        self.driver: WebDriver = self._browser_driver.get_webdriver()
 
         self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver)
         self.click: ClickDriverMethods = ClickDriverMethods(self._browser_driver)
@@ -96,19 +96,19 @@ class Browser:
     def back(self) -> None:
         """Press the browser's back button."""
 
-        self.driver.back()  # type: ignore
+        self.driver.back()
 
     def forward(self) -> None:
         """Press the browser's forward button."""
 
-        self.driver.forward()  # type: ignore
+        self.driver.forward()
 
     def refresh(self) -> None:
         """Refresh the current page."""
 
-        self.driver.refresh()  # type: ignore
+        self.driver.refresh()
 
     def quit(self) -> None:
         """Quit the browser."""
 
-        self.driver.quit()  # type: ignore
+        self.driver.quit()
