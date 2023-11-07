@@ -13,6 +13,5 @@ Chrome --|> BrowserDriver
 Edge --|> BrowserDriver
 Firefox --|> BrowserDriver
 InternetExplorer --|> BrowserDriver
-Opera --|> BrowserDriver
 Safari --|> BrowserDriver
 ```

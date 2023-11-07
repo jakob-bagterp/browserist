@@ -18,7 +18,7 @@ With Browserist as an extension to Selenium, you get:
 
 * Improved stability and speed
 * Simple syntax and less code
-* Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+* Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Internet Explorer
 * Extensive framework of functions that makes browser automation easy
 * Efficient development workflow with IntelliSense and type hints
 

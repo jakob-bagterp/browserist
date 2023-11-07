@@ -25,7 +25,7 @@ With Browserist as an extension to Selenium, you get:
 
 :white_check_mark: Simple syntax and less code
 
-:white_check_mark: Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+:white_check_mark: Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Internet Explorer
 
 :white_check_mark: Extensive framework of functions that makes browser automation easy
 
