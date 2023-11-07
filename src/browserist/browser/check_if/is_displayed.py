@@ -7,6 +7,6 @@ def check_if_is_displayed(browser_driver: BrowserDriver, xpath: str) -> bool:
     xpath = XPath(xpath)
     try:
         element = get_element_without_wait(browser_driver, xpath)
-        return bool(element.is_displayed())  # type: ignore
+        return bool(element.is_displayed())
     except Exception:
         return False

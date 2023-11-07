@@ -1,3 +1,5 @@
+from selenium.webdriver.remote.webelement import WebElement
+
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .attribute.__main__ import GetAttributeDriverMethods
@@ -39,7 +41,7 @@ class GetDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             return get_dimensions(self._browser_driver, xpath, timeout)
 
-    def element(self, xpath: str, timeout: float | None = None) -> object:  # type: ignore
+    def element(self, xpath: str, timeout: float | None = None) -> WebElement:  # type: ignore
         """Get single web element by XPath.
 
         Args:
@@ -47,14 +49,14 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            object: Web element.
+            WebElement: Web element.
         """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_element(self._browser_driver, xpath, timeout)
 
-    def elements(self, xpath: str, timeout: float | None = None) -> list[object]:  # type: ignore
+    def elements(self, xpath: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
         """Get multiple web elements by XPath.
 
         Args:
@@ -62,14 +64,14 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[object]: List of web elements.
+            list[WebElement]: List of web elements.
         """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_elements(self._browser_driver, xpath, timeout)
 
-    def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[object]:  # type: ignore
+    def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
         """"Get multiple web elements by HTML tag.
 
         Args:
@@ -77,7 +79,7 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[object]: List of web elements.
+            list[WebElement]: List of web elements.
         """
 
         if self._timeout_should_continue():

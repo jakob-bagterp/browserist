@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from typing import Any
 
-DriverGetTextCallable = Callable[..., str]
+DriverGetTextCallable = Callable[..., str | None]
 
 DriverGetBoolCallable = Callable[..., bool]
 

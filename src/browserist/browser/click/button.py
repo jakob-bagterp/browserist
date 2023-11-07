@@ -14,4 +14,4 @@ def click_button_without_wait(browser_driver: BrowserDriver, xpath: XPath) -> No
     """Variation of the click_button() method for internal use only. It assumes that the XPath has already been validated."""
 
     element = get_element_without_wait(browser_driver, xpath)
-    element.click()  # type: ignore
+    element.click()
