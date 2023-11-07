@@ -30,7 +30,7 @@ class BrowserDriver(ABC):
         helper.directory.create_if_not_exists(self.settings._screenshot_dir)
 
         match(self.settings.type):
-            case BrowserType.CHROME | BrowserType.OPERA:
+            case BrowserType.CHROME:
                 self.chrome_options: ChromeOptions = ChromeOptions()
                 self.chrome_service: ChromeService = self.set_service()  # type: ignore
             case BrowserType.EDGE:
