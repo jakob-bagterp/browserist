@@ -6,7 +6,6 @@ tags:
     - Edge
     - Firefox
     - Internet Explorer
-    - Opera
     - Safari
 ---
 
@@ -31,7 +30,6 @@ with Browser(settings) as browser:
 | Edge              | `BrowserType.EDGE`              | Default for Windows          |
 | Firefox           | `BrowserType.FIREFOX`           |                              |
 | Internet Explorer | `BrowserType.INTERNET_EXPLORER` |                              |
-| Opera             | `BrowserType.OPERA`             |                              |
 | Safari            | `BrowserType.SAFARI`            |                              |
 
 More information about [installation of browser drivers](../../getting-started/browser-drivers.md).
