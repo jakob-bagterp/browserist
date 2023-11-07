@@ -9,6 +9,7 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.ie.options import Options as IEOptions
 from selenium.webdriver.ie.service import Service as IEService
+from selenium.webdriver.remote.webdriver import BaseWebDriver, WebDriver
 from selenium.webdriver.safari.options import Options as SafariOptions
 from selenium.webdriver.safari.service import Service as SafariService
 
@@ -29,7 +30,7 @@ class BrowserDriver(ABC):
         helper.directory.create_if_not_exists(self.settings._screenshot_dir)
 
         match(self.settings.type):
-            case BrowserType.CHROME | BrowserType.OPERA:
+            case BrowserType.CHROME:
                 self.chrome_options: ChromeOptions = ChromeOptions()
                 self.chrome_service: ChromeService = self.set_service()  # type: ignore
             case BrowserType.EDGE:
@@ -47,7 +48,7 @@ class BrowserDriver(ABC):
 
         self.ensure_browser_type()
         self.set_options_and_profile()
-        self.webdriver: object = self.set_webdriver()
+        self.webdriver: BaseWebDriver = self.set_webdriver()
 
     @abstractmethod
     def ensure_browser_type(self) -> None:
@@ -56,7 +57,7 @@ class BrowserDriver(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def set_webdriver(self) -> object:
+    def set_webdriver(self) -> BaseWebDriver:
         """Method to set web driver based on the settings."""
 
         raise NotImplementedError  # pragma: no cover
@@ -92,7 +93,7 @@ class BrowserDriver(ABC):
 
         raise NotImplementedError  # pragma: no cover
 
-    def get_webdriver(self) -> object:
+    def get_webdriver(self) -> WebDriver:
         """Returns the Selenium web driver."""
 
-        return self.webdriver
+        return self.webdriver  # type: ignore

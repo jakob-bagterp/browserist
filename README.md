@@ -1,4 +1,4 @@
-[![Latest version](https://img.shields.io/static/v1?label=version&message=1.5.3&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=1.6.0&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
 [![Python 3.10 | 3.11 or higher](https://img.shields.io/static/v1?label=python&message=3.10%20|%203.11%2B&color=blueviolet)](https://www.python.org)
 [![Apache 2.0 license](https://img.shields.io/static/v1?label=license&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
 [![Codecov](https://codecov.io/gh/jakob-bagterp/browserist/branch/master/graph/badge.svg?token=1JL65T099J)](https://codecov.io/gh/jakob-bagterp/browserist)
@@ -18,7 +18,7 @@ With Browserist as an extension to Selenium, you get:
 
 * Improved stability and speed
 * Simple syntax and less code
-* Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Opera, Internet Explorer
+* Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Internet Explorer
 * Extensive framework of functions that makes browser automation easy
 * Efficient development workflow with IntelliSense and type hints
 

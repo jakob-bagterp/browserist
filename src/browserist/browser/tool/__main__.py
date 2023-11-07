@@ -1,5 +1,7 @@
 from typing import Any
 
+from selenium.webdriver.remote.webelement import WebElement
+
 from ... import helper
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
@@ -68,12 +70,12 @@ class ToolDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             return tool_count_elements(self._browser_driver, xpath, timeout)
 
-    def execute_script(self, script: str, element: object | None = None) -> Any:
+    def execute_script(self, script: str, element: WebElement | None = None) -> Any:
         """Execute JavaScript, either with WebElement or without.
 
         Args:
             script (str): JavaScript code.
-            element (object | None, optional): If given, execute JavaScript with WebElement.
+            element (WebElement | None, optional): If given, execute JavaScript with WebElement.
 
         Returns:
             Any: Return value given by the JavaScript code.

@@ -8,4 +8,4 @@ def get_texts(browser_driver: BrowserDriver, xpath: str, timeout: float) -> list
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
     elements = get_elements_without_wait(browser_driver, xpath)
-    return [element.text for element in elements]  # type: ignore
+    return [element.text for element in elements]

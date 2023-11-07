@@ -9,7 +9,7 @@ def check_if_contains_text(browser_driver: BrowserDriver, xpath: str, regex: str
     xpath = XPath(xpath)
     try:
         element = get_element_without_wait(browser_driver, xpath)
-        text = str(element.text)  # type: ignore
+        text = str(element.text)
         match = re.search(regex, text, re.IGNORECASE) if ignore_case else re.search(regex, text)
         return bool(match)
     except Exception:
