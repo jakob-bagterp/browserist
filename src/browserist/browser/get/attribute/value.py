@@ -8,4 +8,4 @@ def get_attribute_value(browser_driver: BrowserDriver, xpath: str, attribute: st
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
     element = get_element_without_wait(browser_driver, xpath)
-    return element.get_attribute(attribute)  # type: ignore
+    return element.get_attribute(attribute)
