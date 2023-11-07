@@ -9,5 +9,4 @@ class BrowserType(Enum):
     EDGE = "Edge"
     FIREFOX = "Firefox"
     INTERNET_EXPLORER = "Internet Explorer"
-    OPERA = "Opera"
     SAFARI = "Safari"
