@@ -2,6 +2,7 @@ __all__ = ["complete_page", "controller", "file", "save", "save_element", "merge
 
 
 from PIL import Image  # type: ignore
+from selenium.webdriver.remote.webelement import WebElement
 
 from .. import helper
 from ..model.browser.base.driver import BrowserDriver
@@ -15,7 +16,7 @@ def save(browser_driver: BrowserDriver, file_path: str) -> None:
     driver.save_screenshot(file_path)  # type: ignore
 
 
-def save_element(element: object, file_path: str) -> None:
+def save_element(element: WebElement, file_path: str) -> None:
     """Take screenshot of element. Reference: https://www.selenium.dev/documentation/webdriver/browser/windows/#takeelementscreenshot"""
 
     element.screenshot(file_path)  # type: ignore

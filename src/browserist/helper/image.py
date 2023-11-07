@@ -1,9 +1,10 @@
 from PIL import Image  # type: ignore
+from selenium.webdriver.remote.webelement import WebElement
 
 from ..model.type.path import FilePath
 
 
-def is_element_loaded(driver: object, element: object) -> bool:
+def is_element_loaded(driver: object, element: WebElement) -> bool:
     """Check if image element is loaded and ready in the DOM."""
 
     is_image_loaded: bool = driver.execute_script(  # type: ignore
