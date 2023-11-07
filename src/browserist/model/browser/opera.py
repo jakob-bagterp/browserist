@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.remote.webdriver import WebDriver
 
 from ... import factory
 from .base.driver import BrowserDriver
@@ -10,7 +11,7 @@ class OperaBrowserDriver(BrowserDriver):
     def ensure_browser_type(self) -> None:
         self.settings.type = BrowserType.OPERA
 
-    def set_webdriver(self) -> object:
+    def set_webdriver(self) -> WebDriver:
         return webdriver.Opera(  # type: ignore
             service=self.chrome_service,
             options=self.chrome_options)
