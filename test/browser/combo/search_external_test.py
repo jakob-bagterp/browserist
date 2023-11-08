@@ -13,7 +13,7 @@ from browserist import Browser, CookieBannerSettings, SearchSettings
     (external_url.DBA_DK, "champagne", DBA_SEARCH, DBA_ACCEPT_COOKIES),
     (external_url.GOOGLE_COM, "browserist github", GOOGLE_SEARCH, GOOGLE_ACCEPT_COOKIES),
 ])
-def test_combo_search(
+def test_combo_search_external(
     url: str,
     term: str,
     search_settings: SearchSettings,

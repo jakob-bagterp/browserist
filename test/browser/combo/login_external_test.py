@@ -15,7 +15,7 @@ from browserist import Browser, CookieBannerSettings, LoginCredentials, LoginFor
     (external_url.JYLLANDSPOSTEN_DK, JYLLANDSPOSTEN_LOGIN_CREDENTIALS,
      JYLLANDSPOSTEN_LOGIN_FORM, JYLLANDSPOSTEN_ACCEPT_COOKIES),
 ])
-def test_combo_login_with_1_and_2_steps(
+def test_combo_login_with_1_and_2_steps_external(
     url: str,
     login_credentials: LoginCredentials,
     login_form: LoginForm1Step | LoginForm2Steps,
