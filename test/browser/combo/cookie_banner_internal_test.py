@@ -36,9 +36,11 @@ def test_combo_cookie_banner_internal(
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
         browser.combo.cookie_banner(cookie_banner_settings)
 
+
 PAGE_HEADER_TEXT = "Welcome to the Cookie Banner Test Website"
 
 PAGE_HEADER_XPATH = "/html/body/main/h1"
+
 
 def test_combo_cookie_banner_internal_return_iframe_to_origin(
     browser_default_headless_disable_images: Browser
