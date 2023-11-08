@@ -12,7 +12,7 @@ from browserist import Browser, CookieBannerSettings
     (external_url.DBA_DK, DBA_ACCEPT_COOKIES),
     (external_url.GOOGLE_COM, GOOGLE_ACCEPT_COOKIES),
 ])
-def test_combo_cookie_banner(
+def test_combo_cookie_banner_external(
     url: str,
     cookie_banner_settings: CookieBannerSettings,
     browser_default_headless_disable_images: Browser
