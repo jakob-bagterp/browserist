@@ -7,6 +7,12 @@ _web_mock_data_directory = directory.get_path_for_web_mock_data()
 CHECKBOXES: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/checkboxes.html")
 
+COOKIE_BANNER_WITH_IFRAME: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/cookie_banner/page_with_iframe.html")
+
+COOKIE_BANNER_WITHOUT_IFRAME: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/cookie_banner/page_without_iframe.html")
+
 DROPDOWN_SELECTOR: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/drop-down_selector.html")
 
