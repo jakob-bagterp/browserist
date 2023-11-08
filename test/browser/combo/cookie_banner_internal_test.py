@@ -32,7 +32,6 @@ def test_combo_cookie_banner_internal(
     cookie_banner_settings: CookieBannerSettings,
     browser_default_headless_disable_images: Browser
 ) -> None:
-
     with expectation_of_no_exceptions_raised():
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
         browser.combo.cookie_banner(cookie_banner_settings)
