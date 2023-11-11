@@ -1,22 +1,19 @@
-from _mock_data.url import external_url
-
+from _mock_data.url import internal_url
 from browserist import CookieBannerSettings
-from browserist.constant import timeout
 
-DBA_ACCEPT_COOKIES = CookieBannerSettings(
-    button_xpath="//button[@id='onetrust-accept-btn-handler']",
-    url=external_url.DBA_DK,
-    has_disappeared_wait_seconds=timeout.VERY_SHORT,
-    has_loaded_wait_seconds=timeout.VERY_SHORT,
-    has_loaded_xpath="//button[@id='onetrust-accept-btn-handler']"
+HAS_LOADED_XPATH = "//*[@id='cookie-banner']"
+
+ACCEPT_BUTTON_XPATH = "//button[@id='accept-cookies']"
+
+COOKIE_BANNER_SETTINGS_WITH_IFRAME = CookieBannerSettings(
+    url=internal_url.COOKIE_BANNER_WITH_IFRAME,
+    iframe_xpath="//iframe[@id='cookie-banner-iframe']",
+    has_loaded_xpath=HAS_LOADED_XPATH,
+    button_xpath=ACCEPT_BUTTON_XPATH,
 )
 
-GOOGLE_ACCEPT_COOKIES = CookieBannerSettings(
-    button_xpath="//button[2]",
-    url=external_url.GOOGLE_COM
-)
-
-JYLLANDSPOSTEN_ACCEPT_COOKIES = CookieBannerSettings(
-    button_xpath="//button[@id='CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll']",
-    url=external_url.JYLLANDSPOSTEN_DK
+COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME = CookieBannerSettings(
+    url=internal_url.COOKIE_BANNER_WITHOUT_IFRAME,
+    has_loaded_xpath=HAS_LOADED_XPATH,
+    button_xpath=ACCEPT_BUTTON_XPATH,
 )
