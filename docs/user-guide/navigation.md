@@ -14,7 +14,7 @@ Similar to Selenium, use these simple commands to automate the browser:
 | Refresh | `browser.refresh()` | Reload the current page            |
 | Quit    | `browser.quit()`    | Close the browser                  |
 
-### Example
+### Examples
 ```python linenums="1"
 from browserist import Browser
 

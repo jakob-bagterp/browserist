@@ -10,7 +10,7 @@ As you often need to accept cookie consent banners before you can scrape web pag
 
 View all options in the [reference documentation](../../reference/browser/combo/cookie-banner.md#cookiebannersettings).
 
-## Example
+## Examples
 ```python linenums="1"
 from browserist import Browser, CookieBannerSettings
 
