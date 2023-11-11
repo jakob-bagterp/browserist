@@ -5,7 +5,7 @@ from _config.combo.search import DBA_SEARCH, GOOGLE_SEARCH
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import external_url
 
-from browserist import Browser, CookieBannerSettings, SearchSettings
+from browserist import Browser, SearchSettings
 
 
 @pytest.mark.parametrize("url, term, search_settings", [

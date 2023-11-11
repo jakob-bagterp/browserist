@@ -6,7 +6,7 @@ from _config.combo.log_in import (AMAZON_LOGIN_CREDENTIALS, AMAZON_LOGIN_FORM, J
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import external_url
 
-from browserist import Browser, CookieBannerSettings, LoginCredentials, LoginForm1Step, LoginForm2Steps
+from browserist import Browser, LoginCredentials, LoginForm1Step, LoginForm2Steps
 
 
 @pytest.mark.parametrize("url, login_credentials, login_form", [
