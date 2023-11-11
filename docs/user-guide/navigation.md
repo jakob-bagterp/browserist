@@ -27,4 +27,14 @@ browser.quit()
 ```
 
 !!! tip
-    Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](context-manager.md) and `with` statements.
+    Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](context-manager.md) and `with` statements. The example above could then be refactored to:
+
+    ```python linenums="1"
+    from browserist import Browser
+
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        browser.open.url("https://google.com")
+        browser.browser.back()  # Go back to previous page Example.com
+        browser.browser.forward()  # Return to Google.com
+    ```
