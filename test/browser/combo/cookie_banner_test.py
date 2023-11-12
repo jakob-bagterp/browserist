@@ -3,6 +3,7 @@ from contextlib import nullcontext as expectation_of_no_exceptions_raised
 import pytest
 from _config.combo.cookie_banner import COOKIE_BANNER_SETTINGS_WITH_IFRAME, COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME
 from _helper.timeout import reset_to_not_timed_out
+from _mock_data.url import internal_url
 
 from browserist import Browser, CookieBannerSettings
 
