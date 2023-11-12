@@ -1,4 +1,5 @@
 from _mock_data.url import internal_url
+
 from browserist import CookieBannerSettings
 
 HAS_LOADED_XPATH = "//*[@id='cookie-banner']"
