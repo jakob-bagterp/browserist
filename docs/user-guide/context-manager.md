@@ -12,7 +12,7 @@ Apart from less code and more readable code, the built-in context manager automa
 
 As an added benefit, the `with` statement prevents you from having unused browser windows lingering in the background.
 
-### Example
+### Examples
 #### With Context Manager
 It's recommended to do this:
 
