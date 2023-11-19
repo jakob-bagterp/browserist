@@ -22,6 +22,9 @@ EXAMPLE_COM: str = update_path_format_if_windows(
 LOG_IN_1_STEP: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/log_in/1_step/login_form.html")
 
+LOG_IN_2_STEPS: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/log_in/2_steps/1_username/login_form.html")
+
 NO_BODY: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/no_body.html")
 
