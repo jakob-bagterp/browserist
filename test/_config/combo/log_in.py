@@ -1,7 +1,24 @@
 import keyring
-from _mock_data.url import external_url
+from _mock_data.url import external_url, internal_url
 
 from browserist import LoginCredentials, LoginForm1Step, LoginForm2Steps
+
+LOGIN_CREDENTIALS_VALID = LoginCredentials(
+    username="johndoe",
+    password="password123",
+)
+
+LOGIN_CREDENTIALS_INVALID = LoginCredentials(
+    username="invalid",
+    password="invalid",
+)
+
+LOGIN_FORM_1_STEP = LoginForm1Step(
+    username_input_xpath="//*[@id='username']",
+    password_input_xpath="//*[@id='password']",
+    submit_button_xpath="//*[@id='submit']",
+    url=internal_url.LOG_IN_1_STEP,
+)
 
 AMAZON_LOGIN_CREDENTIALS = LoginCredentials(
     username=keyring.get_password("browserist-test-amazon-username", "username"),
