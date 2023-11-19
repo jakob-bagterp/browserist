@@ -1,3 +1,5 @@
+from contextlib import nullcontext as expectation_of_no_exceptions_raised
+
 import pytest
 from _config.combo.log_in import (LOGIN_CREDENTIALS_INVALID, LOGIN_CREDENTIALS_INVALID_PASSWORD,
                                   LOGIN_CREDENTIALS_VALID, LOGIN_FORM_1_STEP, LOGIN_FORM_2_STEPS)
@@ -16,11 +18,12 @@ def test_combo_login_with_1_step(
     expected_landing_page: str,
     browser_default_headless_disable_images: Browser
 ) -> None:
-    browser = reset_to_not_timed_out(browser_default_headless_disable_images)
-    browser.open.url(internal_url.LOG_IN_1_STEP)
-    browser.combo.log_in(login_credentials, LOGIN_FORM_1_STEP)
-    landing_page_url = browser.get.url.current()
-    assert landing_page_url.endswith(expected_landing_page)
+    with expectation_of_no_exceptions_raised():
+        browser = reset_to_not_timed_out(browser_default_headless_disable_images)
+        browser.open.url(internal_url.LOG_IN_1_STEP)
+        browser.combo.log_in(login_credentials, LOGIN_FORM_1_STEP)
+        landing_page_url = browser.get.url.current()
+        assert landing_page_url.endswith(expected_landing_page)
 
 
 @pytest.mark.parametrize("login_credentials, expected_landing_page", [
@@ -32,8 +35,9 @@ def test_combo_login_with_2_steps(
     expected_landing_page: str,
     browser_default_headless_disable_images: Browser
 ) -> None:
-    browser = reset_to_not_timed_out(browser_default_headless_disable_images)
-    browser.open.url(internal_url.LOG_IN_2_STEPS)
-    browser.combo.log_in(login_credentials, LOGIN_FORM_2_STEPS)
-    landing_page_url = browser.get.url.current()
-    assert landing_page_url.endswith(expected_landing_page)
+    with expectation_of_no_exceptions_raised():
+        browser = reset_to_not_timed_out(browser_default_headless_disable_images)
+        browser.open.url(internal_url.LOG_IN_2_STEPS)
+        browser.combo.log_in(login_credentials, LOGIN_FORM_2_STEPS)
+        landing_page_url = browser.get.url.current()
+        assert landing_page_url.endswith(expected_landing_page)
