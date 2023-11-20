@@ -22,7 +22,6 @@ jobs:
         # The list of "--ignore=..." arguments should be identical to the exclusion list in Tox.ini, though without comments:
       run: >
         pytest --cov=./ --cov-report=xml
-        --ignore=test/browser/combo/search_external_test.py
         --ignore=test/browser/input/select_1_test.py
         --ignore=test/browser/input/select_headless_exception_test.py
         --ignore=test/browser/viewport/get/height_non_headless_test.py

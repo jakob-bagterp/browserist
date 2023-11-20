@@ -1,5 +1,3 @@
-DBA_DK: str = "https://www.dba.dk/"
-
 EXAMPLE_COM: str = "http://example.com/"
 
 GOOGLE_COM: str = "https://www.google.com/"
