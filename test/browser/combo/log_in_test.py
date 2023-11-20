@@ -16,7 +16,7 @@ from browserist.exception.timeout import WaitForElementTimeoutException
     (LOGIN_CREDENTIALS_VALID, "homepage.html"),
     (LOGIN_CREDENTIALS_INVALID, "error.html"),
 ])
-def test_combo_login_with_1_step(
+def test_combo_log_in_1_step(
     login_credentials: LoginCredentials,
     expected_landing_page: str,
     browser_default_headless_disable_images: Browser
@@ -34,7 +34,7 @@ def test_combo_login_with_1_step(
     (LOGIN_CREDENTIALS_INVALID_USERNAME, "error.html", pytest.raises(WaitForElementTimeoutException)),
     (LOGIN_CREDENTIALS_INVALID_PASSWORD, "error.html", expectation_of_no_exceptions_raised()),
 ])
-def test_combo_login_with_2_steps(
+def test_combo_log_in_2_steps(
     login_credentials: LoginCredentials,
     expected_landing_page: str,
     expectation: Any,
