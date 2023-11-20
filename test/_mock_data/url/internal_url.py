@@ -31,6 +31,9 @@ NO_BODY: str = update_path_format_if_windows(
 RADIO_BUTTONS: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/radio_buttons.html")
 
+SEARCH: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/search/search_form.html")
+
 SCROLL_CANVAS: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/scroll_canvas.html")
 
