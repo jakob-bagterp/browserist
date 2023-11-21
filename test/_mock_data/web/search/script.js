@@ -24,11 +24,18 @@ function showNoResultsMessage() {
     addSearchResultToResultsContainer('No results found.');
 }
 
+function updateUrlWithSearchParameter(keywords) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('search', keywords);
+    window.history.pushState({}, '', url);
+}
+
 async function searchController() {
     const searchInput = document.getElementById('search-input').value.toLowerCase();
     const resultsContainer = getResultsContainer();
     resultsContainer.innerHTML = '';
 
+    updateUrlWithSearchParameter(searchInput);
     if (searchInput === 'fruits') {
         if (fruitsData.length === 0) {
             showNoResultsMessage();
