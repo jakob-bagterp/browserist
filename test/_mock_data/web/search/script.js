@@ -12,6 +12,11 @@ function getResultsContainer() {
     return document.getElementById('search-results');
 }
 
+function resetResultsContainer() {
+    const resultsContainer = getResultsContainer();
+    resultsContainer.innerHTML = '';
+}
+
 function addSearchResultToResultsContainer(resultInnerHtml) {
     const resultsContainer = getResultsContainer();
     const resultItem = document.createElement('div');
@@ -31,10 +36,8 @@ function updateUrlWithSearchParameter(keywords) {
 }
 
 async function searchController() {
+    resetResultsContainer();
     const searchInput = document.getElementById('search-input').value.toLowerCase();
-    const resultsContainer = getResultsContainer();
-    resultsContainer.innerHTML = '';
-
     updateUrlWithSearchParameter(searchInput);
     if (searchInput === 'fruits') {
         if (fruitsData.length === 0) {
