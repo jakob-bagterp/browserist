@@ -35,9 +35,14 @@ function updateUrlWithSearchParameter(keywords) {
     window.history.pushState({}, '', url);
 }
 
+function getNormalizedSearchInput() {
+    const keywords = document.getElementById('search-input').value
+    return keywords.toLowerCase();
+}
+
 async function searchController() {
     resetResultsContainer();
-    const searchInput = document.getElementById('search-input').value.toLowerCase();
+    const searchInput = getNormalizedSearchInput();
     updateUrlWithSearchParameter(searchInput);
     if (searchInput === 'fruits') {
         if (fruitsData.length === 0) {
