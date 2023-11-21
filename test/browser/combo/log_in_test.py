@@ -24,6 +24,7 @@ def test_combo_log_in_1_step(
     with expectation_of_no_exceptions_raised():
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
         browser.open.url(internal_url.LOG_IN_1_STEP)
+        LOGIN_FORM_1_STEP.post_login_url_contains = expected_landing_page
         browser.combo.log_in(login_credentials, LOGIN_FORM_1_STEP)
         landing_page_url = browser.get.url.current()
         assert landing_page_url.endswith(expected_landing_page)
@@ -43,6 +44,7 @@ def test_combo_log_in_2_steps(
     with expectation:
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
         browser.open.url(internal_url.LOG_IN_2_STEPS)
+        LOGIN_FORM_2_STEPS.post_login_url_contains = expected_landing_page
         browser.combo.log_in(login_credentials, LOGIN_FORM_2_STEPS)
         landing_page_url = browser.get.url.current()
         assert landing_page_url.endswith(expected_landing_page)
