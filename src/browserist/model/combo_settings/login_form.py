@@ -29,10 +29,10 @@ class LoginForm1Step:
     post_login_element_xpath: str | None = None
 
     def __post_init__(self) -> None:
+        self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
         self.username_input_xpath = XPath(self.username_input_xpath)
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.submit_button_xpath = XPath(self.submit_button_xpath)
-        self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
         self.post_login_element_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(
             self.post_login_element_xpath)
 
@@ -64,10 +64,10 @@ class LoginForm2Steps:
     post_login_element_xpath: str | None = None
 
     def __post_init__(self) -> None:
+        self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
         self.username_input_xpath = XPath(self.username_input_xpath)
         self.username_submit_button_xpath = XPath(self.username_submit_button_xpath)
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.password_submit_button_xpath = XPath(self.password_submit_button_xpath)
-        self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
         self.post_login_element_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(
             self.post_login_element_xpath)
