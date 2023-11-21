@@ -25,7 +25,7 @@ class CookieBannerSettings:
     has_disappeared_wait_seconds: float | None = None
 
     def __post_init__(self) -> None:
-        self.iframe_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(self.iframe_xpath)
-        self.button_xpath = XPath(self.button_xpath)
         self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
+        self.iframe_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(self.iframe_xpath)
         self.has_loaded_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(self.has_loaded_xpath)
+        self.button_xpath = XPath(self.button_xpath)
