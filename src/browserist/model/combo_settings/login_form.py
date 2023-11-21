@@ -22,7 +22,7 @@ class LoginForm1Step:
     password_input_xpath: str
     submit_button_xpath: str  # Specific for this class.
 
-    # Shared defaults:
+    # Shared defaults for all LoginForm classes:
     url: str | None = None
     post_login_wait_seconds: float | None = None
     post_login_url_contains: str | None = None
@@ -57,7 +57,7 @@ class LoginForm2Steps:
     password_input_xpath: str
     password_submit_button_xpath: str  # Specific for this class.
 
-    # Shared defaults:
+    # Shared defaults for all LoginForm classes:
     url: str | None = None
     post_login_wait_seconds: float | None = None
     post_login_url_contains: str | None = None
