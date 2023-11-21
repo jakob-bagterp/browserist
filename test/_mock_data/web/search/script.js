@@ -42,9 +42,9 @@ function getNormalizedSearchInput() {
 
 async function searchController() {
     resetResultsContainer();
-    const searchInput = getNormalizedSearchInput();
-    updateUrlWithSearchParameter(searchInput);
-    if (searchInput === 'fruits') {
+    const keywords = getNormalizedSearchInput();
+    updateUrlWithSearchParameter(keywords);
+    if (keywords === 'fruits') {
         if (fruitsData.length === 0) {
             showNoResultsMessage();
         } else {
