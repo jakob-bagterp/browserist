@@ -12,6 +12,11 @@ function getResultsContainer() {
     return document.getElementById('search-results');
 }
 
+function resetResultsContainer() {
+    const resultsContainer = getResultsContainer();
+    resultsContainer.innerHTML = '';
+}
+
 function addSearchResultToResultsContainer(resultInnerHtml) {
     const resultsContainer = getResultsContainer();
     const resultItem = document.createElement('div');
@@ -24,12 +29,22 @@ function showNoResultsMessage() {
     addSearchResultToResultsContainer('No results found.');
 }
 
-async function searchController() {
-    const searchInput = document.getElementById('search-input').value.toLowerCase();
-    const resultsContainer = getResultsContainer();
-    resultsContainer.innerHTML = '';
+function updateUrlWithSearchParameter(keywords) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('search', keywords);
+    window.history.pushState({}, '', url);
+}
 
-    if (searchInput === 'fruits') {
+function getNormalizedSearchInput() {
+    const keywords = document.getElementById('search-input').value
+    return keywords.toLowerCase();
+}
+
+async function searchController() {
+    resetResultsContainer();
+    const keywords = getNormalizedSearchInput();
+    updateUrlWithSearchParameter(keywords);
+    if (keywords === 'fruits') {
         if (fruitsData.length === 0) {
             showNoResultsMessage();
         } else {
