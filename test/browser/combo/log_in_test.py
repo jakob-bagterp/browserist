@@ -77,6 +77,7 @@ def test_combo_log_in_post_login_wait_seconds(
 
     with expectation_of_no_exceptions_raised():
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
+        login_form.post_login_url_contains = SUCCESS_LANDING_PAGE  # Reset to default value due to earlier tests.
         post_login_wait_seconds_a = 1
         post_login_wait_seconds_b = post_login_wait_seconds_a + 1
         time_measured_a = log_in_and_get_time(browser, url, login_form, post_login_wait_seconds_a)
