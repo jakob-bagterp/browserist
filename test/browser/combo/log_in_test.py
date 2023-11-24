@@ -63,9 +63,9 @@ def test_combo_log_in_post_login_wait_seconds(
     def log_in_and_get_time(browser: Browser, url: str, login_form: LoginForm1Step | LoginForm2Steps, post_login_wait_seconds: float) -> float:
         browser.open.url(url)
         login_form.post_login_wait_seconds = post_login_wait_seconds
-        start_time = time.time()
+        start_time = time.perf_counter()
         browser.combo.log_in(LOGIN_CREDENTIALS_VALID, login_form)
-        stop_time = time.time()
+        stop_time = time.perf_counter()
         return stop_time - start_time
 
     def get_time_difference(time_a: float, time_b: float) -> float:
