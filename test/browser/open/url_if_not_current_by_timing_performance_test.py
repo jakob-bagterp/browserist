@@ -1,5 +1,6 @@
 import time
 
+import _helper
 import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import external_url, internal_url
@@ -27,7 +28,7 @@ def test_open_url_if_not_current_by_timing_performance(url1: str, url2: str, bro
     time_start = time.perf_counter_ns()
     browser.open.url_if_not_current(url2)
     time_stop = time.perf_counter_ns()
-    time_difference = time_stop - time_start
+    time_difference = _helper.time.get_difference(time_start, time_stop)
     if is_same_url:
         assert time_difference < MAX_TIME_TO_OPEN_INTERNAL_PAGE
     else:
