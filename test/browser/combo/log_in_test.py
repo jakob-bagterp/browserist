@@ -67,7 +67,7 @@ def test_combo_log_in_post_login_wait_seconds(
         start_time = time.perf_counter()
         browser.combo.log_in(LOGIN_CREDENTIALS_VALID, login_form)
         stop_time = time.perf_counter()
-        return _helper.time.get_difference(stop_time, start_time)
+        return _helper.time.get_difference(start_time, stop_time)
 
     def deduct_tolerance_from_time(time: float, tolerance_percent: float) -> float:
         tolerance = tolerance_percent / 100
