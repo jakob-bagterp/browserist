@@ -34,7 +34,9 @@ PASSWORD_INPUT_XPATH = "//*[@id='password']"
 
 SUBMIT_BUTTON_XPATH = "//*[@id='submit']"
 
-SUCCESSLANDING_PAGE_NAME = "homepage.html"
+SUCCESS_LANDING_PAGE = "homepage.html"
+
+ERROR_LANDING_PAGE = "error.html"
 
 LANDING_PAGE_HEADLINE_XPATH = "/html/body/h1"
 
@@ -43,7 +45,7 @@ LOGIN_FORM_1_STEP = LoginForm1Step(
     username_input_xpath=USERNAME_INPUT_XPATH,
     password_input_xpath=PASSWORD_INPUT_XPATH,
     submit_button_xpath=SUBMIT_BUTTON_XPATH,
-    post_login_url_contains=SUCCESSLANDING_PAGE_NAME,  # Should be assigned during test.
+    post_login_url_contains=SUCCESS_LANDING_PAGE,  # Eventually re-assign before test.
     post_login_element_xpath=LANDING_PAGE_HEADLINE_XPATH,
 )
 
@@ -53,6 +55,6 @@ LOGIN_FORM_2_STEPS = LoginForm2Steps(
     username_submit_button_xpath=SUBMIT_BUTTON_XPATH,
     password_input_xpath=PASSWORD_INPUT_XPATH,
     password_submit_button_xpath=SUBMIT_BUTTON_XPATH,
-    post_login_url_contains=SUCCESSLANDING_PAGE_NAME,  # Should be assigned during test.
+    post_login_url_contains=SUCCESS_LANDING_PAGE,  # Eventually re-assign before test.
     post_login_element_xpath=LANDING_PAGE_HEADLINE_XPATH,
 )
