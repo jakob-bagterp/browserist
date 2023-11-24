@@ -1,5 +1,7 @@
+import time
 from contextlib import nullcontext as expectation_of_no_exceptions_raised
 
+import _helper
 import pytest
 from _config.combo.cookie_banner import COOKIE_BANNER_SETTINGS_WITH_IFRAME, COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME
 from _helper.timeout import reset_to_not_timed_out
@@ -35,3 +37,30 @@ def test_combo_cookie_banner_return_iframe_to_origin(
         assert PAGE_HEADER_TEXT == browser.get.text(PAGE_HEADER_XPATH)
         browser.combo.cookie_banner(COOKIE_BANNER_SETTINGS_WITH_IFRAME)
         assert PAGE_HEADER_TEXT == browser.get.text(PAGE_HEADER_XPATH)
+
+
+@pytest.mark.parametrize("cookie_banner_settings", [
+    COOKIE_BANNER_SETTINGS_WITH_IFRAME,
+    COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME,
+])
+def test_combo_cookie_banner_has_loaded_wait_seconds(
+    cookie_banner_settings: CookieBannerSettings,
+    browser_default_headless_disable_images: Browser
+) -> None:
+    def accept_cookie_banner_and_get_time(browser: Browser, cookie_banner_settings: CookieBannerSettings, has_loaded_wait_seconds: float) -> float:
+        cookie_banner_settings.has_loaded_wait_seconds = has_loaded_wait_seconds
+        start_time = time.perf_counter()
+        browser.combo.cookie_banner(cookie_banner_settings)
+        stop_time = time.perf_counter()
+        return _helper.time.get_difference(start_time, stop_time)
+
+    with expectation_of_no_exceptions_raised():
+        browser = reset_to_not_timed_out(browser_default_headless_disable_images)
+        has_loaded_wait_seconds_a = 1
+        has_loaded_wait_seconds_b = has_loaded_wait_seconds_a + 1
+        time_measured_a = accept_cookie_banner_and_get_time(browser, cookie_banner_settings, has_loaded_wait_seconds_a)
+        time_measured_b = accept_cookie_banner_and_get_time(browser, cookie_banner_settings, has_loaded_wait_seconds_b)
+        assert time_measured_a < time_measured_b
+        time_difference_a_b = _helper.time.get_difference(has_loaded_wait_seconds_a, has_loaded_wait_seconds_b)
+        time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
+        assert time_difference_measured_a_b >= _helper.time.deduct_tolerance(time_difference_a_b, 20)
