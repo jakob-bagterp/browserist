@@ -1,3 +1,4 @@
+import time
 from contextlib import nullcontext as expectation_of_no_exceptions_raised
 from typing import Any
 
@@ -8,7 +9,7 @@ from _config.combo.log_in import (ERROR_LANDING_PAGE, LOGIN_CREDENTIALS_INVALID,
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
-from browserist import Browser, LoginCredentials
+from browserist import Browser, LoginCredentials, LoginForm1Step, LoginForm2Steps
 from browserist.exception.timeout import WaitForElementTimeoutException
 
 
@@ -48,3 +49,39 @@ def test_combo_log_in_2_steps(
         browser.combo.log_in(login_credentials, LOGIN_FORM_2_STEPS)
         landing_page_url = browser.get.url.current()
         assert landing_page_url.endswith(expected_landing_page)
+
+
+@pytest.mark.parametrize("url, login_form", [
+    (internal_url.LOG_IN_1_STEP, LOGIN_FORM_1_STEP),
+    (internal_url.LOG_IN_2_STEPS, LOGIN_FORM_2_STEPS),
+])
+def test_combo_log_in_post_login_wait_seconds(
+    url: str,
+    login_form: LoginForm1Step | LoginForm2Steps,
+    browser_default_headless_disable_images: Browser
+) -> None:
+    def log_in_and_get_time(browser: Browser, url: str, login_form: LoginForm1Step | LoginForm2Steps, post_login_wait_seconds: float) -> float:
+        browser.open.url(url)
+        login_form.post_login_wait_seconds = post_login_wait_seconds
+        start_time = time.time()
+        browser.combo.log_in(LOGIN_CREDENTIALS_VALID, login_form)
+        stop_time = time.time()
+        return stop_time - start_time
+
+    def get_time_difference(time_a: float, time_b: float) -> float:
+        return abs(time_b - time_a)
+
+    def deduct_tolerance_from_time(time: float, tolerance_percent: float) -> float:
+        tolerance = tolerance_percent / 100
+        return time * (1 - tolerance)
+
+    with expectation_of_no_exceptions_raised():
+        browser = reset_to_not_timed_out(browser_default_headless_disable_images)
+        post_login_wait_seconds_a = 1
+        post_login_wait_seconds_b = post_login_wait_seconds_a + 1
+        time_measured_a = log_in_and_get_time(browser, url, login_form, post_login_wait_seconds_a)
+        time_measured_b = log_in_and_get_time(browser, url, login_form, post_login_wait_seconds_b)
+        assert time_measured_a < time_measured_b
+        time_difference_a_b = get_time_difference(post_login_wait_seconds_a, post_login_wait_seconds_b)
+        time_difference_measured_a_b = get_time_difference(time_measured_a, time_measured_b)
+        assert time_difference_measured_a_b >= deduct_tolerance_from_time(time_difference_a_b, 20)
