@@ -2,6 +2,7 @@ import time
 from contextlib import nullcontext as expectation_of_no_exceptions_raised
 from typing import Any
 
+import _helper
 import pytest
 from _config.combo.log_in import (ERROR_LANDING_PAGE, LOGIN_CREDENTIALS_INVALID, LOGIN_CREDENTIALS_INVALID_PASSWORD,
                                   LOGIN_CREDENTIALS_INVALID_USERNAME, LOGIN_CREDENTIALS_VALID, LOGIN_FORM_1_STEP,
@@ -66,10 +67,7 @@ def test_combo_log_in_post_login_wait_seconds(
         start_time = time.perf_counter()
         browser.combo.log_in(LOGIN_CREDENTIALS_VALID, login_form)
         stop_time = time.perf_counter()
-        return stop_time - start_time
-
-    def get_time_difference(time_a: float, time_b: float) -> float:
-        return abs(time_b - time_a)
+        return _helper.time.get_difference(stop_time, start_time)
 
     def deduct_tolerance_from_time(time: float, tolerance_percent: float) -> float:
         tolerance = tolerance_percent / 100
@@ -83,6 +81,6 @@ def test_combo_log_in_post_login_wait_seconds(
         time_measured_a = log_in_and_get_time(browser, url, login_form, post_login_wait_seconds_a)
         time_measured_b = log_in_and_get_time(browser, url, login_form, post_login_wait_seconds_b)
         assert time_measured_a < time_measured_b
-        time_difference_a_b = get_time_difference(post_login_wait_seconds_a, post_login_wait_seconds_b)
-        time_difference_measured_a_b = get_time_difference(time_measured_a, time_measured_b)
+        time_difference_a_b = _helper.time.get_difference(post_login_wait_seconds_a, post_login_wait_seconds_b)
+        time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
         assert time_difference_measured_a_b >= deduct_tolerance_from_time(time_difference_a_b, 20)
