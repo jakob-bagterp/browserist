@@ -19,6 +19,7 @@ def validate_representation(type: FilePNGCallable | URLCallable | XPathCallable,
     tiny_type = type(input)
     assert expected_output == tiny_type
     assert expected_output == tiny_type.value
+    assert expected_output == repr(tiny_type)
 
 
 def validate_representation_file_path(type: FilePathCallable, input: str | Path) -> None:
