@@ -50,7 +50,7 @@ with Browser() as browser:
 ```
 
 ## Improved Stability and Less Code
-Browserist improves stability with less code compared to standard use of Selenium. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
+Browserist improves stability with less code compared to standard use of Selenium. As browsers need time to render web pages, especially single-page applications, Selenium is often used with explicit timeouts:
 
 ```python
 from selenium import webdriver
