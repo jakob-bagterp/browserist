@@ -12,6 +12,12 @@ URLCallable = Callable[[URL], URL]
 XPathCallable = Callable[[XPath], XPath]
 
 
+def validate_repr(tiny_type: FilePNG | FilePath | URL | XPath, expected_output: str) -> None:
+    """Test that the __repr__ dunder method of a tiny type represents itself as a string."""
+
+    assert expected_output == repr(tiny_type)
+
+
 def validate_representation(type: FilePNGCallable | URLCallable | XPathCallable, input: str) -> None:
     """Test that a tiny type represents itself as a string."""
 
@@ -19,7 +25,7 @@ def validate_representation(type: FilePNGCallable | URLCallable | XPathCallable,
     tiny_type = type(input)
     assert expected_output == tiny_type
     assert expected_output == tiny_type.value
-    assert expected_output == repr(tiny_type)
+    validate_repr(tiny_type, expected_output)
 
 
 def validate_representation_file_path(type: FilePathCallable, input: str | Path) -> None:
