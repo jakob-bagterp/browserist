@@ -15,6 +15,7 @@ XPathCallable = Callable[[XPath], XPath]
 def validate_repr(tiny_type: FilePNG | FilePath | URL | XPath, expected_output: str | Path) -> None:
     """Test that the __repr__ dunder method of a tiny type represents itself as a string."""
 
+    expected_output = str(expected_output) if isinstance(expected_output, Path) else expected_output
     assert expected_output == repr(tiny_type)
 
 
