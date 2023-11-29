@@ -19,12 +19,6 @@ def browser_default() -> Generator[Browser, None, None]:
 
 
 @pytest.fixture(scope="session")
-def browser_default_disable_images() -> Generator[Browser, None, None]:
-    with Browser(default.DISABLE_IMAGES) as browser:
-        yield browser
-
-
-@pytest.fixture(scope="session")
 def browser_default_headless() -> Generator[Browser, None, None]:
     with Browser(default.HEADLESS) as browser:
         yield browser
