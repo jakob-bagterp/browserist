@@ -1,3 +1,4 @@
+import ssl
 from urllib import request
 from urllib.error import URLError
 
@@ -9,6 +10,7 @@ def check_connection(url: URL, timeout: float = timeout.DEFAULT) -> bool:
     """Check if there is an internet connection by pinging a server."""
 
     try:
+        ssl._create_default_https_context = ssl._create_unverified_context
         request.urlopen(url, timeout=timeout)
         return True
     except (URLError, Exception):
