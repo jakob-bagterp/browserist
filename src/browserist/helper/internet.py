@@ -18,7 +18,7 @@ def check_connection(url: URL, timeout: float = timeout.DEFAULT) -> bool:
         return False
 
 
-def has_connection() -> bool:
+def has_connection(timeout: float = timeout.DEFAULT) -> bool:
     """Check if there is an internet connection by pinging public Google DNS servers.
 
     Reference: https://developers.google.com/speed/public-dns/docs/using"""
@@ -28,4 +28,4 @@ def has_connection() -> bool:
     urls = [google_dns_server_1_url, google_dns_server_2_url]
 
     with multiprocessing.Pool(len(urls)) as pool:
-        return any(pool.map(check_connection, urls))
+        return any(pool.starmap(check_connection, [(url, timeout) for url in urls]))
