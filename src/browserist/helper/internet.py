@@ -1,3 +1,4 @@
+import multiprocessing
 import ssl
 from urllib import request
 from urllib.error import URLError
@@ -24,7 +25,7 @@ def has_connection() -> bool:
 
     google_dns_server_1_url = URL("https://8.8.8.8")
     google_dns_server_2_url = URL("https://8.8.4.4")
+    urls = [google_dns_server_1_url, google_dns_server_2_url]
 
-    # TODO: Refactor to async.
-
-    return check_connection(google_dns_server_1_url) or check_connection(google_dns_server_2_url)
+    with multiprocessing.Pool(len(urls)) as pool:
+        return any(pool.map(check_connection, urls))
