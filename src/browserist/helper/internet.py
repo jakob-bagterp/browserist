@@ -1,10 +1,11 @@
 from urllib import request
 from urllib.error import URLError
 
+from ..constant import timeout
 from ..model.type.url import URL
 
 
-def check_connection(url: URL, timeout: float = 1) -> bool:
+def check_connection(url: URL, timeout: float = timeout.DEFAULT) -> bool:
     """Check if there is an internet connection by pinging a server."""
 
     try:
