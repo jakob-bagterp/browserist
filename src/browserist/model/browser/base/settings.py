@@ -23,6 +23,7 @@ class BrowserSettings:
         screenshot_dir (str | Path, optional): Set where to save sreenshots. Default is the directory of Browserist.
         timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../user-guide/settings/timeout-strategy.md).
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../user-guide/settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
+        check_connection (bool, optional): Check if there is an internet connection before starting the browser. Bypass by setting to `False`.
     """
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
@@ -37,6 +38,7 @@ class BrowserSettings:
     screenshot_dir: str | Path = directory.PROJECT_WORKING_DIR
     timeout: TimeoutSettings = TimeoutSettings()
     viewport: DeviceViewportSize | tuple[int, int] | None = None
+    check_connection: bool = True
 
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
