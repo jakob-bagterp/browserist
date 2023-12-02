@@ -22,31 +22,41 @@ As `LoginCredentials` is independent of the login form, it works with both optio
 | `LoginForm1Step` | Input username and password. Then click submit. | | [Multiple options](../../reference/browser/combo/log-in.md#loginform1step) to await confirmation or redirect. |
 | `LoginForm2Steps` | Input username and click submit. | Input password and click submit. | [Multiple options](../../reference/browser/combo/log-in.md#loginform2steps) to await confirmation or redirect. |
 
-## Example
+## Examples
 ```python linenums="1"
 from browserist import Browser, LoginForm1Step, LoginCredentials
 
-user_1 = LoginCredentials(
-    username = "some_username",
-    password = "some_password")
+user_admin = LoginCredentials(
+    username = "admin",
+    password = "admin_password")
 
-user_2 = LoginCredentials(
-    username = "another_username",
-    password = "another_password")
+user_author = LoginCredentials(
+    username = "author",
+    password = "author_password")
 
 login_form = LoginForm1Step(
     url = "https://example.com/login",
     username_input_xpath = "//xpath/to/username_field",
     password_input_xpath = "//xpath/to/password_field",
     submit_button_xpath = "//xpath/to/login_button")
-
 ```
 
 After the the settings classes are defined, let's attempt to log both users in:
 
 ```python title="" linenums="17"
-for user in [user_1, user_2]:
+for user in [user_admin, user_author]:
     with Browser() as browser:
         browser.combo.log_in(user, login_form)
-        assert browser.check_if.does_exist("//xpath/to/element") is True
+        assert browser.check_if.does_exist("//xpath/to/validation_element") is True
+```
+
+Hereafter, let's imagine that we want ensure that only the admin role has visible access to an administration module:
+
+```python title="" linenums="22"
+        browser.open.url("https://example.com/backoffice")
+        admin_module_display_status = browser.check_if.is_displayed("//xpath/to/admin_module")
+        if user is user_admin:
+            assert admin_module_display_status is True
+        else:
+            assert admin_module_display_status is False
 ```

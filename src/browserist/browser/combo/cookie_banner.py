@@ -6,7 +6,9 @@ from ...model.combo_settings.cookie_banner import CookieBannerSettings
 from ...model.driver_methods import DriverMethods
 from ...model.type.callable import TimeoutShouldContinueCallable
 from ..click.button import click_button
-from ..open.url_if_not_current import open_url_if_not_current
+from ..iframe.switch_to import switch_to_iframe
+from ..iframe.switch_to_original_page import switch_to_original_page
+from ..open.url import open_url
 from ..wait.for_element import wait_for_element
 from ..wait.until.element_disappears import wait_until_element_disappears
 
@@ -16,7 +18,9 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     browser_driver: BrowserDriver = driver_method._browser_driver
 
     if cookie_banner.url is not None and timeout_should_continue():
-        open_url_if_not_current(browser_driver, cookie_banner.url)
+        open_url(browser_driver, cookie_banner.url)
+    if cookie_banner.iframe_xpath is not None and timeout_should_continue():
+        switch_to_iframe(browser_driver, cookie_banner.iframe_xpath, timeout)
     if cookie_banner.has_loaded_wait_seconds is not None:
         time.sleep(cookie_banner.has_loaded_wait_seconds)
     if cookie_banner.has_loaded_xpath is not None and timeout_should_continue():
@@ -29,3 +33,5 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         time.sleep(constant.timeout.VERY_SHORT)
     if timeout_should_continue():
         wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
+    if cookie_banner.iframe_xpath is not None and timeout_should_continue():
+        switch_to_original_page(browser_driver)

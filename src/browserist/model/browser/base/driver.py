@@ -27,6 +27,8 @@ class BrowserDriver(ABC):
         """Initiates basic properties of the Selenium web driver."""
 
         self.settings = settings
+        if self.settings.check_connection and not helper.internet.has_connection():
+            raise ConnectionError("No internet connection.")
         helper.directory.create_if_not_exists(self.settings._screenshot_dir)
 
         match(self.settings.type):

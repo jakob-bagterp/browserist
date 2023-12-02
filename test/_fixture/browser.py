@@ -1,7 +1,6 @@
 from collections.abc import Generator
 
 import pytest
-from _config import timeout_settings
 from _config.browser_settings import default
 from py.path import local
 
@@ -19,12 +18,6 @@ def browser_default() -> Generator[Browser, None, None]:
 
 
 @pytest.fixture(scope="session")
-def browser_default_disable_images() -> Generator[Browser, None, None]:
-    with Browser(default.DISABLE_IMAGES) as browser:
-        yield browser
-
-
-@pytest.fixture(scope="session")
 def browser_default_headless() -> Generator[Browser, None, None]:
     with Browser(default.HEADLESS) as browser:
         yield browser
@@ -33,28 +26,6 @@ def browser_default_headless() -> Generator[Browser, None, None]:
 @pytest.fixture(scope="session")
 def browser_default_headless_disable_images() -> Generator[Browser, None, None]:
     with Browser(default.HEADLESS_AND_DISABLE_IMAGES) as browser:
-        yield browser
-
-
-@pytest.fixture(scope="session")
-def browser_default_headless_timeout_strategy_continue() -> Generator[Browser, None, None]:
-    browser_settings = BrowserSettings(
-        headless=True,
-        disable_images=True,
-        timeout=timeout_settings.DEFAULT_CONTINUE
-    )
-    with Browser(browser_settings) as browser:
-        yield browser
-
-
-@pytest.fixture(scope="session")
-def browser_default_headless_timeout_strategy_stop() -> Generator[Browser, None, None]:
-    browser_settings = BrowserSettings(
-        headless=True,
-        disable_images=True,
-        timeout=timeout_settings.DEFAULT_STOP
-    )
-    with Browser(browser_settings) as browser:
         yield browser
 
 

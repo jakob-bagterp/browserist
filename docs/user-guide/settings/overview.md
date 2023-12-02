@@ -22,6 +22,8 @@ Use `BrowserSettings` with the following options:
 | `screenshot_dir` | Path to directory | System default | Set where to save sreenshots. Default is the directory of Browserist. |
 | `timeout` | `TimeoutSettings` | `TimeoutStrategy.STOP` and 5 seconds | Set [timeout strategy and time](timeout-strategy.md). |
 | `viewport` | `DeviceViewportSize` or `(width, height)` | Browser default size | Emulate [viewport size](viewport.md) as device or set custom value in pixels. |
+| `check_connection` | `True` or `False` | `True` | Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`. |
+
 
 ## Example
 ```python linenums="1"

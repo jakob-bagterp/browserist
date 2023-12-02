@@ -2,7 +2,7 @@
 title: Home
 ---
 
-[![Latest version](https://img.shields.io/static/v1?label=version&message=1.6.0&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
+[![Latest version](https://img.shields.io/static/v1?label=version&message=1.6.2&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
 [![Python 3.10 | 3.11 | 3.12 or higher](https://img.shields.io/static/v1?label=python&message=3.10%20|%203.11%20|%203.12%2B&color=blueviolet)](https://www.python.org)
 [![Apache 2.0 license](https://img.shields.io/static/v1?label=license&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
 [![Codecov](https://codecov.io/gh/jakob-bagterp/browserist/branch/master/graph/badge.svg?token=1JL65T099J)](https://codecov.io/gh/jakob-bagterp/browserist)
@@ -35,7 +35,7 @@ Ready to try? [Let's get started](./getting-started/index.md).
 
 ## Difference from Selenium
 ### Improved Stability and Less Code
-Browserist improves stability with less code compared to standard use of Selenium. As a browsers need time to render a page, especially single-page applications, Selenium is often used with explicit timeouts:
+Browserist improves stability with less code compared to standard use of Selenium. As browsers need time to render web pages, especially single-page applications, Selenium is often used with explicit timeouts:
 
 ```python title="With Selenium" linenums="1"
 from selenium import webdriver
