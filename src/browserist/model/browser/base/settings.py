@@ -20,6 +20,7 @@ class BrowserSettings:
         disable_images (bool, optional): [Neither request nor render images](../../user-guide/performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers.
         page_load_strategy (PageLoadStrategy, optional): Set [page load strategy](../../user-guide/settings/page-load-strategy.md).
         path_to_executable (str | Path | None, optional): If the browser executable isn't in a default folder, select which file to use.
+        download_dir (str | Path, optional): Set where to save downloads. Default is the `Downloads` folder of the user.
         screenshot_dir (str | Path, optional): Set where to save sreenshots. Default is the `Downloads` folder of the user.
         timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../user-guide/settings/timeout-strategy.md).
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../user-guide/settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
@@ -35,6 +36,7 @@ class BrowserSettings:
     disable_images: bool = False
     page_load_strategy: PageLoadStrategy = PageLoadStrategy.NORMAL
     path_to_executable: str | Path | None = None
+    download_dir: str | Path = directory.DOWNLOADS_DIR
     screenshot_dir: str | Path = directory.DOWNLOADS_DIR
     timeout: TimeoutSettings = TimeoutSettings()
     viewport: DeviceViewportSize | tuple[int, int] | None = None
@@ -43,4 +45,5 @@ class BrowserSettings:
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
             self.path_to_executable)
+        self._download_dir: FilePath = FilePath(self.download_dir)
         self._screenshot_dir: FilePath = FilePath(self.screenshot_dir)
