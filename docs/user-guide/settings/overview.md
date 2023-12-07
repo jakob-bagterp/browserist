@@ -19,7 +19,7 @@ Use `BrowserSettings` with the following options:
 | `disable_images` | `True` or `False` | `False` | [Neither request nor render images](../performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers. |
 | `page_load_strategy` | `PageLoadStrategy` | `PageLoadStrategy.NORMAL` | Set [page load strategy](page-load-strategy.md). |
 | `path_to_executable` | Path to file | System default | If the browser executable isn't in a default folder, select which file to use. |
-| `screenshot_dir` | Path to directory | System default | Set where to save sreenshots. Default is the directory of Browserist. |
+| `screenshot_dir` | Path to directory | System default | Set where to save sreenshots. Default is the `Downloads` folder of the user. |
 | `timeout` | `TimeoutSettings` | `TimeoutStrategy.STOP` and 5 seconds | Set [timeout strategy and time](timeout-strategy.md). |
 | `viewport` | `DeviceViewportSize` or `(width, height)` | Browser default size | Emulate [viewport size](viewport.md) as device or set custom value in pixels. |
 | `check_connection` | `True` or `False` | `True` | Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`. |
