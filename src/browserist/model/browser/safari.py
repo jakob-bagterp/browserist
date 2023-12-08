@@ -23,7 +23,7 @@ class SafariBrowserDriver(BrowserDriver):
         raise HeadlessNotSupportedException(self.settings.type)
 
     def set_download_directory(self) -> None:
-        # TODO: self = factory.chromium.set_download_directory(self)
+        # Safari doesn't support configuration of a default download directory.
         pass
 
     def set_page_load_strategy(self) -> None:
