@@ -42,16 +42,22 @@ def test_download_directory_is_created_if_does_not_exist(browser_settings: Brows
     BROWSER_SETTINGS_WITH_CUSTOM_DOWNLOAD_DIR,
 ])
 def test_download_directory_is_file_downloaded(browser_settings: BrowserSettings) -> None:
-    with Browser(browser_settings) as browser:
-        directory_items_before_download = len(os.listdir(browser_settings._download_dir))
-        browser.open.url(internal_url.DOWNLOAD)
-        browser.click.button("//button[@id='download']")
+    def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
         attempts = 0
         while len(os.listdir(browser_settings._download_dir)) == directory_items_before_download and attempts < 10:
             time.sleep(0.1)
             attempts += 1
-        assert len(os.listdir(browser_settings._download_dir)) == directory_items_before_download + 1
-        assert EXPECTED_DOWNLOADED_FILE_NAME in os.listdir(browser_settings._download_dir)
+
+    def clean_up_downloaded_file(browser_settings: BrowserSettings) -> None:
         if EXPECTED_DOWNLOADED_FILE_NAME in os.listdir(browser_settings._download_dir):
             file_path = os.path.join(browser_settings._download_dir, EXPECTED_DOWNLOADED_FILE_NAME)
             os.remove(file_path)
+
+    with Browser(browser_settings) as browser:
+        directory_items_before_download = len(os.listdir(browser_settings._download_dir))
+        browser.open.url(internal_url.DOWNLOAD)
+        browser.click.button("//button[@id='download']")
+        wait_for_download_to_finish(browser_settings, directory_items_before_download)
+        assert len(os.listdir(browser_settings._download_dir)) == directory_items_before_download + 1
+        assert EXPECTED_DOWNLOADED_FILE_NAME in os.listdir(browser_settings._download_dir)
+        clean_up_downloaded_file(browser_settings)
