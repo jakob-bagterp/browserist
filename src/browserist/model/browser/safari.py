@@ -22,6 +22,10 @@ class SafariBrowserDriver(BrowserDriver):
     def enable_headless(self) -> None:
         raise HeadlessNotSupportedException(self.settings.type)
 
+    def set_download_directory(self) -> None:
+        # TODO: self = factory.chromium.set_download_directory(self)
+        pass
+
     def set_page_load_strategy(self) -> None:
         self.safari_options = factory.set.page_load_strategy(self, self.safari_options)  # type: ignore
 

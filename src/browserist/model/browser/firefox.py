@@ -24,6 +24,10 @@ class FirefoxBrowserDriver(BrowserDriver):
         if self.settings.headless:
             self.firefox_options.add_argument("--headless")  # type: ignore
 
+    def set_download_directory(self) -> None:
+        # TODO: self = factory.chromium.set_download_directory(self)
+        pass
+
     def set_page_load_strategy(self) -> None:
         self.firefox_options = factory.set.page_load_strategy(self, self.firefox_options)  # type: ignore
 
