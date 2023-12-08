@@ -22,7 +22,7 @@ class ChromeBrowserDriver(BrowserDriver):
         self = factory.chromium.enable_headless(self)  # type: ignore
 
     def set_download_directory(self) -> None:
-        self = factory.chromium.set_download_directory(self)
+        self = factory.chromium.set_download_directory(self)  # type: ignore
 
     def set_page_load_strategy(self) -> None:
         self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)  # type: ignore

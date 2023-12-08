@@ -31,7 +31,7 @@ class EdgeBrowserDriver(BrowserDriver):
             self.edge_options.add_argument("disable-gpu")  # type: ignore
 
     def set_download_directory(self) -> None:
-        self = factory.chromium.set_download_directory(self)
+        self = factory.chromium.set_download_directory(self)  # type: ignore
 
     def set_page_load_strategy(self) -> None:
         self.edge_options = factory.set.page_load_strategy(self, self.edge_options)  # type: ignore
