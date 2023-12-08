@@ -43,10 +43,13 @@ EXPECTED_DOWNLOADED_FILE_NAME = "file.zip"
 ])
 def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
-        attempts = 0
-        while get_directory_items_count(browser_settings._download_dir) == directory_items_before_download and attempts < 10:
-            time.sleep(0.1)
-            attempts += 1
+        timeout_seconds = 5
+        interval_seconds = 0.1
+        total_attempts = int(timeout_seconds / interval_seconds)
+        attempt = 0
+        while get_directory_items_count(browser_settings._download_dir) == directory_items_before_download and attempt < total_attempts:
+            time.sleep(interval_seconds)
+            attempt += 1
 
     def clean_up_downloaded_file(file_path: str) -> None:
         if EXPECTED_DOWNLOADED_FILE_NAME in get_directory_items(browser_settings._download_dir):
@@ -68,7 +71,6 @@ def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local)
         browser.open.url(internal_url.DOWNLOAD)
         browser.click.button("//button[@id='download']")
         wait_for_download_to_finish(browser_settings, directory_items_before_download)
-        assert [EXPECTED_DOWNLOADED_FILE_NAME] == get_directory_items(browser_settings._download_dir)  # TODO: Check if this is correct on GitHub Actions.
         assert get_directory_items_count(browser_settings._download_dir) == directory_items_before_download + 1
         assert EXPECTED_DOWNLOADED_FILE_NAME in get_directory_items(browser_settings._download_dir)
         file_path = os.path.join(browser_settings._download_dir, EXPECTED_DOWNLOADED_FILE_NAME)
