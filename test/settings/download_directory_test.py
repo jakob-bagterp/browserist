@@ -41,13 +41,19 @@ EXPECTED_DOWNLOADED_FILE_NAME = "file.zip"
 def test_download_directory_is_file_downloaded(tmp_path_factory: TempPathFactory) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
         attempts = 0
-        while len(os.listdir(browser_settings._download_dir)) == directory_items_before_download and attempts < 10:
+        while get_directory_items_count(browser_settings._download_dir) == directory_items_before_download and attempts < 10:
             time.sleep(0.1)
             attempts += 1
 
     def clean_up_downloaded_file(file_path: str) -> None:
-        if EXPECTED_DOWNLOADED_FILE_NAME in os.listdir(browser_settings._download_dir):
+        if EXPECTED_DOWNLOADED_FILE_NAME in get_directory_items(browser_settings._download_dir):
             os.remove(file_path)
+
+    def get_directory_items(path: str) -> list[str]:
+        return os.listdir(path)
+
+    def get_directory_items_count(path: str) -> int:
+        return len(get_directory_items(path))
 
     temp_download_dir = tmp_path_factory.mktemp("downloads") / "test"
     browser_settings = BrowserSettings(
@@ -56,12 +62,12 @@ def test_download_directory_is_file_downloaded(tmp_path_factory: TempPathFactory
     )
 
     with Browser(browser_settings) as browser:
-        directory_items_before_download = len(os.listdir(browser_settings._download_dir))
+        directory_items_before_download = get_directory_items_count(browser_settings._download_dir)
         browser.open.url(internal_url.DOWNLOAD)
         browser.click.button("//button[@id='download']")
         wait_for_download_to_finish(browser_settings, directory_items_before_download)
-        assert len(os.listdir(browser_settings._download_dir)) == directory_items_before_download + 1
-        assert EXPECTED_DOWNLOADED_FILE_NAME in os.listdir(browser_settings._download_dir)
+        assert get_directory_items_count(browser_settings._download_dir) == directory_items_before_download + 1
+        assert EXPECTED_DOWNLOADED_FILE_NAME in get_directory_items(browser_settings._download_dir)
         file_path = os.path.join(browser_settings._download_dir, EXPECTED_DOWNLOADED_FILE_NAME)
         assert os.path.isfile(file_path)
         assert os.path.getsize(file_path) > 0
