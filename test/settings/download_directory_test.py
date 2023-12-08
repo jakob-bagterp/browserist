@@ -3,7 +3,7 @@ import time
 
 import pytest
 from _mock_data.url import internal_url
-from pytest import TempPathFactory
+from py.path import local
 
 from browserist import Browser, BrowserSettings
 from browserist.constant.directory import DOWNLOADS_DIR
@@ -38,7 +38,7 @@ def test_download_directory_is_created_if_does_not_exist(browser_settings: Brows
 EXPECTED_DOWNLOADED_FILE_NAME = "file.zip"
 
 
-def test_download_directory_is_file_downloaded(tmp_path_factory: TempPathFactory) -> None:
+def test_download_directory_is_file_downloaded(tmpdir: local) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
         attempts = 0
         while get_directory_items_count(browser_settings._download_dir) == directory_items_before_download and attempts < 10:
@@ -55,10 +55,9 @@ def test_download_directory_is_file_downloaded(tmp_path_factory: TempPathFactory
     def get_directory_items_count(path: str) -> int:
         return len(get_directory_items(path))
 
-    temp_download_dir = tmp_path_factory.mktemp("downloads") / "test"
-    browser_settings = BrowserSettings(
+    browser_settings: BrowserSettings = BrowserSettings(
         headless=True,
-        download_dir=temp_download_dir
+        download_dir=str(tmpdir.mkdir("downloads"))
     )
 
     with Browser(browser_settings) as browser:
