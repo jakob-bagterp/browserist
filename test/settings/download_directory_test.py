@@ -38,7 +38,10 @@ def test_download_directory_is_created_if_does_not_exist(browser_settings: Brows
 EXPECTED_DOWNLOADED_FILE_NAME = "file.zip"
 
 
-def test_download_directory_is_file_downloaded(tmpdir: local) -> None:
+@pytest.mark.parametrize("download_dir", [
+    "downloads",
+])
+def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
         attempts = 0
         while get_directory_items_count(browser_settings._download_dir) == directory_items_before_download and attempts < 10:
@@ -57,7 +60,7 @@ def test_download_directory_is_file_downloaded(tmpdir: local) -> None:
 
     browser_settings: BrowserSettings = BrowserSettings(
         headless=True,
-        download_dir=str(tmpdir.mkdir("downloads"))
+        download_dir=str(tmpdir.mkdir(download_dir))
     )
 
     with Browser(browser_settings) as browser:
