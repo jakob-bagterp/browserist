@@ -22,6 +22,9 @@ class InternetExplorerBrowserDriver(BrowserDriver):
     def enable_headless(self) -> None:
         raise HeadlessNotSupportedException(self.settings.type)
 
+    def set_download_directory(self) -> None:
+        factory.internet_explorer.set_download_directory(self)
+
     def set_page_load_strategy(self) -> None:
         self.ie_options = factory.set.page_load_strategy(self, self.ie_options)  # type: ignore
 

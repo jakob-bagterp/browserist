@@ -22,6 +22,10 @@ class SafariBrowserDriver(BrowserDriver):
     def enable_headless(self) -> None:
         raise HeadlessNotSupportedException(self.settings.type)
 
+    def set_download_directory(self) -> None:
+        # Safari doesn't support configuration of a default download directory.
+        pass
+
     def set_page_load_strategy(self) -> None:
         self.safari_options = factory.set.page_load_strategy(self, self.safari_options)  # type: ignore
 

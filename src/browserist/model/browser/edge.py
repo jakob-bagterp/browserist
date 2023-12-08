@@ -18,8 +18,10 @@ class EdgeBrowserDriver(BrowserDriver):
     def disable_images(self) -> None:
         if self.settings.disable_images:
             self.edge_options.use_chromium = True  # type: ignore
-            preferences = {"profile.managed_default_content_settings.images": 2,
-                           "profile.default_content_settings.images": 2}
+            preferences = {
+                "profile.managed_default_content_settings.images": 2,
+                "profile.default_content_settings.images": 2
+            }
             self.edge_options.add_experimental_option("prefs", preferences)
 
     def enable_headless(self) -> None:
@@ -27,6 +29,9 @@ class EdgeBrowserDriver(BrowserDriver):
             self.edge_options.use_chromium = True  # type: ignore
             self.edge_options.add_argument("headless")  # type: ignore
             self.edge_options.add_argument("disable-gpu")  # type: ignore
+
+    def set_download_directory(self) -> None:
+        self = factory.chromium.set_download_directory(self)  # type: ignore
 
     def set_page_load_strategy(self) -> None:
         self.edge_options = factory.set.page_load_strategy(self, self.edge_options)  # type: ignore

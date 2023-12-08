@@ -24,6 +24,13 @@ class FirefoxBrowserDriver(BrowserDriver):
         if self.settings.headless:
             self.firefox_options.add_argument("--headless")  # type: ignore
 
+    def set_download_directory(self) -> None:
+        if self.settings._download_dir is not None:
+            self.firefox_options.set_preference("browser.download.folderList", 2)
+            self.firefox_options.set_preference("browser.download.manager.showWhenStarting", False)
+            self.firefox_options.set_preference("browser.download.dir", self.settings._download_dir)
+            self.firefox_options.set_preference("browser.download.useDownloadDir", True)
+
     def set_page_load_strategy(self) -> None:
         self.firefox_options = factory.set.page_load_strategy(self, self.firefox_options)  # type: ignore
 

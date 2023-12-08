@@ -13,6 +13,9 @@ COOKIE_BANNER_WITH_IFRAME: str = update_path_format_if_windows(
 COOKIE_BANNER_WITHOUT_IFRAME: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/cookie_banner/page_without_iframe.html")
 
+DOWNLOAD: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/download/page.html")
+
 DROPDOWN_SELECTOR: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/drop-down_selector.html")
 
