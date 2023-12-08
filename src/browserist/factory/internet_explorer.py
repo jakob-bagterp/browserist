@@ -21,3 +21,11 @@ def disable_images(browser_driver: BrowserDriver) -> None:
 
 def enable_images(browser_driver: BrowserDriver) -> None:
     set_image_loading(browser_driver, load_images=True)
+
+
+def set_download_directory(browser_driver: BrowserDriver) -> None:
+    if browser_driver.settings._download_dir is not None and browser_driver.settings.type is BrowserType.INTERNET_EXPLORER and operating_system.is_windows():
+        value = browser_driver.settings._download_dir
+        key = OpenKey(HKEY_CURRENT_USER, r"Software\Microsoft\Internet Explorer\Main", 0, KEY_ALL_ACCESS)
+        SetValueEx(key, "Default Download Directory", 0, REG_SZ, value)
+        CloseKey(key)
