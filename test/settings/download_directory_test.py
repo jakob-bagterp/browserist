@@ -64,11 +64,11 @@ def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local)
     )
 
     with Browser(browser_settings) as browser:
-        assert download_dir == browser_settings._download_dir  # TODO: Check if this is correct on GitHub Actions.
         directory_items_before_download = get_directory_items_count(browser_settings._download_dir)
         browser.open.url(internal_url.DOWNLOAD)
         browser.click.button("//button[@id='download']")
         wait_for_download_to_finish(browser_settings, directory_items_before_download)
+        assert [EXPECTED_DOWNLOADED_FILE_NAME] == get_directory_items(browser_settings._download_dir)  # TODO: Check if this is correct on GitHub Actions.
         assert get_directory_items_count(browser_settings._download_dir) == directory_items_before_download + 1
         assert EXPECTED_DOWNLOADED_FILE_NAME in get_directory_items(browser_settings._download_dir)
         file_path = os.path.join(browser_settings._download_dir, EXPECTED_DOWNLOADED_FILE_NAME)
