@@ -56,7 +56,6 @@ def test_download_directory_is_file_downloaded(tmp_path_factory: TempPathFactory
         return len(get_directory_items(path))
 
     temp_download_dir = tmp_path_factory.mktemp("downloads") / "test"
-    os.mkdir(temp_download_dir)  # TODO: This is a strange workaround to make the test pass. Investigate.
     browser_settings = BrowserSettings(
         headless=True,
         download_dir=temp_download_dir
