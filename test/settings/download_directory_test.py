@@ -3,6 +3,7 @@ import time
 
 import pytest
 from _mock_data.url import internal_url
+from pytest import TempPathFactory
 
 from browserist import Browser, BrowserSettings
 from browserist.constant.directory import DOWNLOADS_DIR
@@ -23,8 +24,6 @@ BROWSER_SETTINGS_WITH_CUSTOM_DOWNLOAD_DIR = BrowserSettings(
     download_dir=CUSTOM_DOWNLOAD_DIR
 )
 
-EXPECTED_DOWNLOADED_FILE_NAME = "file.zip"
-
 
 @pytest.mark.parametrize("browser_settings", [
     BROWSER_SETTINGS_WITH_DEFAULT_DOWNLOAD_DIR,
@@ -36,22 +35,25 @@ def test_download_directory_is_created_if_does_not_exist(browser_settings: Brows
         assert os.path.exists(browser_settings._download_dir)
 
 
-@pytest.mark.parametrize("browser_settings", [
-    BROWSER_SETTINGS_WITH_DEFAULT_DOWNLOAD_DIR,
-    BROWSER_SETTINGS_WITH_SET_DEFAULT_DOWNLOAD_DIR,
-    BROWSER_SETTINGS_WITH_CUSTOM_DOWNLOAD_DIR,
-])
-def test_download_directory_is_file_downloaded(browser_settings: BrowserSettings) -> None:
+EXPECTED_DOWNLOADED_FILE_NAME = "file.zip"
+
+
+def test_download_directory_is_file_downloaded(tmp_path_factory: TempPathFactory) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
         attempts = 0
         while len(os.listdir(browser_settings._download_dir)) == directory_items_before_download and attempts < 10:
             time.sleep(0.1)
             attempts += 1
 
-    def clean_up_downloaded_file(browser_settings: BrowserSettings) -> None:
+    def clean_up_downloaded_file(file_path: str) -> None:
         if EXPECTED_DOWNLOADED_FILE_NAME in os.listdir(browser_settings._download_dir):
-            file_path = os.path.join(browser_settings._download_dir, EXPECTED_DOWNLOADED_FILE_NAME)
             os.remove(file_path)
+
+    temp_download_dir = tmp_path_factory.mktemp("downloads") / "test"
+    browser_settings = BrowserSettings(
+        headless=True,
+        download_dir=temp_download_dir
+    )
 
     with Browser(browser_settings) as browser:
         directory_items_before_download = len(os.listdir(browser_settings._download_dir))
@@ -60,4 +62,7 @@ def test_download_directory_is_file_downloaded(browser_settings: BrowserSettings
         wait_for_download_to_finish(browser_settings, directory_items_before_download)
         assert len(os.listdir(browser_settings._download_dir)) == directory_items_before_download + 1
         assert EXPECTED_DOWNLOADED_FILE_NAME in os.listdir(browser_settings._download_dir)
-        clean_up_downloaded_file(browser_settings)
+        file_path = os.path.join(browser_settings._download_dir, EXPECTED_DOWNLOADED_FILE_NAME)
+        assert os.path.isfile(file_path)
+        assert os.path.getsize(file_path) > 0
+        clean_up_downloaded_file(file_path)
