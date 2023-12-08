@@ -9,7 +9,7 @@ from browserist import Browser
 MINIMUM_FILE_SIZE = 1_000
 
 
-def test_get_screenshot_of_element_1(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_element_1_with_default_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.element("/element/xpath") with default file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
@@ -18,7 +18,7 @@ def test_get_screenshot_of_element_1(browser_default_headless_screenshot: Browse
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
 
-def test_get_screenshot_of_element_2(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.element("/element/xpath", "image.png") with custom file name and default destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
@@ -27,7 +27,7 @@ def test_get_screenshot_of_element_2(browser_default_headless_screenshot: Browse
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
 
-def test_get_screenshot_of_element_3(browser_default_headless: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.element("/element/xpath", "image.png", "./screenshots") with custom file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
@@ -37,7 +37,7 @@ def test_get_screenshot_of_element_3(browser_default_headless: Browser, tmpdir: 
     assert screenshot.image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME, MINIMUM_FILE_SIZE)
 
 
-def test_get_screenshot_of_element_4(browser_default_headless: Browser, tmpdir: local) -> None:
+def test_get_screenshot_of_element_4_with_default_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.element("/element/xpath", destination_dir = "./screenshots") with default file name and custom destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
