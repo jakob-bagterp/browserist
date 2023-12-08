@@ -70,6 +70,7 @@ class BrowserDriver(ABC):
 
         self.disable_images()
         self.enable_headless()
+        self.set_download_directory()
         self.set_page_load_strategy()
 
     @abstractmethod
@@ -81,6 +82,12 @@ class BrowserDriver(ABC):
     @abstractmethod
     def enable_headless(self) -> None:
         """Method to enable headless version of web driver (i.e. don't open browser window) for faster browsing."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @abstractmethod
+    def set_download_directory(self) -> None:
+        """Method to set the default download directory."""
 
         raise NotImplementedError  # pragma: no cover
 
