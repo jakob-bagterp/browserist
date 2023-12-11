@@ -16,3 +16,7 @@ async def async_remove(file_paths: FilePath | list[FilePath]) -> None:
 
 def copy(source: str, destination: str) -> None:
     shutil.copy(source, destination)
+
+
+def exists(file_path: FilePath) -> bool:
+    return os.path.exists(file_path)

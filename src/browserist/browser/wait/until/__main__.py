@@ -1,6 +1,7 @@
 from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
 from .contains_any_text import wait_until_element_contains_any_text
+from .download_file.__main__ import WaitUntilDownloadFileDriverMethods
 from .element_disappears import wait_until_element_disappears
 from .images_have_loaded import wait_until_images_have_loaded
 from .is_clickable import wait_until_element_is_clickable
@@ -11,10 +12,11 @@ from .url.__main__ import WaitUntilUrlDriverMethods
 
 
 class WaitUntilDriverMethods(DriverMethods):
-    __slots__ = ["page_title", "text", "url"]
+    __slots__ = ["download_file", "page_title", "text", "url"]
 
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
+        self.download_file: WaitUntilDownloadFileDriverMethods = WaitUntilDownloadFileDriverMethods(browser_driver)
         self.page_title: WaitUntilPageTitleDriverMethods = WaitUntilPageTitleDriverMethods(browser_driver)
         self.text: WaitUntilTextDriverMethods = WaitUntilTextDriverMethods(browser_driver)
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver)
