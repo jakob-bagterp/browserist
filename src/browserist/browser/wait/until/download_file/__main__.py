@@ -14,7 +14,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         """Wait until a file download does not exist.
 
         Args:
-            file_name (str | Path): Name of the file to watch in the download directory. The download directory is implicit and defined in the `download_dir` parameter of `BrowserSettings`.
+            file_name (str | Path): Name of the file to watch in the download directory. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             timeout (float | None, optional): In seconds. Timeout to wait for file to not exist. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
@@ -26,7 +26,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         """Wait until a file download exists.
 
         Args:
-            file_name (str | Path): Name of the file to watch in the download directory. The download directory is implicit and defined in the `download_dir` parameter of `BrowserSettings`.
+            file_name (str | Path): Name of the file to watch in the download directory. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             timeout (float | None, optional): In seconds. Timeout to wait for file to exist. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
