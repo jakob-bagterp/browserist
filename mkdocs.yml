@@ -80,6 +80,7 @@ nav:
         - __main__: reference/browser/wait/__main__.md
         - until:
           - __main__: reference/browser/wait/until/__main__.md
+          - download_file: reference/browser/wait/until/download_file.md
           - page_title: reference/browser/wait/until/page_title.md
           - text: reference/browser/wait/until/text.md
           - url: reference/browser/wait/until/url.md
