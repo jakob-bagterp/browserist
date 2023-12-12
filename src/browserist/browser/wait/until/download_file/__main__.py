@@ -2,8 +2,8 @@ from pathlib import Path
 
 from .....model.browser.base.driver import BrowserDriver
 from .....model.driver_methods import DriverMethods
-from .does_not_exist import wait_until_file_download_does_not_exist
-from .exists import wait_until_file_download_exists
+from .does_not_exist import wait_until_download_file_does_not_exist
+from .exists import wait_until_download_file_exists
 
 
 class WaitUntilDownloadFileDriverMethods(DriverMethods):
@@ -20,7 +20,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_file_download_does_not_exist(self._browser_driver, file_name, timeout)
+            wait_until_download_file_does_not_exist(self._browser_driver, file_name, timeout)
 
     def exists(self, file_name: str | Path, timeout: float | None = None) -> None:
         """Wait until a file download exists.
@@ -32,4 +32,4 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            wait_until_file_download_exists(self._browser_driver, file_name, timeout)
+            wait_until_download_file_exists(self._browser_driver, file_name, timeout)
