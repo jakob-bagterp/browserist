@@ -53,11 +53,16 @@ def until_condition_is_true_or_false(
     *args: Any, func: DriverGetBoolCallable,
     timeout: float,
     wait_interval_seconds: float,
-    condition: bool
+    condition: bool,
+    func_uses_browser_driver: bool
 ) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
-    while func(browser_driver, *args) is not condition and retries_left > 0:
-        retries_left = retry_iteration(browser_driver, retries_left, wait_interval_seconds, func)
+    if func_uses_browser_driver:
+        while func(browser_driver, *args) is not condition and retries_left > 0:
+            retries_left = retry_iteration(browser_driver, retries_left, wait_interval_seconds, func)
+    else:
+        while func(*args) is not condition and retries_left > 0:
+            retries_left = retry_iteration(browser_driver, retries_left, wait_interval_seconds, func)
 
 
 def until_condition_is_true(
@@ -65,10 +70,11 @@ def until_condition_is_true(
     *args: str | list[WebElement],
     func: DriverGetBoolCallable,
     timeout: float = timeout.DEFAULT,
-    wait_interval_seconds: float = interval.DEFAULT
+    wait_interval_seconds: float = interval.DEFAULT,
+    func_uses_browser_driver: bool = True
 ) -> None:
     until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
-                                     wait_interval_seconds=wait_interval_seconds, condition=True)
+                                     wait_interval_seconds=wait_interval_seconds, condition=True, func_uses_browser_driver=func_uses_browser_driver)
 
 
 def until_condition_is_false(
@@ -76,7 +82,8 @@ def until_condition_is_false(
     *args: str | list[WebElement],
     func: DriverGetBoolCallable,
     timeout: float = timeout.DEFAULT,
-    wait_interval_seconds: float = interval.DEFAULT
+    wait_interval_seconds: float = interval.DEFAULT,
+    func_uses_browser_driver: bool = True
 ) -> None:
     until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
-                                     wait_interval_seconds=wait_interval_seconds, condition=False)
+                                     wait_interval_seconds=wait_interval_seconds, condition=False, func_uses_browser_driver=func_uses_browser_driver)
