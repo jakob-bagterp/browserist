@@ -14,7 +14,12 @@ def calculate_number_of_retries(total_time: int | float, interval: int | float) 
     return int(total_time // interval)
 
 
-def get_text(browser_driver: BrowserDriver, input: str, func: DriverGetTextCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> str | None:
+def get_text(
+    browser_driver: BrowserDriver,
+    input: str, func: DriverGetTextCallable,
+    timeout: float = timeout.DEFAULT,
+    wait_interval_seconds: float = interval.DEFAULT
+) -> str | None:
     text = func(browser_driver, input)
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while not text and retries_left > 0:
@@ -28,7 +33,12 @@ def get_text(browser_driver: BrowserDriver, input: str, func: DriverGetTextCalla
     return text
 
 
-def retry_iteration(browser_driver: BrowserDriver, retries_left: int, wait_interval_seconds: float, func: DriverGetBoolCallable) -> int:
+def retry_iteration(
+    browser_driver: BrowserDriver,
+    retries_left: int,
+    wait_interval_seconds: float,
+    func: DriverGetBoolCallable
+) -> int:
     time.sleep(wait_interval_seconds)
     retries_left -= 1
     if retries_left == 0:
@@ -38,17 +48,33 @@ def retry_iteration(browser_driver: BrowserDriver, retries_left: int, wait_inter
     return retries_left
 
 
-def until_condition_is_true_or_false(browser_driver: BrowserDriver, *args: Any, func: DriverGetBoolCallable, timeout: float, wait_interval_seconds: float, condition: bool) -> None:
+def until_condition_is_true_or_false(
+    browser_driver: BrowserDriver,
+    *args: Any, func: DriverGetBoolCallable,
+    timeout: float, wait_interval_seconds: float,
+    condition: bool
+) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     while func(browser_driver, *args) is not condition and retries_left > 0:
         retries_left = retry_iteration(browser_driver, retries_left, wait_interval_seconds, func)
 
 
-def until_condition_is_true(browser_driver: BrowserDriver, *args: str | list[WebElement], func: DriverGetBoolCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
+def until_condition_is_true(
+    browser_driver: BrowserDriver,
+    *args: str | list[WebElement],
+    func: DriverGetBoolCallable, timeout: float = timeout.DEFAULT,
+    wait_interval_seconds: float = interval.DEFAULT
+) -> None:
     until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
                                      wait_interval_seconds=wait_interval_seconds, condition=True)
 
 
-def until_condition_is_false(browser_driver: BrowserDriver, *args: str | list[WebElement], func: DriverGetBoolCallable, timeout: float = timeout.DEFAULT, wait_interval_seconds: float = interval.DEFAULT) -> None:
+def until_condition_is_false(
+    browser_driver: BrowserDriver,
+    *args: str | list[WebElement],
+    func: DriverGetBoolCallable,
+    timeout: float = timeout.DEFAULT,
+    wait_interval_seconds: float = interval.DEFAULT
+) -> None:
     until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
                                      wait_interval_seconds=wait_interval_seconds, condition=False)
