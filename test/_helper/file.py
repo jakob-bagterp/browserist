@@ -10,7 +10,7 @@ def create(file_path: str) -> None:
         file.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
 
 
-def download_dir_and_file_path_controller(temp_dir: local, has_file: bool, ) -> tuple[str, str]:
+def download_dir_and_file_path_controller(temp_dir: local, has_file: bool) -> tuple[str, str]:
     download_dir = os.path.join(str(temp_dir), "downloads")
     os.mkdir(download_dir)
     file_path = os.path.join(download_dir, "file.txt")
