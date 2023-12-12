@@ -17,7 +17,7 @@ from browserist.model.type.path import FilePath
 ])
 def test_wait_until_download_file_does_not_exist(has_file: bool, expectation: Any, tmpdir: local) -> None:
     with expectation:
-        download_dir, file_path = _helper.file.download_dir_and_file_path_controller(tmpdir, has_file)
+        download_dir, file_path = _helper.file.download_dir_and_file_path_controller(has_file, tmpdir)
         assert helper.file.exists(FilePath(file_path)) == has_file
         brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
         with Browser(brower_settings) as browser:
@@ -30,7 +30,7 @@ def test_wait_until_download_file_does_not_exist(has_file: bool, expectation: An
 ])
 def test_wait_until_download_file_exists(has_file: bool, expectation: Any, tmpdir: local) -> None:
     with expectation:
-        download_dir, file_path = _helper.file.download_dir_and_file_path_controller(tmpdir, has_file)
+        download_dir, file_path = _helper.file.download_dir_and_file_path_controller(has_file, tmpdir)
         assert helper.file.exists(FilePath(file_path)) == has_file
         brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
         with Browser(brower_settings) as browser:
