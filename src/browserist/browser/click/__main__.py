@@ -2,6 +2,7 @@ from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .button import click_button
 from .button_if_contains_text import click_button_if_contains_text
+from .download import click_download_button
 
 
 class ClickDriverMethods(DriverMethods):
@@ -33,3 +34,15 @@ class ClickDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             click_button_if_contains_text(self._browser_driver, xpath, regex, ignore_case, timeout)
+
+    def download(self, xpath: str, timeout: float | None = None) -> None:
+        """Click button and download file.
+
+        Args:
+            xpath (str): XPath of the download button element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+        """
+
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            click_download_button(self._browser_driver, xpath, timeout)
