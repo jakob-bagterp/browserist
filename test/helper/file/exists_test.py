@@ -1,5 +1,6 @@
 import os
 
+import _helper
 import pytest
 from py.path import local
 
@@ -16,7 +17,6 @@ def test_helper_file_exists(has_file: bool, expected_file_exists: bool, tmpdir: 
     os.mkdir(downloads_dir)
     file_path = os.path.join(downloads_dir, "file.txt")
     if has_file:
-        with open(file_path, "w") as file:
-            file.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
+        _helper.file.create(file_path)
     file_path = FilePath(file_path)
     assert helper.file.exists(file_path) == expected_file_exists
