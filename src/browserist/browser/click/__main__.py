@@ -1,8 +1,11 @@
+from pathlib import Path
+
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .button import click_button
 from .button_if_contains_text import click_button_if_contains_text
 from .download import click_download_button
+from .download_and_get_file_path import click_download_button_and_get_file_path
 
 
 class ClickDriverMethods(DriverMethods):
@@ -46,3 +49,15 @@ class ClickDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             click_download_button(self._browser_driver, xpath, timeout)
+
+    def download_and_get_file_path(self, xpath: str, timeout: float | None = None) -> Path:
+        """Click button to download file and get file path once download is complete.
+
+        Args:
+            xpath (str): XPath of the download button element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+        """
+
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return click_download_button_and_get_file_path(self._browser_driver, xpath, timeout)
