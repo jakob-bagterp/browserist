@@ -16,9 +16,9 @@ from browserist.model.type.path import FilePath
     (False, pytest.raises(RetryTimeoutException)),
 ])
 def test_wait_until_download_file_exists(has_file: bool, expectation: Any, tmpdir: local) -> None:
-    download_dir, file_path = _helper.file.download_dir_and_file_path_controller(has_file, str(tmpdir))
+    download_dir, file_name, file_path = _helper.file.download_dir_and_file_path_controller(has_file, str(tmpdir))
     assert helper.file.exists(FilePath(file_path)) == has_file
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with Browser(brower_settings) as browser:
         with expectation:
-            _ = browser.wait.until.download_file.exists(file_path, timeout.VERY_SHORT) is not None
+            _ = browser.wait.until.download_file.exists(file_name, timeout.VERY_SHORT) is not None
