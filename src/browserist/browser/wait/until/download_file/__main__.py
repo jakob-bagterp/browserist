@@ -11,7 +11,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def does_not_exist(self, file_name: str | Path, timeout: float | None = None) -> None:
-        """Wait until a file download does not exist.
+        """Wait until a file download does not exist, e.g. a temporary file created by the browser until download is complete.
 
         Args:
             file_name (str | Path): Name of the file to watch in the download directory. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
