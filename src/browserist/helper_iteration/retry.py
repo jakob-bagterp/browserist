@@ -1,5 +1,4 @@
 import time
-from pathlib import Path
 from typing import Any
 
 from selenium.webdriver.remote.webelement import WebElement
@@ -68,7 +67,7 @@ def until_condition_is_true_or_false(
 
 def until_condition_is_true(
     browser_driver: BrowserDriver,
-    *args: str | Path | list[WebElement],
+    *args: str | list[WebElement],
     func: DriverGetBoolCallable,
     timeout: float = timeout.DEFAULT,
     wait_interval_seconds: float = interval.DEFAULT,
@@ -80,7 +79,7 @@ def until_condition_is_true(
 
 def until_condition_is_false(
     browser_driver: BrowserDriver,
-    *args: str | Path | list[WebElement],
+    *args: str | list[WebElement],
     func: DriverGetBoolCallable,
     timeout: float = timeout.DEFAULT,
     wait_interval_seconds: float = interval.DEFAULT,
