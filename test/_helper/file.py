@@ -1,7 +1,5 @@
 import os
 
-from py.path import local
-
 
 def create(file_path: str) -> None:
     """Create test file."""
@@ -10,8 +8,8 @@ def create(file_path: str) -> None:
         file.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
 
 
-def download_dir_and_file_path_controller(has_file: bool, temp_dir: local) -> tuple[str, str]:
-    download_dir = os.path.join(str(temp_dir), "downloads")
+def download_dir_and_file_path_controller(has_file: bool, temp_dir_path: str) -> tuple[str, str]:
+    download_dir = os.path.join(temp_dir_path, "downloads")
     os.mkdir(download_dir)
     file_path = os.path.join(download_dir, "file.txt")
     if os.path.exists(file_path):
