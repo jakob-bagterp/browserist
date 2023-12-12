@@ -51,7 +51,8 @@ def retry_iteration(
 def until_condition_is_true_or_false(
     browser_driver: BrowserDriver,
     *args: Any, func: DriverGetBoolCallable,
-    timeout: float, wait_interval_seconds: float,
+    timeout: float,
+    wait_interval_seconds: float,
     condition: bool
 ) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
@@ -62,7 +63,8 @@ def until_condition_is_true_or_false(
 def until_condition_is_true(
     browser_driver: BrowserDriver,
     *args: str | list[WebElement],
-    func: DriverGetBoolCallable, timeout: float = timeout.DEFAULT,
+    func: DriverGetBoolCallable,
+    timeout: float = timeout.DEFAULT,
     wait_interval_seconds: float = interval.DEFAULT
 ) -> None:
     until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
