@@ -67,11 +67,11 @@ class ClickDriverMethods(DriverMethods):
 
             with Browser(settings) as browser:
                 browser.open.url("https://example.com")
-                file_path = browser.click.download_and_get_file_path("//button[@id='download']")
+                file_path = browser.click.download_and_get_file_path("//xpath/to/button")
                 print("File name:", file_path.name)
                 # File name: file.zip
-                print("Absolute file path:",file_path.absolute())
-                # Absolute path: "/home/user/downloads/file.zip"
+                print("Absolute file path:", file_path.absolute())
+                # Absolute path: /home/user/downloads/file.zip
             ```
         """
 
