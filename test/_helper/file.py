@@ -8,6 +8,14 @@ def create(file_path: str) -> None:
         file.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")
 
 
+def create_multiple(dir_path: str, file_exension: str, amount: int) -> None:
+    """Create test files with a certain file extension (e.g. `zip`, `txt`, etc.) in a given directory path, e.g. `downloads/file_1.zip`, `downloads/file_2.zip`, etc."""
+
+    for i in range(amount):
+        file_path = os.path.join(dir_path, f"file_{i}.{file_exension}")
+        create(file_path)
+
+
 def download_dir_and_file_path_controller(has_file: bool, temp_dir_path: str) -> tuple[str, str, str]:
     """Controller for testing of temporary download directory and file.
 

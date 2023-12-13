@@ -1,4 +1,19 @@
+import os
 from pathlib import Path
+
+
+def create(dir_path: str) -> None:
+    """Create directory."""
+
+    os.makedirs(dir_path)
+
+
+def create_multiple(base_dir_path: str, amount: int) -> None:
+    """Create test sub directories in a given base directory, e.g. `downloads/subdir_1`, `downloads/subdir_2`, etc."""
+
+    for i in range(amount):
+        subdir_path = os.path.join(base_dir_path, f"subdir_{i}")
+        create(subdir_path)
 
 
 def get_path_for_web_mock_data() -> str:
