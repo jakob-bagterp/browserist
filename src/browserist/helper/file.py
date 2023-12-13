@@ -3,6 +3,7 @@ import os
 import shutil
 
 from ..model.type.path import FilePath
+from . import directory
 
 
 def remove(file_paths: FilePath | list[FilePath]) -> None:
@@ -20,3 +21,26 @@ def copy(source: str, destination: str) -> None:
 
 def exists(file_path: FilePath) -> bool:
     return os.path.exists(file_path)
+
+
+def is_file(path: str, file_name: str) -> bool:
+    file_path = os.path.join(path, file_name)
+    return os.path.isfile(file_path)
+
+
+def get_file_names_in_directory(path: str, file_extension: str | None = None) -> list[str]:
+    """Get all file names in a directory, eventually filtered by a specific file type.
+
+    Args:
+        path (str): Path to the directory.
+        file_extension (str | None, optional): Filter by file extension, e.g. `txt`.
+
+    Returns:
+        list[str]: List of file names.
+    """
+
+    files_and_folders = directory.get_entries(path)
+    if file_extension:
+        return [file for file in files_and_folders if is_file(path, file) and file.endswith(f".{file_extension}")]
+    else:
+        return [file for file in files_and_folders if is_file(path, file)]
