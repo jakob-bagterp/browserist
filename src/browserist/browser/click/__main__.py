@@ -50,7 +50,7 @@ class ClickDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             click_download_button(self._browser_driver, xpath, timeout)
 
-    def download_and_get_file_path(self, xpath: str, timeout: float | None = None) -> Path:
+    def download_and_get_file_path(self, xpath: str, timeout: float | None = None) -> Path:  # type: ignore
         """Click button to download file and get file path once download is complete.
 
         Args:
