@@ -28,7 +28,7 @@ def is_file(path: str, file_name: str) -> bool:
     return os.path.isfile(file_path)
 
 
-def get_file_names_in_directory(path: str, file_extension: str | None = None) -> list[str]:
+def get_all_from_directory(path: str, file_extension: str | None = None) -> list[str]:
     """Get all file names in a directory, eventually filtered by a specific file type.
 
     Args:
