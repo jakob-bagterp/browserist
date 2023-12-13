@@ -61,7 +61,7 @@ class ClickDriverMethods(DriverMethods):
             Path: Path to the downloaded file. Return type is the standard library `pathlib.Path`.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             from pathlib import Path
             from browserist import Browser
 
