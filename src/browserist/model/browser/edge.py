@@ -73,3 +73,12 @@ class EdgeDownloadHandler(DownloadHandler):
         return file_name.endswith(self.temporary_file_extension) and helper.file.is_file(download_dir, file_name)
 
         # TODO: To be verified.
+
+    def get_temporary_file_without_extension(self) -> FilePath | None:
+        if self.temporary_file_predicts_final_file and self.temporary_file is not None:
+            file_path = self.temporary_file.rstrip(self.temporary_file_extension)
+            return FilePath(file_path)
+        else:
+            return None
+
+        # TODO: To be verified.

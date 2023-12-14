@@ -41,6 +41,12 @@ class DownloadHandler(ABC):
 
         raise NotImplementedError  # pragma: no cover
 
+    @abstractmethod
+    def get_temporary_file_without_extension(self) -> FilePath | None:
+        """If a browser's temporary download file predicts the final file name – for instance by adding an extension – this method will yield a candidate for the final file."""
+
+        raise NotImplementedError  # pragma: no cover
+
     def attempt_to_get_temporary_file(self, download_dir: FilePath) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
 
@@ -61,7 +67,11 @@ class DownloadHandler(ABC):
     def attempt_to_get_file(self, download_dir_entries_before_download: list[str], download_dir: FilePath) -> FilePath | None:
         """Attempt to get the file name of the current download."""
 
-        # TODO: Utilise temporary_file_predicts_final_file to and verify to bypass further checks.
+        if self.temporary_file_predicts_final_file and self.temporary_file is not None:
+            file_candidate = self.get_temporary_file_without_extension()
+            if helper.file.exists(file_candidate):
+                self.file = file_candidate
+                return self.file
 
         current_download_dir_entries = helper.directory.get_entries(download_dir)
         file_candidate = [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
