@@ -10,6 +10,7 @@ class DownloadHandler(ABC):
 
     def __init__(self) -> None:
         self.temporary_file: FilePath | None = None
+        self.file: FilePath | None = None
 
     @property
     @abstractmethod
