@@ -57,3 +57,14 @@ class DownloadHandler(ABC):
                     self.temporary_file = None
                     raise Exception("Multiple temporary files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self.temporary_file
+
+    def attempt_to_get_file(self, download_dir_entries_before_download: list[str], download_dir: FilePath) -> FilePath | None:
+        """Attempt to get the file name of the current download."""
+
+        # TODO: Utilise temporary_file_predicts_final_file to and verify to bypass further checks.
+
+        current_download_dir_entries = helper.directory.get_entries(download_dir)
+        file_candidate = [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
+        return FilePath(file_candidate[0]) if len(file_candidate) == 1 else None
+
+        # TODO: Update flow and exception handling.
