@@ -42,7 +42,7 @@ class SafariBrowserDriver(BrowserDriver):
 
 class SafariDownloadHandler(DownloadHandler):
     @property
-    def uses_temp_file(self) -> bool:
+    def uses_temporary_file(self) -> bool:
         return True
 
     def is_temp_file(self, file_name: str) -> bool:

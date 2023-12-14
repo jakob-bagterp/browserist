@@ -6,8 +6,8 @@ class DownloadHandler(ABC):
 
     @property
     @abstractmethod
-    def uses_temp_file(self) -> bool:
-        """Configuration to check if the browser uses a temporary file for download."""
+    def uses_temporary_file(self) -> bool:
+        """Configuration property to set if the browser uses temporary files for downloads."""
 
         raise NotImplementedError  # pragma: no cover
 
