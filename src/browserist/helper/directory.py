@@ -29,7 +29,7 @@ def ensure_windows_file_path_format_encoding_as_url(path: str) -> str:
     return encode_path_as_url(output)
 
 
-def get_entries(path: str) -> list[str]:
+def get_entries(path: FilePath) -> list[str]:
     """Get all file and directory names in a directory."""
 
     return os.listdir(path)

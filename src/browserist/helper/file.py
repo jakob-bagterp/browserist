@@ -23,16 +23,16 @@ def exists(file_path: FilePath) -> bool:
     return os.path.exists(file_path)
 
 
-def is_file(path: str, file_name: str) -> bool:
+def is_file(path: FilePath, file_name: str) -> bool:
     file_path = os.path.join(path, file_name)
     return os.path.isfile(file_path)
 
 
-def get_all_from_directory(path: str, file_extension: str | None = None) -> list[str]:
+def get_all_from_directory(path: FilePath, file_extension: str | None = None) -> list[str]:
     """Get all file names in a directory, eventually filtered by a specific file type.
 
     Args:
-        path (str): Path to the directory.
+        path (FilePath): Path to the directory.
         file_extension (str | None, optional): Filter by file extension, e.g. `txt`.
 
     Returns:
