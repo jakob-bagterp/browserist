@@ -21,6 +21,13 @@ class DownloadHandler(ABC):
 
     @property
     @abstractmethod
+    def temporary_file_predicts_final_file(self) -> bool:
+        """Some browsers add a temporary file extension to the download file, making it easier to determine what the name of the final file is."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @property
+    @abstractmethod
     def temporary_file_extension(self) -> str:
         """Property to define the temporary file extension used by the given browser.
 

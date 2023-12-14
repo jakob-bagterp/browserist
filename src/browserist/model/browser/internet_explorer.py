@@ -46,6 +46,12 @@ class InternetExplorerDownloadHandler(DownloadHandler):
         return True
 
     @property
+    def temporary_file_predicts_final_file(self) -> bool:
+        return True
+
+        # TODO: To be verified.
+
+    @property
     def temporary_file_extension(self) -> str:
         return ".part"
 
