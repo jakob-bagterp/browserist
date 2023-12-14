@@ -1,9 +1,7 @@
 from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.edge.webdriver import WebDriver
 
-from ... import factory, helper
-from ..type.path import FilePath
-from .base.download.handler import DownloadHandler
+from ... import factory
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
 
@@ -35,9 +33,6 @@ class EdgeBrowserDriver(BrowserDriver):
     def set_download_directory(self) -> None:
         self = factory.chromium.set_download_directory(self)  # type: ignore
 
-    def set_download_handler(self) -> DownloadHandler:
-        return factory.get.download_handler(self)
-
     def set_page_load_strategy(self) -> None:
         self.edge_options = factory.set.page_load_strategy(self, self.edge_options)  # type: ignore
 
@@ -46,39 +41,3 @@ class EdgeBrowserDriver(BrowserDriver):
             return EdgeService()
         else:
             return EdgeService(executable_path=self.settings._path_to_executable)
-
-
-class EdgeDownloadHandler(DownloadHandler):
-    @property
-    def uses_temporary_file(self) -> bool:
-        return True
-
-    @property
-    def temporary_file_predicts_final_file(self) -> bool:
-        return True
-
-        # TODO: To be verified.
-
-    @property
-    def temporary_file_extension(self) -> str:
-        return ".crdownload"
-
-        # TODO: To be verified.
-
-    def is_temporary_file(self, download_dir: FilePath, file_name: str) -> bool:
-        """When Edge starts a download, it uses `.crdownload` as extension for temporary files.
-
-        For example, it creates the temporary file `file.zip.crdownload` until fully downloaded and then renames it to `file.zip`."""
-
-        return file_name.endswith(self.temporary_file_extension) and helper.file.is_file(download_dir, file_name)
-
-        # TODO: To be verified.
-
-    def get_temporary_file_without_extension(self) -> FilePath | None:
-        if self.temporary_file_predicts_final_file and self.temporary_file is not None:
-            file_path = self.temporary_file.rstrip(self.temporary_file_extension)
-            return FilePath(file_path)
-        else:
-            return None
-
-        # TODO: To be verified.

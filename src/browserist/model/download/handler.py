@@ -1,14 +1,19 @@
 import os
 from abc import ABC, abstractmethod
 
-from ..... import helper
-from ....type.path import FilePath
+from ... import helper
+from ..browser.base.driver import BrowserDriver
+from ..type.path import FilePath
 
 
 class DownloadHandler(ABC):
     """Abstract class that contains the download handler methods for various browser types."""
 
-    def __init__(self) -> None:
+    __slots__ = ["browser_driver", "download_dir", "temporary_file", "file"]
+
+    def __init__(self, browser_driver: BrowserDriver) -> None:
+        self.browser_driver: BrowserDriver = browser_driver
+        self.download_dir: FilePath = self.browser_driver.settings._download_dir
         self.temporary_file: FilePath | None = None
         self.file: FilePath | None = None
 

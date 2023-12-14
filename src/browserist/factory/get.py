@@ -1,12 +1,17 @@
-from ..model.browser.base.download.handler import DownloadHandler
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.settings import BrowserSettings
 from ..model.browser.base.type import BrowserType
-from ..model.browser.chrome import ChromeBrowserDriver, ChromeDownloadHandler
-from ..model.browser.edge import EdgeBrowserDriver, EdgeDownloadHandler
-from ..model.browser.firefox import FirefoxBrowserDriver, FirefoxDownloadHandler
-from ..model.browser.internet_explorer import InternetExplorerBrowserDriver, InternetExplorerDownloadHandler
-from ..model.browser.safari import SafariBrowserDriver, SafariDownloadHandler
+from ..model.browser.chrome import ChromeBrowserDriver
+from ..model.browser.edge import EdgeBrowserDriver
+from ..model.browser.firefox import FirefoxBrowserDriver
+from ..model.browser.internet_explorer import InternetExplorerBrowserDriver
+from ..model.browser.safari import SafariBrowserDriver
+from ..model.download.chrome import ChromeDownloadHandler
+from ..model.download.edge import EdgeDownloadHandler
+from ..model.download.firefox import FirefoxDownloadHandler
+from ..model.download.handler import DownloadHandler
+from ..model.download.internet_explorer import InternetExplorerDownloadHandler
+from ..model.download.safari import SafariDownloadHandler
 
 
 def browser_driver(settings: BrowserSettings) -> BrowserDriver:
@@ -28,14 +33,14 @@ def browser_driver(settings: BrowserSettings) -> BrowserDriver:
 def download_handler(browser_driver: BrowserDriver) -> DownloadHandler:
     match(browser_driver.settings.type):
         case BrowserType.CHROME:
-            return ChromeDownloadHandler()
+            return ChromeDownloadHandler(browser_driver)
         case BrowserType.EDGE:
-            return EdgeDownloadHandler()
+            return EdgeDownloadHandler(browser_driver)
         case BrowserType.FIREFOX:
-            return FirefoxDownloadHandler()
+            return FirefoxDownloadHandler(browser_driver)
         case BrowserType.INTERNET_EXPLORER:
-            return InternetExplorerDownloadHandler()
+            return InternetExplorerDownloadHandler(browser_driver)
         case BrowserType.SAFARI:
-            return SafariDownloadHandler()
+            return SafariDownloadHandler(browser_driver)
         case _:
             raise ValueError(browser_driver.settings.type)
