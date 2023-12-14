@@ -77,7 +77,7 @@ class DownloadHandler(ABC):
                 return self.file
 
         current_download_dir_entries = helper.directory.get_entries(download_dir)
-        file_candidate = [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
-        return FilePath(file_candidate[0]) if len(file_candidate) == 1 else None
+        file_candidates = [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
+        return FilePath(file_candidates[0]) if len(file_candidates) == 1 else None
 
         # TODO: Update flow and exception handling.
