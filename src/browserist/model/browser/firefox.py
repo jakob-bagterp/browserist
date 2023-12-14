@@ -2,6 +2,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 from ... import factory
+from .base.download.handler import DownloadHandler
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
 
@@ -31,6 +32,9 @@ class FirefoxBrowserDriver(BrowserDriver):
             self.firefox_options.set_preference("browser.download.dir", self.settings._download_dir)
             self.firefox_options.set_preference("browser.download.useDownloadDir", True)
 
+    def set_download_handler(self) -> DownloadHandler:
+        return factory.get.download_handler(self)
+
     def set_page_load_strategy(self) -> None:
         self.firefox_options = factory.set.page_load_strategy(self, self.firefox_options)  # type: ignore
 
@@ -39,3 +43,12 @@ class FirefoxBrowserDriver(BrowserDriver):
             return FirefoxService()
         else:
             return FirefoxService(executable_path=self.settings._path_to_executable)
+
+
+class FirefoxDownloadHandler(DownloadHandler):
+    @property
+    def uses_temp_file(self) -> bool:
+        return True
+
+    def is_temp_file(self, file_name: str) -> bool:
+        return file_name.endswith(".part")
