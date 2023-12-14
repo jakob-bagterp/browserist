@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from ....type.path import FilePath
+
 
 class DownloadHandler(ABC):
     """Abstract class that contains the download handler methods for various browser types."""
@@ -21,7 +23,7 @@ class DownloadHandler(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def is_temporary_file(self, file_name: str) -> bool:
+    def is_temporary_file(self, download_dir: FilePath, file_name: str) -> bool:
         """If browsers use temporary download files, they all have different formats. Check whether a file name appears to be a temporary file for the specific browser."""
 
         raise NotImplementedError  # pragma: no cover

@@ -1,8 +1,9 @@
 from selenium.webdriver.safari.service import Service as SafariService
 from selenium.webdriver.safari.webdriver import WebDriver
 
-from ... import factory
+from ... import factory, helper
 from ...exception.headless import HeadlessNotSupportedException
+from ..type.path import FilePath
 from .base.download.handler import DownloadHandler
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
@@ -49,9 +50,9 @@ class SafariDownloadHandler(DownloadHandler):
     def temporary_file_extension(self) -> str:
         return ".download"
 
-    def is_temporary_file(self, file_name: str) -> bool:
+    def is_temporary_file(self, download_dir: FilePath, file_name: str) -> bool:
         """When Safari starts a download, it uses `.download` as extension for temporary files.
 
         For example, it creates the temporary file `file.zip.download` until fully downloaded and then renames it to `file.zip`."""
 
-        return file_name.endswith(f".{self.temporary_file_extension}")
+        return file_name.endswith(f".{self.temporary_file_extension}") and helper.file.is_file(download_dir, file_name)

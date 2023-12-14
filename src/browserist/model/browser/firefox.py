@@ -1,7 +1,8 @@
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.webdriver import WebDriver
 
-from ... import factory
+from ... import factory, helper
+from ..type.path import FilePath
 from .base.download.handler import DownloadHandler
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
@@ -54,9 +55,9 @@ class FirefoxDownloadHandler(DownloadHandler):
     def temporary_file_extension(self) -> str:
         return ".part"
 
-    def is_temporary_file(self, file_name: str) -> bool:
+    def is_temporary_file(self, download_dir: FilePath, file_name: str) -> bool:
         """When Firefox starts a download, it uses `.part` as extension for temporary files.
 
         For example, it creates the temporary file with a random name `a1b2.zip.part` until fully downloaded and then renames it to `file.zip`."""
 
-        return file_name.endswith(f".{self.temporary_file_extension}")
+        return file_name.endswith(f".{self.temporary_file_extension}") and helper.file.is_file(download_dir, file_name)

@@ -1,8 +1,9 @@
 from selenium.webdriver.ie.service import Service as IEService
 from selenium.webdriver.ie.webdriver import WebDriver
 
-from ... import factory
+from ... import factory, helper
 from ...exception.headless import HeadlessNotSupportedException
+from ..type.path import FilePath
 from .base.download.handler import DownloadHandler
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
@@ -50,9 +51,9 @@ class InternetExplorerDownloadHandler(DownloadHandler):
 
         # TODO: To be verified.
 
-    def is_temporary_file(self, file_name: str) -> bool:
+    def is_temporary_file(self, download_dir: FilePath, file_name: str) -> bool:
         """TODO: To be verified."""
 
-        return file_name.endswith(f".{self.temporary_file_extension}")
+        return file_name.endswith(f".{self.temporary_file_extension}") and helper.file.is_file(download_dir, file_name)
 
         # TODO: To be verified.
