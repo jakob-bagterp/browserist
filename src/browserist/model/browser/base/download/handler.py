@@ -8,6 +8,9 @@ from ....type.path import FilePath
 class DownloadHandler(ABC):
     """Abstract class that contains the download handler methods for various browser types."""
 
+    def __init__(self) -> None:
+        self.temporary_file: FilePath | None = None
+
     @property
     @abstractmethod
     def uses_temporary_file(self) -> bool:
@@ -37,13 +40,12 @@ class DownloadHandler(ABC):
             download_dir_entries = helper.directory.get_entries(download_dir)
             temporary_files = [file for file in download_dir_entries if self.is_temporary_file(download_dir, file)]
             match len(temporary_files):
-                case 0:
-                    raise Exception("No temporary file found.")
-                    # TODO: Update Exception type.
+                case 0:  # It may be that the download has already finished, and so the temporary file may have been cleaned up.
+                    self.temporary_file = None
                 case 1:
                     file_path = os.path.join(download_dir, temporary_files[0])
-                    return FilePath(file_path)
+                    self.temporary_file = FilePath(file_path)
                 case _:
-                    raise Exception("Multiple temporary files found.")
-                    # TODO: Update Exception type.
-        return None
+                    self.temporary_file = None
+                    raise Exception("Multiple temporary files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
+        return self.temporary_file
