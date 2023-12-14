@@ -31,7 +31,7 @@ class DownloadHandler(ABC):
     def temporary_file_extension(self) -> str:
         """Property to define the temporary file extension used by the given browser.
 
-        For example: `download` for Safari, `crdownload` for Chrome, `part` for Firefox, etc."""
+        For example: `.download` for Safari, `.crdownload` for Chrome, `.part` for Firefox, etc."""
 
         raise NotImplementedError  # pragma: no cover
 

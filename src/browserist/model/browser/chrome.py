@@ -57,4 +57,4 @@ class ChromeDownloadHandler(DownloadHandler):
 
         For example, it creates the temporary file `file.zip.crdownload` until fully downloaded and then renames it to `file.zip`."""
 
-        return file_name.endswith(f".{self.temporary_file_extension}") and helper.file.is_file(download_dir, file_name)
+        return file_name.endswith(self.temporary_file_extension) and helper.file.is_file(download_dir, file_name)
