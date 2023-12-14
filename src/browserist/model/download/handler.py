@@ -41,7 +41,7 @@ class DownloadHandler(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def is_temporary_file(self, download_dir: FilePath, file_name: str) -> bool:
+    def is_temporary_file(self, file_name: str) -> bool:
         """If browsers use temporary download files, they all have different formats. Check whether a file name appears to be a temporary file for the specific browser."""
 
         raise NotImplementedError  # pragma: no cover
@@ -52,31 +52,31 @@ class DownloadHandler(ABC):
 
         raise NotImplementedError  # pragma: no cover
 
-    def attempt_to_get_temporary_file(self, download_dir: FilePath) -> FilePath | None:
+    def attempt_to_get_temporary_file(self) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
 
-        def get_temporary_file_candidates(download_dir: FilePath) -> list[str]:
-            download_dir_entries = helper.directory.get_entries(download_dir)
-            return [file for file in download_dir_entries if self.is_temporary_file(download_dir, file)]
+        def get_temporary_file_candidates() -> list[str]:
+            download_dir_entries = helper.directory.get_entries(self.download_dir)
+            return [file for file in download_dir_entries if self.is_temporary_file(file)]
 
         if self.uses_temporary_file:
-            temporary_file_candidates = get_temporary_file_candidates(download_dir)
+            temporary_file_candidates = get_temporary_file_candidates()
             match len(temporary_file_candidates):
                 case 0:  # It may be that the download has already finished, and so the temporary file may have been cleaned up.
                     self.temporary_file = None
                 case 1:
-                    file_path = os.path.join(download_dir, temporary_file_candidates[0])
+                    file_path = os.path.join(self.download_dir, temporary_file_candidates[0])
                     self.temporary_file = FilePath(file_path)
                 case _:
                     self.temporary_file = None
                     raise Exception("Multiple temporary files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self.temporary_file
 
-    def attempt_to_get_file(self, download_dir: FilePath, download_dir_entries_before_download: list[str]) -> FilePath | None:
+    def attempt_to_get_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
         """Attempt to get the file name of the current download."""
 
-        def get_file_candidates(download_dir: FilePath, download_dir_entries_before_download: list[str]) -> list[str]:
-            current_download_dir_entries = helper.directory.get_entries(download_dir)
+        def get_file_candidates(download_dir_entries_before_download: list[str]) -> list[str]:
+            current_download_dir_entries = helper.directory.get_entries(self.download_dir)
             return [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
 
         if self.temporary_file_predicts_final_file and self.temporary_file is not None:
@@ -85,7 +85,7 @@ class DownloadHandler(ABC):
                 self.file = file_candidate
                 return self.file
 
-        file_candidates = get_file_candidates(download_dir, download_dir_entries_before_download)
+        file_candidates = get_file_candidates(download_dir_entries_before_download)
         return FilePath(file_candidates[0]) if len(file_candidates) == 1 else None
 
         # TODO: Update flow and exception handling.

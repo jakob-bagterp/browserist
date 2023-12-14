@@ -20,10 +20,10 @@ class InternetExplorerDownloadHandler(DownloadHandler):
 
         # TODO: To be verified.
 
-    def is_temporary_file(self, download_dir: FilePath, file_name: str) -> bool:
+    def is_temporary_file(self, file_name: str) -> bool:
         """TODO: To be verified."""
 
-        return file_name.endswith(self.temporary_file_extension) and helper.file.is_file(download_dir, file_name)
+        return file_name.endswith(self.temporary_file_extension) and helper.file.is_file(self.download_dir, file_name)
 
         # TODO: To be verified.
 
