@@ -86,6 +86,13 @@ class DownloadHandler(ABC):
                 return self.file
 
         file_candidates = get_file_candidates(download_dir_entries_before_download)
-        return FilePath(file_candidates[0]) if len(file_candidates) == 1 else None
-
-        # TODO: Update flow and exception handling.
+        match len(file_candidates):
+            case 0:
+                self.file = None
+            case 1:
+                file_path = os.path.join(self.download_dir, file_candidates[0])
+                self.file = FilePath(file_path)
+            case _:
+                self.file = None
+                raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
+        return self.file
