@@ -30,7 +30,7 @@ class DownloadHandler(ABC):
 
         raise NotImplementedError  # pragma: no cover
 
-    def get_temporary_file(self, download_dir: FilePath) -> FilePath | None:
+    def attempt_to_get_temporary_file(self, download_dir: FilePath) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
 
         if self.uses_temporary_file:
