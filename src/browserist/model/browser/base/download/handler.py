@@ -50,14 +50,17 @@ class DownloadHandler(ABC):
     def attempt_to_get_temporary_file(self, download_dir: FilePath) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
 
-        if self.uses_temporary_file:
+        def get_temporary_file_candidates() -> list[str]:
             download_dir_entries = helper.directory.get_entries(download_dir)
-            temporary_files = [file for file in download_dir_entries if self.is_temporary_file(download_dir, file)]
-            match len(temporary_files):
+            return [file for file in download_dir_entries if self.is_temporary_file(download_dir, file)]
+
+        if self.uses_temporary_file:
+            temporary_file_candidates = get_temporary_file_candidates()
+            match len(temporary_file_candidates):
                 case 0:  # It may be that the download has already finished, and so the temporary file may have been cleaned up.
                     self.temporary_file = None
                 case 1:
-                    file_path = os.path.join(download_dir, temporary_files[0])
+                    file_path = os.path.join(download_dir, temporary_file_candidates[0])
                     self.temporary_file = FilePath(file_path)
                 case _:
                     self.temporary_file = None
