@@ -44,7 +44,15 @@ class InternetExplorerDownloadHandler(DownloadHandler):
     def uses_temporary_file(self) -> bool:
         return True
 
-    def is_temp_file(self, file_name: str) -> bool:
-        return file_name.endswith(".part")
+    @property
+    def temporary_file_extension(self) -> str:
+        return ".part"
+
+        # TODO: To be verified.
+
+    def is_temporary_file(self, file_name: str) -> bool:
+        """TODO: To be verified."""
+
+        return file_name.endswith(f".{self.temporary_file_extension}")
 
         # TODO: To be verified.

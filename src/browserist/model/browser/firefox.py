@@ -50,5 +50,13 @@ class FirefoxDownloadHandler(DownloadHandler):
     def uses_temporary_file(self) -> bool:
         return True
 
-    def is_temp_file(self, file_name: str) -> bool:
-        return file_name.endswith(".part")
+    @property
+    def temporary_file_extension(self) -> str:
+        return ".part"
+
+    def is_temporary_file(self, file_name: str) -> bool:
+        """When Firefox starts a download, it uses `.part` as extension for temporary files.
+
+        For example, it creates the temporary file with a random name `a1b2.zip.part` until fully downloaded and then renames it to `file.zip`."""
+
+        return file_name.endswith(f".{self.temporary_file_extension}")

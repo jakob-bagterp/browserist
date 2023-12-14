@@ -52,7 +52,15 @@ class EdgeDownloadHandler(DownloadHandler):
     def uses_temporary_file(self) -> bool:
         return True
 
-    def is_temp_file(self, file_name: str) -> bool:
-        return file_name.endswith(".crdownload")
+    @property
+    def temporary_file_extension(self) -> str:
+        return ".crdownload"
+
+    def is_temporary_file(self, file_name: str) -> bool:
+        """When Edge starts a download, it uses `.crdownload` as extension for temporary files.
+
+        For example, it creates the temporary file `file.zip.crdownload` until fully downloaded and then renames it to `file.zip`."""
+
+        return file_name.endswith(f".{self.temporary_file_extension}")
 
         # TODO: To be verified.
