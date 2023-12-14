@@ -70,14 +70,17 @@ class DownloadHandler(ABC):
     def attempt_to_get_file(self, download_dir_entries_before_download: list[str], download_dir: FilePath) -> FilePath | None:
         """Attempt to get the file name of the current download."""
 
+        def get_file_candidates() -> list[str]:
+            current_download_dir_entries = helper.directory.get_entries(download_dir)
+            return [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
+
         if self.temporary_file_predicts_final_file and self.temporary_file is not None:
             file_candidate = self.get_temporary_file_without_extension()
             if helper.file.exists(file_candidate):
                 self.file = file_candidate
                 return self.file
 
-        current_download_dir_entries = helper.directory.get_entries(download_dir)
-        file_candidates = [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
+        file_candidates = get_file_candidates()
         return FilePath(file_candidates[0]) if len(file_candidates) == 1 else None
 
         # TODO: Update flow and exception handling.
