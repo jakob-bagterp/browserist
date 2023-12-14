@@ -24,7 +24,7 @@ def download_dir_and_file_path_controller(has_file: bool, temp_dir_path: str) ->
     """
 
     download_dir = os.path.join(temp_dir_path, "downloads")
-    os.mkdir(download_dir)
+    os.makedirs(download_dir)
     file_name = "file.txt"
     file_path = os.path.join(download_dir, file_name)
     if os.path.exists(file_path):
