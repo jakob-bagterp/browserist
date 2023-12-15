@@ -12,7 +12,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         """Wait until a file download does not exist, e.g. a temporary file created by the browser until download is complete.
 
         Args:
-            file_name (str): Name of the file to watch in the download directory. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
+            file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             timeout (float | None, optional): In seconds. Timeout to wait for file to not exist. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
@@ -24,7 +24,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         """Wait until a file download exists.
 
         Args:
-            file_name (str): Name of the file to watch in the download directory. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
+            file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             timeout (float | None, optional): In seconds. Timeout to wait for file to exist. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
@@ -36,7 +36,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         """Wait until a file download does not increase in size, for example a temporary file created by the browser until download is complete.
 
         Args:
-            file_name (str): Name of the file to watch in the download directory. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
+            file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global timeout setting is used (default 5 seconds).
         """
 
