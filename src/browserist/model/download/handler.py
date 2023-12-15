@@ -56,7 +56,7 @@ class DownloadHandler(ABC):
 
         raise NotImplementedError  # pragma: no cover
 
-    def attempt_to_get_temporary_file(self) -> FilePath | None:
+    def _attempt_to_get_temporary_file(self) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
 
         def get_temporary_file_candidates() -> list[str]:
@@ -76,7 +76,7 @@ class DownloadHandler(ABC):
                     raise Exception("Multiple temporary files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self._temporary_file
 
-    def attempt_to_get_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
+    def _attempt_to_get_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
         """Attempt to get the file name of the current download."""
 
         def get_file_candidates(download_dir_entries_before_download: list[str]) -> list[str]:
@@ -112,8 +112,8 @@ class DownloadHandler(ABC):
     def await_and_get_file(self) -> Path:
         """Await the download to finish and return the file path."""
 
-        self.attempt_to_get_temporary_file()
-        self.attempt_to_get_file(self._download_dir_entries_before_download)
+        self._attempt_to_get_temporary_file()
+        self._attempt_to_get_file(self._download_dir_entries_before_download)
         if self._file is not None:
             self.wait_for_expected_file(self._file)
         return self._file.path if self._file else Path("")
