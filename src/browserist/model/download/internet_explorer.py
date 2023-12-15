@@ -1,4 +1,4 @@
-from ... import helper
+from ... import helper, helper_download
 from ..type.path import FilePath
 from .handler import DownloadHandler
 
@@ -28,11 +28,7 @@ class InternetExplorerDownloadHandler(DownloadHandler):
         # TODO: To be verified.
 
     def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str:
-        if self._temporary_file_predicts_final_file:
-            expected_temporary_file = f"{expected_file_name}{self._temporary_file_extension}"
-            return FilePath(expected_temporary_file)
-        else:
-            return ""
+        return helper_download.add_file_extension(expected_file_name, self._temporary_file_extension)
 
         # TODO: To be verified.
 
