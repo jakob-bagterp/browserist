@@ -1,5 +1,4 @@
 from ... import helper
-from ..type.path import FilePath
 from .handler import DownloadHandler
 
 
@@ -23,8 +22,8 @@ class FirefoxDownloadHandler(DownloadHandler):
 
         return file_name.endswith(self._temporary_file_extension) and helper.file.is_file(self._download_dir, file_name)
 
-    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str | None:
-        return None  # Not supported by Firefox.
+    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str:
+        return ""  # Not supported by Firefox.
 
-    def _get_temporary_file_without_extension(self) -> FilePath | None:
-        return None  # Not supported by Firefox.
+    def _get_temporary_file_without_extension(self) -> str:
+        return ""  # Not supported by Firefox.

@@ -23,16 +23,16 @@ class ChromeDownloadHandler(DownloadHandler):
 
         return file_name.endswith(self._temporary_file_extension) and helper.file.is_file(self._download_dir, file_name)
 
-    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str | None:
+    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str:
         if self._temporary_file_predicts_final_file:
             expected_temporary_file = f"{expected_file_name}{self._temporary_file_extension}"
             return expected_temporary_file
         else:
-            return None
+            return ""
 
-    def _get_temporary_file_without_extension(self) -> FilePath | None:
+    def _get_temporary_file_without_extension(self) -> str:
         if self._temporary_file_predicts_final_file and self._temporary_file is not None:
             file_path = self._temporary_file.rstrip(self._temporary_file_extension)
             return FilePath(file_path)
         else:
-            return None
+            return ""

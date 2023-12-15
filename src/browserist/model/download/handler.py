@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 
 from ... import helper
+from ...browser.wait.until.download_file.does_not_exist import wait_until_download_file_does_not_exist
 from ...browser.wait.until.download_file.exists import wait_until_download_file_exists
 from ..browser.base.driver import BrowserDriver
 from ..type.path import FilePath
@@ -51,16 +52,21 @@ class DownloadHandler(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str | None:
-        """If a browser's temporary download file predicts the final file name – for instance by adding an extension – this method will yield a candidate for the temporary file."""
+    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str:
+        """If a browser's temporary download file predicts the final file name – for instance by adding an extension – this method will yield a candidate for the name of the temporary file."""
 
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def _get_temporary_file_without_extension(self) -> FilePath | None:
-        """If a browser's temporary download file predicts the final file name – for instance by adding an extension – this method will yield a candidate for the final file."""
+    def _get_temporary_file_without_extension(self) -> str:
+        """If a browser's temporary download file predicts the final file name – for instance by adding an extension – this method will yield a candidate for the name of the final file."""
 
         raise NotImplementedError  # pragma: no cover
+
+    def _as_download_dir_path(self, file_name: str) -> FilePath:
+        """Get the path of a given file in the download directory."""
+
+        return FilePath(os.path.join(self._download_dir, file_name))
 
     def _attempt_to_get_temporary_file(self) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
@@ -75,8 +81,7 @@ class DownloadHandler(ABC):
                 case 0:  # It may be that the download has already finished, and so the temporary file may have been cleaned up.
                     self._temporary_file = None
                 case 1:
-                    file_path = os.path.join(self._download_dir, temporary_file_candidates[0])
-                    self._temporary_file = FilePath(file_path)
+                    self._temporary_file = self._as_download_dir_path(temporary_file_candidates[0])
                 case _:
                     self._temporary_file = None
                     raise Exception("Multiple temporary files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
@@ -91,8 +96,9 @@ class DownloadHandler(ABC):
 
         if self._temporary_file_predicts_final_file and self._temporary_file is not None:
             file_candidate = self._get_temporary_file_without_extension()
-            if helper.file.exists(file_candidate):
-                self._file = file_candidate
+            file_candidate_path = self._as_download_dir_path(file_candidate)
+            if helper.file.exists(file_candidate_path):
+                self._file = file_candidate_path
                 return self._file
 
         file_candidates = get_file_candidates(download_dir_entries_before_download)
@@ -100,8 +106,7 @@ class DownloadHandler(ABC):
             case 0:
                 self._file = None
             case 1:
-                file_path = os.path.join(self._download_dir, file_candidates[0])
-                self._file = FilePath(file_path)
+                self._file = self._as_download_dir_path(file_candidates[0])
             case _:
                 self._file = None
                 raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
@@ -110,7 +115,17 @@ class DownloadHandler(ABC):
     def wait_for_expected_file(self, expected_file_name: str | FilePath) -> None:
         """Wait for the expected file to be downloaded."""
 
+        if self._temporary_file_predicts_final_file:
+            expected_temporary_file_name = self._get_temporary_file_from_expected_file(expected_file_name)
+            expected_temporary_file_path = self._as_download_dir_path(expected_temporary_file_name)
+            if helper.file.exists(expected_temporary_file_path):
+                wait_until_download_file_does_not_exist(self._browser_driver, expected_temporary_file_name, self._idle_download_timeout)
+
+            # TODO: Check if the file is still growing in size. If so, await until it stops growing.
+
         wait_until_download_file_exists(self._browser_driver, expected_file_name, self._idle_download_timeout)
+
+        # TODO: Check if the file is still growing in size. If so, await until it stops growing.
 
         # TODO: Probably we need to check for temporary file first and await this, and then the final file.
         # TODO: Let's assume that a finished file won't increase in size anymore. So we can check for that.
@@ -122,4 +137,4 @@ class DownloadHandler(ABC):
         self._attempt_to_get_file(self._download_dir_entries_before_download)
         if self._file is not None:
             self.wait_for_expected_file(self._file)
-        return self._file.path if self._file else Path("")
+        return self._file.path if self._file is not None else Path("")
