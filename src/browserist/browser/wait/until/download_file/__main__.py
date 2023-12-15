@@ -31,3 +31,15 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             wait_until_download_file_exists(self._browser_driver, file_name, timeout)
+
+    def size_does_not_increase(self, file_name: str, idle_download_timeout: float | None = None) -> None:
+        """Wait until a file download does not increase in size, for example a temporary file created by the browser until download is complete.
+
+        Args:
+            file_name (str): Name of the file to watch in the download directory. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
+            idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global timeout setting is used (default 5 seconds).
+        """
+
+        if self._timeout_should_continue():
+            idle_download_timeout = self._mediate_timeout(idle_download_timeout)
+            wait_until_download_file_does_not_exist(self._browser_driver, file_name, idle_download_timeout)

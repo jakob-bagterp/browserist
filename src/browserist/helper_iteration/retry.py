@@ -87,3 +87,14 @@ def until_condition_is_false(
 ) -> None:
     until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
                                      wait_interval_seconds=wait_interval_seconds, condition=False, func_uses_browser_driver=func_uses_browser_driver)
+
+
+def while_condition_is_true_and_not_timed_out(
+    *args: str | int,
+    func: DriverGetBoolCallable,
+    idle_timeout: float = timeout.DEFAULT,
+    wait_interval_seconds: float = interval.DEFAULT,
+) -> None:
+    pass
+
+    # TODO: Implement this function based on the retries left.
