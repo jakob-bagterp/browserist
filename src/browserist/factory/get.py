@@ -30,17 +30,17 @@ def browser_driver(settings: BrowserSettings) -> BrowserDriver:
             raise ValueError(settings.type)
 
 
-def download_handler(browser_driver: BrowserDriver) -> DownloadHandler:
+def download_handler(browser_driver: BrowserDriver, download_dir_entries_before_download: list[str], idle_download_timeout: float) -> DownloadHandler:
     match(browser_driver.settings.type):
         case BrowserType.CHROME:
-            return ChromeDownloadHandler(browser_driver)
+            return ChromeDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case BrowserType.EDGE:
-            return EdgeDownloadHandler(browser_driver)
+            return EdgeDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case BrowserType.FIREFOX:
-            return FirefoxDownloadHandler(browser_driver)
+            return FirefoxDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case BrowserType.INTERNET_EXPLORER:
-            return InternetExplorerDownloadHandler(browser_driver)
+            return InternetExplorerDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case BrowserType.SAFARI:
-            return SafariDownloadHandler(browser_driver)
+            return SafariDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case _:
             raise ValueError(browser_driver.settings.type)

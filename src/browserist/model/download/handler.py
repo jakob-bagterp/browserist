@@ -9,11 +9,13 @@ from ..type.path import FilePath
 class DownloadHandler(ABC):
     """Abstract class that contains the download handler methods for various browser types."""
 
-    __slots__ = ["_browser_driver", "_download_dir", "_temporary_file", "_file"]
+    __slots__ = ["_browser_driver", "_download_dir", "_download_dir_entries_before_download", "_idle_download_timeout", "_temporary_file", "_file"]
 
-    def __init__(self, browser_driver: BrowserDriver) -> None:
+    def __init__(self, browser_driver: BrowserDriver, download_dir_entries_before_download: list[str], idle_download_timeout: float) -> None:
         self._browser_driver: BrowserDriver = browser_driver
         self._download_dir: FilePath = browser_driver.settings._download_dir
+        self._download_dir_entries_before_download: list[str] = download_dir_entries_before_download
+        self._idle_download_timeout: float = idle_download_timeout
         self._temporary_file: FilePath | None = None
         self._file: FilePath | None = None
 
