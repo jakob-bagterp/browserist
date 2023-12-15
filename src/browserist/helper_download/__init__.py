@@ -24,3 +24,17 @@ def add_file_extension(file_name: str, file_extension: str) -> str:
     """
 
     return f"{file_name}{file_extension}"
+
+
+def remove_file_extension(file_name: str, file_extension: str) -> str:
+    """Remove a file extension from a file name.
+
+    Args:
+        expected_file_name (str): For example, `file.txt.download`.
+        temporary_file_extension (str): For example, `.download`.
+
+    Returns:
+        str: For example, `file.txt`.
+    """
+
+    return file_name.rstrip(file_extension)

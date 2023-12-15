@@ -1,5 +1,4 @@
 from ... import helper, helper_download
-from ..type.path import FilePath
 from .handler import DownloadHandler
 
 
@@ -27,8 +26,7 @@ class ChromeDownloadHandler(DownloadHandler):
         return helper_download.add_file_extension(expected_file_name, self._temporary_file_extension)
 
     def _get_temporary_file_without_extension(self) -> str:
-        if self._temporary_file_predicts_final_file and self._temporary_file is not None:
-            file_path = self._temporary_file.rstrip(self._temporary_file_extension)
-            return FilePath(file_path)
+        if self._temporary_file is not None:
+            return helper_download.remove_file_extension(self._temporary_file.name, self._temporary_file_extension)
         else:
             return ""
