@@ -2,6 +2,7 @@ import os
 from abc import ABC, abstractmethod
 
 from ... import helper
+from ...browser.wait.until.download_file.exists import wait_until_download_file_exists
 from ..browser.base.driver import BrowserDriver
 from ..type.path import FilePath
 
@@ -98,3 +99,11 @@ class DownloadHandler(ABC):
                 self._file = None
                 raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self._file
+
+    def wait_for_expected_file(self, expected_file: str) -> None:
+        """Wait for the expected file to be downloaded."""
+
+        wait_until_download_file_exists(self._browser_driver, expected_file, self._idle_download_timeout)
+
+        # TODO: Probably we need to check for temporary file first and await this, and then the final file.
+        # TODO: Let's assume that a finished file won't increase in size anymore. So we can check for that.
