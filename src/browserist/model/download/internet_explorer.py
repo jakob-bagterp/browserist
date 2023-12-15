@@ -27,6 +27,15 @@ class InternetExplorerDownloadHandler(DownloadHandler):
 
         # TODO: To be verified.
 
+    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str | None:
+        if self._temporary_file_predicts_final_file:
+            expected_temporary_file = f"{expected_file_name}{self._temporary_file_extension}"
+            return FilePath(expected_temporary_file)
+        else:
+            return None
+
+        # TODO: To be verified.
+
     def _get_temporary_file_without_extension(self) -> FilePath | None:
         if self._temporary_file_predicts_final_file and self._temporary_file is not None:
             file_path = self._temporary_file.rstrip(self._temporary_file_extension)

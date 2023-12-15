@@ -51,6 +51,12 @@ class DownloadHandler(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
+    def _get_temporary_file_from_expected_file(self, expected_file_name: str) -> str | None:
+        """If a browser's temporary download file predicts the final file name – for instance by adding an extension – this method will yield a candidate for the temporary file."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @abstractmethod
     def _get_temporary_file_without_extension(self) -> FilePath | None:
         """If a browser's temporary download file predicts the final file name – for instance by adding an extension – this method will yield a candidate for the final file."""
 
