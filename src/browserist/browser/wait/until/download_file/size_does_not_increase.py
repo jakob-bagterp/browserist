@@ -1,14 +1,30 @@
-from ..... import helper_download, helper_iteration
+import time
+from functools import cache
+
+from ..... import helper_download
+from .....constant import interval
 from .....helper.file import exists as file_exists
 from .....helper.file import get_size as get_file_size
+from .....helper_iteration.retry import calculate_number_of_retries
 from .....model.browser.base.driver import BrowserDriver
-from .....model.type.path import FilePath
 
 
 def wait_until_download_file_size_does_not_increase(browser_driver: BrowserDriver, file_name: str, idle_download_timeout: float) -> None:
-    def condition(file_path: FilePath, previous_file_size: int) -> bool:
-        return file_exists(file_path) and get_file_size(file_path) > previous_file_size
-
     file_path = helper_download.get_file_path(browser_driver, file_name)
-    file_size = get_file_size(file_path)
-    helper_iteration.retry.while_condition_is_true_and_not_timed_out(file_path, file_size, func=condition, idle_timeout=idle_download_timeout)
+
+    @cache
+    def reset_retries() -> int:
+        return calculate_number_of_retries(idle_download_timeout, interval.DEFAULT)
+
+    def wait_and_then_get_file_size_and_retries_left(previous_retries_left: int) -> tuple[int, int]:
+        time.sleep(interval.DEFAULT)
+        retries_left = previous_retries_left - 1
+        file_size = get_file_size(file_path)
+        return file_size, retries_left
+
+    retries_left = reset_retries()
+    previous_file_size, retries_left = wait_and_then_get_file_size_and_retries_left(retries_left)
+    while retries_left > 0 and file_exists(file_path):
+        if get_file_size(file_path) > previous_file_size:
+            retries_left = reset_retries()  # As long as the donlowad is active, reset the timeout.
+        previous_file_size, retries_left = wait_and_then_get_file_size_and_retries_left(retries_left)
