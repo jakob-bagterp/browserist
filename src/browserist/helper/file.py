@@ -44,3 +44,9 @@ def get_all_from_directory(path: FilePath, file_extension: str | None = None) ->
         return [file for file in files_and_folders if is_file(path, file) and file.endswith(f".{file_extension}")]
     else:
         return [file for file in files_and_folders if is_file(path, file)]
+
+
+def get_size(file_path: FilePath) -> int:
+    """Get size of file in bytes."""
+
+    return os.path.getsize(file_path)
