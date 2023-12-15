@@ -16,11 +16,4 @@ def click_download_button(browser_driver: BrowserDriver, xpath: str, timeout: fl
         if expected_file_name:
             download_handler.wait_for_expected_file(expected_file_name)
         else:
-            _ = download_handler.attempt_to_get_temporary_file()
-            # TODO: To be updated.
-
-        if download_dir_entries_before_download:
-            pass
-        # TODO: Add watcher flow for file download completion.
-
-    # TODO: Temporary solution. To be updated.
+            download_handler.await_and_get_file()

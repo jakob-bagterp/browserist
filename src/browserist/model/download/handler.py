@@ -1,5 +1,6 @@
 import os
 from abc import ABC, abstractmethod
+from pathlib import Path
 
 from ... import helper
 from ...browser.wait.until.download_file.exists import wait_until_download_file_exists
@@ -100,10 +101,19 @@ class DownloadHandler(ABC):
                 raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self._file
 
-    def wait_for_expected_file(self, expected_file: str) -> None:
+    def wait_for_expected_file(self, expected_file_name: str | FilePath) -> None:
         """Wait for the expected file to be downloaded."""
 
-        wait_until_download_file_exists(self._browser_driver, expected_file, self._idle_download_timeout)
+        wait_until_download_file_exists(self._browser_driver, expected_file_name, self._idle_download_timeout)
 
         # TODO: Probably we need to check for temporary file first and await this, and then the final file.
         # TODO: Let's assume that a finished file won't increase in size anymore. So we can check for that.
+
+    def await_and_get_file(self) -> Path:
+        """Await the download to finish and return the file path."""
+
+        self.attempt_to_get_temporary_file()
+        self.attempt_to_get_file(self._download_dir_entries_before_download)
+        if self._file is not None:
+            self.wait_for_expected_file(self._file)
+        return self._file.path if self._file else Path("")
