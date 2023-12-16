@@ -33,7 +33,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
             wait_until_download_file_exists(self._browser_driver, file_name, timeout)
 
     def size_does_not_increase(self, file_name: str, idle_download_timeout: float | None = None) -> None:
-        """Wait until a file download does not exist nor increase in size, for example a temporary file created by the browser until download is complete.
+        """Wait until a file under download no longer exists or increases in size, for example a temporary file created by the browser until a download is complete.
 
         Args:
             file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
