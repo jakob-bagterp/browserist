@@ -118,11 +118,18 @@ class DownloadHandler(ABC):
     def wait_for_expected_file(self, expected_file_name: str) -> None:
         """Wait for the expected file to be downloaded. If not found, an exception is raised."""
 
-        # If it's small, fast download, the temporary file may only be short-lived, or maybe the file is already confirmed, and so let's check for the final file first for quick return...
+        def has_confirmed_final_file_then_await_download(expected_file_name: str) -> bool:
+            if file_exists(expected_file_path):
+                wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+                return True
+            else:
+                return False
+
         time.sleep(interval.MEDIUM)
         expected_file_path = self._as_download_dir_path(expected_file_name)
-        if file_exists(expected_file_path):
-            wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+
+        # If it's small, fast download, the temporary file may only be short-lived, or maybe the file is already confirmed, and so let's check for the final file first for quick return...
+        if has_confirmed_final_file_then_await_download(expected_file_name):
             return
 
         # ... or let's fall back to checking for the temporary and final file.
