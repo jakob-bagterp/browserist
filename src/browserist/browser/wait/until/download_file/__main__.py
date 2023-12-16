@@ -2,6 +2,7 @@ from .....model.browser.base.driver import BrowserDriver
 from .....model.driver_methods import DriverMethods
 from .does_not_exist import wait_until_download_file_does_not_exist
 from .exists import wait_until_download_file_exists
+from .size_does_not_increase import wait_until_download_file_size_does_not_increase
 
 
 class WaitUntilDownloadFileDriverMethods(DriverMethods):
@@ -42,4 +43,4 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             idle_download_timeout = self._mediate_timeout(idle_download_timeout)
-            wait_until_download_file_does_not_exist(self._browser_driver, file_name, idle_download_timeout)
+            wait_until_download_file_size_does_not_increase(self._browser_driver, file_name, idle_download_timeout)
