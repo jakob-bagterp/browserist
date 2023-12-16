@@ -14,10 +14,10 @@ def wait_until_download_file_size_does_not_increase(browser_driver: BrowserDrive
 
     @cache
     def reset_retries() -> int:
-        return calculate_number_of_retries(idle_download_timeout, interval.DEFAULT)
+        return calculate_number_of_retries(idle_download_timeout, interval.MEDIUM)
 
     def wait_and_then_get_file_size_and_retries_left(previous_retries_left: int) -> tuple[int, int]:
-        time.sleep(interval.DEFAULT)
+        time.sleep(interval.MEDIUM)
         retries_left = previous_retries_left - 1
         file_size = get_file_size(file_path)
         return file_size, retries_left
