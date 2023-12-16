@@ -118,7 +118,9 @@ class DownloadHandler(ABC):
     def wait_for_expected_file(self, expected_file_name: str) -> None:
         """Wait for the expected file to be downloaded. If not found, an exception is raised."""
 
-        def has_confirmed_final_file_then_await_download(expected_file_name: str) -> bool:
+        def quick_exit_is_possibly_with_confirmed_final_file_and_then_await_download(expected_file_name: str) -> bool:
+            """If it's a small, fast download, the temporary file may only be short-lived, or maybe the final file is already ready, and so let's check for the final file first for quick return."""
+
             if file_exists(expected_file_path):
                 wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
                 return True
@@ -143,18 +145,16 @@ class DownloadHandler(ABC):
             else:
                 return False
 
-        time.sleep(interval.MEDIUM)
+        time.sleep(interval.MEDIUM)  # Ensure that the browser has a short moment to do file operations on the disk.
         expected_file_path = self._as_download_dir_path(expected_file_name)
 
-        # If it's small, fast download, the temporary file may only be short-lived, or maybe the file is already confirmed, and so let's check for the final file first for quick return...
-        if has_confirmed_final_file_then_await_download(expected_file_name):
+        if quick_exit_is_possibly_with_confirmed_final_file_and_then_await_download(expected_file_name):
             return
-        # ... or let's fall back to checking for the temporary and final file.
+        # If no quick exit is possible, let's fall back to checking for the temporary and final files.
         if temporary_file_yields_final_file_then_await_download(expected_file_name):
             return
         elif temporary_file_is_found_then_await_download_of_final_file(expected_file_name):
             return
-
         wait_until_download_file_exists(self._browser_driver, expected_file_name, self._idle_download_timeout)
         wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
 
