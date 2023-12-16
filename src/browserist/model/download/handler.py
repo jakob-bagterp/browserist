@@ -118,7 +118,7 @@ class DownloadHandler(ABC):
     def wait_for_expected_file(self, expected_file_name: str) -> None:
         """Wait for the expected file to be downloaded. If not found, an exception is raised."""
 
-        # If it's small or fast download, the temporary file may only be short-lived, and so let's check for the final file first for quick return...
+        # If it's small, fast download, the temporary file may only be short-lived, or maybe the file is already confirmed, and so let's check for the final file first for quick return...
         time.sleep(interval.MEDIUM)
         expected_file_path = self._as_download_dir_path(expected_file_name)
         if file_exists(expected_file_path):
