@@ -46,7 +46,7 @@ class ClickDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for button element. If `None`, the global timeout setting is used (default 5 seconds).
             await_download (bool, optional): Set to `False` to download the file in the background – this will also bypass the `expected_file_name` and `idle_download_timeout` parameters. Set to `True` to wait for the download to complete.
             expected_file_name (str | None, optional): Expected file name to determine when the download is complete. If `None`, this may be slower as Browserist will attempt to guess the file name by monitoring changes in the download directory.
-            idle_download_timeout (float | None, optional): In seconds. Since the browser doesn't indicate when the download is complete, we have to guess when the file has been downloaded or is idle. For example, if the file size hasn't increased during the timeout. If `None`, the global timeout setting is used (default 5 seconds).
+            idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global timeout setting is used (default 5 seconds).
 
         Info: Download Directory
             The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
@@ -65,7 +65,7 @@ class ClickDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the download button element.
             timeout (float | None, optional): In seconds. Timeout to wait for button element. If `None`, the global timeout setting is used (default 5 seconds).
-            idle_download_timeout (float | None, optional): In seconds. Since the browser doesn't indicate when the download is complete, we have to guess when the file has been downloaded or is idle. For example, if the file size hasn't increased during the timeout. If `None`, the global timeout setting is used (default 5 seconds).
+            idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             Path: Path to the downloaded file. Return type is the standard library `pathlib.Path`.
