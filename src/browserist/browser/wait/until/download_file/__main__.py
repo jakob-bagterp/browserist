@@ -38,9 +38,9 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
 
         Args:
             file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
-            idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global timeout setting is used (default 5 seconds).
+            idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global idle download timeout setting is used (default 3 seconds).
         """
 
         if self._timeout_should_continue():
-            idle_download_timeout = self._mediate_timeout(idle_download_timeout)
+            idle_download_timeout = self._mediate_idle_download_timeout(idle_download_timeout)
             wait_until_download_file_size_does_not_increase(self._browser_driver, file_name, idle_download_timeout)

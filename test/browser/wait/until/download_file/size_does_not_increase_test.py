@@ -5,7 +5,7 @@ import _helper
 from py.path import local
 
 from browserist import Browser, BrowserSettings
-from browserist.constant import timeout
+from browserist.constant import idle_timeout
 
 FILE_NAME = "file.txt"
 
@@ -15,7 +15,7 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
 
     def get_time_for_wait_until_download_file_size_does_not_increase() -> float:
         start_time = time.perf_counter_ns()
-        browser.wait.until.download_file.size_does_not_increase(FILE_NAME, timeout.VERY_SHORT)
+        browser.wait.until.download_file.size_does_not_increase(FILE_NAME, idle_timeout.VERY_SHORT)
         stop_time = time.perf_counter_ns()
         return _helper.time.get_difference(start_time, stop_time)
 
