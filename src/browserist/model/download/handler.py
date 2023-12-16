@@ -125,20 +125,24 @@ class DownloadHandler(ABC):
             else:
                 return False
 
+        def temporary_file_yields_final_file_then_await_download(expected_file_name: str) -> bool:
+            if self._temporary_file_predicts_final_file:
+                expected_temporary_file_name = self._get_temporary_file_from_expected_file(expected_file_name)
+                wait_until_download_file_size_does_not_increase(self._browser_driver, expected_temporary_file_name, self._idle_download_timeout)
+                wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+                return True if file_exists(expected_file_path) else False
+            else:
+                return False
+
         time.sleep(interval.MEDIUM)
         expected_file_path = self._as_download_dir_path(expected_file_name)
 
         # If it's small, fast download, the temporary file may only be short-lived, or maybe the file is already confirmed, and so let's check for the final file first for quick return...
         if has_confirmed_final_file_then_await_download(expected_file_name):
             return
-
         # ... or let's fall back to checking for the temporary and final file.
-        if self._temporary_file_predicts_final_file:
-            expected_temporary_file_name = self._get_temporary_file_from_expected_file(expected_file_name)
-            wait_until_download_file_size_does_not_increase(self._browser_driver, expected_temporary_file_name, self._idle_download_timeout)
-            wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
-            if file_exists(expected_file_path):
-                return
+        if temporary_file_yields_final_file_then_await_download(expected_file_name):
+            return
         else:
             if self._attempt_to_get_temporary_file() and self._temporary_file is not None:
                 wait_until_download_file_size_does_not_increase(self._browser_driver, self._temporary_file.name, self._idle_download_timeout)
