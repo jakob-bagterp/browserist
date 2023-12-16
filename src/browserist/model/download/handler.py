@@ -1,10 +1,12 @@
 import os
+import time
 from abc import ABC, abstractmethod
 from pathlib import Path
 
 from ... import helper
-from ...browser.wait.until.download_file.does_not_exist import wait_until_download_file_does_not_exist
 from ...browser.wait.until.download_file.exists import wait_until_download_file_exists
+from ...browser.wait.until.download_file.size_does_not_increase import wait_until_download_file_size_does_not_increase
+from ...constant import interval
 from ..browser.base.driver import BrowserDriver
 from ..type.path import FilePath
 
@@ -112,23 +114,31 @@ class DownloadHandler(ABC):
                 raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self._file
 
-    def wait_for_expected_file(self, expected_file_name: str | FilePath) -> None:
-        """Wait for the expected file to be downloaded."""
+    def wait_for_expected_file(self, expected_file_name: str) -> None:
+        """Wait for the expected file to be downloaded. If not found, an exception is raised."""
 
+        # If it's small or fast download, the temporary file may only be short-lived, and so let's check for the final file first for quick return...
+        time.sleep(interval.MEDIUM)
+        expected_file_path = self._as_download_dir_path(expected_file_name)
+        if helper.file.exists(expected_file_path):
+            wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+            return
+
+        # ... or let's fall back to checking for the temporary and final file.
         if self._temporary_file_predicts_final_file:
             expected_temporary_file_name = self._get_temporary_file_from_expected_file(expected_file_name)
-            expected_temporary_file_path = self._as_download_dir_path(expected_temporary_file_name)
-            if helper.file.exists(expected_temporary_file_path):
-                wait_until_download_file_does_not_exist(self._browser_driver, expected_temporary_file_name, self._idle_download_timeout)
-
-            # TODO: Check if the file is still growing in size. If so, await until it stops growing.
-
+            wait_until_download_file_size_does_not_increase(self._browser_driver, expected_temporary_file_name, self._idle_download_timeout)
+            wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+            if helper.file.exists(expected_file_path):
+                return
+        else:
+            if self._attempt_to_get_temporary_file() and self._temporary_file is not None:
+                wait_until_download_file_size_does_not_increase(self._browser_driver, self._temporary_file.name, self._idle_download_timeout)
+            wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+            if helper.file.exists(expected_file_path):
+                return
         wait_until_download_file_exists(self._browser_driver, expected_file_name, self._idle_download_timeout)
-
-        # TODO: Check if the file is still growing in size. If so, await until it stops growing.
-
-        # TODO: Probably we need to check for temporary file first and await this, and then the final file.
-        # TODO: Let's assume that a finished file won't increase in size anymore. So we can check for that.
+        wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
 
     def await_and_get_file(self) -> Path:
         """Await the download to finish and return the file path."""
