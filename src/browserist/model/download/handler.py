@@ -3,10 +3,11 @@ import time
 from abc import ABC, abstractmethod
 from pathlib import Path
 
-from ... import helper
 from ...browser.wait.until.download_file.exists import wait_until_download_file_exists
 from ...browser.wait.until.download_file.size_does_not_increase import wait_until_download_file_size_does_not_increase
 from ...constant import interval
+from ...helper.directory import get_entries as get_directory_entries
+from ...helper.file import exists as file_exists
 from ..browser.base.driver import BrowserDriver
 from ..type.path import FilePath
 
@@ -74,7 +75,7 @@ class DownloadHandler(ABC):
         """Attempt to get the name of the temporary file of the current download."""
 
         def get_temporary_file_candidates() -> list[str]:
-            download_dir_entries = helper.directory.get_entries(self._download_dir)
+            download_dir_entries = get_directory_entries(self._download_dir)
             return [file for file in download_dir_entries if self._is_temporary_file(file)]
 
         if self._uses_temporary_file:
@@ -93,13 +94,13 @@ class DownloadHandler(ABC):
         """Attempt to get the file name of the current download."""
 
         def get_file_candidates(download_dir_entries_before_download: list[str]) -> list[str]:
-            current_download_dir_entries = helper.directory.get_entries(self._download_dir)
+            current_download_dir_entries = get_directory_entries(self._download_dir)
             return [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
 
         if self._temporary_file_predicts_final_file and self._temporary_file is not None:
             file_candidate = self._get_temporary_file_without_extension()
             file_candidate_path = self._as_download_dir_path(file_candidate)
-            if helper.file.exists(file_candidate_path):
+            if file_exists(file_candidate_path):
                 self._file = file_candidate_path
                 return self._file
 
@@ -120,7 +121,7 @@ class DownloadHandler(ABC):
         # If it's small or fast download, the temporary file may only be short-lived, and so let's check for the final file first for quick return...
         time.sleep(interval.MEDIUM)
         expected_file_path = self._as_download_dir_path(expected_file_name)
-        if helper.file.exists(expected_file_path):
+        if file_exists(expected_file_path):
             wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
             return
 
@@ -129,13 +130,13 @@ class DownloadHandler(ABC):
             expected_temporary_file_name = self._get_temporary_file_from_expected_file(expected_file_name)
             wait_until_download_file_size_does_not_increase(self._browser_driver, expected_temporary_file_name, self._idle_download_timeout)
             wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
-            if helper.file.exists(expected_file_path):
+            if file_exists(expected_file_path):
                 return
         else:
             if self._attempt_to_get_temporary_file() and self._temporary_file is not None:
                 wait_until_download_file_size_does_not_increase(self._browser_driver, self._temporary_file.name, self._idle_download_timeout)
             wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
-            if helper.file.exists(expected_file_path):
+            if file_exists(expected_file_path):
                 return
         wait_until_download_file_exists(self._browser_driver, expected_file_name, self._idle_download_timeout)
         wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
