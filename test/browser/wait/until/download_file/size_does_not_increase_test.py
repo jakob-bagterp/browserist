@@ -13,7 +13,7 @@ FILE_NAME = "file.txt"
 
 
 def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local) -> None:
-    """Assume that it's faster to await a non-existing file than watch an existing"""
+    """Assume that it's faster to await a non-existing file than an existing"""
 
     def get_time_for_wait_until_download_file_size_does_not_increase() -> float:
         start_time = time.perf_counter_ns()
