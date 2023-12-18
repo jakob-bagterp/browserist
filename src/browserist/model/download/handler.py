@@ -115,6 +115,11 @@ class DownloadHandler(ABC):
                 raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self._final_file
 
+    def _await_file_operations(self) -> None:
+        """Ensure that the browser has a short moment to do file operations on the disk."""
+
+        time.sleep(interval.MEDIUM)
+
     def wait_for_expected_file(self, expected_file_name: str) -> None:
         """Wait for the expected file to be downloaded. If not found, an exception is raised."""
 
@@ -145,7 +150,7 @@ class DownloadHandler(ABC):
             else:
                 return False
 
-        time.sleep(interval.MEDIUM)  # Ensure that the browser has a short moment to do file operations on the disk.
+        self._await_file_operations()
         expected_file_path = self._as_download_dir_path(expected_file_name)
 
         if quick_exit_is_possibly_with_confirmed_final_file_and_then_await_download(expected_file_name):
@@ -161,6 +166,7 @@ class DownloadHandler(ABC):
     def await_and_get_final_file(self) -> Path:
         """Await the download to finish and return the file path."""
 
+        self._await_file_operations()
         self._attempt_to_get_temporary_file()
         self._attempt_to_get_final_file(self._download_dir_entries_before_download)
         if self._final_file is not None:
