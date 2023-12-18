@@ -1,10 +1,13 @@
 import time
 from functools import cache
 
+import helper
+
+from browserist.model.type.path import FilePath
+
 from ..... import helper_download
 from .....constant import interval
 from .....helper.file import exists as file_exists
-from .....helper.file import get_size as get_file_size
 from .....helper_iteration.retry import calculate_number_of_retries
 from .....model.browser.base.driver import BrowserDriver
 
@@ -15,6 +18,9 @@ def wait_until_download_file_size_does_not_increase(browser_driver: BrowserDrive
     @cache
     def reset_retries() -> int:
         return calculate_number_of_retries(idle_download_timeout, interval.MEDIUM)
+
+    def get_file_size(file_path: FilePath) -> int:
+        return helper.file.get_size(file_path, suppress_file_not_found=True)
 
     def wait_and_then_get_file_size_and_retries_left(previous_retries_left: int) -> tuple[int, int]:
         time.sleep(interval.MEDIUM)

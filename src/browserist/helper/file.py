@@ -1,6 +1,7 @@
 import asyncio
 import os
 import shutil
+from contextlib import suppress
 
 from ..model.type.path import FilePath
 from . import directory
@@ -46,7 +47,11 @@ def get_all_from_directory(path: FilePath, file_extension: str | None = None) ->
         return [file for file in files_and_folders if is_file(path, file)]
 
 
-def get_size(file_path: FilePath) -> int:
+def get_size(file_path: FilePath, suppress_file_not_found: bool = False) -> int:
     """Get size of file in bytes."""
+
+    if suppress_file_not_found:
+        with suppress(FileNotFoundError):
+            return os.path.getsize(file_path)
 
     return os.path.getsize(file_path)
