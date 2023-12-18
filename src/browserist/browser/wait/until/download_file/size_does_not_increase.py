@@ -1,5 +1,4 @@
 import time
-from functools import cache
 
 import helper
 
@@ -15,7 +14,6 @@ from .....model.browser.base.driver import BrowserDriver
 def wait_until_download_file_size_does_not_increase(browser_driver: BrowserDriver, file_name: str, idle_download_timeout: float) -> None:
     file_path = helper_download.get_file_path(browser_driver, file_name)
 
-    @cache
     def reset_retries() -> int:
         return calculate_number_of_retries(idle_download_timeout, interval.MEDIUM)
 
