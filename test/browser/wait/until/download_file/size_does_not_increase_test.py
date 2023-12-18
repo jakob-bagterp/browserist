@@ -24,9 +24,11 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
     download_dir = os.path.join(str(tmpdir), "downloads")
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with Browser(brower_settings) as browser:
+        _ = get_time_for_wait_until_download_file_size_does_not_increase(browser)  # Dry run.
         time_without_file = get_time_for_wait_until_download_file_size_does_not_increase(browser)
         file_path = os.path.join(download_dir, FILE_NAME)
         _helper.file.create(file_path)
+        assert os.path.exists(file_path) is True
         time_with_file = get_time_for_wait_until_download_file_size_does_not_increase(browser)
         assert time_without_file < time_with_file
 
