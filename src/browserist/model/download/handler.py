@@ -15,7 +15,7 @@ from ..type.path import FilePath
 class DownloadHandler(ABC):
     """Abstract class that contains the download handler methods for various browser types."""
 
-    __slots__ = ["_browser_driver", "_download_dir", "_download_dir_entries_before_download", "_idle_download_timeout", "_temporary_file", "_file"]
+    __slots__ = ["_browser_driver", "_download_dir", "_download_dir_entries_before_download", "_idle_download_timeout", "_temporary_file", "_final_file"]
 
     def __init__(self, browser_driver: BrowserDriver, download_dir_entries_before_download: list[str], idle_download_timeout: float) -> None:
         self._browser_driver: BrowserDriver = browser_driver
@@ -23,7 +23,7 @@ class DownloadHandler(ABC):
         self._download_dir_entries_before_download: list[str] = download_dir_entries_before_download
         self._idle_download_timeout: float = idle_download_timeout
         self._temporary_file: FilePath | None = None
-        self._file: FilePath | None = None
+        self._final_file: FilePath | None = None
 
     @property
     @abstractmethod
@@ -90,10 +90,10 @@ class DownloadHandler(ABC):
                     raise Exception("Multiple temporary files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self._temporary_file
 
-    def _attempt_to_get_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
+    def _attempt_to_get_final_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
         """Attempt to get the file name of the current download."""
 
-        def get_file_candidates(download_dir_entries_before_download: list[str]) -> list[str]:
+        def get_final_file_candidates(download_dir_entries_before_download: list[str]) -> list[str]:
             current_download_dir_entries = get_directory_entries(self._download_dir)
             return [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
 
@@ -101,19 +101,19 @@ class DownloadHandler(ABC):
             file_candidate = self._get_temporary_file_without_extension()
             file_candidate_path = self._as_download_dir_path(file_candidate)
             if file_exists(file_candidate_path):
-                self._file = file_candidate_path
-                return self._file
+                self._final_file = file_candidate_path
+                return self._final_file
 
-        file_candidates = get_file_candidates(download_dir_entries_before_download)
+        file_candidates = get_final_file_candidates(download_dir_entries_before_download)
         match len(file_candidates):
             case 0:
-                self._file = None
+                self._final_file = None
             case 1:
-                self._file = self._as_download_dir_path(file_candidates[0])
+                self._final_file = self._as_download_dir_path(file_candidates[0])
             case _:
-                self._file = None
+                self._final_file = None
                 raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
-        return self._file
+        return self._final_file
 
     def wait_for_expected_file(self, expected_file_name: str) -> None:
         """Wait for the expected file to be downloaded. If not found, an exception is raised."""
@@ -158,11 +158,11 @@ class DownloadHandler(ABC):
         wait_until_download_file_exists(self._browser_driver, expected_file_name, self._idle_download_timeout)
         wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
 
-    def await_and_get_file(self) -> Path:
+    def await_and_get_final_file(self) -> Path:
         """Await the download to finish and return the file path."""
 
         self._attempt_to_get_temporary_file()
-        self._attempt_to_get_file(self._download_dir_entries_before_download)
-        if self._file is not None:
-            self.wait_for_expected_file(self._file)
-        return self._file.path if self._file is not None else Path("")
+        self._attempt_to_get_final_file(self._download_dir_entries_before_download)
+        if self._final_file is not None:
+            self.wait_for_expected_file(self._final_file)
+        return self._final_file.path if self._final_file is not None else Path("")
