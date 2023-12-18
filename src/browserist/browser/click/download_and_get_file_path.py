@@ -13,4 +13,4 @@ def click_download_button_and_get_file_path(browser_driver: BrowserDriver, xpath
     download_dir_entries_before_download = helper.directory.get_entries(browser_driver.settings._download_dir)
     click_button_without_wait(browser_driver, xpath)
     download_handler = factory.get.download_handler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
-    return download_handler.await_and_get_file()
+    return download_handler.await_and_get_final_file()

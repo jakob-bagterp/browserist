@@ -16,4 +16,4 @@ def click_download_button(browser_driver: BrowserDriver, xpath: str, timeout: fl
         if expected_file_name:
             download_handler.wait_for_expected_file(expected_file_name)
         else:
-            download_handler.await_and_get_file()
+            download_handler.await_and_get_final_file()
