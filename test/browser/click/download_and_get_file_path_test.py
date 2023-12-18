@@ -13,4 +13,4 @@ def test_click_download_and_get_file_path(tmpdir: local) -> None:
     with Browser(brower_settings) as browser:
         reset_to_not_timed_out(browser)
         browser.open.url(internal_url.DOWNLOAD)
-        assert browser.click.download_and_get_file_path("//button[@id='download']") == "file.zip"
+        assert browser.click.download_and_get_file_path("//button[@id='download']").name == "file.zip"
