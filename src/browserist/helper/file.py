@@ -53,5 +53,5 @@ def get_size(file_path: FilePath, suppress_file_not_found_error: bool = False) -
     if suppress_file_not_found_error:
         with suppress(FileNotFoundError):
             return os.path.getsize(file_path)
-    else:
-        return os.path.getsize(file_path)
+
+    return os.path.getsize(file_path)
