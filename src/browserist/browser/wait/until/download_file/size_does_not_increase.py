@@ -1,10 +1,8 @@
 import time
 
-import helper
-
 from browserist.model.type.path import FilePath
 
-from ..... import helper_download
+from ..... import helper, helper_download
 from .....constant import interval
 from .....helper.file import exists as file_exists
 from .....helper_iteration.retry import calculate_number_of_retries
