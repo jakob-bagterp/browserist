@@ -6,19 +6,22 @@ from browserist import Browser, BrowserSettings
 from browserist.constant.directory import DOWNLOADS_DIR
 
 BROWSER_SETTINGS_WITH_DEFAULT_DOWNLOAD_DIR = BrowserSettings(
-    headless=True
+    headless=True,
+    check_connection=False
 )
 
 BROWSER_SETTINGS_WITH_SET_DEFAULT_DOWNLOAD_DIR = BrowserSettings(
     headless=True,
-    download_dir=DOWNLOADS_DIR
+    download_dir=DOWNLOADS_DIR,
+    check_connection=False
 )
 
 CUSTOM_DOWNLOAD_DIR = os.path.join(DOWNLOADS_DIR, "test")
 
 BROWSER_SETTINGS_WITH_CUSTOM_DOWNLOAD_DIR = BrowserSettings(
     headless=True,
-    download_dir=CUSTOM_DOWNLOAD_DIR
+    download_dir=CUSTOM_DOWNLOAD_DIR,
+    check_connection=False
 )
 
 

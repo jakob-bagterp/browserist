@@ -10,7 +10,7 @@ from browserist import Browser, BrowserSettings, DeviceViewportSize
     (None, 800, 600),
 ])
 def test_set_viewport_on_init(viewport: DeviceViewportSize | tuple[int, int] | None, expected_width: int, expected_height: int) -> None:
-    settings = BrowserSettings(viewport=viewport, headless=True)
+    settings = BrowserSettings(viewport=viewport, headless=True, check_connection=False)
     with Browser(settings) as browser:
         browser.open.url(internal_url.EXAMPLE_COM)
         screen_width, screen_height = browser.viewport.get.size()
