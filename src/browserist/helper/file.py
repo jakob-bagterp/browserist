@@ -47,7 +47,7 @@ def get_all_from_directory(path: FilePath, file_extension: str | None = None) ->
         return [file for file in files_and_folders if is_file(path, file)]
 
 
-def get_size(file_path: FilePath, suppress_file_not_found_error: bool = False) -> int | None:
+def get_size(file_path: FilePath, suppress_file_not_found_error: bool = False) -> int:  # type: ignore
     """Get size of file in bytes."""
 
     if suppress_file_not_found_error:
