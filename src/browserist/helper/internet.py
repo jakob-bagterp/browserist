@@ -1,8 +1,8 @@
 import multiprocessing
 import ssl
-from urllib.error import URLError
 
 import requests
+from requests import ConnectionError
 
 from ..constant import timeout
 from ..model.type.url import URL
@@ -15,7 +15,7 @@ def check_connection(url: URL, timeout: float = timeout.DEFAULT) -> bool:
         ssl._create_default_https_context = ssl._create_unverified_context
         _ = requests.get(url, timeout=timeout)
         return True
-    except (URLError, Exception):
+    except (ConnectionError, Exception):
         return False
 
 
