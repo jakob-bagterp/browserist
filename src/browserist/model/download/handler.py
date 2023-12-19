@@ -1,11 +1,10 @@
 import os
-import time
 from abc import ABC, abstractmethod
 from pathlib import Path
 
+from ... import helper_iteration
 from ...browser.wait.until.download_file.exists import wait_until_download_file_exists
 from ...browser.wait.until.download_file.size_does_not_increase import wait_until_download_file_size_does_not_increase
-from ...constant import interval
 from ...helper.directory import get_entries as get_directory_entries
 from ...helper.file import exists as file_exists
 from ..browser.base.driver import BrowserDriver
@@ -115,10 +114,21 @@ class DownloadHandler(ABC):
                 raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
         return self._final_file
 
-    def _await_file_operations(self) -> None:
+    def _await_files_in_download_dir(self) -> None:
         """Ensure that the browser has a short moment to do file operations on the disk."""
 
-        time.sleep(interval.MEDIUM)
+        def has_files_in_download_dir(number_of_download_dir_entries_before_download: int) -> bool:
+            """Watch for changes in the download directory, for instance until 0 files change to 1 file."""
+
+            if number_of_download_dir_entries_before_download == 0:
+                download_dir_entries = get_directory_entries(self._download_dir)
+                return len(download_dir_entries) > number_of_download_dir_entries_before_download
+            else:
+                return True
+
+        number_of_download_dir_entries_before_download = len(get_directory_entries(self._download_dir))
+        helper_iteration.retry.until_condition_is_true(
+            self._browser_driver, number_of_download_dir_entries_before_download, func=has_files_in_download_dir, timeout=self._idle_download_timeout, func_uses_browser_driver=False)
 
     def wait_for_expected_file(self, expected_file_name: str) -> None:
         """Wait for the expected file to be downloaded. If not found, an exception is raised."""
@@ -150,7 +160,7 @@ class DownloadHandler(ABC):
             else:
                 return False
 
-        self._await_file_operations()
+        self._await_files_in_download_dir()
         expected_file_path = self._as_download_dir_path(expected_file_name)
 
         if quick_exit_is_possibly_with_confirmed_final_file_and_then_await_download(expected_file_name):
@@ -166,7 +176,7 @@ class DownloadHandler(ABC):
     def await_and_get_final_file(self) -> Path:
         """Await the download to finish and return the file path."""
 
-        self._await_file_operations()
+        self._await_files_in_download_dir()
         self._attempt_to_get_temporary_file()
         self._attempt_to_get_final_file(self._download_dir_entries_before_download)
         if self._final_file is not None:
