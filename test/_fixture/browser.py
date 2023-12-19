@@ -39,7 +39,8 @@ def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
 def browser_default_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
         headless=True,
-        screenshot_dir=str(tmpdir)
+        screenshot_dir=str(tmpdir),
+        check_connection=False
     )
     with Browser(browser_settings) as browser:
         yield browser
@@ -50,7 +51,8 @@ def browser_firefox_headless_screenshot(tmpdir: local) -> Generator[Browser, Non
     browser_settings = BrowserSettings(
         type=BrowserType.FIREFOX,
         headless=True,
-        screenshot_dir=str(tmpdir)
+        screenshot_dir=str(tmpdir),
+        check_connection=False
     )
     with Browser(browser_settings) as browser:
         yield browser
