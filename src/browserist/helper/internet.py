@@ -2,18 +2,18 @@ import multiprocessing
 import ssl
 
 import requests
-from requests import ConnectionError
+from requests import ConnectionError, Session
 
 from ..constant import timeout
 from ..model.type.url import URL
 
 
-def check_connection(url: URL, timeout: float = timeout.DEFAULT) -> bool:
+def check_connection(url: URL, requests_session: Session, timeout: float = timeout.DEFAULT) -> bool:
     """Check if there is an internet connection by pinging a server."""
 
     try:
         ssl._create_default_https_context = ssl._create_unverified_context
-        _ = requests.get(url, timeout=timeout)
+        _ = requests_session.get(url, timeout=timeout)
         return True
     except (ConnectionError, Exception):
         return False
@@ -27,6 +27,7 @@ def has_connection(timeout: float = timeout.DEFAULT) -> bool:
     google_dns_server_1_url = URL("https://8.8.8.8")
     google_dns_server_2_url = URL("https://8.8.4.4")
     urls = [google_dns_server_1_url, google_dns_server_2_url]
-    list_of_urls_and_timeout = [(url, timeout) for url in urls]
+    requests_session = requests.Session()
+    list_of_urls_session_and_timeout = [(url, requests_session, timeout) for url in urls]
     with multiprocessing.Pool(processes=len(urls)) as pool:
-        return any(pool.starmap(check_connection, list_of_urls_and_timeout))
+        return any(pool.starmap(check_connection, list_of_urls_session_and_timeout))
