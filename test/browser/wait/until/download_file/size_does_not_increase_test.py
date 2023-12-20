@@ -3,6 +3,7 @@ import time
 from contextlib import nullcontext as expectation_of_no_exceptions_raised
 
 import _helper
+from _constant import download_page
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 from py.path import local
@@ -42,4 +43,4 @@ def test_wait_until_download_file_size_does_not_increase(tmpdir: local) -> None:
         with Browser(brower_settings) as browser:
             browser.open.url(internal_url.DOWNLOAD)
             browser.click.button("//button[@id='download']")
-            _ = browser.wait.until.download_file.size_does_not_increase("file.zip", idle_timeout.VERY_SHORT) is not None
+            _ = browser.wait.until.download_file.size_does_not_increase(download_page.EXPECTED_FILE_NAME, idle_timeout.VERY_SHORT) is not None

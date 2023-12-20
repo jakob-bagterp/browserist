@@ -1,5 +1,6 @@
 import os
 
+from _constant import download_page
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 from py.path import local
@@ -13,4 +14,4 @@ def test_click_download_and_get_file_path(tmpdir: local) -> None:
     with Browser(brower_settings) as browser:
         reset_to_not_timed_out(browser)
         browser.open.url(internal_url.DOWNLOAD)
-        assert browser.click.download_and_get_file_path("//button[@id='download']").name == "file.zip"
+        assert browser.click.download_and_get_file_path("//button[@id='download']").name == download_page.EXPECTED_FILE_NAME

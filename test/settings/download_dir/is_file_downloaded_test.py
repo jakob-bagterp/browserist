@@ -2,12 +2,11 @@ import os
 import time
 
 import pytest
+from _constant import download_page
 from _mock_data.url import internal_url
 from py.path import local
 
 from browserist import Browser, BrowserSettings
-
-EXPECTED_DOWNLOADED_FILE_NAME = "file.zip"
 
 
 @pytest.mark.parametrize("download_dir", [
@@ -24,7 +23,7 @@ def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local)
             attempt += 1
 
     def clean_up_downloaded_file(file_path: str) -> None:
-        if EXPECTED_DOWNLOADED_FILE_NAME in get_directory_items(browser_settings._download_dir):
+        if download_page.EXPECTED_FILE_NAME in get_directory_items(browser_settings._download_dir):
             os.remove(file_path)
 
     def get_directory_items(path: str) -> list[str]:
@@ -44,8 +43,8 @@ def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local)
         browser.click.button("//button[@id='download']")
         wait_for_download_to_finish(browser_settings, directory_items_before_download)
         assert get_directory_items_count(browser_settings._download_dir) == directory_items_before_download + 1
-        assert EXPECTED_DOWNLOADED_FILE_NAME in get_directory_items(browser_settings._download_dir)
-        file_path = os.path.join(browser_settings._download_dir, EXPECTED_DOWNLOADED_FILE_NAME)
+        assert download_page.EXPECTED_FILE_NAME in get_directory_items(browser_settings._download_dir)
+        file_path = os.path.join(browser_settings._download_dir, download_page.EXPECTED_FILE_NAME)
         assert os.path.isfile(file_path)
         assert os.path.getsize(file_path) > 0
         clean_up_downloaded_file(file_path)
