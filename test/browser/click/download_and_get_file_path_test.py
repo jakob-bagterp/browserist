@@ -9,7 +9,7 @@ from browserist import Browser, BrowserSettings
 
 
 def test_click_download_and_get_file_path(tmpdir: local) -> None:
-    download_dir = directory.create_and_get_temporary(tmpdir, "downloads")
+    download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with Browser(brower_settings) as browser:
         reset_to_not_timed_out(browser)

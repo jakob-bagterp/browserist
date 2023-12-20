@@ -28,3 +28,9 @@ def create_and_get_temporary(tmpdir: local, dir_name: str) -> str:
     """Create temporary directory with `tmpdir` fixture and return path."""
 
     return str(tmpdir.mkdir(dir_name))
+
+
+def create_and_get_temporary_download_dir(tmpdir: local) -> str:
+    """Create temporary download directory with `tmpdir` fixture and return path."""
+
+    return create_and_get_temporary(tmpdir, "downloads")

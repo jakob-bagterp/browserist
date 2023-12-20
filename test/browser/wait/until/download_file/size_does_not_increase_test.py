@@ -25,7 +25,7 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
         stop_time = time.perf_counter_ns()
         return _helper.time.get_difference(start_time, stop_time)
 
-    download_dir = directory.create_and_get_temporary(tmpdir, "downloads")
+    download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with Browser(brower_settings) as browser:
         reset_to_not_timed_out(browser)
@@ -39,7 +39,7 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
 
 
 def test_wait_until_download_file_size_does_not_increase(tmpdir: local) -> None:
-    download_dir = directory.create_and_get_temporary(tmpdir, "downloads")
+    download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with expectation_of_no_exceptions_raised():
         with Browser(brower_settings) as browser:
