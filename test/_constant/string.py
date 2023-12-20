@@ -1,1 +1,1 @@
-EMPTY_STRING = ""
+EMPTY_STRING: str = ""

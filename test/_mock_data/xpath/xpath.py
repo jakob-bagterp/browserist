@@ -13,3 +13,8 @@ class DropDownSeletor:
     OPTION_2 = f"{DROPDOWN_OPTIONS}/option[@value='option2']"
     OPTION_3 = f"{DROPDOWN_OPTIONS}/option[@value='option3']"
     OPTION_4 = f"{DROPDOWN_OPTIONS}/option[@value='option4']"
+
+
+@dataclass(slots=True, frozen=True)
+class DownloadPage:
+    DONWLOAD_BUTTON = "//button[@id='download']"

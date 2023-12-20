@@ -20,6 +20,11 @@ class DriverMethods:
 
         return helper.timeout.mediate_timeout(self._browser_driver.settings, timeout)
 
+    def _mediate_idle_download_timeout(self, idle_download_timeout: float | None) -> float:
+        """Mediate whether idle download seconds should use a global or a local setting."""
+
+        return helper.timeout.mediate_idle_download_timeout(self._browser_driver.settings, idle_download_timeout)
+
     def _set_is_timed_out(self) -> None:
         """Sets global timeout to true."""
 
