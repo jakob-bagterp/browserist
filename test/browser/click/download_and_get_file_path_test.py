@@ -1,6 +1,5 @@
-import os
-
 from _constant import download_page
+from _helper import directory
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 from py.path import local
@@ -9,7 +8,7 @@ from browserist import Browser, BrowserSettings
 
 
 def test_click_download_and_get_file_path(tmpdir: local) -> None:
-    download_dir = os.path.join(str(tmpdir), "downloads")
+    download_dir = directory.create_and_get_temporary(tmpdir, "downloads")
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with Browser(brower_settings) as browser:
         reset_to_not_timed_out(browser)

@@ -4,6 +4,7 @@ from contextlib import nullcontext as expectation_of_no_exceptions_raised
 
 import _helper
 from _constant import download_page
+from _helper import directory
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 from py.path import local
@@ -23,7 +24,7 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
         stop_time = time.perf_counter_ns()
         return _helper.time.get_difference(start_time, stop_time)
 
-    download_dir = os.path.join(str(tmpdir), "downloads")
+    download_dir = directory.create_and_get_temporary(tmpdir, "downloads")
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with Browser(brower_settings) as browser:
         reset_to_not_timed_out(browser)
@@ -37,7 +38,7 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
 
 
 def test_wait_until_download_file_size_does_not_increase(tmpdir: local) -> None:
-    download_dir = os.path.join(str(tmpdir), "downloads")
+    download_dir = directory.create_and_get_temporary(tmpdir, "downloads")
     brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
     with expectation_of_no_exceptions_raised():
         with Browser(brower_settings) as browser:
