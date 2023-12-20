@@ -8,7 +8,8 @@ from py.path import local
 
 from browserist import Browser, BrowserSettings, factory
 from browserist.constant import idle_timeout
-from browserist.exception.download import DownloadHandlerMultipleFinalFilesError
+from browserist.exception.download import (DownloadHandlerMultipleFinalFilesError,
+                                           DownloadHandlerMultipleTemporaryFilesError)
 from browserist.model.download.handler import DownloadHandler
 
 
@@ -27,6 +28,23 @@ def get_download_handler(browser: Browser, download_dir_entries_before_download:
         idle_download_timeout=idle_timeout.VERY_SHORT,
     )
     return ensure_uses_temporary_file_is_true(download_handler)
+
+
+@pytest.mark.parametrize("number_of_files, expectation", [
+    (0, does_not_raise()),
+    (1, does_not_raise()),
+    (2, pytest.raises(DownloadHandlerMultipleTemporaryFilesError)),
+])
+def test_download_handler_expection_for_multiple_temporary_files(number_of_files: int, expectation: Any, tmpdir: local) -> None:
+    download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
+    brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
+    with Browser(brower_settings) as browser:
+        browser = reset_to_not_timed_out(browser)
+        download_dir_entries_before_download = []
+        download_handler = get_download_handler(browser, download_dir_entries_before_download)
+        file.create_multiple(download_dir, f"txt{download_handler._temporary_file_extension}", number_of_files)
+        with expectation:
+            _ = download_handler._attempt_to_get_temporary_file() is not None
 
 
 @pytest.mark.parametrize("number_of_files, expectation", [
