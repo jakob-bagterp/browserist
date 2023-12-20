@@ -36,7 +36,8 @@ def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local)
 
     browser_settings: BrowserSettings = BrowserSettings(
         headless=True,
-        download_dir=directory.create_and_get_temporary(tmpdir, download_dir)
+        download_dir=directory.create_and_get_temporary(tmpdir, download_dir),
+        check_connection=False
     )
 
     with Browser(browser_settings) as browser:

@@ -14,7 +14,8 @@ from browserist.constant import timeout
 browser_settings = BrowserSettings(
     headless=True,
     disable_images=True,
-    timeout=timeout_settings.DEFAULT_CONTINUE
+    timeout=timeout_settings.DEFAULT_CONTINUE,
+    check_connection=False
 )
 
 browser = Browser(browser_settings)

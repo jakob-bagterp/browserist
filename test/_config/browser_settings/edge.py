@@ -6,11 +6,13 @@ DEFAULT = BrowserSettings(
 
 HEADLESS = BrowserSettings(
     type=BrowserType.EDGE,
-    headless=True
+    headless=True,
+    check_connection=False
 )
 
 HEADLESS_AND_DISABLE_IMAGES = BrowserSettings(
     type=BrowserType.EDGE,
     headless=True,
-    disable_images=True
+    disable_images=True,
+    check_connection=False
 )
