@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pytest-cov selenium pillow lxml keyring
+        pip install pytest pytest-cov selenium pillow lxml keyring requests
     - name: Generate coverage report
         # The list of "--ignore=..." arguments should be identical to the exclusion list in Tox.ini, though without comments:
       run: >
