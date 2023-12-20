@@ -2,7 +2,7 @@ import multiprocessing
 import ssl
 
 import requests
-from requests import ConnectionError, Session
+from requests import Session
 
 from ..constant import timeout
 from ..model.type.url import URL
