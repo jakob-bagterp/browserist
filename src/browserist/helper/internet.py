@@ -27,7 +27,7 @@ def has_connection(timeout: float = timeout.DEFAULT) -> bool:
     google_dns_server_1_url = URL("https://8.8.8.8")
     google_dns_server_2_url = URL("https://8.8.4.4")
     urls = [google_dns_server_1_url, google_dns_server_2_url]
-    requests_session = requests.Session()
-    list_of_urls_session_and_timeout = [(url, requests_session, timeout) for url in urls]
-    with multiprocessing.Pool(processes=len(urls)) as pool:
-        return any(pool.starmap(check_connection, list_of_urls_session_and_timeout))
+    with requests.Session() as requests_session:
+        check_connection_args = [(url, requests_session, timeout) for url in urls]
+        with multiprocessing.Pool(processes=len(urls)) as pool:
+            return any(pool.starmap(check_connection, check_connection_args))
