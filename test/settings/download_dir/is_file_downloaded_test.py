@@ -5,6 +5,7 @@ import pytest
 from _constant import download_page
 from _helper import directory
 from _mock_data.url import internal_url
+from _mock_data.xpath import xpath
 from py.path import local
 
 from browserist import Browser, BrowserSettings
@@ -41,7 +42,7 @@ def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local)
     with Browser(browser_settings) as browser:
         directory_items_before_download = get_directory_items_count(browser_settings._download_dir)
         browser.open.url(internal_url.DOWNLOAD)
-        browser.click.button("//button[@id='download']")
+        browser.click.button(xpath.DownloadPage.DONWLOAD_BUTTON)
         wait_for_download_to_finish(browser_settings, directory_items_before_download)
         assert get_directory_items_count(browser_settings._download_dir) == directory_items_before_download + 1
         assert download_page.EXPECTED_FILE_NAME in get_directory_items(browser_settings._download_dir)

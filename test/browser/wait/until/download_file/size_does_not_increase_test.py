@@ -7,6 +7,7 @@ from _constant import download_page
 from _helper import directory
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
+from _mock_data.xpath import xpath
 from py.path import local
 
 from browserist import Browser, BrowserSettings
@@ -43,5 +44,5 @@ def test_wait_until_download_file_size_does_not_increase(tmpdir: local) -> None:
     with expectation_of_no_exceptions_raised():
         with Browser(brower_settings) as browser:
             browser.open.url(internal_url.DOWNLOAD)
-            browser.click.button("//button[@id='download']")
+            browser.click.button(xpath.DownloadPage.DONWLOAD_BUTTON)
             _ = browser.wait.until.download_file.size_does_not_increase(download_page.EXPECTED_FILE_NAME, idle_timeout.VERY_SHORT) is not None
