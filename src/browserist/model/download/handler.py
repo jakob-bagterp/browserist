@@ -5,6 +5,7 @@ from pathlib import Path
 from ... import helper_iteration
 from ...browser.wait.until.download_file.exists import wait_until_download_file_exists
 from ...browser.wait.until.download_file.size_does_not_increase import wait_until_download_file_size_does_not_increase
+from ...exception.download import DownloadHandlerMultipleFinalFilesError, DownloadHandlerMultipleTemporaryFilesError
 from ...helper.directory import get_entries as get_directory_entries
 from ...helper.file import exists as file_exists
 from ..browser.base.driver import BrowserDriver
@@ -86,7 +87,7 @@ class DownloadHandler(ABC):
                     self._temporary_file = self._as_download_dir_path(temporary_file_candidates[0])
                 case _:
                     self._temporary_file = None
-                    raise Exception("Multiple temporary files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
+                    raise DownloadHandlerMultipleTemporaryFilesError(temporary_file_candidates)
         return self._temporary_file
 
     def _attempt_to_get_final_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
@@ -111,7 +112,7 @@ class DownloadHandler(ABC):
                 self._final_file = self._as_download_dir_path(file_candidates[0])
             case _:
                 self._final_file = None
-                raise Exception("Multiple files found. Not possible to determine which is for this download.")  # TODO: Update Exception type.
+                raise DownloadHandlerMultipleFinalFilesError(file_candidates)
         return self._final_file
 
     def _await_files_in_download_dir(self) -> None:
