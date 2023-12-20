@@ -37,7 +37,7 @@ def get_download_handler(browser: Browser, download_dir_entries_before_download:
 ])
 def test_download_handler_expection_for_multiple_temporary_files(number_of_files: int, expectation: Any, tmpdir: local) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
-    brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
+    brower_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
     with Browser(brower_settings) as browser:
         browser = reset_to_not_timed_out(browser)
         download_dir_entries_before_download = []
@@ -54,7 +54,7 @@ def test_download_handler_expection_for_multiple_temporary_files(number_of_files
 ])
 def test_download_handler_expection_for_multiple_final_files(number_of_files: int, expectation: Any, tmpdir: local) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
-    brower_settings = BrowserSettings(headless=True, download_dir=download_dir)
+    brower_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
     with Browser(brower_settings) as browser:
         browser = reset_to_not_timed_out(browser)
         download_dir_entries_before_download = []
