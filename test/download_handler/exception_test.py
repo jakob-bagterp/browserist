@@ -23,7 +23,7 @@ def test_download_handler_expection_for_multiple_temporary_files(number_of_files
     with Browser(brower_settings) as browser:
         browser = reset_to_not_timed_out(browser)
         download_dir_entries_before_download = []
-        download_handler = get_download_handler(browser, download_dir_entries_before_download)
+        download_handler = get_download_handler(browser, download_dir_entries_before_download, uses_temporary_file=True)
         file.create_multiple(download_dir, f"txt{download_handler._temporary_file_extension}", number_of_files)
         with expectation:
             _ = download_handler._attempt_to_get_temporary_file() is not None
@@ -40,7 +40,7 @@ def test_download_handler_expection_for_multiple_final_files(number_of_files: in
     with Browser(brower_settings) as browser:
         browser = reset_to_not_timed_out(browser)
         download_dir_entries_before_download = []
-        download_handler = get_download_handler(browser, download_dir_entries_before_download)
+        download_handler = get_download_handler(browser, download_dir_entries_before_download, uses_temporary_file=True)
         file.create_multiple(download_dir, "txt", number_of_files)
         with expectation:
             _ = download_handler._attempt_to_get_final_file(download_dir_entries_before_download) is not None
