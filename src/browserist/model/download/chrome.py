@@ -15,6 +15,11 @@ class ChromeDownloadHandler(DownloadHandler):
     def _temporary_file_extension(self) -> str:
         return ".crdownload"
 
+    def _is_preliminary_temporary_file(self, file_name: str) -> bool:
+        """When Chrome starts a download, it may create a transient preliminary temporary file, for example `.com.google.Chrome.1a2b3c`, that evaporates quickly until a temporary file is created."""
+
+        return file_name.startswith(".com.google.Chrome") and helper.file.is_file(self._download_dir, file_name)
+
     def _is_temporary_file(self, file_name: str) -> bool:
         """When Chrome starts a download, it uses `.crdownload` as extension for temporary files.
 

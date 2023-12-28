@@ -19,6 +19,11 @@ class InternetExplorerDownloadHandler(DownloadHandler):
 
         # TODO: To be verified.
 
+    def _is_preliminary_temporary_file(self, file_name: str) -> bool:
+        return False  # Not supported by Internet Explorer.
+
+        # TODO: To be verified.
+
     def _is_temporary_file(self, file_name: str) -> bool:
         """TODO: To be verified."""
 
