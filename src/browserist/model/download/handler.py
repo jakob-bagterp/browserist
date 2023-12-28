@@ -113,12 +113,12 @@ class DownloadHandler(ABC):
                     raise DownloadHandlerMultipleTemporaryFilesError(temporary_file_candidates)
         return self._temporary_file
 
-    def _attempt_to_get_final_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
+    def _attempt_to_get_final_file(self) -> FilePath | None:
         """Attempt to get the file name of the current download."""
 
-        def get_final_file_candidates(download_dir_entries_before_download: list[str]) -> list[str]:
+        def get_final_file_candidates() -> list[str]:
             current_download_dir_entries = get_directory_entries(self._download_dir)
-            return [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
+            return [file for file in current_download_dir_entries if file not in self._download_dir_entries_before_download]
 
         if self._temporary_file_predicts_final_file and self._temporary_file is not None:
             file_candidate = self._get_temporary_file_without_extension()
@@ -127,7 +127,7 @@ class DownloadHandler(ABC):
                 self._final_file = file_candidate_path
                 return self._final_file
 
-        file_candidates = get_final_file_candidates(download_dir_entries_before_download)
+        file_candidates = get_final_file_candidates()
         match len(file_candidates):
             case 0:
                 self._final_file = None
@@ -203,7 +203,7 @@ class DownloadHandler(ABC):
         self._await_files_in_download_dir()
         self._await_no_preliminary_temporary_files()
         self._attempt_to_get_temporary_file()
-        self._attempt_to_get_final_file(self._download_dir_entries_before_download)
+        self._attempt_to_get_final_file()
         if self._final_file is not None:
             self.wait_for_expected_file(self._final_file)
         return self._final_file.path if self._final_file is not None else Path("")
