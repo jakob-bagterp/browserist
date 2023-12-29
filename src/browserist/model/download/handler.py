@@ -215,7 +215,8 @@ class DownloadHandler(ABC):
         self._await_files_in_download_dir()
         self._await_no_preliminary_temporary_file()
         self._attempt_to_get_temporary_file()
-        self._await_no_temporary_file()
+        if self._temporary_file is not None:
+            self._await_no_temporary_file()
         self._attempt_to_get_final_file()
         if self._final_file is not None:
             self.wait_for_expected_file(self._final_file)
