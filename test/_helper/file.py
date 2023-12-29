@@ -1,7 +1,8 @@
 import os
+from pathlib import Path
 
 
-def create(file_path: str) -> None:
+def create(file_path: str | Path) -> None:
     """Create test file."""
 
     with open(file_path, "w") as file:
