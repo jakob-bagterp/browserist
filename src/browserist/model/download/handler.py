@@ -120,6 +120,16 @@ class DownloadHandler(ABC):
             current_download_dir_entries = get_directory_entries(self._download_dir)
             return [file for file in current_download_dir_entries if file not in self._download_dir_entries_before_download]
 
+        def get_final_file_candidate() -> str | None:
+            file_candidates = get_final_file_candidates()
+            match len(file_candidates):
+                case 0:
+                    return None
+                case 1:
+                    return file_candidates[0]
+                case _:
+                    raise DownloadHandlerMultipleFinalFilesError(file_candidates)
+
         def quick_exit_is_possibly_and_final_file_is_already_downloaded() -> bool:
             if self._temporary_file_predicts_final_file and self._temporary_file is not None:
                 file_candidate = self._get_temporary_file_without_extension()
@@ -132,24 +142,21 @@ class DownloadHandler(ABC):
         if quick_exit_is_possibly_and_final_file_is_already_downloaded():
             return self._final_file
 
-        file_candidates = get_final_file_candidates()
-        match len(file_candidates):
-            case 0:
-                self._final_file = None
-            case 1:
-                file_candidate = file_candidates[0]
-                # In esoteric cases where the temporary file has passed through earlier checks, the final file candidate may be a temporary file.
-                if self._is_temporary_file(file_candidate):
-                    if self._temporary_file_predicts_final_file and self._temporary_file is not None:
-                        file_candidate = self._get_temporary_file_without_extension()
-                    else:
-                        temporary_file = file_candidate
-                        wait_until_download_file_size_does_not_increase(self._browser_driver, temporary_file, self._idle_download_timeout)
-                        file_candidate = get_final_file_candidates()[0]  # TODO: This is a bit of a hack as it should call the match/case function again.
-                self._final_file = self._as_download_dir_path(file_candidate)
-            case _:
-                self._final_file = None
-                raise DownloadHandlerMultipleFinalFilesError(file_candidates)
+        file_candidate = get_final_file_candidate()
+        if file_candidate is None:
+            self._final_file = None
+            return self._final_file
+        if self._is_temporary_file(file_candidate):  # In esoteric cases where the temporary file has passed through earlier checks, the final file candidate may be a temporary file.
+            if self._temporary_file_predicts_final_file and self._temporary_file is not None:
+                file_candidate = self._get_temporary_file_without_extension()
+            else:
+                temporary_file = file_candidate
+                wait_until_download_file_size_does_not_increase(self._browser_driver, temporary_file, self._idle_download_timeout)
+                file_candidate = get_final_file_candidate()
+                if file_candidate is None:
+                    self._final_file = None
+                    return self._final_file
+        self._final_file = self._as_download_dir_path(file_candidate)
         return self._final_file
 
     def _await_files_in_download_dir(self) -> None:
