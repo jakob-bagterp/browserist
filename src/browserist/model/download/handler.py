@@ -132,7 +132,16 @@ class DownloadHandler(ABC):
             case 0:
                 self._final_file = None
             case 1:
-                self._final_file = self._as_download_dir_path(file_candidates[0])
+                file_candidate = file_candidates[0]
+                # In esoteric cases where the temporary file has passed through earlier checks, the final file candidate may be a temporary file.
+                if self._is_temporary_file(file_candidate):
+                    if self._temporary_file_predicts_final_file and self._temporary_file is not None:
+                        file_candidate = self._get_temporary_file_without_extension()
+                    else:
+                        temporary_file = file_candidate
+                        wait_until_download_file_size_does_not_increase(self._browser_driver, temporary_file, self._idle_download_timeout)
+                        file_candidate = get_final_file_candidates()[0]  # TODO: This is a bit of a hack as it should call the match/case function again.
+                self._final_file = self._as_download_dir_path(file_candidate)
             case _:
                 self._final_file = None
                 raise DownloadHandlerMultipleFinalFilesError(file_candidates)
