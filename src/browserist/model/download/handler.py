@@ -49,6 +49,12 @@ class DownloadHandler(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
+    def _is_preliminary_temporary_file(self, file_name: str) -> bool:
+        """Some browsers may use transient preliminary download files, for example `.com.google.Chrome.1a2b3c` for Chrome, that evaporates quickly until a temporary file is created. Check whether a file name appears to be a preliminary temporary file for the specific browser."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @abstractmethod
     def _is_temporary_file(self, file_name: str) -> bool:
         """If browsers use temporary download files, they all have different formats. Check whether a file name appears to be a temporary file for the specific browser."""
 
@@ -71,6 +77,23 @@ class DownloadHandler(ABC):
 
         return FilePath(os.path.join(self._download_dir, file_name))
 
+    def _has_no_new_files_in_download_directory(self, download_dir_entries: list[str]) -> bool:
+        number_of_current_download_dir_entries = len(download_dir_entries)
+        number_of_download_dir_entries_before_download = len(self._download_dir_entries_before_download)
+        return number_of_current_download_dir_entries <= number_of_download_dir_entries_before_download
+
+    def _await_no_preliminary_temporary_file(self) -> None:
+        """If the browser uses preliminary temporary files transiently before a temporary file is created, wait until any preliminary files has evaporated."""
+
+        def has_any_new_preliminary_temporary_files() -> bool:
+            download_dir_entries = get_directory_entries(self._download_dir)
+            if self._has_no_new_files_in_download_directory(download_dir_entries):
+                return False
+            download_dir_entries_difference = [file for file in download_dir_entries if file not in self._download_dir_entries_before_download]
+            return any(self._is_preliminary_temporary_file(file) for file in download_dir_entries_difference)
+
+        helper_iteration.retry.until_condition_is_false(self._browser_driver, func=has_any_new_preliminary_temporary_files, timeout=self._idle_download_timeout, func_uses_browser_driver=False)
+
     def _attempt_to_get_temporary_file(self) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
 
@@ -90,29 +113,50 @@ class DownloadHandler(ABC):
                     raise DownloadHandlerMultipleTemporaryFilesError(temporary_file_candidates)
         return self._temporary_file
 
-    def _attempt_to_get_final_file(self, download_dir_entries_before_download: list[str]) -> FilePath | None:
+    def _attempt_to_get_final_file(self) -> FilePath | None:
         """Attempt to get the file name of the current download."""
 
-        def get_final_file_candidates(download_dir_entries_before_download: list[str]) -> list[str]:
+        def get_final_file_candidates() -> list[str]:
             current_download_dir_entries = get_directory_entries(self._download_dir)
-            return [file for file in current_download_dir_entries if file not in download_dir_entries_before_download]
+            return [file for file in current_download_dir_entries if file not in self._download_dir_entries_before_download]
 
-        if self._temporary_file_predicts_final_file and self._temporary_file is not None:
-            file_candidate = self._get_temporary_file_without_extension()
-            file_candidate_path = self._as_download_dir_path(file_candidate)
-            if file_exists(file_candidate_path):
-                self._final_file = file_candidate_path
-                return self._final_file
+        def get_final_file_candidate() -> str | None:
+            file_candidates = get_final_file_candidates()
+            match len(file_candidates):
+                case 0:
+                    return None
+                case 1:
+                    return file_candidates[0]
+                case _:
+                    raise DownloadHandlerMultipleFinalFilesError(file_candidates)
 
-        file_candidates = get_final_file_candidates(download_dir_entries_before_download)
-        match len(file_candidates):
-            case 0:
-                self._final_file = None
-            case 1:
-                self._final_file = self._as_download_dir_path(file_candidates[0])
-            case _:
-                self._final_file = None
-                raise DownloadHandlerMultipleFinalFilesError(file_candidates)
+        def quick_exit_is_possibly_and_final_file_is_already_downloaded() -> bool:
+            if self._temporary_file_predicts_final_file and self._temporary_file is not None:
+                file_candidate = self._get_temporary_file_without_extension()
+                file_candidate_path = self._as_download_dir_path(file_candidate)
+                if file_exists(file_candidate_path):
+                    self._final_file = file_candidate_path
+                    return True
+            return False
+
+        if quick_exit_is_possibly_and_final_file_is_already_downloaded():
+            return self._final_file
+
+        file_candidate = get_final_file_candidate()
+        if file_candidate is None:
+            self._final_file = None
+            return self._final_file
+        if self._is_temporary_file(file_candidate):  # In esoteric cases where the temporary file has passed through earlier checks, the final file candidate may be a temporary file.
+            if self._temporary_file_predicts_final_file and self._temporary_file is not None:
+                file_candidate = self._get_temporary_file_without_extension()
+            else:
+                temporary_file = file_candidate
+                wait_until_download_file_size_does_not_increase(self._browser_driver, temporary_file, self._idle_download_timeout)
+                file_candidate = get_final_file_candidate()
+                if file_candidate is None:
+                    self._final_file = None
+                    return self._final_file
+        self._final_file = self._as_download_dir_path(file_candidate)
         return self._final_file
 
     def _await_files_in_download_dir(self) -> None:
@@ -163,10 +207,10 @@ class DownloadHandler(ABC):
 
         self._await_files_in_download_dir()
         expected_file_path = self._as_download_dir_path(expected_file_name)
-
         if quick_exit_is_possibly_with_confirmed_final_file_and_then_await_download(expected_file_name):
             return
         # If no quick exit is possible, let's fall back to checking for the temporary and final files.
+        self._await_no_preliminary_temporary_file()
         if temporary_file_yields_final_file_then_await_download(expected_file_name):
             return
         elif temporary_file_is_found_then_await_download_of_final_file(expected_file_name):
@@ -178,8 +222,11 @@ class DownloadHandler(ABC):
         """Await the download to finish and return the file path."""
 
         self._await_files_in_download_dir()
+        self._await_no_preliminary_temporary_file()
         self._attempt_to_get_temporary_file()
-        self._attempt_to_get_final_file(self._download_dir_entries_before_download)
+        if self._temporary_file is not None:
+            wait_until_download_file_size_does_not_increase(self._browser_driver, self._temporary_file.name, self._idle_download_timeout)
+        self._attempt_to_get_final_file()
         if self._final_file is not None:
             self.wait_for_expected_file(self._final_file)
         return self._final_file.path if self._final_file is not None else Path("")
