@@ -12,14 +12,13 @@ from py.path import local
 from browserist import Browser, BrowserSettings, BrowserType
 
 FINAL_FILE_NAME = "file.txt"
+PRELIMINARY_TEMPORARY_FILE_NAME = ".com.google.Chrome.1a2b3c"
+TEMPORARY_FILE_EXTENSION = ".crdownload"
+TEMPORARY_FILE_NAME = f"{FINAL_FILE_NAME}{TEMPORARY_FILE_EXTENSION}"
 
 
 class SimulateFileDownloadInStagesThread(Thread):
     """NB: This is only intended to work for Chrome and Edge."""
-
-    _preliminary_temporary_file_name = ".com.google.Chrome.1a2b3c"
-    _temporary_file_extension = ".crdownload"
-    _temporary_file_name = f"{FINAL_FILE_NAME}{_temporary_file_extension}"
 
     def __init__(self, download_dir: str, preliminary_temporary_file_time: float, temporary_file_time: float) -> None:
         Thread.__init__(self)
@@ -27,9 +26,9 @@ class SimulateFileDownloadInStagesThread(Thread):
         self.preliminary_temporary_file_time = preliminary_temporary_file_time
         self.temporary_file_time = temporary_file_time
         self._download_dir_path = Path(self.download_dir)
-        self._preliminary_temporary_file_path = self._download_dir_path / self._preliminary_temporary_file_name
+        self._preliminary_temporary_file_path = self._download_dir_path / PRELIMINARY_TEMPORARY_FILE_NAME
         self._final_file_path = self._download_dir_path / FINAL_FILE_NAME
-        self._temporary_file_path = self._download_dir_path / self._temporary_file_name
+        self._temporary_file_path = self._download_dir_path / TEMPORARY_FILE_NAME
 
     def run(self) -> None:
         file.create(self._preliminary_temporary_file_path)
@@ -49,6 +48,9 @@ class TestDownloadHandlerThread(Thread):
     def run(self) -> None:
         download_handler = get_download_handler(self.browser, self.download_dir_entries_before_download, self.uses_temporary_file)
         assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
+        assert download_handler._final_file is not None and download_handler._final_file.name == FINAL_FILE_NAME
+        if download_handler._temporary_file is not None:
+            assert download_handler._temporary_file.name == TEMPORARY_FILE_NAME
 
 
 @pytest.mark.parametrize("preliminary_temporary_file_time, temporary_file_time", [
