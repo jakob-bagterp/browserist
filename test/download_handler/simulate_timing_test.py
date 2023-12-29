@@ -11,14 +11,15 @@ from py.path import local
 
 from browserist import Browser, BrowserSettings, BrowserType
 
+FINAL_FILE_NAME = "file.txt"
+
 
 class SimulateFileDownloadInStagesThread(Thread):
     """NB: This is only intended to work for Chrome and Edge."""
 
     _preliminary_temporary_file_name = ".com.google.Chrome.1a2b3c"
-    _final_file_name = "test.txt"
     _temporary_file_extension = ".crdownload"
-    _temporary_file_name = f"test.txt{_temporary_file_extension}"
+    _temporary_file_name = f"FINAL_FILE_NAME{_temporary_file_extension}"
 
     def __init__(self, download_dir: str, preliminary_temporary_file_time: float, temporary_file_time: float) -> None:
         Thread.__init__(self)
@@ -27,7 +28,7 @@ class SimulateFileDownloadInStagesThread(Thread):
         self.temporary_file_time = temporary_file_time
         self._download_dir_path = Path(self.download_dir)
         self._preliminary_temporary_file_path = self._download_dir_path / self._preliminary_temporary_file_name
-        self._final_file_path = self._download_dir_path / self._final_file_name
+        self._final_file_path = self._download_dir_path / FINAL_FILE_NAME
         self._temporary_file_path = self._download_dir_path / self._temporary_file_name
 
     def run(self) -> None:
@@ -47,7 +48,7 @@ class DownloadHandlerThread(Thread):
 
     def run(self) -> None:
         download_handler = get_download_handler(self.browser, self.download_dir_entries_before_download, self.uses_temporary_file)
-        _ = download_handler.await_and_get_final_file() is not None
+        assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
 
 
 @pytest.mark.parametrize("preliminary_temporary_file_time, temporary_file_time", [
