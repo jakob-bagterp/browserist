@@ -38,7 +38,7 @@ class SimulateFileDownloadInStagesThread(Thread):
         self._temporary_file_path.rename(self._final_file_path)
 
 
-class TestDownloadHandlerThread(Thread):
+class DownloadHandlerThread(Thread):
     def __init__(self, browser: Browser, download_dir_entries_before_download: list[str], uses_temporary_file: bool) -> None:
         Thread.__init__(self)
         self.browser = browser
@@ -86,7 +86,7 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(pr
             simulate_file_download_thread.start()
             threads.append(simulate_file_download_thread)
 
-            download_handler_thread = TestDownloadHandlerThread(browser, download_dir_entries_before_download, uses_temporary_file=True)
+            download_handler_thread = DownloadHandlerThread(browser, download_dir_entries_before_download, uses_temporary_file=True)
             download_handler_thread.start()
             threads.append(download_handler_thread)
 
