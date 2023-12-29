@@ -43,4 +43,4 @@ def test_download_handler_expection_for_multiple_final_files(number_of_files: in
         download_handler = get_download_handler(browser, download_dir_entries_before_download, uses_temporary_file=True)
         file.create_multiple(download_dir, "txt", number_of_files)
         with expectation:
-            _ = download_handler._attempt_to_get_final_file(download_dir_entries_before_download) is not None
+            _ = download_handler._attempt_to_get_final_file() is not None

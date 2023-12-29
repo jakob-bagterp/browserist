@@ -12,14 +12,13 @@ from py.path import local
 from browserist import Browser, BrowserSettings, BrowserType
 
 FINAL_FILE_NAME = "file.txt"
+PRELIMINARY_TEMPORARY_FILE_NAME = ".com.google.Chrome.1a2b3c"
+TEMPORARY_FILE_EXTENSION = ".crdownload"
+TEMPORARY_FILE_NAME = f"{FINAL_FILE_NAME}{TEMPORARY_FILE_EXTENSION}"
 
 
 class SimulateFileDownloadInStagesThread(Thread):
     """NB: This is only intended to work for Chrome and Edge."""
-
-    _preliminary_temporary_file_name = ".com.google.Chrome.1a2b3c"
-    _temporary_file_extension = ".crdownload"
-    _temporary_file_name = f"{FINAL_FILE_NAME}{_temporary_file_extension}"
 
     def __init__(self, download_dir: str, preliminary_temporary_file_time: float, temporary_file_time: float) -> None:
         Thread.__init__(self)
@@ -27,14 +26,17 @@ class SimulateFileDownloadInStagesThread(Thread):
         self.preliminary_temporary_file_time = preliminary_temporary_file_time
         self.temporary_file_time = temporary_file_time
         self._download_dir_path = Path(self.download_dir)
-        self._preliminary_temporary_file_path = self._download_dir_path / self._preliminary_temporary_file_name
+        self._preliminary_temporary_file_path = self._download_dir_path / PRELIMINARY_TEMPORARY_FILE_NAME
         self._final_file_path = self._download_dir_path / FINAL_FILE_NAME
-        self._temporary_file_path = self._download_dir_path / self._temporary_file_name
+        self._temporary_file_path = self._download_dir_path / TEMPORARY_FILE_NAME
 
     def run(self) -> None:
-        file.create(self._preliminary_temporary_file_path)
-        time.sleep(self.preliminary_temporary_file_time)
-        self._preliminary_temporary_file_path.rename(self._temporary_file_path)
+        if self.preliminary_temporary_file_time > 0:
+            file.create(self._preliminary_temporary_file_path)
+            time.sleep(self.preliminary_temporary_file_time)
+            self._preliminary_temporary_file_path.rename(self._temporary_file_path)
+        else:
+            file.create(self._temporary_file_path)
         time.sleep(self.temporary_file_time)
         self._temporary_file_path.rename(self._final_file_path)
 
@@ -49,19 +51,32 @@ class DownloadHandlerThread(Thread):
     def run(self) -> None:
         download_handler = get_download_handler(self.browser, self.download_dir_entries_before_download, self.uses_temporary_file)
         assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
+        assert download_handler._final_file is not None and download_handler._final_file.name == FINAL_FILE_NAME
+        if download_handler._temporary_file is not None:
+            assert download_handler._temporary_file.name == TEMPORARY_FILE_NAME
 
 
 @pytest.mark.parametrize("preliminary_temporary_file_time, temporary_file_time", [
     (0, 0),
-    # (0, 0.1), TODO: Skip test because it fails. To be fixed in another issue.
-    # (0, 1), TODO: Skip test because it fails. To be fixed in another issue.
-    # (0.1, 0), TODO: Skip test because it fails. To be fixed in another issue.
-    # (0.1, 0.1), TODO: Skip test because it fails. To be fixed in another issue.
-    # (0.1, 1), TODO: Skip test because it fails. To be fixed in another issue.
+    (0, 0.1),
+    (0, 0.2),
+    (0, 1),
+    (0.01, 0),
+    (0.01, 0.1),
+    (0.01, 0.2),
+    (0.01, 1),
+    (0.1, 0),
+    (0.1, 0.1),
+    (0.1, 0.2),
+    (0.1, 1),
+    (0.2, 0),
+    (0.2, 0.1),
+    (0.2, 0.2),
+    (0.2, 1),
 ])
 @pytest.mark.filterwarnings("error::pytest.PytestUnhandledThreadExceptionWarning")
 def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(preliminary_temporary_file_time: float, temporary_file_time: float, tmpdir: local) -> None:
-    """Test behaviour of `DownloadHandler` concurrently when the stages of the download file changes from preliminary to temporary to final."""
+    """Test behaviour of `DownloadHandler` concurrently with simulation of the download file when it changes from preliminary to temporary to final file."""
 
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
@@ -74,6 +89,8 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(pr
             download_dir_entries_before_download = []
             threads: list[Thread] = []
 
+            if browser_settings.type is BrowserType.EDGE:
+                preliminary_temporary_file_time = 0  # Edge does not create a preliminary temporary file, which otherwise may create issues. TODO: To be confirmed.
             simulate_file_download_thread = SimulateFileDownloadInStagesThread(download_dir, preliminary_temporary_file_time, temporary_file_time)
             simulate_file_download_thread.start()
             threads.append(simulate_file_download_thread)
