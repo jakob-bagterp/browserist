@@ -94,18 +94,6 @@ class DownloadHandler(ABC):
 
         helper_iteration.retry.until_condition_is_false(self._browser_driver, func=has_any_new_preliminary_temporary_files, timeout=self._idle_download_timeout, func_uses_browser_driver=False)
 
-    def _await_no_temporary_file(self) -> None:
-        """If the browser uses temporary files, wait until any temporary files has evaporated."""
-
-        def has_any_new_temporary_files() -> bool:
-            download_dir_entries = get_directory_entries(self._download_dir)
-            if self._has_no_new_files_in_download_directory(download_dir_entries):
-                return False
-            download_dir_entries_difference = [file for file in download_dir_entries if file not in self._download_dir_entries_before_download]
-            return any(self._is_temporary_file(file) for file in download_dir_entries_difference)
-
-        helper_iteration.retry.until_condition_is_false(self._browser_driver, func=has_any_new_temporary_files, timeout=self._idle_download_timeout, func_uses_browser_driver=False)
-
     def _attempt_to_get_temporary_file(self) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
 
@@ -216,7 +204,7 @@ class DownloadHandler(ABC):
         self._await_no_preliminary_temporary_file()
         self._attempt_to_get_temporary_file()
         if self._temporary_file is not None:
-            self._await_no_temporary_file()
+            wait_until_download_file_size_does_not_increase(self._browser_driver, self._temporary_file.name, self._idle_download_timeout)
         self._attempt_to_get_final_file()
         if self._final_file is not None:
             self.wait_for_expected_file(self._final_file)
