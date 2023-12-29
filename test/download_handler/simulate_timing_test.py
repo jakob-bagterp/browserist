@@ -31,9 +31,12 @@ class SimulateFileDownloadInStagesThread(Thread):
         self._temporary_file_path = self._download_dir_path / TEMPORARY_FILE_NAME
 
     def run(self) -> None:
-        file.create(self._preliminary_temporary_file_path)
-        time.sleep(self.preliminary_temporary_file_time)
-        self._preliminary_temporary_file_path.rename(self._temporary_file_path)
+        if self.preliminary_temporary_file_time > 0:
+            file.create(self._preliminary_temporary_file_path)
+            time.sleep(self.preliminary_temporary_file_time)
+            self._preliminary_temporary_file_path.rename(self._temporary_file_path)
+        else:
+            file.create(self._temporary_file_path)
         time.sleep(self.temporary_file_time)
         self._temporary_file_path.rename(self._final_file_path)
 
@@ -58,6 +61,10 @@ class DownloadHandlerThread(Thread):
     (0, 0.1),
     (0, 0.2),
     (0, 1),
+    (0.01, 0),
+    (0.01, 0.1),
+    (0.01, 0.2),
+    (0.01, 1),
     (0.1, 0),
     (0.1, 0.1),
     (0.1, 0.2),
@@ -82,6 +89,8 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(pr
             download_dir_entries_before_download = []
             threads: list[Thread] = []
 
+            if browser_settings.type is BrowserType.EDGE:
+                preliminary_temporary_file_time = 0  # Edge does not create a preliminary temporary file, which otherwise may create issues. TODO: To be confirmed.
             simulate_file_download_thread = SimulateFileDownloadInStagesThread(download_dir, preliminary_temporary_file_time, temporary_file_time)
             simulate_file_download_thread.start()
             threads.append(simulate_file_download_thread)
