@@ -15,3 +15,38 @@ It's only possible to set a single download directory for each browser session, 
 
 !!! note
     Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+
+## Simple Download or Get Path to Downloaded File
+You can use two main methods to download files:
+
+| Method | Description |
+| ------ | ----------- |
+| [`click.download()`](#clickdownload) | Download file as background task or await completion. |
+| [`click.download_and_get_file_path()`](#clickdownload_and_get_file_path) | Download file and return the its path after completion. |
+
+### `click.download()`
+| Method | Background Task | Benefit | Disadvantage |
+| ------ | --------------- | ------- | ------------ |
+| `browser.click.download("//xpath/to/button")` | :material-check: | Faster | If the browser quits during a download, the download may be cancelled or left uncomplete |
+| `browser.click.download("//xpath/to/button", await_download=True)` | :material-minus: | Stable download as we wait for download to complete | This will attempt to guess the file name, which may be slower |
+| `browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")` | :material-minus: | Stable download as we wait for download to complete | Slower than background task, yet faster if you know the file name |
+
+### `click.download_and_get_file_path()`
+Use this method to download a file and get its file path once the download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand. Example
+
+```python title="" linenums="1"
+from browserist import Browser
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+    file_path = browser.click.download_and_get_file_path("//xpath/to/button")
+```
+
+The return type is `Path` from the standard [`pathlib`](https://docs.python.org/3/library/pathlib.html) library, and so you can easily get the file name or absolute path. Example:
+
+```python title="" linenums="6"
+    print("File name:", file_path.name)
+    # File name: file.zip
+    print("Absolute file path:", file_path.absolute())
+    # Absolute path: /home/user/downloads/file.zip
+```
