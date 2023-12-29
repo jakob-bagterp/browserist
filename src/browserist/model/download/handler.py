@@ -120,12 +120,17 @@ class DownloadHandler(ABC):
             current_download_dir_entries = get_directory_entries(self._download_dir)
             return [file for file in current_download_dir_entries if file not in self._download_dir_entries_before_download]
 
-        if self._temporary_file_predicts_final_file and self._temporary_file is not None:
-            file_candidate = self._get_temporary_file_without_extension()
-            file_candidate_path = self._as_download_dir_path(file_candidate)
-            if file_exists(file_candidate_path):
-                self._final_file = file_candidate_path
-                return self._final_file
+        def quick_exit_is_possibly_and_final_file_is_already_downloaded() -> bool:
+            if self._temporary_file_predicts_final_file and self._temporary_file is not None:
+                file_candidate = self._get_temporary_file_without_extension()
+                file_candidate_path = self._as_download_dir_path(file_candidate)
+                if file_exists(file_candidate_path):
+                    self._final_file = file_candidate_path
+                    return True
+            return False
+
+        if quick_exit_is_possibly_and_final_file_is_already_downloaded():
+            return self._final_file
 
         file_candidates = get_final_file_candidates()
         match len(file_candidates):
