@@ -19,7 +19,7 @@ class SimulateFileDownloadInStagesThread(Thread):
 
     _preliminary_temporary_file_name = ".com.google.Chrome.1a2b3c"
     _temporary_file_extension = ".crdownload"
-    _temporary_file_name = f"FINAL_FILE_NAME{_temporary_file_extension}"
+    _temporary_file_name = f"{FINAL_FILE_NAME}{_temporary_file_extension}"
 
     def __init__(self, download_dir: str, preliminary_temporary_file_time: float, temporary_file_time: float) -> None:
         Thread.__init__(self)
