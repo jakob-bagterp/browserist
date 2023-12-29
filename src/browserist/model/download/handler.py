@@ -77,17 +77,17 @@ class DownloadHandler(ABC):
 
         return FilePath(os.path.join(self._download_dir, file_name))
 
+    def _has_no_new_files_in_download_directory(self, download_dir_entries: list[str]) -> bool:
+        number_of_current_download_dir_entries = len(download_dir_entries)
+        number_of_download_dir_entries_before_download = len(self._download_dir_entries_before_download)
+        return number_of_current_download_dir_entries <= number_of_download_dir_entries_before_download
+
     def _await_no_preliminary_temporary_file(self) -> None:
         """If the browser uses preliminary temporary files transiently before a temporary file is created, wait until any preliminary files has evaporated."""
 
-        def has_no_new_files_in_download_directory(download_dir_entries: list[str]) -> bool:
-            number_of_current_download_dir_entries = len(download_dir_entries)
-            number_of_download_dir_entries_before_download = len(self._download_dir_entries_before_download)
-            return number_of_current_download_dir_entries <= number_of_download_dir_entries_before_download
-
         def has_any_new_preliminary_temporary_files() -> bool:
             download_dir_entries = get_directory_entries(self._download_dir)
-            if has_no_new_files_in_download_directory(download_dir_entries):
+            if self._has_no_new_files_in_download_directory(download_dir_entries):
                 return False
             download_dir_entries_difference = [file for file in download_dir_entries if file not in self._download_dir_entries_before_download]
             return any(self._is_preliminary_temporary_file(file) for file in download_dir_entries_difference)
