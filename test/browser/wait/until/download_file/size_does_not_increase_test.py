@@ -26,8 +26,8 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
         return _helper.time.get_difference(start_time, stop_time)
 
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
-    brower_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
-    with Browser(brower_settings) as browser:
+    browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
+    with Browser(browser_settings) as browser:
         reset_to_not_timed_out(browser)
         _ = get_time_for_wait_until_download_file_size_does_not_increase(browser)  # Dry run.
         time_without_file = get_time_for_wait_until_download_file_size_does_not_increase(browser)
@@ -40,9 +40,9 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
 
 def test_wait_until_download_file_size_does_not_increase(tmpdir: local) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
-    brower_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
+    browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
     with expectation_of_no_exceptions_raised():
-        with Browser(brower_settings) as browser:
+        with Browser(browser_settings) as browser:
             browser.open.url(internal_url.DOWNLOAD)
             browser.click.button(xpath.DownloadPage.DONWLOAD_BUTTON)
             _ = browser.wait.until.download_file.size_does_not_increase(download_page.EXPECTED_FILE_NAME, idle_timeout.VERY_SHORT) is not None

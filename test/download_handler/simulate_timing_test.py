@@ -64,11 +64,11 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(pr
     """Test behaviour of `DownloadHandler` concurrently when the stages of the download file changes from preliminary to temporary to final."""
 
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
-    brower_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
-    if brower_settings.type not in [BrowserType.CHROME, BrowserType.EDGE]:
-        pytest.skip(f"Timing tests for DownloadHandler are only supported by Chrome and Edge, not {brower_settings.type}.")
+    browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
+    if browser_settings.type not in [BrowserType.CHROME, BrowserType.EDGE]:
+        pytest.skip(f"Timing tests for DownloadHandler are only supported by Chrome and Edge, not {browser_settings.type}.")
 
-    with Browser(brower_settings) as browser:
+    with Browser(browser_settings) as browser:
         with expectation_of_no_exceptions_raised():
             browser = reset_to_not_timed_out(browser)
             download_dir_entries_before_download = []
