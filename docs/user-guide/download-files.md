@@ -8,7 +8,7 @@ Instead of using the [`click.button()`](../reference/browser/click.md#browserist
 
 Read ahead to learn how to automate file downloads easily and with stability.
 
-## Set Up Destination Directory for Downloads
+## Destination Directory for Downloads
 Firstly, ensure you know where files are downloaded. The default is the `Downloads` folder of the user, or you can set a custom download directory in the [`download_dir` parameter of `BrowserSettings`](./settings/overview.md).
 
 It's only possible to set a single download directory for each browser session, not different destinations for different downloads.
