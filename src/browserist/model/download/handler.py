@@ -77,7 +77,7 @@ class DownloadHandler(ABC):
 
         return FilePath(os.path.join(self._download_dir, file_name))
 
-    def _await_no_preliminary_temporary_files(self) -> None:
+    def _await_no_preliminary_temporary_file(self) -> None:
         """If the browser uses preliminary temporary files transiently before a temporary file is created, wait until any preliminary files has evaporated."""
 
         def has_no_new_files_in_download_directory(download_dir_entries: list[str]) -> bool:
@@ -189,7 +189,7 @@ class DownloadHandler(ABC):
         if quick_exit_is_possibly_with_confirmed_final_file_and_then_await_download(expected_file_name):
             return
         # If no quick exit is possible, let's fall back to checking for the temporary and final files.
-        self._await_no_preliminary_temporary_files()
+        self._await_no_preliminary_temporary_file()
         if temporary_file_yields_final_file_then_await_download(expected_file_name):
             return
         elif temporary_file_is_found_then_await_download_of_final_file(expected_file_name):
@@ -201,7 +201,7 @@ class DownloadHandler(ABC):
         """Await the download to finish and return the file path."""
 
         self._await_files_in_download_dir()
-        self._await_no_preliminary_temporary_files()
+        self._await_no_preliminary_temporary_file()
         self._attempt_to_get_temporary_file()
         self._attempt_to_get_final_file()
         if self._final_file is not None:
