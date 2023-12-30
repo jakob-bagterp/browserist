@@ -59,8 +59,8 @@ with Browser(settings) as browser:
 The return type is `Path` from the standard [`pathlib`](https://docs.python.org/3/library/pathlib.html) library, and so you can easily get the file name or absolute path. For instance:
 
 ```python title="" linenums="6"
-    print("File name:", file_path.name)
-    # File name: file.zip
-    print("Absolute file path:", file_path.absolute())
-    # Absolute path: /home/user/downloads/file.zip
+    print(file_path.name)
+    # file.zip
+    print(file_path.absolute())
+    # /home/user/downloads/file.zip
 ```
