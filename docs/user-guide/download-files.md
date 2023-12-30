@@ -25,11 +25,25 @@ You can use two main methods to download files:
 | [`click.download_and_get_file_path()`](#clickdownload_and_get_file_path) | Download file and return the its path after completion. |
 
 ### `click.download()`
-| Method | Background Task | Benefit | Disadvantage |
+Simple download of a file, either as a background task or await the download to complete. Options:
+
+| Parameters | Background Task | Benefit | Disadvantage |
 | ------ | --------------- | ------- | ------------ |
-| `browser.click.download("//xpath/to/button")` | :material-check: | Faster | If the browser quits during a download, the download may be cancelled or left uncomplete |
-| `browser.click.download("//xpath/to/button", await_download=True)` | :material-minus: | Stable download as we wait for download to complete | This will attempt to guess the file name, which may be slower |
-| `browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")` | :material-minus: | Stable download as we wait for download to complete | Slower than background task, yet faster if you know the file name |
+| `"//xpath/to/button"` | :material-check: | Faster | If the browser quits during a download, the download may be cancelled or left uncomplete |
+| ...<br>`await_download=True` | :material-minus: | Stable download as we wait for download to complete | This will attempt to guess the file name, which may be slower |
+| ...<br>`expected_file_name="file.zip"` | :material-minus: | Stable download as we wait for download to complete | Slower than background task, yet faster if you know the file name |
+
+Examples in context:
+
+```python title="" linenums="1"
+from browserist import Browser
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+    browser.click.download("//xpath/to/button")
+    browser.click.download("//xpath/to/button", await_download=True)
+    browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")
+```
 
 ### `click.download_and_get_file_path()`
 Use this method to download a file and get its file path once the download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand. Example
