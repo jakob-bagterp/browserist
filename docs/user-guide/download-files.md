@@ -22,7 +22,7 @@ There are two main methods you can use to download files:
 | Method | Description |
 | ------ | ----------- |
 | [`click.download()`](#simple-download) | Download file as background task or await completion |
-| [`click.download_and_get_file_path()`](#get-path-to-downloaded-file) | Download file and return the its path after completion |
+| [`click.download_and_get_file_path()`](#get-path-to-downloaded-file) | Download file and return its path after completion |
 
 ### Simple Download
 Use the `click.download()` method for simple file downloads, either as a background task or await the download to complete. Options:
