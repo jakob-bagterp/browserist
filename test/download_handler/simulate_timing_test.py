@@ -90,7 +90,7 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(pr
             threads: list[Thread] = []
 
             if browser_settings.type is BrowserType.EDGE:
-                preliminary_temporary_file_time = 0  # Edge does not create a preliminary temporary file, which otherwise may create issues. TODO: To be confirmed.
+                preliminary_temporary_file_time = 0  # Edge does not create a preliminary temporary file, which otherwise may create issues in the download file simulation.
             simulate_file_download_thread = SimulateFileDownloadInStagesThread(download_dir, preliminary_temporary_file_time, temporary_file_time)
             simulate_file_download_thread.start()
             threads.append(simulate_file_download_thread)

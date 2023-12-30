@@ -18,8 +18,6 @@ class SafariDownloadHandler(DownloadHandler):
     def _is_preliminary_temporary_file(self, file_name: str) -> bool:
         return False  # Not supported by Safari.
 
-        # TODO: To be verified.
-
     def _is_temporary_file(self, file_name: str) -> bool:
         """When Safari starts a download, it uses `.download` as extension for temporary files.
 
