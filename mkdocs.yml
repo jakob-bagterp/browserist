@@ -23,6 +23,7 @@ nav:
     - user-guide/index.md
     - Navigation: user-guide/navigation.md
     - Context Manager: user-guide/context-manager.md
+    - Download Files: user-guide/download-files.md
     - Settings:
       - Overview: user-guide/settings/overview.md
       - Browser Types: user-guide/settings/browser-types.md
