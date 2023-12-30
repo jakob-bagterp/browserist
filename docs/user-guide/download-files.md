@@ -16,16 +16,16 @@ It's only possible to set a single download directory for each browser session, 
 !!! note
     Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
 
-## Simple Download or Get Path to Downloaded File
+## Methods
 You can use two main methods to download files:
 
 | Method | Description |
 | ------ | ----------- |
-| [`click.download()`](#clickdownload) | Download file as background task or await completion. |
-| [`click.download_and_get_file_path()`](#clickdownload_and_get_file_path) | Download file and return the its path after completion. |
+| [`click.download()`](#simple-download) | Download file as background task or await completion. |
+| [`click.download_and_get_file_path()`](#get-path-to-downloaded-file) | Download file and return the its path after completion. |
 
-### `click.download()`
-Simple download of a file, either as a background task or await the download to complete. Options:
+### Simple Download
+Use the `click.download()` method for simple file downloads, either as a background task or await the download to complete. Options:
 
 | Parameters | Background Task | Benefit | Disadvantage |
 | ------ | --------------- | ------- | ------------ |
@@ -45,8 +45,8 @@ with Browser(settings) as browser:
     browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")
 ```
 
-### `click.download_and_get_file_path()`
-Use this method to download a file and get its file path once the download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand. Example
+### Get Path to Downloaded File
+Use the `click.download_and_get_file_path()` method to download a file and get its file path once the download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand. Example
 
 ```python title="" linenums="1"
 from browserist import Browser
