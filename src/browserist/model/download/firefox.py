@@ -18,8 +18,6 @@ class FirefoxDownloadHandler(DownloadHandler):
     def _is_preliminary_temporary_file(self, file_name: str) -> bool:
         return False  # Not supported by Firefox.
 
-        # TODO: To be verified.
-
     def _is_temporary_file(self, file_name: str) -> bool:
         """When Firefox starts a download, it uses `.part` as extension for temporary files.
 
