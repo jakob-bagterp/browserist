@@ -28,4 +28,4 @@ class OppoDevices:
     R9 = DeviceViewportSize(360, 740)  # TODO: To be verified.
 
     A53 = DeviceViewportSize(360, 740)  # TODO: To be verified.
-    A37 = DeviceViewportSize(360, 740)  # TODO: To be verified.
+    A37 = DeviceViewportSize(360, 640)
