@@ -65,7 +65,7 @@ class AppleDevices:
 
     IPHONE_SE_3RD_GEN = DeviceViewportSize(375, 667)
     IPHONE_SE_2ND_GEN = DeviceViewportSize(375, 667)
-    IPHONE_SE = DeviceViewportSize(320, 568)
+    IPHONE_SE_1ST_GEN = DeviceViewportSize(320, 568)
 
     IPAD_PRO_12_9_INCH_6TH_GEN = DeviceViewportSize(1024, 1366)
     IPAD_PRO_12_9_INCH_5TH_GEN = DeviceViewportSize(1024, 1366)
