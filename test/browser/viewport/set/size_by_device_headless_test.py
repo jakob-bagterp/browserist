@@ -7,9 +7,8 @@ from browserist import Browser, DeviceViewportSize, common_devices
 
 @pytest.mark.parametrize("device", [
     common_devices.Apple.IPHONE_6,
-    common_devices.Apple.IPHONE_SE,
-    common_devices.Apple.IPAD_AIR_2,
-    common_devices.Apple.IPAD_AIR_2,
+    common_devices.Apple.IPHONE_SE_1ST_GEN,
+    common_devices.Apple.IPAD_AIR_2ND_GEN,
     common_devices.Apple.IPAD_PRO_9_7_INCH,
 ])
 def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_default_headless: Browser) -> None:
