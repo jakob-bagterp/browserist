@@ -21,4 +21,5 @@ class VivoDevices:
         ```
     """
 
+    Y55S = DeviceViewportSize(360, 640)
     Y20 = DeviceViewportSize(385, 854)
