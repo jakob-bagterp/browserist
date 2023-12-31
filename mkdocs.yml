@@ -95,6 +95,7 @@ nav:
       - common_devices:
         - Apple: reference/viewport/common_devices/apple.md
         - Google: reference/viewport/common_devices/google.md
+        - Huawei: reference/viewport/common_devices/huawei.md
         - Microsoft: reference/viewport/common_devices/microsoft.md
         - Samsung: reference/viewport/common_devices/samsung.md
 

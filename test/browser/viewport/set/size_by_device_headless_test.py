@@ -10,6 +10,7 @@ from browserist import Browser, DeviceViewportSize, common_devices
     common_devices.Apple.IPHONE_SE_1ST_GEN,
     common_devices.Apple.IPAD_AIR_2ND_GEN,
     common_devices.Apple.IPAD_PRO_9_7_INCH,
+    common_devices.Huawei.P40_LITE,
 ])
 def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
