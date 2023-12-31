@@ -98,6 +98,7 @@ nav:
         - Huawei: reference/viewport/common_devices/huawei.md
         - Microsoft: reference/viewport/common_devices/microsoft.md
         - Samsung: reference/viewport/common_devices/samsung.md
+        - Xiaomi: reference/viewport/common_devices/xiaomi.md
 
 theme:
   name: material
