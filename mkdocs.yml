@@ -97,6 +97,7 @@ nav:
         - Google: reference/viewport/common_devices/google.md
         - Huawei: reference/viewport/common_devices/huawei.md
         - Microsoft: reference/viewport/common_devices/microsoft.md
+        - OnePlus: reference/viewport/common_devices/oneplus.md
         - Samsung: reference/viewport/common_devices/samsung.md
         - Xiaomi: reference/viewport/common_devices/xiaomi.md
 

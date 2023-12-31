@@ -2,6 +2,7 @@ from .collection.apple import AppleDevices
 from .collection.google import GoogleDevices
 from .collection.huawei import HuaweiDevices
 from .collection.microsoft import MicrosoftDevices
+from .collection.oneplus import OnePlusDevices
 from .collection.samsung import SamsungDevices
 from .collection.xiaomi import XiaomiDevices
 
@@ -9,5 +10,6 @@ Apple = AppleDevices
 Google = GoogleDevices
 Huawei = HuaweiDevices
 Microsoft = MicrosoftDevices
+OnePlus = OnePlusDevices
 Samsung = SamsungDevices
 Xiaomi = XiaomiDevices

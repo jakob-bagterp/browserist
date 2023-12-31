@@ -10,6 +10,7 @@ from browserist import Browser, DeviceViewportSize, common_devices
     common_devices.Apple.IPHONE_SE_1ST_GEN,
     common_devices.Apple.IPAD_AIR_2ND_GEN,
     common_devices.Apple.IPAD_PRO_9_7_INCH,
+    common_devices.OnePlus.ONEPLUS_8_PRO,
     common_devices.Huawei.P40_LITE,
     common_devices.Xiaomi.MI_10_PRO,
 ])
