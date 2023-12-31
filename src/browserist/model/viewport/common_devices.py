@@ -4,6 +4,7 @@ from .collection.huawei import HuaweiDevices
 from .collection.microsoft import MicrosoftDevices
 from .collection.oneplus import OnePlusDevices
 from .collection.samsung import SamsungDevices
+from .collection.vivo import VivoDevices
 from .collection.xiaomi import XiaomiDevices
 
 Apple = AppleDevices
@@ -12,4 +13,5 @@ Huawei = HuaweiDevices
 Microsoft = MicrosoftDevices
 OnePlus = OnePlusDevices
 Samsung = SamsungDevices
+Vivo = VivoDevices
 Xiaomi = XiaomiDevices

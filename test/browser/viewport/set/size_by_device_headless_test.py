@@ -15,6 +15,7 @@ from browserist import Browser, DeviceViewportSize, common_devices
     common_devices.Microsoft.SURFACE_PRO_7,
     common_devices.OnePlus.ONEPLUS_8_PRO,
     common_devices.Samsung.GALAXY_S8_PLUS,
+    common_devices.Vivo.Y20,
     common_devices.Xiaomi.MI_10_PRO,
 ])
 def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_default_headless: Browser) -> None:
