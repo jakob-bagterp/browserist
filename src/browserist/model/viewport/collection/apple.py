@@ -23,6 +23,33 @@ class AppleDevices:
         ```
     """
 
+    IPHONE_15_PRO_MAX = DeviceViewportSize(430, 932)
+    IPHONE_15_PRO = DeviceViewportSize(393, 852)
+    IPHONE_15_PLUS = DeviceViewportSize(430, 932)
+    IPHONE_15 = DeviceViewportSize(393, 852)
+
+    IPHONE_14_PRO_MAX = DeviceViewportSize(430, 932)
+    IPHONE_14_PRO = DeviceViewportSize(393, 852)
+    IPHONE_14_PLUS = DeviceViewportSize(428, 926)
+    IPHONE_14 = DeviceViewportSize(390, 844)
+
+    IPHONE_13_PRO_MAX = DeviceViewportSize(428, 926)
+    IPHONE_13_PRO = DeviceViewportSize(390, 844)
+    IPHONE_13_MINI = DeviceViewportSize(375, 812)
+    IPHONE_13 = DeviceViewportSize(390, 844)
+
+    IPHONE_12_PRO_MAX = DeviceViewportSize(428, 926)
+    IPHONE_12_PRO = DeviceViewportSize(390, 844)
+    IPHONE_12_MINI = DeviceViewportSize(375, 812)
+    IPHONE_12 = DeviceViewportSize(390, 844)
+
+    IPHONE_11_PRO_MAX = DeviceViewportSize(414, 896)
+    IPHONE_11_PRO = DeviceViewportSize(375, 812)
+    IPHONE_11 = DeviceViewportSize(414, 896)
+
+    IPHONE_XS_MAX = DeviceViewportSize(414, 896)
+    IPHONE_XS = DeviceViewportSize(375, 812)
+    IPHONE_XR = DeviceViewportSize(414, 896)
     IPHONE_X = DeviceViewportSize(375, 812)
 
     IPHONE_8_PLUS = DeviceViewportSize(414, 736)
@@ -36,6 +63,8 @@ class AppleDevices:
     IPHONE_6_PLUS = DeviceViewportSize(375, 667)
     IPHONE_6 = DeviceViewportSize(375, 667)
 
+    IPHONE_SE_3RD_GEN = DeviceViewportSize(375, 667)
+    IPHONE_SE_2ND_GEN = DeviceViewportSize(375, 667)
     IPHONE_SE = DeviceViewportSize(320, 568)
 
     IPAD_PRO_12_9_INCH_2ND_GEN = DeviceViewportSize(1024, 1366)
