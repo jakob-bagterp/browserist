@@ -5,6 +5,6 @@ lxml==5.0.0
 mypy==1.8.0
 pillow==10.1.0
 pre-commit==3.6.0
-pytest==7.4.3
+pytest==7.4.4
 pytest-cov==4.1.0
 tox==4.11.4
