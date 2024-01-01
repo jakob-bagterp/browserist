@@ -1,4 +1,4 @@
-coverage==7.3.4
+coverage==7.4.0
 flake8==6.1.0
 keyring==24.3.0
 lxml==4.9.4
