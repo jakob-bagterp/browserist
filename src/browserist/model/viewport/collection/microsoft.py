@@ -21,5 +21,17 @@ class MicrosoftDevices:
         ```
     """
 
+    SURFACE_PRO_X = DeviceViewportSize(960, 1440)
     SURFACE_PRO_7 = DeviceViewportSize(912, 1368)
+    SURFACE_PRO_6 = DeviceViewportSize(912, 1368)
+    SURFACE_PRO_5 = DeviceViewportSize(912, 1368)
+    SURFACE_PRO_4 = DeviceViewportSize(912, 1368)
+    SURFACE_PRO_3 = DeviceViewportSize(960, 1440)
+    SURFACE_PRO_2 = DeviceViewportSize(720, 1280)
+    SURFACE_PRO_1 = DeviceViewportSize(720, 1280)
+
+    SURFACE_3 = DeviceViewportSize(720, 1280)
+    SURFACE_2 = DeviceViewportSize(720, 1280)
+    SURFACE_1 = DeviceViewportSize(768, 1366)
+
     SURFACE_DUO = DeviceViewportSize(540, 720)
