@@ -1,5 +1,5 @@
 chromedriver==109.0.5414.74
-lxml==5.0.0
+lxml==5.0.1
 pillow==10.1.0
 requests==2.31.0
 selenium==4.16.0
