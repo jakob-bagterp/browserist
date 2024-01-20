@@ -13,12 +13,15 @@ class ComboDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def cookie_banner(self, settings: CookieBannerSettings, timeout: float | None = None) -> None:
+    def cookie_banner(self, settings: CookieBannerSettings, timeout: float | None = None) -> bool | None:
         """Standardised combination of methods to accept or decline cookies.
 
         Args:
             settings (CookieBannerSettings): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Returns:
+            bool: `True` if cookie banner is handled succesfully, `False` or `None` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -32,6 +35,15 @@ class ComboDriverMethods(DriverMethods):
             with Browser() as browser:
                 browser.combo.cookie_banner(accept_cookies)
                 browser.open.url("https://example.com/some_page")
+            ```
+
+            Or use succesfull handling of the cookie banner as conditional to continue:
+
+            ```python title="" linenums="8"
+            with Browser() as browser:
+                if browser.combo.cookie_banner(accept_cookies)
+                    browser.open.url("https://example.com/some_page")
+                    browser.click.button("//xpath/to/button")
             ```
         """
 
