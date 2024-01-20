@@ -11,8 +11,8 @@ from browserist import Browser, CookieBannerSettings
 
 
 @pytest.mark.parametrize("cookie_banner_settings", [
-    COOKIE_BANNER_SETTINGS_WITH_IFRAME,
-    COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME,
+    (COOKIE_BANNER_SETTINGS_WITH_IFRAME),
+    (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME),
 ])
 def test_combo_cookie_banner(
     cookie_banner_settings: CookieBannerSettings,
@@ -40,8 +40,8 @@ def test_combo_cookie_banner_return_iframe_to_origin(
 
 
 @pytest.mark.parametrize("cookie_banner_settings", [
-    COOKIE_BANNER_SETTINGS_WITH_IFRAME,
-    COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME,
+    (COOKIE_BANNER_SETTINGS_WITH_IFRAME),
+    (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME),
 ])
 def test_combo_cookie_banner_has_loaded_wait_seconds(
     cookie_banner_settings: CookieBannerSettings,
@@ -67,8 +67,8 @@ def test_combo_cookie_banner_has_loaded_wait_seconds(
 
 
 @pytest.mark.parametrize("cookie_banner_settings", [
-    COOKIE_BANNER_SETTINGS_WITH_IFRAME,
-    COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME,
+    (COOKIE_BANNER_SETTINGS_WITH_IFRAME),
+    (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME),
 ])
 def test_combo_cookie_banner_has_disappeared_wait_seconds(
     cookie_banner_settings: CookieBannerSettings,
