@@ -18,3 +18,14 @@ COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME = CookieBannerSettings(
     has_loaded_xpath=COOKIE_BANNER_CONTAINER_XPATH,
     button_xpath=ACCEPT_BUTTON_XPATH,
 )
+
+COOKIE_BANNER_SETTINGS_WITH_SUCCESS_STATE = CookieBannerSettings(
+    url=internal_url.COOKIE_BANNER_WITHOUT_IFRAME,
+    has_loaded_xpath=COOKIE_BANNER_CONTAINER_XPATH,
+    button_xpath=ACCEPT_BUTTON_XPATH,
+)
+COOKIE_BANNER_SETTINGS_WITH_ERROR_STATE = CookieBannerSettings(
+    url=internal_url.COOKIE_BANNER_WITHOUT_IFRAME,
+    has_loaded_xpath=COOKIE_BANNER_CONTAINER_XPATH,
+    button_xpath="//no/button",
+)

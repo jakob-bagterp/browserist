@@ -3,7 +3,9 @@ from contextlib import nullcontext as expectation_of_no_exceptions_raised
 
 import _helper
 import pytest
-from _config.combo.cookie_banner import COOKIE_BANNER_SETTINGS_WITH_IFRAME, COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME
+from _config.combo.cookie_banner import (COOKIE_BANNER_SETTINGS_WITH_ERROR_STATE, COOKIE_BANNER_SETTINGS_WITH_IFRAME,
+                                         COOKIE_BANNER_SETTINGS_WITH_SUCCESS_STATE,
+                                         COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME)
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
@@ -91,3 +93,17 @@ def test_combo_cookie_banner_has_disappeared_wait_seconds(
         time_difference_a_b = _helper.time.get_difference(has_disappeared_wait_seconds_a, has_disappeared_wait_seconds_b)
         time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
         assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 30)
+
+
+@pytest.mark.parametrize("cookie_banner_settings, expected_state", [
+    (COOKIE_BANNER_SETTINGS_WITH_SUCCESS_STATE, True),
+    (COOKIE_BANNER_SETTINGS_WITH_ERROR_STATE, False),
+])
+def test_combo_cookie_banner_state(
+    cookie_banner_settings: CookieBannerSettings,
+    expected_state: bool,
+    browser_default_headless_disable_images: Browser
+) -> None:
+    browser = reset_to_not_timed_out(browser_default_headless_disable_images)
+    state = browser.combo.cookie_banner(cookie_banner_settings)
+    assert state == expected_state
