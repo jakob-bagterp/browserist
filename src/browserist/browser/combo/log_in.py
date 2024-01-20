@@ -32,7 +32,7 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
             click_button(browser_driver, login_form.password_submit_button_xpath, timeout)
 
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
-    browser_driver: BrowserDriver = driver_method._browser_driver
+    browser_driver = driver_method._browser_driver
 
     if login_form.url is not None and timeout_should_continue():
         open_url_if_not_current(browser_driver, login_form.url)

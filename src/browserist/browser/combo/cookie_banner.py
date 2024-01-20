@@ -1,7 +1,6 @@
 import time
 
 from ... import constant
-from ...model.browser.base.driver import BrowserDriver
 from ...model.combo_settings.cookie_banner import CookieBannerSettings
 from ...model.combo_settings.handling_state import ComboHandlingState, IsComboHandled
 from ...model.driver_methods import DriverMethods
@@ -17,8 +16,8 @@ from ..wait.until.element_disappears import wait_until_element_disappears
 
 def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBannerSettings, timeout: float) -> bool | None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
-    browser_driver: BrowserDriver = driver_method._browser_driver
-    handling_state: ComboHandlingState = ComboHandlingState()
+    browser_driver = driver_method._browser_driver
+    handling_state = ComboHandlingState()
 
     # Load cookie banner:
     if cookie_banner.url is not None and timeout_should_continue():
