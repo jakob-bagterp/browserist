@@ -49,4 +49,4 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     if cookie_banner.iframe_xpath is not None and timeout_should_continue():
         switch_to_original_page(browser_driver)
 
-    return handling_state.get_current_state()
+    return handling_state.get_state()

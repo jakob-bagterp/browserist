@@ -24,5 +24,7 @@ class ComboHandlingState():
         self.current: IsComboHandled = current
 
     @classmethod
-    def get_current_state(cls) -> bool | None:
+    def get_state(cls) -> bool | None:
+        """Get current state"""
+
         return cls.current.value  # type: ignore
