@@ -1,6 +1,6 @@
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait  # type: ignore
+from selenium.webdriver.support.wait import WebDriverWait
 
 from ....exception.timeout import WaitForWindowTimeoutException
 from ....helper.timeout import set_is_timed_out, should_continue
@@ -12,7 +12,7 @@ def wait_until_number_of_window_handles_is(browser_driver: BrowserDriver, expect
         raise ValueError("Expected handles must be greater than or equal to 0.")
     try:
         driver = browser_driver.get_webdriver()
-        WebDriverWait(driver, timeout).until(EC.number_of_windows_to_be(expected_handles))  # type: ignore
+        WebDriverWait(driver, timeout).until(EC.number_of_windows_to_be(expected_handles))
     except TimeoutException:
         browser_driver.settings = set_is_timed_out(browser_driver.settings)
         if not should_continue(browser_driver.settings):

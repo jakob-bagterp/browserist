@@ -1,4 +1,4 @@
-name: codecov
+name: CodeCov
 
 on:
   push:
@@ -9,22 +9,20 @@ jobs:
   codecov:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: "3.10"
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pytest-cov selenium pillow lxml keyring
+        pip install pytest pytest-cov selenium pillow lxml keyring requests
     - name: Generate coverage report
         # The list of "--ignore=..." arguments should be identical to the exclusion list in Tox.ini, though without comments:
       run: >
         pytest --cov=./ --cov-report=xml
-        --ignore=test/browser/combo/cookie_banner_test.py
-        --ignore=test/browser/combo/login_test.py
-        --ignore=test/browser/combo/search_test.py
+        --ignore=test/browser/input/select_1_test.py
         --ignore=test/browser/input/select_headless_exception_test.py
         --ignore=test/browser/viewport/get/height_non_headless_test.py
         --ignore=test/browser/viewport/get/size_non_headless_1_test.py
@@ -41,12 +39,15 @@ jobs:
         --ignore=test/browser/window/maximize_test.py
         --ignore=test/browser/window/minimize_test.py
         --ignore=test/browser/open/url_if_not_current_by_timing_performance_test.py
-        --ignore=test/browser/wait/random_time_test.py
+        --ignore=test/browser/wait/random_seconds_test.py
+        --ignore=test/browser/wait/seconds_test.py
         --ignore=test/browser/check_if/is_image_loaded_test.py
+        --ignore=test/browser/scroll/check_if/is_end_of_page_flow_test.py
         --ignore=test/browser/wait/until/images_have_loaded_test.py
         --ignore=test/helper/image/is_element_loaded_test.py
+        --ignore=test/settings/download_dir/is_file_downloaded_test.py
         --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
-    - name: Upload coverage to Codecov
+    - name: Upload coverage report to CodeCov
       run: |
         curl -Os https://uploader.codecov.io/latest/linux/codecov
         chmod +x codecov

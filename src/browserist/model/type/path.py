@@ -20,3 +20,9 @@ class FilePath(str):
 
     def __repr__(self) -> str:
         return str(self.path.resolve())
+
+    @property
+    def name(self) -> str:
+        """Return the name of the file or directory. For example: `file.zip` from `/path/to/file.zip`."""
+
+        return self.path.name

@@ -9,5 +9,5 @@ def clear_input_field(browser_driver: BrowserDriver, xpath: str, timeout: float)
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
-    input_field = driver.find_element(By.XPATH, xpath)  # type: ignore
+    input_field = driver.find_element(By.XPATH, xpath)
     input_field.clear()

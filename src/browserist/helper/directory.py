@@ -8,10 +8,10 @@ from . import operating_system
 
 
 def create_if_not_exists(dir_name: FilePath) -> None:
-    if dir_name == directory.PROJECT_WORKING_DIR:
+    if dir_name.path == directory.PROJECT_WORKING_DIR:
         return
     if not os.path.exists(dir_name):
-        os.mkdir(dir_name)
+        os.makedirs(dir_name)
 
 
 def encode_path_as_url(path: str) -> str:
@@ -27,6 +27,12 @@ def ensure_windows_file_path_format_encoding_as_url(path: str) -> str:
     if re.match(r"^file:/+[A-Za-z]:", output, re.IGNORECASE):
         output = re.sub(r"^file:/+", "file:///", output, re.IGNORECASE)
     return encode_path_as_url(output)
+
+
+def get_entries(path: FilePath) -> list[str]:
+    """Get all file and directory names in a directory."""
+
+    return os.listdir(path)
 
 
 def update_path_format_if_windows(path: str) -> str:

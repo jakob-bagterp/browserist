@@ -1,7 +1,6 @@
-include HOW_TO_INSTALL.md
+include README.md
 include LICENSE.md
 include pyproject.toml
-include README.md
 include setup.cfg
 
 graft src

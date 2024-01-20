@@ -9,14 +9,19 @@ class IframeDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def switch_to(self, xpath: str, timeout: float | None = None) -> None:
-        """Switch to iframe."""
+        """Switch to iframe.
+
+        Args:
+            xpath (str): XPath of the iframe.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+        """
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             switch_to_iframe(self._browser_driver, xpath, timeout)
 
     def switch_to_original_page(self) -> None:
-        """After switch to iframe, use this to go back to the original page."""
+        """After switch to iframe, use this to come back to the original page."""
 
         if self._timeout_should_continue():
             switch_to_original_page(self._browser_driver)

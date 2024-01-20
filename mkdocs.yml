@@ -1,0 +1,242 @@
+site_name: Browserist 👨‍💻
+site_url: https://jakob-bagterp.github.io/browserist
+site_description: Python extension for the Selenium web driver that makes browser automation even easier
+site_author: Jakob Bagterp
+copyright: Copyright © 2022 - 2024, Jakob Bagterp. All Rights Reserved.
+repo_url: https://github.com/jakob-bagterp/browserist
+
+nav:
+  - Home:
+    - index.md
+    - Donate: donate.md
+    - Support and Contribution: support-and-contribution.md
+    - License 🔗: https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md
+    - Release Notes 🔗: https://github.com/jakob-bagterp/browserist/releases
+    - Source Code 🔗: https://github.com/jakob-bagterp/browserist
+    - Tags: tags.md
+  - Getting Started:
+    - getting-started/index.md
+    - Installation: getting-started/installation.md
+    - Browser Drivers: getting-started/browser-drivers.md
+    - First Script: getting-started/first-script.md
+  - User Guide:
+    - user-guide/index.md
+    - Navigation: user-guide/navigation.md
+    - Context Manager: user-guide/context-manager.md
+    - Download Files: user-guide/download-files.md
+    - Settings:
+      - Overview: user-guide/settings/overview.md
+      - Browser Types: user-guide/settings/browser-types.md
+      - Timeout Strategy: user-guide/settings/timeout-strategy.md
+      - Page Load Strategy: user-guide/settings/page-load-strategy.md
+      - Viewport: user-guide/settings/viewport.md
+    - Combo Methods:
+      - Cookie Banner: user-guide/combo-methods/cookie-banner.md
+      - Log In: user-guide/combo-methods/log-in.md
+      - Search: user-guide/combo-methods/search.md
+    - Performance:
+      - Headless: user-guide/performance/headless.md
+      - Disable Images: user-guide/performance/disable-images.md
+      - Parallelisation: user-guide/performance/parallelisation.md
+    - XPath:
+      - Intro: user-guide/xpath/intro.md
+      - Basics: user-guide/xpath/basics.md
+      - Tips and Tricks: user-guide/xpath/tips-and-tricks.md
+      - Cheatsheets:
+        - Node Selection: user-guide/xpath/cheatsheets/node-selection.md
+        - Text: user-guide/xpath/cheatsheets/text.md
+        - Links: user-guide/xpath/cheatsheets/links.md
+        - SEO: user-guide/xpath/cheatsheets/seo.md
+        - Axes: user-guide/xpath/cheatsheets/axes.md
+  - Reference:
+    - reference/index.md
+    - browser:
+      - __main__: reference/browser/__main__.md
+      - check_if: reference/browser/check_if.md
+      - click: reference/browser/click.md
+      - combo:
+        - cookie_banner: reference/browser/combo/cookie-banner.md
+        - log_in: reference/browser/combo/log-in.md
+        - search: reference/browser/combo/search.md
+      - get:
+        - __main__: reference/browser/get/__main__.md
+        - attribute: reference/browser/get/attribute.md
+        - url: reference/browser/get/url.md
+      - iframe: reference/browser/iframe.md
+      - input: reference/browser/input.md
+      - mouse: reference/browser/mouse.md
+      - open: reference/browser/open.md
+      - prompt: reference/browser/prompt.md
+      - screenshot: reference/browser/screenshot.md
+      - scroll:
+        - __main__: reference/browser/scroll/__main__.md
+        - check_if: reference/browser/scroll/check_if.md
+        - get: reference/browser/scroll/get.md
+        - page: reference/browser/scroll/page.md
+      - tool: reference/browser/tool.md
+      - viewport:
+        - get: reference/browser/viewport/get.md
+        - set: reference/browser/viewport/set.md
+      - wait:
+        - __main__: reference/browser/wait/__main__.md
+        - until:
+          - __main__: reference/browser/wait/until/__main__.md
+          - download_file: reference/browser/wait/until/download_file.md
+          - page_title: reference/browser/wait/until/page_title.md
+          - text: reference/browser/wait/until/text.md
+          - url: reference/browser/wait/until/url.md
+      - window:
+        - __main__: reference/browser/window/__main__.md
+        - get: reference/browser/window/get.md
+        - handle: reference/browser/window/handle.md
+        - open: reference/browser/window/open.md
+        - set: reference/browser/window/set.md
+    - viewport:
+      - common_devices:
+        - Apple: reference/viewport/common_devices/apple.md
+        - Google: reference/viewport/common_devices/google.md
+        - Huawei: reference/viewport/common_devices/huawei.md
+        - Microsoft: reference/viewport/common_devices/microsoft.md
+        - OnePlus: reference/viewport/common_devices/oneplus.md
+        - Oppo: reference/viewport/common_devices/oppo.md
+        - Samsung: reference/viewport/common_devices/samsung.md
+        - Vivo: reference/viewport/common_devices/vivo.md
+        - Xiaomi: reference/viewport/common_devices/xiaomi.md
+
+theme:
+  name: material
+  features:
+    - search.suggest
+    - search.highlight
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.path
+    - navigation.indexes
+    - content.code.copy
+    - content.code.select
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/eye
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: light blue
+      accent: light blue
+      toggle:
+        icon: material/eye-outline
+        name: Switch to light mode
+
+markdown_extensions:
+  - toc:
+      permalink: "#"
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      use_pygments: true
+      pygments_lang_class: true
+      auto_title: true
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - attr_list
+  - footnotes
+  - tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      name: Browserist on GitHub
+      link: https://github.com/jakob-bagterp/browserist
+    - icon: fontawesome/brands/linkedin
+      name: Jakob Bagterp on LinkedIn
+      link: https://www.linkedin.com/in/jakobbagterp/
+    - icon: fontawesome/brands/instagram
+      name: Jakob Bagterp on Instagram
+      link: https://www.instagram.com/bagterp_photography/
+  analytics:
+    provider: google
+    property: G-M37EX3JGHL
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thank you for your feedback!
+        - icon: material/thumb-down-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thank you for your feedback! Help us improve this page by using our
+            <a href="https://github.com/jakob-bagterp/browserist/issues/new/?title=[Feedback]+{title}+-+{url}"
+            target="_blank" rel="noopener">
+            feedback form</a>.
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+  version:
+    provider: mike
+
+plugins:
+  - search:
+      lang: en
+  - tags:
+      tags_file: tags.md
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_source: false
+            show_bases: false
+            heading_level: 2
+            show_category_heading: true
+            show_root_toc_entry: false
+            show_symbol_type_heading: true
+            show_symbol_type_toc: true
+            merge_init_into_class: true
+  - git-revision-date-localized:
+      enabled: true
+      type: timeago
+      enable_creation_date: true
+      fallback_to_build_date: true
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+          remove_comments: true
+      js_files:
+          - js/timeago_mkdocs_material.js
+      css_files:
+          - css/timeago.css
+          - assets/_mkdocstrings.css
+
+watch:
+  - src
+
+dev_addr: 127.0.0.1:8001

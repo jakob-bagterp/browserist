@@ -1,16 +1,21 @@
 from browserist import BrowserSettings
 
-DEFAULT = BrowserSettings()
+DEFAULT = BrowserSettings(
+    check_connection=False
+)
 
 HEADLESS = BrowserSettings(
-    headless=True
+    headless=True,
+    check_connection=False
 )
 
 DISABLE_IMAGES = BrowserSettings(
-    disable_images=True
+    disable_images=True,
+    check_connection=False
 )
 
 HEADLESS_AND_DISABLE_IMAGES = BrowserSettings(
     headless=True,
-    disable_images=True
+    disable_images=True,
+    check_connection=False
 )
