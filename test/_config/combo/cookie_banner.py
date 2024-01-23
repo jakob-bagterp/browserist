@@ -19,13 +19,16 @@ COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME = CookieBannerSettings(
     button_xpath=ACCEPT_BUTTON_XPATH,
 )
 
-COOKIE_BANNER_SETTINGS_WITH_SUCCESS_STATE = CookieBannerSettings(
+COOKIE_BANNER_SETTINGS_WITH_RETURN_BOOL_AND_SUCCESS_STATE = CookieBannerSettings(
     url=internal_url.COOKIE_BANNER_WITHOUT_IFRAME,
     has_loaded_xpath=COOKIE_BANNER_CONTAINER_XPATH,
     button_xpath=ACCEPT_BUTTON_XPATH,
+    return_bool=True,
 )
-COOKIE_BANNER_SETTINGS_WITH_ERROR_STATE = CookieBannerSettings(
+
+COOKIE_BANNER_SETTINGS_WITH_RETURN_BOOL_AND_ERROR_STATE = CookieBannerSettings(
     url=internal_url.COOKIE_BANNER_WITHOUT_IFRAME,
     has_loaded_xpath=COOKIE_BANNER_CONTAINER_XPATH,
     button_xpath="//no/button",
+    return_bool=True,
 )
