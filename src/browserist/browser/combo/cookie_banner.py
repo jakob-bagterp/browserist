@@ -6,7 +6,7 @@ from ...model.combo_settings.handling_state import ComboHandlingState, IsComboHa
 from ...model.driver_methods import DriverMethods
 from ...model.type.callable import TimeoutShouldContinueCallable
 from ..check_if.is_displayed import check_if_is_displayed
-from ..click.button import click_button_without_wait
+from ..click.button import click_button, click_button_without_wait
 from ..iframe.switch_to import switch_to_iframe
 from ..iframe.switch_to_original_page import switch_to_original_page
 from ..open.url import open_url
@@ -41,15 +41,23 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         if cookie_banner.iframe_xpath is not None and timeout_should_continue():
             switch_to_original_page(browser_driver)
 
+    def click_cookie_banner_button_and_handle_return_bool() -> None:
+        if timeout_should_continue():
+            wait_for_element(browser_driver, cookie_banner.button_xpath, timeout)
+            if check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
+                handling_state.current = IsComboHandled.NOT_YET_BUT_SOON
+            click_button_without_wait(browser_driver, cookie_banner.button_xpath)  # type: ignore
+
+    def click_cookie_banner_button() -> None:
+        if timeout_should_continue():
+            click_button(browser_driver, cookie_banner.button_xpath, timeout)
+
     load_cookie_banner()
-
-    # Click cookie banner button:
-    if timeout_should_continue():
-        wait_for_element(browser_driver, cookie_banner.button_xpath, timeout)
-        if check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
-            handling_state.current = IsComboHandled.NOT_YET_BUT_SOON
-        click_button_without_wait(browser_driver, cookie_banner.button_xpath)  # type: ignore
-
+    if cookie_banner.return_bool:
+        click_cookie_banner_button_and_handle_return_bool()
+    else:
+        click_cookie_banner_button()
     wait_for_cookie_banner_to_disappear()
 
-    return handling_state.get_state()
+    if cookie_banner.return_bool:
+        return handling_state.get_state()
