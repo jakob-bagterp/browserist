@@ -29,17 +29,9 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         if cookie_banner.has_loaded_xpath is not None and timeout_should_continue():
             wait_for_element(browser_driver, cookie_banner.has_loaded_xpath, timeout)
 
-    def wait_for_cookie_banner_to_disappear() -> None:  # This also allows any cookie values to be saved.
-        if cookie_banner.has_disappeared_wait_seconds is not None:
-            time.sleep(cookie_banner.has_disappeared_wait_seconds)
-        else:
-            time.sleep(constant.timeout.VERY_SHORT)
+    def click_cookie_banner_button() -> None:
         if timeout_should_continue():
-            wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
-            if handling_state.current is not IsComboHandled.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
-                handling_state.current = IsComboHandled.YES_AND_WITH_SUCCESS
-        if cookie_banner.iframe_xpath is not None and timeout_should_continue():
-            switch_to_original_page(browser_driver)
+            click_button(browser_driver, cookie_banner.button_xpath, timeout)
 
     def click_cookie_banner_button_and_handle_return_bool() -> None:
         if timeout_should_continue():
@@ -48,16 +40,35 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
                 handling_state.current = IsComboHandled.NOT_YET_BUT_SOON
             click_button_without_wait(browser_driver, cookie_banner.button_xpath)  # type: ignore
 
-    def click_cookie_banner_button() -> None:
+    def wait_for_cookie_banner_to_disappear_by_time() -> None:  # This also allows any cookie values to be saved.
+        if cookie_banner.has_disappeared_wait_seconds is not None:
+            time.sleep(cookie_banner.has_disappeared_wait_seconds)
+        else:
+            time.sleep(constant.timeout.VERY_SHORT)
+
+    def wait_for_cookie_banner_to_disappear_by_element() -> None:
         if timeout_should_continue():
-            click_button(browser_driver, cookie_banner.button_xpath, timeout)
+            wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
+
+    def wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool() -> None:
+        if timeout_should_continue():
+            wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
+            if handling_state.current is not IsComboHandled.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
+                handling_state.current = IsComboHandled.YES_AND_WITH_SUCCESS
+
+    def reset_cookie_banner_iframe_if_needed() -> None:
+        if cookie_banner.iframe_xpath is not None and timeout_should_continue():
+            switch_to_original_page(browser_driver)
 
     load_cookie_banner()
     if cookie_banner.return_bool:
         click_cookie_banner_button_and_handle_return_bool()
+        wait_for_cookie_banner_to_disappear_by_time()
+        wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool()
+        reset_cookie_banner_iframe_if_needed()
+        return handling_state.get_state()
     else:
         click_cookie_banner_button()
-    wait_for_cookie_banner_to_disappear()
-
-    if cookie_banner.return_bool:
-        return handling_state.get_state()
+        wait_for_cookie_banner_to_disappear_by_time()
+        wait_for_cookie_banner_to_disappear_by_element()
+        reset_cookie_banner_iframe_if_needed()
