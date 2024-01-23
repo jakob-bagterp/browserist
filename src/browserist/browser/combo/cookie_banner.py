@@ -29,7 +29,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         if cookie_banner.has_loaded_xpath is not None and timeout_should_continue():
             wait_for_element(browser_driver, cookie_banner.has_loaded_xpath, timeout)
 
-    def wait_for_cookie_banner_to_disappear() -> None:  # This also allows any cookie valuesada to be saved.
+    def wait_for_cookie_banner_to_disappear() -> None:  # This also allows any cookie values to be saved.
         if cookie_banner.has_disappeared_wait_seconds is not None:
             time.sleep(cookie_banner.has_disappeared_wait_seconds)
         else:
