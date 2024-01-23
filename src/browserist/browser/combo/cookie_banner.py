@@ -62,11 +62,14 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
 
     load_cookie_banner()
     if cookie_banner.return_bool:
-        click_cookie_banner_button_and_handle_return_bool()
-        wait_for_cookie_banner_to_disappear_by_time()
-        wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool()
-        reset_cookie_banner_iframe_if_needed()
-        return handling_state.get_state()
+        try:
+            click_cookie_banner_button_and_handle_return_bool()
+            wait_for_cookie_banner_to_disappear_by_time()
+            wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool()
+            reset_cookie_banner_iframe_if_needed()
+            return handling_state.get_state()
+        except Exception:
+            return False
     else:
         click_cookie_banner_button()
         wait_for_cookie_banner_to_disappear_by_time()
