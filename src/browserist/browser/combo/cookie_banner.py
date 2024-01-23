@@ -66,7 +66,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         wait_for_cookie_banner_to_disappear_by_element()
         reset_cookie_banner_iframe_if_needed()
 
-    def flow_with_return_bool() -> bool:
+    def flow_with_return_bool() -> bool | None:
         try:
             click_cookie_banner_button_and_handle_return_bool()
             wait_for_cookie_banner_to_disappear_by_time()
