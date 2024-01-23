@@ -60,8 +60,13 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         if cookie_banner.iframe_xpath is not None and timeout_should_continue():
             switch_to_original_page(browser_driver)
 
-    load_cookie_banner()
-    if cookie_banner.return_bool:
+    def flow_without_return_bool() -> None:
+        click_cookie_banner_button()
+        wait_for_cookie_banner_to_disappear_by_time()
+        wait_for_cookie_banner_to_disappear_by_element()
+        reset_cookie_banner_iframe_if_needed()
+
+    def flow_with_return_bool() -> bool:
         try:
             click_cookie_banner_button_and_handle_return_bool()
             wait_for_cookie_banner_to_disappear_by_time()
@@ -70,8 +75,9 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
             return handling_state.get_state()
         except Exception:
             return False
+
+    load_cookie_banner()
+    if cookie_banner.return_bool:
+        return flow_with_return_bool()
     else:
-        click_cookie_banner_button()
-        wait_for_cookie_banner_to_disappear_by_time()
-        wait_for_cookie_banner_to_disappear_by_element()
-        reset_cookie_banner_iframe_if_needed()
+        flow_without_return_bool()
