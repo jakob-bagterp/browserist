@@ -49,7 +49,7 @@ class ComboDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            combo_cookie_banner(self, settings, timeout)
+            return combo_cookie_banner(self, settings, timeout)
 
     def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> None:
         """Standardised combination of methods to log in.
