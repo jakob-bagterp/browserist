@@ -27,4 +27,4 @@ class ComboHandlingState():
     def get_state(cls) -> bool | None:
         """Get current state"""
 
-        return cls.current  # type: ignore
+        return cls.current.value
