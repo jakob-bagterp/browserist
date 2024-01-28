@@ -1,5 +1,4 @@
 import time
-from contextlib import suppress
 
 from ... import constant
 from ...model.combo_settings.cookie_banner import CookieBannerSettings
@@ -68,15 +67,14 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
         reset_cookie_banner_iframe_if_needed()
 
     def flow_with_return_bool() -> bool | None:
-        with suppress(Exception):
-            try:
-                click_cookie_banner_button_and_handle_return_bool()
-                wait_for_cookie_banner_to_disappear_by_time()
-                wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool()
-                reset_cookie_banner_iframe_if_needed()
-                return handling_state.get_state()
-            except Exception:
-                return False
+        try:
+            click_cookie_banner_button_and_handle_return_bool()
+            wait_for_cookie_banner_to_disappear_by_time()
+            wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool()
+            reset_cookie_banner_iframe_if_needed()
+            return handling_state.get_state()
+        except Exception:
+            return False
 
     load_cookie_banner()
     if cookie_banner.return_bool:
