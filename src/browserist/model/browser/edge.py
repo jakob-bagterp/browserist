@@ -27,8 +27,8 @@ class EdgeBrowserDriver(BrowserDriver):
     def enable_headless(self) -> None:
         if self.settings.headless:
             self.edge_options.use_chromium = True  # type: ignore
-            self.edge_options.add_argument("headless")  # type: ignore
-            self.edge_options.add_argument("disable-gpu")  # type: ignore
+            self.edge_options.add_argument("headless")
+            self.edge_options.add_argument("disable-gpu")
 
     def set_download_directory(self) -> None:
         self = factory.chromium.set_download_directory(self)  # type: ignore
