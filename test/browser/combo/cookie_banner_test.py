@@ -4,9 +4,11 @@ from contextlib import nullcontext as expectation_of_no_exceptions_raised
 import _helper
 import pytest
 from _config.combo.cookie_banner import (COOKIE_BANNER_SETTINGS_WITH_IFRAME,
-                                         COOKIE_BANNER_SETTINGS_WITH_RETURN_BOOL_AND_ERROR_STATE,
-                                         COOKIE_BANNER_SETTINGS_WITH_RETURN_BOOL_AND_SUCCESS_STATE,
-                                         COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME)
+                                         COOKIE_BANNER_SETTINGS_WITH_IFRAME_WITH_RETURN_BOOL_AND_ERROR_STATE,
+                                         COOKIE_BANNER_SETTINGS_WITH_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE,
+                                         COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME,
+                                         COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_ERROR_STATE,
+                                         COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE)
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
@@ -97,8 +99,10 @@ def test_combo_cookie_banner_has_disappeared_wait_seconds(
 
 
 @pytest.mark.parametrize("cookie_banner_settings, expected_state", [
-    (COOKIE_BANNER_SETTINGS_WITH_RETURN_BOOL_AND_SUCCESS_STATE, True),
-    (COOKIE_BANNER_SETTINGS_WITH_RETURN_BOOL_AND_ERROR_STATE, False),
+    (COOKIE_BANNER_SETTINGS_WITH_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE, True),
+    (COOKIE_BANNER_SETTINGS_WITH_IFRAME_WITH_RETURN_BOOL_AND_ERROR_STATE, False),
+    (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE, True),
+    (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_ERROR_STATE, False),
 ])
 def test_combo_cookie_banner_state(
     cookie_banner_settings: CookieBannerSettings,
