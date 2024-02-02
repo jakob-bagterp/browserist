@@ -16,6 +16,7 @@ class LoginForm1Step:
         post_login_wait_seconds (float | None, optional): Minor grace time to ensure the login has completed.
         post_login_url_contains (str | None, optional): Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
         post_login_element_xpath (str | None, optional): Upon successful login, optionally await this element to be loaded.
+        return_bool (bool, optional): If set to `True`, the login combo can be used with a conditional `if` statement and return boolean `True` or `False` depending on whether the login form was handled succesfully without errors or not. This will also suppresses exceptions. With default `False`, the login combo will not return any value.
     """
 
     username_input_xpath: str
@@ -27,6 +28,7 @@ class LoginForm1Step:
     post_login_wait_seconds: float | None = None
     post_login_url_contains: str | None = None
     post_login_element_xpath: str | None = None
+    return_bool: bool = False
 
     def __post_init__(self) -> None:
         self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
@@ -50,6 +52,7 @@ class LoginForm2Steps:
         post_login_wait_seconds (float | None, optional): Minor grace time to ensure the login has completed.
         post_login_url_contains (str | None, optional): Optionally await redirect to this URL as a user is typically redirected automatically to a new page or view after logging in.
         post_login_element_xpath (str | None, optional): Upon successful login, optionally await this element to be loaded.
+        return_bool (bool, optional): If set to `True`, the login combo can be used with a conditional `if` statement and return boolean `True` or `False` depending on whether the login form was handled succesfully without errors or not. This will also suppresses exceptions. With default `False`, the login combo will not return any value.
     """
 
     username_input_xpath: str
@@ -62,6 +65,7 @@ class LoginForm2Steps:
     post_login_wait_seconds: float | None = None
     post_login_url_contains: str | None = None
     post_login_element_xpath: str | None = None
+    return_bool: bool = False
 
     def __post_init__(self) -> None:
         self.url = helper.url.mediate_conversion_to_tiny_type_or_none(self.url)
