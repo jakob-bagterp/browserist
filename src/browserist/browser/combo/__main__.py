@@ -35,11 +35,20 @@ class ComboDriverMethods(DriverMethods):
             with Browser() as browser:
                 browser.combo.cookie_banner(accept_cookies)
                 browser.open.url("https://example.com/some_page")
+                browser.click.button("//xpath/to/button")
             ```
 
-            Or use succesfull handling of the cookie banner as conditional to continue:
+            Or use succesfull handling of the cookie banner as conditional to continue by setting `return_bool` to `True` in the settings object:
 
-            ```python title="" linenums="8"
+            ```python title="" linenums="1"
+            from browserist import Browser, CookieBannerSettings
+
+            accept_cookies = CookieBannerSettings(
+                url = "https://example.com",
+                has_loaded_xpath = "//xpath/to/cookie_banner",
+                button_xpath = "//xpath/to/accept_button",
+                return_bool = True)
+
             with Browser() as browser:
                 if browser.combo.cookie_banner(accept_cookies)
                     browser.open.url("https://example.com/some_page")
