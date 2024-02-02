@@ -38,7 +38,7 @@ class ComboDriverMethods(DriverMethods):
                 browser.click.button("//xpath/to/button")
             ```
 
-            Or use succesfull handling of the cookie banner as conditional to continue by setting `return_bool` to `True` in the settings object:
+            Or use succesfull handling of the cookie banner as conditional to continue by setting `return_bool` to `True` as parameter in the settings class:
 
             ```python title="" linenums="1"
             from browserist import Browser, CookieBannerSettings
