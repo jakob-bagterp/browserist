@@ -18,6 +18,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
     browser_driver = driver_method._browser_driver
     handling_state = ComboHandlingState()
+    return_bool_value: bool | None = None
 
     def load_cookie_banner() -> None:
         if cookie_banner.url is not None and timeout_should_continue():
@@ -78,6 +79,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
 
     load_cookie_banner()
     if cookie_banner.return_bool:
-        return flow_with_return_bool()
+        return_bool_value = flow_with_return_bool()
     else:
         flow_without_return_bool()
+    return return_bool_value
