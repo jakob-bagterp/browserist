@@ -20,11 +20,15 @@ class ComboHandlingState():
 
     __slots__ = ["current"]
 
-    def __init__(self, current: IsComboHandled = IsComboHandled.NOT_STARTED) -> None:
-        self.current: IsComboHandled = current
+    def __init__(self, state: IsComboHandled = IsComboHandled.NOT_STARTED) -> None:
+        self.current: bool | None = self.set(state)
 
-    @classmethod
-    def get_state(cls) -> bool | None:
+    def set(self, state: IsComboHandled) -> None:
+        """Set current state"""
+
+        self.current = state.value
+
+    def get(self) -> bool | None:
         """Get current state"""
 
-        return cls.current.value
+        return self.current
