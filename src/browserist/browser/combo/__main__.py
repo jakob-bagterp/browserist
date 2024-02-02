@@ -50,7 +50,7 @@ class ComboDriverMethods(DriverMethods):
                 return_bool = True)
 
             with Browser() as browser:
-                if browser.combo.cookie_banner(accept_cookies)
+                if browser.combo.cookie_banner(accept_cookies):
                     browser.open.url("https://example.com/some_page")
                     browser.click.button("//xpath/to/button")
             ```
