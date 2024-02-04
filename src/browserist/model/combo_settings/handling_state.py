@@ -18,17 +18,25 @@ class IsComboHandled(Enum):
 class ComboHandlingState():
     """Class to define handling state of combo methods."""
 
-    __slots__ = ["current"]
+    __slots__ = ["current", "current_value"]
 
     def __init__(self, state: IsComboHandled = IsComboHandled.NOT_STARTED) -> None:
-        self.current: bool | None = self.set(state)
+        self.current: IsComboHandled
+        self.current_value: bool | None
+        self.set(state)
 
     def set(self, state: IsComboHandled) -> None:
         """Set current state"""
 
-        self.current = state.value
+        self.current = state
+        self.current_value = state.value
 
-    def get(self) -> bool | None:
+    def get(self) -> IsComboHandled:
         """Get current state"""
 
         return self.current
+
+    def get_value(self) -> bool | None:
+        """Get current state"""
+
+        return self.current_value

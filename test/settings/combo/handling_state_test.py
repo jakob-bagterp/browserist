@@ -11,4 +11,5 @@ from browserist.model.combo_settings.handling_state import ComboHandlingState, I
 def test_set_and_get_combo_handled_state(state: IsComboHandled, expectation: bool | None) -> None:
     handling_state: ComboHandlingState = ComboHandlingState()
     handling_state.set(state)
-    assert handling_state.get() is expectation
+    assert handling_state.get() is state
+    assert handling_state.get_value() is expectation
