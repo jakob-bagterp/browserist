@@ -13,12 +13,15 @@ class ComboDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def cookie_banner(self, settings: CookieBannerSettings, timeout: float | None = None) -> None:
+    def cookie_banner(self, settings: CookieBannerSettings, timeout: float | None = None) -> bool | None:
         """Standardised combination of methods to accept or decline cookies.
 
         Args:
             settings (CookieBannerSettings): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Returns:
+            bool: `True` if cookie banner is handled succesfully, `False` or `None` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -32,12 +35,32 @@ class ComboDriverMethods(DriverMethods):
             with Browser() as browser:
                 browser.combo.cookie_banner(accept_cookies)
                 browser.open.url("https://example.com/some_page")
+                browser.click.button("//xpath/to/button")
+            ```
+
+            Or use succesfull handling of the cookie banner with a conditional `if` statement by setting `return_bool` to `True` as parameter in the settings class:
+
+            ```python title="" linenums="1"
+            from browserist import Browser, CookieBannerSettings
+
+            accept_cookies = CookieBannerSettings(
+                url = "https://example.com",
+                has_loaded_xpath = "//xpath/to/cookie_banner",
+                button_xpath = "//xpath/to/accept_button",
+                return_bool = True)
+
+            with Browser() as browser:
+                if browser.combo.cookie_banner(accept_cookies):
+                    browser.open.url("https://example.com/some_page")
+                    browser.click.button("//xpath/to/button")
             ```
         """
 
+        return_bool_value: bool | None = None
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            combo_cookie_banner(self, settings, timeout)
+            return_bool_value = combo_cookie_banner(self, settings, timeout)
+        return return_bool_value
 
     def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> None:
         """Standardised combination of methods to log in.

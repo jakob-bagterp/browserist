@@ -1,4 +1,3 @@
-from ...model.browser.base.driver import BrowserDriver
 from ...model.combo_settings.search import SearchSettings
 from ...model.driver_methods import DriverMethods
 from ...model.type.callable import TimeoutShouldContinueCallable
@@ -11,7 +10,7 @@ from ..wait.until.url.contains import wait_until_url_contains
 
 def combo_search(driver_method: DriverMethods, term: str, search: SearchSettings, timeout: float) -> None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
-    browser_driver: BrowserDriver = driver_method._browser_driver
+    browser_driver = driver_method._browser_driver
 
     if search.url is not None and timeout_should_continue():
         open_url_if_not_current(browser_driver, search.url)
