@@ -54,7 +54,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     def wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool() -> None:
         if timeout_should_continue():
             wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
-            if handling_state.current is not IsComboHandled.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
+            if handling_state.get() is not IsComboHandled.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
                 handling_state.set(IsComboHandled.YES_AND_WITH_SUCCESS)
 
     def reset_cookie_banner_iframe_if_needed() -> None:
@@ -73,7 +73,7 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
             wait_for_cookie_banner_to_disappear_by_time()
             wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool()
             reset_cookie_banner_iframe_if_needed()
-            return handling_state.get()
+            return handling_state.get_value()
         except Exception:
             return False
 
