@@ -62,7 +62,7 @@ class ComboDriverMethods(DriverMethods):
             return_bool_value = combo_cookie_banner(self, settings, timeout)
         return return_bool_value
 
-    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> None:
+    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> bool | None:
         """Standardised combination of methods to log in.
 
         Note:
@@ -74,6 +74,9 @@ class ComboDriverMethods(DriverMethods):
             login_credentials (LoginCredentials): Apply username and password here.
             login_form (LoginForm1Step | LoginForm2Steps): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Returns:
+            bool: If `return_bool` is `True` in the settings class, this method returns `True` if the login is handled succesfully. `False` or `None` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -94,9 +97,11 @@ class ComboDriverMethods(DriverMethods):
             ```
         """
 
+        return_bool_value: bool | None = None
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            combo_log_in(self, login_credentials, login_form, timeout)
+            return_bool_value = combo_log_in(self, login_credentials, login_form, timeout)
+        return return_bool_value
 
     def search(self, term: str, settings: SearchSettings, timeout: float | None = None) -> None:
         """Standardised combination of methods to perform search.
