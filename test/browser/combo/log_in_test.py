@@ -6,7 +6,8 @@ import _helper
 import pytest
 from _config.combo.log_in import (ERROR_LANDING_PAGE, LOGIN_CREDENTIALS_INVALID, LOGIN_CREDENTIALS_INVALID_PASSWORD,
                                   LOGIN_CREDENTIALS_INVALID_USERNAME, LOGIN_CREDENTIALS_VALID, LOGIN_FORM_1_STEP,
-                                  LOGIN_FORM_2_STEPS, SUCCESS_LANDING_PAGE)
+                                  LOGIN_FORM_1_STEP_WITH_RETURN_BOOL, LOGIN_FORM_2_STEPS,
+                                  LOGIN_FORM_2_STEPS_WITH_RETURN_BOOL, SUCCESS_LANDING_PAGE)
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
@@ -80,3 +81,20 @@ def test_combo_log_in_post_login_wait_seconds(
         time_difference_a_b = _helper.time.get_difference(post_login_wait_seconds_a, post_login_wait_seconds_b)
         time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
         assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 20)
+
+
+@pytest.mark.parametrize("login_form, login_credentials, expected_state", [
+    (LOGIN_FORM_1_STEP_WITH_RETURN_BOOL, LOGIN_CREDENTIALS_INVALID, True),
+    (LOGIN_FORM_1_STEP_WITH_RETURN_BOOL, LOGIN_CREDENTIALS_INVALID_PASSWORD, False),
+    (LOGIN_FORM_2_STEPS_WITH_RETURN_BOOL, LOGIN_CREDENTIALS_INVALID, True),
+    (LOGIN_FORM_2_STEPS_WITH_RETURN_BOOL, LOGIN_CREDENTIALS_INVALID_PASSWORD, False),
+])
+def test_combo_log_in_state(
+    login_form: LoginForm1Step | LoginForm2Steps,
+    login_credentials: LoginCredentials,
+    expected_state: bool,
+    browser_default_headless_disable_images: Browser
+) -> None:
+    browser = reset_to_not_timed_out(browser_default_headless_disable_images)
+    state = browser.combo.log_in(login_credentials, login_form)
+    assert state is expected_state

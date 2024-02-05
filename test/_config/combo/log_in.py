@@ -49,6 +49,16 @@ LOGIN_FORM_1_STEP = LoginForm1Step(
     post_login_element_xpath=LANDING_PAGE_HEADLINE_XPATH,
 )
 
+LOGIN_FORM_1_STEP_WITH_RETURN_BOOL = LoginForm1Step(
+    url=internal_url.LOG_IN_1_STEP,
+    username_input_xpath=USERNAME_INPUT_XPATH,
+    password_input_xpath=PASSWORD_INPUT_XPATH,
+    submit_button_xpath=SUBMIT_BUTTON_XPATH,
+    post_login_url_contains=SUCCESS_LANDING_PAGE,  # Eventually re-assign before test.
+    post_login_element_xpath=LANDING_PAGE_HEADLINE_XPATH,
+    return_bool=True
+)
+
 LOGIN_FORM_2_STEPS = LoginForm2Steps(
     url=internal_url.LOG_IN_2_STEPS,
     username_input_xpath=USERNAME_INPUT_XPATH,
@@ -57,4 +67,15 @@ LOGIN_FORM_2_STEPS = LoginForm2Steps(
     password_submit_button_xpath=SUBMIT_BUTTON_XPATH,
     post_login_url_contains=SUCCESS_LANDING_PAGE,  # Eventually re-assign before test.
     post_login_element_xpath=LANDING_PAGE_HEADLINE_XPATH,
+)
+
+LOGIN_FORM_2_STEPS_WITH_RETURN_BOOL = LoginForm2Steps(
+    url=internal_url.LOG_IN_2_STEPS,
+    username_input_xpath=USERNAME_INPUT_XPATH,
+    username_submit_button_xpath=SUBMIT_BUTTON_XPATH,
+    password_input_xpath=PASSWORD_INPUT_XPATH,
+    password_submit_button_xpath=SUBMIT_BUTTON_XPATH,
+    post_login_url_contains=SUCCESS_LANDING_PAGE,  # Eventually re-assign before test.
+    post_login_element_xpath=LANDING_PAGE_HEADLINE_XPATH,
+    return_bool=True,
 )
