@@ -63,7 +63,7 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
                 return False
 
         post_login_flow(login_form)
-        if any([does_post_login_url_contain(), is_post_login_element_displayed()]):
+        if handling_state.get() is not IsComboHandled.NOT_STARTED and any([does_post_login_url_contain(), is_post_login_element_displayed()]):
             handling_state.set(IsComboHandled.YES_AND_WITH_SUCCESS)
 
     def flow_login_form_1_step_without_return_bool(login_form: LoginForm1Step) -> None:
