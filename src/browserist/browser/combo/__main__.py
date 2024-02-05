@@ -76,7 +76,7 @@ class ComboDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            bool: If `return_bool` is `True` in the settings class, this method returns `True` if the login is handled succesfully. `False` or `None` otherwise.
+            If `return_bool` is `True` in the settings class, the login combo can be used with a conditional `if` statement and return boolean `True` or `False` depending on whether the login form was handled succesfully without errors or not. This will also suppresses exceptions. With default `False`, the login combo will not return any value. Note that either of the parameters `post_login_url_contains` or `post_login_element_xpath` or both also need to be defined in the settings class.
 
         Example:
             ```python title="" linenums="1"
@@ -112,6 +112,8 @@ class ComboDriverMethods(DriverMethods):
                 username_input_xpath = "//xpath/to/username_field",
                 password_input_xpath = "//xpath/to/password_field",
                 submit_button_xpath = "//xpath/to/login_button",
+                post_login_url_contains = "https://example.com/successfull_logged_in_page",
+                post_login_element_xpath = "//xpath/to/successfull_logged_in_element",
                 return_bool = True)
 
             with Browser() as browser:

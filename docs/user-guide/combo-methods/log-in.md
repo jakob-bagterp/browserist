@@ -60,6 +60,8 @@ login_form = LoginForm1Step(
     username_input_xpath = "//xpath/to/username_field",
     password_input_xpath = "//xpath/to/password_field",
     submit_button_xpath = "//xpath/to/login_button",
+    post_login_url_contains = "https://example.com/successfull_logged_in_page",
+    post_login_element_xpath = "//xpath/to/successfull_logged_in_element",
     return_bool = True)
 
 with Browser() as browser:
