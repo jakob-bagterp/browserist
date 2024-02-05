@@ -36,10 +36,11 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
     if login_form.url is not None and timeout_should_continue():
         open_url_if_not_current(browser_driver, login_form.url)
 
-    if type(login_form) is LoginForm1Step:
-        login_form_1_step(login_form)
-    elif type(login_form) is LoginForm2Steps:
-        login_form_2_steps(login_form)
+    match login_form:
+        case LoginForm1Step():
+            login_form_1_step(login_form)
+        case LoginForm2Steps():
+            login_form_2_steps(login_form)
 
     if login_form.post_login_wait_seconds is not None:
         time.sleep(login_form.post_login_wait_seconds)
