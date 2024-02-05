@@ -94,6 +94,30 @@ class ComboDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.combo.log_in(login_credentials, login_form)
+                browser.open.url("https://example.com/some_page")
+                browser.click.button("//xpath/to/button")
+            ```
+
+            Or use succesfull handling of the login with a conditional `if` statement by setting `return_bool` to `True` as parameter in the settings class:
+
+            ```python title="" linenums="1"
+            from browserist import Browser, LoginForm1Step, LoginCredentials
+
+            login_credentials = LoginCredentials(
+                username = "some_username",
+                password = "some_password")
+
+            login_form = LoginForm1Step(
+                url = "https://example.com/login",
+                username_input_xpath = "//xpath/to/username_field",
+                password_input_xpath = "//xpath/to/password_field",
+                submit_button_xpath = "//xpath/to/login_button",
+                return_bool = True)
+
+            with Browser() as browser:
+                if browser.combo.log_in(login_credentials, login_form):
+                    browser.open.url("https://example.com/some_page")
+                    browser.click.button("//xpath/to/button")
             ```
         """
 
