@@ -21,7 +21,7 @@ class ComboDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            bool: If `return_bool` is `True` in the settings class, this method returns `True` if the cookie banner is handled succesfully. `False` or `None` otherwise.
+            If `return_bool` is `True` in the settings class, this method returns `True` if the cookie banner is handled succesfully. `False` or `None` otherwise.
 
         Example:
             ```python title="" linenums="1"
