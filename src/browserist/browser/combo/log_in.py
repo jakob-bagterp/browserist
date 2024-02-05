@@ -1,5 +1,6 @@
 import time
 
+from ...model.combo_settings.handling_state import ComboHandlingState
 from ...model.combo_settings.login_credentials import LoginCredentials
 from ...model.combo_settings.login_form import LoginForm1Step, LoginForm2Steps
 from ...model.driver_methods import DriverMethods
@@ -11,9 +12,11 @@ from ..wait.for_element import wait_for_element
 from ..wait.until.url.contains import wait_until_url_contains
 
 
-def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float) -> None:
+def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float) -> bool | None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
     browser_driver = driver_method._browser_driver
+    handling_state = ComboHandlingState()
+    return_bool_value: bool | None = None
 
     def login_form_1_step(login_form: LoginForm1Step) -> None:
         if timeout_should_continue():
@@ -41,13 +44,43 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
         if login_form.post_login_element_xpath is not None and timeout_should_continue():
             wait_for_element(browser_driver, login_form.post_login_element_xpath, timeout)
 
+    def flow_login_form_1_step_without_return_bool(login_form: LoginForm1Step) -> None:
+        login_form_1_step(login_form)
+        post_login_flow(login_form)
+
+    def flow_login_form_1_step_with_return_bool(login_form: LoginForm1Step) -> bool | None:
+        try:
+            login_form_1_step(login_form)
+            post_login_flow(login_form)
+            return handling_state.get_value()
+        except Exception:
+            return False
+
+    def flow_login_form_2_steps_without_return_bool(login_form: LoginForm2Steps) -> None:
+        login_form_2_steps(login_form)
+        post_login_flow(login_form)
+
+    def flow_login_form_2_steps_with_return_bool(login_form: LoginForm2Steps) -> bool | None:
+        try:
+            login_form_2_steps(login_form)
+            post_login_flow(login_form)
+            return handling_state.get_value()
+        except Exception:
+            return False
+
     if login_form.url is not None and timeout_should_continue():
         open_url_if_not_current(browser_driver, login_form.url)
-
     match login_form:
         case LoginForm1Step():
-            login_form_1_step(login_form)
+            match login_form.return_bool:
+                case True:
+                    return_bool_value = flow_login_form_1_step_with_return_bool(login_form)
+                case _:
+                    flow_login_form_1_step_without_return_bool(login_form)
         case LoginForm2Steps():
-            login_form_2_steps(login_form)
-
-    post_login_flow(login_form)
+            match login_form.return_bool:
+                case True:
+                    return_bool_value = flow_login_form_2_steps_with_return_bool(login_form)
+                case _:
+                    flow_login_form_2_steps_without_return_bool(login_form)
+    return return_bool_value
