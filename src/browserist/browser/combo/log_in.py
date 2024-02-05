@@ -33,6 +33,14 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
         if timeout_should_continue():
             click_button(browser_driver, login_form.password_submit_button_xpath, timeout)
 
+    def post_login_flow(login_form: LoginForm1Step | LoginForm2Steps) -> None:
+        if login_form.post_login_wait_seconds is not None:
+            time.sleep(login_form.post_login_wait_seconds)
+        if login_form.post_login_url_contains is not None and timeout_should_continue():
+            wait_until_url_contains(browser_driver, login_form.post_login_url_contains, timeout)
+        if login_form.post_login_element_xpath is not None and timeout_should_continue():
+            wait_for_element(browser_driver, login_form.post_login_element_xpath, timeout)
+
     if login_form.url is not None and timeout_should_continue():
         open_url_if_not_current(browser_driver, login_form.url)
 
@@ -42,9 +50,4 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
         case LoginForm2Steps():
             login_form_2_steps(login_form)
 
-    if login_form.post_login_wait_seconds is not None:
-        time.sleep(login_form.post_login_wait_seconds)
-    if login_form.post_login_url_contains is not None and timeout_should_continue():
-        wait_until_url_contains(browser_driver, login_form.post_login_url_contains, timeout)
-    if login_form.post_login_element_xpath is not None and timeout_should_continue():
-        wait_for_element(browser_driver, login_form.post_login_element_xpath, timeout)
+    post_login_flow(login_form)
