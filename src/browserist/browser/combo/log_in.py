@@ -72,15 +72,13 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
         open_url_if_not_current(browser_driver, login_form.url)
     match login_form:
         case LoginForm1Step():
-            match login_form.return_bool:
-                case True:
-                    return_bool_value = flow_login_form_1_step_with_return_bool(login_form)
-                case _:
-                    flow_login_form_1_step_without_return_bool(login_form)
+            if login_form.return_bool:
+                return_bool_value = flow_login_form_1_step_with_return_bool(login_form)
+            else:
+                flow_login_form_1_step_without_return_bool(login_form)
         case LoginForm2Steps():
-            match login_form.return_bool:
-                case True:
-                    return_bool_value = flow_login_form_2_steps_with_return_bool(login_form)
-                case _:
-                    flow_login_form_2_steps_without_return_bool(login_form)
+            if login_form.return_bool:
+                return_bool_value = flow_login_form_2_steps_with_return_bool(login_form)
+            else:
+                flow_login_form_2_steps_without_return_bool(login_form)
     return return_bool_value
