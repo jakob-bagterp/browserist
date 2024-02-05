@@ -111,4 +111,4 @@ def test_combo_cookie_banner_state(
 ) -> None:
     browser = reset_to_not_timed_out(browser_default_headless_disable_images)
     state = browser.combo.cookie_banner(cookie_banner_settings)
-    assert state == expected_state
+    assert state is expected_state
