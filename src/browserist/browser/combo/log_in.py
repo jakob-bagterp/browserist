@@ -10,7 +10,7 @@ from ...model.driver_methods import DriverMethods
 from ...model.type.callable import TimeoutShouldContinueCallable
 from ..click.button import click_button
 from ..input.value import input_value
-from ..open.url_if_not_current import open_url_if_not_current
+from ..open.url import open_url
 from ..wait.for_element import wait_for_element
 from ..wait.until.url.contains import wait_until_url_contains
 
@@ -91,7 +91,7 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
             return False
 
     if login_form.url is not None and timeout_should_continue():
-        open_url_if_not_current(browser_driver, login_form.url)
+        open_url(browser_driver, login_form.url)
     match login_form:
         case LoginForm1Step():
             if login_form.return_bool:
