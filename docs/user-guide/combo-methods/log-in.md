@@ -23,6 +23,58 @@ As `LoginCredentials` is independent of the login form, it works with both optio
 | `LoginForm2Steps` | Input username and click submit. | Input password and click submit. | [Multiple options](../../reference/browser/combo/log-in.md#loginform2steps) to await confirmation or redirect. |
 
 ## Examples
+### Basic Usage
+Getting started:
+
+```python title="" linenums="1"
+from browserist import Browser, LoginForm1Step, LoginCredentials
+
+login_credentials = LoginCredentials(
+    username = "some_username",
+    password = "some_password")
+
+login_form = LoginForm1Step(
+    url = "https://example.com/login",
+    username_input_xpath = "//xpath/to/username_field",
+    password_input_xpath = "//xpath/to/password_field",
+    submit_button_xpath = "//xpath/to/login_button")
+
+with Browser() as browser:
+    browser.combo.log_in(login_credentials, login_form)
+    browser.open.url("https://example.com/some_page")
+    browser.click.button("//xpath/to/button")
+```
+
+### Conditional Flows
+Sometimes it's useful to let a flow be dependent of succesfull handling of the login form. This is possible by setting `return_bool` to `True` as parameter in the settings class and using a conditional `if` statement in combination with the login combo. For example:
+
+```python linenums="1"
+from browserist import Browser, LoginForm1Step, LoginCredentials
+
+login_credentials = LoginCredentials(
+    username = "some_username",
+    password = "some_password")
+
+login_form = LoginForm1Step(
+    url = "https://example.com/login",
+    username_input_xpath = "//xpath/to/username_field",
+    password_input_xpath = "//xpath/to/password_field",
+    submit_button_xpath = "//xpath/to/login_button",
+    post_login_url_contains = "https://example.com/successfull_logged_in_page",
+    post_login_element_xpath = "//xpath/to/successfull_logged_in_element",
+    return_bool = True)
+
+with Browser() as browser:
+    if browser.combo.log_in(login_credentials, login_form):
+        browser.open.url("https://example.com/some_page")
+        browser.click.button("//xpath/to/button")
+```
+
+### Testing Purposes
+Let's expand the example and imagine that a website can be personalised based on which user role is signed in. For instance, we want to ensure that only the admin role has visible access to an administration module.
+
+Firstly, let's define the settings classes:
+
 ```python linenums="1"
 from browserist import Browser, LoginForm1Step, LoginCredentials
 

@@ -21,7 +21,7 @@ class ComboDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            bool: `True` if cookie banner is handled succesfully, `False` or `None` otherwise.
+            If `return_bool` is `True` in the settings class, this method returns `True` if the cookie banner is handled succesfully. `False` or `None` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -62,7 +62,7 @@ class ComboDriverMethods(DriverMethods):
             return_bool_value = combo_cookie_banner(self, settings, timeout)
         return return_bool_value
 
-    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> None:
+    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> bool | None:
         """Standardised combination of methods to log in.
 
         Note:
@@ -74,6 +74,9 @@ class ComboDriverMethods(DriverMethods):
             login_credentials (LoginCredentials): Apply username and password here.
             login_form (LoginForm1Step | LoginForm2Steps): Add settings class.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
+
+        Returns:
+            If `return_bool` is `True` in the settings class, the login combo can be used with a conditional `if` statement and return boolean `True` or `False` depending on whether the login form was handled succesfully without errors or not. This will also suppresses exceptions. With default `False`, the login combo will not return any value. Note that either of the parameters `post_login_url_contains` or `post_login_element_xpath` or both also need to be defined in the settings class.
 
         Example:
             ```python title="" linenums="1"
@@ -91,12 +94,40 @@ class ComboDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.combo.log_in(login_credentials, login_form)
+                browser.open.url("https://example.com/some_page")
+                browser.click.button("//xpath/to/button")
+            ```
+
+            Or use succesfull handling of the login with a conditional `if` statement by setting `return_bool` to `True` as parameter in the settings class:
+
+            ```python title="" linenums="1"
+            from browserist import Browser, LoginForm1Step, LoginCredentials
+
+            login_credentials = LoginCredentials(
+                username = "some_username",
+                password = "some_password")
+
+            login_form = LoginForm1Step(
+                url = "https://example.com/login",
+                username_input_xpath = "//xpath/to/username_field",
+                password_input_xpath = "//xpath/to/password_field",
+                submit_button_xpath = "//xpath/to/login_button",
+                post_login_url_contains = "https://example.com/successfull_logged_in_page",
+                post_login_element_xpath = "//xpath/to/successfull_logged_in_element",
+                return_bool = True)
+
+            with Browser() as browser:
+                if browser.combo.log_in(login_credentials, login_form):
+                    browser.open.url("https://example.com/some_page")
+                    browser.click.button("//xpath/to/button")
             ```
         """
 
+        return_bool_value: bool | None = None
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
-            combo_log_in(self, login_credentials, login_form, timeout)
+            return_bool_value = combo_log_in(self, login_credentials, login_form, timeout)
+        return return_bool_value
 
     def search(self, term: str, settings: SearchSettings, timeout: float | None = None) -> None:
         """Standardised combination of methods to perform search.
