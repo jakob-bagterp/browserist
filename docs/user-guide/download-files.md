@@ -11,9 +11,10 @@ Read on to learn how to automate file downloads in an easy and stable way.
 ## Destination Directory for Downloads
 First, make sure you know where files are downloaded to. The default is the user's `Downloads` folder, or you can set a custom download directory in the [`download_dir` parameter of `BrowserSettings`](./settings/overview.md).
 
-It's only possible to set a single download directory for each browser session, not different destinations for different downloads.
 
 !!! note
+    It's only possible to set a single download directory for each browser session, not different destinations for different downloads.
+
     Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
 
 ## Methods
