@@ -38,7 +38,7 @@ Examples in context:
 ```python title="" linenums="1"
 from browserist import Browser
 
-with Browser(settings) as browser:
+with Browser() as browser:
     browser.open.url("https://example.com")
     browser.click.download("//xpath/to/button")
     browser.click.download("//xpath/to/button", await_download=True)
@@ -51,7 +51,7 @@ Use the `click.download_and_get_file_path()` method to download a file and get i
 ```python title="" linenums="1"
 from browserist import Browser
 
-with Browser(settings) as browser:
+with Browser() as browser:
     browser.open.url("https://example.com")
     file_path = browser.click.download_and_get_file_path("//xpath/to/button")
 ```

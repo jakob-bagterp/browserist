@@ -52,7 +52,7 @@ class ClickDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser
 
-            with Browser(settings) as browser:
+            with Browser() as browser:
                 browser.open.url("https://example.com")
 
                 # Download file in background without waiting
@@ -95,7 +95,7 @@ class ClickDriverMethods(DriverMethods):
             from pathlib import Path
             from browserist import Browser
 
-            with Browser(settings) as browser:
+            with Browser() as browser:
                 browser.open.url("https://example.com")
                 file_path = browser.click.download_and_get_file_path("//xpath/to/button")
                 print("File name:", file_path.name)
