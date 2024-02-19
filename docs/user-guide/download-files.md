@@ -11,6 +11,15 @@ Read on to learn how to automate file downloads in an easy and stable way.
 ## Destination Directory for Downloads
 First, make sure you know where files are downloaded to. The default is the user's `Downloads` folder, or you can set a custom download directory in the [`download_dir` parameter of `BrowserSettings`](./settings/overview.md).
 
+```python title="" linenums="1"
+from browserist import Browser, BrowserSettings
+
+settings = BrowserSettings(download_dir = "/my/downloads")
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+    browser.click.download("//xpath/to/button")
+```
 
 !!! note
     It's only possible to set a single download directory for each browser session, not different destinations for different downloads.
