@@ -14,7 +14,7 @@ def is_element_loaded(driver: BaseWebDriver, element: WebElement) -> bool:
     return is_image_loaded or False
 
 
-def merge_vertically(image_base: Image, image_add: Image) -> Image:  # type: ignore
+def merge_vertically(image_base: Image, image_add: Image) -> Image:
     """Merge two images vertically. Assumes both images have the same width. "image_add" will be added below "image_base"."""
 
     merged_image_width: int = image_base.width
@@ -28,13 +28,13 @@ def merge_vertically(image_base: Image, image_add: Image) -> Image:  # type: ign
     return merged_image
 
 
-def open(file_path: str) -> Image:  # type: ignore
+def open(file_path: str) -> Image:
     """Open image from file path."""
 
     return Image.open(file_path)
 
 
-def save(image: Image, file_path: FilePath) -> Image:  # type: ignore
+def save(image: Image, file_path: FilePath) -> Image:
     """Save image to file path."""
 
     return image.save(file_path)
