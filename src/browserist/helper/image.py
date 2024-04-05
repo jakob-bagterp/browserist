@@ -1,4 +1,4 @@
-from PIL import Image  # type: ignore
+from PIL import Image
 from selenium.webdriver.remote.webdriver import BaseWebDriver
 from selenium.webdriver.remote.webelement import WebElement
 
