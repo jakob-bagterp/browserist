@@ -1,4 +1,5 @@
-from PIL.Image import Image
+from PIL import Image
+from PIL.Image import Image as ImageType
 from selenium.webdriver.remote.webdriver import BaseWebDriver
 from selenium.webdriver.remote.webelement import WebElement
 
@@ -14,7 +15,7 @@ def is_element_loaded(driver: BaseWebDriver, element: WebElement) -> bool:
     return is_image_loaded or False
 
 
-def merge_vertically(image_base: Image, image_add: Image) -> Image:
+def merge_vertically(image_base: ImageType, image_add: ImageType) -> ImageType:
     """Merge two images vertically. Assumes both images have the same width. "image_add" will be added below "image_base"."""
 
     merged_image_width: int = image_base.width
@@ -28,7 +29,7 @@ def merge_vertically(image_base: Image, image_add: Image) -> Image:
     return merged_image
 
 
-def open(file_path: str) -> Image:
+def open(file_path: str) -> ImageType:
     """Open image from file path."""
 
     return Image.open(file_path)
