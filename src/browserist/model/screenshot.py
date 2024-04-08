@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum, unique
 
-from PIL import Image  # type: ignore
+from PIL.Image import Image as ImageType
 
 from .. import helper, helper_screenshot
 from ..model.browser.base.driver import BrowserDriver
@@ -34,7 +34,7 @@ class ScreenshotTempDataHandler:
         self._all_temp_file_paths: list[FilePath] = []
         self._temp_file_prefix: str = helper_screenshot.file.get_temp_prefix_without_iterator_and_file_type()
         self._iteration: int = 1
-        self._screenshot: Image  # type: ignore
+        self._screenshot: ImageType
 
     def get_temp_file_name(self) -> FilePNG:
         return FilePNG(f"{self._temp_file_prefix}_{self._iteration}.png")

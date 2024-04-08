@@ -1,4 +1,4 @@
-import lxml.etree  # type: ignore
+import lxml.etree
 from lxml.etree import XPathSyntaxError
 
 from ..model.type.xpath import XPath

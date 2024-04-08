@@ -1,7 +1,7 @@
 __all__ = ["complete_page", "controller", "file", "save", "save_element", "merge_two_images_without_save"]
 
 
-from PIL import Image  # type: ignore
+from PIL.Image import Image as ImageType
 from selenium.webdriver.remote.webelement import WebElement
 
 from .. import helper
@@ -22,5 +22,5 @@ def save_element(element: WebElement, file_path: str) -> None:
     element.screenshot(file_path)
 
 
-def merge_two_images_without_save(image_1: Image, image_2: Image) -> Image:  # type: ignore
+def merge_two_images_without_save(image_1: ImageType, image_2: ImageType) -> ImageType:
     return helper.image.merge_vertically(image_1, image_2)
