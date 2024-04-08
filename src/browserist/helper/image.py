@@ -35,7 +35,7 @@ def open(file_path: str) -> ImageType:
     return Image.open(file_path)
 
 
-def save(image: Image, file_path: FilePath) -> Image:
+def save(image: ImageType, file_path: FilePath) -> None:
     """Save image to file path."""
 
-    return image.save(file_path)
+    image.save(file_path)
