@@ -18,7 +18,7 @@ with Browser() as browser:
 ```
 
 ## Opening Multiple Tabs
-Normally, browsers allow you to open a new tab by pressing `Ctrl` + `T` or by clicking a button in your browser. With Browserist you can automate this, for example based on a list of URLs. This will open each URL in a new tab:
+Normally, browsers allow you to open a new tab by pressing `Ctrl` + `T` in Windows, `Cmd` + `T` on a Mac, or by clicking a button in your browser. With Browserist you can automate this, for example based on a list of URLs. This example will open each URL in a new tab:
 
 ```python linenums="1"
 from browserist import Browser
