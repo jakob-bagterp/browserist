@@ -65,3 +65,22 @@ with Browser() as browser:
     browser.window.open.new_tab("https://google.com")
     browser.window.switch_to(base_handle_id)
 ```
+
+### Get List of URLs of Open Tabs
+As a links may redirect you to a different destination than the initial URL, you sometimes want to collect the actual destination of each page. An example of how to achieve this with tabs:
+
+```python linenums="1"
+from browserist import Browser
+
+results = []
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    links = browser.get.url.from_links("//a")
+    for link in links:
+        browser.window.open.new_tab(link)
+        current_url = browser.get.url.current()
+        results.append(current_url)
+
+print(results)
+```
