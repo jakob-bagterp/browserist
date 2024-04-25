@@ -29,3 +29,24 @@ with Browser() as browser:
     for url in urls:
         browser.window.open.new_tab(url)
 ```
+
+## Switching Between Tabs
+Switching between tabs is a common task when using a browser. You can either click a tab to switch to it or use a keyboard shortcut to cycle through open tabs. How to automate this with Browserist:
+
+```python linenums="1"
+from browserist import Browser
+
+urls = ["https://example.com", "https://google.com", "https://bing.com"]
+
+with Browser() as browser:
+    for i, url in enumerate(urls):
+        browser.window.open.new_tab(url, f"tab_{i}")
+```
+
+Now we can switch between each tab by calling its window handle:
+
+```python linenums="8"
+    browser.window.switch_to("tab_0")
+    browser.window.switch_to("tab_1")
+    browser.window.switch_to("tab_2")
+```
