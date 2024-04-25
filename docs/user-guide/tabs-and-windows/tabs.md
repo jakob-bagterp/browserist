@@ -54,7 +54,7 @@ Now we can switch between each tab by calling its window handle:
 ```
 
 #### Get Handle ID of Current Tab
-Under the hood, Browserist uses handle IDs to manage and identify open windows and tabs. You can get the handle ID of the current tab so that you later can switch back to it:
+Under the hood, Browserist uses handle IDs to manage and identify open windows and tabs. You can get the handle ID of the current tab to switch back to it later:
 
 ```python linenums="1"
 from browserist import Browser
@@ -66,8 +66,8 @@ with Browser() as browser:
     browser.window.switch_to(base_handle_id)
 ```
 
-### Get List of URLs of Open Tabs
-As a links may redirect you to a different destination than the initial URL, you sometimes want to collect the actual destination of each page. An example of how to achieve this with tabs:
+### Get List of URLs from Open Tabs
+Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. An example of how to do this with tabs:
 
 ```python linenums="1"
 from browserist import Browser
