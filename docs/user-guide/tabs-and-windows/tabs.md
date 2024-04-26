@@ -33,7 +33,7 @@ with Browser() as browser:
 ```
 
 ### Switching Between Tabs
-Switching between tabs is a common task when using a browser. You can either click a tab to switch to it or use a keyboard shortcut to cycle through open tabs. How to automate this with Browserist:
+Switching between tabs is a common task when using a browser. Instead of either clicking a tab to switch to it or using a keyboard shortcut to cycle through open tabs, you can automate this with Browserist:
 
 ```python linenums="1"
 from browserist import Browser
@@ -45,7 +45,7 @@ with Browser() as browser:
         browser.window.open.new_tab(url, f"tab_{i}")
 ```
 
-Now we can switch between each tab by calling its window handle:
+Now we can switch between each tab by calling its handle:
 
 ```python linenums="8"
     browser.window.switch_to("tab_0")
@@ -67,7 +67,7 @@ with Browser() as browser:
 ```
 
 ### Get List of URLs from Open Tabs
-Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. Here is an example of how to capture all the links from a web page and open them in tabs:
+Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. Here is an example of how to capture all the links from a web page and open them in new tabs:
 
 ```python linenums="1"
 from browserist import Browser
