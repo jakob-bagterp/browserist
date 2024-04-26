@@ -17,6 +17,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str: URL of the current page, e.g. `https://example.com`.
+
+        Example:
+            ```python title=""
+            current_url = browser.get.url.current()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -27,16 +32,21 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str: Domain of the current page, e.g. `example.com`.
+
+        Example:
+            ```python title=""
+            current_domain = browser.get.url.current_domain()
+            ```
         """
 
         if self._timeout_should_continue():
             return get_current_domain(self._browser_driver)
 
     def from_image(self, xpath: str, timeout: float | None = None) -> str | None:  # type: ignore
-        """Get URL source from image, i.e. `<img>` tag.
+        """Get the source URL of an `<img>` image element.
 
         Note:
-            This method assumes that the image isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method targets the `src` attribute of an `<img>` image element. And it assumes that the image isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the image. Should target an `<img>` tag.
@@ -44,6 +54,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str | None: URL source of the image. If the image does not exist, `None` is returned.
+
+        Example:
+            ```python title=""
+            image_url = browser.get.url.from_image("//xpath/to/img")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -51,7 +66,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_image(self._browser_driver, xpath, timeout)
 
     def from_images(self, xpath: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
-        """Get list of URLs from images, i.e. `<img>` tags. Assumes that the XPath targets multiple images.
+        """Get list of source URLs of a group of `<img>` image elements.
+
+        Note:
+            This method targets the `src` attribute of the `<img>` image elements. And it assumes that the XPath targets multiple images.
 
         Args:
             xpath (str): XPath of the images. Should target `<img>` tags.
@@ -59,6 +77,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             list[str | None]: List of image URLs. If an image does not exist, `None` is added to the list.
+
+        Example:
+            ```python title=""
+            image_urls = browser.get.url.from_images("//img")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -66,10 +89,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_images(self._browser_driver, xpath, timeout)
 
     def from_link(self, xpath: str, timeout: float | None = None) -> str | None:  # type: ignore
-        """Get URL from link or button, i.e. `<a>` tag.
+        """Get the source URL of an `<a>` link element.
 
         Note:
-            This method assumes that the link isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method targets the `href` attribute of the `<a>` link element. And it assumes that the link isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the link. Should target an `<a>` tag.
@@ -77,6 +100,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str | None: URL of the link. If the link does not exist, `None` is returned.
+
+        Example:
+            ```python title=""
+            link_url = browser.get.url.from_link("//xpath/to/a")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -84,7 +112,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_link(self._browser_driver, xpath, timeout)
 
     def from_links(self, xpath: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
-        """Get array of URLs from links or buttons, i.e. `<a>` tags. Assumes that the XPath targets multiple links.
+        """Get list of source URLs of a group of `<a>` link elements.
+
+        Note:
+            This method targets the `href` attribute of the `<a>` link elements. And it assumes that the XPath targets multiple links.
 
         Args:
             xpath (str): XPath of the links. Should target `<a>` tags.
@@ -92,6 +123,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             list[str | None]: List of link URLs. If a link does not exist, `None` is added to the list.
+
+        Example:
+            ```python title=""
+            link_urls = browser.get.url.from_links("//a")
+            ```
         """
 
         if self._timeout_should_continue():
