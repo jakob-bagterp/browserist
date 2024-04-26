@@ -20,9 +20,23 @@ class GetAttributeDriverMethods(DriverMethods):
             str | None: Value of the attribute. If the attribute does not exist, `None` is returned.
 
         Example:
-            Use `"src"` as attribute to get the source URL from an `<img>` image tag.
+            Use `"src"` as attribute to get the source URL from an `<img>` image element.
 
-            Use `"href"` as attribute to get the URL from an `<a>` link tag.
+            ```python title=""
+            image_url = browser.get.attribute.value("//xpath/to/img", "src")
+            ```
+
+            Use `"href"` as attribute to get the URL from an `<a>` link element.
+
+            ```python title=""
+            link_url = browser.get.attribute.value("//xpath/to/a", "href")
+            ```
+
+            Or use other attributes to get the value from a `<meta>` element in the `<head>` section.
+
+            ```python title=""
+            meta_content = browser.get.attribute.value("/html/head/meta[1]", "content")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -41,9 +55,23 @@ class GetAttributeDriverMethods(DriverMethods):
             list[str | None]: Values of the attribute. If an attribute does not exist, `None` is added to the list.
 
         Example:
-            Use `"src"` as attribute to get the source URL from an `<img>` image tag.
+            Use `"src"` as attribute to get the source URL from `<img>` image elements.
 
-            Use `"href"` as attribute to get the URL from an `<a>` link tag.
+            ```python title=""
+            image_urls = browser.get.attribute.values("//img", "src")
+            ```
+
+            Use `"href"` as attribute to get the URL from `<a>` link elements.
+
+            ```python title=""
+            link_urls = browser.get.attribute.values("//a", "href")
+            ```
+
+            Or use other attributes to get values from `<meta>` elements in the `<head>` section.
+
+            ```python title=""
+            meta_contents = browser.get.attribute.values("/html/head/meta", "content")
+            ```
         """
 
         if self._timeout_should_continue():
