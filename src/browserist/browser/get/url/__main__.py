@@ -17,6 +17,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str: URL of the current page, e.g. `https://example.com`.
+
+        Example:
+            ```python title=""
+            current_url = browser.get.url.current()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -27,6 +32,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str: Domain of the current page, e.g. `example.com`.
+
+        Example:
+            ```python title=""
+            current_domain = browser.get.url.current_domain()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -44,6 +54,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str | None: URL source of the image. If the image does not exist, `None` is returned.
+
+        Example:
+            ```python title=""
+            image_url = browser.get.url.from_image("//xpath/to/img")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -62,6 +77,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             list[str | None]: List of image URLs. If an image does not exist, `None` is added to the list.
+
+        Example:
+            ```python title=""
+            image_urls = browser.get.url.from_images("//img")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -80,6 +100,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             str | None: URL of the link. If the link does not exist, `None` is returned.
+
+        Example:
+            ```python title=""
+            link_url = browser.get.url.from_link("//xpath/to/a")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -98,6 +123,11 @@ class GetUrlDriverMethods(DriverMethods):
 
         Returns:
             list[str | None]: List of link URLs. If a link does not exist, `None` is added to the list.
+
+        Example:
+            ```python title=""
+            link_urls = browser.get.url.from_links("//a")
+            ```
         """
 
         if self._timeout_should_continue():
