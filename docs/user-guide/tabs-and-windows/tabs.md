@@ -67,7 +67,7 @@ with Browser() as browser:
 ```
 
 ### Get List of URLs from Open Tabs
-Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. An example of how to do this with tabs:
+Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. Here is an example of how to capture all the links from a web page and open them in tabs:
 
 ```python linenums="1"
 from browserist import Browser
@@ -76,8 +76,8 @@ results = []
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    links = browser.get.url.from_links("//a")
-    for link in links:
+    all_links = browser.get.url.from_links("//a")
+    for link in all_links:
         browser.window.open.new_tab(link)
         current_url = browser.get.url.current()
         results.append(current_url)
