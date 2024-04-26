@@ -33,10 +33,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_current_domain(self._browser_driver)
 
     def from_image(self, xpath: str, timeout: float | None = None) -> str | None:  # type: ignore
-        """Get the source URL of an image by targeting the `src` attribute of an `<img>` element.
+        """Get the source URL of an `<img>` image element.
 
         Note:
-            This method assumes that the image isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method targets the `src` attribute of an `<img>` image element. And it assumes that the image isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the image. Should target an `<img>` tag.
@@ -51,7 +51,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_image(self._browser_driver, xpath, timeout)
 
     def from_images(self, xpath: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
-        """Get list of image source URLs by targeting the `src` attribute of the `<img>` elements. Assumes that the XPath targets multiple images.
+        """Get list of source URLs of a group of `<img>` image elements.
+
+        Note:
+            This method targets the `src` attribute of the `<img>` image elements. And it assumes that the XPath targets multiple images.
 
         Args:
             xpath (str): XPath of the images. Should target `<img>` tags.
