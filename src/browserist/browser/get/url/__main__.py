@@ -69,10 +69,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_images(self._browser_driver, xpath, timeout)
 
     def from_link(self, xpath: str, timeout: float | None = None) -> str | None:  # type: ignore
-        """Get URL from link or button, i.e. `<a>` tag.
+        """Get the source URL of an `<a>` link element.
 
         Note:
-            This method assumes that the link isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
+            This method targets the `href` attribute of the `<a>` link element. And it assumes that the link isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
 
         Args:
             xpath (str): XPath of the link. Should target an `<a>` tag.
@@ -87,7 +87,10 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_link(self._browser_driver, xpath, timeout)
 
     def from_links(self, xpath: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
-        """Get array of URLs from links or buttons, i.e. `<a>` tags. Assumes that the XPath targets multiple links.
+        """Get list of source URLs of a group of `<a>` link elements.
+
+        Note:
+            This method targets the `href` attribute of the `<a>` link elements. And it assumes that the XPath targets multiple links.
 
         Args:
             xpath (str): XPath of the links. Should target `<a>` tags.
