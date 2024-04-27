@@ -24,6 +24,12 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element contains any text, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.check_if.contains_any_text("//xpath/to/button"):
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -39,6 +45,21 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element contains text specified in the regex, `False` otherwise.
+
+        Example:
+            Without regular expression:
+
+            ```python title="" linenums="1"
+            if browser.check_if.contains_text("//xpath/to/button", "Save"):
+                browser.click.button("//xpath/to/button")
+            ```
+
+            With regular expression:
+
+            ```python title="" linenums="1"
+            if browser.check_if.contains_text("//xpath/to/button", r"^Submit", ignore_case = False):
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -52,6 +73,12 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element exists, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.check_if.does_exist("//xpath/to/button"):
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -65,6 +92,14 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element is clickable, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.check_if.is_clickable("//xpath/to/button"):
+                browser.click.button("//xpath/to/button")
+            else:
+                browser.open.url("https://example.com")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -78,6 +113,12 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element is disabled, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if not browser.check_if.is_disabled("//xpath/to/button"):
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -91,6 +132,12 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element is displayed, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.check_if.is_displayed("//xpath/to/button"):
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -104,6 +151,12 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element is enabled, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.check_if.is_enabled("//xpath/to/button"):
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -117,6 +170,13 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if image is loaded, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.check_if.is_image_loaded("//xpath/to/img"):
+                image_url = browser.get.url.from_image("//xpath/to/img")
+                browser.click.download(image_url)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -130,6 +190,13 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element is visible in the current viewport, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if not browser.check_if.is_in_viewport("//xpath/to/element"):
+                browser.scroll.into_view("//xpath/to/element")
+            browser.screenshot.visible_portion()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -143,6 +210,13 @@ class CheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if element is selected, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if not browser.check_if.is_selected("//xpath/to/input"):
+                browser.input.select("//xpath/to/input")
+            browser.click.button_if_contains_text(("//xpath/to/button", "Submit")
+            ```
         """
 
         if self._timeout_should_continue():
