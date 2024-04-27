@@ -15,8 +15,8 @@ Let's imagine you want to open a web page first and then open another page in a 
 from browserist import Browser
 
 with Browser() as browser:
-    browser.open.url("https://google.com")
-    browser.window.open.new_tab("https://example.com")
+    browser.open.url("https://example.com")
+    browser.window.open.new_tab("https://google.com")
 ```
 
 ### Opening Multiple Tabs
