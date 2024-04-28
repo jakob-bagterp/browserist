@@ -21,8 +21,8 @@ from browserist import Browser
 browser = Browser()
 browser.open.url("https://example.com")
 browser.open.url("https://google.com")
-browser.browser.back()  # Go back to previous page Example.com
-browser.browser.forward()  # Return to Google.com
+browser.back()  # Go back to previous page Example.com
+browser.forward()  # Return to Google.com
 browser.quit()
 ```
 
@@ -35,6 +35,6 @@ browser.quit()
     with Browser() as browser:
         browser.open.url("https://example.com")
         browser.open.url("https://google.com")
-        browser.browser.back()  # Go back to previous page Example.com
-        browser.browser.forward()  # Return to Google.com
+        browser.back()  # Go back to previous page Example.com
+        browser.forward()  # Return to Google.com
     ```

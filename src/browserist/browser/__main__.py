@@ -94,21 +94,70 @@ class Browser:
         self.quit()
 
     def back(self) -> None:
-        """Press the browser's back button."""
+        """Press the browser's back button.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.open.url("https://google.com")
+                browser.back()  # Go back to previous page Example.com
+            ```
+        """
 
         self.driver.back()
 
     def forward(self) -> None:
-        """Press the browser's forward button."""
+        """Press the browser's forward button.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.open.url("https://google.com")
+                browser.back()  # Go back to previous page Example.com
+                browser.forward()  # Return to Google.com
+            ```
+        """
 
         self.driver.forward()
 
     def refresh(self) -> None:
-        """Refresh the current page."""
+        """Refresh the current page.
+
+        Example:
+            ```python title=""
+            browser.refresh()
+            ```
+        """
 
         self.driver.refresh()
 
     def quit(self) -> None:
-        """Quit the browser."""
+        """Quit the browser.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            browser = Browser()
+            browser.open.url("https://example.com")
+            browser.quit()
+            ```
+
+        !!! tip
+            Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](../../user-guide/context-manager.md) and `with` statements. The example above could then be refactored to:
+
+            ```python linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+            ```
+        """
 
         self.driver.quit()
