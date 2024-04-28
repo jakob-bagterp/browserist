@@ -14,6 +14,11 @@ class IframeDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the iframe.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            browser.iframe.switch_to("//xpath/to/iframe")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -21,7 +26,19 @@ class IframeDriverMethods(DriverMethods):
             switch_to_iframe(self._browser_driver, xpath, timeout)
 
     def switch_to_original_page(self) -> None:
-        """After switch to iframe, use this to come back to the original page."""
+        """After switch to iframe, use this to come back to the original page.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.iframe.switch_to("//xpath/to/iframe")
+                element_text = browser.get.text("//xpath/to/element")
+                browser.iframe.switch_to_original_page()
+            ```
+        """
 
         if self._timeout_should_continue():
             switch_to_original_page(self._browser_driver)
