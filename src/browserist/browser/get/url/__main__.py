@@ -19,8 +19,15 @@ class GetUrlDriverMethods(DriverMethods):
             str: URL of the current page, e.g. `https://example.com`.
 
         Example:
-            ```python title=""
-            current_url = browser.get.url.current()
+            This will output the URL `https://example.com` in the terminal:
+
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                current_url = browser.get.url.current()
+                print(current_url)
             ```
         """
 
@@ -34,8 +41,15 @@ class GetUrlDriverMethods(DriverMethods):
             str: Domain of the current page, e.g. `example.com`.
 
         Example:
-            ```python title=""
-            current_domain = browser.get.url.current_domain()
+            This will output the domain `example.com` in the terminal:
+
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                current_domain = browser.get.url.current_domain()
+                print(current_domain)
             ```
         """
 
@@ -56,8 +70,9 @@ class GetUrlDriverMethods(DriverMethods):
             str | None: URL source of the image. If the image does not exist, `None` is returned.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             image_url = browser.get.url.from_image("//xpath/to/img")
+            print(image_url)
             ```
         """
 
@@ -79,8 +94,10 @@ class GetUrlDriverMethods(DriverMethods):
             list[str | None]: List of image URLs. If an image does not exist, `None` is added to the list.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             image_urls = browser.get.url.from_images("//img")
+            for image_url in image_urls:
+                print(image_url)
             ```
         """
 
@@ -102,8 +119,9 @@ class GetUrlDriverMethods(DriverMethods):
             str | None: URL of the link. If the link does not exist, `None` is returned.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             link_url = browser.get.url.from_link("//xpath/to/a")
+            print(link_url)
             ```
         """
 
@@ -125,8 +143,10 @@ class GetUrlDriverMethods(DriverMethods):
             list[str | None]: List of link URLs. If a link does not exist, `None` is added to the list.
 
         Example:
-            ```python title=""
+            ```python title="" linenums="1"
             link_urls = browser.get.url.from_links("//a")
+            for link_url in link_urls:
+                print(link_url)
             ```
         """
 

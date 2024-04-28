@@ -33,7 +33,7 @@ class GetDriverMethods(DriverMethods):
 
         Example:
             ```python title=""
-            width, height = browser.get.dimensions("/element/xpath")
+            width, height = browser.get.dimensions("//xpath/to/element")
             ```
         """
 
@@ -50,6 +50,12 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             WebElement: Web element.
+
+        Example:
+            ```python title="" linenums="1"
+            element = browser.get.element("//xpath/to/element")
+            print(element.text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -57,7 +63,7 @@ class GetDriverMethods(DriverMethods):
             return get_element(self._browser_driver, xpath, timeout)
 
     def elements(self, xpath: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """Get multiple web elements by XPath.
+        """Get multiple web elements by XPath. Assumes that the XPath targets multiple elements.
 
         Args:
             xpath (str): XPath of the elements.
@@ -65,6 +71,13 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             list[WebElement]: List of web elements.
+
+        Example:
+            ```python title="" linenums="1"
+            elements = browser.get.elements("//xpath/to/elements")
+            for element in elements:
+                print(element.text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -72,14 +85,23 @@ class GetDriverMethods(DriverMethods):
             return get_elements(self._browser_driver, xpath, timeout)
 
     def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """"Get multiple web elements by HTML tag.
+        """"Get multiple web elements by HTML tag. Assumes that the XPath targets multiple elements.
 
         Args:
-            tag (str): HTML tag of the elements. For example, `img` as tag for all `<img>` images, `a` for all `<a>` links, etc.
+            tag (str): HTML tag of the elements. For example, `"img"` as tag for all `<img>` images, `"a"` for all `<a>` links, etc.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[WebElement]: List of web elements.
+
+        Example:
+            Get and print all paragraphs of a web page:
+
+            ```python title="" linenums="1"
+            elements = browser.get.elements_by_tag("p")
+            for element in elements:
+                print(element.text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -91,6 +113,12 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             str: Page title.
+
+        Example:
+            ```python title="" linenums="1"
+            page_title = browser.get.page_title()
+            print(page_title)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -108,6 +136,12 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             str: Text from element.
+
+        Example:
+            ```python title="" linenums="1"
+            element_text = browser.get.text("//xpath/to/element")
+            print(element_text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -123,6 +157,13 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             list[str]: List of texts from elements.
+
+        Example:
+            ```python title="" linenums="1"
+            element_texts = browser.get.texts("//xpath/to/elements")
+            for element_text in element_texts:
+                print(element_text)
+            ```
         """
 
         if self._timeout_should_continue():
