@@ -13,8 +13,8 @@ class HuaweiDevices:
 
         huawei_p40_lite = common_devices.Huawei.P40_LITE
             settings = BrowserSettings(
-            headless = True,
-            viewport = huawei_p40_lite)
+            headless=True,
+            viewport=huawei_p40_lite)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

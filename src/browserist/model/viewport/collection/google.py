@@ -13,8 +13,8 @@ class GoogleDevices:
 
         nest_hub_max = common_devices.Google.NEST_HUB_MAX
         settings = BrowserSettings(
-            headless = True,
-            viewport = nest_hub_max)
+            headless=True,
+            viewport=nest_hub_max)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

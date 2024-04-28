@@ -16,7 +16,7 @@ If you want to use other browser types, e.g. Firefox, Edge, etc., define this in
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
-settings = BrowserSettings(type = BrowserType.FIREFOX)
+settings = BrowserSettings(type=BrowserType.FIREFOX)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
@@ -40,9 +40,9 @@ When you have multiple browser drivers installed, you can run them in sequence l
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
-chrome = BrowserSettings(type = BrowserType.CHROME)
-edge = BrowserSettings(type = BrowserType.EDGE)
-firefox = BrowserSettings(type = BrowserType.FIREFOX)
+chrome = BrowserSettings(type=BrowserType.CHROME)
+edge = BrowserSettings(type=BrowserType.EDGE)
+firefox = BrowserSettings(type=BrowserType.FIREFOX)
 
 for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:

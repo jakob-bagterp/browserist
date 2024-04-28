@@ -57,7 +57,7 @@ class CheckIfDriverMethods(DriverMethods):
             With regular expression:
 
             ```python title="" linenums="1"
-            if browser.check_if.contains_text("//xpath/to/button", r"^Submit", ignore_case = False):
+            if browser.check_if.contains_text("//xpath/to/button", r"^Submit", ignore_case=False):
                 browser.click.button("//xpath/to/button")
             ```
         """

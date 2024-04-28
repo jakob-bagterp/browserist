@@ -16,8 +16,8 @@ Define a general strategy and timeout in seconds:
 from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrategy
 
 timeout_settings = TimeoutSettings(
-    strategy = TimeoutStrategy.CONTINUE,
-    seconds = 10)
+    strategy=TimeoutStrategy.CONTINUE,
+    seconds=10)
 settings = BrowserSettings(timeout = timeout_settings)
 
 with Browser(settings) as browser:

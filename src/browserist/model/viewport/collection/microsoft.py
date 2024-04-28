@@ -13,8 +13,8 @@ class MicrosoftDevices:
 
         surface_pro_7 = common_devices.Microsoft.SURFACE_PRO_7
         settings = BrowserSettings(
-            headless = True,
-            viewport = surface_pro_7)
+            headless=True,
+            viewport=surface_pro_7)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

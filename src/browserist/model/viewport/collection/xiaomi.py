@@ -13,8 +13,8 @@ class XiaomiDevices:
 
         xiaomi_mi_10_pro = common_devices.Xiaomi.MI_10_PRO
             settings = BrowserSettings(
-            headless = True,
-            viewport = xiaomi_mi_10_pro)
+            headless=True,
+            viewport=xiaomi_mi_10_pro)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

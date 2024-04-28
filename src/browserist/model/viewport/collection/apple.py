@@ -15,8 +15,8 @@ class AppleDevices:
 
         iphone_x = common_devices.Apple.IPHONE_X
         settings = BrowserSettings(
-            headless = True,
-            viewport = iphone_x)
+            headless=True,
+            viewport=iphone_x)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

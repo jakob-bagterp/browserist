@@ -14,7 +14,7 @@ First, make sure you know where files are downloaded to. The default is the user
 ```python title="" linenums="1"
 from browserist import Browser, BrowserSettings
 
-settings = BrowserSettings(download_dir = "/my/downloads")
+settings = BrowserSettings(download_dir="/my/downloads")
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")

@@ -17,9 +17,9 @@ Basic usage:
 from browserist import Browser, SearchSettings
 
 search_settings = SearchSettings(
-    url = "https://google.com",
-    input_xpath = "//xpath/to/input_field",
-    button_xpath = "//xpath/to/search_button")
+    url="https://google.com",
+    input_xpath ="//xpath/to/input_field",
+    button_xpath="//xpath/to/search_button")
 
 with Browser() as browser:
     browser.combo.search("some search term", search_settings)
@@ -32,9 +32,9 @@ Let's imagine that we want to test whether a search engine has fuzzy search enab
 from browserist import Browser, SearchSettings
 
 search_settings = SearchSettings(
-    url = "https://google.com",
-    input_xpath = "//xpath/to/input_field",
-    button_xpath = "//xpath/to/search_button")
+    url="https://google.com",
+    input_xpath="//xpath/to/input_field",
+    button_xpath="//xpath/to/search_button")
 
 with Browser() as browser:
     browser.combo.search("color", search_settings)

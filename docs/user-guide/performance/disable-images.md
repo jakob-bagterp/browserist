@@ -16,7 +16,7 @@ With Browserist, it's simple to configure. As the default setting for `disable_i
 ```python linenums="1"
 from browserist import Browser, BrowserSettings
 
-settings = BrowserSettings(disable_images = True)
+settings = BrowserSettings(disable_images=True)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
@@ -33,9 +33,9 @@ For example, you can easily scale test runs across different browsers with a con
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
-chrome = BrowserSettings(type = BrowserType.CHROME, disable_images = True)
-edge = BrowserSettings(type = BrowserType.EDGE, disable_images = True)
-firefox = BrowserSettings(type = BrowserType.FIREFOX, disable_images = True)
+chrome = BrowserSettings(type=BrowserType.CHROME, disable_images=True)
+edge = BrowserSettings(type=BrowserType.EDGE, disable_images=True)
+firefox = BrowserSettings(type=BrowserType.FIREFOX, disable_images=True)
 
 for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:

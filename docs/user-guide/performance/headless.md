@@ -16,7 +16,7 @@ The default setting for `headless` is `False` in `BrowserSettings`. Simply alter
 ```python linenums="1"
 from browserist import Browser, BrowserSettings
 
-settings = BrowserSettings(headless = True)
+settings = BrowserSettings(headless=True)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
@@ -41,9 +41,9 @@ For example, you can easily scale test runs across different browsers in a light
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
-chrome = BrowserSettings(type = BrowserType.CHROME, headless = True)
-edge = BrowserSettings(type = BrowserType.EDGE, headless = True)
-firefox = BrowserSettings(type = BrowserType.FIREFOX, headless = True)
+chrome = BrowserSettings(type=BrowserType.CHROME, headless=True)
+edge = BrowserSettings(type=BrowserType.EDGE, headless=True)
+firefox = BrowserSettings(type=BrowserType.FIREFOX, headless=True)
 
 for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:

@@ -24,23 +24,27 @@ class ScreenshotDriverMethods(DriverMethods):
 
         Example:
             Default file name and destination:
+
             ```python title=""
             browser.screenshot.complete_page()
             ```
 
             Custom file name and default destination:
+
             ```python title=""
             browser.screenshot.complete_page("image.png")
             ```
 
             Custom file name and destination:
+
             ```python title=""
             browser.screenshot.complete_page("image.png", "./screenshots")
             ```
 
             Default file name and custom destination:
+
             ```python title=""
-            browser.screenshot.complete_page(destination_dir = "./screenshots")
+            browser.screenshot.complete_page(destination_dir="./screenshots")
             ```
         """
 
@@ -57,23 +61,27 @@ class ScreenshotDriverMethods(DriverMethods):
 
         Example:
             Default file name and destination:
+
             ```python title=""
             browser.screenshot.element("/element/xpath")
             ```
 
             Custom file name and default destination:
+
             ```python title=""
             browser.screenshot.element("/element/xpath", "image.png")
             ```
 
             Custom file name and destination:
+
             ```python title=""
             browser.screenshot.element("/element/xpath", "image.png", "./screenshots")
             ```
 
             Default file name and custom destination:
+
             ```python title=""
-            browser.screenshot.element("/element/xpath", destination_dir = "./screenshots")
+            browser.screenshot.element("/element/xpath", destination_dir="./screenshots")
             ```
         """
 
@@ -89,23 +97,27 @@ class ScreenshotDriverMethods(DriverMethods):
 
         Example:
             Default file name and destination:
+
             ```python title=""
             browser.screenshot.visible_portion()
             ```
 
             Custom file name and default destination:
+
             ```python title=""
             browser.screenshot.visible_portion("image.png")
             ```
 
             Custom file name and destination:
+
             ```python title=""
             browser.screenshot.visible_portion("image.png", "./screenshots")
             ```
 
             Default file name and custom destination:
+
             ```python title=""
-            browser.screenshot.visible_portion(destination_dir = "./screenshots")
+            browser.screenshot.visible_portion(destination_dir="./screenshots")
             ```
         """
 
