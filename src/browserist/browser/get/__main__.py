@@ -88,11 +88,20 @@ class GetDriverMethods(DriverMethods):
         """"Get multiple web elements by HTML tag.
 
         Args:
-            tag (str): HTML tag of the elements. For example, `img` as tag for all `<img>` images, `a` for all `<a>` links, etc.
+            tag (str): HTML tag of the elements. For example, `"img"` as tag for all `<img>` images, `"a"` for all `<a>` links, etc.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
             list[WebElement]: List of web elements.
+
+        Example:
+            Get and print all paragraphs of a web page:
+
+            ```python title="" linenums="1"
+            elements = browser.get.elements_by_tag("p")
+            for element in elements:
+                print(element.text)
+            ```
         """
 
         if self._timeout_should_continue():
