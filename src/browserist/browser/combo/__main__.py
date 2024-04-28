@@ -28,9 +28,9 @@ class ComboDriverMethods(DriverMethods):
             from browserist import Browser, CookieBannerSettings
 
             accept_cookies = CookieBannerSettings(
-                url = "https://example.com",
-                has_loaded_xpath = "//xpath/to/cookie_banner",
-                button_xpath = "//xpath/to/accept_button")
+                url="https://example.com",
+                has_loaded_xpath="//xpath/to/cookie_banner",
+                button_xpath="//xpath/to/accept_button")
 
             with Browser() as browser:
                 browser.combo.cookie_banner(accept_cookies)
@@ -44,10 +44,10 @@ class ComboDriverMethods(DriverMethods):
             from browserist import Browser, CookieBannerSettings
 
             accept_cookies = CookieBannerSettings(
-                url = "https://example.com",
-                has_loaded_xpath = "//xpath/to/cookie_banner",
-                button_xpath = "//xpath/to/accept_button",
-                return_bool = True)
+                url="https://example.com",
+                has_loaded_xpath="//xpath/to/cookie_banner",
+                button_xpath="//xpath/to/accept_button",
+                return_bool=True)
 
             with Browser() as browser:
                 if browser.combo.cookie_banner(accept_cookies):
@@ -83,14 +83,14 @@ class ComboDriverMethods(DriverMethods):
             from browserist import Browser, LoginForm1Step, LoginCredentials
 
             login_credentials = LoginCredentials(
-                username = "some_username",
-                password = "some_password")
+                username="some_username",
+                password="some_password")
 
             login_form = LoginForm1Step(
-                url = "https://example.com/login",
-                username_input_xpath = "//xpath/to/username_field",
-                password_input_xpath = "//xpath/to/password_field",
-                submit_button_xpath = "//xpath/to/login_button")
+                url="https://example.com/login",
+                username_input_xpath="//xpath/to/username_field",
+                password_input_xpath="//xpath/to/password_field",
+                submit_button_xpath="//xpath/to/login_button")
 
             with Browser() as browser:
                 browser.combo.log_in(login_credentials, login_form)
@@ -104,17 +104,17 @@ class ComboDriverMethods(DriverMethods):
             from browserist import Browser, LoginForm1Step, LoginCredentials
 
             login_credentials = LoginCredentials(
-                username = "some_username",
-                password = "some_password")
+                username="some_username",
+                password="some_password")
 
             login_form = LoginForm1Step(
-                url = "https://example.com/login",
-                username_input_xpath = "//xpath/to/username_field",
-                password_input_xpath = "//xpath/to/password_field",
-                submit_button_xpath = "//xpath/to/login_button",
-                post_login_url_contains = "https://example.com/successfull_logged_in_page",
-                post_login_element_xpath = "//xpath/to/successfull_logged_in_element",
-                return_bool = True)
+                url="https://example.com/login",
+                username_input_xpath="//xpath/to/username_field",
+                password_input_xpath="//xpath/to/password_field",
+                submit_button_xpath="//xpath/to/login_button",
+                post_login_url_contains="https://example.com/successfull_logged_in_page",
+                post_login_element_xpath="//xpath/to/successfull_logged_in_element",
+                return_bool=True)
 
             with Browser() as browser:
                 if browser.combo.log_in(login_credentials, login_form):
@@ -142,9 +142,9 @@ class ComboDriverMethods(DriverMethods):
             from browserist import Browser, SearchSettings
 
             search_settings = SearchSettings(
-                url = "https://google.com",
-                input_xpath = "//xpath/to/input_field",
-                button_xpath = "//xpath/to/search_button")
+                url="https://google.com",
+                input_xpath="//xpath/to/input_field",
+                button_xpath="//xpath/to/search_button")
 
             with Browser() as browser:
                 browser.combo.search("some search term", search_settings)
