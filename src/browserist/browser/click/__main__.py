@@ -20,7 +20,7 @@ class ClickDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title=""
             browser.click.button("//xpath/to/button")
             ```
         """
@@ -41,13 +41,13 @@ class ClickDriverMethods(DriverMethods):
         Example:
             Without regular expression:
 
-            ```python title="" linenums="1"
+            ```python title=""
             browser.click.button_if_contains_text("//xpath/to/button", "Save")
             ```
 
             With regular expression:
 
-            ```python title="" linenums="1"
+            ```python title=""
             browser.click.button_if_contains_text("//xpath/to/button", r"^Submit")
             ```
         """
