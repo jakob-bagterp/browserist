@@ -18,7 +18,8 @@ from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrateg
 timeout_settings = TimeoutSettings(
     strategy=TimeoutStrategy.CONTINUE,
     seconds=10)
-settings = BrowserSettings(timeout = timeout_settings)
+
+settings = BrowserSettings(timeout=timeout_settings)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")

@@ -16,6 +16,7 @@ You can set the viewport to emulate common device sizes (e.g. various popular mo
 from browserist import Browser, BrowserSettings, common_devices
 
 iphone_se = common_devices.Apple.IPHONE_SE
+
 settings = BrowserSettings(
     headless=True,
     viewport=iphone_se)
