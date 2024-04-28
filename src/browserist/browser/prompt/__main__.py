@@ -16,6 +16,11 @@ class PromptDriverMethods(DriverMethods):
             prompt_message (str): Message to prompt user with in the terminal.
             validate_input_regex (str | None, optional): If provided, the input value will be validated against this regex.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            browser.prompt.input_value("//xpath/to/input", "Input password:")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -27,6 +32,16 @@ class PromptDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if user wants to proceed, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.prompt.proceed_yes_or_no()
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
