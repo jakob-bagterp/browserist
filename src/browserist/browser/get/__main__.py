@@ -113,6 +113,12 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             str: Page title.
+
+        Example:
+            ```python title="" linenums="1"
+            page_title = browser.get.page_title()
+            print(page_title)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -130,6 +136,12 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             str: Text from element.
+
+        Example:
+            ```python title="" linenums="1"
+            element_text = browser.get.text("//xpath/to/element")
+            print(element_text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -145,6 +157,13 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             list[str]: List of texts from elements.
+
+        Example:
+            ```python title="" linenums="1"
+            element_texts = browser.get.texts("//xpath/to/elements")
+            for element_text in element_texts:
+                print(element_text)
+            ```
         """
 
         if self._timeout_should_continue():
