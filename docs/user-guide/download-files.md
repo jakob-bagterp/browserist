@@ -66,11 +66,16 @@ with Browser() as browser:
     file_path = browser.click.download_and_get_file_path("//xpath/to/button")
 ```
 
-The return type is `Path` from the standard [`pathlib`](https://docs.python.org/3/library/pathlib.html) library, and so you can easily get the file name or absolute path. For instance:
+The return type is `Path` from the standard [`pathlib`](https://docs.python.org/3/library/pathlib.html) library, and so you can easily get the file name or absolute path.
+
+For instance, this will output the file name `file.zip` in the terminal:
 
 ```python title="" linenums="6"
     print(file_path.name)
-    # file.zip
+```
+
+And this will output the absolute file path `/home/user/downloads/file.zip` in the terminal:
+
+```python title="" linenums="7"
     print(file_path.absolute())
-    # /home/user/downloads/file.zip
 ```
