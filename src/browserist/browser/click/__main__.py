@@ -119,6 +119,11 @@ class ClickDriverMethods(DriverMethods):
         Returns:
             Path: Path to the downloaded file. Return type is the standard library `pathlib.Path`.
 
+        Info: Download Directory
+            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+
+            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+
         Example:
             ```python title="" linenums="1"
             from pathlib import Path
@@ -127,16 +132,18 @@ class ClickDriverMethods(DriverMethods):
             with Browser() as browser:
                 browser.open.url("https://example.com")
                 file_path = browser.click.download_and_get_file_path("//xpath/to/button")
-                print("File name:", file_path.name)
-                # File name: file.zip
-                print("Absolute file path:", file_path.absolute())
-                # Absolute path: /home/user/downloads/file.zip
             ```
 
-        Info: Download Directory
-            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+            This will output the file name `file.zip` in the terminal:
 
-            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+            ```python title="" linenums="7"
+                print(file_path.name)
+            ```
+            This will output the absolute file path `/home/user/downloads/file.zip` in the terminal:
+
+            ```python title="" linenums="8"
+                print(file_path.absolute())
+            ```
         """
 
         if self._timeout_should_continue():
