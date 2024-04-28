@@ -13,6 +13,11 @@ class MouseDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the element.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            browser.mouse.hover("//xpath/to/input")
+            ```
         """
 
         if self._timeout_should_continue():
