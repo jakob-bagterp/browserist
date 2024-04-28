@@ -50,6 +50,12 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             WebElement: Web element.
+
+        Example:
+            ```python title="" linenums="1"
+            element = browser.get.element("/xpath/to/element")
+            print(element.text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -65,6 +71,13 @@ class GetDriverMethods(DriverMethods):
 
         Returns:
             list[WebElement]: List of web elements.
+
+        Example:
+            ```python title="" linenums="1"
+            elements = browser.get.elements("/xpath/to/elements")
+            for element in elements:
+                print(element.text)
+            ```
         """
 
         if self._timeout_should_continue():
