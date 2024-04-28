@@ -63,7 +63,7 @@ class GetDriverMethods(DriverMethods):
             return get_element(self._browser_driver, xpath, timeout)
 
     def elements(self, xpath: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """Get multiple web elements by XPath.
+        """Get multiple web elements by XPath. Assumes that the XPath targets multiple elements.
 
         Args:
             xpath (str): XPath of the elements.
@@ -85,7 +85,7 @@ class GetDriverMethods(DriverMethods):
             return get_elements(self._browser_driver, xpath, timeout)
 
     def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """"Get multiple web elements by HTML tag.
+        """"Get multiple web elements by HTML tag. Assumes that the XPath targets multiple elements.
 
         Args:
             tag (str): HTML tag of the elements. For example, `"img"` as tag for all `<img>` images, `"a"` for all `<a>` links, etc.
