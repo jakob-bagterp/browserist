@@ -37,6 +37,15 @@ class OpenDriverMethods(DriverMethods):
             ignore_trailing_slash (bool, optional): Ignore whether the URL is `"https://example.com"` or `"https://example.com/"`.
             ignore_parameters (bool, optional): Ignore parameters in the URL, e.g. `"https://example.com/list?page=1"`.
             ignore_https (bool, optional): Ignore whether the URL is `"http://example.com"` or `"https://example.com"`.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.open.url_if_not_current("https://example.com/", ignore_trailing_slash=True)
+            ```
         """
 
         if self._timeout_should_continue():
