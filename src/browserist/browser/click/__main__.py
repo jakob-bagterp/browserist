@@ -84,7 +84,7 @@ class ClickDriverMethods(DriverMethods):
                 browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")
             ```
 
-            Download file in background without waiting. If the browser quits during a download, the download may be cancelled or left uncomplete:
+            Download file in background without waiting. If the browser closes during a download, the download may be aborted or left incomplete:
 
             ```python title="" linenums="5"
                 browser.click.download("//xpath/to/button")

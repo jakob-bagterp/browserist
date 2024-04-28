@@ -39,7 +39,7 @@ Use the `click.download()` method for simple file downloads, either as a backgro
 
 | Parameters | Background Task | Advantage | Disadvantage |
 | ------ | --------------- | ------- | ------------ |
-| `"//xpath/to/button"` | :material-check: | Faster | If the browser quits during a download, the download may be cancelled or left uncomplete |
+| `"//xpath/to/button"` | :material-check: | Faster | If the browser closes during a download, the download may be aborted or left incomplete |
 | ...<br>`await_download=True` | :material-close: | Stable download as we wait for download to complete | This will attempt to guess the file name, which may be slower |
 | ...<br>`expected_file_name="file.zip"` | :material-close: | Stable download as we wait for download to complete | Slower than background task, yet faster if you know the file name |
 
