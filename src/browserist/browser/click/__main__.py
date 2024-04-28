@@ -139,6 +139,7 @@ class ClickDriverMethods(DriverMethods):
             ```python title="" linenums="7"
                 print(file_path.name)
             ```
+
             This will output the absolute file path `/home/user/downloads/file.zip` in the terminal:
 
             ```python title="" linenums="8"
