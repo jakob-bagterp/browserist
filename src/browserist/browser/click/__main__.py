@@ -66,30 +66,41 @@ class ClickDriverMethods(DriverMethods):
             expected_file_name (str | None, optional): Expected file name to determine when the download is complete. If `None`, this may be slower as Browserist will attempt to guess the file name by monitoring changes in the download directory.
             idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global idle download timeout setting is used (default 3 seconds).
 
+        Info: Download Directory
+            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+
+            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+
         Example:
+            Examples in context:
+
             ```python title="" linenums="1"
             from browserist import Browser
 
             with Browser() as browser:
                 browser.open.url("https://example.com")
-
-                # Download file in background without waiting
-                # If the browser quits during a download, the download may be cancelled or left uncomplete
                 browser.click.download("//xpath/to/button")
-
-                # Download file and wait for download to complete
-                # This will attempt to guess the file name, which may be slower
                 browser.click.download("//xpath/to/button", await_download=True)
-
-                # Download expected file name and wait for download to complete
-                # It's faster if you know the file name
                 browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")
             ```
 
-        Info: Download Directory
-            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+            Download file in background without waiting. If the browser quits during a download, the download may be cancelled or left uncomplete:
 
-            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+            ```python title="" linenums="5"
+                browser.click.download("//xpath/to/button")
+            ```
+
+            Download file and wait for download to complete. This will attempt to guess the file name, which may be slower:
+
+            ```python title="" linenums="6"
+                browser.click.download("//xpath/to/button", await_download=True)
+            ```
+
+            Download expected file name and wait for download to complete. It's faster if you know the file name:
+
+            ```python title="" linenums="7"
+                browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")
+            ```
         """
 
         if self._timeout_should_continue():
