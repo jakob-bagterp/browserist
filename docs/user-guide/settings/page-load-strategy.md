@@ -25,7 +25,7 @@ How to set the page load strategy when opening a new browser:
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, PageLoadStrategy
 
-settings = BrowserSettings(page_load_strategy = PageLoadStrategy.EAGER)
+settings = BrowserSettings(page_load_strategy=PageLoadStrategy.EAGER)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")

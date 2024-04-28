@@ -13,8 +13,8 @@ class OppoDevices:
 
         oppo_f1_plus = common_devices.Oppo.F1_PLUS
             settings = BrowserSettings(
-            headless = True,
-            viewport = oppo_f1_plus)
+            headless=True,
+            viewport=oppo_f1_plus)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

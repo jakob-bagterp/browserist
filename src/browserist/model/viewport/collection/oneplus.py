@@ -13,8 +13,8 @@ class OnePlusDevices:
 
         oneplus_8_pro = common_devices.OnePlus.ONEPLUS_8_PRO
         settings = BrowserSettings(
-            headless = True,
-            viewport = oneplus_8_pro)
+            headless=True,
+            viewport=oneplus_8_pro)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

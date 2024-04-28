@@ -13,8 +13,8 @@ class VivoDevices:
 
         vivo_y20 = common_devices.Vivo.Y20
             settings = BrowserSettings(
-            headless = True,
-            viewport = vivo_y20)
+            headless=True,
+            viewport=vivo_y20)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

@@ -13,8 +13,8 @@ class SamsungDevices:
 
         galaxy_s8_plus = common_devices.Samsung.GALAXY_S8_PLUS
         settings = BrowserSettings(
-            headless = True,
-            viewport = galaxy_s8_plus)
+            headless=True,
+            viewport=galaxy_s8_plus)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

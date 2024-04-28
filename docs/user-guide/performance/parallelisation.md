@@ -32,9 +32,9 @@ Gain even more performance by running the browsers in [headless mode](headless.m
 from browserist import Browser, BrowserSettings, BrowserType
 
 settings = BrowserSettings(
-    type = BrowserType.CHROME,
-    headless = True,
-    disable_images = True)
+    type=BrowserType.CHROME,
+    headless=True,
+    disable_images=True)
 
 browser = Browser(settings)
 ```
