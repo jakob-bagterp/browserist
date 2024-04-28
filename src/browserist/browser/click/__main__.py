@@ -126,7 +126,6 @@ class ClickDriverMethods(DriverMethods):
 
         Example:
             ```python title="" linenums="1"
-            from pathlib import Path
             from browserist import Browser
 
             with Browser() as browser:
@@ -136,13 +135,13 @@ class ClickDriverMethods(DriverMethods):
 
             This will output the file name `file.zip` in the terminal:
 
-            ```python title="" linenums="7"
+            ```python title="" linenums="6"
                 print(file_path.name)
             ```
 
             This will output the absolute file path `/home/user/downloads/file.zip` in the terminal:
 
-            ```python title="" linenums="8"
+            ```python title="" linenums="7"
                 print(file_path.absolute())
             ```
         """
