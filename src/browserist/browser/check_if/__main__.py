@@ -215,7 +215,7 @@ class CheckIfDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             if not browser.check_if.is_selected("//xpath/to/input"):
                 browser.input.select("//xpath/to/input")
-            browser.click.button_if_contains_text(("//xpath/to/button", "Submit")
+            browser.click.button_if_contains_text("//xpath/to/button", "Submit")
             ```
         """
 
