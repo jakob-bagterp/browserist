@@ -13,6 +13,14 @@ class OpenDriverMethods(DriverMethods):
 
         Args:
             url (str): URL to open, e.g. `"https://example.com"`.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+            ```
         """
 
         if self._timeout_should_continue():
