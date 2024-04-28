@@ -33,7 +33,7 @@ class GetDriverMethods(DriverMethods):
 
         Example:
             ```python title=""
-            width, height = browser.get.dimensions("/xpath/to/element")
+            width, height = browser.get.dimensions("//xpath/to/element")
             ```
         """
 
@@ -53,7 +53,7 @@ class GetDriverMethods(DriverMethods):
 
         Example:
             ```python title="" linenums="1"
-            element = browser.get.element("/xpath/to/element")
+            element = browser.get.element("//xpath/to/element")
             print(element.text)
             ```
         """
@@ -74,7 +74,7 @@ class GetDriverMethods(DriverMethods):
 
         Example:
             ```python title="" linenums="1"
-            elements = browser.get.elements("/xpath/to/elements")
+            elements = browser.get.elements("//xpath/to/elements")
             for element in elements:
                 print(element.text)
             ```
