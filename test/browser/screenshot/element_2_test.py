@@ -10,7 +10,7 @@ MINIMUM_FILE_SIZE = 1_000
 
 
 def test_get_screenshot_of_element_1_with_default_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("/element/xpath") with default file name and destination."""
+    """Test of browser.screenshot.element("/xpath/to/element") with default file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
     browser.open.url(internal_url.EXAMPLE_COM)
@@ -19,7 +19,7 @@ def test_get_screenshot_of_element_1_with_default_file_name_and_default_destinat
 
 
 def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("/element/xpath", "image.png") with custom file name and default destination."""
+    """Test of browser.screenshot.element("/xpath/to/element", "image.png") with custom file name and default destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
     browser.open.url(internal_url.EXAMPLE_COM)
@@ -28,7 +28,7 @@ def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destinati
 
 
 def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("/element/xpath", "image.png", "./screenshots") with custom file name and destination."""
+    """Test of browser.screenshot.element("/xpath/to/element", "image.png", "./screenshots") with custom file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.EXAMPLE_COM)
@@ -38,7 +38,7 @@ def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destinatio
 
 
 def test_get_screenshot_of_element_4_with_default_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("/element/xpath", destination_dir="./screenshots") with default file name and custom destination."""
+    """Test of browser.screenshot.element("/xpath/to/element", destination_dir="./screenshots") with default file name and custom destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.EXAMPLE_COM)

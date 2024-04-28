@@ -33,7 +33,7 @@ class GetDriverMethods(DriverMethods):
 
         Example:
             ```python title=""
-            width, height = browser.get.dimensions("/element/xpath")
+            width, height = browser.get.dimensions("/xpath/to/element")
             ```
         """
 
