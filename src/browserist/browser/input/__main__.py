@@ -16,6 +16,11 @@ class InputDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the input field.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            browser.input.clear("//xpath/to/input")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -31,6 +36,19 @@ class InputDriverMethods(DriverMethods):
 
         Raises:
             MethodNotSupportedInHeadlessModeException: Raised if the browser is in headless mode.
+
+        Example:
+            Basic usage:
+
+            ```python title=""
+            browser.input.select("//xpath/to/input")
+            ```
+
+            Or use advanced XPath expressions to, for instance, select an input in a dropdown selector with a specific text:
+
+            ```python title=""
+            browser.input.select("//xpath/to/input[text()='some text']")
+            ```
         """
 
         if self._browser_driver.settings.headless:
@@ -50,6 +68,11 @@ class InputDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
             value (str): Input value.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title=""
+            browser.input.value("//xpath/to/input", "some value")
+            ```
         """
 
         if self._timeout_should_continue():
