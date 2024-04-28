@@ -38,7 +38,7 @@ def test_firefox_get_screenshot_of_complete_page_3(browser_firefox_headless_scre
 
 
 def test_firefox_get_screenshot_of_complete_page_4(browser_firefox_headless_screenshot: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.complete_page(destination_dir = "./screenshots") with default file name and custom destination."""
+    """Test of browser.screenshot.complete_page(destination_dir="./screenshots") with default file name and custom destination."""
 
     browser = reset_to_not_timed_out(browser_firefox_headless_screenshot)
     browser.open.url(internal_url.W3SCHOOLS_COM)
