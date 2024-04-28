@@ -16,7 +16,7 @@ class MouseDriverMethods(DriverMethods):
 
         Example:
             ```python title=""
-            browser.mouse.hover("//xpath/to/input")
+            browser.mouse.hover("//xpath/to/element")
             ```
         """
 
