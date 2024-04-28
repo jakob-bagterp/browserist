@@ -32,14 +32,14 @@ There are two main methods you can use to download files:
 | Method | Description |
 | ------ | ----------- |
 | [`click.download()`](#simple-download) | Download file as background task or await completion |
-| [`click.download_and_get_file_path()`](#get-path-to-downloaded-file) | Download file and return its path after completion |
+| [`click.download_and_get_file_path()`](#get-the-path-to-the-downloaded-file) | Download file and return its path after completion |
 
 ### Simple Download
 Use the `click.download()` method for simple file downloads, either as a background task or await the download to complete. Options:
 
 | Parameters | Background Task | Advantage | Disadvantage |
 | ------ | --------------- | ------- | ------------ |
-| `"//xpath/to/button"` | :material-check: | Faster | If the browser quits during a download, the download may be cancelled or left uncomplete |
+| `"//xpath/to/button"` | :material-check: | Faster | If the browser closes during a download, the download may be aborted or left incomplete |
 | ...<br>`await_download=True` | :material-close: | Stable download as we wait for download to complete | This will attempt to guess the file name, which may be slower |
 | ...<br>`expected_file_name="file.zip"` | :material-close: | Stable download as we wait for download to complete | Slower than background task, yet faster if you know the file name |
 
@@ -66,11 +66,16 @@ with Browser() as browser:
     file_path = browser.click.download_and_get_file_path("//xpath/to/button")
 ```
 
-The return type is `Path` from the standard [`pathlib`](https://docs.python.org/3/library/pathlib.html) library, and so you can easily get the file name or absolute path. For instance:
+The return type is `Path` from the standard [`pathlib`](https://docs.python.org/3/library/pathlib.html) library, and so you can easily get the file name or absolute path.
+
+For instance, this will output the file name `file.zip` in the terminal:
 
 ```python title="" linenums="6"
     print(file_path.name)
-    # file.zip
+```
+
+And this will output the absolute file path `/home/user/downloads/file.zip` in the terminal:
+
+```python title="" linenums="7"
     print(file_path.absolute())
-    # /home/user/downloads/file.zip
 ```

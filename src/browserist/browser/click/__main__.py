@@ -18,6 +18,11 @@ class ClickDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the button element.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -32,6 +37,19 @@ class ClickDriverMethods(DriverMethods):
             regex (str): Regular expression or text to search for. The condition works for both ordinary text (e.g. `"Submit"`) or regular expression (e.g. `r"colou?r"`). Note it's a search for text, not a strict text match.
             ignore_case (bool, optional): Ignore case when searching for text.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            Without regular expression:
+
+            ```python title="" linenums="1"
+            browser.click.button_if_contains_text("//xpath/to/button", "Save")
+            ```
+
+            With regular expression:
+
+            ```python title="" linenums="1"
+            browser.click.button_if_contains_text("//xpath/to/button", r"^Submit")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -48,30 +66,41 @@ class ClickDriverMethods(DriverMethods):
             expected_file_name (str | None, optional): Expected file name to determine when the download is complete. If `None`, this may be slower as Browserist will attempt to guess the file name by monitoring changes in the download directory.
             idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global idle download timeout setting is used (default 3 seconds).
 
+        Info: Download Directory
+            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+
+            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+
         Example:
+            Examples in context:
+
             ```python title="" linenums="1"
             from browserist import Browser
 
             with Browser() as browser:
                 browser.open.url("https://example.com")
-
-                # Download file in background without waiting
-                # If the browser quits during a download, the download may be cancelled or left uncomplete
                 browser.click.download("//xpath/to/button")
-
-                # Download file and wait for download to complete
-                # This will attempt to guess the file name, which may be slower
                 browser.click.download("//xpath/to/button", await_download=True)
-
-                # Download expected file name and wait for download to complete
-                # It's faster if you know the file name
                 browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")
             ```
 
-        Info: Download Directory
-            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+            Download file in background without waiting. If the browser closes during a download, the download may be aborted or left incomplete:
 
-            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+            ```python title="" linenums="5"
+                browser.click.download("//xpath/to/button")
+            ```
+
+            Download file and wait for download to complete. This will attempt to guess the file name, which may be slower:
+
+            ```python title="" linenums="6"
+                browser.click.download("//xpath/to/button", await_download=True)
+            ```
+
+            Download expected file name and wait for download to complete. It's faster if you know the file name:
+
+            ```python title="" linenums="7"
+                browser.click.download("//xpath/to/button", await_download=True, expected_file_name="file.zip")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -90,24 +119,33 @@ class ClickDriverMethods(DriverMethods):
         Returns:
             Path: Path to the downloaded file. Return type is the standard library `pathlib.Path`.
 
+        Info: Download Directory
+            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+
+            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+
         Example:
             ```python title="" linenums="1"
-            from pathlib import Path
             from browserist import Browser
 
             with Browser() as browser:
                 browser.open.url("https://example.com")
                 file_path = browser.click.download_and_get_file_path("//xpath/to/button")
-                print("File name:", file_path.name)
-                # File name: file.zip
-                print("Absolute file path:", file_path.absolute())
-                # Absolute path: /home/user/downloads/file.zip
             ```
 
-        Info: Download Directory
-            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+            The return type is `Path` from the standard [`pathlib`](https://docs.python.org/3/library/pathlib.html) library, and so you can easily get the file name or absolute path.
 
-            Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
+            For instance, this will output the file name `file.zip` in the terminal:
+
+            ```python title="" linenums="6"
+                print(file_path.name)
+            ```
+
+            And this will output the absolute file path `/home/user/downloads/file.zip` in the terminal:
+
+            ```python title="" linenums="7"
+                print(file_path.absolute())
+            ```
         """
 
         if self._timeout_should_continue():
