@@ -33,7 +33,7 @@ class ScrollPageDriverMethods(DriverMethods):
 
         Example:
             ```python title=""
-            browser.scroll.page.down()
+            browser.scroll.page.to_end()
             ```
         """
 
