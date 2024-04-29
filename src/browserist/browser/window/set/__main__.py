@@ -14,6 +14,11 @@ class WindowSetDriverMethods(DriverMethods):
         Args:
             x (int): In pixels. Absolute X coordinate of the screen on the horisontal axis.
             y (int): In pixels. Absolute Y coordinate of the screen on the vertical axis.
+
+        Example:
+            ```python title=""
+            browser.window.set.position(100, 100)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -28,6 +33,11 @@ class WindowSetDriverMethods(DriverMethods):
         Args:
             width (int): Width of the window in pixels.
             height (int): Height of the window in pixels.
+
+        Example:
+            ```python title=""
+            browser.window.set.size(800, 600)
+            ```
         """
 
         if self._timeout_should_continue():
