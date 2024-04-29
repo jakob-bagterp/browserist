@@ -15,6 +15,16 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         Args:
             file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             timeout (float | None, optional): In seconds. Timeout to wait for file to not exist. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.click.download("//xpath/to/button", expected_file_name="file.zip"))
+                browser.wait.until.download_file.does_not_exist("file.zip.download")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -27,6 +37,16 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         Args:
             file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             timeout (float | None, optional): In seconds. Timeout to wait for file to exist. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.click.download("//xpath/to/button", expected_file_name="file.zip"))
+                browser.wait.until.download_file.exists("file.zip")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -39,6 +59,16 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
         Args:
             file_name (str): Name of the file to watch in the download directory, e.g. `file.zip`. The download directory is implicitly defined in the `download_dir` parameter of `BrowserSettings`.
             idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global idle download timeout setting is used (default 3 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.click.download("//xpath/to/button", expected_file_name="file.zip"))
+                browser.wait.until.download_file.size_does_not_increase("file.zip")
+            ```
         """
 
         if self._timeout_should_continue():

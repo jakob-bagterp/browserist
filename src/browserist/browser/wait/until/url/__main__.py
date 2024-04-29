@@ -20,11 +20,11 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser
 
-            browser = Browser()
-            browser.open.url("https://example.com")
-            baseline_url = browser.get.url.current()
-            browser.click.button("//xpath/to/button")
-            browser.wait.until.url.changes(baseline_url)
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                baseline_url = browser.get.url.current()
+                browser.click.button("//xpath/to/button")
+                browser.wait.until.url.changes(baseline_url)
             ```
         """
 
@@ -43,10 +43,10 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser
 
-            browser = Browser()
-            browser.open.url("https://example.com")
-            browser.click.button("//xpath/to/button")
-            browser.wait.until.url.contains("some_page_name")
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.click.button("//xpath/to/button")
+                browser.wait.until.url.contains("some_page_name")
             ```
         """
 
@@ -65,10 +65,10 @@ class WaitUntilUrlDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser
 
-            browser = Browser()
-            browser.open.url("https://example.com")
-            browser.click.button("//xpath/to/button")
-            browser.wait.until.url.equals("https://example.com/some_page_name")
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.click.button("//xpath/to/button")
+                browser.wait.until.url.equals("https://example.com/some_page_name")
             ```
         """
 
