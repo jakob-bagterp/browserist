@@ -15,6 +15,17 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
         Args:
             baseline_text (str): Baseline text to compare current page title against. It's evaluated as any change.
             timeout (float | None, optional): In seconds. Timeout to wait for page title to change. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                baseline_text = browser.get.page_title()
+                browser.click.button("//xpath/to/button")
+                browser.wait.until.page_title.changes(baseline_text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -27,6 +38,15 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
         Args:
             page_title_fragment (str): The input can contain both a fragment or the full page title.
             timeout (float | None, optional): In seconds. Timeout to wait for page title to contain text fragment. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.page_title.contains("Example")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -39,6 +59,15 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
         Args:
             page_title (str): Full page title to compare the new current page title against. Evaluated as an exact match.
             timeout (float | None, optional): In seconds. Timeout to wait for page title to match specified text. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.page_title.equals("Example Domain")
+            ```
         """
 
         if self._timeout_should_continue():

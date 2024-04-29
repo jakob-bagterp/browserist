@@ -27,6 +27,15 @@ class WaitUntilDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the element.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.contains_any_text("//h1")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -39,6 +48,17 @@ class WaitUntilDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the element.
             timeout (float | None, optional): In seconds. Timeout to wait for element to disappear. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.input.value("//xpath/to/input", "test")
+                browser.click.button("//xpath/to/button")
+                browser.wait.until.element_disappears("//xpath/to/input")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -58,9 +78,9 @@ class WaitUntilDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser
 
-            browser = Browser()
-            browser.open.url("https://example.com")
-            browser.wait.until.images_have_loaded("//img")
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.images_have_loaded("//img")
             ```
         """
 
@@ -74,6 +94,16 @@ class WaitUntilDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the element.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.is_clickable("//xpath/to/button")
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -89,6 +119,16 @@ class WaitUntilDriverMethods(DriverMethods):
         Args:
             expected_handles (int): Expected number of window handles.
             timeout (float | None, optional): In seconds. Timeout to wait for operation. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.window.open.new_tab("https://google.com")
+                browser.wait.until.number_of_window_handles_is(2)
+            ```
         """
 
         if self._timeout_should_continue():
