@@ -65,6 +65,18 @@ Now we can switch between each tab by calling its handle:
     browser.window.switch_to("tab_2")
 ```
 
+#### Return to the Initial Tab
+Browserist also keeps track of the initial tab of the original browser window, so you can easily switch back to it:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.window.open.new_tab("https://google.com")
+    browser.window.switch_to_original_window()
+```
+
 #### Get Handle ID of Current Tab
 Under the hood, Browserist uses handle IDs to manage and identify open windows and tabs. You can get the handle ID of the current tab to switch back to it later:
 
