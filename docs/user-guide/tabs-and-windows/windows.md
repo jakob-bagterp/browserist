@@ -32,6 +32,18 @@ with Browser() as browser:
         browser.window.open.new_window(url)
 ```
 
+### Closing a Window
+How to close the current tab or, if it's the last tab in a window, the current browser window:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.window.open.new_window("https://google.com")
+    browser.window.close()
+```
+
 ### Switching Between Windows
 Switching between windows is a common task when using a browser. Instead of either clicking a window to switch to it or using a keyboard shortcut to cycle through open windows, you can automate this with Browserist:
 
@@ -51,6 +63,18 @@ Now we can switch between each window by calling its handle:
     browser.window.switch_to("window_0")
     browser.window.switch_to("window_1")
     browser.window.switch_to("window_2")
+```
+
+#### Return to the Initial Window
+Browserist also keeps track of the initial tab of the original browser window, so you can easily switch back to it:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.window.open.new_window("https://google.com")
+    browser.window.switch_to_original_window()
 ```
 
 #### Get Handle ID of Current Window

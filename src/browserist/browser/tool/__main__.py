@@ -23,7 +23,7 @@ class ToolDriverMethods(DriverMethods):
             ignore_case (bool, optional): Ignore case when comparing input text to condition.
 
         Returns:
-            bool: `True` if input matches condition, `False` otherwise.
+            `True` if input matches condition, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -45,7 +45,7 @@ class ToolDriverMethods(DriverMethods):
             url (str): Input URL.
 
         Returns:
-            bool: `True` if input is a valid URL, `False` otherwise.
+            `True` if input is a valid URL, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -67,7 +67,7 @@ class ToolDriverMethods(DriverMethods):
             xpath (str): Input XPath.
 
         Returns:
-            bool: `True` if input is a valid XPath expression, `False` otherwise.
+            `True` if input is a valid XPath expression, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -90,7 +90,7 @@ class ToolDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            int: Number of elements.
+            Number of elements.
 
         Example:
             ```python title="" linenums="1"
@@ -116,7 +116,7 @@ class ToolDriverMethods(DriverMethods):
             element (WebElement | None, optional): If given, execute JavaScript with `WebElement`.
 
         Returns:
-            Any: Return value given by the JavaScript code.
+            Return value given by the JavaScript code.
 
         Example:
             Without `WebElement`:

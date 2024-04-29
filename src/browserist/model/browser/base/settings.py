@@ -58,6 +58,7 @@ class BrowserSettings:
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")
+            browser.screenshot.visible_portion()
         ```
 
         Use custom viewport size:

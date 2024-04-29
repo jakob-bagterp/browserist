@@ -37,7 +37,7 @@ def get_all_from_directory(path: FilePath, file_extension: str | None = None) ->
         file_extension (str | None, optional): Filter by file extension, e.g. `txt`.
 
     Returns:
-        list[str]: List of file names.
+        List of file names.
     """
 
     files_and_folders = directory.get_entries(path)
