@@ -18,7 +18,7 @@ def add_file_extension(file_name: str, file_extension: str) -> str:
         temporary_file_extension (str): For example, `.download`.
 
     Returns:
-        str: For example, `file.txt.download`.
+        For example `file.txt.download`.
     """
 
     return f"{file_name}{file_extension}"
@@ -32,7 +32,7 @@ def remove_file_extension(file_name: str, file_extension: str) -> str:
         temporary_file_extension (str): For example, `.download`.
 
     Returns:
-        str: For example, `file.txt`.
+        For example `file.txt`.
     """
 
     return file_name.rstrip(file_extension)

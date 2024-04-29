@@ -116,7 +116,7 @@ class ToolDriverMethods(DriverMethods):
             element (WebElement | None, optional): If given, execute JavaScript with `WebElement`.
 
         Returns:
-            Any: Return value given by the JavaScript code.
+            Return value given by the JavaScript code.
 
         Example:
             Without `WebElement`:
