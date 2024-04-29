@@ -24,6 +24,15 @@ class ToolDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if input matches condition, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            user_input = input("Input value:")
+            while not browser.tool.is_input_valid(user_input, r"valid value")
+                print("Invalid input. Please try again...")
+                user_input = input("Input value:")
+            browser.input.value("//xpath/to/input", user_input)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -37,6 +46,15 @@ class ToolDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if input is a valid URL, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            user_url = input("Input URL:")
+            while not browser.tool.is_url_valid(user_url)
+                print("Invalid URL. Please try again...")
+                user_url = input("Input URL:")
+            browser.open.url(user_url)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -50,6 +68,15 @@ class ToolDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if input is a valid XPath expression, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            user_xpath = input("Input XPath:")
+            while not browser.tool.is_xpath_valid(user_xpath)
+                print("Invalid XPath. Please try again...")
+                user_xpath = input("Input XPath:")
+            browser.click.button(user_xpath)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -64,6 +91,17 @@ class ToolDriverMethods(DriverMethods):
 
         Returns:
             int: Number of elements.
+
+        Example:
+            ```python title="" linenums="1"
+            url = "https://example.com"
+            browser.open.url(url)
+            link_count = browser.tool.count_elements("//a")
+            if link_count > 0:
+                print(f"Found {link_count} link(s) on {url}")
+            else:
+                print(f"No links found on {url}")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -79,6 +117,11 @@ class ToolDriverMethods(DriverMethods):
 
         Returns:
             Any: Return value given by the JavaScript code.
+
+        Example:
+            ```python title=""
+            browser.tool.execute_script("alert('Hello world!')")
+            ```
         """
 
         if self._timeout_should_continue():
