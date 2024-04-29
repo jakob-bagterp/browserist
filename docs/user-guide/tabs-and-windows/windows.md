@@ -33,7 +33,7 @@ with Browser() as browser:
 ```
 
 ### Closing a Window
-How to close the current tab or, if it is the last tab in a window, the current browser window:
+How to close the current tab or, if it's the last tab in a window, the current browser window:
 
 ```python linenums="1"
 from browserist import Browser
