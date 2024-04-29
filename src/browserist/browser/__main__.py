@@ -149,7 +149,7 @@ class Browser:
             browser.quit()
             ```
 
-        !!! tip
+        Tip:
             Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](../../user-guide/context-manager.md) and `with` statements. The example above could then be refactored to:
 
             ```python linenums="1"
