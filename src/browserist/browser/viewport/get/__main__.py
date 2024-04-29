@@ -14,6 +14,11 @@ class ViewportGetDriverMethods(DriverMethods):
 
         Returns:
             int: Height of the viewport in pixels.
+
+        Example:
+            ```python title=""
+            viewport_height = browser.viewport.get.height()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -23,11 +28,11 @@ class ViewportGetDriverMethods(DriverMethods):
         """Get width and height of the viewport in pixels.
 
         Returns:
-            tuple[int, int]: Width and height of the viewport in pixels.
+            Width and height of the viewport in pixels.
 
         Example:
             ```python title=""
-            width, height = browser.viewport.get.size()
+            viewport_width, viewport_height = browser.viewport.get.size()
             ```
         """
 
@@ -39,6 +44,11 @@ class ViewportGetDriverMethods(DriverMethods):
 
         Returns:
             int: Width of the viewport in pixels.
+
+        Example:
+            ```python title=""
+            viewport_width = browser.viewport.get.width()
+            ```
         """
 
         if self._timeout_should_continue():
