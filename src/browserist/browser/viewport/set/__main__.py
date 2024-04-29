@@ -18,6 +18,11 @@ class ViewportSetDriverMethods(DriverMethods):
         Args:
             width (int): Viewport width in pixels.
             height (int): Viewport height in pixels.
+
+        Example:
+            ```python title=""
+            browser.viewport.set.size(1920, 1080)
+            ```
         """
 
         if self._timeout_should_continue():
