@@ -28,11 +28,11 @@ class ViewportGetDriverMethods(DriverMethods):
         """Get width and height of the viewport in pixels.
 
         Returns:
-            tuple[int, int]: Width and height of the viewport in pixels.
+            Width and height of the viewport in pixels.
 
         Example:
             ```python title=""
-            width, height = browser.viewport.get.size()
+            viewport_width, viewport_height = browser.viewport.get.size()
             ```
         """
 
