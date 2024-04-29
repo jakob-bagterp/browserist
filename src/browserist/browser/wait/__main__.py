@@ -42,6 +42,13 @@ class WaitDriverMethods(DriverMethods):
         Args:
             min_seconds (float, optional): Minimum seconds to wait.
             max_seconds (float, optional): Maximum seconds to wait.
+
+        Example:
+            For example, wait between 3 and 20 seconds:
+
+            ```python title=""
+            browser.wait.random_seconds(3, 20)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -52,6 +59,13 @@ class WaitDriverMethods(DriverMethods):
 
         Args:
             seconds (float): Seconds to wait.
+
+        Example:
+            For example, wait for 5 seconds:
+
+            ```python title=""
+            browser.wait.seconds(5)
+            ```
         """
 
         if self._timeout_should_continue():
