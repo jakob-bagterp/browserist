@@ -109,7 +109,7 @@ class WindowDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.open.url("https://example.com")
-                browser.window.open.new_tab("https://google.com", "tab_2")
+                browser.window.open.new_window("https://google.com")
                 browser.window.switch_to_original_window()
             ```
         """
