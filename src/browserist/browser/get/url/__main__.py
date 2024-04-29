@@ -16,7 +16,7 @@ class GetUrlDriverMethods(DriverMethods):
         """Get URL of the current page, e.g. `https://example.com`.
 
         Returns:
-            str: URL of the current page, e.g. `https://example.com`.
+            URL of the current page, e.g. `https://example.com`.
 
         Example:
             This will output the URL `https://example.com` in the terminal:
@@ -38,7 +38,7 @@ class GetUrlDriverMethods(DriverMethods):
         """Get domain of the current page, e.g. `example.com`.
 
         Returns:
-            str: Domain of the current page, e.g. `example.com`.
+            Domain of the current page, e.g. `example.com`.
 
         Example:
             This will output the domain `example.com` in the terminal:
@@ -67,7 +67,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            str | None: URL source of the image. If the image does not exist, `None` is returned.
+            URL source of the image. If the image does not exist, `None` is returned.
 
         Example:
             ```python title="" linenums="1"
@@ -91,7 +91,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str | None]: List of image URLs. If an image does not exist, `None` is added to the list.
+            List of image URLs. If an image does not exist, `None` is added to the list.
 
         Example:
             ```python title="" linenums="1"
@@ -116,7 +116,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            str | None: URL of the link. If the link does not exist, `None` is returned.
+            URL of the link. If the link does not exist, `None` is returned.
 
         Example:
             ```python title="" linenums="1"
@@ -140,7 +140,7 @@ class GetUrlDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str | None]: List of link URLs. If a link does not exist, `None` is added to the list.
+            List of link URLs. If a link does not exist, `None` is added to the list.
 
         Example:
             ```python title="" linenums="1"

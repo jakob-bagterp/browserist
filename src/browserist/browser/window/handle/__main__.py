@@ -20,7 +20,7 @@ class WindowHandleDriverMethods(DriverMethods):
             selenium (bool, optional): Set to `True` if you want the Selenium handle IDs rather than from Browserist's internal window handle controller.
 
         Returns:
-            list[str]: List of IDs of all open tabs or windows.
+            List of IDs of all open tabs or windows.
         """
 
         if self._timeout_should_continue():
@@ -33,7 +33,7 @@ class WindowHandleDriverMethods(DriverMethods):
             selenium (bool, optional): Set to `True` if you want the Selenium handle IDs rather than from Browserist's internal window handle controller.
 
         Returns:
-            int: Number of open tabs or windows.
+            Number of open tabs or windows.
         """
 
         if self._timeout_should_continue():
@@ -43,7 +43,7 @@ class WindowHandleDriverMethods(DriverMethods):
         """Get the ID of the current tab or window.
 
         Returns:
-            str: ID of the current tab or window. e.g. `CDwindow-69663F4BF867CC38F6AF46D55BFC1A8A`.
+            ID of the current tab or window. e.g. `CDwindow-69663F4BF867CC38F6AF46D55BFC1A8A`.
         """
 
         if self._timeout_should_continue():

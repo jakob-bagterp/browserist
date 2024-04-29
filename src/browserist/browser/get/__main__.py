@@ -29,7 +29,7 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            tuple[int, int]: Width and height in pixels.
+            Width and height in pixels.
 
         Example:
             ```python title=""
@@ -49,7 +49,7 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            WebElement: Web element.
+            Web element.
 
         Example:
             ```python title="" linenums="1"
@@ -70,7 +70,7 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[WebElement]: List of web elements of type `WebElement`.
+            List of web elements of type `WebElement`.
 
         Example:
             ```python title="" linenums="1"
@@ -92,7 +92,7 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[WebElement]: List of web elements of type `WebElement`.
+            List of web elements of type `WebElement`.
 
         Example:
             Get and print all paragraphs of a web page:
@@ -112,7 +112,7 @@ class GetDriverMethods(DriverMethods):
         """Get page title of the current page.
 
         Returns:
-            str: Page title.
+            Page title.
 
         Example:
             ```python title="" linenums="1"
@@ -135,7 +135,7 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            str: Text from element.
+            Text from element.
 
         Example:
             ```python title="" linenums="1"
@@ -156,7 +156,7 @@ class GetDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for elements. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[str]: List of texts from elements.
+            List of texts from elements.
 
         Example:
             ```python title="" linenums="1"

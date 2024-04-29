@@ -12,7 +12,7 @@ class ScrollGetDriverMethods(DriverMethods):
         """Get scroll position of the X and Y axis.
 
         Returns:
-            tuple[int, int]: Scroll position of the X and Y axis. In pixels.
+            Scroll position of the X and Y axis. In pixels.
 
         Example:
             ```python title=""
@@ -27,7 +27,7 @@ class ScrollGetDriverMethods(DriverMethods):
         """Get total scroll height.
 
         Returns:
-            int: Total scroll height.
+            Total scroll height.
 
         Example:
             ```python title=""

@@ -14,7 +14,7 @@ class WindowGetDriverMethods(DriverMethods):
         """Get the height of browser window on the screen in pixels.
 
         Returns:
-            int: Height of browser window on the screen in pixels.
+            Height of browser window on the screen in pixels.
         """
 
         if self._timeout_should_continue():
@@ -24,7 +24,7 @@ class WindowGetDriverMethods(DriverMethods):
         """Get the X and Y coordinates of the top left corner of the browser window on the screen.
 
         Returns:
-            tuple[int, int]: Coordinates of the top left corner of the browser window on the screen.
+            Coordinates of the top left corner of the browser window on the screen.
 
         Example:
             ```python title=""
@@ -39,7 +39,7 @@ class WindowGetDriverMethods(DriverMethods):
         """Get width and height of browser window on the screen in pixels.
 
         Returns:
-            tuple[int, int]: Width and height of browser window on the screen in pixels.
+            Width and height of browser window on the screen in pixels.
 
         Example:
             ```python title=""
@@ -54,7 +54,7 @@ class WindowGetDriverMethods(DriverMethods):
         """Get the width of browser window on the screen in pixels.
 
         Returns:
-            int: Width of browser window on the screen in pixels.
+            Width of browser window on the screen in pixels.
         """
 
         if self._timeout_should_continue():
