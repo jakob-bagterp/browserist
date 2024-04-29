@@ -29,6 +29,11 @@ class ScrollDriverMethods(DriverMethods):
             x (int): In pixels. Scroll on horisontal X axis as relative to current position. Can be positive or negative.
             y (int): In pixels. Scroll on vertical Y axis as relative to current position. Can be positive or negative.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.by(0, 100)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -40,6 +45,11 @@ class ScrollDriverMethods(DriverMethods):
         Args:
             pixels (int): Amount to scroll down as relative to current position.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.down_by(100)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -52,6 +62,11 @@ class ScrollDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.into_view("//xpath/to/element")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -65,6 +80,11 @@ class ScrollDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.into_view_if_not_in_viewport("//xpath/to/element")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -77,6 +97,11 @@ class ScrollDriverMethods(DriverMethods):
         Args:
             pixels (int): Amount to scroll left as relative to current position.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.left_by(50)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -88,6 +113,11 @@ class ScrollDriverMethods(DriverMethods):
         Args:
             pixels (int): Amount to scroll right as relative to current position.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.right_by(50)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -100,6 +130,11 @@ class ScrollDriverMethods(DriverMethods):
             x (int): Absolute position in pixels on horisontal X axis.
             y (int): Absolute position in pixels on vertical Y axis.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.to_position(0, 100)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -111,6 +146,11 @@ class ScrollDriverMethods(DriverMethods):
         Args:
             pixels (int): Amount to scroll up as relative to current position.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.up_by(50)
+            ```
         """
 
         if self._timeout_should_continue():
