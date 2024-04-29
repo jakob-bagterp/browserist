@@ -12,7 +12,7 @@ class ScrollCheckIfDriverMethods(DriverMethods):
         """Check if current scroll position is at the end of the page.
 
         Returns:
-            bool: `True` if current scroll position is at the end of the page, `False` otherwise.
+            `True` if current scroll position is at the end of the page, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -28,7 +28,7 @@ class ScrollCheckIfDriverMethods(DriverMethods):
         """Check if current scroll position is at the top of the page.
 
         Returns:
-            bool: `True` if current scroll position is at the top of the page, `False` otherwise.
+            `True` if current scroll position is at the top of the page, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"

@@ -23,7 +23,7 @@ class ToolDriverMethods(DriverMethods):
             ignore_case (bool, optional): Ignore case when comparing input text to condition.
 
         Returns:
-            bool: `True` if input matches condition, `False` otherwise.
+            `True` if input matches condition, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -45,7 +45,7 @@ class ToolDriverMethods(DriverMethods):
             url (str): Input URL.
 
         Returns:
-            bool: `True` if input is a valid URL, `False` otherwise.
+            `True` if input is a valid URL, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -67,7 +67,7 @@ class ToolDriverMethods(DriverMethods):
             xpath (str): Input XPath.
 
         Returns:
-            bool: `True` if input is a valid XPath expression, `False` otherwise.
+            `True` if input is a valid XPath expression, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"

@@ -13,7 +13,7 @@ class ViewportGetDriverMethods(DriverMethods):
         """Get height of the viewport in pixels.
 
         Returns:
-            int: Height of the viewport in pixels.
+            Height of the viewport in pixels.
         """
 
         if self._timeout_should_continue():
@@ -38,7 +38,7 @@ class ViewportGetDriverMethods(DriverMethods):
         """Get width of the viewport in pixels.
 
         Returns:
-            int: Width of the viewport in pixels.
+            Width of the viewport in pixels.
         """
 
         if self._timeout_should_continue():

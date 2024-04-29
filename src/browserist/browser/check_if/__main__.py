@@ -23,7 +23,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element contains any text, `False` otherwise.
+            `True` if element contains any text, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -44,7 +44,7 @@ class CheckIfDriverMethods(DriverMethods):
             ignore_case (bool, optional): Ignore case when searching for text.
 
         Returns:
-            bool: `True` if element contains text specified in the regex, `False` otherwise.
+            `True` if element contains text specified in the regex, `False` otherwise.
 
         Example:
             Without regular expression:
@@ -72,7 +72,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element exists, `False` otherwise.
+            `True` if element exists, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -91,7 +91,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element is clickable, `False` otherwise.
+            `True` if element is clickable, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -112,7 +112,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element is disabled, `False` otherwise.
+            `True` if element is disabled, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -131,7 +131,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element is displayed, `False` otherwise.
+            `True` if element is displayed, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -150,7 +150,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element is enabled, `False` otherwise.
+            `True` if element is enabled, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -169,7 +169,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if image is loaded, `False` otherwise.
+            `True` if image is loaded, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -189,7 +189,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element is visible in the current viewport, `False` otherwise.
+            `True` if element is visible in the current viewport, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"
@@ -209,7 +209,7 @@ class CheckIfDriverMethods(DriverMethods):
             xpath (str): XPath of the element.
 
         Returns:
-            bool: `True` if element is selected, `False` otherwise.
+            `True` if element is selected, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"

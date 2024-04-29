@@ -31,7 +31,7 @@ class PromptDriverMethods(DriverMethods):
         """Prompt user in the terminal whether to proceed or not.
 
         Returns:
-            bool: `True` if user wants to proceed, `False` otherwise.
+            `True` if user wants to proceed, `False` otherwise.
 
         Example:
             ```python title="" linenums="1"

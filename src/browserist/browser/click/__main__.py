@@ -117,7 +117,7 @@ class ClickDriverMethods(DriverMethods):
             idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global idle download timeout setting is used (default 3 seconds).
 
         Returns:
-            Path: Path to the downloaded file. Return type is the standard library `pathlib.Path`.
+            Path to the downloaded file. Return type is the standard library `pathlib.Path`.
 
         Info: Download Directory
             The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
