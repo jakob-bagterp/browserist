@@ -58,9 +58,9 @@ class WaitUntilDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser
 
-            browser = Browser()
-            browser.open.url("https://example.com")
-            browser.wait.until.images_have_loaded("//img")
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.images_have_loaded("//img")
             ```
         """
 
