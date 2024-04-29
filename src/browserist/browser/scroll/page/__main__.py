@@ -15,6 +15,11 @@ class ScrollPageDriverMethods(DriverMethods):
 
         Args:
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.page.down()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -25,6 +30,11 @@ class ScrollPageDriverMethods(DriverMethods):
 
         Args:
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.page.down()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -35,6 +45,11 @@ class ScrollPageDriverMethods(DriverMethods):
 
         Args:
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.page.to_top()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -45,6 +60,11 @@ class ScrollPageDriverMethods(DriverMethods):
 
         Args:
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
+
+        Example:
+            ```python title=""
+            browser.scroll.page.up()
+            ```
         """
 
         if self._timeout_should_continue():
