@@ -26,9 +26,9 @@ class WaitDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser
 
-            browser = Browser()
-            browser.open.url("https://example.com")
-            browser.wait.for_element("//h1")
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.for_element("//h1")
             ```
         """
 
