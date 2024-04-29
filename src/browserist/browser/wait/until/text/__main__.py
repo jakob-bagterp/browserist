@@ -16,6 +16,17 @@ class WaitUntilTextDriverMethods(DriverMethods):
             xpath (str): XPath of the text element.
             baseline_text (str): Baseline text to compare the new text against. It's evaluated as any change.
             timeout (float | None, optional): In seconds. Timeout to wait for text in element to change. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                baseline_text = browser.get.text("//h1")
+                browser.click.button("//xpath/to/button")
+                browser.wait.until.text.changes("//h1", baseline_text)
+            ```
         """
 
         if self._timeout_should_continue():
@@ -29,6 +40,15 @@ class WaitUntilTextDriverMethods(DriverMethods):
             xpath (str): XPath of the text element.
             regex (str): The comparison can contain both a text fragment or a regular expression. Case insensitive.
             timeout (float | None, optional): In seconds. Timeout to wait for text in element to contain the fragment. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.text.contains("//h1", "Example")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -42,6 +62,15 @@ class WaitUntilTextDriverMethods(DriverMethods):
             xpath (str): XPath of the text element.
             regex (str): Regular expression to compare the text element against. Case sensitive and is evaluated as an exact match.
             timeout (float | None, optional): In seconds. Timeout to wait for text jn element to match the condition. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.until.text.equals("//h1", "Example Domain")
+            ```
         """
 
         if self._timeout_should_continue():
