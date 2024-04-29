@@ -28,6 +28,11 @@ class ScrollGetDriverMethods(DriverMethods):
 
         Returns:
             int: Total scroll height.
+
+        Example:
+            ```python title=""
+            viewport_height = browser.scroll.get.total_height()
+            ```
         """
 
         if self._timeout_should_continue():
