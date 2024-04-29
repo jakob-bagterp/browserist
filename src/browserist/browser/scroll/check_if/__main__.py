@@ -13,6 +13,12 @@ class ScrollCheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if current scroll position is at the end of the page, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.scroll.check_if.is_end_of_page():
+                browser.open.url("https://example.com")
+            ```
         """
 
         if self._timeout_should_continue():
@@ -23,6 +29,12 @@ class ScrollCheckIfDriverMethods(DriverMethods):
 
         Returns:
             bool: `True` if current scroll position is at the top of the page, `False` otherwise.
+
+        Example:
+            ```python title="" linenums="1"
+            if browser.scroll.check_if.is_top_of_page():
+                browser.click.button("//xpath/to/button")
+            ```
         """
 
         if self._timeout_should_continue():
