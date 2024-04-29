@@ -41,9 +41,9 @@ class ViewportSetDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             from browserist import Browser, DeviceViewportSize
 
-            browser = Browser()
-            custom_device = DeviceViewportSize(width=375, height=812)
-            browser.viewport.set.size_by_device(custom_device)
+            with Browser() as browser:
+                custom_device = DeviceViewportSize(width=375, height=812)
+                browser.viewport.set.size_by_device(custom_device)
             ```
         """
 
