@@ -109,18 +109,27 @@ class ToolDriverMethods(DriverMethods):
             return tool_count_elements(self._browser_driver, xpath, timeout)
 
     def execute_script(self, script: str, element: WebElement | None = None) -> Any:
-        """Execute JavaScript, either with WebElement or without.
+        """Execute JavaScript, either with `WebElement` or without.
 
         Args:
             script (str): JavaScript code.
-            element (WebElement | None, optional): If given, execute JavaScript with WebElement.
+            element (WebElement | None, optional): If given, execute JavaScript with `WebElement`.
 
         Returns:
             Any: Return value given by the JavaScript code.
 
         Example:
+            Without `WebElement`:
+
             ```python title=""
             browser.tool.execute_script("alert('Hello world!')")
+            ```
+
+            With `WebElement`:
+
+            ```python title="" linenums="1"
+            element = browser.get.element("//xpath/to/element")
+            browser.tool.execute_script("arguments[0].scrollIntoView();", element)
             ```
         """
 
