@@ -42,7 +42,7 @@ class GetDriverMethods(DriverMethods):
             return get_dimensions(self._browser_driver, xpath, timeout)
 
     def element(self, xpath: str, timeout: float | None = None) -> WebElement:  # type: ignore
-        """Get single web element by XPath.
+        """Get single `WebElement` by XPath.
 
         Args:
             xpath (str): XPath of the element.
@@ -63,14 +63,14 @@ class GetDriverMethods(DriverMethods):
             return get_element(self._browser_driver, xpath, timeout)
 
     def elements(self, xpath: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """Get multiple web elements by XPath. Assumes that the XPath targets multiple elements.
+        """Get multiple `WebElement`s by XPath. Assumes that the XPath targets multiple elements.
 
         Args:
             xpath (str): XPath of the elements.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[WebElement]: List of web elements.
+            list[WebElement]: List of web elements of type `WebElement`.
 
         Example:
             ```python title="" linenums="1"
@@ -85,14 +85,14 @@ class GetDriverMethods(DriverMethods):
             return get_elements(self._browser_driver, xpath, timeout)
 
     def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """"Get multiple web elements by HTML tag. Assumes that the XPath targets multiple elements.
+        """"Get multiple `WebElement`s by HTML tag. Assumes that the XPath targets multiple elements.
 
         Args:
             tag (str): HTML tag of the elements. For example, `"img"` as tag for all `<img>` images, `"a"` for all `<a>` links, etc.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
-            list[WebElement]: List of web elements.
+            list[WebElement]: List of web elements of type `WebElement`.
 
         Example:
             Get and print all paragraphs of a web page:
