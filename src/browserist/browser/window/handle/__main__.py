@@ -21,6 +21,11 @@ class WindowHandleDriverMethods(DriverMethods):
 
         Returns:
             list[str]: List of IDs of all open tabs or windows.
+
+        Example:
+            ```python title=""
+            window_handles = browser.window.handle.all()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -34,6 +39,11 @@ class WindowHandleDriverMethods(DriverMethods):
 
         Returns:
             int: Number of open tabs or windows.
+
+        Example:
+            ```python title=""
+            sum_of_window_handles = browser.window.handle.count()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -44,6 +54,11 @@ class WindowHandleDriverMethods(DriverMethods):
 
         Returns:
             str: ID of the current tab or window. e.g. `CDwindow-69663F4BF867CC38F6AF46D55BFC1A8A`.
+
+        Example:
+            ```python title=""
+            current_window_handle = browser.window.handle.current()
+            ```
         """
 
         if self._timeout_should_continue():
