@@ -15,6 +15,11 @@ class WindowGetDriverMethods(DriverMethods):
 
         Returns:
             int: Height of browser window on the screen in pixels.
+
+        Example:
+            ```python title=""
+            height = browser.window.get.height()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -55,6 +60,11 @@ class WindowGetDriverMethods(DriverMethods):
 
         Returns:
             int: Width of browser window on the screen in pixels.
+
+        Example:
+            ```python title=""
+            width = browser.window.get.width()
+            ```
         """
 
         if self._timeout_should_continue():
