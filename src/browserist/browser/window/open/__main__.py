@@ -50,7 +50,7 @@ class WindowOpenDriverMethods(DriverMethods):
             with Browser() as browser:
                 browser.window.open.new_window("https://example.com", "window_1")
                 browser.window.open.new_window("https://google.com", "window_2")
-                browser.window.switch_to("tab_1")
+                browser.window.switch_to("window_1")
             ```
         """
 

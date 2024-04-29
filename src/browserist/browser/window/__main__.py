@@ -24,13 +24,25 @@ class WindowDriverMethods(DriverMethods):
         self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver)
 
     def close(self) -> None:
-        """Close current tab or window."""
+        """Close current tab or window.
+
+        Example:
+            ```python title=""
+            browser.window.close()
+            ```
+        """
 
         if self._timeout_should_continue():
             window_close(self._browser_driver, self._controller)
 
     def fullscreen(self) -> None:
-        """Fills the entire screen. Similar to pressing F11 in most browsers."""
+        """Fills the entire screen. Similar to pressing F11 in most browsers.
+
+        Example:
+            ```python title=""
+            browser.window.fullscreen()
+            ```
+        """
 
         if self._timeout_should_continue():
             window_fullscreen(self._browser_driver)
@@ -40,6 +52,11 @@ class WindowDriverMethods(DriverMethods):
 
         Note:
             For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars. Obviously, the size of the browser window also depends on the device and its screen resolution.
+
+        Example:
+            ```python title=""
+            browser.window.maximize()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -50,6 +67,11 @@ class WindowDriverMethods(DriverMethods):
 
         Note:
             The exact behavior of this command is specific to individual window managers. Minimize Window typically hides the window in the system tray.
+
+        Example:
+            ```python title=""
+            browser.window.minimize()
+            ```
         """
 
         if self._timeout_should_continue():
@@ -67,7 +89,7 @@ class WindowDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.window.open.new_tab("https://example.com", "tab_1")
-                browser.window.open.new_tab("https://www.google.com", "tab_2")
+                browser.window.open.new_tab("https://google.com", "tab_2")
                 browser.window.switch_to("tab_1")
             ```
         """
@@ -80,6 +102,16 @@ class WindowDriverMethods(DriverMethods):
 
         Note:
             Browserist automatically remembers the handle ID of the initial window/tab when the browser is first opened.
+
+        Example:
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.window.open.new_window("https://google.com")
+                browser.window.switch_to_original_window()
+            ```
         """
 
         if self._timeout_should_continue():
