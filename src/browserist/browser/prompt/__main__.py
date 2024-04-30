@@ -44,6 +44,12 @@ class PromptDriverMethods(DriverMethods):
     def proceed_yes_or_no(self) -> bool:
         """Prompt user in the terminal whether to proceed or not.
 
+        | Allowed Inputs                       | Description                        |
+        | ------------------------------------ | ---------------------------------- |
+        | `y`, `yes` or press `Enter`/`Return` | Proceed and return `True`.         |
+        | `n`, `no`                            | Do not proceed and return `False`. |
+        | Any other input                      | Prompt user to try again.          |
+
         Returns:
             `True` if user wants to proceed, `False` otherwise.
 
