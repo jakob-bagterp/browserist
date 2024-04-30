@@ -61,8 +61,10 @@ class PromptDriverMethods(DriverMethods):
 
             with Browser() as browser:
                 browser.open.url("https://example.com")
-                browser.prompt.proceed_yes_or_no()
-                browser.click.button("//xpath/to/button")
+                if browser.prompt.proceed_yes_or_no():
+                    browser.click.button("//xpath/to/button")
+                else:
+                    print("Quitting...")
             ```
         """
 
