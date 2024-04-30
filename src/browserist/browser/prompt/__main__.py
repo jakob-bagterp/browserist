@@ -18,8 +18,22 @@ class PromptDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
+            Basic usage:
+
             ```python title=""
-            browser.prompt.input_value("//xpath/to/input", "Input password:")
+            browser.prompt.input_value("//xpath/to/input", "Input value:")
+            ```
+
+            In context of a login form:
+
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.prompt.input_value("//xpath/to/input/username", "Input username:")
+                browser.prompt.input_value("//xpath/to/input/password", "Input password:")
+                browser.click.button("//xpath/to/button")
             ```
         """
 
@@ -30,17 +44,33 @@ class PromptDriverMethods(DriverMethods):
     def proceed_yes_or_no(self) -> bool:
         """Prompt user in the terminal whether to proceed or not.
 
+        | Allowed Inputs                       | Description                        |
+        | ------------------------------------ | ---------------------------------- |
+        | `y`, `yes` or press `Enter`/`Return` | Proceed and return `True`.         |
+        | `n`, `no`                            | Do not proceed and return `False`. |
+        | Any other input                      | Prompt user to try again.          |
+
         Returns:
             `True` if user wants to proceed, `False` otherwise.
 
         Example:
+            Basic usage:
+
+            ```python title=""
+            browser.prompt.proceed_yes_or_no():
+            ```
+
+            In context of a script:
+
             ```python title="" linenums="1"
             from browserist import Browser
 
             with Browser() as browser:
                 browser.open.url("https://example.com")
-                browser.prompt.proceed_yes_or_no()
-                browser.click.button("//xpath/to/button")
+                if browser.prompt.proceed_yes_or_no():
+                    browser.click.button("//xpath/to/button")
+                else:
+                    print("Quitting...")
             ```
         """
 

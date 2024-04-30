@@ -24,11 +24,16 @@ class WindowDriverMethods(DriverMethods):
         self.set: WindowSetDriverMethods = WindowSetDriverMethods(browser_driver)
 
     def close(self) -> None:
-        """Close current tab or window.
+        """Close close the current tab or, if it's the last tab in a window, the current browser window.
 
         Example:
-            ```python title=""
-            browser.window.close()
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.window.open.new_tab("https://google.com")
+                browser.window.close()
             ```
         """
 
