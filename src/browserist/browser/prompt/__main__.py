@@ -48,6 +48,14 @@ class PromptDriverMethods(DriverMethods):
             `True` if user wants to proceed, `False` otherwise.
 
         Example:
+            Basic usage:
+
+            ```python title=""
+            browser.prompt.proceed_yes_or_no():
+            ```
+
+            In context of a script:
+
             ```python title="" linenums="1"
             from browserist import Browser
 
