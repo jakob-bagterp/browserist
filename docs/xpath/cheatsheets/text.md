@@ -1,18 +1,18 @@
 ---
 tags:
     - Tutorial
+    - Cheatsheet
     - XPath
 ---
 
-# XPath Cheatsheet
-## Text
+# XPath Cheatsheet: Text
 When you need just the content of a node, use the `text()` function:
 
 ```text title=""
 //h1/text()
 ```
 
-### Exact Matching
+## Exact Matching
 Target all `<button>` nodes with a specific text content:
 
 ```text title=""
@@ -31,7 +31,7 @@ Ensure that all paragraphs end with a dot by getting all `<p>` nodes and combini
 `//p[not(ends-with(text(), '.'))]`
 ```
 
-### Non-Exact Matching
+## Non-Exact Matching
 Get all `<h2>` header nodes that contains some text using the `contains()` function:
 
 ```text title=""

@@ -1,11 +1,11 @@
 ---
 tags:
     - Tutorial
+    - Cheatsheet
     - XPath
 ---
 
-# XPath Cheatsheet
-## Axes
+# XPath Cheatsheet: Axes
 Instead of just traversing down the hierarchy, there are multiple axes to query the node tree. An axis is used when we want to query nodes nearby other node or other hierarchical relationships.
 
 | Axis | Description | Example |

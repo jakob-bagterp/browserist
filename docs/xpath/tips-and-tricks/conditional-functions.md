@@ -4,51 +4,8 @@ tags:
     - XPath
 ---
 
-# Tips and Tricks for XPath Expressions
-XPath is a filter that allows us to select nodes of an HTML page efficiently. The right approach to XPath can make your life even easier as a browser automater. Let's take a few examples from intermediate to advanced level.
-
-## Target Attributes
-Let's imagine a registration form on a web page where we want to target the `<input>` elements:
-
-```html linenums="1"
-<div class="container">
-  <form id="registration_form">
-    <label for="email">Email</label>
-    <input type="text" placeholder="Enter email" name="email" id="email" required />
-
-    <label for="password">Password</label>
-    <input type="password" placeholder="Enter password" name="password" id="password" required />
-
-    <label for="password_repeat">Repeat password</label>
-    <input type="password" placeholder="Repeat password" name="password_repeat" id="password_repeat" required />
-
-    <button type="submit">Register</button>
-  </form>
-</div>
-```
-
-Instead of targeting the index `//input[1]`, `//input[2]`, etc., we can be more specific and target the `id` attributes:
-
-```text title=""
-//input[@id='email']
-//input[@id='password']
-//input[@id='password_repeat']
-```
-
-Similarly, we can also target other attributes like `name`:
-
-```text title=""
-//input[@name='email']
-```
-
-This will often make your code more stable if the HTML layout changes while the `name` and `id` attributes often remain constant. Similarly, the submit button is easily located by the `type` attribute:
-
-```text title=""
-//button[@type='submit']
-```
-
-## Conditional Functions
-### Match Elements with Specific Text
+# Conditional XPath Functions
+## Match Elements with Specific Text
 Sometimes you can't use attributes to easily target elements. A calendar is a good example of this. Let's imagine we want to select the first day of a given month:
 
 ```html linenums="1"
@@ -106,4 +63,4 @@ def get_xpath_for_calendar_date(date: int) -> str:
 !!! tip Exact Matches or Contains Text
     While the `…/li[text()='1']` method locates the first exact match of `1`, it's sometimes favourable to locate the first non-exact match with either the `…/li[contains(text(), '1')]` or `…/li[normalize-space()='1']`  methods as they handle eventual white space more graceful. Despite the differences, all of these conditional methods would yield the correct answer in the calendar case.
 
-Learn more [pattern matching techniques for text](./cheatsheets/text.md) or tips for [node selection](./cheatsheets/node-selection.md) in the XPath cheatsheets section.
+Learn more [pattern matching techniques for text](./../cheatsheets/text.md) or tips for [node selection](./../cheatsheets/node-selection.md) in the XPath cheatsheets section.

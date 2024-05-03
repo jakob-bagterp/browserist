@@ -4,12 +4,7 @@ tags:
     - XPath
 ---
 
-# XPath Basics
-XPath is a query language that is used for traversing through not just an HTML document – but also XML, XSLT and other document types. It is used commonly to search particular elements or attributes with matching patterns, and XPath includes over 200 built-in functions.
-
-While we use XPath in context of HTML and Python, it's commonly used in other programming languages like JavaScript, Java, C#, C++, and many more.
-
-## Absolute vs. Relative
+# Absolute and Relative XPath Expressions
 An XPath expression can be written in two ways:
 
 * **Absolute**: Starts with `/`
@@ -30,7 +25,7 @@ For the examples below, let's imagine a simple web page:
 </html>
 ```
 
-### Absolute XPath
+## Absolute XPath
 To target the `<h1>` headline element with an absolute XPath expression, use this:
 
 ```text title=""
@@ -39,7 +34,7 @@ To target the `<h1>` headline element with an absolute XPath expression, use thi
 
 This is also called a _full XPath_. Most web pages are much more complicated than this, e.g. with containers and other nested elements, and so you end up typing cumbersome, long XPath expressions. Most often you want to avoid absolute XPath expressions and use the relative variation instead.
 
-### Relative XPath
+## Relative XPath
 With a relative XPath expression, you can target an `id` attribute or other anchor points to simplify the expression. This also makes it more readable:
 
 ```text title=""
@@ -81,5 +76,3 @@ We can simply use multiple relative statements similar to this pattern `//…//�
 ```text title=""
 //*[@id='container']//a
 ```
-
-Let's continue with more [tips and tricks for XPath](tips-and-tricks.md).

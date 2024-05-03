@@ -1,12 +1,12 @@
 ---
 tags:
     - Tutorial
+    - Cheatsheet
     - XPath
 ---
 
-# XPath Cheatsheet
-## How to Select Nodes
-### Absolute Expressions
+# XPath Cheatsheet: How to Select Nodes
+## Absolute Expressions
 Use absolute XPath expressions to target a single node:
 
 | XPath | Description |
@@ -14,7 +14,7 @@ Use absolute XPath expressions to target a single node:
 | `/html/head/title` | Get the page title node. |
 | `/html/body` | Get the `<body>` element. |
 
-### Relative Expressions
+## Relative Expressions
 Use relative XPath expressions to target multiple nodes:
 
 | XPath | Description |
@@ -22,7 +22,7 @@ Use relative XPath expressions to target multiple nodes:
 | `//img` | Get all `<img>` image nodes. |
 | `//h1` | Get all `<h1>` headline nodes. |
 
-### Indexing
+## Indexing
 Combine relative XPath expressions with indexing to target specific nodes:
 
 | XPath | Description |
@@ -32,7 +32,7 @@ Combine relative XPath expressions with indexing to target specific nodes:
 | `//form[@id='login']/input[3]` | Get the third `<input>` child node of a form with a specific `id`. |
 | `//h2[1]//p` | Of the first `<h2>` headline, get any of its child `<p>` paragrapds. |
 
-### Attributes
+## Attributes
 Get nodes with certain attributes with the `@` selector:
 
 | XPath | Description |
@@ -41,7 +41,7 @@ Get nodes with certain attributes with the `@` selector:
 | `//*[@id='some_id']` | Get all nodes with the `*` wildcard selector with a specific `id` attribute. |
 | `//input[@type="password"]` | Get all `<input>` nodes that are a password type. |
 
-### Parents and Children
+## Parents and Children
 Though we most often traverse down the hierachy with `/` or `//`, sometimes we need to get parent nodes with `..`:
 
 | XPath | Description |
@@ -52,7 +52,7 @@ Though we most often traverse down the hierachy with `/` or `//`, sometimes we n
 
 See more examples in the [axes](axes.md) section.
 
-### Union of Several Paths
+## Union of Several Paths
 Use the pipe `|` to combine several paths in union:
 
 | XPath | Description |
