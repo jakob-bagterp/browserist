@@ -43,8 +43,8 @@ nav:
       - Parallelisation: user-guide/performance/parallelisation.md
   - XPath:
     - Basics: xpath/basics.md
-    - Why Use XPath?: xpath/why-use-xpath.md
     - Absolute and Relative: xpath/absolute-and-relative.md
+    - Browserist Compared to Selenium: xpath/browserist-compared-to-selenium.md
     - Tips and Tricks: xpath/tips-and-tricks.md
     - Cheatsheets:
       - Node Selection: xpath/cheatsheets/node-selection.md
