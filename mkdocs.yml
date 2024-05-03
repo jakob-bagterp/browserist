@@ -45,7 +45,10 @@ nav:
     - Basics: xpath/basics.md
     - Absolute and Relative: xpath/absolute-and-relative.md
     - Browserist Compared to Selenium: xpath/browserist-compared-to-selenium.md
-    - Tips and Tricks: xpath/tips-and-tricks.md
+    - Tips and Tricks:
+      - xpath/tips-and-tricks/index.md
+      - Target Attributes: xpath/tips-and-tricks/target-attributes.md
+      - Conditional Functions: xpath/tips-and-tricks/conditional-functions.md
     - Cheatsheets:
       - Node Selection: xpath/cheatsheets/node-selection.md
       - Text: xpath/cheatsheets/text.md
