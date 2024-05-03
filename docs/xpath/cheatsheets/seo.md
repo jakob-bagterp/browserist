@@ -1,21 +1,21 @@
 ---
 tags:
     - Tutorial
+    - Cheatsheet
     - XPath
 ---
 
-# XPath Cheatsheet
-## Search Engine Optimisation (SEO)
+# XPath Cheatsheet: Search Engine Optimisation (SEO)
 Certain XPath expressions are especially useful for search engine optimisation.
 
-### Content
+## Content
 Count all `<h1>` nodes to ensure that a web page has and only has one main headline. Should not be 0 or larger than 1:
 
 ```text title=""
 count(//h1)
 ```
 
-### Meta Data
+## Meta Data
 Similarly, ensure that a web page has meta description. Should not be 0 or larger than 1:
 
 ```text title=""

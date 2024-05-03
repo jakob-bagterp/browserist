@@ -1,18 +1,18 @@
 ---
 tags:
     - Tutorial
+    - Cheatsheet
     - XPath
 ---
 
-# XPath Cheatsheet
-## Links
+# XPath Cheatsheet: Links
 Combine attributes and functions to target specific link nodes. But first, how to get all `<a>` link nodes:
 
 ```text title=""
 //a
 ```
 
-### Exact Matching
+## Exact Matching
 Get all HTTPS links using the `starts-with()` function:
 
 ```text title=""
@@ -37,7 +37,7 @@ Get all links without a trailing slash by combining the `not()` and `ends-with()
 //a[not(ends-with(@href, '/'))]
 ```
 
-### Non-Exact Matching
+## Non-Exact Matching
 Get all blog links that using the `contains()` function:
 
 ```text title=""
@@ -68,7 +68,7 @@ Get all blog or news links using the `or` operator:
 //a[contains(@href, 'blog') or contains(@href, 'news')]
 ```
 
-### Other
+## Other
 Get all links with a URL longer than 55 characters using the `string-length()` function:
 
 ```text title=""
