@@ -4,7 +4,7 @@ tags:
     - XPath
 ---
 
-# Absolute and Relative Expressions
+# Absolute and Relative XPath Expressions
 An XPath expression can be written in two ways:
 
 * **Absolute**: Starts with `/`
