@@ -4,7 +4,7 @@ tags:
     - XPath
 ---
 
-# Introduction to XPath
+# Why Use XPath?
 Browserist is built as an extension to the Selenium framework and offers similar functionality. However, be aware of the differences.
 
 ## Why Use XPath?
@@ -30,5 +30,3 @@ driver.find_element(By.CLASS_NAME, "information")
 ```python title="Browserist with XPath"
 browser.get.element("//*[@class='information']")
 ```
-
-Let's continue with [XPath basics](basics.md).

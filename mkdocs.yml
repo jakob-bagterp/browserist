@@ -42,8 +42,9 @@ nav:
       - Disable Images: user-guide/performance/disable-images.md
       - Parallelisation: user-guide/performance/parallelisation.md
   - XPath:
-    - Intro: xpath/intro.md
     - Basics: xpath/basics.md
+    - Why Use XPath?: xpath/why-use-xpath.md
+    - Absolute and Relative: xpath/absolute-and-relative.md
     - Tips and Tricks: xpath/tips-and-tricks.md
     - Cheatsheets:
       - Node Selection: xpath/cheatsheets/node-selection.md
