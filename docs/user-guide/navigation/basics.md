@@ -27,7 +27,7 @@ browser.quit()
 ```
 
 !!! tip
-    Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](context-manager.md) and `with` statements. The example above could then be refactored to:
+    Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](../context-manager.md) and `with` statements. The example above could then be refactored to:
 
     ```python linenums="1"
     from browserist import Browser

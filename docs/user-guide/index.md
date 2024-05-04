@@ -3,7 +3,7 @@ Find detailed info about setings, tutorials, tips and tricks in this section.
 
 ## Quick Links
 ### General
-* [Navigation](navigation.md)
+* [Navigation](./navigation/basics.md)
 * [Working with multiple tabs](./tabs-and-windows/tabs.md)
 * [Downloading files](download-files.md)
 
