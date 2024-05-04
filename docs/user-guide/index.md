@@ -9,7 +9,7 @@ Find detailed info about setings, tutorials, tips and tricks in this section.
 
 ### Settings
 * [Browser settings](./settings/overview.md)
-* [Browser types](./settings/browser-type.md)
+* [Browser types](./settings/browser-types.md)
 
 ### Performance
 * [Headless mode](./performance/headless.md)
