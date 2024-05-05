@@ -23,11 +23,11 @@ nav:
     - user-guide/index.md
     - Context Manager: user-guide/context-manager.md
     - Download Files: user-guide/download-files.md
-    - Scrolling: user-guide/scrolling.md
     - Navigation:
       - Basics: user-guide/navigation/basics.md
       - Tabs: user-guide/navigation/tabs.md
       - Windows: user-guide/navigation/windows.md
+      - Scrolling: user-guide/navigation/scrolling.md
       - Iframes: user-guide/navigation/iframes.md
     - Settings:
       - Overview: user-guide/settings/overview.md
