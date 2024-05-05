@@ -115,5 +115,54 @@ with Browser() as browser:
 
 ## Conditional Scrolling
 ### How to Check If Scrolling Is Possible
+You can check if you're at the end or top of the page with these methods:
+
+```python title=""
+browser.scroll.check_if.is_end_of_page()
+```
+
+```python title=""
+browser.scroll.check_if.is_top_of_page()
+```
+
+#### Example
+Example where we want take a screenshot of the footer of a page:
+
+```python linenums="1"
+from browserist import Browser
+
+urls = ["https://example.com", "https://google.com", "https://bing.com"]
+
+with Browser() as browser:
+    for url in urls:
+        browser.open.url(url)
+        if not browser.scroll.check_if.is_end_of_page():
+            browser.scroll.page.to_end()
+        browser.screenshot.visible_portion()
+```
 
 ### Only Scroll If Necessary
+Instead of checking whether an element is visible in the viewport before scrolling to it...
+
+```python title="" linenums="1"
+if not browser.check_if.is_in_viewport("//xpath/to/element"):
+    browser.scroll.into_view("//xpath/to/element")
+```
+
+... such logic is already combined in this method:
+
+```python title=""
+browser.scroll.into_view_if_not_in_viewport("//xpath/to/element")
+```
+
+#### Example
+Example in context where we want to make sure an element is visible in the viewport before taking a screenshot of it:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.scroll.into_view_if_not_in_viewport("//xpath/to/element")
+    browser.screenshot.visible_portion()
+```
