@@ -36,6 +36,7 @@ class IframeDriverMethods(DriverMethods):
                 browser.open.url("https://example.com")
                 browser.iframe.switch_to("//xpath/to/iframe")
                 element_text = browser.get.text("//xpath/to/element")
+                print(element_text)
                 browser.iframe.switch_to_original_page()
             ```
         """
