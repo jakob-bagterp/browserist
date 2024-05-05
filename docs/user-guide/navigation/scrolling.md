@@ -13,33 +13,33 @@ Browserist provides a simple way to scroll a web page – both up and down, to 
 ## Scrolling Up and Down
 ### By Length
 #### Pixels
-How to scroll down by a number of pixels:
+How to scroll down by a number of pixels, relative to the current position:
 
 ```python title=""
 browser.scroll.down_by(100)
 ```
 
-How to scroll up by a number of pixels:
+How to scroll up by a number of pixels, relative to the current position:
 
 ```python title=""
 browser.scroll.up_by(50)
 ```
 
 #### Pages
-How to scroll a page down:
+How to scroll a page down, relative to the current position:
 
 ```python title=""
 browser.scroll.page.down()
 ```
 
-How to scroll a page up:
+How to scroll a page up, relative to the current position:
 
 ```python title=""
 browser.scroll.page.up()
 ```
 
 #### Example with Mixed Methods
-Let's imagine that we want to take screenshots of a page that requires scrolling to load all the content. We can scroll down by a page and then a little up to capture screenshots the entire page:
+Let's imagine that we want to take screenshots of a page that requires scrolling to load all the content. We can scroll down by a page and then a little up to capture screenshot partials of the entire page:
 
 ```python linenums="1"
 from browserist import Browser
