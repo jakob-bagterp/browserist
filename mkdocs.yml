@@ -21,19 +21,20 @@ nav:
     - First Script: getting-started/first-script.md
   - User Guide:
     - user-guide/index.md
-    - Navigation: user-guide/navigation.md
     - Context Manager: user-guide/context-manager.md
     - Download Files: user-guide/download-files.md
     - Scrolling: user-guide/scrolling.md
+    - Navigation:
+      - Basics: user-guide/navigation/basics.md
+      - Tabs: user-guide/navigation/tabs.md
+      - Windows: user-guide/navigation/windows.md
+      - Iframes: user-guide/navigation/iframes.md
     - Settings:
       - Overview: user-guide/settings/overview.md
       - Browser Types: user-guide/settings/browser-types.md
       - Timeout Strategy: user-guide/settings/timeout-strategy.md
       - Page Load Strategy: user-guide/settings/page-load-strategy.md
       - Viewport: user-guide/settings/viewport.md
-    - Tabs and Windows:
-      - Tabs: user-guide/tabs-and-windows/tabs.md
-      - Windows: user-guide/tabs-and-windows/windows.md
     - Combo Methods:
       - Cookie Banner: user-guide/combo-methods/cookie-banner.md
       - Log In: user-guide/combo-methods/log-in.md

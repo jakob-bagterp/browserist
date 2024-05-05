@@ -1,6 +1,7 @@
 ---
 tags:
     - Tutorial
+    - Navigation
     - Tabs and windows
 ---
 
