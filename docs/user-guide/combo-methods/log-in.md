@@ -26,7 +26,7 @@ As `LoginCredentials` is independent of the login form, it works with both optio
 ### Basic Usage
 Getting started:
 
-```python title="" linenums="1"
+```python linenums="1"
 from browserist import Browser, LoginForm1Step, LoginCredentials
 
 login_credentials = LoginCredentials(
