@@ -46,11 +46,11 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    browser.screeenshot.visible_portion()
+    browser.screenshot.visible_portion()
     while not browser.scroll.check_if.is_end_of_page():
         browser.scroll.page.down()
         browser.scroll.up_by(5)
-        browser.screeenshot.visible_portion()
+        browser.screenshot.visible_portion()
 ```
 
 ### By Element
