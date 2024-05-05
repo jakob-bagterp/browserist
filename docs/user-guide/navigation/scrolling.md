@@ -53,14 +53,14 @@ with Browser() as browser:
         browser.screenshot.visible_portion()
 ```
 
-### By Element
+### To Specific Element
 How to scroll down or up to make a specific element visible in the viewport:
 
 ```python title=""
 browser.scroll.into_view("//xpath/to/element")
 ```
 
-### To Specific Position
+### To Absolute Position
 How to scroll to the end of the page:
 
 ```python title=""
@@ -92,7 +92,7 @@ How to scroll left by a number of pixels, relative to the current position:
 browser.scroll.left_by(40)
 ```
 
-#### Example with Mixed Methods
+#### Example
 Let's imagine that we want to ensure that we can't scroll sideways on a page. We try to scroll a little right and then a little left to ensure that the page is locked in place:
 
 ```python linenums="1"
