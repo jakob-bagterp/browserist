@@ -54,15 +54,64 @@ with Browser() as browser:
 ```
 
 ### By Element
-into view
-bottom of the page
-top of the page
+How to scroll down or up to make a specific element visible in the viewport:
+
+```python title=""
+browser.scroll.into_view("//xpath/to/element")
+```
 
 ### To Specific Position
+How to scroll to the end of the page:
 
-Advanced with get and set
+```python title=""
+browser.scroll.page.to_end()
+```
+
+How to scroll to the top of the page:
+
+```python title=""
+browser.scroll.page.to_top()
+```
+
+How to scroll to an absolute position on the page with `x` and `y` coordinates:
+
+```python title=""
+browser.scroll.to_position(0, 100)
+```
 
 ## Scrolling Sideways Left and Right
+How to scroll right by a number of pixels, relative to the current position:
+
+```python title=""
+browser.scroll.right_by(20)
+```
+
+How to scroll left by a number of pixels, relative to the current position:
+
+```python title=""
+browser.scroll.left_by(40)
+```
+
+#### Example with Mixed Methods
+Let's imagine that we want to ensure that we can't scroll sideways on a page. We try to scroll a little right and then a little left to ensure that the page is locked in place:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.scroll.page.to_top()
+    x, y = browser.scroll.get.position()
+    assert x == 0 and y == 0
+
+    browser.scroll.right_by(1)
+    x, _ = browser.scroll.get.position()
+    assert x == 0
+
+    browser.scroll.left_by(1)
+    x, _ = browser.scroll.get.position()
+    assert x == 0
+```
 
 ## Conditional Scrolling
 ### How to Check If Scrolling Is Possible
