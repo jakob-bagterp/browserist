@@ -13,7 +13,7 @@ View all options in the [reference documentation](../../reference/browser/combo/
 ## Examples
 Basic usage:
 
-```python title="" linenums="1"
+```python linenums="1"
 from browserist import Browser, SearchSettings
 
 search_settings = SearchSettings(
@@ -28,7 +28,7 @@ with Browser() as browser:
 
 Let's imagine that we want to test whether a search engine has fuzzy search enabled, For instance, this could mean that American and British English yield the same results for, respectively, "color" and "colour" as search term:
 
-```python title="" linenums="1"
+```python linenums="1"
 from browserist import Browser, SearchSettings
 
 search_settings = SearchSettings(
