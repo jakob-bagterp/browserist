@@ -64,17 +64,26 @@ class ScrollPageDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             scroll_to_top_of_page(self._browser_driver, delay_seconds)
 
-    def up(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll page up.
+    def up(self, pages: int = 1, delay_seconds: float = 1) -> None:
+        """If possible, scroll number of pages up.
 
         Args:
+            pages (int, optional): Number of pages to scroll up. Must be an integer of 1 or greater.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
 
         Example:
+            Scroll single page up:
+
             ```python title=""
             browser.scroll.page.up()
+            ```
+
+            Scroll multiple pages up:
+
+            ```python title=""
+            browser.scroll.page.up(3)
             ```
         """
 
         if self._timeout_should_continue():
-            scroll_page_up(self._browser_driver, delay_seconds)
+            scroll_page_up(self._browser_driver, pages, delay_seconds)
