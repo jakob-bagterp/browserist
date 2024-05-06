@@ -1,9 +1,13 @@
+from contextlib import nullcontext as does_not_raise
+from typing import Any
+
 import _helper
 import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
+from browserist.exception.scroll import PageValueError
 from browserist.helper import operating_system
 
 
@@ -31,3 +35,18 @@ def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
             assert y_page_up >= _helper.tolerance.deduct(expected_exact_position, 10)
         case _:
             assert y_page_up == expected_exact_position
+
+
+@pytest.mark.parametrize("pages, expectation", [
+    (1, does_not_raise()),
+    (3, does_not_raise()),
+    (0, pytest.raises(PageValueError)),
+    (-1, pytest.raises(PageValueError)),
+    ("2", pytest.raises(PageValueError)),
+    (3.14, pytest.raises(PageValueError)),
+])
+def test_scroll_page_up_exceptions(pages: int, expectation: Any, browser_default_headless: Browser) -> None:
+    browser = reset_to_not_timed_out(browser_default_headless)
+    with expectation:
+        browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
+        browser.scroll.page.up(pages)
