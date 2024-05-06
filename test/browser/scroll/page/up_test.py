@@ -8,7 +8,7 @@ from browserist.helper import operating_system
 
 def test_scroll_page_up(browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
     browser.scroll.page.to_end()
     _, y_end = browser.scroll.get.position()
     y_screen_height = browser.viewport.get.height()
