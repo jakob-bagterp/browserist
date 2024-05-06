@@ -26,7 +26,7 @@ def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
     y_screen_height = browser.viewport.get.height()
     browser.scroll.page.up(pages)
     _, y_page_up = browser.scroll.get.position()
-    expected_exact_position = y_end - (y_screen_height - 1) * pages
+    expected_exact_position = y_end - (y_screen_height * pages) - 1
     match _:  # Sometimes the scroll position is not calculated exactly on Windows nor macOS, and so we just do an approximation.
         case _ if operating_system.is_windows():
             assert y_page_up < y_end
