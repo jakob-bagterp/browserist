@@ -38,7 +38,10 @@ SEARCH: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/search/search_form.html")
 
 SCROLL_CANVAS: str = update_path_format_if_windows(
-    f"file://{_web_mock_data_directory}/scroll_canvas.html")
+    f"file://{_web_mock_data_directory}/scroll/canvas.html")
+
+SCROLL_LONG_VERTICAL: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/scroll/long_vertical/page.html")
 
 W3SCHOOLS_COM: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/w3schools_com.html")
