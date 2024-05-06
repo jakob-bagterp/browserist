@@ -25,7 +25,7 @@ async def default(browser_driver: BrowserDriver, file_name: FilePNG, destination
         await asyncio.sleep(delay_seconds)
 
     async def async_scroll_page_down(browser_driver: BrowserDriver, delay_seconds: float) -> None:
-        scroll_page_down(browser_driver, delay_seconds=0)
+        scroll_page_down(browser_driver, pages=1, delay_seconds=0)
         # Instead of a blocking wait/delay in the above method, let's release the working thread to do something else:
         await asyncio.sleep(delay_seconds)
 

@@ -10,20 +10,29 @@ class ScrollPageDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
 
-    def down(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll page down.
+    def down(self, pages: int = 1, delay_seconds: float = 1) -> None:
+        """If possible, scroll number of pages down.
 
         Args:
+            pages (int, optional): Number of pages to scroll down. Must be an integer of 1 or greater.
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
 
         Example:
+            Scroll single page down:
+
             ```python title=""
             browser.scroll.page.down()
+            ```
+
+            Scroll multiple pages down:
+
+            ```python title=""
+            browser.scroll.page.down(3)
             ```
         """
 
         if self._timeout_should_continue():
-            scroll_page_down(self._browser_driver, delay_seconds)
+            scroll_page_down(self._browser_driver, pages, delay_seconds)
 
     def to_end(self, delay_seconds: float = 1) -> None:
         """If possible, scroll to end of page.
