@@ -38,6 +38,16 @@ How to scroll a page up, relative to the current position:
 browser.scroll.page.up()
 ```
 
+It's also possible to scroll up or down by a number of pages:
+
+```python title=""
+browser.scroll.page.down(2)
+```
+
+```python title=""
+browser.scroll.page.up(3)
+```
+
 #### Example with Mixed Methods
 Let's imagine that we want to take screenshots of a page that requires scrolling to load all the content. We can scroll down by a page and then a little up to capture screenshot partials of the entire page:
 
