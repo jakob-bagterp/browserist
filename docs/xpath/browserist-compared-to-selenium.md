@@ -10,22 +10,44 @@ Browserist is an extension of the [Selenium](https://www.selenium.dev) framework
 
 ## Examples of Syntax Differences
 ### Get Element by ID
-```python title="Browserist with XPath"
-browser.get.element("//*[@id='lname']")
-```
+=== "Browserist with XPath"
+    ```python title=""
+    browser.get.element("//*[@id='lname']")
+    ```
 
-```python title="Selenium"
-driver.find_element(By.ID, "lname")
-```
+=== "Selenium"
+    ```python title=""
+    driver.find_element(By.ID, "lname")
+    ```
+
+=== "Both"
+    ```python title=""
+    # Browserist with XPath:
+    browser.get.element("//*[@id='lname']")
+
+    # Selenium:
+    driver.find_element(By.ID, "lname")
+    ```
 
 ### Get Element by Class
-```python title="Browserist with XPath"
-browser.get.element("//*[@class='information']")
-```
+=== "Browserist with XPath"
+    ```python title=""
+    browser.get.element("//*[@class='information']")
+    ```
 
-```python title="Selenium"
-driver.find_element(By.CLASS_NAME, "information")
-```
+=== "Selenium"
+    ```python title=""
+    driver.find_element(By.CLASS_NAME, "information")
+    ```
+
+=== "Both"
+    ```python title=""
+    # Browserist with XPath:
+    browser.get.element("//*[@class='information']")
+
+    # Selenium:
+    driver.find_element(By.CLASS_NAME, "information")
+    ```
 
 ## Why Use XPath?
 While Selenium offers several methods to target web elements – for instance `By.ID`, `By.CLASS_NAME`, etc. – Browserist solely uses XPath to locate web elements in the DOM of a web page. Why so?
