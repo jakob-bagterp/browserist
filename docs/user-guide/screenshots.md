@@ -30,6 +30,14 @@ Or you can override the global settings for a specific screenshot each time you 
 browser.screenshot.visible_portion(destination_dir="./screenshots")
 ```
 
+```python title=""
+browser.screenshot.complete_page(destination_dir="./screenshots")
+```
+
+```python title=""
+browser.screenshot.element("//xpath/to/element", destination_dir="./screenshots")
+```
+
 ### Custom File Naming
 You can customize the name of the screenshot file each time you take a screenshot. For example:
 
@@ -37,10 +45,26 @@ You can customize the name of the screenshot file each time you take a screensho
 browser.screenshot.visible_portion("image.png")
 ```
 
+```python title=""
+browser.screenshot.complete_page("image.png")
+```
+
+```python title=""
+browser.screenshot.element("//xpath/to/element", "image.png")
+```
+
 Or combine custom file naming with a custom destination directory:
 
 ```python title=""
 browser.screenshot.complete_page("image.png", "./screenshots")
+```
+
+```python title=""
+browser.screenshot.visible_portion("image.png", "./screenshots")
+```
+
+```python title=""
+browser.screenshot.element("//xpath/to/element", "image.png", "./screenshots")
 ```
 
 !!! note
