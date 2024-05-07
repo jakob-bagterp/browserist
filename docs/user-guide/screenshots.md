@@ -26,46 +26,55 @@ with Browser(settings) as browser:
 ### Override Destination Locally
 Or you can override the global settings for a specific screenshot each time you take a screenshot. Simply add the `destination_dir` parameter to the screenshot method:
 
-```python title=""
-browser.screenshot.visible_portion(destination_dir="./screenshots")
-```
+=== "Visible Portion"
+    ```python title=""
+    browser.screenshot.visible_portion(destination_dir="./screenshots")
+    ```
 
-```python title=""
-browser.screenshot.complete_page(destination_dir="./screenshots")
-```
+=== "Complete Page"
+    ```python title=""
+    browser.screenshot.complete_page(destination_dir="./screenshots")
+    ```
 
-```python title=""
-browser.screenshot.element("//xpath/to/element", destination_dir="./screenshots")
-```
+=== "Element"
+    ```python title=""
+    browser.screenshot.element("//xpath/to/element", destination_dir="./screenshots")
+    ```
 
 ### Custom File Naming
 You can customize the name of the screenshot file each time you take a screenshot. For example:
 
-```python title=""
-browser.screenshot.visible_portion("image.png")
-```
+=== "Visible Portion"
+    ```python title=""
+    browser.screenshot.visible_portion("image.png")
+    ```
 
-```python title=""
-browser.screenshot.complete_page("image.png")
-```
+=== "Complete Page"
+    ```python title=""
+    browser.screenshot.complete_page("image.png")
+    ```
 
-```python title=""
-browser.screenshot.element("//xpath/to/element", "image.png")
-```
+=== "Element"
+    ```python title=""
+    browser.screenshot.element("//xpath/to/element", "image.png")
+    ```
 
 Or combine custom file naming with a custom destination directory:
 
-```python title=""
-browser.screenshot.visible_portion("image.png", "./screenshots")
-```
+=== "Visible Portion"
+    ```python title=""
+    browser.screenshot.visible_portion("image.png", "./screenshots")
+    ```
 
-```python title=""
-browser.screenshot.complete_page("image.png", "./screenshots")
-```
+=== "Complete Page"
+    ```python title=""
+    browser.screenshot.complete_page("image.png", "./screenshots")
+    ```
 
-```python title=""
-browser.screenshot.element("//xpath/to/element", "image.png", "./screenshots")
-```
+=== "Element"
+    ```python title=""
+    browser.screenshot.element("//xpath/to/element", "image.png", "./screenshots")
+    ```
 
 !!! note
     When setting a custom file name, screenshots should always be saved as a PNG file with a `.png` extension.
