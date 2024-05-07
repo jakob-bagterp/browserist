@@ -37,6 +37,12 @@ You can customize the name of the screenshot file each time you take a screensho
 browser.screenshot.visible_portion("image.png")
 ```
 
+Or combine custom file naming with a custom destination directory:
+
+```python title=""
+browser.screenshot.complete_page("image.png", "./screenshots")
+```
+
 !!! note
     When setting a custom file name, screenshots should always be saved as a PNG file with a `.png` extension.
 
