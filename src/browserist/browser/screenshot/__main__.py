@@ -15,7 +15,17 @@ class ScreenshotDriverMethods(DriverMethods):
         """Take screenshot of complete page and save as PNG image.
 
         Note:
-            Firefox is recommended browser for complete page screenshots as it executes this in one go. Other browsers can't capture the entire page at once, and so we need to merge screenshots portion by portions – and this is obviously much slower.
+            Firefox is recommended browser for complete page screenshots as it executes this in one go. Other browsers can't capture the entire page at once, and so we need to merge screenshots portion by portions – and this is obviously much slower. For example:
+
+            ```python title="" linenums="1"
+            from browserist import Browser, BrowserSettings, BrowserType
+
+            settings = BrowserSettings(browser_type=BrowserType.FIREFOX)
+
+            with Browser(settings) as browser:
+                browser.open.url("https://example.com")
+                browser.screenshot.complete_page()
+            ```
 
         Args:
             file_name (str | None, optional): Name of the file. If `None`, the file name is generated automatically.
