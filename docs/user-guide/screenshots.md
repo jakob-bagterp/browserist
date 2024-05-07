@@ -7,7 +7,7 @@ tags:
 Screenshots are useful for capturing and documenting the visual appearance of a web page. By automating the process, we can save time and ensure consistency when capturing screenshots across browsers and devices.
 
 ## Settings
-### Global
+### Global Destination
 You can set the directory where the screenshots are saved by customizing the `screenshot_dir` parameter of the `BrowserSettings`. For example:
 
 ```python title="" linenums="1"
@@ -23,7 +23,7 @@ with Browser(settings) as browser:
 !!! info
     By default, screenshots are saved in the `Downloads` folder of the user.
 
-### Local Override
+### Override Destination Locally
 Or you can override the global settings for a specific screenshot each time you take a screenshot. Simply add the `destination_dir` parameter to the screenshot method:
 
 ```python title=""
