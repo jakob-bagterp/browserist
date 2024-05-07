@@ -6,6 +6,7 @@ Find detailed info about setings, tutorials, tips and tricks in this section.
 * [Navigation](./navigation/basics.md)
 * [Working with multiple tabs](./navigation/tabs.md)
 * [Downloading files](download-files.md)
+* [Taking screenshots](screenshots.md)
 
 ### Settings
 * [Browser settings](./settings/overview.md)
