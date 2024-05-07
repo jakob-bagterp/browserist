@@ -39,3 +39,50 @@ browser.screenshot.visible_portion("image.png")
 
 !!! note
     When setting a custom file name, screenshots should always be saved as a PNG file with a `.png` extension.
+
+## Different Types of Screenshots
+### Visible Portion
+How to capture the visible portion of a web page, i.e. the current viewport:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.screenshot.visible_portion()
+```
+
+### Element
+You can also take screenshots of a specific element on a web page:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.screenshot.element("//xpath/to/element")
+```
+
+### Complete Page
+To capture the entire page, including parts that are not currently visible in the viewport, Browserist scrolls the page programmatically and takes multiple screenshots, which are then stitched together to create a full-page screenshot:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.screenshot.complete_page()
+```
+
+!!! note "Firefox Is Recommended for Complete Page Screenshots"
+    Firefox is recommended browser for complete page screenshots as it executes this in one go. Other browsers can't capture the entire page at once, and so we need to merge screenshots portion by portions – and this is obviously much slower. For example:
+
+    ```python linenums="1"
+    from browserist import Browser, BrowserSettings, BrowserType
+
+    settings = BrowserSettings(browser_type=BrowserType.FIREFOX)
+
+    with Browser(settings) as browser:
+        browser.open.url("https://example.com")
+        browser.screenshot.complete_page()
+    ```
