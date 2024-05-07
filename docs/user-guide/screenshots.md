@@ -56,11 +56,11 @@ browser.screenshot.element("//xpath/to/element", "image.png")
 Or combine custom file naming with a custom destination directory:
 
 ```python title=""
-browser.screenshot.complete_page("image.png", "./screenshots")
+browser.screenshot.visible_portion("image.png", "./screenshots")
 ```
 
 ```python title=""
-browser.screenshot.visible_portion("image.png", "./screenshots")
+browser.screenshot.complete_page("image.png", "./screenshots")
 ```
 
 ```python title=""
