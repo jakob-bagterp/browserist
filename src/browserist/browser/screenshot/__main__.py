@@ -46,6 +46,9 @@ class ScreenshotDriverMethods(DriverMethods):
             ```python title=""
             browser.screenshot.complete_page(destination_dir="./screenshots")
             ```
+
+        Note:
+            When setting a custom file name, screenshots should always be saved as a PNG file with a `.png` extension.
         """
 
         if self._timeout_should_continue():
@@ -83,6 +86,9 @@ class ScreenshotDriverMethods(DriverMethods):
             ```python title=""
             browser.screenshot.element("//xpath/to/element", destination_dir="./screenshots")
             ```
+
+        Note:
+            When setting a custom file name, screenshots should always be saved as a PNG file with a `.png` extension.
         """
 
         if self._timeout_should_continue():
@@ -119,6 +125,9 @@ class ScreenshotDriverMethods(DriverMethods):
             ```python title=""
             browser.screenshot.visible_portion(destination_dir="./screenshots")
             ```
+
+        Note:
+            When setting a custom file name, screenshots should always be saved as a PNG file with a `.png` extension.
         """
 
         if self._timeout_should_continue():

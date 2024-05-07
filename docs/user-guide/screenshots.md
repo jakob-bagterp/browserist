@@ -29,3 +29,13 @@ Or you can override the global settings for a specific screenshot each time you 
 ```python title=""
 browser.screenshot.visible_portion(destination_dir="./screenshots")
 ```
+
+### Custom File Naming
+You can customize the name of the screenshot file each time you take a screenshot. For example:
+
+```python title=""
+browser.screenshot.visible_portion("image.png")
+```
+
+!!! note
+    When setting a custom file name, screenshots should always be saved as a PNG file with a `.png` extension.
