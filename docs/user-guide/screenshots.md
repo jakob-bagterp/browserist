@@ -10,7 +10,7 @@ Screenshots are useful for capturing and documenting the visual appearance of a 
 ### Global Destination
 You can set the directory where the screenshots are saved by customizing the `screenshot_dir` parameter of the `BrowserSettings`. For example:
 
-```python title="" linenums="1"
+```python linenums="1"
 from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(screenshot_dir="/path/to/screenshots")
