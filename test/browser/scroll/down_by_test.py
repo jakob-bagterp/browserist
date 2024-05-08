@@ -11,7 +11,7 @@ from browserist import Browser
 ])
 def test_scroll_down_by(pixels: int, browser_default_headless_scope_function: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)
-    browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
     browser.scroll.page.to_top()
     browser.scroll.down_by(pixels)
     _, y_down = browser.scroll.get.position()
