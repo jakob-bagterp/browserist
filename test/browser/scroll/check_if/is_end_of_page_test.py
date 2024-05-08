@@ -6,8 +6,8 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("url, expected", [
-    (internal_url.EXAMPLE_COM, True),  # Doesn't allow for scrolling.
-    (internal_url.SCROLL_LONG_VERTICAL, False),  # Long page that allows for scrolling.
+    (internal_url.NOT_SCROLLABLE, True),
+    (internal_url.SCROLL_LONG_VERTICAL, False),
 ])
 def test_check_if_scroll_is_end_of_page_1(url: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)

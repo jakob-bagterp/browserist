@@ -31,6 +31,9 @@ LOG_IN_2_STEPS: str = update_path_format_if_windows(
 NO_BODY: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/no_body.html")
 
+NOT_SCROLLABLE: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/scroll/not_scrollable.html")
+
 RADIO_BUTTONS: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/radio_buttons.html")
 
