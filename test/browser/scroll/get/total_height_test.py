@@ -9,7 +9,7 @@ MARGIN = 0.12  # 12%
 
 @pytest.mark.parametrize("url, expected_total_scroll_height", [
     (internal_url.NOT_SCROLLABLE, 600),
-    (internal_url.W3SCHOOLS_COM, 16465),
+    (internal_url.SCROLL_LONG_VERTICAL, 40802),
 ])
 def test_get_total_scroll_height(url: str, expected_total_scroll_height: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
