@@ -1,0 +1,34 @@
+.hero {
+    display: flex;
+    height: 400px;
+    padding-left: 50px;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__text-box {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.hero__background-image__lab-microscope {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280547_medium.jpg');
+}
+
+.hero__background-image__lab-test-tubes {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280549_medium.jpg');
+}
+
+.hero__background-image__lab-petri-dish {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280549_medium.jpg');
+}
+
+.hero__background-image__lab-samples {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280571_medium.jpg');
+}
+
+.hero__background-image__office-ideas-on-board {
+    background-image: url('./assets/pexels-startup-stock-photos-212286_medium.jpg');
+}
