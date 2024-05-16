@@ -63,17 +63,17 @@ Or combine custom file naming with a custom destination directory:
 
 === "Visible Portion"
     ```python title=""
-    browser.screenshot.visible_portion("image.png", "./screenshots")
+    browser.screenshot.visible_portion("image.png", "/screenshots/folder")
     ```
 
 === "Complete Page"
     ```python title=""
-    browser.screenshot.complete_page("image.png", "./screenshots")
+    browser.screenshot.complete_page("image.png", "/screenshots/folder")
     ```
 
 === "Element"
     ```python title=""
-    browser.screenshot.element("//xpath/to/element", "image.png", "./screenshots")
+    browser.screenshot.element("//xpath/to/element", "image.png", "/screenshots/folder")
     ```
 
 !!! note

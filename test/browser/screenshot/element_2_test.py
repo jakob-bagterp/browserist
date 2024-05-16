@@ -28,7 +28,7 @@ def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destinati
 
 
 def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.element("//xpath/to/element", "image.png", "./screenshots") with custom file name and destination."""
+    """Test of browser.screenshot.element("//xpath/to/element", "image.png", "/screenshots/folder") with custom file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.EXAMPLE_COM)

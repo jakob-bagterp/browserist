@@ -48,7 +48,7 @@ class ScreenshotDriverMethods(DriverMethods):
             Custom file name and destination:
 
             ```python title=""
-            browser.screenshot.complete_page("image.png", "./screenshots")
+            browser.screenshot.complete_page("image.png", "/screenshots/folder")
             ```
 
             Default file name and custom destination:
@@ -88,7 +88,7 @@ class ScreenshotDriverMethods(DriverMethods):
             Custom file name and destination:
 
             ```python title=""
-            browser.screenshot.element("//xpath/to/element", "image.png", "./screenshots")
+            browser.screenshot.element("//xpath/to/element", "image.png", "/screenshots/folder")
             ```
 
             Default file name and custom destination:
@@ -127,7 +127,7 @@ class ScreenshotDriverMethods(DriverMethods):
             Custom file name and destination:
 
             ```python title=""
-            browser.screenshot.visible_portion("image.png", "./screenshots")
+            browser.screenshot.visible_portion("image.png", "/screenshots/folder")
             ```
 
             Default file name and custom destination:
