@@ -54,7 +54,7 @@ class BrowserSettings:
         ```python title="" linenums="1"
         from browserist import Browser, BrowserSettings
 
-        settings = BrowserSettings(screenshot_dir="/path/to/screenshots")
+        settings = BrowserSettings(screenshot_dir="/screenshots/folder")
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")

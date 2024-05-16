@@ -57,7 +57,7 @@ def test_default_get_screenshot_of_complete_page_3(url: str, minimum_file_size: 
     (internal_url.W3SCHOOLS_COM, MINIMUM_FILE_SIZE_W3SCHOOLS_COM),
 ])
 def test_default_get_screenshot_of_complete_page_4(url: str, minimum_file_size: int, browser_default_headless: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.complete_page(destination_dir="./screenshots") with default file name and custom destination."""
+    """Test of browser.screenshot.complete_page(destination_dir="/screenshots/folder") with default file name and custom destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(url)

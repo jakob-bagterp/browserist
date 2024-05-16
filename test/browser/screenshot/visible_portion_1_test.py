@@ -38,7 +38,7 @@ def test_get_screenshot_of_visible_portion_3(browser_default_headless: Browser, 
 
 
 def test_get_screenshot_of_visible_portion_4(browser_default_headless: Browser, tmpdir: local) -> None:
-    """Test of browser.screenshot.visible_portion(destination_dir="./screenshots") with default file name and custom destination."""
+    """Test of browser.screenshot.visible_portion(destination_dir="/screenshots/folder") with default file name and custom destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.EXAMPLE_COM)

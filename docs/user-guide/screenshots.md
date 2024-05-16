@@ -13,7 +13,7 @@ You can set the directory where the screenshots are saved by customizing the `sc
 ```python linenums="1"
 from browserist import Browser, BrowserSettings
 
-settings = BrowserSettings(screenshot_dir="/path/to/screenshots")
+settings = BrowserSettings(screenshot_dir="/screenshots/folder")
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
@@ -28,17 +28,17 @@ Or you can override the global settings for a specific screenshot each time you 
 
 === "Visible Portion"
     ```python title=""
-    browser.screenshot.visible_portion(destination_dir="./screenshots")
+    browser.screenshot.visible_portion(destination_dir="/screenshots/folder")
     ```
 
 === "Complete Page"
     ```python title=""
-    browser.screenshot.complete_page(destination_dir="./screenshots")
+    browser.screenshot.complete_page(destination_dir="/screenshots/folder")
     ```
 
 === "Element"
     ```python title=""
-    browser.screenshot.element("//xpath/to/element", destination_dir="./screenshots")
+    browser.screenshot.element("//xpath/to/element", destination_dir="/screenshots/folder")
     ```
 
 ### Custom File Naming
