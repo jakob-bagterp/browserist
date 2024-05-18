@@ -11,7 +11,7 @@ Browserist provides a simple way to scroll a web page – both up and down, to 
     Similar to scrolling on a touch screen or mouse, you can only scroll down if you're not already at the bottom of the page, and you can only scroll up if you're not already at the top of the page. Or you can't scroll up exactly 50 pixels if you're already 20 pixels from the top of the page – instead you scroll up 20 pixels. Keep this in mind when trying to replicate the examples below.
 
 ## Scrolling Up and Down
-### By Length
+### By Disstance
 #### Pixels
 How to scroll down by a number of pixels, relative to the current position:
 
@@ -83,13 +83,21 @@ How to scroll to the top of the page:
 browser.scroll.page.to_top()
 ```
 
-How to scroll to an absolute position on the page with `x` and `y` coordinates:
+How to scroll to an absolute position on the page with `x` and `y` coordinates, where `y=100` is the vertical position:
+
+```python title=""
+browser.scroll.to_position(x=0, y=100)
+```
+
+Or simply:
 
 ```python title=""
 browser.scroll.to_position(0, 100)
 ```
 
 ## Scrolling Sideways Left and Right
+### By Disstance
+#### Pixels
 How to scroll right by a number of pixels, relative to the current position:
 
 ```python title=""
@@ -102,7 +110,20 @@ How to scroll left by a number of pixels, relative to the current position:
 browser.scroll.left_by(40)
 ```
 
-#### Example
+### To Absolute Position
+How to scroll to an absolute position on the page with `x` and `y` coordinates, where `x=100` is the horizontal position:
+
+```python title=""
+browser.scroll.to_position(x=100, y=0)
+```
+
+Or simply:
+
+```python title=""
+browser.scroll.to_position(100, 0)
+```
+
+### Example
 Let's imagine that we want to ensure that we can't scroll sideways on a page. We try to scroll a little right and then a little left to ensure that the page is locked in place:
 
 ```python linenums="1"
