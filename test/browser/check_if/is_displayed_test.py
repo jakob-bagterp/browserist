@@ -7,14 +7,14 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("url, xpath, expected", [
-    (internal_url.EXAMPLE_COM, "/html/body/div/h1", True),
-    (internal_url.EXAMPLE_COM, "/html/body/div/p[2]/a", True),
-    (internal_url.EXAMPLE_COM, does_not_exist.XPATH, False),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[1]/div/h1", True),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/footer", True),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[14]/h2", True),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='google_translate_element']", False),
-    (internal_url.W3SCHOOLS_COM, does_not_exist.XPATH, False),
+    (internal_url.MINI_SITE_HOMEPAGE, "/html/body/section[1]/div/h1", True),
+    (internal_url.MINI_SITE_HOMEPAGE, "/html/body/section[2]/div[1]/a", True),
+    (internal_url.MINI_SITE_HOMEPAGE, does_not_exist.XPATH, False),
+    (internal_url.MINI_SITE_FEATURE_1, "//header", True),
+    (internal_url.MINI_SITE_FEATURE_1, "//div[@id='main']", True),
+    (internal_url.MINI_SITE_FEATURE_1, "//div[@id='main']//h2[1]", True),
+    (internal_url.MINI_SITE_FEATURE_1, "//*[@id='does_not_exist']", False),
+    (internal_url.MINI_SITE_FEATURE_1, does_not_exist.XPATH, False),
 ])
 def test_check_if_is_displayed(url: str, xpath: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
