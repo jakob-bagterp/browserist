@@ -11,42 +11,40 @@ VALID_XPATH = "/html/body"
 
 INVALID_XPATH = "/invalid\\xpath"
 
-XPATH_TEST_SET_EXAMPLE_COM_DEFAULT = XPathTestSet(
-    url=internal_url.EXAMPLE_COM,
+XPATH_TEST_SET_MINI_SITE_HOMEPAGE_DEFAULT = XPathTestSet(
+    url=internal_url.MINI_SITE_HOMEPAGE,
     tests=[
         XPathExpectation(VALID_XPATH, does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )
 
-# Compatible with Example.com so it can be used with wait methods without timing out:
-VALID_XPATH_EXAMPLE_COM_LINK = "/html/body/div/p[2]/a"
+VALID_XPATH_MINI_SITE_HOMEPAGE_LINK = "/html/body/section[2]/div[1]/a"
 
-XPATH_TEST_SET_EXAMPLE_COM_LINK = XPathTestSet(
-    url=internal_url.EXAMPLE_COM,
+XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK = XPathTestSet(
+    url=internal_url.MINI_SITE_HOMEPAGE,
     tests=[
-        XPathExpectation(VALID_XPATH_EXAMPLE_COM_LINK, does_not_raise()),
+        XPathExpectation(VALID_XPATH_MINI_SITE_HOMEPAGE_LINK, does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )
 
-# Compatible with W3Schools.com so it can be used with wait methods without timing out:
-VALID_XPATH_W3SCHOOLS_COM_IMAGE = "//*[@id='bgcodeimg2']/div/img"
+VALID_XPATH_MINI_SITE_FEATURE_1_IMAGE = "//*[@id='main']/img[1]"
 
-XPATH_TEST_SET_W3SCHOOLS_COM_IMAGE = XPathTestSet(
-    url=internal_url.W3SCHOOLS_COM,
+XPATH_TEST_SET_MINI_SITE_FEATURE_1_IMAGE = XPathTestSet(
+    url=internal_url.MINI_SITE_FEATURE_1,
     tests=[
-        XPathExpectation(VALID_XPATH_W3SCHOOLS_COM_IMAGE, does_not_raise()),
+        XPathExpectation(VALID_XPATH_MINI_SITE_FEATURE_1_IMAGE, does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )
 
-VALID_XPATH_W3SCHOOLS_COM_HEADLINE = "/html/body/div[5]/div[1]/div/h1"
+VALID_XPATH_MINI_SITE_HOMEPAGE_HEADLINE = "/html/body/section[1]/div/h1"
 
 XPATH_TEST_SET_W3SCHOOLS_COM_HEADLINE = XPathTestSet(
-    url=internal_url.W3SCHOOLS_COM,
+    url=internal_url.MINI_SITE_HOMEPAGE,
     tests=[
-        XPathExpectation(VALID_XPATH_W3SCHOOLS_COM_HEADLINE, does_not_raise()),
+        XPathExpectation(VALID_XPATH_MINI_SITE_HOMEPAGE_HEADLINE, does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )

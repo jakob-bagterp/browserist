@@ -9,7 +9,7 @@ from _mock_data.xpath.test_set_3 import VALID_XPATH
 class FilePNGExpectation:
     file_name: str
     expectation: Any
-    url: str = internal_url.EXAMPLE_COM
+    url: str = internal_url.MINI_SITE_HOMEPAGE
     xpath: str = VALID_XPATH
 
 
