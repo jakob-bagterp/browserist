@@ -34,6 +34,15 @@ MINI_SITE_ABOUT: str = update_path_format_if_windows(
 MINI_SITE_CONTACT: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/mini_site/contact.html")
 
+MINI_SITE_FEATURE_1: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/mini_site/feature_1.html")
+
+MINI_SITE_FEATURE_2: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/mini_site/feature_2.html")
+
+MINI_SITE_FEATURE_3: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/mini_site/feature_3.html")
+
 MINI_SITE_HOMEPAGE: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/mini_site/homepage.html")
 

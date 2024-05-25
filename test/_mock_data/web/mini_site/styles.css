@@ -65,6 +65,12 @@
     border-radius: 5px;
 }
 
+.main-content {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
 header,
 footer {
     padding: 10px 50px;
