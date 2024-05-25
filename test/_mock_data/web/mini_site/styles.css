@@ -32,3 +32,23 @@
 .hero__background-image__office-ideas-on-board {
     background-image: url('./assets/pexels-startup-stock-photos-212286_medium.jpg');
 }
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 10px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+}
