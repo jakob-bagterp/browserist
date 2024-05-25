@@ -71,6 +71,10 @@
     margin-top: 50px;
 }
 
+#main img {
+    width: 100%;
+}
+
 header,
 footer {
     padding: 10px 50px;
