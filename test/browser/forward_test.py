@@ -6,9 +6,9 @@ from browserist import Browser
 
 def test_go_forward(browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     url_1 = browser.get.url.current()
-    browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.open.url(internal_url.MINI_SITE_FEATURE_1)
     url_2 = browser.get.url.current()
     browser.back()
     url_back = browser.get.url.current()
