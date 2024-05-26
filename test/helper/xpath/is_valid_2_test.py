@@ -1,5 +1,5 @@
 import pytest
-from _mock_data.xpath.test_set_3 import INVALID_XPATH, VALID_XPATH
+from _mock_data.xpath.constant import INVALID_XPATH, VALID_XPATH
 
 from browserist import helper
 

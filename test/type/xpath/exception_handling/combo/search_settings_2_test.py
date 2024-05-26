@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 from _mock_data.url.test_set_2 import VALID_URL
-from _mock_data.xpath.test_set_3 import INVALID_XPATH, VALID_XPATH
+from _mock_data.xpath.constant import INVALID_XPATH, VALID_XPATH
 
 from browserist.exception.xpath import XPathSyntaxError
 from browserist.model.combo_settings.search import SearchSettings

@@ -2,14 +2,10 @@ from contextlib import nullcontext as does_not_raise
 
 import pytest
 from _mock_data.url import internal_url
+from _mock_data.xpath.constant import INVALID_XPATH, VALID_XPATH
 from _mock_data.xpath.model_3 import XPathExpectation, XPathTestSet
 
 from browserist.exception.xpath import XPathSyntaxError
-
-# Should be compatible with general web pages so it can be used with wait methods without timing out:
-VALID_XPATH = "/html/body"
-
-INVALID_XPATH = "/invalid\\xpath"
 
 XPATH_TEST_SET_MINI_SITE_HOMEPAGE_DEFAULT = XPathTestSet(
     url=internal_url.MINI_SITE_HOMEPAGE,
