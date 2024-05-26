@@ -11,8 +11,8 @@ from browserist import Browser
     (internal_url.MINI_SITE_FEATURE_1, "//*[@id='main']/p[1]", 600, 185),
     (internal_url.MINI_SITE_FEATURE_1, "//*[@id='main']/img", 600, 400),
 ])
-def test_get_dimensions(url: str, xpath: str, expected_width: int, expected_height: int, browser_default_headless: Browser) -> None:
-    browser = reset_to_not_timed_out(browser_default_headless)
+def test_get_dimensions(url: str, xpath: str, expected_width: int, expected_height: int, browser_default_headless_scope_function: Browser) -> None:
+    browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(url)
     measured_width, measured_height = browser.get.dimensions(xpath)
     assert expected_width == measured_width and expected_height == measured_height
