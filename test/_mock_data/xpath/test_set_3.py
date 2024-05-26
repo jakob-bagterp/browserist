@@ -49,12 +49,12 @@ XPATH_TEST_SET_W3SCHOOLS_COM_HEADLINE = XPathTestSet(
     ]
 )
 
-VALID_XPATH_W3SCHOOLS_COM_IFRAME = "//*[@id='howto_iframe']"
+VALID_XPATH_COOKIE_BANNER_IFRAME = "//iframe[@id='cookie-banner-iframe']"
 
-XPATH_TEST_SET_W3SCHOOLS_COM_IFRAME = XPathTestSet(
-    url=internal_url.W3SCHOOLS_COM,
+XPATH_TEST_SET_COOKIE_BANNER_IFRAME = XPathTestSet(
+    url=internal_url.COOKIE_BANNER_WITH_IFRAME,
     tests=[
-        XPathExpectation(VALID_XPATH_W3SCHOOLS_COM_IFRAME, does_not_raise()),
+        XPathExpectation(VALID_XPATH_COOKIE_BANNER_IFRAME, does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )
