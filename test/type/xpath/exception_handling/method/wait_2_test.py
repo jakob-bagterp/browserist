@@ -1,7 +1,7 @@
 import pytest
 from _mock_data.xpath.method_3 import exception_handling_for_methods_with_3_arguments_or_more
-from _mock_data.xpath.test_set_3 import (XPATH_TEST_SET_MINI_SITE_FEATURE_1_IMAGE,
-                                         XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK, XPATH_TEST_SET_W3SCHOOLS_COM_HEADLINE)
+from _mock_data.xpath.test_set_3 import (XPATH_TEST_SET_MINI_SITE_HOMEPAGE_DOES_NOT_EXIST,
+                                         XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK)
 
 from browserist import Browser
 from browserist.browser.wait.for_element import wait_for_element
@@ -17,14 +17,15 @@ from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable, 
 
 @pytest.mark.parametrize("method", [
     wait_for_element,
-    wait_until_element_disappears,
+    wait_until_element_contains_any_text,
+    wait_until_element_is_clickable,
 ])
 def test_xpath_exception_handling_for_wait_methods_1(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_MINI_SITE_FEATURE_1_IMAGE)
+        browser_default_headless, method, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK)
 
 
 @pytest.mark.parametrize("method, text", [
@@ -42,22 +43,11 @@ def test_xpath_exception_handling_for_wait_methods_2(
 
 
 @pytest.mark.parametrize("method", [
-    wait_until_element_contains_any_text,
+    wait_until_element_disappears,
 ])
 def test_xpath_exception_handling_for_wait_methods_3(
     browser_default_headless: Browser,
     method: BrowserMethodWith3ArgumentsCallable
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_W3SCHOOLS_COM_HEADLINE)
-
-
-@pytest.mark.parametrize("method", [
-    wait_until_element_is_clickable,
-])
-def test_xpath_exception_handling_for_wait_methods_4(
-    browser_default_headless: Browser,
-    method: BrowserMethodWith3ArgumentsCallable
-) -> None:
-    exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK)
+        browser_default_headless, method, timeout.VERY_SHORT, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_DOES_NOT_EXIST)

@@ -23,6 +23,14 @@ XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK = XPathTestSet(
     ]
 )
 
+XPATH_TEST_SET_MINI_SITE_HOMEPAGE_DOES_NOT_EXIST = XPathTestSet(
+    url=internal_url.MINI_SITE_HOMEPAGE,
+    tests=[
+        XPathExpectation("/does/not/exist", does_not_raise()),
+        XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
+    ]
+)
+
 XPATH_TEST_SET_MINI_SITE_FEATURE_1_IMAGE = XPathTestSet(
     url=internal_url.MINI_SITE_FEATURE_1,
     tests=[
@@ -31,7 +39,7 @@ XPATH_TEST_SET_MINI_SITE_FEATURE_1_IMAGE = XPathTestSet(
     ]
 )
 
-XPATH_TEST_SET_W3SCHOOLS_COM_HEADLINE = XPathTestSet(
+XPATH_TEST_SET_MINI_SITE_HOMEPAGE_HEADLINE = XPathTestSet(
     url=internal_url.MINI_SITE_HOMEPAGE,
     tests=[
         XPathExpectation("/html/body/section[1]/div/h1", does_not_raise()),
