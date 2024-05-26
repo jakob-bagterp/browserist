@@ -6,8 +6,11 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("url, xpath, expected_count", [
-    (internal_url.EXAMPLE_COM, "//p", 2),
-    (internal_url.W3SCHOOLS_COM, "//h1", 11),
+    (internal_url.MINI_SITE_HOMEPAGE, "//h1", 1),
+    (internal_url.MINI_SITE_HOMEPAGE, "//h3", 3),
+    (internal_url.MINI_SITE_HOMEPAGE, "//a", 9),
+    (internal_url.MINI_SITE_FEATURE_1, "//h1", 1),
+    (internal_url.MINI_SITE_FEATURE_1, "//p", 8),
 ])
 def test_get_elements(url: str, xpath: str, expected_count: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)

@@ -6,7 +6,7 @@ from browserist import Browser
 
 def test_window_get_position(browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     x_default, y_default = browser.window.get.position()
     x_new = x_default + 20
     y_new = y_default + 20

@@ -13,5 +13,5 @@ from browserist import Browser
 ])
 def test_tool_is_input_valid(text: str, regex: str, ignore_case: bool, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     assert browser.tool.is_input_valid(text, regex, ignore_case) is expected

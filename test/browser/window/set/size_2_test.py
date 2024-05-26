@@ -12,7 +12,7 @@ from browserist import Browser
 ])
 def test_window_set_size(width1: int, height1: int, width2: int, height2: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.window.set.size(width1, height1)
     get_width1, get_height1 = browser.window.get.size()
     browser.window.set.size(width2, height2)

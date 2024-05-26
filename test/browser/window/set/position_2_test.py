@@ -11,7 +11,7 @@ from browserist import Browser
 ])
 def test_window_set_position(x1: int, y1: int, x2: int, y2: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.window.set.position(x1, y1)
     browser.window.set.position(x2, y2)
     get_x, get_y = browser.window.get.position()
