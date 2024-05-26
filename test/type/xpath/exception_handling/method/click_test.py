@@ -19,7 +19,7 @@ def test_xpath_exception_handling_for_click_methods_1(
 
 
 @pytest.mark.parametrize("method, text, ignore_case, timeout", [
-    (click_button_if_contains_text, "More information...", True, timeout.VERY_SHORT),
+    (click_button_if_contains_text, "Learn more", True, timeout.VERY_SHORT),
 ])
 def test_xpath_exception_handling_for_click_methods_2(
     browser_default_headless: Browser,
