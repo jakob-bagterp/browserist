@@ -7,13 +7,11 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("xpath, expected", [
-    ("/html/body/div[3]/a[1]/i", False),
-    ("//*[@id='bgcodeimg2']/div/img", True),
-    ("//*[@id='Frontend']/img", True),
-    ("//*[@id='Backend']/img", True),
+    ("/html/body/section[1]/div/h1", False),
+    ("//*[@id='main']/img[1]", True),
     (does_not_exist.XPATH, False),
 ])
 def test_check_if_is_image_loaded(xpath: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.open.url(internal_url.MINI_SITE_FEATURE_1)
     assert browser.check_if.is_image_loaded(xpath) is expected
