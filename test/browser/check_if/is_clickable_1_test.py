@@ -7,11 +7,11 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("xpath, expected", [
-    ("/html/body/div/p[2]/a", True),
-    ("/html/body/div/h1", True),
+    ("/html/body/section[2]/div[1]/a", True),
+    ("/html/body/section[1]/div/h1", True),
     (does_not_exist.XPATH, False),
 ])
 def test_check_if_is_clickable(xpath: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     assert browser.check_if.is_clickable(xpath) is expected
