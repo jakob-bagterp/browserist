@@ -29,8 +29,8 @@ def test_xpath_exception_handling_for_wait_methods_1(
 
 @pytest.mark.parametrize("method, text", [
     (wait_until_text_changes, "not same text as button"),
-    (wait_until_text_contains, "information"),
-    (wait_until_text_equals, "More information..."),
+    (wait_until_text_contains, "more"),
+    (wait_until_text_equals, "Learn more"),
 ])
 def test_xpath_exception_handling_for_wait_methods_2(
     browser_default_headless: Browser,
