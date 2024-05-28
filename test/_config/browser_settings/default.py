@@ -19,3 +19,9 @@ HEADLESS_AND_DISABLE_IMAGES = BrowserSettings(
     disable_images=True,
     check_connection=False
 )
+
+HEADLESS_AND_FIXED_SIZE = BrowserSettings(
+    headless=True,
+    check_connection=False,
+    viewport=(1024, 768)
+)
