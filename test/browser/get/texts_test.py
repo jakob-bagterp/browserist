@@ -6,12 +6,10 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("url, xpath, expected_texts", [
-    (internal_url.EXAMPLE_COM, "/html/body/div/p[2]/a", ["More information..."]),
-    (internal_url.EXAMPLE_COM, "/html/body/div/p",
-     ["This domain is for use in illustrative examples in documents. You may use this domain in literature without prior coordination or asking for permission.", "More information..."]),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[9]/div/a[1]", ["Try Frontend Editor (HTML/CSS/JS)"]),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='main']/div[2]/div/div[1]/a",
-     ["Learn HTML", "Video Tutorial\nNEW", "HTML Reference"]),
+    (internal_url.MINI_SITE_HOMEPAGE, "/html/body/section[2]/div[1]/a", ["Learn more"]),
+    (internal_url.MINI_SITE_HOMEPAGE, "/html/body/section[2]/div/h3", ["Feature 1", "Feature 2", "Feature 3"]),
+    (internal_url.MINI_SITE_FEATURE_1, "/html/body/section[1]/div/p", ["Discover the features of our products."]),
+    (internal_url.MINI_SITE_FEATURE_1, "//*[@id='main']/h2", ["Suspendisse vitae nibh ipsum", "Morbi sodales malesuada congue"]),
 ])
 def test_get_texts(url: str, xpath: str, expected_texts: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)

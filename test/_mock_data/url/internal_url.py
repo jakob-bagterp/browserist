@@ -28,6 +28,9 @@ LOG_IN_1_STEP: str = update_path_format_if_windows(
 LOG_IN_2_STEPS: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/log_in/2_steps/1_username/login_form.html")
 
+MINI_SITE_DIR: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/mini_site")
+
 MINI_SITE_ABOUT: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/mini_site/about.html")
 
