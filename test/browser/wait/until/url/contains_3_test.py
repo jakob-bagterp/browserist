@@ -11,9 +11,9 @@ from browserist.exception.timeout import WaitForUrlTimeoutException
 
 
 @pytest.mark.parametrize("url1, url2, url2_fragment, expectation", [
-    (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM, "w3schools", does_not_raise()),
-    (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM, internal_url.W3SCHOOLS_COM, does_not_raise()),
-    (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM, "no_match", pytest.raises(WaitForUrlTimeoutException)),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1, "feature_1", does_not_raise()),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1, internal_url.MINI_SITE_FEATURE_1, does_not_raise()),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1, "no_match", pytest.raises(WaitForUrlTimeoutException)),
 ])
 def test_wait_until_url_contains(url1: str, url2: str, url2_fragment: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
