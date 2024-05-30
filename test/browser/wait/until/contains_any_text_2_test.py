@@ -11,11 +11,11 @@ from browserist.exception.retry import RetryTimeoutException
 
 
 @pytest.mark.parametrize("xpath, expectation", [
-    ("/html/body/div[5]/div[9]/div/div/div[3]/img", pytest.raises(RetryTimeoutException)),
-    ("/html/body/div[5]/div[1]/div/h1", does_not_raise()),
+    ("//*[@id='main']/img[1]", pytest.raises(RetryTimeoutException)),
+    ("/html/body/section[1]/div/h1", does_not_raise()),
 ])
 def test_wait_until_element_contains_any_text(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
-        browser.open.url(internal_url.W3SCHOOLS_COM)
+        browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
         _ = browser.wait.until.contains_any_text(xpath, timeout.VERY_SHORT) is not None

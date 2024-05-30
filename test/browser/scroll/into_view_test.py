@@ -3,6 +3,7 @@ from typing import Any
 
 import pytest
 from _helper.timeout import reset_to_not_timed_out
+from _mock_data import does_not_exist
 from _mock_data.url import internal_url
 
 from browserist import Browser
@@ -11,13 +12,14 @@ from browserist.exception.timeout import WaitForElementTimeoutException
 
 
 @pytest.mark.parametrize("xpath", [
-    ("//*[@id='main']/div[2]/div/div[1]/h1"),
-    ("//*[@id='Frontend']/img"),
-    ("//*[@id='main']/div[6]/div/div[2]/div/h3"),
+    ("/html/body/section[1]/div/h1"),
+    ("//*[@id='main']/img[1]"),
+    ("//*[@id='main']/h2[2]"),
+    ("//footer"),
 ])
 def test_scroll_into_view(xpath: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.open.url(internal_url.MINI_SITE_FEATURE_1)
     browser.scroll.to_position(1, 1)
     x_default, y_default = browser.scroll.get.position()
     browser.scroll.into_view(xpath, timeout.VERY_SHORT)
@@ -26,11 +28,11 @@ def test_scroll_into_view(xpath: str, browser_default_headless: Browser) -> None
 
 
 @pytest.mark.parametrize("xpath, expectation", [
-    ("//*[@id='Frontend']/img", does_not_raise()),
-    ("//*[@id='Frontend']/img/div", pytest.raises(WaitForElementTimeoutException)),
+    ("//*[@id='main']/img[1]", does_not_raise()),
+    (does_not_exist.XPATH, pytest.raises(WaitForElementTimeoutException)),
 ])
 def test_scroll_into_view_timeout(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
-        browser.open.url(internal_url.W3SCHOOLS_COM)
+        browser.open.url(internal_url.MINI_SITE_FEATURE_1)
         browser.scroll.into_view(xpath, timeout.VERY_SHORT)
