@@ -2,11 +2,6 @@ from dataclasses import dataclass
 
 
 @dataclass(slots=True, frozen=True)
-class W3SchoolsCom:
-    SEARCH_INPUT = "//input[@id='search2']"
-
-
-@dataclass(slots=True, frozen=True)
 class DropDownSeletor:
     DROPDOWN_OPTIONS = "//select[@id='options']"
     OPTION_1 = f"{DROPDOWN_OPTIONS}/option[@value='option1']"

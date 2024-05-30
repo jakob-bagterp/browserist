@@ -56,7 +56,7 @@ XPATH_TEST_SET_COOKIE_BANNER_IFRAME = XPathTestSet(
     ]
 )
 
-XPATH_TEST_SET_W3SCHOOLS_COM_INPUT = XPathTestSet(
+XPATH_TEST_SET_MINI_SITE_CONTACT_INPUT = XPathTestSet(
     url=internal_url.MINI_SITE_CONTACT,
     tests=[
         XPathExpectation("//input[@id='subject']", does_not_raise()),
