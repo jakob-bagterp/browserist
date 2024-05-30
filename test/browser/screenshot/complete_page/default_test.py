@@ -7,14 +7,14 @@ from py.path import local
 
 from browserist import Browser
 
-MINIMUM_FILE_SIZE_EXAMPLE_COM = 12_500  # Single page screenshot.
+MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE = 12_500  # Single page screenshot.
 
-MINIMUM_FILE_SIZE_W3SCHOOLS_COM = 700_000  # Merge of multiple, e.g. 15-18, files.
+MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL = 700_000  # Merge of multiple, e.g. 15-18, files.
 
 
 @pytest.mark.parametrize("url, minimum_file_size", [
-    (internal_url.EXAMPLE_COM, MINIMUM_FILE_SIZE_EXAMPLE_COM),
-    (internal_url.W3SCHOOLS_COM, MINIMUM_FILE_SIZE_W3SCHOOLS_COM),
+    (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
+    (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
 ])
 def test_default_get_screenshot_of_complete_page_1(url: str, minimum_file_size: int, browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.complete_page() with default file name and destination."""
@@ -26,8 +26,8 @@ def test_default_get_screenshot_of_complete_page_1(url: str, minimum_file_size: 
 
 
 @pytest.mark.parametrize("url, minimum_file_size", [
-    (internal_url.EXAMPLE_COM, MINIMUM_FILE_SIZE_EXAMPLE_COM),
-    (internal_url.W3SCHOOLS_COM, MINIMUM_FILE_SIZE_W3SCHOOLS_COM),
+    (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
+    (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
 ])
 def test_default_get_screenshot_of_complete_page_2(url: str, minimum_file_size: int, browser_default_headless_screenshot: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.complete_page("image.png") with custom file name and default destination."""
@@ -39,8 +39,8 @@ def test_default_get_screenshot_of_complete_page_2(url: str, minimum_file_size: 
 
 
 @pytest.mark.parametrize("url, minimum_file_size", [
-    (internal_url.EXAMPLE_COM, MINIMUM_FILE_SIZE_EXAMPLE_COM),
-    (internal_url.W3SCHOOLS_COM, MINIMUM_FILE_SIZE_W3SCHOOLS_COM),
+    (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
+    (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
 ])
 def test_default_get_screenshot_of_complete_page_3(url: str, minimum_file_size: int, browser_default_headless: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.complete_page("image.png", "/screenshots/folder") with custom file name and destination."""
@@ -53,8 +53,8 @@ def test_default_get_screenshot_of_complete_page_3(url: str, minimum_file_size: 
 
 
 @pytest.mark.parametrize("url, minimum_file_size", [
-    (internal_url.EXAMPLE_COM, MINIMUM_FILE_SIZE_EXAMPLE_COM),
-    (internal_url.W3SCHOOLS_COM, MINIMUM_FILE_SIZE_W3SCHOOLS_COM),
+    (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
+    (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
 ])
 def test_default_get_screenshot_of_complete_page_4(url: str, minimum_file_size: int, browser_default_headless: Browser, tmpdir: local) -> None:
     """Test of browser.screenshot.complete_page(destination_dir="/screenshots/folder") with default file name and custom destination."""

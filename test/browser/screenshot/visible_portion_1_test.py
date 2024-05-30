@@ -13,7 +13,7 @@ def test_get_screenshot_of_visible_portion_1(browser_default_headless_screenshot
     """Test of browser.screenshot.visible_portion() with default file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.screenshot.visible_portion()
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
@@ -22,7 +22,7 @@ def test_get_screenshot_of_visible_portion_2(browser_default_headless_screenshot
     """Test of browser.screenshot.visible_portion("image.png") with custom file name and default destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.screenshot.visible_portion(CUSTOM_SCREENSHOT_FILENAME)
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
@@ -31,7 +31,7 @@ def test_get_screenshot_of_visible_portion_3(browser_default_headless: Browser, 
     """Test of browser.screenshot.visible_portion("image.png", "/screenshots/folder") with custom file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     temp_dir = directory.create_and_get_temporary(tmpdir, CUSTOM_SCREENSHOT_DIRECTORY)
     browser.screenshot.visible_portion(CUSTOM_SCREENSHOT_FILENAME, temp_dir)
     assert screenshot.image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME, MINIMUM_FILE_SIZE)
@@ -41,7 +41,7 @@ def test_get_screenshot_of_visible_portion_4(browser_default_headless: Browser, 
     """Test of browser.screenshot.visible_portion(destination_dir="/screenshots/folder") with default file name and custom destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     temp_dir = directory.create_and_get_temporary(tmpdir, CUSTOM_SCREENSHOT_DIRECTORY)
     browser.screenshot.visible_portion(destination_dir=temp_dir)
     assert screenshot.images_have_minimum_file_size(temp_dir, MINIMUM_FILE_SIZE)
