@@ -32,22 +32,22 @@ MINI_SITE_DIR: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/mini_site")
 
 MINI_SITE_ABOUT: str = update_path_format_if_windows(
-    f"file://{_web_mock_data_directory}/mini_site/about.html")
+    f"{MINI_SITE_DIR}/about.html")
 
 MINI_SITE_CONTACT: str = update_path_format_if_windows(
-    f"file://{_web_mock_data_directory}/mini_site/contact.html")
+    f"{MINI_SITE_DIR}/contact.html")
 
 MINI_SITE_FEATURE_1: str = update_path_format_if_windows(
-    f"file://{_web_mock_data_directory}/mini_site/feature_1.html")
+    f"{MINI_SITE_DIR}/feature_1.html")
 
 MINI_SITE_FEATURE_2: str = update_path_format_if_windows(
-    f"file://{_web_mock_data_directory}/mini_site/feature_2.html")
+    f"{MINI_SITE_DIR}/feature_2.html")
 
 MINI_SITE_FEATURE_3: str = update_path_format_if_windows(
-    f"file://{_web_mock_data_directory}/mini_site/feature_3.html")
+    f"{MINI_SITE_DIR}/feature_3.html")
 
 MINI_SITE_HOMEPAGE: str = update_path_format_if_windows(
-    f"file://{_web_mock_data_directory}/mini_site/homepage.html")
+    f"{MINI_SITE_DIR}/homepage.html")
 
 NO_BODY: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/no_body.html")
