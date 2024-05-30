@@ -6,8 +6,8 @@ from browserist import Browser, helper
 
 
 @pytest.mark.parametrize("url1, url2", [
-    (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM),
-    (internal_url.W3SCHOOLS_COM, external_url.EXAMPLE_COM),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_ABOUT),
+    (internal_url.MINI_SITE_ABOUT, external_url.EXAMPLE_COM),
     (external_url.EXAMPLE_COM, external_url.IANA_ORG_RESERVED_DOMAINS),
 ])
 def test_open_url_if_not_current(url1: str, url2: str, browser_default_headless: Browser) -> None:
@@ -22,10 +22,10 @@ def test_open_url_if_not_current(url1: str, url2: str, browser_default_headless:
 
 
 @pytest.mark.parametrize("url1, url2, ignore_trailing_slash, expected", [
-    (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, True, True),
-    (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, False, False),
-    (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}/", True, True),
-    (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}/", False, False),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, True, True),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, False, False),
+    (internal_url.MINI_SITE_HOMEPAGE, f"{internal_url.MINI_SITE_HOMEPAGE}/", True, True),
+    (internal_url.MINI_SITE_HOMEPAGE, f"{internal_url.MINI_SITE_HOMEPAGE}/", False, False),
 ])
 def test_open_url_if_not_current_ignore_trailing_slash(url1: str, url2: str, ignore_trailing_slash: bool, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
@@ -37,10 +37,10 @@ def test_open_url_if_not_current_ignore_trailing_slash(url1: str, url2: str, ign
 
 
 @pytest.mark.parametrize("url1, url2, ignore_parameters, expected", [
-    (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, True, True),
-    (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, False, True),
-    (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}?foo=bar", True, True),
-    (internal_url.EXAMPLE_COM, f"{internal_url.EXAMPLE_COM}?foo=bar", False, False),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, True, True),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, False, True),
+    (internal_url.MINI_SITE_HOMEPAGE, f"{internal_url.MINI_SITE_HOMEPAGE}?foo=bar", True, True),
+    (internal_url.MINI_SITE_HOMEPAGE, f"{internal_url.MINI_SITE_HOMEPAGE}?foo=bar", False, False),
 ])
 def test_open_url_if_not_current_ignore_parameters(url1: str, url2: str, ignore_parameters: bool, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
