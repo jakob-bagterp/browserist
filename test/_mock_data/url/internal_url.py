@@ -46,6 +46,24 @@ MINI_SITE_FEATURE_3: str = update_path_format_if_windows(
 MINI_SITE_HOMEPAGE: str = update_path_format_if_windows(
     f"{MINI_SITE_DIR}/homepage.html")
 
+MINI_SITE_ASSETS_DIR: str = update_path_format_if_windows(
+    f"{MINI_SITE_DIR}/assets")
+
+MINI_SITE_IMAGE_LAB_MICROSCOPE: str = update_path_format_if_windows(
+    f"{MINI_SITE_ASSETS_DIR}/pexels-chokniti-khongchum-1197604-2280547_medium.jpg")
+
+MINI_SITE_IMAGE_LAB_TEST_TUBES: str = update_path_format_if_windows(
+    f"{MINI_SITE_ASSETS_DIR}/pexels-chokniti-khongchum-1197604-2280549_medium.jpg")
+
+MINI_SITE_IMAGE_LAB_PETRI_DISH: str = update_path_format_if_windows(
+    f"{MINI_SITE_ASSETS_DIR}/pexels-chokniti-khongchum-1197604-2280568_medium.jpg")
+
+MINI_SITE_IMAGE_LAB_SAMPLES: str = update_path_format_if_windows(
+    f"{MINI_SITE_ASSETS_DIR}/pexels-chokniti-khongchum-1197604-2280571_medium.jpg")
+
+MINI_SITE_IMAGE_OFFICE_IDEAS_ON_BOARD: str = update_path_format_if_windows(
+    f"{MINI_SITE_ASSETS_DIR}/pexels-startup-stock-photos-212286_medium.jpg")
+
 NO_BODY: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/no_body.html")
 

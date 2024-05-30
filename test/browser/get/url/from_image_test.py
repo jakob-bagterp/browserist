@@ -3,11 +3,10 @@ from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
-from browserist.helper.directory import update_path_format_if_windows
 
 
 @pytest.mark.parametrize("url, xpath, expected_url", [
-    (internal_url.MINI_SITE_FEATURE_1, "//*[@id='main']/img[1]", update_path_format_if_windows(f"{internal_url.MINI_SITE_DIR}/assets/pexels-chokniti-khongchum-1197604-2280571_medium.jpg")),
+    (internal_url.MINI_SITE_FEATURE_1, "//*[@id='main']/img[1]", internal_url.MINI_SITE_IMAGE_LAB_SAMPLES),
 ])
 def test_get_url_from_image(url: str, xpath: str, expected_url: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
