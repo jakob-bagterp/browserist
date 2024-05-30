@@ -7,12 +7,7 @@ from browserist.helper.directory import update_path_format_if_windows
 
 
 @pytest.mark.parametrize("url, xpath, expected_url", [
-    (internal_url.W3SCHOOLS_COM, "//*[@id='bgcodeimg2']/div/img",
-     update_path_format_if_windows(f"{internal_url.W3SCHOOLS_COM_DIR}/how-spaces-works3.png")),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='Frontend']/img",
-     update_path_format_if_windows(f"{internal_url.W3SCHOOLS_COM_DIR}/codeeditor.gif")),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='Backend']/img",
-     update_path_format_if_windows(f"{internal_url.W3SCHOOLS_COM_DIR}/best2.gif")),
+    (internal_url.MINI_SITE_FEATURE_1, "//*[@id='main']/img[1]", update_path_format_if_windows(f"{internal_url.MINI_SITE_DIR}/assets/pexels-chokniti-khongchum-1197604-2280571_medium.jpg")),
 ])
 def test_get_url_from_image(url: str, xpath: str, expected_url: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
