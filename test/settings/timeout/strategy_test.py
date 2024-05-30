@@ -18,7 +18,7 @@ browser_settings = BrowserSettings(
 
 browser = Browser(browser_settings)
 
-METHODS_WITH_RETURN_VALUES = [
+METHODS_WITH_RETURN_VALUES: list[tuple[Browser, Any, list[str]]] = [
     (browser, browser.check_if.contains_any_text, ["//*[@id='main']/div[1]/div/h1"]),
     (browser, browser.check_if.contains_text, ["//*[@id='main']/div[1]/div/h1", "Learn to Code"]),
     (browser, browser.check_if.does_exist, ["//*[@id='main']/div[1]/div/h1"]),
