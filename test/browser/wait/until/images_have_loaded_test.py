@@ -11,8 +11,8 @@ from browserist.exception.timeout import WaitForElementTimeoutException
 
 
 @pytest.mark.parametrize("url, xpath, expectation", [
-    (internal_url.W3SCHOOLS_COM, "//img", does_not_raise()),
-    (internal_url.EXAMPLE_COM, "//img", pytest.raises(WaitForElementTimeoutException)),
+    (internal_url.MINI_SITE_FEATURE_1, "//img", does_not_raise()),
+    (internal_url.MINI_SITE_HOMEPAGE, "//img", pytest.raises(WaitForElementTimeoutException)),
 ])
 def test_wait_until_images_have_loaded(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)

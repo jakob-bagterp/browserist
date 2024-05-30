@@ -12,12 +12,12 @@ from browserist.exception.retry import RetryTimeoutException
 
 
 @pytest.mark.parametrize("xpath, expectation", [
-    ("/html/body/div/p[2]/a", does_not_raise()),
-    ("/html/body/div/h1", does_not_raise()),
+    ("/html/body/section[2]/div[1]/a", does_not_raise()),
+    ("/html/body/section[1]/div/h1", does_not_raise()),
     (does_not_exist.XPATH, pytest.raises(RetryTimeoutException)),
 ])
 def test_wait_until_element_is_clickable(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
-        browser.open.url(internal_url.EXAMPLE_COM)
+        browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
         _ = browser.wait.until.is_clickable(xpath, timeout.VERY_SHORT) is not None
