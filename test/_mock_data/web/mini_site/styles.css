@@ -65,13 +65,13 @@
     border-radius: 5px;
 }
 
-#main {
+.container {
     width: 600px;
     margin: 0 auto;
     margin-top: 50px;
 }
 
-#main img {
+.container img {
     width: 100%;
 }
 
