@@ -57,9 +57,9 @@ XPATH_TEST_SET_COOKIE_BANNER_IFRAME = XPathTestSet(
 )
 
 XPATH_TEST_SET_W3SCHOOLS_COM_INPUT = XPathTestSet(
-    url=internal_url.W3SCHOOLS_COM,
+    url=internal_url.MINI_SITE_CONTACT,
     tests=[
-        XPathExpectation("//*[@id='search2']", does_not_raise()),
+        XPathExpectation("//input[@id='subject']", does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )
