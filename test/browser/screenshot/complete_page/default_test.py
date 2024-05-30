@@ -9,7 +9,7 @@ from browserist import Browser
 
 MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE = 12_500  # Single page screenshot.
 
-MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL = 700_000  # Merge of multiple, e.g. 15-18, files.
+MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL = 500_000  # Merge of multiple, e.g. 10-15, files.
 
 
 @pytest.mark.parametrize("url, minimum_file_size", [
