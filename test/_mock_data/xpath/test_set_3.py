@@ -1,6 +1,7 @@
 from contextlib import nullcontext as does_not_raise
 
 import pytest
+from _mock_data import does_not_exist
 from _mock_data.url import internal_url
 from _mock_data.xpath.constant import INVALID_XPATH, VALID_XPATH
 from _mock_data.xpath.model_3 import XPathExpectation, XPathTestSet
@@ -26,7 +27,7 @@ XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK = XPathTestSet(
 XPATH_TEST_SET_MINI_SITE_HOMEPAGE_DOES_NOT_EXIST = XPathTestSet(
     url=internal_url.MINI_SITE_HOMEPAGE,
     tests=[
-        XPathExpectation("/does/not/exist", does_not_raise()),
+        XPathExpectation(does_not_exist.XPATH, does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )
