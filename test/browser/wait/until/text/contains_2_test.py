@@ -14,8 +14,8 @@ from browserist.exception.timeout import WaitForElementTimeoutException
 
 @pytest.mark.parametrize("xpath, regex, expectation", [
     ("/html/body/section[2]/div[1]/a", "Learn more", does_not_raise()),
-    ("/html/body/section[2]/div[1]/a", "LeARn mOrE", pytest.raises(RetryTimeoutException)),
-    ("/html/body/section[2]/div[1]/a", "more", pytest.raises(RetryTimeoutException)),
+    ("/html/body/section[2]/div[1]/a", "LeARn mOrE", does_not_raise()),
+    ("/html/body/section[2]/div[1]/a", "more", does_not_raise()),
     ("/html/body/section[2]/div[1]/a", r"^more", pytest.raises(RetryTimeoutException)),
     ("/html/body/section[2]/div[1]/a", "no valid text", pytest.raises(RetryTimeoutException)),
     (does_not_exist.XPATH, "element doesn't exist", pytest.raises(WaitForElementTimeoutException)),
