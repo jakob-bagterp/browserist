@@ -7,11 +7,11 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("xpath, expected", [
-    ("/html/body/div[5]/div[1]/div/h1", True),
-    ("/html/body/div[5]/div[9]/div/div/div[3]/img", False),
+    ("/html/body/section[1]/div/h1", True),
+    ("//*[@id='main']/img[1]", False),
     (does_not_exist.XPATH, False),
 ])
 def test_check_if_contains_any_text(xpath: str, expected: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.open.url(internal_url.MINI_SITE_FEATURE_1)
     assert browser.check_if.contains_any_text(xpath) is expected
