@@ -20,26 +20,30 @@ browser_settings = BrowserSettings(
 
 browser = Browser(browser_settings)
 
+MINI_SITE_HOMEPAGE_H1_XPATH = "/html/body/section[1]/div/h1"
+
+MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH = "/html/body/section[2]/div[1]/a"
+
 
 @pytest.mark.parametrize("browser, browser_function, args", [
     (browser, browser.click.button_if_contains_text,
-     ["/html/body/div/p[2]/a", does_not_exist.TEXT, timeout.VERY_SHORT]),
-    (browser, browser.input.select, ["/html/body/div/p[2]/a", timeout.VERY_SHORT]),
+     [MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
+    (browser, browser.input.select, [MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH, timeout.VERY_SHORT]),
     (browser, browser.wait.for_element, [does_not_exist.XPATH, timeout.VERY_SHORT]),
     (browser, browser.wait.until.number_of_window_handles_is, [2, timeout.VERY_SHORT]),
     (browser, browser.wait.until.page_title.contains, [does_not_exist.TEXT, timeout.VERY_SHORT]),
-    (browser, browser.wait.until.page_title.changes, ["Example Domain", timeout.VERY_SHORT]),
+    (browser, browser.wait.until.page_title.changes, ["Homepage", timeout.VERY_SHORT]),
     (browser, browser.wait.until.page_title.equals, [does_not_exist.TEXT, timeout.VERY_SHORT]),
-    (browser, browser.wait.until.text.contains, ["/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT]),
-    (browser, browser.wait.until.text.changes, ["/html/body/div/h1", "Example Domain", timeout.VERY_SHORT]),
-    (browser, browser.wait.until.text.equals, ["/html/body/div/h1", does_not_exist.TEXT, timeout.VERY_SHORT]),
+    (browser, browser.wait.until.text.contains, [MINI_SITE_HOMEPAGE_H1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
+    (browser, browser.wait.until.text.changes, [MINI_SITE_HOMEPAGE_H1_XPATH, "Welcome", timeout.VERY_SHORT]),
+    (browser, browser.wait.until.text.equals, [MINI_SITE_HOMEPAGE_H1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
     (browser, browser.wait.until.url.contains, [does_not_exist.URL, timeout.VERY_SHORT]),
-    (browser, browser.wait.until.url.changes, [internal_url.EXAMPLE_COM, timeout.VERY_SHORT]),
+    (browser, browser.wait.until.url.changes, [internal_url.MINI_SITE_HOMEPAGE, timeout.VERY_SHORT]),
     (browser, browser.wait.until.url.equals, [does_not_exist.URL, timeout.VERY_SHORT]),
 ])
 def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     browser = reset_to_not_timed_out(browser)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     assert browser._browser_driver.settings.timeout._is_timed_out is False
     _ = browser_function(*args)
     assert browser._browser_driver.settings.timeout._is_timed_out is True
