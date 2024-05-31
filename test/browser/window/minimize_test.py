@@ -8,7 +8,7 @@ def test_window_minimize(browser_default: Browser) -> None:
     """Minizing the window doesn't change the size as it only hides the window."""
 
     browser = reset_to_not_timed_out(browser_default)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.window.set.size(520, 520)  # 500 is minimum width and height for Chrome, 513 on Edge.
     default_width, default_height = browser.window.get.size()
     browser.window.minimize()

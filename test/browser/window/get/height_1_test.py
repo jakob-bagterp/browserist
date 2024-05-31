@@ -11,7 +11,7 @@ from browserist import Browser
 ])
 def test_window_get_height(width: int, height: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.window.set.size(width, height)
     get_height = browser.window.get.height()
     assert height <= get_height

@@ -6,7 +6,7 @@ from browserist import Browser
 
 def test_window_fullscreen(browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     default_width, default_height = browser.window.get.size()
     browser.window.fullscreen()
     fullscreen_width, fullscreen_height = browser.window.get.size()

@@ -8,7 +8,7 @@ def test_window_maximize(browser_default: Browser) -> None:
     """This test may fail if tested on a multiple screens setup."""
 
     browser = reset_to_not_timed_out(browser_default)
-    browser.open.url(internal_url.EXAMPLE_COM)
+    browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.window.set.size(1, 1)
     default_width, default_height = browser.window.get.size()
     browser.window.maximize()

@@ -1,13 +1,15 @@
 from copy import deepcopy
 
 from _mock_data.url import internal_url
+from _mock_data.xpath.cookie_banner import (COOKIE_BANNER_BUTTON_ACCEPT_XPATH, COOKIE_BANNER_IFRAME_XPATH,
+                                            COOKIE_BANNER_XPATH)
 
 from browserist import CookieBannerSettings
 
 COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME = CookieBannerSettings(
     url=internal_url.COOKIE_BANNER_WITHOUT_IFRAME,
-    has_loaded_xpath="//*[@id='cookie-banner']",
-    button_xpath="//button[@id='accept-cookies']",
+    has_loaded_xpath=COOKIE_BANNER_XPATH,
+    button_xpath=COOKIE_BANNER_BUTTON_ACCEPT_XPATH,
 )
 
 COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE = deepcopy(COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME)
@@ -18,7 +20,7 @@ COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_ERROR_STATE.button_xp
 
 COOKIE_BANNER_SETTINGS_WITH_IFRAME = deepcopy(COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME)
 COOKIE_BANNER_SETTINGS_WITH_IFRAME.url = internal_url.COOKIE_BANNER_WITH_IFRAME
-COOKIE_BANNER_SETTINGS_WITH_IFRAME.iframe_xpath = "//iframe[@id='cookie-banner-iframe']"
+COOKIE_BANNER_SETTINGS_WITH_IFRAME.iframe_xpath = COOKIE_BANNER_IFRAME_XPATH
 
 COOKIE_BANNER_SETTINGS_WITH_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE = deepcopy(COOKIE_BANNER_SETTINGS_WITH_IFRAME)
 COOKIE_BANNER_SETTINGS_WITH_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE.return_bool = True

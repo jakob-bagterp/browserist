@@ -1,18 +1,13 @@
 import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
+from _mock_data.xpath.mini_site.feature_1 import MINI_SITE_FEATURE_1_IMAGE_1_XPATH
 
 from browserist import Browser
-from browserist.helper.directory import update_path_format_if_windows
 
 
 @pytest.mark.parametrize("url, xpath, expected_url", [
-    (internal_url.W3SCHOOLS_COM, "//*[@id='bgcodeimg2']/div/img",
-     update_path_format_if_windows(f"{internal_url.W3SCHOOLS_COM_DIR}/how-spaces-works3.png")),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='Frontend']/img",
-     update_path_format_if_windows(f"{internal_url.W3SCHOOLS_COM_DIR}/codeeditor.gif")),
-    (internal_url.W3SCHOOLS_COM, "//*[@id='Backend']/img",
-     update_path_format_if_windows(f"{internal_url.W3SCHOOLS_COM_DIR}/best2.gif")),
+    (internal_url.MINI_SITE_FEATURE_1, MINI_SITE_FEATURE_1_IMAGE_1_XPATH, internal_url.MINI_SITE_IMAGE_LAB_SAMPLES),
 ])
 def test_get_url_from_image(url: str, xpath: str, expected_url: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)

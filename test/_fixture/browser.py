@@ -24,6 +24,12 @@ def browser_default_headless() -> Generator[Browser, None, None]:
 
 
 @pytest.fixture(scope="session")
+def browser_default_headless_fixed_viewport() -> Generator[Browser, None, None]:
+    with Browser(default.HEADLESS_AND_FIXED_SIZE) as browser:
+        yield browser
+
+
+@pytest.fixture(scope="session")
 def browser_default_headless_disable_images() -> Generator[Browser, None, None]:
     with Browser(default.HEADLESS_AND_DISABLE_IMAGES) as browser:
         yield browser

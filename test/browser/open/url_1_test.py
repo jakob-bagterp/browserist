@@ -6,8 +6,8 @@ from browserist import Browser, helper
 
 
 @pytest.mark.parametrize("url1, url2", [
-    (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM),
-    (internal_url.W3SCHOOLS_COM, external_url.EXAMPLE_COM),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1),
+    (internal_url.MINI_SITE_FEATURE_1, external_url.EXAMPLE_COM),
     (external_url.EXAMPLE_COM, external_url.IANA_ORG_RESERVED_DOMAINS),
 ])
 def test_open_url(url1: str, url2: str, browser_default_headless: Browser) -> None:

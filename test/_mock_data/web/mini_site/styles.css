@@ -1,0 +1,116 @@
+.hero {
+    display: flex;
+    height: 400px;
+    padding-left: 50px;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__text-box {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.hero__background-image__lab-microscope {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280547_medium.jpg');
+}
+
+.hero__background-image__lab-test-tubes {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280549_medium.jpg');
+}
+
+.hero__background-image__lab-petri-dish {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280568_medium.jpg');
+}
+
+.hero__background-image__lab-samples {
+    background-image: url('./assets/pexels-chokniti-khongchum-1197604-2280571_medium.jpg');
+}
+
+.hero__background-image__office-ideas-on-board {
+    background-image: url('./assets/pexels-startup-stock-photos-212286_medium.jpg');
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.features__item {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.75);
+    margin: 0 10px;
+}
+
+.features__item h3 {
+    margin-bottom: 10px;
+}
+
+.features__item p {
+    margin-bottom: 20px;
+}
+
+.features__item a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.container img {
+    width: 100%;
+}
+
+header,
+footer {
+    padding: 10px 50px;
+}
+
+header nav ul,
+footer nav ul,
+footer p {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header nav ul li,
+footer nav ul li {
+    margin-left: 10px;
+}
+
+header nav ul li a,
+footer nav ul li a {
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}

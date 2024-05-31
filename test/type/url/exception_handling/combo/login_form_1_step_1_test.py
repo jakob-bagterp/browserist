@@ -3,7 +3,7 @@ from typing import Any
 
 import pytest
 from _mock_data.url.test_set_2 import INVALID_URL, VALID_URL
-from _mock_data.xpath.test_set_3 import VALID_XPATH
+from _mock_data.xpath.constant import VALID_XPATH
 
 from browserist.constant import timeout
 from browserist.exception.url import URLSyntaxError

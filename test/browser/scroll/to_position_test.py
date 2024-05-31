@@ -12,7 +12,7 @@ from browserist import Browser
 ])
 def test_scroll_to_position(x: int, y: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.W3SCHOOLS_COM)
+    browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
     browser.scroll.to_position(x, y)
     x_get, y_get = browser.scroll.get.position()
     assert x_get == x and y_get == y

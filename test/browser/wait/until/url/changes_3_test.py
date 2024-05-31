@@ -11,8 +11,8 @@ from browserist.exception.retry import RetryTimeoutException
 
 
 @pytest.mark.parametrize("url1, url2, expectation", [
-    (internal_url.EXAMPLE_COM, internal_url.W3SCHOOLS_COM, does_not_raise()),
-    (internal_url.EXAMPLE_COM, internal_url.EXAMPLE_COM, pytest.raises(RetryTimeoutException)),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1, does_not_raise()),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, pytest.raises(RetryTimeoutException)),
 ])
 def test_wait_until_url_changes(url1: str, url2: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)

@@ -1,5 +1,6 @@
 import pytest
 from _mock_data.xpath.method_3 import exception_handling_for_methods_with_3_arguments_or_more
+from _mock_data.xpath.test_set_3 import XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK
 
 from browserist import Browser
 from browserist.browser.click.button import click_button
@@ -19,7 +20,7 @@ def test_xpath_exception_handling_for_click_methods_1(
 
 
 @pytest.mark.parametrize("method, text, ignore_case, timeout", [
-    (click_button_if_contains_text, "More information...", True, timeout.VERY_SHORT),
+    (click_button_if_contains_text, "Learn more", True, timeout.VERY_SHORT),
 ])
 def test_xpath_exception_handling_for_click_methods_2(
     browser_default_headless: Browser,
@@ -29,4 +30,4 @@ def test_xpath_exception_handling_for_click_methods_2(
     timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, text, ignore_case, timeout)
+        browser_default_headless, method, text, ignore_case, timeout, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK)
