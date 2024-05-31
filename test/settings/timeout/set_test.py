@@ -7,6 +7,7 @@ from _helper import script
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
+from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH
 
 from browserist import Browser, BrowserSettings
 from browserist.constant import timeout
@@ -22,7 +23,7 @@ browser = Browser(browser_settings)
 
 MINI_SITE_HOMEPAGE_H1_XPATH = "/html/body/section[1]/div/h1"
 
-MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH = "/html/body/section[2]/div[1]/a"
+MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH = MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH
 
 
 @pytest.mark.parametrize("browser, browser_function, args", [

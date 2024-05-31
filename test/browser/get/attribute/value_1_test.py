@@ -1,12 +1,13 @@
 import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
+from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH
 
 from browserist import Browser
 
 
 @pytest.mark.parametrize("url, xpath, attribute, expected_attribute", [
-    (internal_url.MINI_SITE_HOMEPAGE, "/html/body/section[2]/div[1]/a", "href", internal_url.MINI_SITE_FEATURE_1),
+    (internal_url.MINI_SITE_HOMEPAGE, MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "href", internal_url.MINI_SITE_FEATURE_1),
     (internal_url.MINI_SITE_HOMEPAGE, "/html/head/meta[2]", "name", "viewport"),
     (internal_url.MINI_SITE_FEATURE_1, "//*[@id='main']/img[1]", "src", internal_url.MINI_SITE_IMAGE_LAB_SAMPLES),
     (internal_url.MINI_SITE_FEATURE_1, "/html/head/link[1]", "rel", "stylesheet"),

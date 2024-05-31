@@ -5,6 +5,7 @@ import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
+from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH
 
 from browserist import Browser
 from browserist.constant import timeout
@@ -12,7 +13,7 @@ from browserist.exception.retry import RetryTimeoutException
 
 
 @pytest.mark.parametrize("xpath, expectation", [
-    ("/html/body/section[2]/div[1]/a", does_not_raise()),
+    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, does_not_raise()),
     ("/html/body/section[1]/div/h1", does_not_raise()),
     (does_not_exist.XPATH, pytest.raises(RetryTimeoutException)),
 ])
