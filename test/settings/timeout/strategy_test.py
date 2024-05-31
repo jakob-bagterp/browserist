@@ -6,8 +6,8 @@ from _helper.timeout import (reset_to_not_timed_out, set_timeout_strategy_to_con
                              set_to_timed_out)
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
-from _mock_data.xpath.mini_site.feature_1 import MINI_SITE_FEATURE_1_IMAGE_1_XPATH
-from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH
+from _mock_data.xpath.mini_site.feature_1 import (MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH,
+                                                  MINI_SITE_FEATURE_1_IMAGE_1_XPATH)
 
 from browserist import Browser, BrowserSettings, TimeoutSettings
 
@@ -21,23 +21,23 @@ browser_settings = BrowserSettings(
 browser = Browser(browser_settings)
 
 METHODS_WITH_RETURN_VALUES: list[tuple[Browser, Any, list[str]]] = [
-    (browser, browser.check_if.contains_any_text, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
-    (browser, browser.check_if.contains_text, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH, "Feature 1"]),
-    (browser, browser.check_if.does_exist, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
+    (browser, browser.check_if.contains_any_text, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
+    (browser, browser.check_if.contains_text, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH, "Feature 1"]),
+    (browser, browser.check_if.does_exist, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
     (browser, browser.check_if.is_clickable, ["/html/body/header/nav/ul/li[1]/a"]),
-    (browser, browser.check_if.is_disabled, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
-    (browser, browser.check_if.is_displayed, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
-    (browser, browser.check_if.is_enabled, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
+    (browser, browser.check_if.is_disabled, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
+    (browser, browser.check_if.is_displayed, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
+    (browser, browser.check_if.is_enabled, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
     (browser, browser.check_if.is_image_loaded, [MINI_SITE_FEATURE_1_IMAGE_1_XPATH]),
-    (browser, browser.check_if.is_selected, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
+    (browser, browser.check_if.is_selected, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
     (browser, browser.get.attribute.value, ["/html/body/header/nav/ul/li[1]/a", "href"]),
     (browser, browser.get.attribute.values, ["//a", "href"]),
-    (browser, browser.get.dimensions, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
+    (browser, browser.get.dimensions, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
     (browser, browser.get.element, ["//*[@id='main']/p[1]"]),
     (browser, browser.get.elements, ["//p"]),
     (browser, browser.get.elements_by_tag, ["p"]),
     (browser, browser.get.page_title, []),
-    (browser, browser.get.text, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
+    (browser, browser.get.text, [MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH]),
     (browser, browser.get.texts, ["//h2"]),
     (browser, browser.get.url.current, []),
     (browser, browser.get.url.from_image, [MINI_SITE_FEATURE_1_IMAGE_1_XPATH]),
