@@ -3,8 +3,8 @@ from typing import Any
 
 import pytest
 from _helper.timeout import reset_to_not_timed_out
+from _mock_data import does_not_exist
 from _mock_data.url import internal_url
-from _mock_data.xpath.mini_site.feature_1 import MINI_SITE_FEATURE_1_IMAGE_1_XPATH
 from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH
 
 from browserist import Browser
@@ -13,7 +13,7 @@ from browserist.exception.retry import RetryTimeoutException
 
 
 @pytest.mark.parametrize("xpath, expectation", [
-    (MINI_SITE_FEATURE_1_IMAGE_1_XPATH, pytest.raises(RetryTimeoutException)),
+    (does_not_exist.XPATH, pytest.raises(RetryTimeoutException)),
     (MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH, does_not_raise()),
 ])
 def test_wait_until_element_contains_any_text(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
