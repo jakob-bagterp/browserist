@@ -5,6 +5,7 @@ from _mock_data import does_not_exist
 from _mock_data.url import internal_url
 from _mock_data.xpath.constant import INVALID_XPATH, VALID_XPATH
 from _mock_data.xpath.cookie_banner import COOKIE_BANNER_IFRAME_XPATH
+from _mock_data.xpath.mini_site.contact import MINI_SITE_CONTACT_INPUT_SUBJECT_XPATH
 from _mock_data.xpath.mini_site.feature_1 import MINI_SITE_FEATURE_1_IMAGE_1_XPATH
 from _mock_data.xpath.mini_site.homepage import (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH,
                                                  MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH)
@@ -63,7 +64,7 @@ XPATH_TEST_SET_COOKIE_BANNER_IFRAME = XPathTestSet(
 XPATH_TEST_SET_MINI_SITE_CONTACT_INPUT = XPathTestSet(
     url=internal_url.MINI_SITE_CONTACT,
     tests=[
-        XPathExpectation("//input[@id='subject']", does_not_raise()),
+        XPathExpectation(MINI_SITE_CONTACT_INPUT_SUBJECT_XPATH, does_not_raise()),
         XPathExpectation(INVALID_XPATH, pytest.raises(XPathSyntaxError)),
     ]
 )
