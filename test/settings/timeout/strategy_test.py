@@ -6,6 +6,7 @@ from _helper.timeout import (reset_to_not_timed_out, set_timeout_strategy_to_con
                              set_to_timed_out)
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
+from _mock_data.xpath.mini_site.feature_1 import MINI_SITE_FEATURE_1_IMAGE_1_XPATH
 from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH
 
 from browserist import Browser, BrowserSettings, TimeoutSettings
@@ -27,7 +28,7 @@ METHODS_WITH_RETURN_VALUES: list[tuple[Browser, Any, list[str]]] = [
     (browser, browser.check_if.is_disabled, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
     (browser, browser.check_if.is_displayed, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
     (browser, browser.check_if.is_enabled, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
-    (browser, browser.check_if.is_image_loaded, ["//*[@id='main']/img[1]"]),
+    (browser, browser.check_if.is_image_loaded, [MINI_SITE_FEATURE_1_IMAGE_1_XPATH]),
     (browser, browser.check_if.is_selected, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
     (browser, browser.get.attribute.value, ["/html/body/header/nav/ul/li[1]/a", "href"]),
     (browser, browser.get.attribute.values, ["//a", "href"]),
@@ -39,7 +40,7 @@ METHODS_WITH_RETURN_VALUES: list[tuple[Browser, Any, list[str]]] = [
     (browser, browser.get.text, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH]),
     (browser, browser.get.texts, ["//h2"]),
     (browser, browser.get.url.current, []),
-    (browser, browser.get.url.from_image, ["//*[@id='main']/img[1]"]),
+    (browser, browser.get.url.from_image, [MINI_SITE_FEATURE_1_IMAGE_1_XPATH]),
     (browser, browser.get.url.from_images, ["//img"]),
     (browser, browser.get.url.from_link, ["/html/body/header/nav/ul/li[1]/a"]),
     (browser, browser.get.url.from_links, ["//a"]),
