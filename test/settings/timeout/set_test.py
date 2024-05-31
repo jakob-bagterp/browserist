@@ -23,13 +23,10 @@ browser = Browser(browser_settings)
 
 MINI_SITE_HOMEPAGE_H1_XPATH = "/html/body/section[1]/div/h1"
 
-MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH = MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH
-
 
 @pytest.mark.parametrize("browser, browser_function, args", [
-    (browser, browser.click.button_if_contains_text,
-     [MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
-    (browser, browser.input.select, [MINI_SITE_HOMEPAGE_FEATURE_1_LINK_XPATH, timeout.VERY_SHORT]),
+    (browser, browser.click.button_if_contains_text, [MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
+    (browser, browser.input.select, [MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, timeout.VERY_SHORT]),
     (browser, browser.wait.for_element, [does_not_exist.XPATH, timeout.VERY_SHORT]),
     (browser, browser.wait.until.number_of_window_handles_is, [2, timeout.VERY_SHORT]),
     (browser, browser.wait.until.page_title.contains, [does_not_exist.TEXT, timeout.VERY_SHORT]),
