@@ -5,7 +5,7 @@ from _constant import download_page
 from _helper import directory
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
-from _mock_data.xpath import xpath
+from _mock_data.xpath.download_page import DONWLOAD_BUTTON_XPATH
 from py.path import local
 
 from browserist import Browser, BrowserSettings
@@ -25,7 +25,7 @@ def test_click_download(await_download: bool, expected_file_name: str, tmpdir: l
         reset_to_not_timed_out(browser)
         browser.open.url(internal_url.DOWNLOAD)
         browser.click.download(
-            xpath.DownloadPage.DONWLOAD_BUTTON,
+            DONWLOAD_BUTTON_XPATH,
             await_download=await_download,
             expected_file_name=expected_file_name,
             idle_download_timeout=idle_timeout.VERY_SHORT
