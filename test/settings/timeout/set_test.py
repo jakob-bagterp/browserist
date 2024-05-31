@@ -7,7 +7,8 @@ from _helper import script
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
-from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH
+from _mock_data.xpath.mini_site.homepage import (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH,
+                                                 MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH)
 
 from browserist import Browser, BrowserSettings
 from browserist.constant import timeout
@@ -21,8 +22,6 @@ browser_settings = BrowserSettings(
 
 browser = Browser(browser_settings)
 
-MINI_SITE_HOMEPAGE_H1_XPATH = "/html/body/section[1]/div/h1"
-
 
 @pytest.mark.parametrize("browser, browser_function, args", [
     (browser, browser.click.button_if_contains_text, [MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
@@ -32,9 +31,9 @@ MINI_SITE_HOMEPAGE_H1_XPATH = "/html/body/section[1]/div/h1"
     (browser, browser.wait.until.page_title.contains, [does_not_exist.TEXT, timeout.VERY_SHORT]),
     (browser, browser.wait.until.page_title.changes, ["Homepage", timeout.VERY_SHORT]),
     (browser, browser.wait.until.page_title.equals, [does_not_exist.TEXT, timeout.VERY_SHORT]),
-    (browser, browser.wait.until.text.contains, [MINI_SITE_HOMEPAGE_H1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
-    (browser, browser.wait.until.text.changes, [MINI_SITE_HOMEPAGE_H1_XPATH, "Welcome", timeout.VERY_SHORT]),
-    (browser, browser.wait.until.text.equals, [MINI_SITE_HOMEPAGE_H1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
+    (browser, browser.wait.until.text.contains, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
+    (browser, browser.wait.until.text.changes, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH, "Welcome", timeout.VERY_SHORT]),
+    (browser, browser.wait.until.text.equals, [MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH, does_not_exist.TEXT, timeout.VERY_SHORT]),
     (browser, browser.wait.until.url.contains, [does_not_exist.URL, timeout.VERY_SHORT]),
     (browser, browser.wait.until.url.changes, [internal_url.MINI_SITE_HOMEPAGE, timeout.VERY_SHORT]),
     (browser, browser.wait.until.url.equals, [does_not_exist.URL, timeout.VERY_SHORT]),

@@ -5,6 +5,7 @@ import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
+from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH
 
 from browserist import Browser
 from browserist.constant import timeout
@@ -12,7 +13,7 @@ from browserist.exception.timeout import WaitForElementTimeoutException
 
 
 @pytest.mark.parametrize("xpath", [
-    ("/html/body/section[1]/div/h1"),
+    (MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH),
     ("//*[@id='main']/img[1]"),
     ("//*[@id='main']/h2[2]"),
     ("//footer"),

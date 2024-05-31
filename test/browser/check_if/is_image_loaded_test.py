@@ -2,12 +2,13 @@ import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
+from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH
 
 from browserist import Browser
 
 
 @pytest.mark.parametrize("xpath, expected", [
-    ("/html/body/section[1]/div/h1", False),
+    (MINI_SITE_HOMEPAGE_HEADLINE_H1_XPATH, False),
     ("//*[@id='main']/img[1]", True),
     (does_not_exist.XPATH, False),
 ])
