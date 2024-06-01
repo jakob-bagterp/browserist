@@ -44,6 +44,8 @@ nav:
       - Headless: user-guide/performance/headless.md
       - Disable Images: user-guide/performance/disable-images.md
       - Parallelisation: user-guide/performance/parallelisation.md
+    - Tools:
+      - Execute JavaScript: user-guide/tools/execute-javascript.md
   - XPath:
     - Basics: xpath/basics.md
     - Absolute and Relative: xpath/absolute-and-relative.md
