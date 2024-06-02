@@ -28,7 +28,7 @@ class ToolDriverMethods(DriverMethods):
         Example:
             ```python title="" linenums="1"
             user_input = input("Input value:")
-            while not browser.tool.is_input_valid(user_input, r"valid value")
+            while not browser.tool.is_input_valid(user_input, r"regex")
                 print("Invalid input. Please try again...")
                 user_input = input("Input value:")
             browser.input.value("//xpath/to/input", user_input)
