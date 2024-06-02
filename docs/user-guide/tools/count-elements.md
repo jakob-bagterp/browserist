@@ -4,8 +4,10 @@ tags:
 ---
 
 # How to Count Elements
-## Example of Counting Search Results
-Sometimes it's useful to count the elements of a specific selector. For instance, you may want to know how many search results are displayed on a search engine result page:
+Sometimes it's useful to count the elements of a specific selector, either to check whether the expected number of elements are present, or to automate an iteration over them.
+
+## Use Case for Counting Search Results
+For instance, you may want to know how many search results are displayed on a search engine result page:
 
 ```python linenums="1"
 from browserist import Browser
@@ -16,12 +18,15 @@ search_results_xpath = "//*[@class='search-result-item']"
 with Browser() as browser:
     browser.open.url(f"https://www.search.com/web?q={search_term}")
     number_of_results = browser.tool.count_elements(search_results_xpath)
-    for i in range(1, number_of_results + 1):
-        search_result_text = browser.get.text(f"{search_results_xpath}[{i}]")
-        print(f"Search result {i}: {search_result_text}")
+    if number_of_results > 0:
+        for i in range(1, number_of_results + 1):
+            search_result_text = browser.get.text(f"{search_results_xpath}[{i}]")
+            print(f"Search result {i}: {search_result_text}")
+    else:
+        print("No search results found.")
 ```
 
-## Other Use Cases for Count Elements
+## Other Examples
 ### Images
 How to count the number of `<img>` image elements on a page:
 
