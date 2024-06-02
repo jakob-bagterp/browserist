@@ -26,12 +26,18 @@ class ToolDriverMethods(DriverMethods):
             `True` if input matches condition, `False` otherwise.
 
         Example:
+            How to prompt the user for input in the terminal and hereafter validate the value before posting the form input:
+
             ```python title="" linenums="1"
-            user_input = input("Input value:")
-            while not browser.tool.is_input_valid(user_input, r"regex")
-                print("Invalid input. Please try again...")
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
                 user_input = input("Input value:")
-            browser.input.value("//xpath/to/input", user_input)
+                while not browser.tool.is_input_valid(user_input, r"regex"):
+                    print("Invalid input. Please try again...")
+                    user_input = input("Input value:")
+                browser.input.value("//xpath/to/input", user_input)
             ```
         """
 
@@ -48,12 +54,17 @@ class ToolDriverMethods(DriverMethods):
             `True` if input is a valid URL, `False` otherwise.
 
         Example:
+            How to prompt the user for a valid URL in the terminal:
+
             ```python title="" linenums="1"
-            user_url = input("Input URL:")
-            while not browser.tool.is_url_valid(user_url)
-                print("Invalid URL. Please try again...")
+            from browserist import Browser
+
+            with Browser() as browser:
                 user_url = input("Input URL:")
-            browser.open.url(user_url)
+                while not browser.tool.is_url_valid(user_url)
+                    print("Invalid URL. Please try again...")
+                    user_url = input("Input URL:")
+                browser.open.url(user_url)
             ```
         """
 
@@ -70,12 +81,18 @@ class ToolDriverMethods(DriverMethods):
             `True` if input is a valid XPath expression, `False` otherwise.
 
         Example:
+            How to prompt the user for a valid XPath value in the terminal:
+
             ```python title="" linenums="1"
-            user_xpath = input("Input XPath:")
-            while not browser.tool.is_xpath_valid(user_xpath)
-                print("Invalid XPath. Please try again...")
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
                 user_xpath = input("Input XPath:")
-            browser.click.button(user_xpath)
+                while not browser.tool.is_xpath_valid(user_xpath)
+                    print("Invalid XPath. Please try again...")
+                    user_xpath = input("Input XPath:")
+                browser.click.button(user_xpath)
             ```
         """
 
