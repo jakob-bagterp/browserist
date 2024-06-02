@@ -46,6 +46,7 @@ nav:
       - Parallelisation: user-guide/performance/parallelisation.md
     - Tools:
       - Execute JavaScript: user-guide/tools/execute-javascript.md
+      - Count Elements: user-guide/tools/count-elements.md
   - XPath:
     - Basics: xpath/basics.md
     - Absolute and Relative: xpath/absolute-and-relative.md
