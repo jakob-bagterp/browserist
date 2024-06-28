@@ -98,7 +98,7 @@ with Browser() as browser:
 ```
 
 ### Contains
-Wait until the URL contains a partial string:
+Wait until the URL contains a text partial:
 
 ```python title="" linenums="1"
 from browserist import Browser
