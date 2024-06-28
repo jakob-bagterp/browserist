@@ -8,6 +8,7 @@ Most of Browserist's methods already implicitly wait for certain elements on the
 
 ## Wait for Items to Be Ready
 ### Element
+#### Appear
 This helper function ensures that DOM elements are ready before processing. The example waits for any H1 heading to be ready:
 
 ```python title="" linenums="1"
@@ -41,6 +42,19 @@ with Browser() as browser:
         heading = browser.get.text("//h1")
         print(heading)
     ```
+
+#### Disappear
+Conversely, you can also wait for an element to disappear from the DOM. This is useful for single page applications where elements are removed and added dynamically. An example:
+
+```python title="" linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.input.value("//xpath/to/input", "test")
+    browser.click.button("//xpath/to/button")
+    browser.wait.until.element_disappears("//xpath/to/input")
+```
 
 ### Images
 Sometimes `img` images elements are present in the DOM, but the actual images are not yet loaded after first page paint, and so they will be loaded lazily in the background. This example waits until the image(s) on the page have loaded:
