@@ -16,6 +16,7 @@ with Browser() as browser:
     browser.open.url("https://example.com")
     browser.wait.seconds(5)
 ```
+
 ## Random Seconds
 Sometimes you want the browser appear less like a bot by randomizing the wait interval. Example of how to let the browser sleep for a random time between 3 and 20 seconds:
 
