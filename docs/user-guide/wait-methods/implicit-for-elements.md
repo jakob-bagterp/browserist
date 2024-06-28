@@ -57,7 +57,7 @@ with Browser() as browser:
 ```
 
 ### Image
-Sometimes `img` images elements are present in the DOM, but the actual images are not yet loaded after first page paint, and so they will be loaded lazily in the background. This example waits until the image(s) on the page have loaded:
+Sometimes `img` image elements are present in the DOM, but the actual images are not yet loaded after first page paint, and so they will be loaded lazily in the background. This example waits until the image(s) on the page have loaded:
 
 ```python title="" linenums="1"
 from browserist import Browser
