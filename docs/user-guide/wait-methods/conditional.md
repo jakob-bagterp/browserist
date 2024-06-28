@@ -4,7 +4,7 @@ tags:
 ---
 
 # Wait Until a Condition Is Met
-This group of methods apply the following conditions to either the page title, text of an element, or the URL:
+This group of methods apply the following conditions to either the page title, text of an element, or URL:
 
 * Changes
 * Contains (non exact match)
@@ -12,6 +12,8 @@ This group of methods apply the following conditions to either the page title, t
 
 ## Page Title
 ### Changes
+Wait until the page title changes from a baseline text:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
@@ -23,6 +25,8 @@ with Browser() as browser:
 ```
 
 ### Contains
+Wait until the page title contains a text partial:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
@@ -32,6 +36,8 @@ with Browser() as browser:
 ```
 
 ### Equals
+Wait until the page title equals a specific text:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
@@ -42,6 +48,8 @@ with Browser() as browser:
 
 ## Text
 ### Changes
+Wait until the text of an element changes from a baseline text:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
@@ -53,6 +61,8 @@ with Browser() as browser:
 ```
 
 ### Contains
+Wait until the text of an element contains a text partial:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
@@ -62,6 +72,8 @@ with Browser() as browser:
 ```
 
 ### Equals
+Wait until the text of an element equals a specific text:
+
 ```python title="" linenums="1"
 
 from browserist import Browser
@@ -73,6 +85,8 @@ with Browser() as browser:
 
 ## URL
 ### Changes
+Wait until the URL changes from a baseline URL:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
@@ -84,6 +98,8 @@ with Browser() as browser:
 ```
 
 ### Contains
+Wait until the URL contains a partial string:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
@@ -94,6 +110,8 @@ with Browser() as browser:
 ```
 
 ### Equals
+Wait until the URL equals a specific URL:
+
 ```python title="" linenums="1"
 from browserist import Browser
 
