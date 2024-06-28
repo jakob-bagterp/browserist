@@ -16,3 +16,27 @@ with Browser() as browser:
     browser.open.url("https://example.com")
     browser.wait.for_element("//h1")
 ```
+
+!!! tip
+    You often don't need to use this method, as most other methods already implicitly wait for elements to be ready under the hood. For example, if you want to get the text of a heading, you can simply use:
+    
+    ```python title="" linenums="1"
+    from browserist import Browser
+
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        heading = browser.get.text("//h1")
+        print(heading)
+    ```
+
+    You don't need to specify the wait `browser.wait.for_element("//xpath/to/element")` like this:
+
+    ```python title="" linenums="1"
+    from browserist import Browser
+
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        browser.wait.for_element("//h1")
+        heading = browser.get.text("//h1")
+        print(heading)
+    ```
