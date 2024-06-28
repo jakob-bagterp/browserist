@@ -19,7 +19,7 @@ with Browser() as browser:
 
 !!! tip
     You often don't need to use this method, as most other methods already implicitly wait for elements to be ready under the hood. For example, if you want to get the text of a heading, you can simply use:
-    
+
     ```python title="" linenums="1"
     from browserist import Browser
 
