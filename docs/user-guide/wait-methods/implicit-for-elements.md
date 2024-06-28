@@ -6,7 +6,7 @@ tags:
 # How to Wait for Implicit Time
 Most of Browserist's methods already implicitly wait for certain elements on the page to be ready – so you don't have to worry about it – but sometimes you may want to wait for certain elements to be ready. This is especially useful for single page application elements handled by JavaScript, but also for standard HTML that doesn't load immediately.
 
-## Wait for Items to Be Ready
+## Wait for Item to Be Ready
 ### Element
 #### Appear
 This helper function ensures that DOM elements are ready before processing. The example waits for any H1 heading to be ready:
@@ -56,7 +56,7 @@ with Browser() as browser:
     browser.wait.until.element_disappears("//xpath/to/input")
 ```
 
-### Images
+### Image
 Sometimes `img` images elements are present in the DOM, but the actual images are not yet loaded after first page paint, and so they will be loaded lazily in the background. This example waits until the image(s) on the page have loaded:
 
 ```python title="" linenums="1"
