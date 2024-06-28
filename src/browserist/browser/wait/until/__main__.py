@@ -66,7 +66,7 @@ class WaitUntilDriverMethods(DriverMethods):
             wait_until_element_disappears(self._browser_driver, xpath, timeout)
 
     def images_have_loaded(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until image(s) have loaded on the page.
+        """Wait until the image(s) on the page have loaded.
 
         Args:
             xpath (str): XPath of the element. Can target one or more images.

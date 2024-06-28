@@ -21,7 +21,7 @@ class WaitDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            Useful for single-page app elements handled by JavaScript, but also standard HTML that doesn't load immediately. This helper function ensures that DOM elements are ready before processing. The example waits for any H1 headline to be ready:
+            Useful for single-page application elements handled by JavaScript, but also for standard HTML that doesn't load immediately. This helper function ensures that DOM elements are ready before processing. The example waits for any H1 heading to be ready:
 
             ```python title="" linenums="1"
             from browserist import Browser
@@ -46,8 +46,12 @@ class WaitDriverMethods(DriverMethods):
         Example:
             For example, wait between 3 and 20 seconds:
 
-            ```python title=""
-            browser.wait.random_seconds(3, 20)
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.random_seconds(3, 20)
             ```
         """
 
@@ -63,8 +67,12 @@ class WaitDriverMethods(DriverMethods):
         Example:
             For example, wait for 5 seconds:
 
-            ```python title=""
-            browser.wait.seconds(5)
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.seconds(5)
             ```
         """
 
