@@ -19,7 +19,7 @@ with Browser() as browser:
 
 !!! tip
     You often don't need to use this method, as most other methods already implicitly wait for elements to be ready under the hood. For example, if you want to get the text of a heading, you can simply use:
-    
+
     ```python title="" linenums="1"
     from browserist import Browser
 
@@ -40,3 +40,10 @@ with Browser() as browser:
         heading = browser.get.text("//h1")
         print(heading)
     ```
+
+## Adjust the Timeout
+Most methods have a default timeout of 5 seconds. If the element hasn't been found by then, an error is thrown. You can shorten or lengthen this by passing a timeout value in seconds:
+
+```python title=""
+browser.get.text("//h1", timeout=10)
+```
