@@ -78,6 +78,18 @@ with Browser() as browser:
     browser.wait.until.contains_any_text("//h1")
 ```
 
+### Clickable
+This example is useful for elements that are present in the DOM, yet are not ready to be clicked:
+
+```python title="" linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.wait.until.is_clickable("//xpath/to/button")
+    browser.click.button("//xpath/to/button")
+```
+
 ## Adjust the Timeout
 Most methods have a default timeout of 5 seconds. If the element hasn't been found by then, an error is thrown. You can shorten or lengthen this by passing a timeout value in seconds:
 
