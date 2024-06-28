@@ -3,7 +3,7 @@ tags:
     - Tutorial
 ---
 
-# How to Wait in Absolute Time
+# How to Wait for Explicit Time
 While most wait methods are relative to when specific elements become present on the web page, it's also possible to let the browser sleep for an absolute number of seconds.
 
 ## Seconds

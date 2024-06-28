@@ -49,8 +49,8 @@ nav:
       - Count Elements: user-guide/tools/count-elements.md
       - Input Validation: user-guide/tools/input-validation.md
     - Wait Methods:
-      - Elements: user-guide/wait-methods/elements.md
-      - Seconds: user-guide/wait-methods/seconds.md
+      - Implicit for Elements: user-guide/wait-methods/elements.md
+      - Explicit in Seconds: user-guide/wait-methods/seconds.md
   - XPath:
     - Basics: xpath/basics.md
     - Absolute and Relative: xpath/absolute-and-relative.md
