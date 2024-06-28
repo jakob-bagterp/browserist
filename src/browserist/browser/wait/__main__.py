@@ -46,8 +46,12 @@ class WaitDriverMethods(DriverMethods):
         Example:
             For example, wait between 3 and 20 seconds:
 
-            ```python title=""
-            browser.wait.random_seconds(3, 20)
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.random_seconds(3, 20)
             ```
         """
 
@@ -63,8 +67,12 @@ class WaitDriverMethods(DriverMethods):
         Example:
             For example, wait for 5 seconds:
 
-            ```python title=""
-            browser.wait.seconds(5)
+            ```python title="" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.wait.seconds(5)
             ```
         """
 
