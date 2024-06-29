@@ -10,6 +10,22 @@ This group of methods apply the following conditions to either the page title, t
 * Contains (non exact match)
 * Equals (exact match)
 
+
+!!! tip "Adjust the Timeout"
+    Most methods have a default timeout of 5 seconds. If the element hasn't been found by then, an error is thrown. You can shorten or lengthen this by passing a timeout value in seconds. A few examples:
+
+    ```python title=""
+    browser.wait.until.page_title.changes("baseline text", timeout=10)
+    ```
+
+    ```python title=""
+    browser.wait.until.text.contains("//h1", "example", timeout=8)
+    ```
+
+    ```python title=""
+    browser.wait.until.url.equals("https://example.com/", timeout=20)
+    ```
+
 ## Page Title
 ### Changes
 Wait until the page title changes from a baseline text:
