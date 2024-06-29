@@ -90,13 +90,13 @@ with Browser() as browser:
     browser.click.button("//xpath/to/button")
 ```
 
-## Adjust the Timeout
-Most methods have a default timeout of 5 seconds. If the element hasn't been found by then, an error is thrown. You can shorten or lengthen this by passing a timeout value in seconds. A few examples:
+!!! tip "Adjust the Timeout"
+    Most methods have a default timeout of 5 seconds. If the element hasn't been found by then, an error is thrown. You can shorten or lengthen this by passing a timeout value in seconds. A few examples:
 
-```python title=""
-heading = browser.get.text("//h1", timeout=10)
-```
+    ```python title=""
+    heading = browser.get.text("//h1", timeout=10)
+    ```
 
-```python title=""
-browser.wait.until.contains_any_text("//h1", timeout=8)
-```
+    ```python title=""
+    browser.wait.until.contains_any_text("//h1", timeout=8)
+    ```
