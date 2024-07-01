@@ -2,7 +2,7 @@ coverage==7.5.4
 flake8==7.1.0
 keyring==25.2.1
 lxml==5.2.2
-mypy==1.10.0
+mypy==1.10.1
 pillow==10.3.0
 pre-commit==3.7.1
 pytest==8.2.2
