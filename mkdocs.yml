@@ -30,6 +30,7 @@ nav:
       - Iframes: user-guide/navigation/iframes.md
       - Tabs: user-guide/navigation/tabs.md
       - Windows: user-guide/navigation/windows.md
+      - Window Size: user-guide/navigation/window-size.md
     - Settings:
       - Overview: user-guide/settings/overview.md
       - Browser Types: user-guide/settings/browser-types.md
