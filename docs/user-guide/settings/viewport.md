@@ -7,7 +7,7 @@ tags:
 ---
 
 # Viewport Size
-The viewport is the portion of a web page visible in the browser window. Based on screen size and resolution – from desktop monitors to tablets and mobile phones – the viewport may be smaller than the actual web page and require scrolling to view the entire page.
+The viewport is the inner size of the browser window that displays the web page. If you want to change the outer size, check the [window size section](./../navigation/window-size.md). Based on screen size and resolution – from desktop monitors to tablets and mobile phones – the viewport may be smaller than the actual web page and require scrolling to view the entire page.
 
 ## Emulate Common Devices
 You can set the viewport to emulate common device sizes (e.g. various popular mobile phones or tablets). Example:
