@@ -11,7 +11,13 @@ from .type.path import FilePath
 
 @unique
 class ScreenshotType(Enum):
-    """Class to define screenshot type, e.g. complete page, visible portion, element."""
+    """Class to define screenshot type.
+
+    Attributes:
+        COMPLETE_PAGE: Get screenshot of complete page.
+        ELEMENT: Get screenshot of a specific element.
+        VISIBLE_PORTION: Get screenshot of the visible portion of the page.
+    """
 
     COMPLETE_PAGE = "complete page"
     ELEMENT = "element"
