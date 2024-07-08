@@ -5,9 +5,10 @@ from enum import Enum, unique
 class TabOrWindow(Enum):
     """Selector to open new tab or window.
 
-    TAB: Use for new tab.
-
-    CONTINUE: Use for new window."""
+    Attributes:
+        TAB: Use for new tab.
+        WINDOW: Use for new window.
+    """
 
     TAB = "tab"
     WINDOW = "window"

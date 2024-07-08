@@ -3,15 +3,16 @@ from enum import Enum, unique
 
 @unique
 class IsComboHandled(Enum):
-    """Class to define handling states of combo method."""
+    """Class to define handling states of combo method.
 
-    # Intended as inital value for handling variable:
-    NOT_STARTED = None  # NB: Will be evaluated similar to False when used in conditional if statements.
+    Attributes:
+        NOT_STARTED: Intended as inital value for handling variable.
+        NOT_YET_BUT_SOON: Combo flow in progress and initial checks completed successfully.
+        YES_AND_WITH_SUCCESS: Combo flow completed successfully.
+    """
 
-    # Combo flow in progress and initial checks completed successfully:
+    NOT_STARTED = None  # Will be evaluated similar to False when used in conditional if statements.
     NOT_YET_BUT_SOON = False
-
-    # Combo flow completed successfully:
     YES_AND_WITH_SUCCESS = True
 
 
