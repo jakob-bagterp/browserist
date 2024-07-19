@@ -1,5 +1,6 @@
 from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
+from .height import set_window_height
 from .position import set_window_position
 from .size import set_window_size
 
@@ -7,6 +8,24 @@ from .size import set_window_size
 class WindowSetDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
+
+    def height(self, height: int) -> None:
+        """If possible, restore the window and set the window height.
+
+        Note:
+            Window size is not the same as the [viewport](../../../user-guide/settings/viewport.md) size. The viewport is often smaller than the browser window that needs space for menus and buttons.
+
+        Args:
+            height (int): Height of the window in pixels.
+
+        Example:
+            ```python title=""
+            browser.window.set.height(600)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            set_window_height(self._browser_driver, height)
 
     def position(self, x: int, y: int) -> None:
         """If possible, move the window to the chosen coordinate of the screen.
