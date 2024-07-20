@@ -18,4 +18,6 @@ def test_open_url(url1: str, url2: str, browser_default_headless: Browser) -> No
     get_url1 = helper.url.ensure_trailing_slash(browser.get.url.current())
     browser.open.url(url2)
     get_url2 = helper.url.ensure_trailing_slash(browser.get.url.current())
-    assert get_url1 == url1 and get_url2 == url2 and get_url1 != get_url2
+    assert get_url1 == url1
+    assert get_url2 == url2
+    assert get_url1 != get_url2

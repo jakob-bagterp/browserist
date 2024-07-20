@@ -9,4 +9,5 @@ def test_get_viewport_non_headless(browser_default: Browser) -> None:
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     screen_width, screen_height = browser.viewport.get.size()
     window_width, window_height = browser.window.get.size()
-    assert window_width >= screen_width > 0 and window_height > screen_height > 0
+    assert window_width >= screen_width > 0
+    assert window_height > screen_height > 0

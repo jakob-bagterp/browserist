@@ -18,7 +18,9 @@ def test_open_url_if_not_current(url1: str, url2: str, browser_default_headless:
     get_url1 = helper.url.ensure_trailing_slash(browser.get.url.current())
     browser.open.url_if_not_current(url2)
     get_url2 = helper.url.ensure_trailing_slash(browser.get.url.current())
-    assert get_url1 == url1 and get_url2 == url2 and get_url1 != get_url2
+    assert get_url1 == url1
+    assert get_url2 == url2
+    assert get_url1 != get_url2
 
 
 @pytest.mark.parametrize("url1, url2, ignore_trailing_slash, expected", [

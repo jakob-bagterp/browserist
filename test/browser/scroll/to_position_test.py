@@ -15,4 +15,5 @@ def test_scroll_to_position(x: int, y: int, browser_default_headless: Browser) -
     browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
     browser.scroll.to_position(x, y)
     x_get, y_get = browser.scroll.get.position()
-    assert x_get == x and y_get == y
+    assert x_get == x
+    assert y_get == y
