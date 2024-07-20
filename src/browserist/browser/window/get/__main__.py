@@ -32,8 +32,15 @@ class WindowGetDriverMethods(DriverMethods):
             Coordinates of the top left corner of the browser window on the screen.
 
         Example:
-            ```python title=""
-            x, y = browser.window.get.position()
+            How to move the window relatively by getting the current position of the window and move it by 10 pixels in both axes, if possible:
+
+            ```python linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                x, y = browser.window.get.position()
+                browser.window.set.position(x - 10, y - 10)
+                browser.open.url("https://example.com")
             ```
         """
 

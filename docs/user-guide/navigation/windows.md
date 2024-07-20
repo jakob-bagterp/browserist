@@ -8,8 +8,7 @@ tags:
 # Working with Windows
 When you want to open multiple web pages in separate browser windows, Browserist makes it easy to organize and automate your workflow.
 
-## Examples
-### Basic Usage
+## Basic Usage
 Let's imagine you want to open a web page first and then open another page in a new window, a basic example would look like this:
 
 ```python linenums="1"
@@ -20,6 +19,7 @@ with Browser() as browser:
     browser.window.open.new_window("https://google.com")
 ```
 
+## Multiple
 ### Opening Multiple Windows
 Normally, browsers allow you to open a new window by pressing `Ctrl` + `N` in Windows or `Cmd` + `N` on a Mac. With Browserist you can automate this, for example based on a list of URLs. This example will open each URL in a new window:
 
@@ -91,6 +91,7 @@ with Browser() as browser:
     browser.window.switch_to(base_handle_id)
 ```
 
+## Example
 ### Get List of URLs from Open Windows
 Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. Here is an example of how to capture all the links from a web page and open them in new windows:
 
@@ -108,4 +109,30 @@ with Browser() as browser:
         results.append(current_url)
 
 print(results)
+```
+
+## Position
+You can also control the position of the browser window on the screen. This can be useful when you want to automate the placement of windows on your screen.
+
+### Absolute
+How to move the window to the chosen coordinate of the screen, if possible:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.window.set.position(100, 100)
+    browser.open.url("https://example.com")
+```
+
+### Relative
+Get the current position of the window and move it by 10 pixels in both axes, if possible:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    x, y = browser.window.get.position()
+    browser.window.set.position(x - 10, y - 10)
+    browser.open.url("https://example.com")
 ```

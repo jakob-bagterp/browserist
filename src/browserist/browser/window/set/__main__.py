@@ -36,8 +36,14 @@ class WindowSetDriverMethods(DriverMethods):
             y (int): In pixels. Absolute Y coordinate of the screen on the vertical axis.
 
         Example:
-            ```python title=""
-            browser.window.set.position(100, 100)
+            How to set the absolute position of the window to 100 pixels from the left and 100 pixels from the top of the screen, if possible:
+
+            ```python linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.window.set.position(100, 100)
+                browser.open.url("https://example.com")
             ```
         """
 
