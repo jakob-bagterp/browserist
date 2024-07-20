@@ -9,6 +9,8 @@ The window size defines the outer size of the browser window. If you want to cha
 
 ## General Window Sizes
 ### Full Screen
+How to fill the entire screen. Similar to pressing F11 in most browsers:
+
 ```python linenums="1"
 from browserist import Browser
 
@@ -18,7 +20,7 @@ with Browser() as browser:
 ```
 
 ### Maximized
-How to enlarge the browser window to the maximum allowed size.
+How to enlarge the browser window to the maximum allowed size:
 
 ```python linenums="1"
 from browserist import Browser
@@ -32,6 +34,8 @@ with Browser() as browser:
     For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars. Obviously, the size of the browser window also depends on the device and its screen resolution.
 
 ### Minimized
+Minimizing the window typically hides the window in the system tray, though the exact behavior may vary depending on the operating system:
+
 ```python linenums="1"
 from browserist import Browser
 

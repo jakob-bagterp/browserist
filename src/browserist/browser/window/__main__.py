@@ -71,7 +71,7 @@ class WindowDriverMethods(DriverMethods):
         """Minimizes the window of the current browsing context.
 
         Note:
-            The exact behavior of this command is specific to individual window managers. Minimize Window typically hides the window in the system tray.
+            The exact behavior of this command is specific to operating systems. Minimizing the window typically hides the window in the system tray.
 
         Example:
             ```python title=""
