@@ -110,3 +110,29 @@ with Browser() as browser:
 
 print(results)
 ```
+
+## Position
+You can also control the position of the browser window on the screen. This can be useful when you want to automate the placement of windows on your screen.
+
+### Absolute
+How to move the window to the chosen coordinate of the screen, if possible:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.window.set.position(100, 100)
+    browser.open.url("https://example.com")
+```
+
+### Relative
+Get the current position of the window and move it by 10 pixels in both axes, if possible:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    x, y = browser.window.get.position()
+    browser.window.set.position(x - 10, y - 10)
+    browser.open.url("https://example.com")
+```
