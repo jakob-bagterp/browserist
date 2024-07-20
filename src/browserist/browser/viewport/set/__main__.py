@@ -4,6 +4,7 @@ from ....model.viewport.device import DeviceViewportSize
 from .height import set_viewport_height
 from .size import set_viewport_size
 from .size_by_device import set_viewport_size_by_device
+from .width import set_viewport_width
 
 
 class ViewportSetDriverMethods(DriverMethods):
@@ -68,3 +69,21 @@ class ViewportSetDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return set_viewport_size_by_device(self._browser_driver, device)
+
+    def width(self, width: int) -> None:
+        """Attempt to set custom viewport width in pixels.
+
+        Note:
+            It's recommended to run emulations in headless mode since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
+
+        Args:
+            width (int): Viewport width in pixels.
+
+        Example:
+            ```python title=""
+            browser.viewport.set.width(1920)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            return set_viewport_width(self._browser_driver, width)
