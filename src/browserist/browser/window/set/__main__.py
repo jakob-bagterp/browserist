@@ -14,7 +14,7 @@ class WindowSetDriverMethods(DriverMethods):
         """If possible, restore the window and set the window height.
 
         Note:
-            Window size is not the same as the [viewport](../../../user-guide/settings/viewport.md) size. The viewport is often smaller than the browser window that needs space for menus and buttons.
+            Window size is not the same as the [viewport size](../../../user-guide/settings/viewport.md). The viewport is often smaller than the browser window that needs space for menus and buttons.
 
         Args:
             height (int): Height of the window in pixels.
@@ -48,7 +48,7 @@ class WindowSetDriverMethods(DriverMethods):
         """If possible, restore the window and set the window size.
 
         Note:
-            Window size is not the same as the [viewport](../../../user-guide/settings/viewport.md) size. The viewport is often smaller than the browser window that needs space for menus and buttons.
+            Window size is not the same as the [viewport size](../../../user-guide/settings/viewport.md). The viewport is often smaller than the browser window that needs space for menus and buttons.
 
         Args:
             width (int): Width of the window in pixels.
@@ -67,7 +67,7 @@ class WindowSetDriverMethods(DriverMethods):
         """If possible, restore the window and set the window width.
 
         Note:
-            Window size is not the same as the [viewport](../../../user-guide/settings/viewport.md) size. The viewport is often smaller than the browser window that needs space for menus and buttons.
+            Window size is not the same as the [viewport size](../../../user-guide/settings/viewport.md). The viewport is often smaller than the browser window that needs space for menus and buttons.
 
         Args:
             width (int): Width of the window in pixels.
