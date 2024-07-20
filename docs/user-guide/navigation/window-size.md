@@ -52,7 +52,7 @@ You can resize the browser window to a specific size, either vertically, horizon
     The size of the browser window is limited by several factors, including the operating system, the screen resolution of the monitor, and the different minimum sizes of different browser types. The resizing methods can therefore only attempt to set a specific size where possible.
 
 #### Size
-How to set the browser window to a specific size if possible:
+How to set the browser window to a specific size, if possible:
 
 ```python linenums="1"
 from browserist import Browser
@@ -63,7 +63,7 @@ with Browser() as browser:
 ```
 
 #### Width
-Similarly, only set the width to a specific size if possible:
+Similarly, only set the width to a specific size, if possible:
 
 ```python linenums="1"
 from browserist import Browser
@@ -74,7 +74,7 @@ with Browser() as browser:
 ```
 
 #### Height
-Similarly, only set the height to a specific size if possible:
+Similarly, only set the height to a specific size, if possible:
 
 ```python linenums="1"
 from browserist import Browser
@@ -88,7 +88,7 @@ with Browser() as browser:
 You can get the size of the browser window vertically, horizontally or both at the same time.
 
 #### Size
-For example, how to get the current window size and decrease it by 10 pixels both in width and height if possible:
+For example, how to get the current window size and decrease it by 10 pixels both in width and height, if possible:
 
 ```python linenums="1"
 from browserist import Browser
@@ -100,7 +100,7 @@ with Browser() as browser:
 ```
 
 #### Width
-Similarly, only decrease the width by 10 pixels if possible:
+Similarly, only decrease the width by 10 pixels, if possible:
 
 ```python linenums="1"
 from browserist import Browser
@@ -112,7 +112,7 @@ with Browser() as browser:
 ```
 
 #### Height
-Similarly, only decrease the height by 10 pixels if possible:
+Similarly, only decrease the height by 10 pixels, if possible:
 
 ```python linenums="1"
 from browserist import Browser
