@@ -14,4 +14,5 @@ def test_window_get_size(width: int, height: int, browser_default: Browser) -> N
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.window.set.size(width, height)
     get_width, get_height = browser.window.get.size()
-    assert width == get_width and height <= get_height
+    assert width == get_width
+    assert height <= get_height

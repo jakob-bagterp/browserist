@@ -26,7 +26,8 @@ def test_scroll_into_view(xpath: str, browser_default_headless: Browser) -> None
     x_default, y_default = browser.scroll.get.position()
     browser.scroll.into_view(xpath, timeout.VERY_SHORT)
     x_scrolled, y_scrolled = browser.scroll.get.position()
-    assert x_default == x_scrolled == 0 and y_default < y_scrolled
+    assert x_default == x_scrolled == 0
+    assert y_default < y_scrolled
 
 
 @pytest.mark.parametrize("xpath, expectation", [

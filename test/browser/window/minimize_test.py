@@ -13,4 +13,5 @@ def test_window_minimize(browser_default: Browser) -> None:
     default_width, default_height = browser.window.get.size()
     browser.window.minimize()
     minimized_width, minimized_height = browser.window.get.size()
-    assert default_width == minimized_width and default_height == minimized_height
+    assert default_width == minimized_width
+    assert default_height == minimized_height

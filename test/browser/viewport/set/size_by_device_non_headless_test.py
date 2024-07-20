@@ -15,4 +15,5 @@ def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_def
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.viewport.set.size_by_device(device)
     width_check, height_check = browser.viewport.get.size()
-    assert device.width == width_check and device.height == height_check
+    assert device.width == width_check
+    assert device.height == height_check

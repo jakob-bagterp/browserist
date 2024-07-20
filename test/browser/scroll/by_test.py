@@ -16,4 +16,5 @@ def test_scroll_by(x: int, y: int, browser_default_headless_scope_function: Brow
     browser.scroll.page.to_top()
     browser.scroll.by(x, y)
     x_get, y_get = browser.scroll.get.position()
-    assert x_get == x and y_get == y
+    assert x_get == x
+    assert y_get == y

@@ -15,4 +15,5 @@ def test_window_set_position(x1: int, y1: int, x2: int, y2: int, browser_default
     browser.window.set.position(x1, y1)
     browser.window.set.position(x2, y2)
     get_x, get_y = browser.window.get.position()
-    assert get_x == x2 != x1 and get_y == y2 != y1
+    assert get_x == x2 != x1
+    assert get_y == y2 != y1
