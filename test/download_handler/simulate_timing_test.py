@@ -51,7 +51,8 @@ class DownloadHandlerThread(Thread):
     def run(self) -> None:
         download_handler = get_download_handler(self.browser, self.download_dir_entries_before_download, self.uses_temporary_file)
         assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
-        assert download_handler._final_file is not None and download_handler._final_file.name == FINAL_FILE_NAME
+        assert download_handler._final_file is not None
+        assert download_handler._final_file.name == FINAL_FILE_NAME
         if download_handler._temporary_file is not None:
             assert download_handler._temporary_file.name == TEMPORARY_FILE_NAME
 

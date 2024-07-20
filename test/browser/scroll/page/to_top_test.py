@@ -11,4 +11,5 @@ def test_scroll_to_top_of_page(browser_default_headless: Browser) -> None:
     x_end, y_end = browser.scroll.get.position()
     browser.scroll.page.to_top()
     x_top, y_top = browser.scroll.get.position()
-    assert x_top == x_end == 0 and y_top < y_end
+    assert x_top == x_end == 0
+    assert y_top < y_end

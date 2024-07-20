@@ -15,4 +15,5 @@ def test_get_dimensions(url: str, xpath: str, expected_width: int, expected_heig
     browser = reset_to_not_timed_out(browser_default_headless_fixed_viewport)
     browser.open.url(url)
     measured_width, measured_height = browser.get.dimensions(xpath)
-    assert expected_width == measured_width and expected_height == measured_height
+    assert expected_width == measured_width
+    assert expected_height == measured_height

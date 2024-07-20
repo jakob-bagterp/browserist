@@ -14,4 +14,5 @@ def test_set_viewport_on_init(viewport: DeviceViewportSize | tuple[int, int] | N
     with Browser(settings) as browser:
         browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
         screen_width, screen_height = browser.viewport.get.size()
-        assert screen_width == expected_width and screen_height == expected_height
+        assert screen_width == expected_width
+        assert screen_height == expected_height

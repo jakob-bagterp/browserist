@@ -14,4 +14,5 @@ def test_set_viewport_non_headless(width: int, height: int, browser_default: Bro
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.viewport.set.size(width, height)
     width_check, height_check = browser.viewport.get.size()
-    assert width == width_check and height == height_check
+    assert width == width_check
+    assert height == height_check

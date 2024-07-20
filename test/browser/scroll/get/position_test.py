@@ -11,4 +11,6 @@ def test_get_scroll_position(browser_default_headless_scope_function: Browser) -
     x_default, y_default = browser.scroll.get.position()
     browser.scroll.page.to_end()
     _, y_end = browser.scroll.get.position()
-    assert x_default == 0 and y_default == 0 and y_default < y_end
+    assert x_default == 0
+    assert y_default == 0
+    assert y_default < y_end
