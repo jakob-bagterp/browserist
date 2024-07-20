@@ -7,6 +7,39 @@ tags:
 # How to Adjust Window Size
 The window size defines the outer size of the browser window. If you want to change the inner size, check the [viewport section](./../settings/viewport.md).
 
+## General Window Sizes
+### Full Screen
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.window.fullscreen()
+    browser.open.url("https://example.com")
+```
+
+### Maximized
+How to enlarge the browser window to the maximum allowed size.
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.window.maximize()
+    browser.open.url("https://example.com")
+```
+
+!!! info
+    For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars. Obviously, the size of the browser window also depends on the device and its screen resolution.
+
+### Minimized
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.window.minimize()
+```
+
 ## Specific Window Size
 ### Set
 You can resize the browser window to a specific size, either vertically, horizontally, or both at the same time.
@@ -84,37 +117,4 @@ with Browser() as browser:
     height = browser.window.get.height()
     browser.window.set.height(height - 10)
     browser.open.url("https://example.com")
-```
-
-## General Window Sizes
-### Full Screen
-```python linenums="1"
-from browserist import Browser
-
-with Browser() as browser:
-    browser.window.fullscreen()
-    browser.open.url("https://example.com")
-```
-
-### Maximized
-How to enlarge the browser window to the maximum allowed size.
-
-```python linenums="1"
-from browserist import Browser
-
-with Browser() as browser:
-    browser.window.maximize()
-    browser.open.url("https://example.com")
-```
-
-!!! info
-    For most operating systems, the window will fill the screen, without blocking the operating system's own menus and toolbars. Obviously, the size of the browser window also depends on the device and its screen resolution.
-
-### Minimized
-```python linenums="1"
-from browserist import Browser
-
-with Browser() as browser:
-    browser.open.url("https://example.com")
-    browser.window.minimize()
 ```
