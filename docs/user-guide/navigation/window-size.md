@@ -20,14 +20,14 @@ with Browser() as browser:
 ```
 
 ### Get
-How to, for example, get the current window size and decrease the width by 10 pixels:
+How to, for example, get the current window width and decrease it by 10 pixels:
 
 ```python linenums="1"
 from browserist import Browser
 
 with Browser() as browser:
-    width, height = browser.window.get.size()
-    browser.window.set.size(width - 10, height)
+    width = browser.window.get.width()
+    browser.window.set.width(width - 10)
     browser.open.url("https://example.com")
 ```
 
