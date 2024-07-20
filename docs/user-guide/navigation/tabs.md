@@ -8,8 +8,7 @@ tags:
 # Working with Tabs
 Tabs are a convenient way to organize and navigate multiple web pages within a single browser window. With Browserist, you can easily automate the process of opening and managing tabs.
 
-## Examples
-### Basic Usage
+## Basic Usage
 Let's imagine you want to open a web page first and then open another page in a new tab, a basic example would look like this:
 
 ```python linenums="1"
@@ -20,6 +19,7 @@ with Browser() as browser:
     browser.window.open.new_tab("https://google.com")
 ```
 
+## Multiple
 ### Opening Multiple Tabs
 Normally, browsers allow you to open a new tab by pressing `Ctrl` + `T` in Windows, `Cmd` + `T` on a Mac, or by clicking a button in your browser. With Browserist you can automate this, for example based on a list of URLs. This example will open each URL in a new tab:
 
@@ -91,6 +91,7 @@ with Browser() as browser:
     browser.window.switch_to(base_handle_id)
 ```
 
+## Example
 ### Get List of URLs from Open Tabs
 Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. Here is an example of how to capture all the links from a web page and open them in new tabs:
 
