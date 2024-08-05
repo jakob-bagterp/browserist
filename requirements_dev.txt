@@ -1,5 +1,5 @@
 coverage==7.6.0
-flake8==7.1.0
+flake8==7.1.1
 keyring==25.2.1
 lxml==5.2.2
 mypy==1.11.0
