@@ -1,6 +1,6 @@
 coverage==7.6.1
 flake8==7.1.1
-keyring==25.2.1
+keyring==25.3.0
 lxml==5.2.2
 mypy==1.11.1
 pillow==10.4.0
