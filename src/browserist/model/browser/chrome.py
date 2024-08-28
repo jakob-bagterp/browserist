@@ -27,6 +27,9 @@ class ChromeBrowserDriver(BrowserDriver):
     def set_page_load_strategy(self) -> None:
         self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)  # type: ignore
 
+    def disable_default_search_engine_prompt(self) -> None:
+        self = factory.chromium.disable_default_search_engine_prompt(self)  # type: ignore
+
     def set_service(self) -> ChromeService:
         if self.settings._path_to_executable is None:
             return ChromeService()
