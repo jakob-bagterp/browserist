@@ -33,3 +33,14 @@ def set_download_directory(browser_driver: BrowserDriver) -> BrowserDriver:
             case _:
                 pass
     return browser_driver
+
+
+def disable_default_search_engine_prompt(browser_driver: BrowserDriver) -> BrowserDriver:
+    match browser_driver.settings.type:
+        case BrowserType.CHROME:
+            browser_driver.chrome_options.add_argument("--disable-search-engine-choice-screen")
+        case BrowserType.EDGE:
+            pass
+        case _:
+            pass
+    return browser_driver

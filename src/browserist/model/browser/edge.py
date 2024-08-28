@@ -36,6 +36,9 @@ class EdgeBrowserDriver(BrowserDriver):
     def set_page_load_strategy(self) -> None:
         self.edge_options = factory.set.page_load_strategy(self, self.edge_options)  # type: ignore
 
+    def disable_default_search_engine_prompt(self) -> None:
+        pass
+
     def set_service(self) -> EdgeService:
         if self.settings._path_to_executable is None:
             return EdgeService()

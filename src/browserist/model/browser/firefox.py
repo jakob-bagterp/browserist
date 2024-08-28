@@ -34,6 +34,9 @@ class FirefoxBrowserDriver(BrowserDriver):
     def set_page_load_strategy(self) -> None:
         self.firefox_options = factory.set.page_load_strategy(self, self.firefox_options)  # type: ignore
 
+    def disable_default_search_engine_prompt(self) -> None:
+        pass
+
     def set_service(self) -> FirefoxService:
         if self.settings._path_to_executable is None:
             return FirefoxService()

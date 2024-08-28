@@ -28,6 +28,9 @@ class InternetExplorerBrowserDriver(BrowserDriver):
     def set_page_load_strategy(self) -> None:
         self.ie_options = factory.set.page_load_strategy(self, self.ie_options)  # type: ignore
 
+    def disable_default_search_engine_prompt(self) -> None:
+        pass
+
     def set_service(self) -> IEService:
         if self.settings._path_to_executable is None:
             return IEService()

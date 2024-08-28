@@ -72,6 +72,7 @@ class BrowserDriver(ABC):
         self.enable_headless()
         self.set_download_directory()
         self.set_page_load_strategy()
+        self.disable_default_search_engine_prompt()
 
     @abstractmethod
     def disable_images(self) -> None:
@@ -94,6 +95,12 @@ class BrowserDriver(ABC):
     @abstractmethod
     def set_page_load_strategy(self) -> None:
         """Method to set the page load strategy to define whether the web driver should wait until all assets are downloaded (slower) or not (faster)."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @abstractmethod
+    def disable_default_search_engine_prompt(self) -> None:
+        """Method to disable the default search engine prompt."""
 
         raise NotImplementedError  # pragma: no cover
 
