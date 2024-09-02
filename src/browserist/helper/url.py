@@ -1,3 +1,4 @@
+import re
 from urllib.parse import urlparse
 
 from ..model.type.url import URL
@@ -52,3 +53,23 @@ def remove_parameters(url: str) -> str:
 
 def get_domain_from_url(url: str) -> str:
     return (urlparse(url).netloc)
+
+
+HTTP_OR_HTTPS_REGEX = "https?:"
+
+
+def compile_comparison_to_regex(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
+    if ignore_parameters:
+        url = remove_parameters(url)
+
+    if ignore_trailing_slash:
+        if url.endswith("/"):
+            url += f"{url}?"  # Makes trailing slash optional, e.g.: "some/page/?"
+
+    if ignore_https:
+        if url.startswith(HTTP):
+            url.replace(HTTP, HTTP_OR_HTTPS_REGEX)
+        if url.startswith(HTTPS):
+            url.replace(HTTPS, HTTP_OR_HTTPS_REGEX)
+
+    return re.compile(url, re.IGNORECASE)

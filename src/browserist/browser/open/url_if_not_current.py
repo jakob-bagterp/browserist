@@ -10,15 +10,9 @@ def open_url_if_not_current(browser_driver: BrowserDriver,
                             ignore_trailing_slash: bool = True,
                             ignore_parameters: bool = False,
                             ignore_https: bool = False) -> None:
+
     url = URL(url)
     current_url = get_current_url(browser_driver)
-    if ignore_https:
-        current_url, url = helper.url.mediate_https(current_url, url)
-    if ignore_parameters:
-        current_url = helper.url.remove_parameters(current_url)
-        url = helper.url.remove_parameters(url)
-    if ignore_trailing_slash:
-        current_url = helper.url.ensure_trailing_slash(current_url)
-        url = helper.url.ensure_trailing_slash(url)
-    if current_url != url:
+    url_comparison_regex = helper.url.compile_comparison_to_regex(url, ignore_trailing_slash, ignore_parameters, ignore_https)
+    if not url_comparison_regex.match(current_url):
         open_url(browser_driver, url)
