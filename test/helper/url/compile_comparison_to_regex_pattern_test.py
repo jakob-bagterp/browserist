@@ -16,8 +16,8 @@ IGNORE_HTTPS_DEFAULT = False
 ])
 def test_helper_url_compile_comparison_to_regex_pattern_default(url: str, url_comparison: str, expected: bool) -> None:
     url = URL(url)
-    url_comparison_pattern = helper.url.compile_comparison_to_regex_pattern(url, IGNORE_TRAILING_SLASH_DEFAULT, IGNORE_PARAMETERS_DEFAULT, IGNORE_HTTPS_DEFAULT)
-    assert bool(url_comparison_pattern.match(url_comparison)) is expected
+    url_pattern = helper.url.compile_comparison_to_regex_pattern(url, IGNORE_TRAILING_SLASH_DEFAULT, IGNORE_PARAMETERS_DEFAULT, IGNORE_HTTPS_DEFAULT)
+    assert bool(url_pattern.match(url_comparison)) is expected
 
 
 @pytest.mark.parametrize("url, url_comparison, ignore_https, expected", [
@@ -30,5 +30,5 @@ def test_helper_url_compile_comparison_to_regex_pattern_default(url: str, url_co
 ])
 def test_helper_url_compile_comparison_to_regex_pattern_ignore_https(url: str, url_comparison: str, ignore_https: bool, expected: bool) -> None:
     url = URL(url)
-    url_comparison_pattern = helper.url.compile_comparison_to_regex_pattern(url, IGNORE_TRAILING_SLASH_DEFAULT, IGNORE_PARAMETERS_DEFAULT, ignore_https)
-    assert bool(url_comparison_pattern.match(url_comparison)) is expected
+    url_pattern = helper.url.compile_comparison_to_regex_pattern(url, IGNORE_TRAILING_SLASH_DEFAULT, IGNORE_PARAMETERS_DEFAULT, ignore_https)
+    assert bool(url_pattern.match(url_comparison)) is expected
