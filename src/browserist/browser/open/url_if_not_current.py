@@ -13,6 +13,6 @@ def open_url_if_not_current(browser_driver: BrowserDriver,
 
     url = URL(url)
     current_url = get_current_url(browser_driver)
-    url_comparison_regex = helper.url.compile_comparison_to_regex(url, ignore_trailing_slash, ignore_parameters, ignore_https)
+    url_comparison_regex = helper.url.compile_comparison_to_regex_pattern(url, ignore_trailing_slash, ignore_parameters, ignore_https)
     if not url_comparison_regex.match(current_url):
         open_url(browser_driver, url)

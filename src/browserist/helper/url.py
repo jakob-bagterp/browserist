@@ -58,7 +58,7 @@ def get_domain_from_url(url: str) -> str:
 HTTP_OR_HTTPS_REGEX = "https?:"
 
 
-def compile_comparison_to_regex(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
+def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
     if ignore_parameters:
         url = remove_parameters(url)
 
