@@ -5,8 +5,8 @@ from browserist import Browser
 
 
 @pytest.mark.parametrize("url, expected_url", [
-    ("http://example.com/", "http://example.com/"),
-    ("http://example.com", "http://example.com/"),
+    ("https://example.com/", "https://example.com/"),
+    ("https://example.com", "https://example.com/"),
 ])
 def test_get_current_url(url: str, expected_url: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
