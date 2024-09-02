@@ -74,4 +74,4 @@ def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: b
         elif url.startswith(HTTPS):
             url = url.replace(HTTPS, HTTP_OR_HTTPS_REGEX, 1)
 
-    return re.compile(url, re.IGNORECASE)
+    return re.compile(f"^{url}$", re.IGNORECASE)
