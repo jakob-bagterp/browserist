@@ -2,6 +2,9 @@ from urllib.parse import urlparse
 
 from ..model.type.url import URL
 
+HTTP = "http:"
+HTTPS = "https:"
+
 
 def ensure_trailing_slash(url: str) -> str:
     """When comparing URLs, e.g. "https://example.com" and "https://example.com/", use this method to normalise the comparison."""
@@ -12,7 +15,7 @@ def ensure_trailing_slash(url: str) -> str:
 
 
 def is_https(url: str) -> bool:
-    return url.startswith("https:")
+    return url.startswith(HTTPS)
 
 
 def is_valid(url: str) -> bool:
@@ -37,9 +40,9 @@ def mediate_https(url1: str, url2: str) -> tuple[str, str]:
     if (is_https(url1) and is_https(url2)) or (not is_https(url1) and not is_https(url2)):
         return url1, url2
     elif not is_https(url1):
-        url1 = url1.replace("http:", "https:")
+        url1 = url1.replace(HTTP, HTTPS)
     elif not is_https(url2):
-        url2 = url2.replace("http:", "https:")
+        url2 = url2.replace(HTTP, HTTPS)
     return url1, url2
 
 
