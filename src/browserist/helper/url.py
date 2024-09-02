@@ -64,12 +64,12 @@ def compile_comparison_to_regex(url: str | URL, ignore_trailing_slash: bool, ign
 
     if ignore_trailing_slash:
         if url.endswith("/"):
-            url += f"{url}?"  # Makes trailing slash optional, e.g.: "some/page/?"
+            url = f"{url}?"  # Makes trailing slash optional, e.g.: "some/page/?"
 
     if ignore_https:
         if url.startswith(HTTP):
-            url.replace(HTTP, HTTP_OR_HTTPS_REGEX)
-        if url.startswith(HTTPS):
-            url.replace(HTTPS, HTTP_OR_HTTPS_REGEX)
+            url = url.replace(HTTP, HTTP_OR_HTTPS_REGEX, 1)
+        elif url.startswith(HTTPS):
+            url = url.replace(HTTPS, HTTP_OR_HTTPS_REGEX, 1)
 
     return re.compile(url, re.IGNORECASE)
