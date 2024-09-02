@@ -65,7 +65,7 @@ def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: b
     if ignore_trailing_slash:  # Makes trailing slash optional, e.g.: "some/page/?"
         if url.endswith("/"):
             url += "?"
-        else:
+        elif "?" not in url:
             url += "/?"
 
     if ignore_https:
