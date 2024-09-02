@@ -71,6 +71,8 @@ def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: b
             url += "?"
         elif not has_parameters:
             url += "/?"
+        elif has_parameters:
+            url = url.replace(r"/\?", r"/?\?").replace(r"\?", r"/?\?")
 
     if ignore_https:
         if url.startswith(HTTP):

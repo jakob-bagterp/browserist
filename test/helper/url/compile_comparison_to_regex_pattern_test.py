@@ -25,7 +25,7 @@ def test_helper_url_compile_comparison_to_regex_pattern_default(url: str, url_co
     ("https://example.com/", "https://example.com/", False, True),
     ("https://example.com?page=1", "https://example.com?page=1", True, True),
     ("https://example.com?page=1", "https://example.com?page=1", False, True),
-    ("https://example.com?page=1", "https://example.com/?page=1", True, False),
+    ("https://example.com?page=1", "https://example.com/?page=1", True, True),
     ("https://example.com?page=1", "https://example.com/?page=1", False, False),
 ])
 def test_helper_url_compile_comparison_to_regex_pattern_ignore_trailing_slash(url: str, url_comparison: str, ignore_trailing_slash: bool, expected: bool) -> None:
