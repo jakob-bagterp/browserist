@@ -38,19 +38,23 @@ def test_open_url_if_not_current_ignore_trailing_slash(url1: str, url2: str, ign
     assert (get_url1 == get_url2) is expected
 
 
-@pytest.mark.parametrize("url1, url2, ignore_parameters, expected", [
-    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, True, True),
-    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, False, True),
-    (internal_url.MINI_SITE_HOMEPAGE, f"{internal_url.MINI_SITE_HOMEPAGE}?foo=bar", True, True),
-    (internal_url.MINI_SITE_HOMEPAGE, f"{internal_url.MINI_SITE_HOMEPAGE}?foo=bar", False, False),
+MINI_SITE_HOMEPAGE_WITH_PARAMETERS = f"{internal_url.MINI_SITE_HOMEPAGE}?foo=bar"
+
+
+@pytest.mark.parametrize("url1, url2, ignore_parameters, expected_url", [
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, True, internal_url.MINI_SITE_HOMEPAGE),
+    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE, False, internal_url.MINI_SITE_HOMEPAGE),
+    (internal_url.MINI_SITE_HOMEPAGE, MINI_SITE_HOMEPAGE_WITH_PARAMETERS, True, internal_url.MINI_SITE_HOMEPAGE),
+    (internal_url.MINI_SITE_HOMEPAGE, MINI_SITE_HOMEPAGE_WITH_PARAMETERS, False, MINI_SITE_HOMEPAGE_WITH_PARAMETERS),
 ])
-def test_open_url_if_not_current_ignore_parameters(url1: str, url2: str, ignore_parameters: bool, expected: bool, browser_default_headless: Browser) -> None:
+def test_open_url_if_not_current_ignore_parameters(url1: str, url2: str, ignore_parameters: bool, expected_url: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url_if_not_current(url1)
+    browser.open.url(url1)
     get_url1 = browser.get.url.current()
+    assert get_url1 == url1
     browser.open.url_if_not_current(url2, ignore_parameters=ignore_parameters)
     get_url2 = browser.get.url.current()
-    assert (get_url1 == get_url2) is expected
+    assert get_url2 == expected_url
 
 
 URL_WITHOUT_HTTPS = "http://httpbin.org/"
