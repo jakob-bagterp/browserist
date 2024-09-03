@@ -81,20 +81,17 @@ HTTP_OR_HTTPS_REGEX_PATTERN = "https?:"
 
 
 def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
-    url_has_parameters = has_parameters(url)
+    def escape_question_mark(parameters: str) -> str:
+        return parameters.replace("?", r"\?")
 
-    if ignore_parameters:
-        url = remove_parameters(url)
-    elif url_has_parameters:
-        url = url.replace("?", r"\?")  # Ensure that ? is escaped and treated as a special character in the URL.
+    url_has_parameters = has_parameters(url)
+    url, parameters = split_url_and_parameters(url)
 
     if ignore_trailing_slash:  # Makes trailing slash optional, e.g.: "some/page/?"
         if url.endswith("/"):
             url += "?"
-        elif not url_has_parameters:
+        else:
             url += "/?"
-        elif url_has_parameters:
-            url = url.replace(r"/\?", r"/?\?").replace(r"\?", r"/?\?")
 
     if ignore_https:
         if url.startswith(HTTP):
@@ -102,7 +99,8 @@ def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: b
         elif url.startswith(HTTPS):
             url = url.replace(HTTPS, HTTP_OR_HTTPS_REGEX_PATTERN, 1)
 
-    if url_has_parameters:
-        return re.compile(f"^{url}$", re.IGNORECASE)
+    if url_has_parameters and not ignore_parameters:
+        parameters = escape_question_mark(parameters)
+        return re.compile(f"^{url}{parameters}$", re.IGNORECASE)
     else:
         return re.compile(f"^{url}", re.IGNORECASE)
