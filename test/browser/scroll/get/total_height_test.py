@@ -5,8 +5,6 @@ from _mock_data.url import internal_url
 
 from browserist import Browser
 
-MARGIN = _helper.tolerance.convert_percent_to_float(50)
-
 
 @pytest.mark.parametrize("url, expected_total_scroll_height", [
     (internal_url.NOT_SCROLLABLE, 600),
@@ -17,6 +15,6 @@ def test_get_total_scroll_height(url: str, expected_total_scroll_height: int, br
     browser.open.url(url)
     total_scroll_height = browser.scroll.get.total_height()
     # Various browsers may calculate the height differently, e.g. due to differient default widths, so we add a safety margin:
-    minimum_height = expected_total_scroll_height - (expected_total_scroll_height * MARGIN)
-    maximum_height = expected_total_scroll_height + (expected_total_scroll_height * MARGIN)
+    minimum_height = _helper.tolerance.deduct(expected_total_scroll_height, 50)
+    maximum_height = _helper.tolerance.add(expected_total_scroll_height, 50)
     assert minimum_height < total_scroll_height < maximum_height
