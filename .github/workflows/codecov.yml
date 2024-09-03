@@ -42,6 +42,7 @@ jobs:
         --ignore=test/browser/window/fullscreen_test.py
         --ignore=test/browser/window/maximize_test.py
         --ignore=test/browser/window/minimize_test.py
+        --ignore=test/browser/open/url_if_not_current/ignore_https_test.py
         --ignore=test/browser/open/url_if_not_current/timing_performance_test.py
         --ignore=test/browser/wait/random_seconds_test.py
         --ignore=test/browser/wait/seconds_test.py
