@@ -52,6 +52,8 @@ def remove_parameters(url: str | URL) -> str:
 
 
 def has_parameters(url: str | URL) -> bool:
+    """If a URL contains one or more parameters, e.g. `https://example.com/search?page=1`."""
+
     return True if "?" in url else False
 
 
@@ -79,7 +81,7 @@ HTTP_OR_HTTPS_REGEX = "https?:"
 
 
 def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
-    url_has_parameters = has_parameters(url)  # If the URL contains one or more parameters, e.g. "https://example.com/search?page=1".
+    url_has_parameters = has_parameters(url)
 
     if ignore_parameters:
         url = remove_parameters(url)
