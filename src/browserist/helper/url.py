@@ -7,7 +7,7 @@ HTTP = "http:"
 HTTPS = "https:"
 
 
-def ensure_trailing_slash(url: str) -> str:
+def ensure_trailing_slash(url: str | URL) -> str:
     """When comparing URLs, e.g. "https://example.com" and "https://example.com/", use this method to normalise the comparison."""
 
     if "?" in url:  # If the URL contains a parameter (e.g. "https://example.com/search?page=1"), ignore trailing slash.
@@ -15,11 +15,11 @@ def ensure_trailing_slash(url: str) -> str:
     return url if url[-1] == "/" else f"{url}/"
 
 
-def is_https(url: str) -> bool:
+def is_https(url: str | URL) -> bool:
     return url.startswith(HTTPS)
 
 
-def is_valid(url: str) -> bool:
+def is_valid(url: str | URL) -> bool:
     if url.startswith("file://"):  # Accept files from local machine as valid URL and as an exception.
         return True
     try:
@@ -47,7 +47,7 @@ def mediate_https(url1: str, url2: str) -> tuple[str, str]:
     return url1, url2
 
 
-def remove_parameters(url: str) -> str:
+def remove_parameters(url: str | URL) -> str:
     return url if "?" not in url else url.split("?")[0]
 
 
