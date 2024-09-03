@@ -55,6 +55,22 @@ def has_parameters(url: str | URL) -> bool:
     return True if "?" in url else False
 
 
+def split_url_and_parameters(url: str | URL) -> tuple[str, str]:
+    """Split URL and parameters, e.g. `https://example.com/search?page=1` into `https://example.com/search` and `?page=1`.
+
+    Args:
+        url (str): URL with out without parameters.
+
+    Returns:
+        tuple[str, str]: Example: `url, parameters = split_url_and_parameters(url)`
+    """
+
+    if not has_parameters(url):
+        return url, ""
+    url, parameters = url.split("?", 1)
+    return url, f"?{parameters}"
+
+
 def get_domain_from_url(url: str | URL) -> str:
     return (urlparse(url).netloc)
 
