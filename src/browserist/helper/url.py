@@ -51,7 +51,7 @@ def remove_parameters(url: str | URL) -> str:
     return url if "?" not in url else url.split("?")[0]
 
 
-def get_domain_from_url(url: str) -> str:
+def get_domain_from_url(url: str | URL) -> str:
     return (urlparse(url).netloc)
 
 
