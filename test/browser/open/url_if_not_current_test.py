@@ -14,7 +14,7 @@ def test_open_url_if_not_current(url1: str, url2: str, browser_default_headless:
     url1 = helper.url.ensure_trailing_slash(url1)
     url2 = helper.url.ensure_trailing_slash(url2)
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url_if_not_current(url1)
+    browser.open.url(url1)
     get_url1 = helper.url.ensure_trailing_slash(browser.get.url.current())
     browser.open.url_if_not_current(url2)
     get_url2 = helper.url.ensure_trailing_slash(browser.get.url.current())
