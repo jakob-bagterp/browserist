@@ -35,7 +35,7 @@ class OpenDriverMethods(DriverMethods):
         Args:
             url (str): URL to open if not current URL, e.g. `"https://example.com"`.
             ignore_trailing_slash (bool, optional): Ignore whether the URL is `"https://example.com"` or `"https://example.com/"`.
-            ignore_parameters (bool, optional): Ignore parameters in the URL, e.g. `"https://example.com/list?page=1"`.
+            ignore_parameters (bool, optional): Ignore parameters in the URL, e.g. `?page=1` in `"https://example.com/articles?page=1"`.
             ignore_https (bool, optional): Ignore whether the URL is `"http://example.com"` or `"https://example.com"`.
 
         Example:
