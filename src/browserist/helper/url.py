@@ -77,7 +77,7 @@ def get_domain_from_url(url: str | URL) -> str:
     return (urlparse(url).netloc)
 
 
-HTTP_OR_HTTPS_REGEX = "https?:"
+HTTP_OR_HTTPS_REGEX_PATTERN = "https?:"
 
 
 def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
@@ -98,9 +98,9 @@ def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: b
 
     if ignore_https:
         if url.startswith(HTTP):
-            url = url.replace(HTTP, HTTP_OR_HTTPS_REGEX, 1)
+            url = url.replace(HTTP, HTTP_OR_HTTPS_REGEX_PATTERN, 1)
         elif url.startswith(HTTPS):
-            url = url.replace(HTTPS, HTTP_OR_HTTPS_REGEX, 1)
+            url = url.replace(HTTPS, HTTP_OR_HTTPS_REGEX_PATTERN, 1)
 
     if url_has_parameters:
         return re.compile(f"^{url}$", re.IGNORECASE)
