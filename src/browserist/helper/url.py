@@ -81,24 +81,45 @@ HTTP_OR_HTTPS_REGEX_PATTERN = "https?:"
 
 
 def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
+    """Compile a URL to a regular expression pattern with optionals for comparison.
+
+    Args:
+        url (str | URL): URL to compile to a regular expression pattern.
+        ignore_trailing_slash (bool): Ignore whether the URL is `"https://example.com"` or `"https://example.com/"`.
+        ignore_parameters (bool): Ignore parameters in the URL, e.g. `?page=1` in `"https://example.com/articles?page=1"`.
+        ignore_https (bool): Ignore whether the URL is `"http://example.com"` or `"https://example.com"`.
+
+    Returns:
+        re.Pattern[str]: Intended to be used for comparison with other URLs, e.g. `url_pattern.fullmatch(url_to_compare)`
+    """
+
+    def handle_ignore_trailing_slash(url: str, ignore_trailing_slash: bool) -> str:
+        """Makes trailing slash optional, e.g. `"some/page/?"`, if needed. Note that the input URL should be without parameters."""
+
+        if ignore_trailing_slash:
+            if url.endswith("/"):
+                url += "?"
+            else:
+                url += "/?"
+        return url
+
+    def handle_ignore_https(url: str, ignore_https: bool) -> str:
+        """Makes HTTPS optional, e.g. `"https?://example.com"`. Note that the input URL should be without parameters."""
+
+        if ignore_https:
+            if url.startswith(HTTP):
+                url = url.replace(HTTP, HTTP_OR_HTTPS_REGEX_PATTERN, 1)
+            elif url.startswith(HTTPS):
+                url = url.replace(HTTPS, HTTP_OR_HTTPS_REGEX_PATTERN, 1)
+        return url
+
     def escape_question_mark(parameters: str) -> str:
         return parameters.replace("?", r"\?")
 
     url_has_parameters = has_parameters(url)
     url, parameters = split_url_and_parameters(url)
-
-    if ignore_trailing_slash:  # Makes trailing slash optional, e.g.: "some/page/?"
-        if url.endswith("/"):
-            url += "?"
-        else:
-            url += "/?"
-
-    if ignore_https:
-        if url.startswith(HTTP):
-            url = url.replace(HTTP, HTTP_OR_HTTPS_REGEX_PATTERN, 1)
-        elif url.startswith(HTTPS):
-            url = url.replace(HTTPS, HTTP_OR_HTTPS_REGEX_PATTERN, 1)
-
+    url = handle_ignore_trailing_slash(url, ignore_trailing_slash)
+    url = handle_ignore_https(url, ignore_https)
     if url_has_parameters and not ignore_parameters:
         parameters = escape_question_mark(parameters)
         return re.compile(f"^{url}{parameters}$", re.IGNORECASE)
