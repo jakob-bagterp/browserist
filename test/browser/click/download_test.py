@@ -10,6 +10,7 @@ from py.path import local
 
 from browserist import Browser, BrowserSettings
 from browserist.constant import idle_timeout
+from browserist.helper import operating_system
 
 
 @pytest.mark.parametrize("await_download, expected_file_name", [
@@ -18,6 +19,7 @@ from browserist.constant import idle_timeout
     (True, None),
     (True, download_page.EXPECTED_FILE_NAME),
 ])
+@pytest.mark.skipif(operating_system.is_windows(), reason="This test is not supported on Windows.")
 def test_click_download(await_download: bool, expected_file_name: str, tmpdir: local) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)

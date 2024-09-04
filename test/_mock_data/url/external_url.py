@@ -1,4 +1,4 @@
-EXAMPLE_COM: str = "http://example.com/"
+EXAMPLE_COM: str = "https://example.com/"
 
 GOOGLE_COM: str = "https://www.google.com/"
 
