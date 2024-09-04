@@ -81,6 +81,18 @@ HTTP_OR_HTTPS_REGEX_PATTERN = "https?:"
 
 
 def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
+    """Compile a URL to a regular expression pattern with optionals for comparison.
+
+    Args:
+        url (str | URL): URL to compile to a regular expression pattern.
+        ignore_trailing_slash (bool): Ignore whether the URL is `"https://example.com"` or `"https://example.com/"`.
+        ignore_parameters (bool): Ignore parameters in the URL, e.g. `?page=1` in `"https://example.com/articles?page=1"`.
+        ignore_https (bool): Ignore whether the URL is `"http://example.com"` or `"https://example.com"`.
+
+    Returns:
+        re.Pattern[str]: Intended to be used for comparison with other URLs, e.g. `url_pattern.fullmatch(url_to_compare)`
+    """
+
     def escape_question_mark(parameters: str) -> str:
         return parameters.replace("?", r"\?")
 
