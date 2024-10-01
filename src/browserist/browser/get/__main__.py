@@ -7,6 +7,7 @@ from .dimensions import get_dimensions
 from .element import get_element
 from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
+from .page_source import get_page_source
 from .page_title import get_page_title
 from .text import get_text
 from .texts import get_texts
@@ -107,6 +108,22 @@ class GetDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_elements_by_tag(self._browser_driver, tag, timeout)
+
+    def page_source(self) -> str:  # type: ignore
+        """Get page source of the current page.
+
+        Returns:
+            Page source.
+
+        Example:
+            ```python title="" linenums="1"
+            page_source = browser.get.page_source()
+            print(page_source)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            return get_page_source(self._browser_driver)
 
     def page_title(self) -> str:  # type: ignore
         """Get page title of the current page.
