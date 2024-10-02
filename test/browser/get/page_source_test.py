@@ -15,6 +15,7 @@ def test_get_page_source(url: str, browser_default_headless: Browser) -> None:
     def normalize_line_endings(text: str) -> str:
         """There's a difference in line endings between the browser and the file system, so we normalize without changing the actual HTML code."""
 
+        text = text.replace("<!DOCTYPE html>", "")  # Document type isn't part of page source returned by the browser.
         split_text = text.splitlines()
         normalized_text = ''.join(split_text)
         return normalized_text
