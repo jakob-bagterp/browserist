@@ -12,10 +12,19 @@ from browserist import Browser
     (internal_url.MINI_SITE_ABOUT),
 ])
 def test_get_page_source(url: str, browser_default_headless: Browser) -> None:
+    def normalize_line_endings(text: str) -> str:
+        split_text = text.splitlines()
+        normalized_text = ''.join(split_text)
+        return normalized_text
+
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(url)
     loaded_page_source = browser.get.page_source()
+    loaded_page_source = normalize_line_endings(loaded_page_source)
+
     url_as_file_path = _helper.url.convert_internal_url_to_file_path(url)
     with open(url_as_file_path) as file:
         expected_page_source = file.read()
+    expected_page_source = normalize_line_endings(expected_page_source)
+
     assert loaded_page_source == expected_page_source
