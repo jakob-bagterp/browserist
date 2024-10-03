@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 @dataclass(kw_only=True, slots=True)
 class UserAgentSettings:
-    """Settings class for the user agent.
+    """Settings class to override the default or current `User-Agent` in the request header.
 
     Args:
         user_agent (str | None, optional): The user agent to set as `User-Agent` in the request header. If `None`, the default or current user agent is used.
