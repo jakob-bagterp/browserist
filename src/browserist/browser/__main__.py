@@ -23,6 +23,7 @@ from .prompt.__main__ import PromptDriverMethods
 from .screenshot.__main__ import ScreenshotDriverMethods
 from .scroll.__main__ import ScrollDriverMethods
 from .tool.__main__ import ToolDriverMethods
+from .user_agent.__main__ import UserAgentDriverMethods
 from .viewport.__main__ import ViewportDriverMethods
 from .wait.__main__ import WaitDriverMethods
 from .window.__main__ import WindowDriverMethods
@@ -32,7 +33,7 @@ class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
 
     __slots__ = ["_browser_driver", "driver", "ie", "safari",
-                 "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "prompt", "screenshot", "scroll", "select", "tool", "viewport", "wait", "window"]
+                 "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "prompt", "screenshot", "scroll", "select", "tool", "user_agent", "viewport", "wait", "window"]
 
     def __init__(self, settings: BrowserSettings | None = None) -> None:
         """Initiates the browser driver whether the settings call for Chrome, Edge, Firefox, etc.
@@ -66,6 +67,7 @@ class Browser:
         self.screenshot: ScreenshotDriverMethods = ScreenshotDriverMethods(self._browser_driver)
         self.scroll: ScrollDriverMethods = ScrollDriverMethods(self._browser_driver)
         self.tool: ToolDriverMethods = ToolDriverMethods(self._browser_driver)
+        self.user_agent: UserAgentDriverMethods = UserAgentDriverMethods(self._browser_driver)
         self.viewport: ViewportDriverMethods = ViewportDriverMethods(self._browser_driver)
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
