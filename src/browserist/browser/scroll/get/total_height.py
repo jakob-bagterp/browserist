@@ -1,5 +1,5 @@
 from ....model.browser.base.driver import BrowserDriver
-from ...tool.execute_script import execute_script
+from ...tool.execute_script import tool_execute_script
 
 
 def get_total_scroll_height(browser_driver: BrowserDriver) -> int:
@@ -8,4 +8,4 @@ def get_total_scroll_height(browser_driver: BrowserDriver) -> int:
         document.body.offsetHeight, document.documentElement.offsetHeight,
         document.body.clientHeight, document.documentElement.clientHeight
     );"""
-    return int(execute_script(browser_driver, script_get_total_scroll_height))
+    return int(tool_execute_script(browser_driver, script_get_total_scroll_height))
