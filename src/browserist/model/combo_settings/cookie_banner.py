@@ -6,7 +6,7 @@ from ...model.type.xpath import XPath
 
 @dataclass(kw_only=True, slots=True)
 class CookieBannerSettings:
-    """Object with data needed to accept or decline cookies from a banner.
+    """Settings class for the cookie banner combo.
 
     Args:
         url (str | None, optional): URL from where to handle the cookie banner.
