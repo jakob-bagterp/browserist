@@ -1,6 +1,6 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.type.xpath import XPath
-from ..tool.execute_script import execute_script
+from ..tool.execute_script import tool_execute_script
 
 
 def check_if_is_in_viewport(browser_driver: BrowserDriver, xpath: str) -> bool:
@@ -24,6 +24,6 @@ def check_if_is_in_viewport(browser_driver: BrowserDriver, xpath: str) -> bool:
     xpath = XPath(xpath)
     try:
         script = get_script(xpath)
-        return bool(execute_script(browser_driver, script))
+        return bool(tool_execute_script(browser_driver, script))
     except Exception:
         return False
