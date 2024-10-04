@@ -37,3 +37,7 @@ class SafariBrowserDriver(BrowserDriver):
             return SafariService()
         else:
             return SafariService(executable_path=self.settings._path_to_executable)
+
+    def set_user_agent(self, user_agent: str | None) -> None:
+        if user_agent is not None:
+            self.safari_options.set_capability("userAgent", user_agent)

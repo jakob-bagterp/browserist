@@ -3,6 +3,7 @@ from selenium.webdriver.ie.webdriver import WebDriver
 
 from ... import factory
 from ...exception.headless import HeadlessNotSupportedException
+from ...exception.user_agent import CustomUserAgentNotSupportedException
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
 
@@ -36,3 +37,6 @@ class InternetExplorerBrowserDriver(BrowserDriver):
             return IEService()
         else:
             return IEService(executable_path=self.settings._path_to_executable)
+
+    def set_user_agent(self, user_agent: str | None) -> None:
+        raise CustomUserAgentNotSupportedException(self.settings.type)

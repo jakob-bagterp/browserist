@@ -35,3 +35,6 @@ class ChromeBrowserDriver(BrowserDriver):
             return ChromeService()
         else:
             return ChromeService(executable_path=self.settings._path_to_executable)
+
+    def set_user_agent(self, user_agent: str | None) -> None:
+        self = factory.chromium.set_user_agent(self, user_agent)  # type: ignore

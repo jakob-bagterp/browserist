@@ -50,6 +50,7 @@ class BrowserDriver(ABC):
                 self.safari_service: SafariService = self.set_service()  # type: ignore
 
         self.ensure_browser_type()
+        self.set_user_agent(self.settings.user_agent)
         self.set_options_and_profile()
         self.webdriver: BaseWebDriver = self.set_webdriver()
 
@@ -107,6 +108,12 @@ class BrowserDriver(ABC):
     @abstractmethod
     def set_service(self) -> Service:
         """Method to set the service."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @abstractmethod
+    def set_user_agent(self, user_agent: str | None) -> None:
+        """Method to set the user agent."""
 
         raise NotImplementedError  # pragma: no cover
 

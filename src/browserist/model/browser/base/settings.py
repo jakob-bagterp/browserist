@@ -25,6 +25,7 @@ class BrowserSettings:
         timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../user-guide/settings/timeout-strategy.md).
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../user-guide/settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`.
+        user_agent (str, optional): Set a custom [user agent](../../user-guide/settings/user-agent.md).
 
     Example:
         Use Firefox as browser type:
@@ -87,6 +88,7 @@ class BrowserSettings:
     timeout: TimeoutSettings = TimeoutSettings()
     viewport: DeviceViewportSize | tuple[int, int] | None = None
     check_connection: bool = True
+    user_agent: str | None = None
 
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
