@@ -31,7 +31,7 @@ class UserAgentDriverMethods(DriverMethods):
             return get_user_agent(self._browser_driver)
 
     def set(self, user_agent: str) -> None:
-        """Set the user agent of the browser.
+        """Set the user agent of the browser. Note that not all browsers support changing user agent on the fly. Alternatively, it's recommended to set the user agent in the [BrowserSettings](../../user-guide/settings/user-agent.md) when initiating the session.
 
         Args:
             user_agent (str): The user agent to set.
