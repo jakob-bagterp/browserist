@@ -1,6 +1,7 @@
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .get import get_user_agent
+from .set import set_user_agent
 
 
 class UserAgentDriverMethods(DriverMethods):
@@ -28,3 +29,28 @@ class UserAgentDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return get_user_agent(self._browser_driver)
+
+    def set(self, user_agent: str) -> None:
+        """Set the user agent of the browser.
+
+        Args:
+            user_agent (str): The user agent to set.
+
+        Example:
+            Basic example:
+
+            ```python title="" linenums="1"
+            browser.user_agent.set("MyUserAgent")
+            ```
+
+            Or if you want to identify your sessions with a custom value, you can append the existing user agent with your own value:
+
+            ```python title="" linenums="1"
+            user_agent = browser.user_agent.get()
+            user_agent += " MyUserAgent"
+            browser.user_agent.set(user_agent)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            set_user_agent(self._browser_driver, user_agent)
