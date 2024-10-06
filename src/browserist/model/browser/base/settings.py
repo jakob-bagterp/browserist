@@ -25,7 +25,7 @@ class BrowserSettings:
         timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../user-guide/settings/timeout-strategy.md).
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../user-guide/settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`.
-        user_agent (str, optional): Set a custom [user agent](../../user-guide/settings/user-agent.md).
+        user_agent (str, optional): Set a custom [user agent](../../user-guide/settings/user-agent.md). If not set, the browser's default user agent is used.
 
     Example:
         Use Firefox as browser type:
@@ -71,6 +71,25 @@ class BrowserSettings:
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")
+        ```
+
+        Use custom `User-agent` in the request header:
+
+        ```python title="" linenums="1"
+        from browserist import Browser, BrowserSettings
+
+        settings = BrowserSettings(user_agent="MyUserAgent")
+
+        with Browser(settings) as browser:
+            browser.open.url("https://example.com")
+            user_agent = browser.user_agent.get()
+            print(user_agent)
+        ```
+
+        How it appears in the terminal:
+
+        ```shell title=""
+        MyUserAgent
         ```
     """
 
