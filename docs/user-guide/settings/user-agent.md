@@ -98,3 +98,45 @@ Most browsers support setting the `User-Agent` at the start of a session, but on
 | :------------ | :--------------: | :--------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: |
 | For a session | :material-check: | :material-check: | :material-check:                | :material-check:                | :material-minus-circle-outline: |
 | On the fly    | :material-check: | :material-check: | :material-minus-circle-outline: | :material-minus-circle-outline: | :material-minus-circle-outline: |
+
+## How to Randomize User Agent
+As example for advanced usage, you can randomize the user agent per session or on the fly.
+
+### Per Session
+Example:
+
+```python linenums="1"
+import random
+from browserist import Browser, BrowserSettings
+
+USER_AGENTS = [
+    "MyUserAgent1",
+    "MyUserAgent2",
+    "MyUserAgent3",
+]
+
+user_agent = random.choice(USER_AGENTS)
+settings = BrowserSettings(user_agent=user_agent)
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+```
+
+### On the Fly
+Example:
+
+```python linenums="1"
+import random
+from browserist import Browser
+
+USER_AGENTS = [
+    "MyUserAgent1",
+    "MyUserAgent2",
+    "MyUserAgent3",
+]
+
+with Browser() as browser:
+    user_agent = random.choice(USER_AGENTS)
+    browser.user_agent.set(user_agent)
+    browser.open.url("https://example.com")
+```
