@@ -13,8 +13,8 @@ from browserist import Browser, BrowserSettings, BrowserType
     (BrowserSettings(type=BrowserType.FIREFOX, headless=True, user_agent="test"), does_not_raise()),
 ])
 def test_user_agent_set_on_initiation(browser_settings: BrowserSettings, expectation: Any) -> None:
-    # with expectation:
-    with Browser(browser_settings) as browser:
-        browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
-        user_agent_checked = browser.user_agent.get()
-        assert user_agent_checked == browser_settings.user_agent
+    with expectation:
+        with Browser(browser_settings) as browser:
+            browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
+            user_agent_checked = browser.user_agent.get()
+            assert user_agent_checked == browser_settings.user_agent
