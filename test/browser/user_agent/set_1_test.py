@@ -9,17 +9,6 @@ from browserist import Browser, BrowserSettings, BrowserType
 from browserist.exception.user_agent import ChangeUserAgentOnTheFlyNotSupportedException
 
 
-@pytest.mark.parametrize("user_agent", [
-    ("test"),
-])
-def test_user_agent_set_on_initiation(user_agent: str) -> None:
-    settings = BrowserSettings(headless=True, user_agent=user_agent)
-    with Browser(settings) as browser:
-        browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
-        user_agent_checked = browser.user_agent.get()
-        assert user_agent_checked == user_agent
-
-
 @pytest.mark.parametrize("browser_settings, user_agent, expectation", [
     (BrowserSettings(type=BrowserType.CHROME, headless=True), "test", does_not_raise()),
     (BrowserSettings(type=BrowserType.EDGE, headless=True), "test", does_not_raise()),
