@@ -50,7 +50,6 @@ class BrowserDriver(ABC):
                 self.safari_service: SafariService = self.set_service()  # type: ignore
 
         self.ensure_browser_type()
-        self.set_user_agent(self.settings.user_agent)
         self.set_options_and_profile()
         self.webdriver: BaseWebDriver = self.set_webdriver()
 
@@ -74,6 +73,7 @@ class BrowserDriver(ABC):
         self.set_download_directory()
         self.set_page_load_strategy()
         self.disable_default_search_engine_prompt()
+        self.set_user_agent(self.settings.user_agent)
 
     @abstractmethod
     def disable_images(self) -> None:
@@ -106,14 +106,14 @@ class BrowserDriver(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def set_service(self) -> Service:
-        """Method to set the service."""
+    def set_user_agent(self, user_agent: str | None) -> None:
+        """Method to set the user agent."""
 
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
-    def set_user_agent(self, user_agent: str | None) -> None:
-        """Method to set the user agent."""
+    def set_service(self) -> Service:
+        """Method to set the service."""
 
         raise NotImplementedError  # pragma: no cover
 

@@ -32,11 +32,11 @@ class InternetExplorerBrowserDriver(BrowserDriver):
     def disable_default_search_engine_prompt(self) -> None:
         pass
 
+    def set_user_agent(self, user_agent: str | None) -> None:
+        raise CustomUserAgentNotSupportedException(self.settings.type)
+
     def set_service(self) -> IEService:
         if self.settings._path_to_executable is None:
             return IEService()
         else:
             return IEService(executable_path=self.settings._path_to_executable)
-
-    def set_user_agent(self, user_agent: str | None) -> None:
-        raise CustomUserAgentNotSupportedException(self.settings.type)

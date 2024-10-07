@@ -37,12 +37,12 @@ class FirefoxBrowserDriver(BrowserDriver):
     def disable_default_search_engine_prompt(self) -> None:
         pass
 
+    def set_user_agent(self, user_agent: str | None) -> None:
+        if user_agent is not None:
+            self.firefox_options.set_preference("general.useragent.override", user_agent)
+
     def set_service(self) -> FirefoxService:
         if self.settings._path_to_executable is None:
             return FirefoxService()
         else:
             return FirefoxService(executable_path=self.settings._path_to_executable)
-
-    def set_user_agent(self, user_agent: str | None) -> None:
-        if user_agent is not None:
-            self.firefox_options.set_preference("general.useragent.override", user_agent)
