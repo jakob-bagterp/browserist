@@ -13,6 +13,11 @@ def test_user_agent_set_on_initiation_with_default_browser() -> None:
     browser_settings = BrowserSettings(headless=True, user_agent=USER_AGENT_TEST)
     with Browser(browser_settings) as browser:
         browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
+
+        # Troubleshooting test:
+        headline = browser.get.text("//h1")
+        assert headline == "Welcome"
+
         user_agent_checked = browser.user_agent.get()
         assert user_agent_checked == USER_AGENT_TEST
 
@@ -26,5 +31,10 @@ def test_user_agent_set_on_initiation_with_various_browsers(browser_settings: Br
     with expectation:
         with Browser(browser_settings) as browser:
             browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
+
+            # Troubleshooting test:
+            headline = browser.get.text("//h1")
+            assert headline == "Welcome"
+
             user_agent_checked = browser.user_agent.get()
             assert user_agent_checked == browser_settings.user_agent
