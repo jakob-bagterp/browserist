@@ -1,4 +1,5 @@
 import socket
+from collections.abc import Generator
 
 import pytest
 
@@ -10,7 +11,9 @@ def no_internet_connection(*args, **kwargs):
 
 
 @pytest.fixture(scope="function")
-def disable_network():
+def disable_network() -> Generator[None, None, None]:
+    """Disables the network connection to emulate no internet connection."""
+
     socket.socket.connect = no_internet_connection
     yield
     socket.socket.connect = ORIGINAL_SOCKET_CONNECTION
