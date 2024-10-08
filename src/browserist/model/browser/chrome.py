@@ -30,8 +30,8 @@ class ChromeBrowserDriver(BrowserDriver):
     def disable_default_search_engine_prompt(self) -> None:
         self = factory.chromium.disable_default_search_engine_prompt(self)  # type: ignore
 
-    def set_user_agent(self, user_agent: str | None) -> None:
-        self = factory.chromium.set_user_agent(self, user_agent)  # type: ignore
+    def set_user_agent(self) -> None:
+        self = factory.chromium.set_user_agent(self)  # type: ignore
 
     def set_service(self) -> ChromeService:
         if self.settings._path_to_executable is None:

@@ -46,13 +46,13 @@ def disable_default_search_engine_prompt(browser_driver: BrowserDriver) -> Brows
     return browser_driver
 
 
-def set_user_agent(browser_driver: BrowserDriver, user_agent: str | None) -> BrowserDriver:
-    if user_agent is not None:
+def set_user_agent(browser_driver: BrowserDriver) -> BrowserDriver:
+    if browser_driver.settings.user_agent is not None:
         match browser_driver.settings.type:
             case BrowserType.CHROME:
-                browser_driver.chrome_options.add_argument(f"--user-agent={user_agent}")
+                browser_driver.chrome_options.add_argument(f"--user-agent={browser_driver.settings.user_agent}")
             case BrowserType.EDGE:
-                browser_driver.edge_options.add_argument(f"--user-agent={user_agent}")
+                browser_driver.edge_options.add_argument(f"--user-agent={browser_driver.settings.user_agent}")
             case _:
                 pass
     return browser_driver

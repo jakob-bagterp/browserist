@@ -39,8 +39,8 @@ class EdgeBrowserDriver(BrowserDriver):
     def disable_default_search_engine_prompt(self) -> None:
         pass
 
-    def set_user_agent(self, user_agent: str | None) -> None:
-        self = factory.chromium.set_user_agent(self, user_agent)  # type: ignore
+    def set_user_agent(self) -> None:
+        self = factory.chromium.set_user_agent(self)  # type: ignore
 
     def set_service(self) -> EdgeService:
         if self.settings._path_to_executable is None:
