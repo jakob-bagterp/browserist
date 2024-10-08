@@ -50,9 +50,9 @@ def set_user_agent(browser_driver: BrowserDriver, user_agent: str | None) -> Bro
     if user_agent is not None:
         match browser_driver.settings.type:
             case BrowserType.CHROME:
-                browser_driver.chrome_options.add_argument(f"user-agent={user_agent}")
+                browser_driver.chrome_options.add_argument(f"--user-agent={user_agent}")
             case BrowserType.EDGE:
-                browser_driver.edge_options.add_argument(f"user-agent={user_agent}")
+                browser_driver.edge_options.add_argument(f"--user-agent={user_agent}")
             case _:
                 pass
     return browser_driver
