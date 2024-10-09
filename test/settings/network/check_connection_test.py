@@ -32,7 +32,7 @@ def test_check_connection_exception_handling_without_internet(browser_settings: 
             _ = Browser(browser_settings) is not None
 
 
-def test_connection_enabled_again(enable_network: Generator[None, None, None]) -> None:
+def test_connection_enabled_again() -> None:
     """Test that the connection is enabled again after disabling it in the above test."""
 
     browser_settings = BrowserSettings(headless=True)
