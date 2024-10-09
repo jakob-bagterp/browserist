@@ -4,21 +4,21 @@ from types import TracebackType
 
 import pytest
 
-ORIGINAL_SOCKET_CONNECTION = socket.socket.connect
-
-
-def no_internet_connection(*args, **kwargs):
-    """When mocked to `socket.socket.connect`, this emulates no network connection."""
-
 
 class NetworkDisabler:
     """Context manager to disable the network connection to emulate no internet connection."""
 
+    def __init__(self) -> None:
+        self._original_socket_connection = socket.socket.connect
+
     def __enter__(self):
-        socket.socket.connect = no_internet_connection
+        socket.socket.connect = self._no_internet_connection
 
     def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
-        socket.socket.connect = ORIGINAL_SOCKET_CONNECTION
+        socket.socket.connect = self._original_socket_connection
+
+    def _no_internet_connection(*args, **kwargs) -> None:
+        """When mocked to `socket.socket.connect`, this emulates no network connection."""
 
 
 @pytest.fixture(scope="function")
@@ -27,11 +27,3 @@ def disable_network() -> Generator[None, None, None]:
 
     with NetworkDisabler():
         yield
-
-
-@pytest.fixture(scope="function")
-def enable_network() -> Generator[None, None, None]:
-    """Enables the network connection to emulate internet connection."""
-
-    socket.socket.connect = ORIGINAL_SOCKET_CONNECTION
-    yield
