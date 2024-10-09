@@ -16,7 +16,6 @@ def disable_network() -> Generator[None, None, None]:
 
     socket.socket.connect = no_internet_connection
     yield
-    socket.socket.connect = ORIGINAL_SOCKET_CONNECTION
 
 
 @pytest.fixture(scope="function")
