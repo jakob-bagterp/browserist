@@ -25,4 +25,3 @@ def enable_network() -> Generator[None, None, None]:
 
     socket.socket.connect = ORIGINAL_SOCKET_CONNECTION
     yield
-    socket.socket.connect = no_internet_connection
