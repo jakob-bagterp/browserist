@@ -73,6 +73,7 @@ class BrowserDriver(ABC):
         self.set_download_directory()
         self.set_page_load_strategy()
         self.disable_default_search_engine_prompt()
+        self.set_user_agent()
 
     @abstractmethod
     def disable_images(self) -> None:
@@ -101,6 +102,12 @@ class BrowserDriver(ABC):
     @abstractmethod
     def disable_default_search_engine_prompt(self) -> None:
         """Method to disable the default search engine prompt."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @abstractmethod
+    def set_user_agent(self) -> None:
+        """Method to set the user agent."""
 
         raise NotImplementedError  # pragma: no cover
 

@@ -32,6 +32,10 @@ class SafariBrowserDriver(BrowserDriver):
     def disable_default_search_engine_prompt(self) -> None:
         pass
 
+    def set_user_agent(self) -> None:
+        if self.settings.user_agent is not None:
+            self.safari_options.set_capability("userAgent", self.settings.user_agent)
+
     def set_service(self) -> SafariService:
         if self.settings._path_to_executable is None:
             return SafariService()

@@ -6,7 +6,7 @@ from ...model.type.xpath import XPath
 
 @dataclass(kw_only=True, slots=True)
 class SearchSettings:
-    """Object with data needed to make a search.
+    """Settings class for the search combo.
 
     Args:
         url (str | None, optional): URL for the search page. Sometimes not needed if, for example, the search input field is available on all pages.

@@ -37,6 +37,7 @@ nav:
       - Timeout Strategy: user-guide/settings/timeout-strategy.md
       - Page Load Strategy: user-guide/settings/page-load-strategy.md
       - Viewport: user-guide/settings/viewport.md
+      - User Agent: user-guide/settings/user-agent.md
     - Combo Methods:
       - Cookie Banner: user-guide/combo-methods/cookie-banner.md
       - Log In: user-guide/combo-methods/log-in.md
@@ -93,6 +94,7 @@ nav:
         - get: reference/browser/scroll/get.md
         - page: reference/browser/scroll/page.md
       - tool: reference/browser/tool.md
+      - user_agent: reference/browser/user_agent.md
       - viewport:
         - get: reference/browser/viewport/get.md
         - set: reference/browser/viewport/set.md
