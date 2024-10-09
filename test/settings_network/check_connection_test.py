@@ -32,10 +32,7 @@ def test_check_connection_exception_handling_without_internet(browser_settings: 
             with expectation:
                 _ = Browser(browser_settings) is not None
 
-
-def test_connection_enabled_again() -> None:
-    """Test that the connection is enabled again after disabling it in the above test."""
-
+    # Test that the connection is enabled again after disabling it in the above test:
     browser_settings = BrowserSettings(headless=True)
     with Browser(browser_settings) as browser:
         browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
