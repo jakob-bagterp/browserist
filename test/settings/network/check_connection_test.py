@@ -27,8 +27,8 @@ BROWSER_SETTINGS_WITHOUT_CHECK_CONNECTION = BrowserSettings(
     (BROWSER_SETTINGS_WITHOUT_CHECK_CONNECTION, does_not_raise()),
 ])
 def test_check_connection_exception_handling_without_internet(browser_settings: BrowserSettings, expectation: Any) -> None:
-    with NetworkDisabler():  # Now that we have disabled the network in the socket, we need to ignore ProtocolError when making connection requests.
-        with contextlib.suppress(ProtocolError):  # Now that we'll disable the network in the socket, we need to ignore ProtocolError when making connection requests.
+    with NetworkDisabler():
+        with contextlib.suppress(ProtocolError):  # Now that we have disabled the network in the socket, we need to ignore ProtocolError when making connection requests.
             with expectation:
                 _ = Browser(browser_settings) is not None
 
