@@ -10,7 +10,7 @@ def no_internet_connection(*args, **kwargs):
     """When mocked to `socket.socket.connect`, this emulates no network connection."""
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def disable_network() -> Generator[None, None, None]:
     """Disables the network connection to emulate no internet connection."""
 
@@ -18,7 +18,7 @@ def disable_network() -> Generator[None, None, None]:
     yield
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def enable_network() -> Generator[None, None, None]:
     """Enables the network connection to emulate internet connection."""
 
