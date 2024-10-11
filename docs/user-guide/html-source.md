@@ -31,7 +31,7 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    page_source = browser.get.page_source()
+    page_source = browser.get.html.page_source()
     print(page_source)
 ```
 

@@ -1,4 +1,4 @@
-from ...model.browser.base.driver import BrowserDriver
+from ....model.browser.base.driver import BrowserDriver
 
 
 def get_page_source(browser_driver: BrowserDriver) -> str:
