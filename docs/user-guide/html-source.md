@@ -23,7 +23,7 @@ For the following examples, let's imagine the following boilerplate page source:
 </html>
 ```
 
-## All Page Source
+## Page Source
 How to get all the HTML source of a page:
 
 ```python linenums="1"

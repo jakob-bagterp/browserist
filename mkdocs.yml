@@ -24,7 +24,7 @@ nav:
     - Context Manager: user-guide/context-manager.md
     - Download Files: user-guide/download-files.md
     - Screenshots: user-guide/screenshots.md
-    - HTML Source: user-guide/html-source.md
+    - Get HTML Source: user-guide/html-source.md
     - Navigation:
       - Basics: user-guide/navigation/basics.md
       - Scrolling: user-guide/navigation/scrolling.md
