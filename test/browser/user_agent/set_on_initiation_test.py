@@ -27,4 +27,4 @@ def test_user_agent_set_on_initiation_with_various_browsers(browser_settings: Br
         with Browser(browser_settings) as browser:
             browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
             user_agent_checked = browser.user_agent.get()
-            assert user_agent_checked == browser_settings.user_agent
+            assert user_agent_checked == USER_AGENT_TEST
