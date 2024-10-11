@@ -53,7 +53,7 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    inner_html = browser.get.element_inner_html("//body")
+    inner_html = browser.get.html.element_inner("//body")
     print(inner_html)
 ```
 

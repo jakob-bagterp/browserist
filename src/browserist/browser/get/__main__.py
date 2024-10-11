@@ -5,7 +5,6 @@ from ...model.driver_methods import DriverMethods
 from .attribute.__main__ import GetAttributeDriverMethods
 from .dimensions import get_dimensions
 from .element import get_element
-from .element_inner_html import get_element_inner_html
 from .element_outer_html import get_element_outer_html
 from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
@@ -111,29 +110,6 @@ class GetDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_elements_by_tag(self._browser_driver, tag, timeout)
-
-    def element_inner_html(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
-        """Get inner HTML of an element by XPath.
-
-        Args:
-            xpath (str): XPath of the element.
-            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
-
-        Returns:
-            Inner HTML of an element.
-
-        Example:
-            Get the inner HTML source of an element:
-
-            ```python title="" linenums="1"
-            inner_html = browser.get.element_inner_html("//div[@id='content']")
-            print(inner_html)
-            ```
-        """
-
-        if self._timeout_should_continue():
-            timeout = self._mediate_timeout(timeout)
-            return get_element_inner_html(self._browser_driver, xpath, timeout)
 
     def element_outer_html(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
         """Get outer HTML of an element by XPath.
