@@ -6,6 +6,7 @@ from .attribute.__main__ import GetAttributeDriverMethods
 from .dimensions import get_dimensions
 from .element import get_element
 from .element_inner_html import get_element_inner_html
+from .element_outer_html import get_element_outer_html
 from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
 from .page_source import get_page_source
@@ -132,6 +133,29 @@ class GetDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_element_inner_html(self._browser_driver, xpath, timeout)
+
+    def element_outer_html(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
+        """Get outer HTML of an element by XPath.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Returns:
+            Outer HTML of an element.
+
+        Example:
+            Get the outer HTML source of an element:
+
+            ```python title="" linenums="1"
+            outer_html = browser.get.element_outer_html("//div[@id='content']")
+            print(outer_html)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_element_outer_html(self._browser_driver, xpath, timeout)
 
     def page_source(self) -> str:  # type: ignore
         """Get page source of the current page.
