@@ -1,6 +1,6 @@
 from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
-from .page_source import get_page_source
+from .page_source import get_html_page_source
 
 
 class GetHtmlDriverMethods(DriverMethods):
@@ -8,10 +8,10 @@ class GetHtmlDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def page_source(self) -> str:  # type: ignore
-        """Get page source of the current page.
+        """Get the HTML source of the current page.
 
         Returns:
-            Page source.
+            HTML page source.
 
         Example:
             ```python title="" linenums="1"
@@ -21,4 +21,4 @@ class GetHtmlDriverMethods(DriverMethods):
         """
 
         if self._timeout_should_continue():
-            return get_page_source(self._browser_driver)
+            return get_html_page_source(self._browser_driver)

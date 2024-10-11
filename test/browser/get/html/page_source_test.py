@@ -11,7 +11,7 @@ from browserist import Browser
     (internal_url.MINI_SITE_FEATURE_1),
     (internal_url.MINI_SITE_ABOUT),
 ])
-def test_get_page_source(url: str, browser_default_headless: Browser) -> None:
+def test_get_html_page_source(url: str, browser_default_headless: Browser) -> None:
     def normalize_line_endings(text: str) -> str:
         """There's a difference in line endings between the browser and the file system, so we normalize without changing the actual HTML code."""
 
