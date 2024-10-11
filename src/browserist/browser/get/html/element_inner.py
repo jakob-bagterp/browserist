@@ -1,5 +1,5 @@
-from ...model.browser.base.driver import BrowserDriver
-from .element import get_element
+from ....model.browser.base.driver import BrowserDriver
+from ..element import get_element
 
 
 def get_element_inner_html(browser_driver: BrowserDriver, xpath: str, timeout: float) -> str:
