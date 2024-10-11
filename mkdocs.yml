@@ -82,6 +82,7 @@ nav:
       - get:
         - __main__: reference/browser/get/__main__.md
         - attribute: reference/browser/get/attribute.md
+        - html: reference/browser/get/html.md
         - url: reference/browser/get/url.md
       - iframe: reference/browser/iframe.md
       - input: reference/browser/input.md

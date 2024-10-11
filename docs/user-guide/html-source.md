@@ -31,7 +31,7 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    page_source = browser.get.page_source()
+    page_source = browser.get.html.page_source()
     print(page_source)
 ```
 
@@ -53,7 +53,7 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    inner_html = browser.get.element_inner_html("//body")
+    inner_html = browser.get.html.element_inner("//body")
     print(inner_html)
 ```
 
@@ -72,7 +72,7 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    outer_html = browser.get.element_outer_html("//body")
+    outer_html = browser.get.html.element_outer("//body")
     print(outer_html)
 ```
 

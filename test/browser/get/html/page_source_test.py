@@ -11,7 +11,7 @@ from browserist import Browser
     (internal_url.MINI_SITE_FEATURE_1),
     (internal_url.MINI_SITE_ABOUT),
 ])
-def test_get_page_source(url: str, browser_default_headless: Browser) -> None:
+def test_get_html_page_source(url: str, browser_default_headless: Browser) -> None:
     def normalize_line_endings(text: str) -> str:
         """There's a difference in line endings between the browser and the file system, so we normalize without changing the actual HTML code."""
 
@@ -21,7 +21,7 @@ def test_get_page_source(url: str, browser_default_headless: Browser) -> None:
 
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(url)
-    loaded_page_source = browser.get.page_source()
+    loaded_page_source = browser.get.html.page_source()
     loaded_page_source = normalize_line_endings(loaded_page_source)
 
     url_as_file_path = _helper.url.convert_internal_url_to_file_path(url)
