@@ -76,7 +76,7 @@ with Browser() as browser:
     print(outer_html)
 ```
 
-This will give you the inner HTML of the `<body>` tag:
+This will give you the outer HTML of the `<body>` tag:
 
 ```html
 <body>
