@@ -72,7 +72,7 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    outer_html = browser.get.element_outer_html("//body")
+    outer_html = browser.get.html.element_outer("//body")
     print(outer_html)
 ```
 

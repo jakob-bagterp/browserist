@@ -1,6 +1,7 @@
 from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
 from .element_inner import get_element_inner_html
+from .element_outer import get_element_outer_html
 from .page_source import get_html_page_source
 
 
@@ -30,6 +31,29 @@ class GetHtmlDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_element_inner_html(self._browser_driver, xpath, timeout)
+
+    def element_outer(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
+        """Get outer HTML of an element by XPath.
+
+        Args:
+            xpath (str): XPath of the element.
+            timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
+
+        Returns:
+            Outer HTML of an element.
+
+        Example:
+            Get the outer HTML source of an element:
+
+            ```python title="" linenums="1"
+            outer_html = browser.get.html.element_outer("//div[@id='content']")
+            print(outer_html)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            timeout = self._mediate_timeout(timeout)
+            return get_element_outer_html(self._browser_driver, xpath, timeout)
 
     def page_source(self) -> str:  # type: ignore
         """Get HTML source of the current page.
