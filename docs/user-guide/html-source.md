@@ -44,6 +44,23 @@ This will print the full page source as above:
 </html>
 ```
 
+!!! tip "How to Get the HTML from Single-Page Applications (SPAs) or Lazy Loading Pages"
+    When working with single-page applications (SPA) that dynamically or lazily load the content of a page, it's notoriously difficult to get the page source. The source simply changes depending on its state. Instead, you can get the HTML of a particular state. For example:
+
+    ```python linenums="1"
+    from browserist import Browser
+
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        browser.scroll.page.to_end()
+        html_of_current_state = browser.get.html.element_outer("//html")
+        print(html_of_current_state)
+    ```
+
+    We use `browser.scroll.page.to_end()` to ensure that all loading of all page content is triggered, which can be replaced by other interactions like clicking a button or selecting an item in a drop-down menu.
+
+    And instead of `browser.get.html.page_source()`, we use `browser.get.html.element_outer("//html")` to get the HTML of the current state.
+
 ## Source by Element
 ### Inner HTML
 How to get the inner HTML source of an element:
