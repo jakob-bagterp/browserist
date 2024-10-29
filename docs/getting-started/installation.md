@@ -10,7 +10,7 @@ tags:
 ## Prerequisites
 * [Python 3.10 or higher](https://www.python.org)
 * [Selenium](https://www.selenium.dev)
-* [Relevant browser and driver](browser-drivers.md)
+* [Relevant browser and driver](recommended-drivers.md)
 
 !!! info
     Default browser driver is Chrome, except for Windows where Edge is the default browser. Optional browsers: Firefox, Safari, Internet Explorer.
