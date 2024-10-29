@@ -7,31 +7,45 @@ tags:
 ---
 
 # Recommended Drivers for Browserist
-Browserist supports automation of various browser drivers. Tips for installation of the most common drivers:
+Browserist supports automation with the most popular browser drivers. Find help installing the most common drivers:
 
-## ChromeDriver for Google Chrome
-With [PyPI](https://pypi.org/project/chromedriver/):
+* [Chrome](./browsers/chrome.md)
+* [Edge](./browsers/edge.md)
+* [Firefox](./browsers/firefox.md)
 
-```shell title=""
-pip install chromedriver
-```
+## What is a Browser Driver?
+A browser driver is a program that controls a web browser in a similar way to scrolling, clicking and pointing with a mouse on a desktop or gestures on a touchscreen. The driver is responsible for controlling the behaviour of the browser and interacting with the web page by sending commands to the browser and receiving responses.
 
-With [Homebrew](https://brew.sh):
+Since Browserist is based on the [Selenium](https://www.selenium.dev) web driver for browser automation, Selenium is already included in the installation. Now you have to do is install a browser and its corresponding driver:
 
-```shell title=""
-brew install chromedriver
-```
+<table>
+    <thead>
+        <tr>
+            <th>Requirement</th>
+            <th colspan="3">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1. Python package</td>
+            <td colspan="3"><a href="../installation/">Browserist</a> web automation extension to Selenium</td>
+        </tr>
+        <tr>
+            <td>2. Browser</td>
+            <td style="text-align: center;"><a href="../browsers/chrome/">Chrome</a></td>
+            <td style="text-align: center;"><a href="../browsers/edge/">Edge</a></td>
+            <td style="text-align: center;"><a href="../browsers/firefox/">Firefox</a></td>
+        </tr>
+        <tr>
+            <td>3. Driver</td>
+            <td style="text-align: center;">ChromeDriver</td>
+            <td style="text-align: center;">Microsoft Edge Driver</td>
+            <td style="text-align: center;">GeckoDriver</td>
+        </tr>
+    </tbody>
+</table>
 
-More info [here](https://chromedriver.chromium.org).
+## Why Do I Need a Browser Driver?
+While the browser is needed for rendering the content of a web page and communicating with the website server, they need a driver to tell them what to do. The driver is responsible for controlling the browser's behavior and interacting with the web page.
 
-## Microsoft Edge Driver
-More info and download [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
-
-## GeckoDriver for Mozilla Firefox
-With [Homebrew](https://brew.sh):
-
-```shell title=""
-brew install geckodriver
-```
-
-More info [here](https://github.com/mozilla/geckodriver).
+In other words, the driver replaces your mouse and keyboard with a program that controls the browser.
