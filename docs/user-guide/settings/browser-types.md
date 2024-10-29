@@ -32,7 +32,7 @@ with Browser(settings) as browser:
 | Internet Explorer | `BrowserType.INTERNET_EXPLORER` |                              |
 | Safari            | `BrowserType.SAFARI`            |                              |
 
-More information about [installation of browser drivers](../../getting-started/browser-drivers.md).
+More information about [installation of browser drivers](../../getting-started/recommended-drivers.md).
 
 ## How to Run Multiple Browsers
 When you have multiple browser drivers installed, you can run them in sequence like this:
