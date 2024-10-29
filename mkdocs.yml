@@ -19,9 +19,9 @@ nav:
     - Installation: getting-started/installation.md
     - Recommended Drivers: getting-started/recommended-drivers.md
     - Browsers:
-      - Chrome: getting-started/browser/chrome.md
-      - Edge: getting-started/browser/edge.md
-      - Firefox: getting-started/browser/firefox.md
+      - Chrome: getting-started/browsers/chrome.md
+      - Edge: getting-started/browsers/edge.md
+      - Firefox: getting-started/browsers/firefox.md
     - First Script: getting-started/first-script.md
   - User Guide:
     - user-guide/index.md
