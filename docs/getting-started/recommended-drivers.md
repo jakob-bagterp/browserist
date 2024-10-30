@@ -9,9 +9,9 @@ tags:
 # Recommended Drivers for Browserist
 Browserist supports automation with the most popular browser drivers. Find help installing the most common drivers:
 
-* [Chrome](./browsers/chrome.md)
-* [Edge](./browsers/edge.md)
-* [Firefox](./browsers/firefox.md)
+* [Chrome](./install-browsers-and-drivers/chrome.md)
+* [Edge](./install-browsers-and-drivers/edge.md)
+* [Firefox](./install-browsers-and-drivers/firefox.md)
 
 ## What Is a Browser Driver?
 A browser driver is a program that controls a web browser in a similar way to scrolling, clicking and pointing with a mouse on a desktop or gestures on a touchscreen. The driver is responsible for controlling the behaviour of the browser and interacting with the web page by sending commands to the browser and receiving responses.
@@ -32,9 +32,9 @@ Since Browserist is based on the [Selenium](https://www.selenium.dev) web driver
         </tr>
         <tr>
             <td>2. Browser</td>
-            <td style="text-align: center;"><a href="../browsers/chrome/">Chrome</a></td>
-            <td style="text-align: center;"><a href="../browsers/edge/">Edge</a></td>
-            <td style="text-align: center;"><a href="../browsers/firefox/">Firefox</a></td>
+            <td style="text-align: center;"><a href="../install-browsers-and-drivers/chrome/">Chrome</a></td>
+            <td style="text-align: center;"><a href="../install-browsers-and-drivers/edge/">Edge</a></td>
+            <td style="text-align: center;"><a href="../install-browsers-and-drivers/firefox/">Firefox</a></td>
         </tr>
         <tr>
             <td>3. Driver</td>

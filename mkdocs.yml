@@ -20,10 +20,10 @@ nav:
     - Installation: getting-started/installation.md
     - First Script: getting-started/first-script.md
     - Recommended Drivers: getting-started/recommended-drivers.md
-    - Browsers:
-      - Chrome: getting-started/browsers/chrome.md
-      - Edge: getting-started/browsers/edge.md
-      - Firefox: getting-started/browsers/firefox.md
+    - Install Browsers and Drivers:
+      - Chrome: getting-started/install-browsers-and-drivers/chrome.md
+      - Edge: getting-started/install-browsers-and-drivers/edge.md
+      - Firefox: getting-started/install-browsers-and-drivers/firefox.md
   - User Guide:
     - user-guide/index.md
     - Context Manager: user-guide/context-manager.md
@@ -272,6 +272,9 @@ plugins:
   - redirects:
       redirect_maps:
         getting-started/browser-drivers.md: getting-started/recommended-drivers.md
+        getting-started/browsers/chrome.md: getting-started/install-browsers-and-drivers/chrome.md
+        getting-started/browsers/edge.md: getting-started/install-browsers-and-drivers/edge.md
+        getting-started/browsers/firefox.md: getting-started/install-browsers-and-drivers/firefox.md
 
 watch:
   - src
