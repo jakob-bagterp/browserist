@@ -25,7 +25,7 @@ class BrowserSettings:
         timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../user-guide/settings/timeout-strategy.md).
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../user-guide/settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`.
-        user_agent (str, optional): Set a custom [user agent](../../user-guide/settings/user-agent.md). If not set, the browser's default user agent is used.
+        user_agent (str, optional): Set a custom [user agent](../../user-guide/settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
 
     Example:
         Use Firefox as browser type:
