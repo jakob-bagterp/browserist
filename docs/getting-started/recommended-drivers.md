@@ -13,10 +13,10 @@ Browserist supports automation with the most popular browser drivers. Find help 
 * [Edge](./browsers/edge.md)
 * [Firefox](./browsers/firefox.md)
 
-## What is a Browser Driver?
+## What Is a Browser Driver?
 A browser driver is a program that controls a web browser in a similar way to scrolling, clicking and pointing with a mouse on a desktop or gestures on a touchscreen. The driver is responsible for controlling the behaviour of the browser and interacting with the web page by sending commands to the browser and receiving responses.
 
-Since Browserist is based on the [Selenium](https://www.selenium.dev) web driver for browser automation, Selenium is already included in the installation. Now you have to do is install a browser and its corresponding driver:
+Since Browserist is based on the [Selenium](https://www.selenium.dev) web driver for browser automation, Selenium is already included in the installation. Second and third, you only need to install a browser and its driver:
 
 <table>
     <thead>
