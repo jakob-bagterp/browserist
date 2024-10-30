@@ -17,12 +17,12 @@ nav:
   - Getting Started:
     - getting-started/index.md
     - Installation: getting-started/installation.md
+    - First Script: getting-started/first-script.md
     - Recommended Drivers: getting-started/recommended-drivers.md
     - Browsers:
       - Chrome: getting-started/browsers/chrome.md
       - Edge: getting-started/browsers/edge.md
       - Firefox: getting-started/browsers/firefox.md
-    - First Script: getting-started/first-script.md
   - User Guide:
     - user-guide/index.md
     - Context Manager: user-guide/context-manager.md
