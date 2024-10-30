@@ -30,7 +30,13 @@ with Browser() as browser:
 Similarly, ensure that a web page has meta description. Should not be 0 or larger than 1:
 
 ```text title=""
-count(//meta[@name='description'])
+count(//meta[@name='description']/@content)
+```
+
+And you can ensure that length of the meta description is more than 50 characters by using the `string-length()` function:
+
+```text title=""
+string-length(/html/head/meta[@name='description']/@content) > 50
 ```
 
 Check if a web page has a canonical URL. If it has, it should only be 1:
@@ -42,7 +48,25 @@ count(//link[@rel='canonical'])
 Ensure that a web page has a robots meta tag. Should not be 0 or larger than 1:
 
 ```text title=""
-count(/html/head/meta[@name='robots'])
+count(//meta[@name='robots'])
+```
+
+### Example
+How to use Browserist to check whether a web page has relevant meta data:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+
+    if browser.check_if.does_exist("//link[@rel='canonical']"):
+        assert browser.tool.count_elements("//link[@rel='canonical']") <= 1
+
+    assert browser.tool.count_elements("//meta[@name='robots']") == 1
+
+    meta_description = browser.get.attribute.value("//meta[@name='description']", "content")
+    assert len(meta_description) > 50
 ```
 
 ## Page Title
