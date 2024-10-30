@@ -8,6 +8,7 @@ repo_url: https://github.com/jakob-bagterp/browserist
 nav:
   - Home:
     - index.md
+    - Difference from Selenium: difference-from-selenium.md
     - Donate: donate.md
     - Support and Contribution: support-and-contribution.md
     - License 🔗: https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md
