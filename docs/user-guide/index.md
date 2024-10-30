@@ -1,5 +1,5 @@
 # User Guide 👨‍🔧
-Find detailed info about setings, tutorials, tips and tricks in this section.
+Find tutorials, tips and tricks in this section. For more info about configuration options, go to the section for [settings](../settings/overview.md) and [browser types](../settings/browser-types.md).
 
 ## Quick Links
 ### General
@@ -8,10 +8,6 @@ Find detailed info about setings, tutorials, tips and tricks in this section.
 * [Downloading files](download-files.md)
 * [Taking screenshots](screenshots.md)
 * [Getting HTML source](html-source.md)
-
-### Settings
-* [Browser settings](./settings/overview.md)
-* [Browser types](./settings/browser-types.md)
 
 ### Performance
 * [Headless mode](./performance/headless.md)
