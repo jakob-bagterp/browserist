@@ -16,9 +16,10 @@ tags:
 
     Optional browsers: [Firefox](./browsers/firefox.md), Safari, Internet Explorer.
 
+## Using Package Managers
 Assuming that Python is installed already, you can install Browserist with either of the following package managers: PyPI or Homebrew.
 
-## PyPI
+### PyPI
 For [PyPI](https://pypi.org/project/browserist/), execute this command in the terminal:
 
 ```shell title=""
@@ -31,7 +32,7 @@ Keep the package up to date with this command:
 pip install --upgrade browserist
 ```
 
-## Homebrew
+### Homebrew
 If you already have installed the [Homebrew](https://brew.sh) package manager for Mac and Linux, execute this terminal command to tap and install Browserist:
 
 ```shell title=""
