@@ -16,16 +16,16 @@ Count all `<h1>` nodes to ensure that a web page has and only has one main headl
 count(//h1)
 ```
 
-#### Example
-How to use Browserist to check whether a web page has exactly one `<h1>` headline tag:
+???+ example
+    How to use Browserist to check whether a web page has exactly one `<h1>` headline tag:
 
-```python linenums="1"
-from browserist import Browser
+    ```python linenums="1"
+    from browserist import Browser
 
-with Browser() as browser:
-    browser.open.url("https://example.com")
-    assert browser.tool.count_elements("//h1") == 1
-```
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        assert browser.tool.count_elements("//h1") == 1
+    ```
 
 ### Image Alt Text
 Ensure that all images on web page have an alt text.
@@ -34,19 +34,19 @@ Ensure that all images on web page have an alt text.
 //img[not(@alt)]
 ```
 
-#### Example
-How to use Browserist to check whether a web page has images without alt text:
+???+ example
+    How to use Browserist to check whether a web page has images without alt text:
 
-```python linenums="1"
-from browserist import Browser
+    ```python linenums="1"
+    from browserist import Browser
 
-with Browser() as browser:
-    browser.open.url("https://example.com")
-    if browser.check_if.does_exist("//img"):
-        alt_texts = browser.get.attribute.values("//img", "alt")
-        for alt_text in alt_texts:
-            assert len(alt_text) > 0
-```
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        if browser.check_if.does_exist("//img"):
+            alt_texts = browser.get.attribute.values("//img", "alt")
+            for alt_text in alt_texts:
+                assert len(alt_text) > 0
+    ```
 
 ## Meta Data
 Similarly, ensure that a web page has meta description. Should not be 0 or larger than 1:
@@ -73,23 +73,23 @@ Ensure that a web page has a robots meta tag. Should not be 0 or larger than 1:
 count(//meta[@name='robots'])
 ```
 
-### Example
-How to use Browserist to check whether a web page has relevant meta data:
+???+ example
+    How to use Browserist to check whether a web page has relevant meta data:
 
-```python linenums="1"
-from browserist import Browser
+    ```python linenums="1"
+    from browserist import Browser
 
-with Browser() as browser:
-    browser.open.url("https://example.com")
+    with Browser() as browser:
+        browser.open.url("https://example.com")
 
-    if browser.check_if.does_exist("//link[@rel='canonical']"):
-        assert browser.tool.count_elements("//link[@rel='canonical']") <= 1
+        if browser.check_if.does_exist("//link[@rel='canonical']"):
+            assert browser.tool.count_elements("//link[@rel='canonical']") <= 1
 
-    assert browser.tool.count_elements("//meta[@name='robots']") == 1
+        assert browser.tool.count_elements("//meta[@name='robots']") == 1
 
-    meta_description = browser.get.attribute.value("//meta[@name='description']", "content")
-    assert len(meta_description) > 50
-```
+        meta_description = browser.get.attribute.value("//meta[@name='description']", "content")
+        assert len(meta_description) > 50
+    ```
 
 ## Page Title
 Ensure that a web page doesn't have an empty title:
@@ -98,19 +98,19 @@ Ensure that a web page doesn't have an empty title:
 /html/head/title[. != '']
 ```
 
-### Example
-How to use Browserist to check whether a web page has a page title:
+???+ example
+    How to use Browserist to check whether a web page has a page title:
 
-```python linenums="1"
-from browserist import Browser
+    ```python linenums="1"
+    from browserist import Browser
 
-with Browser() as browser:
-    browser.open.url("https://example.com")
-    assert browser.check_if.does_exist("/html/head/title[. != '']")
-```
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        assert browser.check_if.does_exist("/html/head/title[. != '']")
+    ```
 
-Alternatively, there's a simpler solution without using XPath:
+    Alternatively, there's a simpler solution without using XPath:
 
-```python linenums="5"
-    assert browser.get.page_title() != ""
-```
+    ```python linenums="5"
+        assert browser.get.page_title() != ""
+    ```
