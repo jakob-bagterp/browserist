@@ -9,13 +9,14 @@ tags:
 Certain XPath expressions are especially useful for search engine optimisation.
 
 ## Content
+### H1 Headline
 Count all `<h1>` nodes to ensure that a web page has and only has one main headline. Should not be 0 or larger than 1:
 
 ```text title=""
 count(//h1)
 ```
 
-### Example
+#### Example
 How to use Browserist to check whether a web page has exactly one `<h1>` headline tag:
 
 ```python linenums="1"
@@ -24,6 +25,27 @@ from browserist import Browser
 with Browser() as browser:
     browser.open.url("https://example.com")
     assert browser.tool.count_elements("//h1") == 1
+```
+
+### Image Alt Text
+Ensure that all images on web page have an alt text.
+
+```text title=""
+//img[not(@alt)]
+```
+
+#### Example
+How to use Browserist to check whether a web page has images without alt text:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    if browser.check_if.does_exist("//img"):
+        alt_texts = browser.get.attribute.values("//img", "alt")
+        for alt_text in alt_texts:
+            assert len(alt_text) > 0
 ```
 
 ## Meta Data
