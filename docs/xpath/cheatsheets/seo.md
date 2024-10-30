@@ -49,7 +49,7 @@ count(/html/head/meta[@name='robots'])
 Ensure that a web page doesn't have an empty title:
 
 ```text title=""
-/html/head/title[.!='']
+/html/head/title[. != '']
 ```
 
 ### Example
@@ -60,10 +60,10 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    assert browser.check_if.does_exist("/html/head/title[.!='']") is True
+    assert browser.check_if.does_exist("/html/head/title[. != '']")
 ```
 
-Alternatively, without using XPath:
+Alternatively, there's a simpler solution without using XPath:
 
 ```python linenums="5"
     assert browser.get.page_title() != ""
