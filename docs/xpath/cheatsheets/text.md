@@ -5,7 +5,7 @@ tags:
     - XPath
 ---
 
-# XPath Cheatsheet: Text
+# XPath Cheatsheet for Text
 When you need just the content of a node, use the `text()` function:
 
 ```text title=""
