@@ -275,6 +275,12 @@ plugins:
         getting-started/browsers/chrome.md: getting-started/install-browsers-and-drivers/chrome.md
         getting-started/browsers/edge.md: getting-started/install-browsers-and-drivers/edge.md
         getting-started/browsers/firefox.md: getting-started/install-browsers-and-drivers/firefox.md
+        user-guide/settings/overview.md: settings/overview.md
+        user-guide/settings/browser-types.md: settings/browser-types.md
+        user-guide/settings/timeout-strategy.md: settings/timeout-strategy.md
+        user-guide/settings/page-load-strategy.md: settings/page-load-strategy.md
+        user-guide/settings/viewport.md: settings/viewport.md
+        user-guide/settings/user-agent.md: settings/user-agent.md
 
 watch:
   - src
