@@ -15,6 +15,17 @@ Count all `<h1>` nodes to ensure that a web page has and only has one main headl
 count(//h1)
 ```
 
+### Example
+How to use Browserist to check whether a web page has exactly one `<h1>` headline tag:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    assert browser.tool.count_elements("//h1") == 1
+```
+
 ## Meta Data
 Similarly, ensure that a web page has meta description. Should not be 0 or larger than 1:
 
