@@ -37,13 +37,6 @@ nav:
       - Tabs: user-guide/navigation/tabs.md
       - Windows: user-guide/navigation/windows.md
       - Window Size: user-guide/navigation/window-size.md
-    - Settings:
-      - Overview: user-guide/settings/overview.md
-      - Browser Types: user-guide/settings/browser-types.md
-      - Timeout Strategy: user-guide/settings/timeout-strategy.md
-      - Page Load Strategy: user-guide/settings/page-load-strategy.md
-      - Viewport: user-guide/settings/viewport.md
-      - User Agent: user-guide/settings/user-agent.md
     - Combo Methods:
       - Cookie Banner: user-guide/combo-methods/cookie-banner.md
       - Log In: user-guide/combo-methods/log-in.md
@@ -60,6 +53,13 @@ nav:
       - Implicit for Elements: user-guide/wait-methods/implicit-for-elements.md
       - Explicit in Seconds: user-guide/wait-methods/explicit-in-seconds.md
       - Conditional: user-guide/wait-methods/conditional.md
+  - Settings:
+    - Overview: settings/overview.md
+    - Browser Types: settings/browser-types.md
+    - Timeout Strategy: settings/timeout-strategy.md
+    - Page Load Strategy: settings/page-load-strategy.md
+    - Viewport: settings/viewport.md
+    - User Agent: settings/user-agent.md
   - XPath:
     - Basics: xpath/basics.md
     - Absolute and Relative: xpath/absolute-and-relative.md
