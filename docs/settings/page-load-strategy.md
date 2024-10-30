@@ -10,11 +10,11 @@ tags:
 Class to configure page load strategy that is then passed on to the underlying [Selenium web driver](https://www.selenium.dev/documentation/webdriver/drivers/options/#pageloadstrategy).
 
 ## Strategy Options
-| Option | Description | Ready State |
-| ------ | ----------- | ----------- |
-| `PageLoadStrategy.NORMAL` | Default. Waits for all resources to download. | Complete |
-| `PageLoadStrategy.EAGER` | DOM access is ready, but other resources like images may still be loading. | Interactive |
-| `PageLoadStrategy.NONE` | Does not block web driver at all. | Any |
+| Option                    | Description                                                                | Ready State |
+| ------------------------- | -------------------------------------------------------------------------- | ----------- |
+| `PageLoadStrategy.NORMAL` | Default. Waits for all resources to download.                              | Complete    |
+| `PageLoadStrategy.EAGER`  | DOM access is ready, but other resources like images may still be loading. | Interactive |
+| `PageLoadStrategy.NONE`   | Does not block web driver at all.                                          | Any         |
 
 !!! note
     The page load strategy is set for the entire browser session. It can't be changed later for individual functions.
@@ -39,4 +39,4 @@ Note that this doesn't mean that the page has finished loading. This is especial
 If a page takes a long time to load as a result of downloading assets (e.g. images, CSS, JavaScript) that aren't important to the automation, you can change from the default `PageLoadStrategy.NORMAL` to `PageLoadStrategy.EAGER` or `PageLoadStrategy.NONE` to speed up the session.
 
 !!! warning
-    Though you may gain some performance by using either `PageLoadStrategy.NONE` or `PageLoadStrategy.EAGER`, it's usually not recommended. The browser may not be ready to execute the next function, which can lead to unstability. It's often better to use `PageLoadStrategy.NORMAL` and, if the browser allows it, [disable images](../performance/disable-images.md) instead.
+    Though you may gain some performance by using either `PageLoadStrategy.NONE` or `PageLoadStrategy.EAGER`, it's usually not recommended. The browser may not be ready to execute the next function, which can lead to unstability. It's often better to use `PageLoadStrategy.NORMAL` and, if the browser allows it, [disable images](../user-guide/performance/disable-images.md) instead.

@@ -9,7 +9,7 @@ Instead of using the [`click.button()`](../reference/browser/click.md#browserist
 Read on to learn how to automate file downloads in an easy and stable way.
 
 ## Destination Directory for Downloads
-First, make sure you know where files are downloaded to. The default is the user's `Downloads` folder, or you can set a custom download directory in the [`download_dir` parameter of `BrowserSettings`](./settings/overview.md).
+First, make sure you know where files are downloaded to. The default is the user's `Downloads` folder, or you can set a custom download directory in the [`download_dir` parameter of `BrowserSettings`](../settings/overview.md).
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings

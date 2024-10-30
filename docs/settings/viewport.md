@@ -7,7 +7,7 @@ tags:
 ---
 
 # Viewport Size
-The viewport is the inner size of the browser window that displays the web page. If you want to change the outer size, check the [window size section](./../navigation/window-size.md). Based on screen size and resolution – from desktop monitors to tablets and mobile phones – the viewport may be smaller than the actual web page and require scrolling to view the entire page.
+The viewport is the inner size of the browser window that displays the web page. If you want to change the outer size, check the [window size section](../user-guide/navigation/window-size.md). Based on screen size and resolution – from desktop monitors to tablets and mobile phones – the viewport may be smaller than the actual web page and require scrolling to view the entire page.
 
 ## Emulate Common Devices
 You can set the viewport to emulate common device sizes (e.g. various popular mobile phones or tablets). Example:
@@ -33,15 +33,15 @@ And you can later change the viewport to another device:
 ```
 
 !!! tip
-    It's recommended to run viewport emulations in [headless mode](../performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
+    It's recommended to run viewport emulations in [headless mode](../user-guide/performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
 
 ### Available Common Devices
 Browserist provides a pre-defined collection of common devices, covering tablets and mobile phones from the most popular manufacturers. Find more information in the reference documentation and source code:
 
-* [Apple](../../reference/viewport/common_devices/apple.md)
-* [Google](../../reference/viewport/common_devices/google.md)
-* [Microsoft](../../reference/viewport/common_devices/microsoft.md)
-* [Samsung](../../reference/viewport/common_devices/samsung.md)
+* [Apple](../reference/viewport/common_devices/apple.md)
+* [Google](../reference/viewport/common_devices/google.md)
+* [Microsoft](../reference/viewport/common_devices/microsoft.md)
+* [Samsung](../reference/viewport/common_devices/samsung.md)
 
 ### Create Custom Devices
 You can also define custom device sizes for viewport emulation with the `DeviceViewportSize` class. Example:

@@ -67,7 +67,7 @@ class ClickDriverMethods(DriverMethods):
             idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global idle download timeout setting is used (default 3 seconds).
 
         Info: Download Directory
-            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../settings/overview.md).
 
             Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
 
@@ -120,7 +120,7 @@ class ClickDriverMethods(DriverMethods):
             Path to the downloaded file. Return type is the standard library `pathlib.Path`.
 
         Info: Download Directory
-            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../user-guide/settings/overview.md).
+            The download directory is implicitly defined in the [`download_dir` parameter of `BrowserSettings`](../../settings/overview.md).
 
             Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
 

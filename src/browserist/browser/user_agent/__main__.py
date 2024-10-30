@@ -31,7 +31,7 @@ class UserAgentDriverMethods(DriverMethods):
             return get_user_agent(self._browser_driver)
 
     def set(self, user_agent: str) -> None:
-        """Set the `User-Agent` of the browser's request header with a custom value. Note that [not all browsers support changing user agent on the fly](../../user-guide/settings/user-agent.md#on-the-fly). Alternatively, it's recommended to set the user agent in the [BrowserSettings](../../user-guide/settings/user-agent.md#for-a-session) when initiating the session.
+        """Set the `User-Agent` of the browser's request header with a custom value. Note that [not all browsers support changing user agent on the fly](../../settings/user-agent.md#on-the-fly). Alternatively, it's recommended to set the user agent in the [BrowserSettings](../../settings/user-agent.md#for-a-session) when initiating the session.
 
         Args:
             user_agent (str): The user agent to set.
