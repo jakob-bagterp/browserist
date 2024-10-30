@@ -10,11 +10,11 @@ tags:
 Class to configure page load strategy that is then passed on to the underlying [Selenium web driver](https://www.selenium.dev/documentation/webdriver/drivers/options/#pageloadstrategy).
 
 ## Strategy Options
-| Option | Description | Ready State |
-| ------ | ----------- | ----------- |
-| `PageLoadStrategy.NORMAL` | Default. Waits for all resources to download. | Complete |
-| `PageLoadStrategy.EAGER` | DOM access is ready, but other resources like images may still be loading. | Interactive |
-| `PageLoadStrategy.NONE` | Does not block web driver at all. | Any |
+| Option                    | Description                                                                | Ready State |
+| ------------------------- | -------------------------------------------------------------------------- | ----------- |
+| `PageLoadStrategy.NORMAL` | Default. Waits for all resources to download.                              | Complete    |
+| `PageLoadStrategy.EAGER`  | DOM access is ready, but other resources like images may still be loading. | Interactive |
+| `PageLoadStrategy.NONE`   | Does not block web driver at all.                                          | Any         |
 
 !!! note
     The page load strategy is set for the entire browser session. It can't be changed later for individual functions.
