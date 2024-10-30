@@ -71,10 +71,10 @@ You don't want to be too fast nor too slow when automating a browser. You're sim
 
 <div id="comparison-table"></div>
 
-| Timing     | Consequence | Description |
-| ---------- | ----------- | ----------- |
-| Too short  | :material-heart-broken: _Code breaks_ | Wait for 1 second, e.g. `time.sleep(1)`, hoping that an element is ready within a fixed amount of time. |
-| Just right | :material-check-all:  _Stable and fast_ | Browserist checks if an element is ready before interacting with it, e.g. `wait.for_element()`. |
-| Too long   | :material-speedometer-slow: _Slow_ | Wait for 10 seconds, e.g. `time.sleep(10)`, just to be sure an element is ready. |
+| Timing     | Consequence                            | Description                                                                                             |
+| ---------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Too short  | :material-heart-broken: _Code breaks_  | Wait for 1 second, e.g. `time.sleep(1)`, hoping that an element is ready within a fixed amount of time. |
+| Just right | :material-check-all: _Stable and fast_ | Browserist checks if an element is ready before interacting with it, e.g. `wait.for_element()`.         |
+| Too long   | :material-speedometer-slow: _Slow_     | Wait for 10 seconds, e.g. `time.sleep(10)`, just to be sure an element is ready.                        |
 
 Ready to try? [Let's get started](./getting-started/index.md).
