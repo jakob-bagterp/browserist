@@ -5,7 +5,7 @@ tags:
     - XPath
 ---
 
-# XPath Cheatsheet: Links
+# XPath Cheatsheet for Links and URLs
 Combine attributes and functions to target specific link nodes. But first, how to get all `<a>` link nodes:
 
 ```text title=""
