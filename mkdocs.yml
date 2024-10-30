@@ -17,8 +17,12 @@ nav:
   - Getting Started:
     - getting-started/index.md
     - Installation: getting-started/installation.md
-    - Browser Drivers: getting-started/browser-drivers.md
     - First Script: getting-started/first-script.md
+    - Recommended Drivers: getting-started/recommended-drivers.md
+    - Browsers:
+      - Chrome: getting-started/browsers/chrome.md
+      - Edge: getting-started/browsers/edge.md
+      - Firefox: getting-started/browsers/firefox.md
   - User Guide:
     - user-guide/index.md
     - Context Manager: user-guide/context-manager.md
@@ -261,6 +265,9 @@ plugins:
       css_files:
           - css/timeago.css
           - assets/_mkdocstrings.css
+  - redirects:
+      redirect_maps:
+        getting-started/browser-drivers.md: getting-started/recommended-drivers.md
 
 watch:
   - src

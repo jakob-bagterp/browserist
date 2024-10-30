@@ -36,7 +36,7 @@ with Browser() as browser:
 ```
 
 ## Next Steps
-Find more tips for [installation of Browserist](installation.md) or [installation of other browser types](browser-drivers.md) in the documentation.
+Find more tips for [installation of Browserist](installation.md) or [installation of other browser types](recommended-drivers.md).
 
 Find more in-depth information in the [user guide](../user-guide/index.md) section.
 
