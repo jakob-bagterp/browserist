@@ -69,10 +69,11 @@ As you can't click a button that's not ready in the DOM, Browserist simply check
 #### Sweet Spot of Browser Automation
 You don't want to be too fast nor too slow when automating a browser. You're simply dependant on too many factors that are beyond your control: internet speed, server response time, etc. The sweet spot is to be just right:
 
-| Timing     | Consequence | Code | Description |
-| ---------- | ----------- | ---- | ----------- |
-| Too short  | :material-heart-broken: _Code breaks_ | `time.sleep(1)` | Wait for 1 second, hoping that an element is ready within a fixed amount of time. |
-| Just right | :material-check-all:  _Stable and fast_ | `wait.for_element()` | Browserist checks if an element is ready before interacting with it. |
-| Too long   | :material-speedometer-slow: _Slow_ | `time.sleep(10)` | Wait for 10 seconds, just to be sure an element is ready. |
+
+| Timing     | Consequence | Description |
+| ---------- | ----------- | ----------- |
+| Too short  | :material-heart-broken: _Code breaks_ | Wait for 1 second, e.g. `time.sleep(1)`, hoping that an element is ready within a fixed amount of time. |
+| Just right | :material-check-all:  _Stable and fast_ | Browserist checks if an element is ready before interacting with it, e.g. `wait.for_element()`. |
+| Too long   | :material-speedometer-slow: _Slow_ | Wait for 10 seconds, e.g. `time.sleep(10)`, just to be sure an element is ready. |
 
 Ready to try? [Let's get started](./getting-started/index.md).
