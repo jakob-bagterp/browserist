@@ -1,0 +1,10 @@
+/* Colors are based on palette from MkDocs Material: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ */
+
+#comparison-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+2),
+#comparison-table + div > div table > tbody > tr:nth-child(3) > td:nth-child(-n+2) {
+    color: rgb(255, 110, 66);
+}
+
+#comparison-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(-n+2) {
+    color: rgb(76, 174, 79);
+}
