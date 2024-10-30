@@ -8,7 +8,42 @@ tags:
     - Viewport
 ---
 
-# Settings Overview
+# Configuration Options for Browserist
+When using Selenium, you often need to configure the driver differently for each browser, whether it should disable images or run in headless mode.
+
+With Browserist, many of these complexities are handled automatically under the hood, so all you need to do is set the browser type and other options in the `BrowserSettings` class.
+
+## Examples
+### Basic Usage
+If you want to use a specific browser types, e.g. Firefox, it's easy to define in the settings:
+
+```python linenums="1"
+from browserist import Browser, BrowserSettings, BrowserType
+
+settings = BrowserSettings(type=BrowserType.FIREFOX)
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+```
+
+### Advanced Options
+And if you want to use Firefox in headless mode, disable images, and emulate the viewport of a specific device, that's also possible:
+
+```python linenums="1"
+from browserist import Browser, BrowserSettings, BrowserType, common_devices
+
+iphone_se = common_devices.Apple.IPHONE_SE
+
+settings = BrowserSettings(
+    type=BrowserType.FIREFOX,
+    headless=True,
+    disable_images=True,
+    viewport=iphone_se)
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+```
+
 ## Options for `BrowserSettings`
 Use `BrowserSettings` with the following options:
 
@@ -25,19 +60,3 @@ Use `BrowserSettings` with the following options:
 | `viewport`           | `DeviceViewportSize` or `(width, height)` | Browser default size | Emulate [viewport size](viewport.md) as device or set custom value in pixels. |
 | `check_connection`   | `True` or `False`       | `True` | Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`. |
 | `user_agent`         | User agent string `str` | Browser default | Set a custom [user agent](user-agent.md) to override the default user agent. |
-
-## Example
-```python linenums="1"
-from browserist import Browser, BrowserSettings, BrowserType, common_devices
-
-iphone_se = common_devices.Apple.IPHONE_SE
-
-settings = BrowserSettings(
-    type=BrowserType.FIREFOX,
-    headless=True,
-    disable_images=True,
-    viewport=iphone_se)
-
-with Browser(settings) as browser:
-    browser.open.url("https://example.com")
-```
