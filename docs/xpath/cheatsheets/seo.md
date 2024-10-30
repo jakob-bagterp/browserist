@@ -33,12 +33,6 @@ Similarly, ensure that a web page has meta description. Should not be 0 or large
 count(//meta[@name='description'])
 ```
 
-Ensure that a web page doesn't have an empty title:
-
-```text title=""
-/html/head/title[.!='']
-```
-
 Check if a web page has a canonical URL. If it has, it should only be 1:
 
 ```text title=""
@@ -49,4 +43,28 @@ Ensure that a web page has a robots meta tag. Should not be 0 or larger than 1:
 
 ```text title=""
 count(/html/head/meta[@name='robots'])
+```
+
+## Page Title
+Ensure that a web page doesn't have an empty title:
+
+```text title=""
+/html/head/title[.!='']
+```
+
+### Example
+How to use Browserist to check whether a web page has a page title:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    assert browser.check_if.does_exist("/html/head/title[.!='']") is True
+```
+
+Alternatively, without using XPath:
+
+```python linenums="5"
+    assert browser.get.page_title() != ""
 ```
