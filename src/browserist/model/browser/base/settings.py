@@ -20,8 +20,8 @@ class BrowserSettings:
         disable_images (bool, optional): [Neither request nor render images](../../user-guide/performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers.
         page_load_strategy (PageLoadStrategy, optional): Set [page load strategy](../../settings/page-load-strategy.md).
         path_to_executable (str | Path | None, optional): If the browser executable isn't in a default folder, select which file to use.
-        download_dir (str | Path, optional): Set where to save downloads. Default is the `Downloads` folder of the user.
-        screenshot_dir (str | Path, optional): Set where to save sreenshots. Default is the `Downloads` folder of the user.
+        download_dir (str | Path, optional): Set where to save [downloads](../../user-guide/download-files.md). Default is the `Downloads` folder of the user.
+        screenshot_dir (str | Path, optional): Set where to save [sreenshots](../../user-guide/screenshots.md). Default is the `Downloads` folder of the user.
         timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../settings/timeout-strategy.md).
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`.
