@@ -69,6 +69,7 @@ As you can't click a button that's not ready in the DOM, Browserist simply check
 #### Sweet Spot of Browser Automation
 You don't want to be too fast nor too slow when automating a browser. You're simply dependant on too many factors that are beyond your control: internet speed, server response time, etc. The sweet spot is to be just right:
 
+<div id="comparison-table"></div>
 
 | Timing     | Consequence | Description |
 | ---------- | ----------- | ----------- |

@@ -229,6 +229,9 @@ extra:
   version:
     provider: mike
 
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
       lang: en
