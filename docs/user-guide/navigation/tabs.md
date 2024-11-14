@@ -2,7 +2,7 @@
 tags:
     - Tutorial
     - Navigation
-    - Tabs and windows
+    - Tabs and Windows
 ---
 
 # Working with Tabs
