@@ -1,4 +1,6 @@
 ---
+title: XPath Cheatsheet for Text
+description: Learn how to use powerful XPath methods to target specific text in nodes. Includes code examples.
 tags:
     - Tutorial
     - Cheatsheet
