@@ -1,4 +1,6 @@
 ---
+title: How to Take Screenshots
+description: Learn how to take screenshots of web pages with Browserist. Capture the visible portion of a web page, a specific element, or the entire page. Includes code examples.
 tags:
     - Tutorial
 ---

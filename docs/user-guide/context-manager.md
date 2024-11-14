@@ -1,10 +1,12 @@
 ---
+title: How to Use the Context Manager
+description: Instead of manually closing the browser session, learn how to use the context manager to automatically close the browser session with Browserist. Includes code examples.
 tags:
     - Tutorial
 ---
 
 # Context Manager
-## How to Automatically Quit the Browser
+## How to Automatically Close the Browser Session
 Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the context manager and `with` statements.
 
 ### Advantages
