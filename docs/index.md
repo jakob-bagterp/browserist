@@ -1,5 +1,6 @@
 ---
 title: Home
+description: Browserist is a Python extension for the Selenium web driver that makes browser automation even easier.
 ---
 
 [![Latest version](https://img.shields.io/static/v1?label=version&message=1.6.22&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
