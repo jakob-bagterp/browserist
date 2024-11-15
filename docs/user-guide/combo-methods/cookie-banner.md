@@ -1,11 +1,13 @@
 ---
+title: How to Handle Cookie Banners in Web Scraping
+description: Learn how to automate handling of cookie banners using combo methods in Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Settings
     - Combo
 ---
 
-# Cookie Banner Combo Method
+# How to Handle Cookie Banners
 As you often need to accept cookie consent banners before you can scrape web pages, Browserist has a standardised method to do this at scale. The `CookieBannerSettings` class enables you to easily share the same settings across different browsers or scripts.
 
 View all options in the [reference documentation](../../reference/browser/combo/cookie-banner.md#cookiebannersettings).

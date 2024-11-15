@@ -1,11 +1,13 @@
 ---
+title: How to Automate Login Handling in Web Scraping
+description: Learn how to automate login handling using combo methods in Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Settings
     - Combo
 ---
 
-# Log In Combo Method
+# How to Handle Logins
 Imagine that you have to automate tests of a web application that requires you to log in. Sometimes you want to ensure that multiple user roles can log in and do certains tasks. You can use the log in combo method and settings classes `LoginForm1Step`, `LoginForm2Steps`, and `LoginCredentials` to do this at scale.
 
 ## One or Two Steps to Log In

@@ -1,11 +1,13 @@
 ---
+title: How to Automate Search Handling in Web Scraping
+description: Learn how to automate search handling using combo methods in Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Settings
     - Combo
 ---
 
-# Search Combo Method
+# How to Handle Searches
 Imagine that you have a list of items and you want to search through them. You can use the search combo method and `SearchSettings` class to do this at scale.
 
 View all options in the [reference documentation](../../reference/browser/combo/search.md#searchsettings).
