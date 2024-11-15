@@ -1,10 +1,12 @@
 ---
+title: How to Interact with Iframes in Web Scraping
+description: Learn how to interact with iframes in browser automation and web scraping using Browserist. Includes code examples.
 tags:
     - Tutorial
     - Navigation
 ---
 
-# Interacting with Iframes
+# How to Interact with Iframes
 ## What Is an Iframe?
 An iframe, also known as an _inline frame_, is an element that loads another HTML page within the document. It essentially places another web page within the parent page. Iframes are commonly used for advertising, embedded video, web analytics, and interactive content.
 

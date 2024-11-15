@@ -1,11 +1,13 @@
 ---
+title: How to Automate Basic Browser Navigation
+description: Learn basic navigation like back and forward, refresh and quit for browser automation and web scraping using Browserist. Includes code examples.
 tags:
     - Tutorial
     - Navigation
 ---
 
-# Basic Navigation
-## Standard Browser Buttons
+# How to Automate Basic Browser Navigation
+## Standard Buttons
 Similar to Selenium, use these simple commands to automate the browser:
 
 | Action  | Code                | Description                        |

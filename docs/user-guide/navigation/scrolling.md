@@ -1,4 +1,6 @@
 ---
+title: How to Automate Scrolling in Web Scraping
+description: Learn how to automate scrolling up or down, left or right in browser automation and web scraping using Browserist. Includes code examples.
 tags:
     - Tutorial
     - Navigation
