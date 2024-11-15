@@ -1,4 +1,6 @@
 ---
+title: How to Configure Page Load Strategy
+description: Learn how to configure and optimize page load strategies in web automation and scraping. With Browserist as extension to Selenium, it's easy to configure with few lines of code.
 tags:
     - Tutorial
     - Settings
@@ -6,10 +8,16 @@ tags:
     - Performance
 ---
 
-# Page Load Strategy
-Class to configure page load strategy that is then passed on to the underlying [Selenium web driver](https://www.selenium.dev/documentation/webdriver/drivers/options/#pageloadstrategy).
+# What Is a Page Load Strategy?
+When is a page considered to be loaded? When all resources – stylesheets, images, scripts, etc. – have finished loading, or perhaps earlier when you can interact with the page?
+
+This choice is important if you want to tweak the performance of how fast your automation script runs. Just be aware that the page load strategy options are a trade-off between speed and stability, and the browser may hang idle or crash if you choose the wrong strategy.
+
+The default – and most commonly used – strategy is to wait for all resources to be downloaded: `PageLoadStrategy.NORMAL`. However, if your script doesn't need to download images or need to interact with the page, try the `PageLoadStrategy.EAGER` or `PageLoadStrategy.NONE` strategies to speed up the execution.
 
 ## Strategy Options
+Configure the page load strategy with the `PageLoadStrategy` class. This is then passed on to the underlying [Selenium web driver](https://www.selenium.dev/documentation/webdriver/drivers/options/#pageloadstrategy). The options are:
+
 | Option                    | Description                                                                | Ready State |
 | ------------------------- | -------------------------------------------------------------------------- | ----------- |
 | `PageLoadStrategy.NORMAL` | Default. Waits for all resources to download.                              | Complete    |

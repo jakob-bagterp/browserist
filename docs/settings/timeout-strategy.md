@@ -1,16 +1,43 @@
 ---
+title: How to Configure Timeout Strategy
+description: Should the browser stop or continue when a function times out or if something breaks? Learn how to set the best timeout strategy for the needs and context of your automation workflow.
 tags:
     - Tutorial
     - Settings
 ---
 
-# Timeout Strategy
-What happens if a function times out: Should the browser stop or continue its operation?
+# What Is a Timeout Strategy?
+How long should the browser wait and keep retrying to interact with an element: 5, 10, or 20 seconds? And what happens when a function times out: Should the browser stop or continue its operation?
 
-Define a general strategy and timeout in seconds:
+Learn how to set the best timeout strategy for the needs and context of your automation workflow.
 
-* Default is `5` seconds per function (note that a function-specific timeout overrides this)
-* The strategy can be `TimeoutStrategy.STOP` (default) or `TimeoutStrategy.CONTINUE`
+## Settings and Strategy
+`TimeoutSettings` defines the `TimeoutStrategy` together with a general timeout in seconds. Note that the general timeout often can be shortened or extended by the function-specific timeout. For example:
+
+```python linenums="1"
+from browserist import TimeoutSettings, TimeoutStrategy
+
+timeout_settings = TimeoutSettings(
+    strategy=TimeoutStrategy.CONTINUE,
+    seconds=10)
+```
+
+### Options for `TimeoutSettings`
+
+| Parameter  | Description                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| `seconds`  | General timeout and default is `5` seconds. Note that a function-specific timeout overrides this. |
+| `strategy` | `TimeoutStrategy.STOP` (default) or `TimeoutStrategy.CONTINUE`.                                   |
+
+### Options for `TimeoutStrategy`
+
+| Option                     | Description                                                         |
+| -------------------------- | ------------------------------------------------------------------- |
+| `TimeoutStrategy.STOP`     | Default. Fail fast upon timeout and raise errors.                   |
+| `TimeoutStrategy.CONTINUE` | Continue despite timeouts and most errors (syntax errors excluded). |
+
+## Example
+How to define a general strategy and timeout of 10 seconds for all functions, which we then override to 5 seconds for a specific function:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrategy
@@ -23,10 +50,6 @@ settings = BrowserSettings(timeout=timeout_settings)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
+    headline = browser.get.text("//h1", timeout=5)
+    print(headline)
 ```
-
-## Strategy Options
-| Option                     | Description                                                         |
-| -------------------------- | ------------------------------------------------------------------- |
-| `TimeoutStrategy.STOP`     | Default. Fail fast upon timeout and raise errors.                   |
-| `TimeoutStrategy.CONTINUE` | Continue despite timeouts and most errors (syntax errors excluded). |

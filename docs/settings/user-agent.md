@@ -1,10 +1,12 @@
 ---
+title: How to Configure User Agent
+description: Learn how to set and customize the user agent string in Browserist. Includes code examples, tips, and tricks for web automation and scraping.
 tags:
     - Tutorial
     - Settings
 ---
 
-# User Agent
+# What Is a User Agent?
 Browsers identify themselves to websites with a `User-Agent` string in the request header. The user agent string contains information about:
 
 * Browser type

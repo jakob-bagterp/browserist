@@ -1,4 +1,6 @@
 ---
+title: How to Configure Viewport Size
+description: Learn how to set and change the browser viewport sizes in automated tests. Emulate popular devices such as iPhone and iPad, or set custom viewport dimensions.
 tags:
     - Tutorial
     - Settings

@@ -1,4 +1,6 @@
 ---
+title: How to Configure and Optimize Browserist
+description: Learn how to configure Browserist for different browser types, headless mode, and other settings to optimize browser automation and scraping.
 tags:
     - Tutorial
     - Settings
