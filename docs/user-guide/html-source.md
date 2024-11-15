@@ -1,6 +1,6 @@
 ---
 title: How to Get the HTML Source
-description: Learn how to get the HTML source of a web page or specific elements with Browserist. Includes code examples.
+description: Learn how to get the HTML source of a web page or specific elements with Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
 ---

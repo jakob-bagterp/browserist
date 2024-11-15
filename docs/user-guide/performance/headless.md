@@ -1,4 +1,6 @@
 ---
+title: How to Run Browsers in Headless Mode
+description: Learn how to automate browsers like Chrome, Firefox, Edge in headless mode for boosted performance and less resources. With Browserist, it's easy. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Performance
@@ -6,9 +8,9 @@ tags:
     - Settings
 ---
 
-# Run Browser in Headless Mode
+# How to Run Browsers in Headless Mode
 ## What Is Headless?
-Headless simply means running the browser in the background and without viewing the browser on the screen.
+Headless simply means that the browser runs in the background without being visible on the screen. This is also more efficient because it uses fewer resources, while headless browsers often are faster.
 
 ## How to Configure
 The default setting for `headless` is `False` in `BrowserSettings`. Simply alter this to `True`, and now your browser driver runs in headless mode:

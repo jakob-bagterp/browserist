@@ -1,6 +1,6 @@
 ---
 title: XPath Cheatsheet for Search Engine Optimisation (SEO)
-description: Learn how to use powerful XPath methods to ensure that a web page has relevant meta data to improve SEO. Includes code examples.
+description: Learn how to use powerful XPath methods to ensure that a web page has relevant meta data to improve SEO. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Cheatsheet

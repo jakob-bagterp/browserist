@@ -1,11 +1,13 @@
 ---
+title: How to Work with Browser Windows in Web Scraping
+description: Learn how to open, close, and switch between windows in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Navigation
     - Tabs and Windows
 ---
 
-# Working with Windows
+# How to Open and Manage Windows
 When you want to open multiple web pages in separate browser windows, Browserist makes it easy to organize and automate your workflow.
 
 ## Basic Usage

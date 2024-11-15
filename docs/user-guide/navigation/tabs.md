@@ -1,11 +1,13 @@
 ---
+title: How to Work with Tabs in Web Scraping
+description: Learn how to open, close, and switch between tabs in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Navigation
     - Tabs and Windows
 ---
 
-# Working with Tabs
+# How to Open and Manage Tabs
 Tabs are a convenient way to organize and navigate multiple web pages within a single browser window. With Browserist, you can easily automate the process of opening and managing tabs.
 
 ## Basic Usage

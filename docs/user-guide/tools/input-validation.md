@@ -1,4 +1,6 @@
 ---
+title: How to Validate User Input in Web Scraping
+description: Learn how to validate user input in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
 ---

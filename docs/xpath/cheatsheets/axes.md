@@ -1,6 +1,6 @@
 ---
 title: XPath Cheatsheet for Axes
-description: Learn how to use powerful XPath methods to traverse the node tree and query hierarchical relationships. Includes code examples.
+description: Learn how to use powerful XPath methods to traverse the node tree and query hierarchical relationships. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Cheatsheet

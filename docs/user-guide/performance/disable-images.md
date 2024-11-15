@@ -1,4 +1,6 @@
 ---
+title: How to Disable Images in Web Scraping
+description: Learn how to boost web scraping performance by disabling images in Chrome, Firefox, Edge. With Browserist, it's easy. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Performance
@@ -6,8 +8,7 @@ tags:
     - Settings
 ---
 
-# Disable Images
-## Why Disable Images?
+# Why Disable Images?
 It's often faster to load pages when you don't download images. So if you don't need to process images when scraping a web page, simply don't wait for such media data – often heavy payloads – and use less bandwidth.
 
 ## How to Configure
