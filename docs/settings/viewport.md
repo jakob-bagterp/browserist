@@ -8,7 +8,7 @@ tags:
     - Headless
 ---
 
-# What Is a Viewport Size
+# What Is a Viewport Size?
 The viewport is the inner size of the browser window that displays the web page. Based on screen size and resolution – from desktop monitors to tablets and mobile phones – the viewport may be smaller than the actual web page and require scrolling to view the entire page.
 
 If you want to change the outer size, check the [window size section](../user-guide/navigation/window-size.md).
