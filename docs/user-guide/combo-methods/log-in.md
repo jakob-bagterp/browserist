@@ -8,7 +8,9 @@ tags:
 ---
 
 # How to Handle Logins and User Profiles
-Imagine that you have to automate tests of a web application that requires you to log in. Sometimes you want to ensure that multiple user roles can log in and do certains tasks. You can use the log in combo method and settings classes `LoginForm1Step`, `LoginForm2Steps`, and `LoginCredentials` to do this at scale.
+Imagine that you have to automate tests of a web application that requires you to log in. Sometimes you want to ensure that multiple user roles can log in and do certains tasks.
+
+You can use the log in combo method and settings classes `LoginForm1Step`, `LoginForm2Steps`, and `LoginCredentials` to do this at scale.
 
 ## One or Two Steps to Log In
 Most websites process login in either one or two steps. This often means that the username and password fields are either on the same page or on separate pages.
