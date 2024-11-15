@@ -1,4 +1,6 @@
 ---
+title: How to Configure Page Load Strategy
+description: Learn how to configure and optimize page load strategies in web automation and scraping. With Browserist as extension to Selenium, it's easy to configure with few lines of code.
 tags:
     - Tutorial
     - Settings

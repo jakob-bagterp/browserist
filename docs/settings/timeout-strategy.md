@@ -1,4 +1,6 @@
 ---
+title: How to Configure Timeout Strategy
+description: Should the browser stop or continue when a function times out or if something breaks? Learn how to set the best timeout strategy for the needs and context of your automation workflow.
 tags:
     - Tutorial
     - Settings

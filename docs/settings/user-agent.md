@@ -1,4 +1,6 @@
 ---
+title: How to Configure User Agent
+description: Learn how to set and customize the user agent string in Browserist. Includes code examples, tips, and tricks for web automation and scraping.
 tags:
     - Tutorial
     - Settings

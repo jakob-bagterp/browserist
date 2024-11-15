@@ -1,4 +1,6 @@
 ---
+title: How to Configure Browser Types
+description: Learn how to use different browser types such as Chrome, Firefox, Edge, etc. with Browserist to automate your web scraping or perform browser compatibility testing.
 tags:
     - Tutorial
     - Browser Types
