@@ -8,8 +8,7 @@ tags:
     - Settings
 ---
 
-# Disable Images
-## Why Disable Images?
+# Why Disable Images?
 It's often faster to load pages when you don't download images. So if you don't need to process images when scraping a web page, simply don't wait for such media data – often heavy payloads – and use less bandwidth.
 
 ## How to Configure
