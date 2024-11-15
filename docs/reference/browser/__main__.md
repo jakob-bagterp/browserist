@@ -4,6 +4,7 @@ description: Learn how to use the browser settings and basic navigation methods 
 tags:
     - Documentation
     - Tutorial
+    - Settings
 ---
 
 # browser
