@@ -1,6 +1,6 @@
 ---
 title: Documentation
-description: Browserist is the easiest way to do web scraping and browser automation with Python. This comprehensive documentation includes code examples for beginners and advanced users.
+description: Browserist is the easy way to do web scraping and browser automation with Python. This comprehensive documentation includes code examples for beginners and advanced users.
 tags:
     - Documentation
     - Tutorial
