@@ -1,4 +1,6 @@
 ---
+title: Beginner's Script for Browser Automation
+description: Get started in minutes with your first browser automation script in Python using Browserist. Includes code examples and step-by-step instructions.
 tags:
     - Automation
     - Tutorial

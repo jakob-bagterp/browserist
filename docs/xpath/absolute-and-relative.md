@@ -1,4 +1,6 @@
 ---
+title: XPath Tutorial for Absolute vs. Relative Expressions
+description: Learn how to write efficient XPath expressions for web scraping and test automation. Understand the difference between absolute and relative XPath patterns.
 tags:
     - Tutorial
     - XPath

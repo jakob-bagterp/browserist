@@ -1,4 +1,6 @@
 ---
+title: XPath Basics
+description: Learn about XPath, a powerful query language that can traverse HTML and XML documents. Includes practical examples of how XPath is used in Browserist for web automation and scraping.
 tags:
     - Tutorial
     - XPath

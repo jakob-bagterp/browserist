@@ -1,4 +1,6 @@
 ---
+title: XPath Cheatsheet for Links and URLs
+description: Learn how to use powerful XPath methods to target nodes the contain specific links or URLs. Includes code examples.
 tags:
     - Tutorial
     - Cheatsheet

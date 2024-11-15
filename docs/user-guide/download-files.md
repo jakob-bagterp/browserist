@@ -1,4 +1,6 @@
 ---
+title: How to Download Files
+description: Learn how to download files with Browserist, either as background task or await completion. Includes code examples.
 tags:
     - Tutorial
 ---

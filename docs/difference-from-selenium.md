@@ -1,6 +1,12 @@
+---
+title: How Is Browserist Different from Selenium?
+description: Start using Browserist as an alternative to Selenium. It's a Python extension to Selenium that makes browser automation even easier, more stable, and with less code.
+tags:
+    - Selenium
+---
 
 # How Is Browserist Different from Selenium?
-Browserist isn't an alternative to Selenium. It's a Python extension for Selenium that makes browser automation even easier.
+Browserist isn't an alternative to Selenium. It's a Python extension to Selenium that makes browser automation even easier.
 
 ## Improved Stability and Less Code
 Browserist improves stability with less code compared to standard use of Selenium. As browsers need time to render web pages, especially single-page applications, Selenium is often used with explicit timeouts:
