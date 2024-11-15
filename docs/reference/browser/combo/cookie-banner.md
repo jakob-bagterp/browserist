@@ -1,5 +1,9 @@
 ---
+title: Documentation for Cookie Banner Settings and Combo Method
+description: Learn how to use the cookie banner settings and combo method in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
+    - Documentation
+    - Tutorial
     - Settings
     - Combo
 ---

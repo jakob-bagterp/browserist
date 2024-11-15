@@ -1,10 +1,12 @@
 ---
+title: How to Target HTML Attributes with XPath
+description: Learn powerful XPath expressions to target HTML attributes like id and name instead of relying on element position or indexes. Includes code examples.
 tags:
     - Tutorial
     - XPath
 ---
 
-# Target Attributes with XPath
+# How to Target HTML Attributes with XPath
 When targeting elements in an HTML document, it's often best to use attributes like `id`, `name`, or `type` to make your XPath expressions more robust. This is especially useful when the HTML layout changes, but the attributes remain constant.
 
 Let's imagine a registration form on a web page where we want to target the `<input>` elements:

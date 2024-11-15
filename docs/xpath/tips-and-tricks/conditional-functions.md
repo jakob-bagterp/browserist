@@ -1,10 +1,12 @@
 ---
+title: How to Use Conditional XPath Functions
+description: Learn powerful XPath expressions to target elements with specific content. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - XPath
 ---
 
-# Conditional XPath Functions
+# How to Use Conditional XPath Functions
 ## Match Elements with Specific Text
 Sometimes you can't use attributes to easily target elements. A calendar is a good example of this. Let's imagine we want to select the first day of a given month:
 

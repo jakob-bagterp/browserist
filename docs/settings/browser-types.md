@@ -1,5 +1,5 @@
 ---
-title: How to Configure Browser Types
+title: How to Configure Browser Type
 description: Learn how to use different browser types such as Chrome, Firefox, Edge, etc. with Browserist to automate your web scraping or perform browser compatibility testing.
 tags:
     - Tutorial
@@ -11,9 +11,9 @@ tags:
     - Safari
 ---
 
-# Browser Types
-## Configure Browser Type
-If you want to use other browser types, e.g. Firefox, Edge, etc., define this in the settings:
+# How to Configure Browser Type
+## Basic Usage
+If you want to use different types of browsers – for example, Firefox, Edge, Chrome, etc. – define this in the `BrowserSettings` class:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
