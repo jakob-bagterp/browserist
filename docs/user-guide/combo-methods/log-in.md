@@ -21,10 +21,10 @@ Use `LoginForm2Steps` when username is prompted first, and then the option to in
 
 As `LoginCredentials` is independent of the login form, it works with both options.
 
-| Class | Step 1 | Step 2 | Post Login |
-| ----- | ------ | ------ | ---------- |
-| `LoginForm1Step` | Input username and password. Then click submit. | | [Multiple options](../../reference/browser/combo/log-in.md#loginform1step) to await confirmation or redirect. |
-| `LoginForm2Steps` | Input username and click submit. | Input password and click submit. | [Multiple options](../../reference/browser/combo/log-in.md#loginform2steps) to await confirmation or redirect. |
+| Class             | Step 1                                          | Step 2                           | Post Login                                                                                                     |
+| ----------------- | ----------------------------------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `LoginForm1Step`  | Input username and password. Then click submit. | –                                | [Multiple options](../../reference/browser/combo/log-in.md#loginform1step) to await confirmation or redirect.  |
+| `LoginForm2Steps` | Input username and click submit.                | Input password and click submit. | [Multiple options](../../reference/browser/combo/log-in.md#loginform2steps) to await confirmation or redirect. |
 
 ## Examples
 ### Basic Usage
