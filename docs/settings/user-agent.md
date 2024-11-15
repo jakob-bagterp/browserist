@@ -6,7 +6,7 @@ tags:
     - Settings
 ---
 
-# User Agent
+# What Is a User Agent?
 Browsers identify themselves to websites with a `User-Agent` string in the request header. The user agent string contains information about:
 
 * Browser type
