@@ -1,4 +1,6 @@
 ---
+title: How to Install Edge and the Edge WebDriver
+description: Learn how to install the Microsoft Edge browser and Edge WebDriver for browser automation. Includes step-by-step setup instructions.
 tags:
     - Automation
     - Edge

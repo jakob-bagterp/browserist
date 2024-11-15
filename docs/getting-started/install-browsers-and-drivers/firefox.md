@@ -1,4 +1,6 @@
 ---
+title: How to Install Firefox and GeckoDriver
+description: Learn how to install the Mozilla Chrome Firefox and GeckoDriver for browser automation. Includes step-by-step setup instructions.
 tags:
     - Automation
     - Firefox

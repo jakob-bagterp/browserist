@@ -1,4 +1,6 @@
 ---
+title: How to Install Chrome and ChromeDriver
+description: Learn how to install the Google Chrome browser and ChromeDriver for browser automation. Includes step-by-step setup instructions.
 tags:
     - Automation
     - Chrome
