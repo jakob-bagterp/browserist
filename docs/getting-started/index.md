@@ -1,6 +1,6 @@
 ---
-title: Get Started in 3 Easy Steps
-description: Quick guide to installing and using Browserist for browser automation in Python, so you can run your first script within minutes. Includes code examples.
+title: Get Started with Web Scraping in 3 Easy Steps
+description: Quick guide to installing and using Browserist for web scraping and browser automation in Python, so you can run your first script within minutes. Includes code examples.
 tags:
     - Automation
     - Tutorial

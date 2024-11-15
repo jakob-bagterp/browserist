@@ -1,6 +1,6 @@
 ---
-title: Home
-description: Browserist is a Python extension for the Selenium web driver that makes browser automation even easier.
+title: Get Started with Web Scraping and Browser Automation
+description: Browserist is the easiest way to do web scraping and browser automation with Python and as an extension for the Selenium web driver.
 ---
 
 [![Latest version](https://img.shields.io/static/v1?label=version&message=1.6.22&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
