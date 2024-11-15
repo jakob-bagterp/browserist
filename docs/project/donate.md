@@ -1,3 +1,8 @@
+---
+title: Become a Sponsor
+description: If you find Browserist helpful, please consider supporting its development. Your donations will help keep it alive and growing.
+---
+
 # Donations
 
 !!! tip "Become a Sponsor"
