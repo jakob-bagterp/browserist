@@ -1,6 +1,6 @@
 ---
 title: How to Work with Tabs in Web Scraping
-description: Learn how to open, close, and switch between tabs in browser automation and web scraping using Browserist. Includes code examples.
+description: Learn how to open, close, and switch between tabs in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Navigation

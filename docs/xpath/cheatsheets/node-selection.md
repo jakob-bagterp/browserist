@@ -1,6 +1,6 @@
 ---
 title: XPath Cheatsheet for Node Selection
-description: Learn how to use poweful XPath methods to target specific nodes or groups. Includes code examples.
+description: Learn how to use poweful XPath methods to target specific nodes or groups. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Cheatsheet
