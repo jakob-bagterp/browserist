@@ -1,4 +1,6 @@
 ---
+title: How to Disable Images
+description: Learn how to boost web scraping performance by disabling image downloads in Chrome, Firefox, Edge, etc. – standardised with Python across browser types.
 tags:
     - Tutorial
     - Performance

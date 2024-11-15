@@ -1,4 +1,6 @@
 ---
+title: How to Run Browsers in Headless Mode
+description: Learn how to run automated browsers in headless mode for improved performance and resource efficiency. With Browserist it's easy to configure Chrome, Firefox and Edge to run in the background.
 tags:
     - Tutorial
     - Performance
