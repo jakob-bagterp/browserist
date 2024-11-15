@@ -1,4 +1,6 @@
 ---
+title: How to Count Elements in Web Scraping
+description: Learn how to count the number of elements in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
 ---

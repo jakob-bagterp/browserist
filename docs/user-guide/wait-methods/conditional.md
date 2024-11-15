@@ -1,9 +1,11 @@
 ---
+title: How to Await Conditions in Web Scraping
+description: Learn how to wait until a condition is met in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
 ---
 
-# Wait Until a Condition Is Met
+# How to Wait Until a Condition Is Met
 This group of methods apply the following conditions to either the page title, text of an element, or URL:
 
 * Changes

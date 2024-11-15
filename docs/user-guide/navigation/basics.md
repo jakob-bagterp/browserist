@@ -1,6 +1,6 @@
 ---
 title: How to Automate Basic Browser Navigation
-description: Learn basic navigation like back and forward, refresh and quit for browser automation and web scraping using Browserist. Includes code examples.
+description: Learn basic navigation like back and forward, refresh and quit for browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Navigation

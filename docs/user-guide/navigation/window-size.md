@@ -1,6 +1,6 @@
 ---
 title: How to Adjust Window Size in Browser Automation
-description: Learn how to resize of the browser window using Browserist. Includes code examples.
+description: Learn how to resize of the browser window using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Navigation
