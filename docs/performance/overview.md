@@ -8,7 +8,7 @@ tags:
     - Disable Images
 ---
 
-# How to Boost Performance
+# How to Boost Performance 🏎️
 Running multiple browsers in parallel can take a lot of time and resources. If you apply the right strategy, you can more the workflow much more efficient. Find tips and tricks to speed up your web scraping and browser automation.
 
 ## Headless Mode

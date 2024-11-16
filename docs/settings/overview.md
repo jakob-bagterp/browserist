@@ -10,7 +10,7 @@ tags:
     - Viewport
 ---
 
-# Configuration Options for Browserist
+# Configuration Options 🛠️
 When using Selenium, you often need to configure the driver differently for each browser, whether it should disable images or run in headless mode.
 
 With Browserist, many of these complexities are handled automatically under the hood, so all you need to do is set the browser type and other options in the `BrowserSettings` class.
