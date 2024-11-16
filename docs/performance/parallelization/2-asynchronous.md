@@ -1,5 +1,5 @@
 ---
-title: How to Run Multiple Browsers in Azynchronous Mode
+title: How to Run Multiple Browsers in Asynchronous Mode
 description: Learn how to speed up your web scraping and browser automation with Browserist by running multiple browsers in parallel using asynchronous methods. Includes code examples.
 tags:
     - Tutorial
