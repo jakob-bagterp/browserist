@@ -20,7 +20,7 @@ You can run Browserist as a [normal, linear script](1-linear.md) or with various
 Multi-processing and multi-threading are the fastest methods, sometimes twice as fast as running the same job in linear or asynchronous mode. For instance, measuring execution time of the code examples below yield the results like this in seconds:
 
 | Method                                    | Improvement | Average | Min   | Max   |
-| ----------------------------------------- | ----------- | ------- | ----- | ----- |
+| ----------------------------------------- | :---------: | :-----: | :---: | :---: |
 | [Linear](1-linear.md)                     | _Baseline_  | 8.59    | 8.55  | 8.62  |
 | [Asynchronous](2-asynchronous.md)         | 2 %         | 8.42    | 8.33  | 8.48  |
 | [Multi-threading](3-multi-threading.md)   | 103 %       | 4.24    | 4.20  | 4.29  |
@@ -88,7 +88,7 @@ with Browser() as browser:
 Results in seconds and compared to previous method:
 
 | Method                                    | Improvement | Average | Min   | Max   |
-| ----------------------------------------- | ----------- | ------- | ----- | ----- |
+| ----------------------------------------- | :---------: | :-----: | :---: | :---: |
 | [Linear](1-linear.md)                     | 2 %         | 8.46    | 6.34  | 12.78 |
 | [Asynchronous](2-asynchronous.md)         | 7 %         | 8.01    | 6.15  | 11.11 |
 | [Multi-threading](3-multi-threading.md)   | 113 %       | 4.03    | 3.98  | 4.07  |
