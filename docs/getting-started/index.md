@@ -46,7 +46,7 @@ For advanced users, learn how to optimise performance:
 
 * [Headless mode](../performance/headless.md)
 * [Disable images](../performance/disable-images.md)
-* [Run multiple browsers in parallel](../performance/parallelization.md)
+* [Run multiple browsers in parallel](../performance/parallelization/results-summary.md)
 
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.

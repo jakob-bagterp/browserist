@@ -62,7 +62,12 @@ nav:
     - Overview: performance/overview.md
     - Headless: performance/headless.md
     - Disable Images: performance/disable-images.md
-    - Parallelization: performance/parallelization.md
+    - Parallelization:
+      - Results Summary: performance/parallelization/results-summary.md
+      - 1. Linear: performance/parallelization/1-linear.md
+      - 2. Ascynchronous: performance/parallelization/2-asynchronous.md
+      - 3. Multi-Threading: performance/parallelization/3-multi-threading.md
+      - 4. Multi-Processing: performance/parallelization/4-multi-processing.md
   - XPath:
     - Basics: xpath/basics.md
     - Absolute and Relative: xpath/absolute-and-relative.md
@@ -287,10 +292,9 @@ plugins:
         donate.md: project/donate.md
         support-and-contribution.md: project/support-and-contribution.md
         tags.md: index/tags.md
-
         user-guide/performance/headless.md: performance/headless.md
         user-guide/performance/disable-images.md: performance/disable-images.md
-        user-guide/performance/parallelisation.md: performance/parallelization.md
+        user-guide/performance/parallelisation.md: performance/parallelization/results-summary.md
 
 watch:
   - src

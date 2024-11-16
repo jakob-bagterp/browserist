@@ -18,6 +18,10 @@ A browser use many resources to render graphics on the screen. By running it in 
 The largest payload for a web page is often image files. If you don't need images for your workflow and want to improve performance, you can [disable images](disable-images.md) for the browser.
 
 ## Parallelization
-If you need to run multiple browser instances in parallel, you can try the [parallelization methods](parallelization.md).
+If you need to run multiple browser instances in parallel, you can try various [parallelization methods](parallelization/results-summary.md):
 
-It can also be combined with [headless mode](headless.md) and [disabling images](disable-images.md) for even more efficiency.
+* [Asynchronous](parallelization/2-asynchronous.md)
+* [Multi-threading](parallelization/3-multi-threading.md)
+* [Multi-processing](parallelization/4-multi-processing.md)
+
+These methods can also be combined with [headless mode](headless.md) and [disabling images](disable-images.md) for even more efficiency.
