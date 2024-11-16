@@ -43,10 +43,6 @@ nav:
       - Cookie Banner: user-guide/combo-methods/cookie-banner.md
       - Log In: user-guide/combo-methods/log-in.md
       - Search: user-guide/combo-methods/search.md
-    - Performance:
-      - Headless: user-guide/performance/headless.md
-      - Disable Images: user-guide/performance/disable-images.md
-      - Parallelisation: user-guide/performance/parallelisation.md
     - Tools:
       - Execute JavaScript: user-guide/tools/execute-javascript.md
       - Count Elements: user-guide/tools/count-elements.md
@@ -62,6 +58,16 @@ nav:
     - Page Load Strategy: settings/page-load-strategy.md
     - Viewport: settings/viewport.md
     - User Agent: settings/user-agent.md
+  - Performance:
+    - Overview: performance/overview.md
+    - Headless: performance/headless.md
+    - Disable Images: performance/disable-images.md
+    - Parallelization:
+      - Results Summary: performance/parallelization/results-summary.md
+      - 1. Linear: performance/parallelization/1-linear.md
+      - 2. Ascynchronous: performance/parallelization/2-asynchronous.md
+      - 3. Multi-Threading: performance/parallelization/3-multi-threading.md
+      - 4. Multi-Processing: performance/parallelization/4-multi-processing.md
   - XPath:
     - Basics: xpath/basics.md
     - Absolute and Relative: xpath/absolute-and-relative.md
@@ -287,6 +293,9 @@ plugins:
         donate.md: project/donate.md
         support-and-contribution.md: project/support-and-contribution.md
         tags.md: index/tags.md
+        user-guide/performance/headless.md: performance/headless.md
+        user-guide/performance/disable-images.md: performance/disable-images.md
+        user-guide/performance/parallelisation.md: performance/parallelization/results-summary.md
 
 watch:
   - src

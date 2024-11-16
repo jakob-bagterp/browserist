@@ -16,8 +16,8 @@ class BrowserSettings:
 
     Args:
         type (BrowserType, optional): Set [browser type](../../settings/browser-types.md), e.g. Chrome, Edge, Firefox, etc.
-        headless (bool, optional): Run the browser in [headless mode](../../user-guide/performance/headless.md). May not be supported by all browsers, or some interaction methods, e.g. select, may not be supported.
-        disable_images (bool, optional): [Neither request nor render images](../../user-guide/performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers.
+        headless (bool, optional): Run the browser in [headless mode](../../performance/headless.md). May not be supported by all browsers, or some interaction methods, e.g. select, may not be supported.
+        disable_images (bool, optional): [Neither request nor render images](../../performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers.
         page_load_strategy (PageLoadStrategy, optional): Set [page load strategy](../../settings/page-load-strategy.md).
         path_to_executable (str | Path | None, optional): If the browser executable isn't in a default folder, select which file to use.
         download_dir (str | Path, optional): Set where to save [downloads](../../user-guide/download-files.md). Default is the `Downloads` folder of the user.
