@@ -1,5 +1,5 @@
 ---
-title: Tips and Tricks for XPath Expressions in Web Scraping
+title: Tips and Tricks for XPath in Web Scraping
 description: Learn XPath techniques for efficient web scraping and browser automation. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial

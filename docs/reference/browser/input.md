@@ -1,6 +1,6 @@
 ---
 title: Documentation for Input Methods
-description: Learn how to use the input methods to fill forms in Browserist. Includes code examples for beginners and advanced users.
+description: Learn how to use the input methods to fill forms in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation
     - Tutorial

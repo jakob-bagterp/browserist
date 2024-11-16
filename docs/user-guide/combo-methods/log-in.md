@@ -1,6 +1,6 @@
 ---
-title: How to Automate Login and User Profiles in Web Scraping
-description: Learn how to automate login handling using combo methods in Browserist. Includes code examples for beginners and advanced users.
+title: How to Log In with User Profiles in Web Scraping
+description: Learn how to automate login and user profiles using combo methods in Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
     - Settings

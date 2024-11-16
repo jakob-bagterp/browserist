@@ -1,5 +1,5 @@
 ---
-title: How to Automate Search Handling in Web Scraping
+title: How to Automate Search in Web Scraping
 description: Learn how to automate search handling using combo methods in Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial

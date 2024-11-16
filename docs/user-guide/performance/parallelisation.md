@@ -1,6 +1,6 @@
 ---
-title: How to Run Multiple Browsers in Parallel for Web Scraping
-description: Learn how to speed up your browser automation with Browserist by running multiple browsers in parallel using asynchronous, multi-threading, or multi-processing methods. Includes code examples.
+title: How to Run Multiple Browsers in Parallel
+description: Learn how to speed up your web scraping and browser automation with Browserist by running multiple browsers in parallel using asynchronous, multi-threading, or multi-processing methods. Includes code examples.
 tags:
     - Tutorial
     - Performance
@@ -8,7 +8,8 @@ tags:
     - Disable Images
 ---
 
-# Run Multiple Browsers in Parallel
+# How to Run Multiple Browsers in Parallel
+## Which Methods Can Boost the Performance?
 You can run Browserist as a normal, linear script or with various methods for concurrent processing:
 
 * Asynchronous
