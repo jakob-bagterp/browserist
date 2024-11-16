@@ -19,7 +19,7 @@ You can run Browserist as a [normal, linear script](1-linear.md) or with various
 ## Which Method Is Faster?
 Multi-processing and multi-threading are the fastest methods, sometimes twice as fast as running the same job in linear or asynchronous mode. For instance, measuring execution time of the code examples below yield the results like this in seconds:
 
-| Method                                    | Rank                       | Improvement | Average | Min   | Max   |
+| Method                                    | Rank                        | Improvement | Average | Min   | Max   |
 | ----------------------------------------- | :-------------------------: | :---------: | :-----: | :---: | :---: |
 | [Linear](1-linear.md)                     | :material-speedometer-slow: | _Baseline_  | 8.59    | 8.55  | 8.62  |
 | [Asynchronous](2-asynchronous.md)         | :material-speedometer-slow: | 2 %         | 8.42    | 8.33  | 8.48  |
