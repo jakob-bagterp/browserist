@@ -1,0 +1,23 @@
+---
+title: How to Boost Performance in Web Scraping
+description: Learn how to speed up your web scraping and browser automation with Browserist by disabling images or running browsers in headless mode and in parallel.
+tags:
+    - Tutorial
+    - Performance
+    - Headless
+    - Disable Images
+---
+
+# How to Boost Performance
+Running multiple browsers in parallel can take a lot of time and resources. If you apply the right strategy, you can more the workflow much more efficient. Find tips and tricks to speed up your web scraping and browser automation.
+
+## Headless Mode
+A browser use many resources to render graphics on the screen. By running it in [headless mode](headless.md), no window is opened and the browser runs in the background. This is an easy way to boost performance and reduce resource usage.
+
+## Disable Images
+The largest payload for a web page is often image files. If you don't need images for your workflow and want to improve performance, you can [disable images](disable-images.md) for the browser.
+
+## Parallelization
+If you need to run multiple browser instances in parallel, you can try the [parallelization methods](parallelization.md).
+
+It can also be combined with [headless mode](headless.md) and [disabling images](disable-images.md) for even more efficiency.

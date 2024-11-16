@@ -16,10 +16,6 @@ Find tutorials, tips and tricks in this section. For more info about configurati
 * [Taking screenshots](screenshots.md)
 * [Getting HTML source](html-source.md)
 
-### Performance
-* [Headless mode](./performance/headless.md)
-* [Parallelisation](./performance/parallelisation.md)
-
 ### Combo Methods
 * [Cookie banner](./combo-methods/cookie-banner.md)
 * [Log in](./combo-methods/log-in.md)

@@ -37,7 +37,7 @@ And you can later change the viewport to another device:
 ```
 
 !!! tip
-    It's recommended to run viewport emulations in [headless mode](../user-guide/performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
+    It's recommended to run viewport emulations in [headless mode](../performance/headless.md) since an open browser may have minimum or maximum dimensions, either limited by the browser window or the monitor.
 
 ### Available Common Devices
 Browserist provides a pre-defined collection of common devices, covering tablets and mobile phones from the most popular manufacturers. Find more information in the reference documentation and source code:
