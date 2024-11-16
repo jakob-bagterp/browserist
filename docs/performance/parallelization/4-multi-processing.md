@@ -6,7 +6,7 @@ tags:
     - Performance
 ---
 
-### Multi-Processing
+# Multi-Processing
 ```python linenums="1"
 import multiprocessing
 from browserist import Browser, BrowserSettings, BrowserType

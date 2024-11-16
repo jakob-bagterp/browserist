@@ -6,7 +6,7 @@ tags:
     - Performance
 ---
 
-### Linear and Not Parallelized
+# Linear and Not Parallelized
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 

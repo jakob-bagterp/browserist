@@ -6,7 +6,7 @@ tags:
     - Performance
 ---
 
-### Multi-Threading
+# Multi-Threading
 ```python linenums="1"
 from threading import Thread
 from browserist import Browser, BrowserSettings, BrowserType
