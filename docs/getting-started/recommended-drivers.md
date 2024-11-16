@@ -11,9 +11,9 @@ tags:
 # Recommended Drivers for Browserist
 Browserist supports automation with the most popular browser drivers. Find help installing the most common drivers:
 
-* [Chrome](./install-browsers-and-drivers/chrome.md)
-* [Edge](./install-browsers-and-drivers/edge.md)
-* [Firefox](./install-browsers-and-drivers/firefox.md)
+* [Chrome](install-browsers-and-drivers/chrome.md)
+* [Edge](install-browsers-and-drivers/edge.md)
+* [Firefox](install-browsers-and-drivers/firefox.md)
 
 ## What Is a Browser Driver?
 A browser driver is a program that controls a web browser in a similar way to scrolling, clicking and pointing with a mouse on a desktop or gestures on a touchscreen. The driver is responsible for controlling the behaviour of the browser and interacting with the web page by sending commands to the browser and receiving responses.

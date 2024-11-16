@@ -16,9 +16,9 @@ In order to run Browserist successfully, you need to have the following installe
 * [Relevant browser and driver](recommended-drivers.md)
 
 !!! info
-    Default browser driver is [Chrome](./install-browsers-and-drivers/chrome.md), except for Windows where [Edge](./install-browsers-and-drivers/edge.md) is the default browser.
+    Default browser driver is [Chrome](install-browsers-and-drivers/chrome.md), except for Windows where [Edge](install-browsers-and-drivers/edge.md) is the default browser.
 
-    Optional browsers: [Firefox](./install-browsers-and-drivers/firefox.md), Safari, Internet Explorer.
+    Optional browsers: [Firefox](install-browsers-and-drivers/firefox.md), Safari, Internet Explorer.
 
 ## Using Package Managers
 Assuming that Python is installed already, you can install Browserist with either of the following package managers: PyPI or Homebrew.
