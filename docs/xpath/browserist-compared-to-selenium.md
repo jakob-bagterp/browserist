@@ -1,5 +1,5 @@
 ---
-title: How to Select Elements Compared to Selenium
+title: How to Use XPath Compared to Selenium
 description: Browserist is a powerful extension to the Selenium framework that makes web scraping and browser automation even easier. Learn how it differs from Selenium.
 tags:
     - Tutorial

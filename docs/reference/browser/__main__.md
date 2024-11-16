@@ -1,5 +1,5 @@
 ---
-title: Documentation for Browser Settings and Basic Navigation
+title: Documentation for Settings and Basic Navigation
 description: Learn how to use the browser settings and basic navigation methods in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation

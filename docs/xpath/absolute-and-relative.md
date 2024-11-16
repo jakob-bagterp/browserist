@@ -1,12 +1,12 @@
 ---
-title: XPath Tutorial for Absolute vs. Relative Expressions
+title: Tutorial for Absolute vs. Relative XPath
 description: Learn how to write efficient XPath expressions for web scraping and test automation. Understand the difference between absolute and relative XPath patterns.
 tags:
     - Tutorial
     - XPath
 ---
 
-# Absolute and Relative XPath Expressions
+# How to Use Absolute and Relative XPath Expressions
 An XPath expression can be written in two ways:
 
 * **Absolute**: Starts with `/`

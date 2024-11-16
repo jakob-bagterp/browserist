@@ -1,6 +1,6 @@
 ---
-title: How to Wait for Elements to Be Ready in Web Scraping
-description: Learn how to wait for implicit time in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
+title: How to Wait for Elements in Web Scraping
+description: Learn how to wait for elements to be ready for interaction in browser automation and web scraping using Browserist. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
 ---

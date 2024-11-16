@@ -1,5 +1,5 @@
 ---
-title: How to Use Conditional XPath Functions
+title: How to Use Conditional XPath in Web Scraping
 description: Learn powerful XPath expressions to target elements with specific content. Includes code examples for beginners and advanced users.
 tags:
     - Tutorial
