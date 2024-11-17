@@ -10,7 +10,7 @@ tags:
 ---
 
 # Get Started in 3 Easy Steps 🚀
-Ready to try? Let's get started:
+Ready to try the easy way to do web scraping and browser automation with Python? Let's get started:
 
 ## 1. Install Browserist Package
 Assuming that [Python](https://www.python.org/) is already installed, execute this command in the terminal to install the Browserist package:
