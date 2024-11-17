@@ -13,7 +13,7 @@ Read on to learn how to automate file downloads in an easy and stable way.
 ## Destination Directory for Downloads
 First, make sure you know where files are downloaded to. The default is the user's `Downloads` folder, or you can set a custom download directory in the [`download_dir` parameter of `BrowserSettings`](../settings/overview.md).
 
-```python linenums="1"
+```python linenums="1" hl_lines="3 7"
 from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(download_dir="/my/downloads")
@@ -47,7 +47,7 @@ Use the `click.download()` method for simple file downloads, either as a backgro
 
 Examples in context:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5-7"
 from browserist import Browser
 
 with Browser() as browser:
@@ -60,7 +60,7 @@ with Browser() as browser:
 ### Get the Path to the Downloaded File
 Use the `click.download_and_get_file_path()` method to download a file and get its file path once the download is complete. As downloads are handled automatically by the browser, this is useful if you don't know the file name beforehand. For example:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
