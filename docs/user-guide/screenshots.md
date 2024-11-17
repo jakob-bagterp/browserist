@@ -5,7 +5,8 @@ tags:
     - Tutorial
 ---
 
-# How to Automate Screenshots
+# How to Take Screenshots
+## Best Practice for Browser Automation
 Screenshots are useful for capturing and documenting the visual appearance of a web page. By automating the process, we can save time and ensure consistency when capturing screenshots across browsers and devices.
 
 ## Settings
