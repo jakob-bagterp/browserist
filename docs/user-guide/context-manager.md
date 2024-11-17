@@ -16,9 +16,9 @@ As an added benefit, the `with` statement prevents you from having unused browse
 
 ### Examples
 #### With Context Manager
-It's recommended to do this:
+It's recommended to do this where the `with` statement implicitly closes the browser when the indented block ends:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3"
 from browserist import Browser
 
 with Browser() as browser:
@@ -28,7 +28,7 @@ with Browser() as browser:
 #### Without Context Manager
 And not recommended to do this:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 browser = Browser()
