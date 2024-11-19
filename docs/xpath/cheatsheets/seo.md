@@ -21,7 +21,7 @@ count(//h1)
 ???+ example
     How to use Browserist to check whether a web page has exactly one `<h1>` headline tag:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="5"
     from browserist import Browser
 
     with Browser() as browser:
@@ -39,7 +39,7 @@ Ensure that all images on web page have an alt text.
 ???+ example
     How to use Browserist to check whether a web page has images without alt text:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="5-9"
     from browserist import Browser
 
     with Browser() as browser:
@@ -79,7 +79,7 @@ count(//meta[@name='robots'])
 ???+ example
     How to use Browserist to check whether a web page has relevant meta data:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="7 9 12"
     from browserist import Browser
 
     with Browser() as browser:
@@ -104,7 +104,7 @@ Ensure that a web page doesn't have an empty title:
 ???+ example
     How to use Browserist to check whether a web page has a page title:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="5"
     from browserist import Browser
 
     with Browser() as browser:
@@ -114,6 +114,6 @@ Ensure that a web page doesn't have an empty title:
 
     Alternatively, there's a simpler solution without using XPath:
 
-    ```python linenums="5"
+    ```python linenums="5" hl_lines="1"
         assert browser.get.page_title() != ""
     ```
