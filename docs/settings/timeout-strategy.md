@@ -22,8 +22,8 @@ timeout_settings = TimeoutSettings(
     seconds=10)
 ```
 
-!!! note
-    Note that the general timeout can often be shortened or lengthened by the function-specific timeout. It's recommended to keep the default of 5 seconds or to set the general timeout to a value that's sufficient for most functions – most methods run faster anyway – and then override it for specific functions.
+!!! tip
+    The general timeout can often be shortened or lengthened by the function-specific timeout. It's recommended to keep the default of 5 seconds or to set the general timeout to a value that's sufficient for most functions – most methods run faster anyway – and then override it for specific functions.
 
 ### Options for `TimeoutSettings`
 
