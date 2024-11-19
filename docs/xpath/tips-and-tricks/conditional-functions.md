@@ -66,3 +66,19 @@ def get_xpath_for_calendar_date(date: int) -> str:
     While the `…/li[text()='1']` method locates the first exact match of `1`, it's sometimes favourable to locate the first non-exact match with either the `…/li[contains(text(), '1')]` or `…/li[normalize-space()='1']`  methods as they handle eventual white space more graceful. Despite the differences, all of these conditional methods would yield the correct answer in the calendar case.
 
 Learn more [pattern matching techniques for text](../cheatsheets/text.md) or tips for [node selection](../cheatsheets/node-selection.md) in the XPath cheatsheets section.
+
+## Example
+All in all, how to apply this for web scraping and browser automation using Browserist:
+
+```python linenums="1" hl_lines="3-4 9"
+from browserist import Browser
+
+def get_xpath_for_calendar_date(date: int) -> str:
+    return f"//ul[@class='dates']/li[text()='{date}']"
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.click.button("//xpath/to/open/calendar")
+    xpath_for_date = get_xpath_for_calendar_date(12)
+    browser.click.button(xpath_for_date)
+```

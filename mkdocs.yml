@@ -73,7 +73,6 @@ nav:
     - Absolute and Relative: xpath/absolute-and-relative.md
     - Browserist Compared to Selenium: xpath/browserist-compared-to-selenium.md
     - Tips and Tricks:
-      - xpath/tips-and-tricks/index.md
       - Target Attributes: xpath/tips-and-tricks/target-attributes.md
       - Conditional Functions: xpath/tips-and-tricks/conditional-functions.md
     - Cheatsheets:
@@ -296,6 +295,7 @@ plugins:
         user-guide/performance/headless.md: performance/headless.md
         user-guide/performance/disable-images.md: performance/disable-images.md
         user-guide/performance/parallelisation.md: performance/parallelization/results-summary.md
+        xpath/tips-and-tricks/index.md: xpath/tips-and-tricks/target-attributes.md
 
 watch:
   - src
