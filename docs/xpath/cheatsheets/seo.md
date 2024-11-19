@@ -57,10 +57,11 @@ Similarly, ensure that a web page has meta description. Should not be 0 or large
 count(//meta[@name='description']/@content)
 ```
 
-And you can ensure that length of the meta description is more than 50 characters by using the `string-length()` function:
+And you can ensure that length of the meta description is between 50 and 160 characters by using the `string-length()` function:
 
 ```text title=""
-string-length(/html/head/meta[@name='description']/@content) > 50
+string-length(/html/head/meta[@name='description']/@content) >= 50
+string-length(/html/head/meta[@name='description']/@content) <= 160
 ```
 
 Check if a web page has a canonical URL. If it has, it should only be 1:
@@ -90,7 +91,7 @@ count(//meta[@name='robots'])
         assert browser.tool.count_elements("//meta[@name='robots']") == 1
 
         meta_description = browser.get.attribute.value("//meta[@name='description']", "content")
-        assert len(meta_description) > 50
+        assert 50 <= len(meta_description) <= 160
     ```
 
 ## Page Title
