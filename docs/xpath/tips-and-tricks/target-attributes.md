@@ -52,3 +52,17 @@ This will often make your code more stable if the HTML layout changes while the 
 ```text title=""
 //button[@type='submit']
 ```
+
+### Example with Browserist
+All in all, how to apply this for web scraping and browser automation using Browserist:
+
+```python linenums="1" hl_lines="5-9"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.input.value("//input[@id='email']", "user_name@example.com")
+    browser.input.value("//input[@id='password']", "some_password")
+    browser.input.value("//input[@id='password_repeat']", "some_password")
+    browser.click.button("//button[@type='submit']")
+```
