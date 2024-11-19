@@ -30,7 +30,7 @@ Configure the page load strategy with the `PageLoadStrategy` class. This is then
 ## Example
 How to set the page load strategy when opening a new browser:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3 5"
 from browserist import Browser, BrowserSettings, PageLoadStrategy
 
 settings = BrowserSettings(page_load_strategy=PageLoadStrategy.EAGER)
