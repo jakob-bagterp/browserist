@@ -5,11 +5,11 @@
     --material-green: rgb(76, 174, 79);
 }
 
-#comparison-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+2),
-#comparison-table + div > div table > tbody > tr:nth-child(3) > td:nth-child(-n+2) {
+#sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+2),
+#sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(3) > td:nth-child(-n+2) {
     color: var(--material-deep-orange);
 }
 
-#comparison-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(-n+2) {
+#sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(-n+2) {
     color: var(--material-green);
 }
