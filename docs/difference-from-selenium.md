@@ -3,6 +3,7 @@ title: How Is Browserist Different from Selenium?
 description: Browserist is a powerful Python extension for Selenium that makes web scraping and browser automation even easier, more stable, and with less code.
 tags:
     - Selenium
+    - Performance
 ---
 
 # How Is Browserist Different from Selenium?
