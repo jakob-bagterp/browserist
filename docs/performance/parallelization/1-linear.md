@@ -35,6 +35,8 @@ if __name__ == "__main__":
 ## Which Method Is Faster?
 Multi-processing and multi-threading are the fastest methods, sometimes twice as fast as running the same job in linear or asynchronous mode. For instance, measuring execution time of the code examples below yield the results like this in seconds:
 
+<div id="performance-parallelization-table-1"></div>
+
 | Method                                    | Rank                        | Improvement | Average | Min   | Max   |
 | ----------------------------------------- | :-------------------------: | :---------: | :-----: | :---: | :---: |
 | Linear                                    | :material-speedometer-slow: | _Baseline_  | 8.59    | 8.55  | 8.62  |
