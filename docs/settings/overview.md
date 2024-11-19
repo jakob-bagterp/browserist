@@ -29,7 +29,7 @@ with Browser(settings) as browser:
 ```
 
 ### Advanced Options
-And if you want to use Firefox in headless mode, disable images, and emulate the viewport of a specific device, that's also possible:
+And if you want to use Firefox in [headless mode](../performance/headless.md), [disable images](../performance/disable-images.md), and emulate the [viewport of a specific device](../settings/viewport.md), that's also possible:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType, common_devices
