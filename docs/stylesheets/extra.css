@@ -1,10 +1,40 @@
 /* Colors are based on palette from MkDocs Material: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ */
 
-#comparison-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+2),
-#comparison-table + div > div table > tbody > tr:nth-child(3) > td:nth-child(-n+2) {
-    color: rgb(255, 110, 66);
+:root {
+    --material-amber: rgb(255, 193, 5);
+    --material-deep-orange: rgb(255, 110, 66);
+    --material-green: rgb(76, 174, 79);
 }
 
-#comparison-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(-n+2) {
-    color: rgb(76, 174, 79);
+#sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+2),
+#sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(3) > td:nth-child(-n+2) {
+    color: var(--material-deep-orange);
+}
+
+#sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(-n+2) {
+    color: var(--material-green);
+}
+
+#performance-parallelization-table-1 + div > div table > tbody > tr:nth-child(1) > td:nth-child(2),
+#performance-parallelization-table-1 + div > div table > tbody > tr:nth-child(2) > td:nth-child(2),
+#performance-parallelization-table-1 + div > div table > tbody > tr:nth-child(2) > td:nth-child(3),
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(1) > td:nth-child(2),
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(1) > td:nth-child(3),
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(2) > td:nth-child(2),
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(2) > td:nth-child(3) {
+    color: var(--material-deep-orange);
+}
+
+#performance-parallelization-table-1 + div > div table > tbody > tr:nth-child(3) > td:nth-child(2),
+#performance-parallelization-table-1 + div > div table > tbody > tr:nth-child(3) > td:nth-child(3),
+#performance-parallelization-table-1 + div > div table > tbody > tr:nth-child(4) > td:nth-child(2),
+#performance-parallelization-table-1 + div > div table > tbody > tr:nth-child(4) > td:nth-child(3),
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(4) > td:nth-child(2),
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(4) > td:nth-child(3) {
+    color: var(--material-green);
+}
+
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(3) > td:nth-child(2),
+#performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(3) > td:nth-child(3) {
+    color: var(--material-amber);
 }

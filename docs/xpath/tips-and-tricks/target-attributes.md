@@ -1,12 +1,17 @@
 ---
 title: How to Target HTML Attributes with XPath
-description: Learn powerful XPath expressions to target HTML attributes like id and name instead of relying on element position or indexes. Includes code examples.
+description: Learn powerful XPath expressions to target HTML attributes like @id and @name instead of relying on element position or indexes. Includes code examples.
 tags:
     - Tutorial
     - XPath
 ---
 
-# How to Target HTML Attributes with XPath
+# Tips and Tricks for XPath Expressions
+XPath is a powerful tool that allows you to filter and select nodes on an HTML page. The right approach to XPath can make your life even easier when doing web scraping and browser automation.
+
+Find examples for both beginners and advanced users in this section.
+
+## How to Target HTML Attributes
 When targeting elements in an HTML document, it's often best to use attributes like `id`, `name`, or `type` to make your XPath expressions more robust. This is especially useful when the HTML layout changes, but the attributes remain constant.
 
 Let's imagine a registration form on a web page where we want to target the `<input>` elements:
@@ -46,4 +51,18 @@ This will often make your code more stable if the HTML layout changes while the 
 
 ```text title=""
 //button[@type='submit']
+```
+
+## Example
+All in all, how to apply this for web scraping and browser automation using Browserist:
+
+```python linenums="1" hl_lines="5-9"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+    browser.input.value("//input[@id='email']", "user_name@example.com")
+    browser.input.value("//input[@id='password']", "some_password")
+    browser.input.value("//input[@id='password_repeat']", "some_password")
+    browser.click.button("//button[@type='submit']")
 ```
