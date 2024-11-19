@@ -53,7 +53,7 @@ This will often make your code more stable if the HTML layout changes while the 
 //button[@type='submit']
 ```
 
-### Example with Browserist
+## Example
 All in all, how to apply this for web scraping and browser automation using Browserist:
 
 ```python linenums="1" hl_lines="5-9"
