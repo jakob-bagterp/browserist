@@ -12,7 +12,7 @@ How long should the browser wait and keep retrying to interact with an element: 
 Learn how to set the best timeout strategy for the needs and context of your automation workflow.
 
 ## Settings and Strategy
-`TimeoutSettings` defines the `TimeoutStrategy` together with a general timeout in seconds. Note that the general timeout often can be shortened or extended by the function-specific timeout. For example:
+`TimeoutSettings` defines the `TimeoutStrategy` together with a general timeout in seconds. For example:
 
 ```python linenums="1"
 from browserist import TimeoutSettings, TimeoutStrategy
@@ -21,6 +21,8 @@ timeout_settings = TimeoutSettings(
     strategy=TimeoutStrategy.CONTINUE,
     seconds=10)
 ```
+
+Note that the general timeout often can be shortened or extended by the function-specific timeout.
 
 ### Options for `TimeoutSettings`
 
