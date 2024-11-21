@@ -83,6 +83,7 @@ nav:
       - Axes: xpath/cheatsheets/axes.md
   - Reference:
     - reference/index.md
+    - Settings: reference/settings.md
     - Browser:
       - __main__: reference/browser/__main__.md
       - check_if: reference/browser/check_if.md
