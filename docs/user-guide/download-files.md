@@ -5,7 +5,8 @@ tags:
     - Tutorial
 ---
 
-# Best Practice for Downloading Files
+# How to Download Files
+## Best Practice for Browser Automation
 Instead of using the [`click.button()`](../reference/browser/click.md#browserist.browser.click.__main__.ClickDriverMethods.button) method to download files, you get more control with the dedicated [`click.download()`](../reference/browser/click.md#browserist.browser.click.__main__.ClickDriverMethods.download) and [`click.download_and_get_file_path()`](../reference/browser/click.md#browserist.browser.click.__main__.ClickDriverMethods.download_and_get_file_path) methods.
 
 Read on to learn how to automate file downloads in an easy and stable way.
