@@ -27,7 +27,7 @@ class WindowDriverMethods(DriverMethods):
         """Close close the current tab or, if it's the last tab in a window, the current browser window.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -89,7 +89,7 @@ class WindowDriverMethods(DriverMethods):
             window_handle (str): Handle ID or name of window/tab to switch to.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -109,7 +109,7 @@ class WindowDriverMethods(DriverMethods):
             Browserist automatically remembers the handle ID of the initial window/tab when the browser is first opened.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:

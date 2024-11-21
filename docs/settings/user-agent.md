@@ -30,7 +30,7 @@ Learn more [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User
 ### For a Session
 How to set the user agent in the beginning of a session:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3 7-8"
 from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(user_agent="MyUserAgent")
@@ -50,7 +50,7 @@ MyUserAgent
 ### On the Fly
 #### Basic Usage:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4"
 from browserist import Browser
 
 with Browser() as browser:
@@ -75,7 +75,7 @@ Mozilla/5.0
 
 Let's add a custom value to it:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4-6"
 from browserist import Browser
 
 with Browser() as browser:
@@ -107,7 +107,7 @@ As example for advanced usage, you can randomize the user agent per session or o
 ### Per Session
 Example:
 
-```python linenums="1"
+```python linenums="1" hl_lines="10-11"
 import random
 from browserist import Browser, BrowserSettings
 
@@ -127,7 +127,7 @@ with Browser(settings) as browser:
 ### On the Fly
 Example:
 
-```python linenums="1"
+```python linenums="1" hl_lines="11-12"
 import random
 from browserist import Browser
 

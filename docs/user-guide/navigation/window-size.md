@@ -13,7 +13,7 @@ The window size defines the outer size of the browser window. If you want to cha
 ### Full Screen
 How to fill the entire screen. Similar to pressing F11 in most browsers:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4"
 from browserist import Browser
 
 with Browser() as browser:
@@ -24,7 +24,7 @@ with Browser() as browser:
 ### Maximized
 How to enlarge the browser window to the maximum allowed size:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4"
 from browserist import Browser
 
 with Browser() as browser:
@@ -38,7 +38,7 @@ with Browser() as browser:
 ### Minimized
 Minimizing the window typically hides the window in the system tray, though the exact behavior may vary depending on the operating system:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -56,7 +56,7 @@ You can resize the browser window to a specific size, either vertically, horizon
 #### Size
 How to set the browser window to a specific size, if possible:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4"
 from browserist import Browser
 
 with Browser() as browser:
@@ -67,7 +67,7 @@ with Browser() as browser:
 #### Width
 Similarly, only set the width to a specific size, if possible:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4"
 from browserist import Browser
 
 with Browser() as browser:
@@ -78,7 +78,7 @@ with Browser() as browser:
 #### Height
 Similarly, only set the height to a specific size, if possible:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4"
 from browserist import Browser
 
 with Browser() as browser:
@@ -92,7 +92,7 @@ You can get the size of the browser window vertically, horizontally or both at t
 #### Size
 For example, how to get the current window size and decrease it by 10 pixels both in width and height, if possible:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4-5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -104,7 +104,7 @@ with Browser() as browser:
 #### Width
 Similarly, only decrease the width by 10 pixels, if possible:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4-5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -116,7 +116,7 @@ with Browser() as browser:
 #### Height
 Similarly, only decrease the height by 10 pixels, if possible:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4-5"
 from browserist import Browser
 
 with Browser() as browser:

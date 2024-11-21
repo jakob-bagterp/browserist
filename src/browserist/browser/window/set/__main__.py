@@ -38,7 +38,7 @@ class WindowSetDriverMethods(DriverMethods):
         Example:
             How to set the absolute position of the window to 100 pixels from the left and 100 pixels from the top of the screen, if possible:
 
-            ```python linenums="1"
+            ```python linenums="1" hl_lines="4"
             from browserist import Browser
 
             with Browser() as browser:

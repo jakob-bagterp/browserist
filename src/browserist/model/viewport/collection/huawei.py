@@ -8,7 +8,7 @@ class HuaweiDevices:
     """Viewport sizes for common Huawei devices.
 
     Example:
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3 6"
         from browserist import Browser, BrowserSettings, common_devices
 
         huawei_p40_lite = common_devices.Huawei.P40_LITE

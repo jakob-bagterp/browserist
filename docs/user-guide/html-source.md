@@ -28,7 +28,7 @@ For the following examples, let's imagine the following boilerplate page source:
 ## Page Source
 How to get all the HTML source of a page:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -49,7 +49,7 @@ This will print the full page source as above:
 !!! tip "How to Get the HTML from Single-Page Applications (SPAs) or Lazy Loading Pages"
     When working with single-page applications (SPA) that dynamically or lazily load the content of a page, it's notoriously difficult to get the page source. The source simply changes depending on its state. Instead, you can get the HTML of a particular state. For example:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="5-6"
     from browserist import Browser
 
     with Browser() as browser:
@@ -67,7 +67,7 @@ This will print the full page source as above:
 ### Inner HTML
 How to get the inner HTML source of an element:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -86,7 +86,7 @@ This will give you the inner HTML of the `<body>` tag:
 ### Outer HTML
 How to get the outer HTML source of an element:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:

@@ -53,7 +53,7 @@ browser.scroll.page.up(3)
 #### Example with Mixed Methods
 Let's imagine that we want to take screenshots of a page that requires scrolling to load all the content. We can scroll down by a page and then a little up to capture screenshot partials of the entire page:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5-9"
 from browserist import Browser
 
 with Browser() as browser:
@@ -128,7 +128,7 @@ browser.scroll.to_position(100, 0)
 ### Example
 Let's imagine that we want to ensure that we can't scroll sideways on a page. We try to scroll a little right and then a little left to ensure that the page is locked in place:
 
-```python linenums="1"
+```python linenums="1" hl_lines="6-7 9-11 13-15"
 from browserist import Browser
 
 with Browser() as browser:
@@ -161,7 +161,7 @@ browser.scroll.check_if.is_top_of_page()
 #### Example
 Example where we want take a screenshot of the footer of a page:
 
-```python linenums="1"
+```python linenums="1" hl_lines="8-10"
 from browserist import Browser
 
 urls = ["https://example.com", "https://google.com", "https://bing.com"]
@@ -191,7 +191,7 @@ browser.scroll.into_view_if_not_in_viewport("//xpath/to/element")
 #### Example
 Example in context where we want to make sure an element is visible in the viewport before taking a screenshot of it:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5-6"
 from browserist import Browser
 
 with Browser() as browser:

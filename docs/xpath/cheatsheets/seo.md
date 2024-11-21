@@ -21,7 +21,7 @@ count(//h1)
 ???+ example
     How to use Browserist to check whether a web page has exactly one `<h1>` headline tag:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="5"
     from browserist import Browser
 
     with Browser() as browser:
@@ -39,7 +39,7 @@ Ensure that all images on web page have an alt text.
 ???+ example
     How to use Browserist to check whether a web page has images without alt text:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="5-9"
     from browserist import Browser
 
     with Browser() as browser:
@@ -57,10 +57,11 @@ Similarly, ensure that a web page has meta description. Should not be 0 or large
 count(//meta[@name='description']/@content)
 ```
 
-And you can ensure that length of the meta description is more than 50 characters by using the `string-length()` function:
+And you can ensure that length of the meta description is between 50 and 160 characters by using the `string-length()` function:
 
 ```text title=""
-string-length(/html/head/meta[@name='description']/@content) > 50
+string-length(/html/head/meta[@name='description']/@content) >= 50
+string-length(/html/head/meta[@name='description']/@content) <= 160
 ```
 
 Check if a web page has a canonical URL. If it has, it should only be 1:
@@ -78,7 +79,7 @@ count(//meta[@name='robots'])
 ???+ example
     How to use Browserist to check whether a web page has relevant meta data:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="7 9 12"
     from browserist import Browser
 
     with Browser() as browser:
@@ -90,7 +91,7 @@ count(//meta[@name='robots'])
         assert browser.tool.count_elements("//meta[@name='robots']") == 1
 
         meta_description = browser.get.attribute.value("//meta[@name='description']", "content")
-        assert len(meta_description) > 50
+        assert 50 <= len(meta_description) <= 160
     ```
 
 ## Page Title
@@ -103,7 +104,7 @@ Ensure that a web page doesn't have an empty title:
 ???+ example
     How to use Browserist to check whether a web page has a page title:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="5"
     from browserist import Browser
 
     with Browser() as browser:
@@ -113,6 +114,6 @@ Ensure that a web page doesn't have an empty title:
 
     Alternatively, there's a simpler solution without using XPath:
 
-    ```python linenums="5"
+    ```python linenums="5" hl_lines="1"
         assert browser.get.page_title() != ""
     ```

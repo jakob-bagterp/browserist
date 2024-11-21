@@ -11,7 +11,7 @@ Browserist provides methods to validate user input, such as URLs, XPaths, and ot
 ## User Input Validation
 Imagine you want to prompt the user to input a value in the terminal and hereafter validate the value before posting the form input:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="6"
 from browserist import Browser
 
 with Browser() as browser:
@@ -26,7 +26,7 @@ with Browser() as browser:
 ## XPath Validation
 How to prompt the user for a valid XPath value in the terminal:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="6"
 from browserist import Browser
 
 with Browser() as browser:
@@ -41,7 +41,7 @@ with Browser() as browser:
 ## URL Validation
 How to prompt the user for a valid URL in the terminal:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:

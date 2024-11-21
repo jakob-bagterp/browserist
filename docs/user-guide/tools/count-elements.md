@@ -11,7 +11,7 @@ Sometimes it's useful to count the elements of a specific selector, either to ch
 ## Use Case for Counting Search Results
 For instance, you may want to know how many search results are displayed on a search engine result page:
 
-```python linenums="1"
+```python linenums="1" hl_lines="8"
 from browserist import Browser
 
 search_term = "test"

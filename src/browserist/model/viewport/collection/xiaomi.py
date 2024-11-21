@@ -8,7 +8,7 @@ class XiaomiDevices:
     """Viewport sizes for common Xiaomi devices.
 
     Example:
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3 6"
         from browserist import Browser, BrowserSettings, common_devices
 
         xiaomi_mi_10_pro = common_devices.Xiaomi.MI_10_PRO

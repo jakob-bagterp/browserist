@@ -17,7 +17,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for file to not exist. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -39,7 +39,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for file to exist. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -61,7 +61,7 @@ class WaitUntilDownloadFileDriverMethods(DriverMethods):
             idle_download_timeout (float | None, optional): In seconds. Timeout to wait for file size to not increase, which is constantly renewed as long as the file size increases. If `None`, the global idle download timeout setting is used (default 3 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:

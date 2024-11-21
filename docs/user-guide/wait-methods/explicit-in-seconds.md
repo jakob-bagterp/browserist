@@ -11,7 +11,7 @@ While most wait methods are relative to when specific elements become present on
 ## Specific Time in Seconds
 Example of how to let the browser sleep for 5 seconds:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -22,7 +22,7 @@ with Browser() as browser:
 ## Random Time in Seconds
 Sometimes you want the browser appear less like a bot by randomizing the wait interval. Example of how to let the browser sleep for a random time between 3 and 20 seconds:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:

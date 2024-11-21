@@ -18,7 +18,7 @@ class WaitUntilTextDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for text in element to change. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="7"
             from browserist import Browser
 
             with Browser() as browser:
@@ -42,7 +42,7 @@ class WaitUntilTextDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for text in element to contain the fragment. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
@@ -64,7 +64,7 @@ class WaitUntilTextDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for text jn element to match the condition. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:

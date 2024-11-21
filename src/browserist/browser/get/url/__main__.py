@@ -21,7 +21,7 @@ class GetUrlDriverMethods(DriverMethods):
         Example:
             This will output the URL `https://example.com` in the terminal:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
@@ -43,7 +43,7 @@ class GetUrlDriverMethods(DriverMethods):
         Example:
             This will output the domain `example.com` in the terminal:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:

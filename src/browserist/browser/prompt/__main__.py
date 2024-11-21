@@ -26,7 +26,7 @@ class PromptDriverMethods(DriverMethods):
 
             In context of a login form:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5-6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -62,7 +62,7 @@ class PromptDriverMethods(DriverMethods):
 
             In context of a script:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
