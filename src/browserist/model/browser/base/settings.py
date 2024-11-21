@@ -15,17 +15,17 @@ class BrowserSettings:
     """Class to configure the browser driver.
 
     Args:
-        type (BrowserType, optional): Set [browser type](../settings/browser-types.md), e.g. Chrome, Edge, Firefox, etc.
-        headless (bool, optional): Run the browser in [headless mode](../performance/headless.md). May not be supported by all browsers, or some interaction methods, e.g. select, may not be supported.
-        disable_images (bool, optional): [Neither request nor render images](../performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers.
-        page_load_strategy (PageLoadStrategy, optional): Set [page load strategy](../settings/page-load-strategy.md).
+        type (BrowserType, optional): Set [browser type](../../settings/browser-types.md), e.g. Chrome, Edge, Firefox, etc.
+        headless (bool, optional): Run the browser in [headless mode](../../performance/headless.md). May not be supported by all browsers, or some interaction methods, e.g. select, may not be supported.
+        disable_images (bool, optional): [Neither request nor render images](../../performance/disable-images.md), which typically improves loading speed. May not be supported by all browsers.
+        page_load_strategy (PageLoadStrategy, optional): Set [page load strategy](../../settings/page-load-strategy.md).
         path_to_executable (str | Path | None, optional): If the browser executable isn't in a default folder, select which file to use.
-        download_dir (str | Path, optional): Set where to save [downloads](../user-guide/download-files.md). Default is the `Downloads` folder of the user.
-        screenshot_dir (str | Path, optional): Set where to save [sreenshots](../user-guide/screenshots.md). Default is the `Downloads` folder of the user.
-        timeout (TimeoutSettings, optional): Set [timeout strategy and time](../settings/timeout-strategy.md).
-        viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
+        download_dir (str | Path, optional): Set where to save [downloads](../../user-guide/download-files.md). Default is the `Downloads` folder of the user.
+        screenshot_dir (str | Path, optional): Set where to save [sreenshots](../../user-guide/screenshots.md). Default is the `Downloads` folder of the user.
+        timeout (TimeoutSettings, optional): Set [timeout strategy and time](../../settings/timeout-strategy.md).
+        viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`.
-        user_agent (str, optional): Set a custom [user agent](../settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
+        user_agent (str, optional): Set a custom [user agent](../../settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
 
     Example:
         Use Firefox as browser type:

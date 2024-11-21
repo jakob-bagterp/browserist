@@ -7,7 +7,6 @@ tags:
     - Settings
 ---
 
-# Configuration Classes
-## BrowserSettings
+# BrowserSettings
 
 ::: browserist.model.browser.base.settings.BrowserSettings
