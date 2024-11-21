@@ -65,22 +65,34 @@ class WaitUntilDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             wait_until_element_disappears(self._browser_driver, xpath, timeout)
 
-    def images_have_loaded(self, xpath: str, timeout: float | None = None) -> None:
+    def images_have_loaded(self, xpath: str = "//img", timeout: float | None = None) -> None:
         """Wait until the image(s) on the page have loaded.
 
         Args:
-            xpath (str): XPath of the element. Can target one or more images.
+            xpath (str): XPath of the element. Can target one or more images. If `None`, all `<img>` image elements are targeted.
             timeout (float | None, optional): In seconds. Timeout to wait for element(s) to be loaded. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            As images often load after first page paint and sometimes require extra time to download, it's useful know when a specific image or all images have loaded. The example targets all image elements on a page:
+            As images often load after first page paint and sometimes require extra time to download, it's useful know when a specific image or all images have loaded. By default, this method targets all image elements on a page:
 
             ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
                 browser.open.url("https://example.com")
-                browser.wait.until.images_have_loaded("//img")
+                browser.wait.until.images_have_loaded()
+            ```
+
+            If you don't want to target all image elements, you can target, for instance, the first image element by specifying the XPath:
+
+            ```python title="" linenums="5"
+                browser.wait.until.images_have_loaded("//img[1]")
+            ```
+
+            Or target all image elements with a specific class:
+
+            ```python title="" linenums="5"
+                browser.wait.until.images_have_loaded("//img[contains(@class, 'some-class')]")
             ```
         """
 
