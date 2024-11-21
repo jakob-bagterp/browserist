@@ -19,7 +19,7 @@ With Browserist, many of these complexities are handled automatically under the 
 ### Basic Usage
 If you want to use a specific browser types, e.g. Firefox, it's easy to define in the settings:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3 5"
 from browserist import Browser, BrowserSettings, BrowserType
 
 settings = BrowserSettings(type=BrowserType.FIREFOX)
@@ -29,9 +29,9 @@ with Browser(settings) as browser:
 ```
 
 ### Advanced Options
-And if you want to use Firefox in headless mode, disable images, and emulate the viewport of a specific device, that's also possible:
+And if you want to use Firefox in [headless mode](../performance/headless.md), [disable images](../performance/disable-images.md), and emulate the [viewport of a specific device](../settings/viewport.md), that's also possible:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3 9"
 from browserist import Browser, BrowserSettings, BrowserType, common_devices
 
 iphone_se = common_devices.Apple.IPHONE_SE

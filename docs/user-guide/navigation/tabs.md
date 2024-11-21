@@ -13,7 +13,7 @@ Tabs are a convenient way to organize and navigate multiple web pages within a s
 ## Basic Usage
 Let's imagine you want to open a web page first and then open another page in a new tab, a basic example would look like this:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -25,7 +25,7 @@ with Browser() as browser:
 ### Opening Multiple Tabs
 Normally, browsers allow you to open a new tab by pressing `Ctrl` + `T` in Windows, `Cmd` + `T` on a Mac, or by clicking a button in your browser. With Browserist you can automate this, for example based on a list of URLs. This example will open each URL in a new tab:
 
-```python linenums="1"
+```python linenums="1" hl_lines="6-7"
 from browserist import Browser
 
 urls = ["https://example.com", "https://google.com", "https://bing.com"]
@@ -38,7 +38,7 @@ with Browser() as browser:
 ### Closing a Tab
 How to close the current tab or, if it's the last tab in a window, the current browser window:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5-6"
 from browserist import Browser
 
 with Browser() as browser:
@@ -50,7 +50,7 @@ with Browser() as browser:
 ### Switching Between Tabs
 Switching between tabs is a common task when using a browser. Instead of either clicking a tab to switch to it or using a keyboard shortcut to cycle through open tabs, you can automate this with Browserist:
 
-```python linenums="1"
+```python linenums="1" hl_lines="6-7"
 from browserist import Browser
 
 urls = ["https://example.com", "https://google.com", "https://bing.com"]
@@ -62,7 +62,7 @@ with Browser() as browser:
 
 Now we can switch between each tab by calling its handle:
 
-```python linenums="8"
+```python linenums="8" hl_lines="1-3"
     browser.window.switch_to("tab_0")
     browser.window.switch_to("tab_1")
     browser.window.switch_to("tab_2")
@@ -71,7 +71,7 @@ Now we can switch between each tab by calling its handle:
 #### Return to the Initial Tab
 Browserist also keeps track of the initial tab of the original browser window, so you can easily switch back to it:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5-6"
 from browserist import Browser
 
 with Browser() as browser:
@@ -83,7 +83,7 @@ with Browser() as browser:
 #### Get Handle ID of Current Tab
 Under the hood, Browserist uses handle IDs to manage and identify open windows and tabs. You can get the handle ID of the current tab to switch back to it later:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5 7"
 from browserist import Browser
 
 with Browser() as browser:
@@ -97,7 +97,7 @@ with Browser() as browser:
 ### Get List of URLs from Open Tabs
 Because a link can redirect to a different destination than the original URL, you sometimes want to capture the actual destination of each page. Here is an example of how to capture all the links from a web page and open them in new tabs:
 
-```python linenums="1"
+```python linenums="1" hl_lines="8-11"
 from browserist import Browser
 
 results = []

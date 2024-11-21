@@ -23,7 +23,7 @@ class WaitDriverMethods(DriverMethods):
         Example:
             Useful for single-page application elements handled by JavaScript, but also for standard HTML that doesn't load immediately. This helper function ensures that DOM elements are ready before processing. The example waits for any H1 heading to be ready:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
@@ -46,7 +46,7 @@ class WaitDriverMethods(DriverMethods):
         Example:
             For example, wait between 3 and 20 seconds:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
@@ -67,7 +67,7 @@ class WaitDriverMethods(DriverMethods):
         Example:
             For example, wait for 5 seconds:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:

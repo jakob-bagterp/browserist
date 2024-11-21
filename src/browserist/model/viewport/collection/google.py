@@ -8,7 +8,7 @@ class GoogleDevices:
     """Viewport sizes for common Google devices.
 
     Example:
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3 6"
         from browserist import Browser, BrowserSettings, common_devices
 
         nest_hub_max = common_devices.Google.NEST_HUB_MAX

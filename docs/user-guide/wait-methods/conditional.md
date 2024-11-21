@@ -32,7 +32,7 @@ This group of methods apply the following conditions to either the page title, t
 ### Changes
 Wait until the page title changes from a baseline text:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="7"
 from browserist import Browser
 
 with Browser() as browser:
@@ -45,7 +45,7 @@ with Browser() as browser:
 ### Contains
 Wait until the page title contains a text partial:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -56,7 +56,7 @@ with Browser() as browser:
 ### Equals
 Wait until the page title equals a specific text:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -68,7 +68,7 @@ with Browser() as browser:
 ### Changes
 Wait until the text of an element changes from a baseline text:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="7"
 from browserist import Browser
 
 with Browser() as browser:
@@ -81,7 +81,7 @@ with Browser() as browser:
 ### Contains
 Wait until the text of an element contains a text partial:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -92,8 +92,7 @@ with Browser() as browser:
 ### Equals
 Wait until the text of an element equals a specific text:
 
-```python title="" linenums="1"
-
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -105,7 +104,7 @@ with Browser() as browser:
 ### Changes
 Wait until the URL changes from a baseline URL:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="7"
 from browserist import Browser
 
 with Browser() as browser:
@@ -118,7 +117,7 @@ with Browser() as browser:
 ### Contains
 Wait until the URL contains a text partial:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="6"
 from browserist import Browser
 
 with Browser() as browser:
@@ -130,7 +129,7 @@ with Browser() as browser:
 ### Equals
 Wait until the URL equals a specific URL:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="6"
 from browserist import Browser
 
 with Browser() as browser:

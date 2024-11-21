@@ -32,7 +32,7 @@ browser.quit()
 !!! tip
     Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](../context-manager.md) and `with` statements. The example above could then be refactored to:
 
-    ```python linenums="1"
+    ```python linenums="1" hl_lines="3"
     from browserist import Browser
 
     with Browser() as browser:

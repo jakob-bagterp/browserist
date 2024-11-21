@@ -13,7 +13,7 @@ Most of Browserist's methods already implicitly wait for certain elements on the
 #### Appear
 This helper function ensures that DOM elements are ready before processing. The example waits for any H1 heading to be ready:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -24,7 +24,7 @@ with Browser() as browser:
 !!! tip
     You often don't need to use this method, as most other methods already implicitly wait for elements to be ready under the hood. For example, if you want to get the text of a heading, you can simply use:
 
-    ```python title="" linenums="1"
+    ```python linenums="1" hl_lines="5"
     from browserist import Browser
 
     with Browser() as browser:
@@ -35,7 +35,7 @@ with Browser() as browser:
 
     You don't need to specify the wait `browser.wait.for_element("//xpath/to/element")` like this:
 
-    ```python title="" linenums="1"
+    ```python linenums="1" hl_lines="5-6"
     from browserist import Browser
 
     with Browser() as browser:
@@ -48,7 +48,7 @@ with Browser() as browser:
 #### Disappear
 Conversely, you can also wait for an element to disappear from the DOM. This is useful for single page applications where elements are removed and added dynamically. An example:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="7"
 from browserist import Browser
 
 with Browser() as browser:
@@ -61,7 +61,7 @@ with Browser() as browser:
 ### Image
 Sometimes `img` image elements are present in the DOM, but the actual images are not yet loaded after first page paint, and so they will be loaded lazily in the background. This example waits until the image(s) on the page have loaded:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -72,7 +72,7 @@ with Browser() as browser:
 ### Text
 Sometimes an element may be ready in the DOM, but the text hasn't been injectd. This helper function checks and waits for the element to contain any text:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -83,7 +83,7 @@ with Browser() as browser:
 ### Clickable
 This example is useful for elements that are present in the DOM, yet are not ready to be clicked:
 
-```python title="" linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:

@@ -11,7 +11,7 @@ When automating the execution of JavaScript, this can either be done with or wit
 ## Without `WebElement`
 Basic usage of JavaScript execution:
 
-```python
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -22,7 +22,7 @@ with Browser() as browser:
 ## With `WebElement`
 The `WebElement` is used when you need to interact with a specific element on the page:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5-6"
 from browserist import Browser
 
 with Browser() as browser:
@@ -34,7 +34,7 @@ with Browser() as browser:
 ## From a File
 Sometimes you want to run a script that is stored in a file. This can be done by reading the file before running the script:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3-4 8"
 from browserist import Browser
 
 with open("/path/to/script.js", "r") as file:

@@ -14,7 +14,7 @@ It's often faster to load pages when you don't download images. So if you don't 
 ## How to Configure
 With Browserist, it's simple to configure. As the default setting for `disable_images` is `False` in `BrowserSettings`, we simply alter it to `True` like this:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3 5"
 from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(disable_images=True)
@@ -31,7 +31,7 @@ If you want to disable image downloads with Selenium, you typically would use di
 
 For example, you can easily scale test runs across different browsers with a configuration like this:
 
-```python linenums="1"
+```python linenums="1" hl_lines="3-5"
 from browserist import Browser, BrowserSettings, BrowserType
 
 chrome = BrowserSettings(type=BrowserType.CHROME, disable_images=True)

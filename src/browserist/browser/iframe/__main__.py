@@ -29,7 +29,7 @@ class IframeDriverMethods(DriverMethods):
         """After switch to iframe, use this to come back to the original page.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5 8"
             from browserist import Browser
 
             with Browser() as browser:

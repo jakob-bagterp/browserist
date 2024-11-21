@@ -27,7 +27,7 @@ browser.iframe.switch_to_original_page()
 
 Example in context:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5 8"
 from browserist import Browser
 
 with Browser() as browser:
@@ -77,7 +77,7 @@ Let's imagine a simple web page with an iframe containing a form:
 
 The correct way to interact with iframes is to first switch to the iframe:
 
-```python linenums="1"
+```python linenums="1" hl_lines="5"
 from browserist import Browser
 
 with Browser() as browser:
@@ -87,7 +87,7 @@ with Browser() as browser:
 
 And then query the elements inside the iframe, using the iframe as the root:
 
-```python linenums="6"
+```python linenums="6" hl_lines="4"
     browser.input.value("//*[@id='username']", "admin@example.com")
     browser.input.value("//*[@id='password']", "password123")
     browser.click.button("//button[type='submit']")

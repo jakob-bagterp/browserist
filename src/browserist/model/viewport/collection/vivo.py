@@ -8,7 +8,7 @@ class VivoDevices:
     """Viewport sizes for common Vivo devices.
 
     Example:
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3 6"
         from browserist import Browser, BrowserSettings, common_devices
 
         vivo_y20 = common_devices.Vivo.Y20

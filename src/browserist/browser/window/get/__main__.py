@@ -34,7 +34,7 @@ class WindowGetDriverMethods(DriverMethods):
         Example:
             How to move the window relatively by getting the current position of the window and move it by 10 pixels in both axes, if possible:
 
-            ```python linenums="1"
+            ```python linenums="1" hl_lines="4"
             from browserist import Browser
 
             with Browser() as browser:

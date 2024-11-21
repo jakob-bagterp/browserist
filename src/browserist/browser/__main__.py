@@ -36,10 +36,21 @@ class Browser:
                  "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "prompt", "screenshot", "scroll", "select", "tool", "user_agent", "viewport", "wait", "window"]
 
     def __init__(self, settings: BrowserSettings | None = None) -> None:
-        """Initiates the browser driver whether the settings call for Chrome, Edge, Firefox, etc.
+        """How to initiate the browser driver:
 
         Example:
-            ```python title="" linenums="1"
+            Basic usage:
+
+            ```python title="Basic usage" linenums="1"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+            ```
+
+            How to initiate the browser driver with [custom settings](../../settings/overview.md) and use Firefox:
+
+            ```python title="" linenums="1" hl_lines="3 5"
             from browserist import Browser, BrowserSettings
 
             settings = BrowserSettings(browser_type=BrowserType.FIREFOX)
@@ -99,7 +110,7 @@ class Browser:
         """Press the browser's back button.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -115,7 +126,7 @@ class Browser:
         """Press the browser's forward button.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="7"
             from browserist import Browser
 
             with Browser() as browser:
@@ -132,8 +143,12 @@ class Browser:
         """Refresh the current page.
 
         Example:
-            ```python title=""
-            browser.refresh()
+            ```python title="" linenums="1" hl_lines="5"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                browser.refresh()
             ```
         """
 
@@ -143,7 +158,7 @@ class Browser:
         """Quit the browser.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             browser = Browser()
@@ -154,7 +169,7 @@ class Browser:
         Tip:
             Instead of manually quitting the browser with `browser.quit()`, it's recommend to use the [context manager](../../user-guide/context-manager.md) and `with` statements. The example above could then be refactored to:
 
-            ```python linenums="1"
+            ```python linenums="1" hl_lines="3"
             from browserist import Browser
 
             with Browser() as browser:
