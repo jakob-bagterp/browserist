@@ -74,7 +74,7 @@ class ClickDriverMethods(DriverMethods):
         Example:
             Examples in context:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5-7"
             from browserist import Browser
 
             with Browser() as browser:
@@ -125,7 +125,7 @@ class ClickDriverMethods(DriverMethods):
             Avoid that multiple browser instances have access to the same download directory. As Browserist monitors the download directory for file changes, it may cause unexpected behaviour if multiple files are downloaded to the same directory at the same time.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:

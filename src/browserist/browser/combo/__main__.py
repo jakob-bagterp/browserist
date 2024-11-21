@@ -24,7 +24,7 @@ class ComboDriverMethods(DriverMethods):
             If `return_bool` is `True` in the settings class, this method returns `True` if the cookie banner is handled succesfully. `False` or `None` otherwise.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="3-6 9"
             from browserist import Browser, CookieBannerSettings
 
             accept_cookies = CookieBannerSettings(
@@ -40,7 +40,7 @@ class ComboDriverMethods(DriverMethods):
 
             Or use succesfull handling of the cookie banner with a conditional `if` statement by setting `return_bool` to `True` as parameter in the settings class:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="7 10"
             from browserist import Browser, CookieBannerSettings
 
             accept_cookies = CookieBannerSettings(
@@ -79,7 +79,7 @@ class ComboDriverMethods(DriverMethods):
             If `return_bool` is `True` in the settings class, the login combo can be used with a conditional `if` statement and return boolean `True` or `False` depending on whether the login form was handled succesfully without errors or not. This will also suppresses exceptions. With default `False`, the login combo will not return any value. Note that either of the parameters `post_login_url_contains` or `post_login_element_xpath` or both also need to be defined in the settings class.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="3-5 8-11 14"
             from browserist import Browser, LoginForm1Step, LoginCredentials
 
             login_credentials = LoginCredentials(
@@ -100,7 +100,7 @@ class ComboDriverMethods(DriverMethods):
 
             Or use succesfull handling of the login with a conditional `if` statement by setting `return_bool` to `True` as parameter in the settings class:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="14 17"
             from browserist import Browser, LoginForm1Step, LoginCredentials
 
             login_credentials = LoginCredentials(
@@ -138,7 +138,7 @@ class ComboDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for element(s). If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="3-6 9"
             from browserist import Browser, SearchSettings
 
             search_settings = SearchSettings(
