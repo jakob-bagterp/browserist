@@ -21,7 +21,7 @@ class WindowOpenDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for the tab. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="4-5"
             from browserist import Browser
 
             with Browser() as browser:
@@ -44,7 +44,7 @@ class WindowOpenDriverMethods(DriverMethods):
             timeout (float | None, optional): In seconds. Timeout to wait for the window. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="4-5"
             from browserist import Browser
 
             with Browser() as browser:
