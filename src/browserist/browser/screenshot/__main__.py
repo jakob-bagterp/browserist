@@ -17,7 +17,7 @@ class ScreenshotDriverMethods(DriverMethods):
         Note:
             Firefox is recommended browser for complete page screenshots as it executes this in one go. Other browsers can't capture the entire page at once, and so we need to merge screenshots portion by portions – and this is obviously much slower. For example:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="3 7"
             from browserist import Browser, BrowserSettings, BrowserType
 
             settings = BrowserSettings(browser_type=BrowserType.FIREFOX)

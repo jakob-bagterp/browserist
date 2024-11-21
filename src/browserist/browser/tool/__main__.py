@@ -28,7 +28,7 @@ class ToolDriverMethods(DriverMethods):
         Example:
             How to prompt the user for input in the terminal and hereafter validate the value before posting the form input:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -56,7 +56,7 @@ class ToolDriverMethods(DriverMethods):
         Example:
             How to prompt the user for a valid URL in the terminal:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
@@ -83,7 +83,7 @@ class ToolDriverMethods(DriverMethods):
         Example:
             How to prompt the user for a valid XPath value in the terminal:
 
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="6"
             from browserist import Browser
 
             with Browser() as browser:
@@ -110,14 +110,17 @@ class ToolDriverMethods(DriverMethods):
             Number of elements.
 
         Example:
-            ```python title="" linenums="1"
-            url = "https://example.com"
-            browser.open.url(url)
-            link_count = browser.tool.count_elements("//a")
-            if link_count > 0:
-                print(f"Found {link_count} link(s) on {url}")
-            else:
-                print(f"No links found on {url}")
+            ```python title="" linenums="1" hl_lines="6"
+            from browserist import Browser
+
+            with Browser() as browser:
+                url = "https://example.com"
+                browser.open.url(url)
+                link_count = browser.tool.count_elements("//a")
+                if link_count > 0:
+                    print(f"Found {link_count} link(s) on {url}")
+                else:
+                    print(f"No links found on {url}")
             ```
         """
 
@@ -147,6 +150,17 @@ class ToolDriverMethods(DriverMethods):
             ```python title="" linenums="1"
             element = browser.get.element("//xpath/to/element")
             browser.tool.execute_script("arguments[0].scrollIntoView();", element)
+            ```
+
+            For example, how to scroll to the first link on a page:
+
+            ```python title="" linenums="1" hl_lines="6"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com")
+                first_link_element = browser.get.element("//a[1]")
+                browser.tool.execute_script("arguments[0].scrollIntoView();", first_link_element)
             ```
         """
 
