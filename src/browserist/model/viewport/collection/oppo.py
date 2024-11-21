@@ -8,7 +8,7 @@ class OppoDevices:
     """Viewport sizes for common Oppo devices.
 
     Example:
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3 6"
         from browserist import Browser, BrowserSettings, common_devices
 
         oppo_f1_plus = common_devices.Oppo.F1_PLUS

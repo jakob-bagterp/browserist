@@ -8,7 +8,7 @@ class SamsungDevices:
     """Viewport sizes for common Samsung devices.
 
     Example:
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3 6"
         from browserist import Browser, BrowserSettings, common_devices
 
         galaxy_s8_plus = common_devices.Samsung.GALAXY_S8_PLUS

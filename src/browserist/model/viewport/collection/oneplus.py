@@ -8,7 +8,7 @@ class OnePlusDevices:
     """Viewport sizes for common OnePlus devices.
 
     Example:
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3 6"
         from browserist import Browser, BrowserSettings, common_devices
 
         oneplus_8_pro = common_devices.OnePlus.ONEPLUS_8_PRO
