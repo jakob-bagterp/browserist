@@ -66,7 +66,7 @@ from browserist import Browser
 
 with Browser() as browser:
     browser.open.url("https://example.com")
-    browser.wait.until.images_have_loaded("//img")
+    browser.wait.until.images_have_loaded()
 ```
 
 ### Text
