@@ -30,7 +30,7 @@ class BrowserSettings:
     Example:
         Use Firefox as browser type:
 
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3"
         from browserist import Browser, BrowserSettings
 
         settings = BrowserSettings(browser_type=BrowserType.FIREFOX)
@@ -41,7 +41,7 @@ class BrowserSettings:
 
         Use browser in headless mode and with images disabled:
 
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3"
         from browserist import Browser, BrowserSettings
 
         settings = BrowserSettings(headless=True, disable_images=True)
@@ -52,7 +52,7 @@ class BrowserSettings:
 
         Use custom directory for screenshots:
 
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3"
         from browserist import Browser, BrowserSettings
 
         settings = BrowserSettings(screenshot_dir="/screenshots/folder")
@@ -64,7 +64,7 @@ class BrowserSettings:
 
         Use custom viewport size:
 
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3"
         from browserist import Browser, BrowserSettings
 
         settings = BrowserSettings(viewport=(1024, 768))
@@ -75,7 +75,7 @@ class BrowserSettings:
 
         Use custom `User-agent` in the request header:
 
-        ```python title="" linenums="1"
+        ```python title="" linenums="1" hl_lines="3"
         from browserist import Browser, BrowserSettings
 
         settings = BrowserSettings(user_agent="MyUserAgent")
@@ -86,7 +86,7 @@ class BrowserSettings:
             print(user_agent)
         ```
 
-        How it appears in the terminal:
+        How the print output appears in the terminal:
 
         ```shell title=""
         MyUserAgent
