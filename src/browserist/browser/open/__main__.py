@@ -15,7 +15,7 @@ class OpenDriverMethods(DriverMethods):
             url (str): URL to open, e.g. `"https://example.com"`.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="4"
             from browserist import Browser
 
             with Browser() as browser:
@@ -39,7 +39,7 @@ class OpenDriverMethods(DriverMethods):
             ignore_https (bool, optional): Ignore whether the URL is `"http://example.com"` or `"https://example.com"`.
 
         Example:
-            ```python title="" linenums="1"
+            ```python title="" linenums="1" hl_lines="5"
             from browserist import Browser
 
             with Browser() as browser:
