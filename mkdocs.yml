@@ -83,7 +83,7 @@ nav:
       - Axes: xpath/cheatsheets/axes.md
   - Reference:
     - reference/index.md
-    - browser:
+    - Browser:
       - __main__: reference/browser/__main__.md
       - check_if: reference/browser/check_if.md
       - click: reference/browser/click.md
@@ -126,7 +126,7 @@ nav:
         - handle: reference/browser/window/handle.md
         - open: reference/browser/window/open.md
         - set: reference/browser/window/set.md
-    - viewport:
+    - Viewport:
       - common_devices:
         - Apple: reference/viewport/common_devices/apple.md
         - Google: reference/viewport/common_devices/google.md
