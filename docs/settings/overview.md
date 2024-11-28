@@ -62,3 +62,10 @@ Use `BrowserSettings` with the following options:
 | `viewport`           | `DeviceViewportSize` or `(width, height)` | Browser default size | Emulate [viewport size](viewport.md) as device or set custom value in pixels. |
 | `check_connection`   | `True` or `False`       | `True` | Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`. |
 | `user_agent`         | User agent string `str` | Browser default | Set a custom [user agent](user-agent.md) to override the default user agent. |
+
+!!! tip "Become a Sponsor"
+    If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
+
+    [Donate on GitHub Sponsors](https://github.com/sponsors/jakob-bagterp){ .md-button .md-button--primary }
+
+    Thank you for your support! 🙌
