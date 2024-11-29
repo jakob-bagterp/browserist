@@ -12,7 +12,7 @@ Your main resource when automating browsers with Browserist. Find details about 
 ## Structure
 Find the method you need in the left-hand menu. Each `__main__` entry refers to its parent object, and the structure of the documentation is:
 
-```text title="Structure"
+```text title="Structure" hl_lines="1 10 14"
 browser.__main__
     .back()
     .forward()
@@ -31,9 +31,10 @@ browser.__main__
             ...
 ```
 
+## How to Chain Methods
 Examples of how to chain the methods:
 
-```python linenums="1"
+```python linenums="1" hl_lines="4-9"
 from browserist import Browser
 
 with Browser() as browser:
