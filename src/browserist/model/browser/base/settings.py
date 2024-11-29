@@ -91,6 +91,17 @@ class BrowserSettings:
         ```shell title=""
         MyUserAgent
         ```
+
+        How to disable checking for an internet connection:
+
+        ```python title="" linenums="1" hl_lines="3"
+        from browserist import Browser, BrowserSettings
+
+        settings = BrowserSettings(check_connection=False)
+
+        with Browser(settings) as browser:
+            browser.open.url("https://example.com")
+        ```
     """
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
