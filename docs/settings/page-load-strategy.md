@@ -39,8 +39,8 @@ with Browser(settings) as browser:
     browser.open.url("https://example.com")
 ```
 
-## Details on Document Ready State
-The `document.readyState` is a property of the DOM that indicates the loading status of the page. When navigating to a new page via URL, the browser driver waits until the document ready state is complete by default.
+## What Is the Document Ready State?
+The `document.readyState` is a property of the [Document Object Model (DOM)](https://en.wikipedia.org/wiki/Document_Object_Model) that indicates the loading status of the page. When navigating to a new page via URL, the browser driver waits until the document ready state is complete by default.
 
 Note that this doesn't mean that the page has finished loading. This is especially the case for single-page applications that use JavaScript to dynamically load content after the document ready state is complete. Furthermore, the behavior does not apply to navigation that is a result of clicking an element or submitting a form.
 
