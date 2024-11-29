@@ -84,7 +84,7 @@ nav:
   - Reference:
     - reference/index.md
     - Configuration:
-      - BrowserSettings: reference/browser-settings.md
+      - BrowserSettings: reference/configuration/browser-settings.md
     - Browser:
       - __main__: reference/browser/__main__.md
       - check_if: reference/browser/check_if.md
