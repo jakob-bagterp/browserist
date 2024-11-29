@@ -60,7 +60,7 @@ Use `BrowserSettings` with the following options:
 | `screenshot_dir`     | Path to directory       | System default | Set where to save [sreenshots](../user-guide/screenshots.md). Default is the `Downloads` folder of the user. |
 | `timeout`            | `TimeoutSettings`       | `TimeoutStrategy.STOP` and 5 seconds | Set [timeout strategy and time](timeout-strategy.md). |
 | `viewport`           | `DeviceViewportSize` or `(width, height)` | Browser default size | Emulate [viewport size](viewport.md) as device or set custom value in pixels. |
-| `check_connection`   | `True` or `False`       | `True` | Check that there is an internet connection before starting the browser. Bypass the check by setting it to `False`. |
+| `check_connection`   | `True` or `False`       | `True` | Check whether there is an [internet connection](check-connection.md) before starting the browser. Bypass the check by setting it to `False`. |
 | `user_agent`         | User agent string `str` | Browser default | Set a custom [user agent](user-agent.md) to override the default user agent. |
 
 !!! tip "Become a Sponsor"
