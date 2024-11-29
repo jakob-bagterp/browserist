@@ -58,6 +58,7 @@ nav:
     - Page Load Strategy: settings/page-load-strategy.md
     - Viewport: settings/viewport.md
     - User Agent: settings/user-agent.md
+    - Check Connection: settings/check-connection.md
   - Performance:
     - Overview: performance/overview.md
     - Headless: performance/headless.md
