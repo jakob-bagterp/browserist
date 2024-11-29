@@ -241,7 +241,8 @@ extra:
     provider: mike
 
 extra_css:
-  - stylesheets/extra.css
+  - assets/stylesheets/colors.css
+  - assets/stylesheets/tables.css
 
 plugins:
   - search:
