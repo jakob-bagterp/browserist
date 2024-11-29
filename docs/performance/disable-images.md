@@ -23,9 +23,6 @@ with Browser(settings) as browser:
     browser.open.url("https://example.com")
 ```
 
-!!! note
-    Not all browsers support disabling of images well: Both Safari and Internet Explorer requires us to update global settings in the operating system that may impact how these browsers behave outside Browserist.
-
 ## Standardised Settings Across Browser Types
 If you want to disable image downloads with Selenium, you typically would use different settings from browser to browser. Browserist solves this problem so that settings for Chrome, Firefox, Edge, etc. are standardised.
 
@@ -42,3 +39,16 @@ for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:
         browser.open.url("https://example.com")
 ```
+
+## Supported Browsers
+
+!!! note
+    Not all browsers support disabling of images well: Both Safari and Internet Explorer requires us to update global settings in the operating system that may impact how these browsers behave outside Browserist.
+
+Browsers that support disabling of images:
+
+<div id="disable-images-supported-browsers-table"></div>
+
+| Chrome           | Edge             | Firefox          | Safari                                | Internet Explorer                     |
+| :--------------: | :--------------: | :--------------: | :-----------------------------------: | :-----------------------------------: |
+| :material-check: | :material-check: | :material-check: | :material-alert-circle-check-outline: | :material-alert-circle-check-outline: |
