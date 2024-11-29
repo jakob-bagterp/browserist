@@ -22,15 +22,15 @@ Despite the [urban definition](https://www.urbandictionary.com/define.php?term=b
 ## Main Features
 With Browserist as an extension to Selenium, you get:
 
-:white_check_mark: Improved stability and speed
+:white_check_mark: &nbsp;&nbsp;Improved stability and speed
 
-:white_check_mark: Simple syntax and less code
+:white_check_mark: &nbsp;&nbsp;Simple syntax and less code
 
-:white_check_mark: Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Internet Explorer
+:white_check_mark: &nbsp;&nbsp;Hassle-free setup across browsers: Chrome, Firefox, Edge, Safari, Internet Explorer
 
-:white_check_mark: Extensive framework of functions that makes browser automation easy
+:white_check_mark: &nbsp;&nbsp;Extensive framework of functions that makes browser automation easy
 
-:white_check_mark: Efficient development workflow with IntelliSense and type hints
+:white_check_mark: &nbsp;&nbsp;Efficient development workflow with IntelliSense and type hints
 
 ## Next Steps
 Ready to try? [Let's get started](getting-started/index.md).
