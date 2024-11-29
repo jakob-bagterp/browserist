@@ -70,17 +70,14 @@ Gain even more performance by running the browsers in [headless mode](../headles
 
 For example:
 
-```python linenums="1"
-from browserist import Browser, BrowserSettings, BrowserType
+```python linenums="1" hl_lines="3-5"
+from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(
-    type=BrowserType.CHROME,
     headless=True,
     disable_images=True)
 
-browser = Browser(settings)
-
-with Browser() as browser:
+with Browser(settings) as browser:
     print("1. Opening X browser")
     browser.open.url("https://example.com")
     print("2. Page loaded with X browser")
