@@ -35,7 +35,7 @@ With Browserist as an extension to Selenium, you get:
 ## Next Steps
 Ready to try? [Let's get started](getting-started/index.md).
 
-Or learn more about how [Browserist is different from Selenium](difference-from-selenium.md).
+Or learn more about how Browserist is [different from Selenium](difference-from-selenium.md).
 
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
