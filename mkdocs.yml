@@ -298,7 +298,8 @@ plugins:
         user-guide/performance/disable-images.md: performance/disable-images.md
         user-guide/performance/parallelisation.md: performance/parallelization/results-summary.md
         xpath/tips-and-tricks/index.md: xpath/tips-and-tricks/target-attributes.md
-        reference/settings.md: reference/browser-settings.md
+        reference/settings.md: reference/configuration/browser-settings.md
+        reference/browser-settings.md: reference/configuration/browser-settings.md
 
 watch:
   - src
