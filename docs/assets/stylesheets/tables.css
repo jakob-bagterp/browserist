@@ -30,3 +30,19 @@
 #performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(3) > td:nth-child(3) {
     color: var(--material-amber);
 }
+
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(2),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(3),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(4),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(5),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(2),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(3) {
+    color: var(--material-green);
+}
+
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(6),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(4),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(5),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(6) {
+    color: var(--material-deep-orange);
+}
