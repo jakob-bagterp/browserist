@@ -1,11 +1,3 @@
-/* Extra Colors from MkDocs Material: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ */
-
-:root {
-    --material-amber: rgb(255, 193, 5);
-    --material-deep-orange: rgb(255, 110, 66);
-    --material-green: rgb(76, 174, 79);
-}
-
 #sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+2),
 #sweet-spot-comparison-table + div > div table > tbody > tr:nth-child(3) > td:nth-child(-n+2) {
     color: var(--material-deep-orange);
@@ -37,4 +29,20 @@
 #performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(3) > td:nth-child(2),
 #performance-parallelization-table-2 + div > div table > tbody > tr:nth-child(3) > td:nth-child(3) {
     color: var(--material-amber);
+}
+
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(2),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(3),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(4),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(5),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(2),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(3) {
+    color: var(--material-green);
+}
+
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(6),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(4),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(5),
+#user-agent-supported-browsers-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(6) {
+    color: var(--material-deep-orange);
 }

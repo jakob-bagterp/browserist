@@ -96,6 +96,8 @@ Mozilla/5.0 MyUserAgent
 ### Supported Browsers
 Most browsers support setting the `User-Agent` at the start of a session, but only a few allow you to set it on the fly:
 
+<div id="user-agent-supported-browsers-table"></div>
+
 | Case          | Chrome           | Edge             | Firefox                         | Safari                          | Internet Explorer               |
 | :------------ | :--------------: | :--------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: |
 | For a session | :material-check: | :material-check: | :material-check:                | :material-check:                | :material-minus-circle-outline: |

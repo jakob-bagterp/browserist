@@ -1,0 +1,7 @@
+/* Extra Colors from MkDocs Material: https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/ */
+
+:root {
+    --material-amber: rgb(255, 193, 5);
+    --material-deep-orange: rgb(255, 110, 66);
+    --material-green: rgb(76, 174, 79);
+}
