@@ -39,3 +39,12 @@
 #disable-images-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(n+4):nth-child(-n+5) {
     color: var(--material-amber);
 }
+
+
+#headless-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+3) {
+    color: var(--material-green);
+}
+
+#headless-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(n+4):nth-child(-n+5) {
+    color: var(--material-deep-orange);
+}

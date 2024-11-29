@@ -24,9 +24,6 @@ with Browser(settings) as browser:
     browser.open.url("https://example.com")
 ```
 
-!!! note
-    Not all browsers support headless mode, for instance Safari and Internet Explorer.
-
 ## Advantages and Disadvantages
 When you want to run an automated browser in the background while doing something else, headless mode is a good option. Also, headless mode often is faster and takes up less resources now that the browser doesn't have to render a window on the screen.
 
@@ -51,3 +48,16 @@ for settings in [chrome, edge, firefox]:
     with Browser(settings) as browser:
         browser.open.url("https://example.com")
 ```
+
+## Supported Browsers
+
+!!! note
+    Not all browsers support headless mode, for instance Safari and Internet Explorer.
+
+Browsers that support headless mode:
+
+<div id="headless-supported-browsers-table"></div>
+
+| Chrome           | Edge             | Firefox          | Safari                          | Internet Explorer               |
+| :--------------: | :--------------: | :--------------: | :-----------------------------: | :-----------------------------: |
+| :material-check: | :material-check: | :material-check: | :material-minus-circle-outline: | :material-minus-circle-outline: |
