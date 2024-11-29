@@ -12,7 +12,7 @@ description: Browserist is the easy way to do web scraping and browser automatio
 [![Downloads](https://static.pepy.tech/badge/browserist)](https://pepy.tech/project/browserist)
 
 # Browserist – Python Extension for Selenium 👨‍💻
-## Introduction
+## What is Browserist?
 > ***browserist***
 > *1. The belief that web browsers account for differences in websites or web applications in all of their ability and that a particular web browser is superior to others.*
 > *2. Discrimination or prejudice based on web browser.*
