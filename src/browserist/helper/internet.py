@@ -20,13 +20,15 @@ def check_connection(url: URL, requests_session: Session, timeout: float = timeo
 
 
 def has_connection(timeout: float = timeout.DEFAULT) -> bool:
-    """Check if there is an internet connection by pinging public Google DNS servers.
+    """Check if there is an internet connection by pinging public Cloudflare and Google DNS servers.
 
     Reference: https://developers.google.com/speed/public-dns/docs/using"""
 
+    cloudflare_dns_server_1_url = URL("https://1.1.1.1")
+    cloudflare_dns_server_2_url = URL("https://1.0.0.1")
     google_dns_server_1_url = URL("https://8.8.8.8")
     google_dns_server_2_url = URL("https://8.8.4.4")
-    urls = [google_dns_server_1_url, google_dns_server_2_url]
+    urls = [cloudflare_dns_server_1_url, cloudflare_dns_server_2_url, google_dns_server_1_url, google_dns_server_2_url]
     with requests.Session() as requests_session:
         check_connection_args = [(url, requests_session, timeout) for url in urls]
         with multiprocessing.Pool(processes=len(urls)) as pool:
