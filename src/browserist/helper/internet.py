@@ -20,9 +20,10 @@ def check_connection(url: URL, requests_session: Session, timeout: float = timeo
 
 
 def has_connection(timeout: float = timeout.DEFAULT) -> bool:
-    """Check if there is an internet connection by pinging public Cloudflare and Google DNS servers.
+    """Check if there is an internet connection by pinging public Cloudflare and Google DNS servers. References:
 
-    Reference: https://developers.google.com/speed/public-dns/docs/using"""
+    https://developers.google.com/speed/public-dns/docs/using
+    https://www.cloudflare.com/en-gb/learning/dns/what-is-1.1.1.1/"""
 
     cloudflare_dns_server_1_url = URL("https://1.1.1.1")
     cloudflare_dns_server_2_url = URL("https://1.0.0.1")
