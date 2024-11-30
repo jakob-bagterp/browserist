@@ -31,5 +31,7 @@ def has_connection(timeout: float = timeout.DEFAULT) -> bool:
     urls = [cloudflare_dns_server_1_url, cloudflare_dns_server_2_url, google_dns_server_1_url, google_dns_server_2_url]
     with requests.Session() as requests_session:
         check_connection_args = [(url, requests_session, timeout) for url in urls]
-        with multiprocessing.Pool(processes=len(urls)) as pool:
-            return any(pool.starmap(check_connection, check_connection_args))
+        number_of_processes = len(urls)
+        with multiprocessing.Pool(processes=number_of_processes) as pool:
+            list_of_results = pool.starmap(check_connection, check_connection_args)
+            return any(list_of_results)
