@@ -13,7 +13,7 @@
 
 Despite the [urban definition](https://www.urbandictionary.com/define.php?term=browserist), Browserist is a Python extension of the [Selenium web driver](https://www.selenium.dev/) that makes it even easier to use different browsers for testing and automation.
 
-## Kay Features
+## Key Features
 With Browserist as an extension to Selenium, you get:
 
 * Improved stability and speed
