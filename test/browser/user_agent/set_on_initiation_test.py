@@ -5,6 +5,7 @@ import pytest
 from _mock_data.url import internal_url
 
 from browserist import Browser, BrowserSettings, BrowserType
+from browserist.helper import operating_system
 
 USER_AGENT_TEST = "test"
 
@@ -23,6 +24,9 @@ def test_user_agent_set_on_initiation_with_default_browser() -> None:
     (BrowserSettings(type=BrowserType.FIREFOX, headless=True, user_agent=USER_AGENT_TEST), does_not_raise()),
 ])
 def test_user_agent_set_on_initiation_with_various_browsers(browser_settings: BrowserSettings, expectation: Any) -> None:
+    if operating_system.is_macos() and browser_settings.type is BrowserType.EDGE:
+        pytest.skip("Microsoft Edge is not supported on macOS.")
+        return
     with expectation:
         with Browser(browser_settings) as browser:
             browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
