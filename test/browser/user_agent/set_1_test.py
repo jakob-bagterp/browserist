@@ -7,6 +7,7 @@ from _mock_data.url import internal_url
 
 from browserist import Browser, BrowserSettings, BrowserType
 from browserist.exception.user_agent import ChangeUserAgentOnTheFlyNotSupportedException
+from browserist.helper import operating_system
 
 
 @pytest.mark.parametrize("browser_settings, user_agent, expectation", [
@@ -15,6 +16,9 @@ from browserist.exception.user_agent import ChangeUserAgentOnTheFlyNotSupportedE
     (BrowserSettings(type=BrowserType.FIREFOX, headless=True), "test", pytest.raises(ChangeUserAgentOnTheFlyNotSupportedException)),
 ])
 def test_user_agent_set_on_the_fly(browser_settings: BrowserSettings, user_agent: str, expectation: Any) -> None:
+    if operating_system.is_macos() and browser_settings.type is BrowserType.EDGE:
+        pytest.skip("Microsoft Edge is not supported on macOS.")
+        return
     with Browser(browser_settings) as browser:
         browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
         user_agent_default = browser.user_agent.get()

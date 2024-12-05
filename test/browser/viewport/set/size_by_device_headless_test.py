@@ -26,7 +26,7 @@ def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_def
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
     browser.viewport.set.size_by_device(device)
     width_check, height_check = browser.viewport.get.size()
-    if operating_system.is_mac_os() or operating_system.is_windows():
+    if operating_system.is_macos() or operating_system.is_windows():
         minimum_width = _helper.tolerance.deduct(device.width, 50)
         maximum_width = _helper.tolerance.add(device.width, 70)
         assert minimum_width < width_check < maximum_width

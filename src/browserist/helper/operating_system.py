@@ -1,7 +1,11 @@
 import sys
 
 
-def is_mac_os() -> bool:
+def is_linux() -> bool:
+    return sys.platform.startswith("linux")
+
+
+def is_macos() -> bool:
     return sys.platform.startswith("darwin")
 
 
