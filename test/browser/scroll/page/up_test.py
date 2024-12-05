@@ -30,7 +30,7 @@ def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
     match _:  # Sometimes the scroll position is not calculated exactly on Windows nor macOS, and so we just do an approximation.
         case _ if operating_system.is_windows():
             assert y_page_up < y_end
-        case _ if operating_system.is_mac_os():
+        case _ if operating_system.is_macos():
             assert y_page_up <= _helper.tolerance.add(expected_exact_position, 10)
             assert y_page_up >= _helper.tolerance.deduct(expected_exact_position, 10)
         case _:
