@@ -143,7 +143,7 @@ nav:
 
 theme:
   name: material
-  custom_dir: docs/overrides
+  custom_dir: docs/assets/overrides
   features:
     - search.suggest
     - search.highlight
