@@ -5,4 +5,4 @@ from . import file  # noqa: F401
 from . import html  # noqa: F401
 from . import url  # noqa: F401
 from .time import get_difference  # noqa: F401
-from .tolerance import add, deduct  # noqa: F401
+from .tolerance import add_percent, deduct_percent  # noqa: F401
