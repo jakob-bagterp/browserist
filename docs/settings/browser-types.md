@@ -36,6 +36,21 @@ with Browser(settings) as browser:
 
 More information about [installation of browser drivers](../getting-started/recommended-drivers.md).
 
+!!! tip "Custom Browser Executable"
+    If the browser executable isn't in a default folder, choose which file to use by setting the `path_to_executable` option in the `BrowserSettings` class.
+
+    ```python linenums="1" hl_lines="5"
+    from browserist import Browser, BrowserSettings, BrowserType
+
+    settings = BrowserSettings(
+        type=BrowserType.FIREFOX,
+        path_to_executable="/path/to/executable/firefox.exe")
+
+    with Browser(settings) as browser:
+        browser.open.url("https://example.com")
+        browser.wait.seconds(5)
+    ```
+
 ## How to Run Multiple Browsers
 When you have multiple browser drivers installed, you can run them in sequence like this:
 
