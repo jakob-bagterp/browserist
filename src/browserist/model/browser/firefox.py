@@ -23,7 +23,6 @@ class FirefoxBrowserDriver(BrowserDriver):
     def enable_headless(self) -> None:
         if self.settings.headless:
             self.firefox_options.add_argument("--headless")
-            self.firefox_options.add_argument("--disable-gpu")
 
     def set_download_directory(self) -> None:
         if self.settings._download_dir is not None:
