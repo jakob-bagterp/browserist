@@ -10,9 +10,9 @@ tags:
 
 # Headless Mode in Selenium and Browserist
 ## Why Headless Mode? Advantages and Disadvantages
-When you want to run an automated browser in the background while doing something else, you can gain a [performance boost by running the browser in headless mode](../../performance/headless.md). This is often done in combination with [disabling images](disable-images.md), since you can't see any graphics in a headless browser.
+When you want to run an automated browser in the background while doing something else, you can gain a [performance boost by running the browser in headless mode](../../performance/headless.md).
 
-On the other hand, the disadvantage is obviously that you can't observe what the browser is doing.
+This is often done in combination with [disabling images](disable-images.md), since you can't see any graphics in a headless browser. On the other hand, the disadvantage is obviously that you can't observe what the browser is doing.
 
 ## How to Configure
 ### Selenium

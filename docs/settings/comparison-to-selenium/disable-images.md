@@ -1,6 +1,6 @@
 ---
 title: How to Disable Images in Selenium
-description: Learn how to boost web scraping performance by disabling images in Selenium. Or use the Browserist extension that makes the configuration even easier. Includes code examples for beginners and advanced users.
+description: Learn how to boost web scraping performance by disabling images in Selenium. Or use the Browserist extension to make the configuration even easier. Includes code examples for beginners and advanced users.
 tags:
     - Selenium
     - Tutorial
