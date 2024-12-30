@@ -1,6 +1,6 @@
 ---
 title: How to Set Browser Type in Selenium
-description: Learn how use different browsers such as Chrome, Firefox, Edge in Selenium. Or use the Browserist extension that makes the configuration even easier. Includes code examples for beginners and advanced users.
+description: Learn how to use different browsers like Chrome, Firefox, Edge in Selenium. Or use the Browserist extension that makes the configuration even easier. Includes code examples for beginners and advanced users.
 tags:
     - Selenium
     - Tutorial
@@ -14,11 +14,11 @@ tags:
 ---
 
 # How to Use Different Browser Types in Selenium and Browserist
-When you need to automate web scraping or test flows with different browsers – for example Firefox, Edge, or Chrome – Selenium and Browserist does this differently.
+If you need to automate web scraping or test flows with different browsers – for example, Firefox, Edge, or Chrome – Selenium and Browserist do it differently.
 
 ## Basic Usage
 ### With Selenium
-When you want to use Chrome for browser automation with Selenium, here's how to initiate a session:
+If you want to use Chrome for browser automation with Selenium, here's how to initiate a session:
 
 ```python linenums="1"
 from selenium import webdriver
@@ -33,7 +33,7 @@ driver.quit()
 If you want to use Firefox, just replace `webdriver.Chrome()` with `webdriver.Firefox()`. Or use `webdriver.Edge()` for Edge.
 
 ### With Browserist
-With Browserist, you often can achieve the same with less and more readable code:
+With Browserist, you can often achieve the same thing, but with less and more readable code:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
@@ -49,7 +49,7 @@ For Firefox or Edge, just replace `BrowserType.CHROME` with `BrowserType.FIREFOX
 Let's imagine another example where we want to do the same task, but with different browser types.
 
 ### With Browserist
-Since the configuration class is separate from the web driver and consistent across browser types, Browserist often scales with less code compared to Selenium:
+Because the configuration class is separate from the web driver and consistent across browser types, Browserist often scales with less code compared to Selenium:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
@@ -65,7 +65,7 @@ for settings in [chrome, edge, firefox]:
 ```
 
 ### With Selenium
-With Selenium, the example above could be rewritten like this:
+With Selenium, the above example could be rewritten like this:
 
 ```python linenums="1"
 from selenium import webdriver
@@ -87,7 +87,7 @@ do_something(firefox_driver)
 ```
 
 ### Selenium Mixed with Browserist
-Alternatively, mix Selenium with Browserist:
+Alternatively, you can mix Selenium with Browserist:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
