@@ -11,6 +11,8 @@ tags:
 # Why Disable Images?
 It's often faster to load pages when you don't download images. So if you don't need to process images when scraping a web page, simply don't wait for such media data – often heavy payloads – and use less bandwidth.
 
+This is often done in combination with [headless mode](headless-mode.md), since you can't see any graphics in a headless browser.
+
 ## How to Configure
 With Browserist, it's simple to configure. As the default setting for `disable_images` is `False` in `BrowserSettings`, we simply alter it to `True` like this:
 

@@ -59,6 +59,11 @@ nav:
     - Viewport: settings/viewport.md
     - User Agent: settings/user-agent.md
     - Check Connection: settings/check-connection.md
+    - Comparison to Selenium:
+      - Main Differences: settings/comparison-to-selenium/main-differences.md
+      - Browser Types: settings/comparison-to-selenium/browser-types.md
+      - Headless Mode: settings/comparison-to-selenium/headless-mode.md
+      - Disable Images: settings/comparison-to-selenium/disable-images.md
   - Performance:
     - Overview: performance/overview.md
     - Headless: performance/headless.md

@@ -12,6 +12,8 @@ tags:
 ## What Is Headless?
 Headless simply means that the browser runs in the background without being visible on the screen. This is also more efficient because it uses fewer resources, while headless browsers often are faster.
 
+This is often done in combination with [disabling images](disable-images.md), since you can't see any graphics in a headless browser.
+
 ## How to Configure
 The default setting for `headless` is `False` in `BrowserSettings`. Simply alter this to `True`, and now your browser driver runs in headless mode:
 

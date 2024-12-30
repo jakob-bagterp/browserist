@@ -53,3 +53,6 @@ You don't want to be too fast nor too slow when automating a browser. You're sim
 | Too long   | :material-speedometer-slow: _Slow_     | Wait for 10 seconds, e.g. `time.sleep(10)`, just to be sure an element is ready.                        |
 
 Ready to try? [Let's get started](getting-started/index.md).
+
+!!! tip "More Examples of Differences Between Browserist and Selenium"
+    Whether you want to use different browser types, work in headless mode, disable images, and much more, there are many ways where Browserist is [simple to configure and with less code than Selenium](settings/comparison-to-selenium/main-differences.md).
