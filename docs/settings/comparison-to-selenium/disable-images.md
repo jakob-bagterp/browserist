@@ -52,6 +52,7 @@ With Selenium, each browser type has its own configuration:
 === "Firefox"
     ```python linenums="1" hl_lines="4-5"
     from selenium import webdriver
+    from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
     firefox_options = webdriver.FirefoxOptions()
     firefox_options.set_preference("permissions.default.image", 2)
