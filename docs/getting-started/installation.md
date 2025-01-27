@@ -12,7 +12,7 @@ tags:
 ## Prerequisites
 In order to run Browserist successfully, you need to have the following installed:
 
-* [Python 3.10 or higher](https://www.python.org)
+* [Python 3.11 or higher](https://www.python.org)
 * [Relevant browser and driver](recommended-drivers.md)
 
 !!! info
