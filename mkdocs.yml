@@ -253,8 +253,7 @@ extra_css:
 plugins:
   - search:
       lang: en
-  - tags:
-      tags_file: index/tags.md
+  - tags
   - mkdocstrings:
       default_handler: python
       handlers:
