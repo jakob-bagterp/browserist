@@ -7,4 +7,4 @@ description: List of all tags and relevant pages for Browserist, covering tutori
 
 List of all tags and relevant pages:
 
-[TAGS]
+<!-- material/tags -->
