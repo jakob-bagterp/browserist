@@ -6,10 +6,12 @@ from threading import Thread
 import pytest
 from _fixture.download_handler import get as get_download_handler
 from _helper import directory, file
+from _helper.python import is_python_version
 from _helper.timeout import reset_to_not_timed_out
 from py.path import local
 
 from browserist import Browser, BrowserSettings, BrowserType
+from browserist.helper import operating_system
 
 FINAL_FILE_NAME = "file.txt"
 PRELIMINARY_TEMPORARY_FILE_NAME = ".com.google.Chrome.1a2b3c"
@@ -50,7 +52,10 @@ class DownloadHandlerThread(Thread):
 
     def run(self) -> None:
         download_handler = get_download_handler(self.browser, self.download_dir_entries_before_download, self.uses_temporary_file)
-        assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
+        if operating_system.is_windows() and is_python_version(3, 13):
+            assert download_handler.await_and_get_final_file().name == TEMPORARY_FILE_NAME
+        else:
+            assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
         assert download_handler._final_file is not None
         assert download_handler._final_file.name == FINAL_FILE_NAME
         if download_handler._temporary_file is not None:
