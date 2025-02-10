@@ -53,9 +53,8 @@ class DownloadHandlerThread(Thread):
     def run(self) -> None:
         download_handler = get_download_handler(self.browser, self.download_dir_entries_before_download, self.uses_temporary_file)
         if operating_system.is_windows() and is_python_version(3, 13):
-            assert download_handler.await_and_get_final_file().name == TEMPORARY_FILE_NAME
-        else:
-            assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
+            time.sleep(0.2)  # Add a delay for Python 3.13 running on Windows as its file creation is less responsive.
+        assert download_handler.await_and_get_final_file().name == FINAL_FILE_NAME
         assert download_handler._final_file is not None
         assert download_handler._final_file.name == FINAL_FILE_NAME
         if download_handler._temporary_file is not None:
