@@ -25,7 +25,7 @@ def ensure_windows_file_path_format_encoding_as_url(path: str) -> str:
     output = path.replace("\\", "/")  # Raw replace backslash with slash.
     # Handle exception for "file:///C:/path/to/file.html" declaration in URLs:
     if re.match(r"^file:/+[A-Za-z]:", output, re.IGNORECASE):
-        output = re.sub(r"^file:/+", "file:///", output, re.IGNORECASE)
+        output = re.sub(r"^file:/+", "file:///", output, flags=re.IGNORECASE)
     return encode_path_as_url(output)
 
 
