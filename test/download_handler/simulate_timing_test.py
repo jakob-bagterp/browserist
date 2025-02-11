@@ -85,7 +85,7 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(pr
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
     if browser_settings.type not in [BrowserType.CHROME, BrowserType.EDGE]:
         pytest.skip(f"Timing tests for DownloadHandler are only supported by Chrome and Edge, not {browser_settings.type}.")
-    if operating_system.is_windows() and is_python_version(3, 13):
+    if operating_system.is_windows() and is_python_version(3, 13):  # TODO: Remove this once we have a fix for this exception.
         pytest.skip("When Python 3.13 runs on Windows there are inconstencies in the timing of temporary and final file names.")
 
     with Browser(browser_settings) as browser:
