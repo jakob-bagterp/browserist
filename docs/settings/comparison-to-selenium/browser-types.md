@@ -70,20 +70,10 @@ With Selenium, the above example could be rewritten like this:
 ```python linenums="1"
 from selenium import webdriver
 
-def do_something(driver)
-    driver.get("https://example.com")
-    driver.implicitly_wait(5)
-    # Do someting
-    driver.quit()
-
-chrome_driver = webdriver.Chrome()
-do_something(chrome_driver)
-
-edge_driver = webdriver.Edge()
-do_something(edge_driver)
-
-firefox_driver = webdriver.Firefox()
-do_something(firefox_driver)
+for browser in (webdriver.Chrome, webdriver.Edge, webdriver.Firefox):
+    with browser() as driver:
+        driver.get("https://example.com")
+        # Do something
 ```
 
 ### Selenium Mixed with Browserist
