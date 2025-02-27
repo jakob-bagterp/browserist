@@ -49,7 +49,7 @@ For Firefox or Edge, just replace `BrowserType.CHROME` with `BrowserType.FIREFOX
 Let's imagine another example where we want to do the same task, but with different browser types.
 
 ### With Browserist
-Because the configuration class is separate from the web driver and consistent across browser types, Browserist is slightly different than Selenium::
+Because the configuration class is separate from the web driver and consistent across browser types, Browserist is slightly different than Selenium:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
