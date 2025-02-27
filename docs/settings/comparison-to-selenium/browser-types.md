@@ -73,6 +73,7 @@ from selenium import webdriver
 for browser in (webdriver.Chrome, webdriver.Edge, webdriver.Firefox):
     with browser() as driver:
         driver.get("https://example.com")
+        driver.implicitly_wait(5)
         # Do something
 ```
 
