@@ -103,6 +103,17 @@ class BrowserSettings:
         with Browser(settings) as browser:
             browser.open.url("https://example.com")
         ```
+
+        Use a custom proxy:
+
+        ```python title="" linenums="1" hl_lines="3"
+        from browserist import Browser, BrowserSettings
+
+        settings = BrowserSettings(proxy="http://127.0.0.1:8080")
+
+        with Browser(settings) as browser:
+            browser.open.url("https://example.com")
+        ```
     """
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
