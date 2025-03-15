@@ -1,7 +1,7 @@
 from ..model.browser.base.type import BrowserType
 
 
-class HeadlessNotSupportedException(Exception):
+class HeadlessModeNotSupportedException(Exception):
     __slots__ = ["message"]
 
     def __init__(self, browser_type: BrowserType) -> None:
