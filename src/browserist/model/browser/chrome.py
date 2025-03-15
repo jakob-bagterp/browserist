@@ -32,7 +32,8 @@ class ChromeBrowserDriver(BrowserDriver):
         self.chrome_options.add_argument("--disable-search-engine-choice-screen")
 
     def set_user_agent(self) -> None:
-        self.chrome_options.add_argument(f"--user-agent={self.settings.user_agent}")
+        if self.settings.user_agent is not None:
+            self.chrome_options.add_argument(f"--user-agent={self.settings.user_agent}")
 
     def set_service(self) -> ChromeService:
         if self.settings._path_to_executable is None:

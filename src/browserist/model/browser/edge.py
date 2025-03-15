@@ -34,7 +34,8 @@ class EdgeBrowserDriver(BrowserDriver):
         pass
 
     def set_user_agent(self) -> None:
-        self.edge_options.add_argument(f"--user-agent={self.settings.user_agent}")
+        if self.settings.user_agent is not None:
+            self.edge_options.add_argument(f"--user-agent={self.settings.user_agent}")
 
     def set_service(self) -> EdgeService:
         if self.settings._path_to_executable is None:
