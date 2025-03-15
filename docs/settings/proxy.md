@@ -9,9 +9,9 @@ tags:
 # What Is a Proxy?
 A proxy server acts as an intermediary between your browser and the internet. Here are five common use cases for using a proxy server:
 
-1. **Enhanced security and ærivacy**: By routing your internet traffic through a proxy server, you can hide your IP address and protect your personal information from potential threats.
+1. **Enhanced security and privacy**: By routing your internet traffic through a proxy server, you can hide your IP address and protect your personal information from potential threats.
 
-2. **Accessing geo-Restricted content**: Proxies can help you bypass geo-restrictions and access content that is not available in your region by masking your IP address with one from a different location.
+2. **Accessing geo-restricted content**: Proxies can help you bypass geo-restrictions and access content that is not available in your region by masking your IP address with one from a different location.
 
 3. **Improved performance**: Some proxy servers cache frequently accessed web pages, which can speed up your browsing experience by reducing the load time for those pages.
 
