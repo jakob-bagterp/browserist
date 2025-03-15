@@ -9,7 +9,11 @@ def test_scroll_to_end_of_page(browser_default_headless: Browser) -> None:
     browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
     browser.scroll.page.to_top()
     x_default, y_default = browser.scroll.get.position()
+    assert x_default == 0
+    assert y_default == 0
+    total_srcroll_height = browser.scroll.get.total_height()
+    assert total_srcroll_height > 0
     browser.scroll.page.to_end()
     x_end, y_end = browser.scroll.get.position()
-    assert x_default == x_end == 0
-    assert y_default < y_end
+    assert x_end == 0
+    assert y_end > y_default
