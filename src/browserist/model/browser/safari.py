@@ -20,7 +20,8 @@ class SafariBrowserDriver(BrowserDriver):
         factory.safari.disable_images(self)
 
     def enable_headless(self) -> None:
-        raise HeadlessModeNotSupportedException(self.settings.type)
+        if self.settings.headless:
+            raise HeadlessModeNotSupportedException(self.settings.type)
 
     def set_download_directory(self) -> None:
         # Safari doesn't support configuration of a default download directory.
