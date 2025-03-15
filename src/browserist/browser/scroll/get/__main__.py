@@ -32,7 +32,7 @@ class ScrollGetDriverMethods(DriverMethods):
 
         Example:
             ```python title=""
-            viewport_height = browser.scroll.get.total_height()
+            total_scroll_height = browser.scroll.get.total_height()
             ```
         """
 
