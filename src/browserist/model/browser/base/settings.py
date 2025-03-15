@@ -26,6 +26,7 @@ class BrowserSettings:
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check whether there is an [internet connection](../../settings/check-connection.md) before starting the browser. Bypass the check by setting it to `False`.
         user_agent (str, optional): Set a custom [user agent](../../settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
+        proxy (str, optional): Set a [proxy](../../settings/proxy.md) to use for the browser.
 
     Example:
         Use Firefox as browser type:
@@ -106,7 +107,7 @@ class BrowserSettings:
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
     # __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
-    #             "check_connection", "_path_to_executable", "_screenshot_dir"]
+    #             "check_connection", "proxy", "_path_to_executable", "_screenshot_dir"]
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False
@@ -119,6 +120,7 @@ class BrowserSettings:
     viewport: DeviceViewportSize | tuple[int, int] | None = None
     check_connection: bool = True
     user_agent: str | None = None
+    proxy: str | None = None
 
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
