@@ -8,7 +8,14 @@ def disable_images(browser_driver: BrowserDriver) -> BrowserDriver:
             "profile.managed_default_content_settings.images": 2,
             "profile.default_content_settings.images": 2
         }
-        browser_driver.chrome_options.add_experimental_option("prefs", preferences)
+        match browser_driver.settings.type:
+            case BrowserType.CHROME:
+                browser_driver.chrome_options.add_experimental_option("prefs", preferences)
+            case BrowserType.EDGE:
+                browser_driver.edge_options.use_chromium = True  # type: ignore
+                browser_driver.edge_options.add_experimental_option("prefs", preferences)
+            case _:
+                pass
     return browser_driver
 
 
