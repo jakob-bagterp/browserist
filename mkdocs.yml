@@ -59,6 +59,7 @@ nav:
     - Viewport: settings/viewport.md
     - User Agent: settings/user-agent.md
     - Check Connection: settings/check-connection.md
+    - Proxy: settings/proxy.md
     - Comparison to Selenium:
       - Main Differences: settings/comparison-to-selenium/main-differences.md
       - Browser Types: settings/comparison-to-selenium/browser-types.md

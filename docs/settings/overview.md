@@ -62,6 +62,7 @@ Use `BrowserSettings` with the following options:
 | `viewport`           | `DeviceViewportSize` or `(width, height)` | Browser default size | Emulate [viewport size](viewport.md) as device or set custom value in pixels. |
 | `check_connection`   | `True` or `False`       | `True` | Check whether there is an [internet connection](check-connection.md) before starting the browser. Bypass the check by setting it to `False`. |
 | `user_agent`         | User agent string `str` | Browser default | Set a custom [user agent](user-agent.md) to override the default user agent. |
+| `proxy`              | IP address `str`        | `None` | Set a custom [proxy server](proxy.md) to be used by the browser. Should contain IP address and port number as, for example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication. |
 
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.

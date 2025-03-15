@@ -2,6 +2,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 from ... import factory
+from ...exception.proxy import ProxyNotSupportedException
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
 
@@ -41,6 +42,10 @@ class FirefoxBrowserDriver(BrowserDriver):
     def set_user_agent(self) -> None:
         if self.settings.user_agent is not None:
             self.firefox_options.set_preference("general.useragent.override", self.settings.user_agent)
+
+    def set_proxy(self) -> None:
+        if self.settings.proxy is not None:
+            raise ProxyNotSupportedException(self.settings.type)
 
     def set_service(self) -> FirefoxService:
         if self.settings._path_to_executable is None:

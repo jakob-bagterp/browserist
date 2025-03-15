@@ -26,6 +26,7 @@ class BrowserSettings:
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check whether there is an [internet connection](../../settings/check-connection.md) before starting the browser. Bypass the check by setting it to `False`.
         user_agent (str, optional): Set a custom [user agent](../../settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
+        proxy (str, optional): Set a custom [proxy server](../../settings/proxy.md) to be used by the browser. Should contain IP address and port number as, for example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication.
 
     Example:
         Use Firefox as browser type:
@@ -102,11 +103,22 @@ class BrowserSettings:
         with Browser(settings) as browser:
             browser.open.url("https://example.com")
         ```
+
+        Use a custom proxy:
+
+        ```python title="" linenums="1" hl_lines="3"
+        from browserist import Browser, BrowserSettings
+
+        settings = BrowserSettings(proxy="http://127.0.0.1:8080")
+
+        with Browser(settings) as browser:
+            browser.open.url("https://example.com")
+        ```
     """
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
     # __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
-    #             "check_connection", "user_agent", "_path_to_executable", "_screenshot_dir"]
+    #             "check_connection", "user_agent", "proxy", "_path_to_executable", "_screenshot_dir"]
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False
@@ -119,6 +131,7 @@ class BrowserSettings:
     viewport: DeviceViewportSize | tuple[int, int] | None = None
     check_connection: bool = True
     user_agent: str | None = None
+    proxy: str | None = None
 
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
