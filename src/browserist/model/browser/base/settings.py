@@ -26,7 +26,7 @@ class BrowserSettings:
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check whether there is an [internet connection](../../settings/check-connection.md) before starting the browser. Bypass the check by setting it to `False`.
         user_agent (str, optional): Set a custom [user agent](../../settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
-        proxy (str, optional): Set a [proxy](../../settings/proxy.md) to use for the browser.
+        proxy (str, optional): Set a custom [proxy server](../../settings/proxy.md) to be used by the browser. Should contain IP address and port number as, for example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication.
 
     Example:
         Use Firefox as browser type:
