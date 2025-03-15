@@ -40,7 +40,7 @@ class EdgeBrowserDriver(BrowserDriver):
         pass
 
     def set_user_agent(self) -> None:
-        self = factory.chromium.set_user_agent(self)  # type: ignore
+        self.edge_options.add_argument(f"--user-agent={self.settings.user_agent}")
 
     def set_service(self) -> EdgeService:
         if self.settings._path_to_executable is None:
