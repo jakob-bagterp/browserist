@@ -42,6 +42,10 @@ class EdgeBrowserDriver(BrowserDriver):
     def set_user_agent(self) -> None:
         self = factory.chromium.set_user_agent(self)  # type: ignore
 
+    def set_proxy(self) -> None:
+        if self.settings.proxy is not None:
+            self.edge_options.add_argument(f"--proxy-server={self.settings.proxy}")
+
     def set_service(self) -> EdgeService:
         if self.settings._path_to_executable is None:
             return EdgeService()

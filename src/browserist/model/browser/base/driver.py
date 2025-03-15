@@ -112,6 +112,12 @@ class BrowserDriver(ABC):
         raise NotImplementedError  # pragma: no cover
 
     @abstractmethod
+    def set_proxy(self) -> None:
+        """Method to set the proxy."""
+
+        raise NotImplementedError  # pragma: no cover
+
+    @abstractmethod
     def set_service(self) -> Service:
         """Method to set the service."""
 

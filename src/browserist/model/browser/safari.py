@@ -3,6 +3,7 @@ from selenium.webdriver.safari.webdriver import WebDriver
 
 from ... import factory
 from ...exception.headless import HeadlessNotSupportedException
+from ...exception.proxy import ProxyNotSupportedException
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
 
@@ -35,6 +36,10 @@ class SafariBrowserDriver(BrowserDriver):
     def set_user_agent(self) -> None:
         if self.settings.user_agent is not None:
             self.safari_options.set_capability("userAgent", self.settings.user_agent)
+
+    def set_proxy(self) -> None:
+        if self.settings.proxy is not None:
+            raise ProxyNotSupportedException(self.settings.type)
 
     def set_service(self) -> SafariService:
         if self.settings._path_to_executable is None:

@@ -3,6 +3,7 @@ from selenium.webdriver.ie.webdriver import WebDriver
 
 from ... import factory
 from ...exception.headless import HeadlessNotSupportedException
+from ...exception.proxy import ProxyNotSupportedException
 from ...exception.user_agent import CustomUserAgentNotSupportedException
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
@@ -34,6 +35,10 @@ class InternetExplorerBrowserDriver(BrowserDriver):
 
     def set_user_agent(self) -> None:
         raise CustomUserAgentNotSupportedException(self.settings.type)
+
+    def set_proxy(self) -> None:
+        if self.settings.proxy is not None:
+            raise ProxyNotSupportedException(self.settings.type)
 
     def set_service(self) -> IEService:
         if self.settings._path_to_executable is None:
