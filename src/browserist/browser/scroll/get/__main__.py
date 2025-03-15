@@ -2,6 +2,7 @@ from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
 from .position import get_scroll_position
 from .total_height import get_total_scroll_height
+from .total_width import get_total_scroll_width
 
 
 class ScrollGetDriverMethods(DriverMethods):
@@ -31,9 +32,24 @@ class ScrollGetDriverMethods(DriverMethods):
 
         Example:
             ```python title=""
-            viewport_height = browser.scroll.get.total_height()
+            total_scroll_height = browser.scroll.get.total_height()
             ```
         """
 
         if self._timeout_should_continue():
             return get_total_scroll_height(self._browser_driver)
+
+    def total_width(self) -> int:  # type: ignore
+        """Get total scroll width.
+
+        Returns:
+            Total scroll width.
+
+        Example:
+            ```python title=""
+            total_scroll_width = browser.scroll.get.total_width()
+            ```
+        """
+
+        if self._timeout_should_continue():
+            return get_total_scroll_width(self._browser_driver)

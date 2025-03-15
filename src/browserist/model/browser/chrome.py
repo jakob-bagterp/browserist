@@ -19,7 +19,8 @@ class ChromeBrowserDriver(BrowserDriver):
         self = factory.chromium.disable_images(self)  # type: ignore
 
     def enable_headless(self) -> None:
-        self = factory.chromium.enable_headless(self)  # type: ignore
+        if self.settings.headless:
+            self.chrome_options.add_argument("--headless")
 
     def set_download_directory(self) -> None:
         self = factory.chromium.set_download_directory(self)  # type: ignore
@@ -28,10 +29,11 @@ class ChromeBrowserDriver(BrowserDriver):
         self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)  # type: ignore
 
     def disable_default_search_engine_prompt(self) -> None:
-        self = factory.chromium.disable_default_search_engine_prompt(self)  # type: ignore
+        self.chrome_options.add_argument("--disable-search-engine-choice-screen")
 
     def set_user_agent(self) -> None:
-        self = factory.chromium.set_user_agent(self)  # type: ignore
+        if self.settings.user_agent is not None:
+            self.chrome_options.add_argument(f"--user-agent={self.settings.user_agent}")
 
     def set_proxy(self) -> None:
         if self.settings.proxy is not None:

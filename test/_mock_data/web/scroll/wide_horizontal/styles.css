@@ -1,0 +1,13 @@
+body {
+    min-width: 10000px;
+}
+
+h1 {
+    font-size: 6rem;
+    padding-bottom: 4rem;
+}
+
+p {
+    font-size: 3rem;
+    padding-bottom: 4rem;
+}

@@ -118,7 +118,7 @@ class BrowserSettings:
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
     # __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
-    #             "check_connection", "proxy", "_path_to_executable", "_screenshot_dir"]
+    #             "check_connection", "user_agent", "proxy", "_path_to_executable", "_screenshot_dir"]
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False

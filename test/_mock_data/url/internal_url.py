@@ -81,3 +81,6 @@ SCROLL_CANVAS: str = update_path_format_if_windows(
 
 SCROLL_LONG_VERTICAL: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/scroll/long_vertical/page.html")
+
+SCROLL_WIDE_HORIZONTAL: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/scroll/wide_horizontal/page.html")
