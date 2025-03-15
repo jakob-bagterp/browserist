@@ -12,12 +12,6 @@ def disable_images(browser_driver: BrowserDriver) -> BrowserDriver:
     return browser_driver
 
 
-def enable_headless(browser_driver: BrowserDriver) -> BrowserDriver:
-    if browser_driver.settings.headless:
-        browser_driver.chrome_options.add_argument("--headless")
-    return browser_driver
-
-
 def set_download_directory(browser_driver: BrowserDriver) -> BrowserDriver:
     if browser_driver.settings._download_dir is not None:
         preferences = {

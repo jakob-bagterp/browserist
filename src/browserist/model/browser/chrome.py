@@ -19,7 +19,8 @@ class ChromeBrowserDriver(BrowserDriver):
         self = factory.chromium.disable_images(self)  # type: ignore
 
     def enable_headless(self) -> None:
-        self = factory.chromium.enable_headless(self)  # type: ignore
+        if self.settings.headless:
+            self.chrome_options.add_argument("--headless")
 
     def set_download_directory(self) -> None:
         self = factory.chromium.set_download_directory(self)  # type: ignore
