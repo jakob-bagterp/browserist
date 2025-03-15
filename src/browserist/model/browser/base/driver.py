@@ -74,6 +74,7 @@ class BrowserDriver(ABC):
         self.set_page_load_strategy()
         self.disable_default_search_engine_prompt()
         self.set_user_agent()
+        self.set_proxy()
 
     @abstractmethod
     def disable_images(self) -> None:
