@@ -29,7 +29,7 @@ class ChromeBrowserDriver(BrowserDriver):
         self.chrome_options = factory.set.page_load_strategy(self, self.chrome_options)  # type: ignore
 
     def disable_default_search_engine_prompt(self) -> None:
-        self = factory.chromium.disable_default_search_engine_prompt(self)  # type: ignore
+        self.chrome_options.add_argument("--disable-search-engine-choice-screen")
 
     def set_user_agent(self) -> None:
         self = factory.chromium.set_user_agent(self)  # type: ignore
