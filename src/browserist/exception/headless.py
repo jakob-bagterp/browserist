@@ -1,11 +1,11 @@
 from ..model.browser.base.type import BrowserType
 
 
-class HeadlessNotSupportedException(Exception):
+class HeadlessModeNotSupportedException(Exception):
     __slots__ = ["message"]
 
     def __init__(self, browser_type: BrowserType) -> None:
-        self.message = f"{browser_type.value}: This browser doesn't support headless."
+        self.message = f"{browser_type.value}: This browser doesn't support headless mode."
         super().__init__(self.message)
 
     def __str__(self) -> str:
