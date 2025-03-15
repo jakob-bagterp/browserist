@@ -7,6 +7,7 @@ from browserist import Browser
 def test_scroll_to_end_of_page(browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
+    browser.scroll.page.to_top()
     x_default, y_default = browser.scroll.get.position()
     browser.scroll.page.to_end()
     x_end, y_end = browser.scroll.get.position()
