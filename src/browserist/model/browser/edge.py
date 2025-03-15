@@ -16,13 +16,7 @@ class EdgeBrowserDriver(BrowserDriver):
             options=self.edge_options)
 
     def disable_images(self) -> None:
-        if self.settings.disable_images:
-            self.edge_options.use_chromium = True  # type: ignore
-            preferences = {
-                "profile.managed_default_content_settings.images": 2,
-                "profile.default_content_settings.images": 2
-            }
-            self.edge_options.add_experimental_option("prefs", preferences)
+        self = factory.chromium.disable_images(self)  # type: ignore
 
     def enable_headless(self) -> None:
         if self.settings.headless:
@@ -40,7 +34,8 @@ class EdgeBrowserDriver(BrowserDriver):
         pass
 
     def set_user_agent(self) -> None:
-        self = factory.chromium.set_user_agent(self)  # type: ignore
+        if self.settings.user_agent is not None:
+            self.edge_options.add_argument(f"--user-agent={self.settings.user_agent}")
 
     def set_service(self) -> EdgeService:
         if self.settings._path_to_executable is None:
