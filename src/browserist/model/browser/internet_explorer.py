@@ -2,7 +2,7 @@ from selenium.webdriver.ie.service import Service as IEService
 from selenium.webdriver.ie.webdriver import WebDriver
 
 from ... import factory
-from ...exception.headless import HeadlessNotSupportedException
+from ...exception.headless import HeadlessModeNotSupportedException
 from ...exception.user_agent import CustomUserAgentNotSupportedException
 from .base.driver import BrowserDriver
 from .base.type import BrowserType
@@ -21,7 +21,8 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         factory.internet_explorer.disable_images(self)
 
     def enable_headless(self) -> None:
-        raise HeadlessNotSupportedException(self.settings.type)
+        if self.settings.headless:
+            raise HeadlessModeNotSupportedException(self.settings.type)
 
     def set_download_directory(self) -> None:
         factory.internet_explorer.set_download_directory(self)
@@ -33,7 +34,8 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         pass
 
     def set_user_agent(self) -> None:
-        raise CustomUserAgentNotSupportedException(self.settings.type)
+        if self.settings.user_agent is not None:
+            raise CustomUserAgentNotSupportedException(self.settings.type)
 
     def set_service(self) -> IEService:
         if self.settings._path_to_executable is None:
