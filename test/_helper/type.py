@@ -46,7 +46,10 @@ def validate_representation_file_path(type: FilePathCallable, input: str | Path)
     validate_repr(file_path, expected_output_as_string)
 
 
-def validate_bypass(type: FilePathCallable | FilePNGCallable | IPv4Callable | IPPortCallable | URLCallable | XPathCallable, input: str) -> None:
+def validate_bypass(
+        type: FilePathCallable | FilePNGCallable | IPv4Callable | IPPortCallable | URLCallable | XPathCallable,
+        input: FilePath | Path | FilePNG | IPv4 | IPPort | URL | XPath | str | int
+) -> None:
     """Test that if an input already is a validated tiny type element, bypass and don't create a new object."""
 
     tiny_type = type(input)
