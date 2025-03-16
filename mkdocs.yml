@@ -138,6 +138,7 @@ nav:
       - BrowserType: reference/configuration/browser-type.md
       - PageLoadStrategy: reference/configuration/page-load-strategy.md
       - TimeoutSettings: reference/configuration/timeout-settings.md
+      - ProxySettings: reference/configuration/proxy-settings.md
     - Viewport:
       - common_devices:
         - Apple: reference/viewport/common_devices/apple.md
