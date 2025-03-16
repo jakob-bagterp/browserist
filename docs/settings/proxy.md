@@ -25,6 +25,10 @@ By understanding these use cases, you can determine whether using a proxy server
 Learn how to set a proxy for the needs and context of your automation workflow.
 
 ### Public Proxy
+!!! tip
+    When using public proxies, be aware that they may be unreliable and slow. It's recommended to use a [private proxy](#private-proxy) for more consistent performance. Also, keep in mind that public proxies may not be available in all regions, they may have usage limitations, they may be blocked by your internet service provider, or they may be blocked by the website you're trying to access.
+
+#### Basic Usage
 Public proxies are accessible from the internet and are usually free to use without authentication. Example:
 
 ```python linenums="1" hl_lines="3"
@@ -36,16 +40,50 @@ with Browser(settings) as browser:
     browser.open.url("https://example.com")
 ```
 
-!!! note
-    When using public proxies, be aware that they may be unreliable and slow. It's recommended to use a private proxy for more consistent performance. Also, keep in mind that public proxies may not be available in all regions, they may have usage limitations, they may be blocked by your internet service provider, or they may be blocked by the website you're trying to access.
+#### With `ProxySettings` Configuration Class
+If you want to use the `ProxySettings` configuration class instead, here's how:
+
+```python linenums="1" hl_lines="3-6"
+from browserist import Browser, BrowserSettings, ProxySettings, ProxyProtocol
+
+proxy_settings = ProxySettings(
+    ip="127.0.0.1",
+    port=8080,
+    protocol=ProxyProtocol.HTTP)
+
+settings = BrowserSettings(proxy=proxy_settings)
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+```
 
 ### Private Proxy
+#### Basic Usage
 Private proxies are usually paid and require authentication. Ensure that you have the necessary credentials to access the proxy server before using it. Change the `username` and `password` values of the proxy string to match your credentials:
 
 ```python linenums="1" hl_lines="3"
 from browserist import Browser, BrowserSettings
 
 settings = BrowserSettings(proxy="http://username:password@127.0.0.1:8080")
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+```
+
+#### With `ProxySettings` Configuration Class
+If you want to use the `ProxySettings` configuration class instead, here's how:
+
+```python linenums="1" hl_lines="3-8"
+from browserist import Browser, BrowserSettings, ProxySettings, ProxyProtocol
+
+proxy_settings = ProxySettings(
+    ip="127.0.0.1",
+    port=8080,
+    protocol=ProxyProtocol.HTTP
+    username="username",
+    password="password")
+
+settings = BrowserSettings(proxy=proxy_settings)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
@@ -65,7 +103,7 @@ Browsers that support using a proxy server:
 | :material-check: | :material-check: | :material-check:  | :material-minus-circle-outline: | :material-minus-circle-outline: |
 
 
-When configuring the proxy, you can use either a string with the IP address and port number, or the `ProxySettings` class:
+When configuring the proxy, use either a string with the IP address and port number, or the `ProxySettings` class:
 
 <div id="proxy-settings-browser-support-table"></div>
 

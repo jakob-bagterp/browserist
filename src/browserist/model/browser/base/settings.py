@@ -27,7 +27,7 @@ class BrowserSettings:
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check whether there is an [internet connection](../../settings/check-connection.md) before starting the browser. Bypass the check by setting it to `False`.
         user_agent (str | None, optional): Set a custom [user agent](../../settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
-        proxy (str | None, optional): Set a custom [proxy server](../../settings/proxy.md) to be used by the browser. Should contain IP address and port number as, for example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication.
+        proxy (str | ProxySettings | None, optional): Enable a custom [proxy server](proxy.md) for the browser. If not using `ProxySettings`, use a string containing IP address and port number. For example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication.
 
     Example:
         Use Firefox as browser type:
@@ -105,12 +105,28 @@ class BrowserSettings:
             browser.open.url("https://example.com")
         ```
 
-        Use a custom proxy:
+        Use a custom proxy with a basic URL:
 
         ```python title="" linenums="1" hl_lines="3"
         from browserist import Browser, BrowserSettings
 
         settings = BrowserSettings(proxy="http://127.0.0.1:8080")
+
+        with Browser(settings) as browser:
+            browser.open.url("https://example.com")
+        ```
+
+        Use a custom proxy with a `ProxySettings` configuration class:
+
+        ```python title="" linenums="1" hl_lines="3-6"
+        from browserist import Browser, BrowserSettings, ProxySettings, ProxyProtocol
+
+        proxy_settings = ProxySettings(
+            ip="127.0.0.1",
+            port=8080,
+            protocol=ProxyProtocol.HTTP)
+
+        settings = BrowserSettings(proxy=proxy_settings)
 
         with Browser(settings) as browser:
             browser.open.url("https://example.com")
