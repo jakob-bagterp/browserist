@@ -1,9 +1,13 @@
 import re
+from contextlib import nullcontext as does_not_raise
 from re import Match
+from typing import Any
 
 import pytest
+from _mock_data.url import internal_url
 
 from browserist import Browser, BrowserSettings, BrowserType, ProxyProtocol, ProxySettings
+from browserist.exception.proxy import ShouldUseProxySettingsException
 
 PROXY_IP = "72.10.164.178"
 PROXY_PORT = 27849
@@ -52,3 +56,23 @@ def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> Non
         assert ip_address_match_with_proxy is not None
 
     assert ip_address_match_without_proxy[0] != ip_address_match_with_proxy[0]  # Asserting that the IP address should be different when using a proxy.
+
+
+@pytest.mark.parametrize("browser_type, proxy, expectation", [
+    (BrowserType.CHROME, PROXY_URL, does_not_raise()),
+    (BrowserType.CHROME, PROXY_SETTINGS, does_not_raise()),
+    (BrowserType.EDGE, PROXY_URL, does_not_raise()),
+    (BrowserType.EDGE, PROXY_SETTINGS, does_not_raise()),
+    (BrowserType.FIREFOX, PROXY_URL, pytest.raises(ShouldUseProxySettingsException)),
+    (BrowserType.FIREFOX, PROXY_SETTINGS, does_not_raise()),
+])
+def test_set_proxy_exception_handling_for_browser_types(browser_type: BrowserType, proxy: ProxySettings | str, expectation: Any) -> None:
+    with expectation:
+        browser_settings = BrowserSettings(
+            type=browser_type,
+            headless=True,
+            check_connection=False,
+            proxy=proxy
+        )
+        with Browser(browser_settings) as browser:
+            _ = browser.open.url(internal_url.MINI_SITE_HOMEPAGE) is not None
