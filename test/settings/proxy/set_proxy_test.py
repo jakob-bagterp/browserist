@@ -5,8 +5,8 @@ import pytest
 
 from browserist import Browser, BrowserSettings, BrowserType, ProxyProtocol, ProxySettings
 
-PROXY_IP = "47.251.87.74"
-PROXY_PORT = 80
+PROXY_IP = "72.10.164.178"
+PROXY_PORT = 27849
 PROXY_TYPE = ProxyProtocol.HTTP
 PROXY_URL = f"{PROXY_TYPE.value}://{PROXY_IP}:{PROXY_PORT}"
 PROXY_SETTINGS = ProxySettings(
