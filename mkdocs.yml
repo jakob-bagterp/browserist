@@ -90,8 +90,6 @@ nav:
       - Axes: xpath/cheatsheets/axes.md
   - Reference:
     - reference/index.md
-    - Configuration:
-      - BrowserSettings: reference/configuration/browser-settings.md
     - Browser:
       - __main__: reference/browser/__main__.md
       - check_if: reference/browser/check_if.md
@@ -135,6 +133,8 @@ nav:
         - handle: reference/browser/window/handle.md
         - open: reference/browser/window/open.md
         - set: reference/browser/window/set.md
+    - Configuration:
+      - BrowserSettings: reference/configuration/browser-settings.md
     - Viewport:
       - common_devices:
         - Apple: reference/viewport/common_devices/apple.md
