@@ -4,7 +4,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 from ... import factory, helper
 from ...exception.proxy import ShouldUseProxySettingsException
 from .base.driver import BrowserDriver
-from .base.proxy import ProxySettings
+from .base.proxy import ProxyProtocol, ProxySettings
 from .base.type import BrowserType
 
 
@@ -51,13 +51,13 @@ class FirefoxBrowserDriver(BrowserDriver):
             self.firefox_options.set_preference("network.proxy.type", 1)
             proxy_url_partial = helper.proxy.get_url_from_proxy_settings(self.settings.proxy, add_protocol=False, add_port=False)
             match(self.settings.proxy.type):
-                case ProxySettings.type.HTTP:
+                case ProxyProtocol.HTTP:
                     self.firefox_options.set_preference("network.proxy.http", proxy_url_partial)
                     self.firefox_options.set_preference("network.proxy.http_port", self.settings.proxy.port)
-                case ProxySettings.type.HTTPS:
+                case ProxyProtocol.HTTPS:
                     self.firefox_options.set_preference("network.proxy.ssl", proxy_url_partial)
                     self.firefox_options.set_preference("network.proxy.ssl_port", self.settings.proxy.port)
-                case ProxySettings.type.SOCKS4 | ProxySettings.type.SOCKS5:
+                case ProxyProtocol.SOCKS4 | ProxyProtocol.SOCKS5:
                     self.firefox_options.set_preference("network.proxy.socks", proxy_url_partial)
                     self.firefox_options.set_preference("network.proxy.socks_port", self.settings.proxy.port)
                     self.firefox_options.set_preference("network.proxy.socks_remote_dns", False)
