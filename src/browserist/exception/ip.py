@@ -7,3 +7,14 @@ class IPv4SyntaxError(Exception):
 
     def __str__(self) -> str:
         return self.message
+
+
+class IPPortSyntaxError(Exception):
+    __slots__ = ["message"]
+
+    def __init__(self, port: int) -> None:
+        self.message = f"Invalid IP port syntax: {port}. Should be a number between `1` and `65535`."
+        super().__init__(self.message)
+
+    def __str__(self) -> str:
+        return self.message

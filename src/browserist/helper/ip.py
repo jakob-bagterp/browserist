@@ -8,3 +8,9 @@ def ipv4_is_valid(ip: str) -> bool:
 
     return IPV4_REGEX_PATTERN.fullmatch(ip) is not None and \
         all(0 <= int(num) <= 255 for num in ip.split(".") if num.isdigit())
+
+
+def port_is_valid(port: int) -> bool:
+    """Check if given port number is valid."""
+
+    return 1 <= port <= 65535

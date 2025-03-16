@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from ... import helper
-from ...exception.ip import IPv4SyntaxError
+from ...exception.ip import IPPortSyntaxError, IPv4SyntaxError
 
 
 class IPv4(str):
@@ -26,3 +26,27 @@ class IPv4(str):
 
     def is_valid(self) -> bool:
         return helper.ip.ipv4_is_valid(self.value)
+
+
+class IPPort(int):
+    """Class to handle and validate IP port input as "tiny type"."""
+
+    __slots__ = ["value"]
+
+    def __new__(cls, port: int) -> IPPort:
+        # If input already is a validated IPPort element, bypass and don't create a new object:
+        return port if isinstance(port, IPPort) else super().__new__(cls, port)
+
+    def __init__(self, port: int) -> None:
+        if not helper.ip.port_is_valid(port):
+            raise IPPortSyntaxError(port)
+        self.value: int = port
+
+    def __str__(self) -> str:
+        return str(self.value)
+
+    def __repr__(self) -> str:
+        return str(self.value)
+
+    def is_valid(self) -> bool:
+        return helper.ip.port_is_valid(self.value)

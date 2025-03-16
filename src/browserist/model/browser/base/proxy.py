@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum, unique
 
-from ...type.ip import IPv4
+from ...type.ip import IPPort, IPv4
 
 
 @unique
@@ -43,3 +43,4 @@ class ProxySettings:
 
     def __post_init__(self) -> None:
         self.ip = IPv4(self.ip)
+        self.port = IPPort(self.port)
