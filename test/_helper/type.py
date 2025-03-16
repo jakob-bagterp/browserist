@@ -31,6 +31,16 @@ def validate_representation(type: FilePNGCallable | IPv4Callable | URLCallable |
     validate_repr(tiny_type, expected_output)
 
 
+def validate_representation_int(type: IPPortCallable, input: int) -> None:
+    """Test that an integer tiny type represents itself as a string."""
+
+    expected_output = input
+    tiny_type = type(input)
+    assert expected_output == tiny_type
+    assert expected_output == tiny_type.value
+    validate_repr(tiny_type, str(expected_output))
+
+
 def validate_representation_file_path(type: FilePathCallable, input: str | Path) -> None:
     """Test that the FilePath tiny type represents itself as a string."""
 
