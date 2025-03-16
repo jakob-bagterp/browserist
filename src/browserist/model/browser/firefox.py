@@ -1,9 +1,10 @@
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.webdriver import WebDriver
 
-from ... import factory
-from ...exception.proxy import ProxyNotSupportedException
+from ... import factory, helper
+from ...exception.proxy import ShouldUseProxySettingsException
 from .base.driver import BrowserDriver
+from .base.proxy import ProxySettings
 from .base.type import BrowserType
 
 
@@ -45,7 +46,21 @@ class FirefoxBrowserDriver(BrowserDriver):
 
     def set_proxy(self) -> None:
         if self.settings.proxy is not None:
-            raise ProxyNotSupportedException(self.settings.type)
+            if not isinstance(self.settings.proxy, ProxySettings):
+                raise ShouldUseProxySettingsException(self.settings.type)
+            self.firefox_options.set_preference("network.proxy.type", 1)
+            proxy_url_partial = helper.proxy.get_url_from_proxy_settings(self.settings.proxy, add_protocol=False, add_port=False)
+            match(self.settings.proxy.type):
+                case ProxySettings.type.HTTP:
+                    self.firefox_options.set_preference("network.proxy.http", proxy_url_partial)
+                    self.firefox_options.set_preference("network.proxy.http_port", self.settings.proxy.port)
+                case ProxySettings.type.HTTPS:
+                    self.firefox_options.set_preference("network.proxy.ssl", proxy_url_partial)
+                    self.firefox_options.set_preference("network.proxy.ssl_port", self.settings.proxy.port)
+                case ProxySettings.type.SOCKS4 | ProxySettings.type.SOCKS5:
+                    self.firefox_options.set_preference("network.proxy.socks", proxy_url_partial)
+                    self.firefox_options.set_preference("network.proxy.socks_port", self.settings.proxy.port)
+                    self.firefox_options.set_preference("network.proxy.socks_remote_dns", False)
 
     def set_service(self) -> FirefoxService:
         if self.settings._path_to_executable is None:

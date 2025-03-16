@@ -10,3 +10,14 @@ class ProxyNotSupportedException(Exception):
 
     def __str__(self) -> str:
         return self.message
+
+
+class ShouldUseProxySettingsException(Exception):
+    __slots__ = ["message"]
+
+    def __init__(self, browser_type: BrowserType) -> None:
+        self.message = f"{browser_type.value}: This browser only supports using ProxySettings class to set a proxy server."
+        super().__init__(self.message)
+
+    def __str__(self) -> str:
+        return self.message
