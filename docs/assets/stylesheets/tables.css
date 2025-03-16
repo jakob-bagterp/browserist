@@ -49,10 +49,10 @@
     color: var(--material-deep-orange);
 }
 
-#proxy-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+2) {
+#proxy-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(-n+3) {
     color: var(--material-green);
 }
 
-#proxy-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(n+3):nth-child(-n+5) {
+#proxy-supported-browsers-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(n+4):nth-child(-n+5) {
     color: var(--material-deep-orange);
 }

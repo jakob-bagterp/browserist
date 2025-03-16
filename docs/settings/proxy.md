@@ -60,6 +60,6 @@ Browsers that support using a proxy server:
 
 <div id="proxy-supported-browsers-table"></div>
 
-| Chrome           | Edge             | Firefox                         | Safari                          | Internet Explorer               |
-| :--------------: | :--------------: | :-----------------------------: | :-----------------------------: | :-----------------------------: |
-| :material-check: | :material-check: | :material-minus-circle-outline: | :material-minus-circle-outline: | :material-minus-circle-outline: |
+| Chrome           | Edge             | Firefox           | Safari                          | Internet Explorer               |
+| :--------------: | :--------------: | :---------------: | :-----------------------------: | :-----------------------------: |
+| :material-check: | :material-check: | :material-check:  | :material-minus-circle-outline: | :material-minus-circle-outline: |
