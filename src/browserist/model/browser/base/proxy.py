@@ -29,16 +29,16 @@ class ProxySettings:
     Args:
         ip (str): IP address of the proxy server. Should be an IPv4 address, e.g. `127.0.0.1`.
         port (int): Port number of the proxy server, e.g. `8080`.
+        type (ProxyProtocol, optional): Type of proxy protocol.
         username (str | None, optional): Username for the proxy server.
         password (str | None, optional): Password for the proxy server.
-        type (ProxyProtocol, optional): Type of proxy protocol.
     """
 
     ip: str
     port: int
+    type: ProxyProtocol = ProxyProtocol.HTTP
     username: str | None = None
     password: str | None = None
-    type: ProxyProtocol = ProxyProtocol.HTTP
 
     def __post_init__(self) -> None:
         self.ip = IPv4(self.ip)
