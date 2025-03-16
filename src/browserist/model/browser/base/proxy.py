@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from enum import Enum, unique
 
+from ...type.ip import IPv4
+
 
 @unique
 class ProxyProtocol(Enum):
@@ -26,7 +28,7 @@ class ProxySettings:
     """Class to configure the proxy.
 
     Args:
-        ip (str): IP address of the proxy server. Should be an IP4 address, e.g. `127.0.0.1`.
+        ip (str): IP address of the proxy server. Should be an IPv4 address, e.g. `127.0.0.1`.
         port (int): Port number of the proxy server, e.g. `8080`.
         username (str | None, optional): Username for the proxy server.
         password (str | None, optional): Password for the proxy server.
@@ -38,3 +40,6 @@ class ProxySettings:
     username: str | None = None
     password: str | None = None
     type: ProxyProtocol = ProxyProtocol.HTTP
+
+    def __post_init__(self) -> None:
+        self.ip = IPv4(self.ip)
