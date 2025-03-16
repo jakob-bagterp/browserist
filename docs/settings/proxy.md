@@ -54,7 +54,7 @@ with Browser(settings) as browser:
 ## Supported Browsers
 
 !!! note
-    Only a few browsers support using a proxy server, for instance Chrome and Edge.
+    Only a few browsers support using a proxy server, for instance Chrome, Edge, and Firefox.
 
 Browsers that support using a proxy server:
 
@@ -63,3 +63,13 @@ Browsers that support using a proxy server:
 | Chrome           | Edge             | Firefox           | Safari                          | Internet Explorer               |
 | :--------------: | :--------------: | :---------------: | :-----------------------------: | :-----------------------------: |
 | :material-check: | :material-check: | :material-check:  | :material-minus-circle-outline: | :material-minus-circle-outline: |
+
+
+When configuring the proxy, you can use either a string with the IP address and port number, or the `ProxySettings` class:
+
+<div id="proxy-settings-browser-support-table"></div>
+
+| Settings Type         | Chrome           | Edge             | Firefox                          |
+| :-------------------- | :--------------: | :--------------: | :------------------------------: |
+| `str` with IP address | :material-check: | :material-check: | :material-minus-circle-outline:  |
+| `ProxySettings`       | :material-check: | :material-check: | :material-check:                 |
