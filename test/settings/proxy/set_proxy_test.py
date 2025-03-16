@@ -34,7 +34,8 @@ def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> Non
     with Browser(browser_settings_without_proxy) as browser_without_proxy:
         browser_without_proxy.open.url(HTTPBIN_IP_CHECK_URL)
         page_source_without_proxy = browser_without_proxy.get.html.page_source()
-        assert ORIGIN_IP_ADDRESS_PATTERN.search(page_source_without_proxy)
+        ip_address_match_without_proxy = ORIGIN_IP_ADDRESS_PATTERN.search(page_source_without_proxy)
+        assert ip_address_match_without_proxy is not None
 
     browser_settings_with_proxy = BrowserSettings(
         type=browser_type,
@@ -46,6 +47,7 @@ def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> Non
         assert browser_with_proxy._browser_driver.settings._proxy_url == PROXY_URL
         browser_with_proxy.open.url(HTTPBIN_IP_CHECK_URL)
         page_source_with_proxy = browser_with_proxy.get.html.page_source()
-        assert ORIGIN_IP_ADDRESS_PATTERN.search(page_source_with_proxy)
+        ip_address_match_with_proxy = ORIGIN_IP_ADDRESS_PATTERN.search(page_source_with_proxy)
+        assert ip_address_match_with_proxy is not None
 
-    assert page_source_without_proxy != page_source_with_proxy  # Asserting that the IP address should be different when using a proxy.
+    assert ip_address_match_without_proxy != ip_address_match_with_proxy  # Asserting that the IP address should be different when using a proxy.
