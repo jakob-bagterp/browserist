@@ -39,7 +39,7 @@ class EdgeBrowserDriver(BrowserDriver):
 
     def set_proxy(self) -> None:
         if self.settings.proxy is not None:
-            self.edge_options.add_argument(f"--proxy-server={self.settings.proxy}")
+            self.edge_options.add_argument(f"--proxy-server={self.settings._proxy_url}")
 
     def set_service(self) -> EdgeService:
         if self.settings._path_to_executable is None:

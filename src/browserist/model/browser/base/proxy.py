@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum, unique
 
+from .... import helper
 from ...type.ip import IPPort, IPv4
 
 
@@ -44,3 +45,8 @@ class ProxySettings:
     def __post_init__(self) -> None:
         self.ip = IPv4(self.ip)
         self.port = IPPort(self.port)
+
+    def get_url(self) -> str:
+        """Returns a proxy server URL based on the settings."""
+
+        return helper.proxy.get_url_from_proxy_settings(self)

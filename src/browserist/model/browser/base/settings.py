@@ -3,6 +3,7 @@ from pathlib import Path
 
 from ....constant import directory
 from ....helper import operating_system
+from ....model.browser.base.proxy import ProxySettings
 from ....model.viewport.device import DeviceViewportSize
 from ...type.path import FilePath
 from .page_load_strategy import PageLoadStrategy
@@ -118,7 +119,7 @@ class BrowserSettings:
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
     # __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
-    #             "check_connection", "user_agent", "proxy", "_path_to_executable", "_screenshot_dir"]
+    #             "check_connection", "user_agent", "proxy", "_proxy_url", "_path_to_executable", "_screenshot_dir"]
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False
@@ -131,10 +132,11 @@ class BrowserSettings:
     viewport: DeviceViewportSize | tuple[int, int] | None = None
     check_connection: bool = True
     user_agent: str | None = None
-    proxy: str | None = None
+    proxy: str | ProxySettings | None = None
 
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
             self.path_to_executable)
         self._download_dir: FilePath = FilePath(self.download_dir)
         self._screenshot_dir: FilePath = FilePath(self.screenshot_dir)
+        self._proxy_url: str | None = self.proxy.get_url() if isinstance(self.proxy, ProxySettings) else self.proxy
