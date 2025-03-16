@@ -1,16 +1,14 @@
 import re
 
-import pytest
-
 from browserist import Browser, BrowserSettings
+
+PROXY_IP = "72.10.164.178"
+PROXY_PORT = 27849
 
 ORIGIN_IP_ADDRESS_PATTERN = re.compile(r'"origin":\s*"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}"')  # This is the pattern of the response from httpbin.io/ip, e.g. '"origin": "127.0.0.1:8000"'.
 
 
-@pytest.mark.parametrize("proxy_ip, proxy_port", [
-    ("72.10.164.178", 27849),
-])
-def test_set_proxy(proxy_ip: str, proxy_port: int) -> None:
+def test_set_proxy() -> None:
     browser_settings_without_proxy = BrowserSettings(
         headless=True,
         check_connection=False,
@@ -20,7 +18,7 @@ def test_set_proxy(proxy_ip: str, proxy_port: int) -> None:
         page_source_without_proxy = browser_without_proxy.get.html.page_source()
         assert ORIGIN_IP_ADDRESS_PATTERN.search(page_source_without_proxy)
 
-    proxy_url = f"{proxy_ip}:{proxy_port}"
+    proxy_url = f"{PROXY_IP}:{PROXY_PORT}"
     browser_settings_with_proxy = BrowserSettings(
         headless=True,
         check_connection=False,
