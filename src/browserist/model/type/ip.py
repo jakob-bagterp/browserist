@@ -31,8 +31,6 @@ class IPv4(str):
 class IPPort(int):
     """Class to handle and validate IP port input as "tiny type"."""
 
-    __slots__ = ["value"]
-
     def __new__(cls, port: int) -> IPPort:
         # If input already is a validated IPPort element, bypass and don't create a new object:
         return port if isinstance(port, IPPort) else super().__new__(cls, port)
