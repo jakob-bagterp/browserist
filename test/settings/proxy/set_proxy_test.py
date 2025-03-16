@@ -14,6 +14,7 @@ PROXY_SETTINGS = ProxySettings(
     type=PROXY_TYPE,
 )
 
+HTTPBIN_IP_CHECK_URL = "https://httpbin.io/ip"
 ORIGIN_IP_ADDRESS_PATTERN = re.compile(r'"origin":\s*"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}"')  # This is the pattern of the response from httpbin.io/ip, e.g. '"origin": "127.0.0.1:8000"'.
 
 
@@ -25,8 +26,6 @@ ORIGIN_IP_ADDRESS_PATTERN = re.compile(r'"origin":\s*"\d{1,3}\.\d{1,3}\.\d{1,3}\
     (BrowserType.FIREFOX, PROXY_SETTINGS),
 ])
 def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> None:
-    HTTPBIN_IP_CHECK_URL = "https://httpbin.io/ip"
-
     browser_settings_without_proxy = BrowserSettings(
         type=browser_type,
         headless=True,
