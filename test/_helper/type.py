@@ -2,12 +2,15 @@ from collections.abc import Callable
 from pathlib import Path
 
 from browserist.model.type.file_png import FilePNG
+from browserist.model.type.ip import IPPort, IPv4
 from browserist.model.type.path import FilePath
 from browserist.model.type.url import URL
 from browserist.model.type.xpath import XPath
 
 FilePathCallable = Callable[[FilePath], FilePath]
 FilePNGCallable = Callable[[FilePNG], FilePNG]
+IPv4Callable = Callable[[IPv4], IPv4]
+IPPortCallable = Callable[[IPPort], IPPort]
 URLCallable = Callable[[URL], URL]
 XPathCallable = Callable[[XPath], XPath]
 
@@ -43,7 +46,7 @@ def validate_representation_file_path(type: FilePathCallable, input: str | Path)
     validate_repr(file_path, expected_output_as_string)
 
 
-def validate_bypass(type: FilePathCallable | FilePNGCallable | URLCallable | XPathCallable, input: str) -> None:
+def validate_bypass(type: FilePathCallable | FilePNGCallable | IPv4Callable | IPPortCallable | URLCallable | XPathCallable, input: str) -> None:
     """Test that if an input already is a validated tiny type element, bypass and don't create a new object."""
 
     tiny_type = type(input)
