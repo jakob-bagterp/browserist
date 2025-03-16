@@ -42,6 +42,7 @@ def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> Non
         proxy=proxy,
     )
     with Browser(browser_settings_with_proxy) as browser_with_proxy:
+        assert browser_with_proxy._browser_driver.settings._proxy_url == PROXY_URL
         browser_with_proxy.open.url("https://httpbin.io/ip")
         page_source_with_proxy = browser_with_proxy.get.html.page_source()
         assert ORIGIN_IP_ADDRESS_PATTERN.search(page_source_with_proxy)
