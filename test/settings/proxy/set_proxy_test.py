@@ -28,7 +28,7 @@ ORIGIN_IP_ADDRESS_PATTERN = re.compile(r'"origin":\s*"\d{1,3}\.\d{1,3}\.\d{1,3}\
 def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> None:
     def get_ip_address_from_httpbin_checker(browser: Browser) -> Match[str] | None:
         browser.open.url("https://httpbin.io/ip")
-        page_source = browser_without_proxy.get.html.page_source()
+        page_source = browser.get.html.page_source()
         return ORIGIN_IP_ADDRESS_PATTERN.search(page_source)
 
     browser_settings_without_proxy = BrowserSettings(
