@@ -1,8 +1,9 @@
 __all__ = ["Browser", "BrowserSettings", "BrowserType", "common_devices", "CookieBannerSettings", "DeviceViewportSize",
-           "LoginCredentials", "LoginForm1Step", "LoginForm2Steps", "PageLoadStrategy", "SearchSettings", "TimeoutSettings", "TimeoutStrategy"]
+           "LoginCredentials", "LoginForm1Step", "LoginForm2Steps", "PageLoadStrategy", "ProxyProtocol", "ProxySettings", "SearchSettings", "TimeoutSettings", "TimeoutStrategy"]
 
 from .browser.__main__ import Browser
 from .model.browser.base.page_load_strategy import PageLoadStrategy
+from .model.browser.base.proxy import ProxyProtocol, ProxySettings
 from .model.browser.base.settings import BrowserSettings
 from .model.browser.base.timeout.settings import TimeoutSettings
 from .model.browser.base.timeout.strategy import TimeoutStrategy
