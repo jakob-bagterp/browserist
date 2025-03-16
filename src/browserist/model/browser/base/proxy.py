@@ -12,14 +12,12 @@ class ProxyProtocol(Enum):
     Attributes:
         HTTP: Use HTTP proxy.
         HTTPS: Use HTTPS proxy.
-        SOCKS: Use SOCKS proxy.
         SOCKS4: Use SOCKS4 proxy.
         SOCKS5: Use SOCKS5 proxy.
     """
 
     HTTP = "http"
     HTTPS = "https"
-    SOCKS = "socks"
     SOCKS4 = "socks4"
     SOCKS5 = "socks5"
 
