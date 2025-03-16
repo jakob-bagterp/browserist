@@ -3,6 +3,7 @@ from pathlib import Path
 
 from ....constant import directory
 from ....helper import operating_system
+from ....model.browser.base.proxy import ProxySettings
 from ....model.viewport.device import DeviceViewportSize
 from ...type.path import FilePath
 from .page_load_strategy import PageLoadStrategy
@@ -26,7 +27,7 @@ class BrowserSettings:
         viewport (DeviceViewportSize | tuple[int, int] | None, optional): Emulate [viewport size](../../settings/viewport.md) as device or set custom value in pixels. If not set, the browser's default size is used.
         check_connection (bool, optional): Check whether there is an [internet connection](../../settings/check-connection.md) before starting the browser. Bypass the check by setting it to `False`.
         user_agent (str | None, optional): Set a custom [user agent](../../settings/user-agent.md) to override the default user agent. If not set, the browser's default user agent is used.
-        proxy (str | None, optional): Set a custom [proxy server](../../settings/proxy.md) to be used by the browser. Should contain IP address and port number as, for example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication.
+        proxy (str | ProxySettings | None, optional): Enable a custom [proxy server](../../settings/proxy.md) for the browser. If not using `ProxySettings`, use a string containing IP address and port number. For example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication.
 
     Example:
         Use Firefox as browser type:
@@ -104,7 +105,7 @@ class BrowserSettings:
             browser.open.url("https://example.com")
         ```
 
-        Use a custom proxy:
+        Use a custom proxy with a basic URL:
 
         ```python title="" linenums="1" hl_lines="3"
         from browserist import Browser, BrowserSettings
@@ -114,11 +115,27 @@ class BrowserSettings:
         with Browser(settings) as browser:
             browser.open.url("https://example.com")
         ```
+
+        Use a custom proxy with a `ProxySettings` configuration class:
+
+        ```python title="" linenums="1" hl_lines="3-6"
+        from browserist import Browser, BrowserSettings, ProxySettings, ProxyProtocol
+
+        proxy_settings = ProxySettings(
+            ip="127.0.0.1",
+            port=8080,
+            protocol=ProxyProtocol.HTTP)
+
+        settings = BrowserSettings(proxy=proxy_settings)
+
+        with Browser(settings) as browser:
+            browser.open.url("https://example.com")
+        ```
     """
 
     # TODO: Fix Pytest issue: "ValueError: 'type' in __slots__ conflicts with class variable"
     # __slots__ = ["type", "headless", "disable_images", "page_load_strategy", "path_to_executable", "screenshot_dir", "timeout", "viewport",
-    #             "check_connection", "user_agent", "proxy", "_path_to_executable", "_screenshot_dir"]
+    #             "check_connection", "user_agent", "proxy", "_proxy_url", "_path_to_executable", "_screenshot_dir"]
 
     type: BrowserType = BrowserType.EDGE if operating_system.is_windows() else BrowserType.CHROME
     headless: bool = False
@@ -131,10 +148,11 @@ class BrowserSettings:
     viewport: DeviceViewportSize | tuple[int, int] | None = None
     check_connection: bool = True
     user_agent: str | None = None
-    proxy: str | None = None
+    proxy: str | ProxySettings | None = None
 
     def __post_init__(self) -> None:
         self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
             self.path_to_executable)
         self._download_dir: FilePath = FilePath(self.download_dir)
         self._screenshot_dir: FilePath = FilePath(self.screenshot_dir)
+        self._proxy_url: str | None = self.proxy.get_url() if isinstance(self.proxy, ProxySettings) else self.proxy

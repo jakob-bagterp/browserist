@@ -5,6 +5,6 @@ from browserist.model.type.file_png import FilePNG
 
 
 def test_file_png_type_representation() -> None:
-    """Test that the XPath tiny type represents itself as a string."""
+    """Test that the FilePNG tiny type represents itself as a string."""
 
     validate_representation(FilePNG, VALID_PNG_FILE_NAME)

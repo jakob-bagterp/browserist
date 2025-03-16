@@ -5,6 +5,6 @@ from browserist.model.type.url import URL
 
 
 def test_url_type_representation() -> None:
-    """Test that the XPath tiny type represents itself as a string."""
+    """Test that the URL tiny type represents itself as a string."""
 
     validate_representation(URL, VALID_URL)
