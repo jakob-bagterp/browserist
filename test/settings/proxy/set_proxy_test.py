@@ -30,7 +30,7 @@ def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> Non
     browser_settings_without_proxy = BrowserSettings(
         type=browser_type,
         headless=True,
-        check_connection=False,
+        check_connection=True,
     )
     with Browser(browser_settings_without_proxy) as browser_without_proxy:
         browser_without_proxy.open.url(HTTPBIN_IP_URL)
@@ -40,7 +40,7 @@ def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> Non
     browser_settings_with_proxy = BrowserSettings(
         type=browser_type,
         headless=True,
-        check_connection=False,
+        check_connection=True,
         proxy=proxy,
     )
     with Browser(browser_settings_with_proxy) as browser_with_proxy:
