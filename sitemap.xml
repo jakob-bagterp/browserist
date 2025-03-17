@@ -229,6 +229,22 @@
          <lastmod>2025-03-17</lastmod>
     </url>
     <url>
+         <loc>https://jakob-bagterp.github.io/browserist/reference/configuration/browser-type/</loc>
+         <lastmod>2025-03-17</lastmod>
+    </url>
+    <url>
+         <loc>https://jakob-bagterp.github.io/browserist/reference/configuration/page-load-strategy/</loc>
+         <lastmod>2025-03-17</lastmod>
+    </url>
+    <url>
+         <loc>https://jakob-bagterp.github.io/browserist/reference/configuration/proxy-settings/</loc>
+         <lastmod>2025-03-17</lastmod>
+    </url>
+    <url>
+         <loc>https://jakob-bagterp.github.io/browserist/reference/configuration/timeout-settings/</loc>
+         <lastmod>2025-03-17</lastmod>
+    </url>
+    <url>
          <loc>https://jakob-bagterp.github.io/browserist/reference/viewport/common_devices/apple/</loc>
          <lastmod>2025-03-17</lastmod>
     </url>
