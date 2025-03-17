@@ -1,5 +1,19 @@
-from .....constant import idle_timeout, timeout
-from .strategy import TimeoutStrategy
+from enum import Enum, unique
+
+from ....constant import idle_timeout, timeout
+
+
+@unique
+class TimeoutStrategy(Enum):
+    """Define timeout strategy.
+
+    Attributes:
+        STOP: If a function times out, stop operation.
+        CONTINUE: If a function times out, continue operation.
+    """
+
+    STOP = "stop"
+    CONTINUE = "continue"
 
 
 class TimeoutSettings:
