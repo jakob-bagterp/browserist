@@ -4,6 +4,7 @@ description: Should the browser stop or continue when a function times out or if
 tags:
     - Tutorial
     - Settings
+    - Performance
 ---
 
 # What Is a Timeout Strategy?

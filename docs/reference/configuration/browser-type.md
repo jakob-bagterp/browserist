@@ -13,6 +13,7 @@ tags:
     - Safari
 ---
 
-# `BrowserType`
+# Browser Type Settings
+## `BrowserType`
 
 ::: browserist.model.browser.base.type.BrowserType

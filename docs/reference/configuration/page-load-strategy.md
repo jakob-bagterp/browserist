@@ -5,8 +5,10 @@ tags:
     - Documentation
     - Tutorial
     - Settings
+    - Performance
 ---
 
-# `PageLoadStrategy`
+# Page Load Strategy Settings
+## `PageLoadStrategy`
 
 ::: browserist.model.browser.base.page_load_strategy.PageLoadStrategy

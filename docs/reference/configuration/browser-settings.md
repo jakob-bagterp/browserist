@@ -7,6 +7,7 @@ tags:
     - Settings
 ---
 
-# `BrowserSettings`
+# Browser Settings
+## `BrowserSettings`
 
 ::: browserist.model.browser.base.settings.BrowserSettings
