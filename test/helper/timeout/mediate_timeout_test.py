@@ -3,8 +3,7 @@ import pytest
 from browserist import helper
 from browserist.constant import timeout
 from browserist.model.browser.base.settings import BrowserSettings
-from browserist.model.browser.base.timeout.settings import TimeoutSettings
-from browserist.model.browser.base.timeout.strategy import TimeoutStrategy
+from browserist.model.browser.base.timeout import TimeoutSettings, TimeoutStrategy
 
 TIMEOUT_SETTINGS = TimeoutSettings(
     strategy=TimeoutStrategy.STOP,
