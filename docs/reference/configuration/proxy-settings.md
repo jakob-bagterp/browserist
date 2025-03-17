@@ -5,9 +5,16 @@ tags:
     - Documentation
     - Tutorial
     - Settings
+    - Proxy
 ---
 
-# Browser Settings
-## `BrowserSettings`
+# Proxy Settings
+## `ProxySettings`
 
-::: browserist.model.browser.base.settings.BrowserSettings
+::: browserist.model.browser.base.proxy.ProxySettings
+    options:
+        members: false
+
+## `ProxyProtocol`
+
+::: browserist.model.browser.base.proxy.ProxyProtocol

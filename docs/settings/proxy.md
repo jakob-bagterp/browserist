@@ -4,6 +4,7 @@ description: Learn how to set a proxy server to bypass network restrictions and 
 tags:
     - Tutorial
     - Settings
+    - Proxy
 ---
 
 # What Is a Proxy?

@@ -3,6 +3,7 @@ title: How to Configure Browser Type
 description: Learn how to use different browser types such as Chrome, Firefox, Edge, etc. with Browserist to automate your web scraping or perform browser compatibility testing.
 tags:
     - Tutorial
+    - Settings
     - Browser Types
     - Chrome
     - Edge
@@ -26,13 +27,13 @@ with Browser(settings) as browser:
 ```
 
 ## Supported Browsers
-| Name              | Type                            | Notes                        |
-| ----------------- | ------------------------------- | ---------------------------- |
-| Chrome            | `BrowserType.CHROME`            | Default (except for Windows) |
-| Edge              | `BrowserType.EDGE`              | Default for Windows          |
-| Firefox           | `BrowserType.FIREFOX`           |                              |
-| Internet Explorer | `BrowserType.INTERNET_EXPLORER` |                              |
-| Safari            | `BrowserType.SAFARI`            |                              |
+| Name              | Type                            | Notes                       |
+| ----------------- | ------------------------------- | --------------------------- |
+| Chrome            | `BrowserType.CHROME`            | Default (except on Windows) |
+| Edge              | `BrowserType.EDGE`              | Default on Windows          |
+| Firefox           | `BrowserType.FIREFOX`           |                             |
+| Internet Explorer | `BrowserType.INTERNET_EXPLORER` |                             |
+| Safari            | `BrowserType.SAFARI`            |                             |
 
 More information about [installation of browser drivers](../getting-started/recommended-drivers.md).
 

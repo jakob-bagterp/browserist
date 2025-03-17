@@ -92,6 +92,10 @@ nav:
     - reference/index.md
     - Configuration:
       - BrowserSettings: reference/configuration/browser-settings.md
+      - BrowserType: reference/configuration/browser-type.md
+      - PageLoadStrategy: reference/configuration/page-load-strategy.md
+      - TimeoutSettings: reference/configuration/timeout-settings.md
+      - ProxySettings: reference/configuration/proxy-settings.md
     - Browser:
       - __main__: reference/browser/__main__.md
       - check_if: reference/browser/check_if.md
