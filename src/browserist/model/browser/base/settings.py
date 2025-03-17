@@ -7,7 +7,7 @@ from ....model.browser.base.proxy import ProxySettings
 from ....model.viewport.device import DeviceViewportSize
 from ...type.path import FilePath
 from .page_load_strategy import PageLoadStrategy
-from .timeout.settings import TimeoutSettings
+from .timeout import TimeoutSettings
 from .type import BrowserType
 
 

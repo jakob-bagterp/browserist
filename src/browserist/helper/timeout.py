@@ -1,5 +1,5 @@
 from ..model.browser.base.settings import BrowserSettings
-from ..model.browser.base.timeout.strategy import TimeoutStrategy
+from ..model.browser.base.timeout import TimeoutStrategy
 
 
 def should_continue(settings: BrowserSettings) -> bool:

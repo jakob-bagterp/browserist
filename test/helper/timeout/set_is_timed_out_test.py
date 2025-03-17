@@ -2,7 +2,7 @@ import pytest
 
 from browserist import helper
 from browserist.model.browser.base.settings import BrowserSettings
-from browserist.model.browser.base.timeout.settings import TimeoutSettings
+from browserist.model.browser.base.timeout import TimeoutSettings
 
 TIMED_OUT = True
 
