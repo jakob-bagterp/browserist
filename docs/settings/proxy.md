@@ -30,7 +30,7 @@ There are two types of proxy servers:
 | These are accessible from the internet and are usually free to use without authentication. | These are usually paid and require authentication. |
 
 !!! tip
-    When using public proxies, be aware that they may be unreliable and slow. It's recommended to use a [private proxy](#private-proxy) for more consistent performance. Also, keep in mind that public proxies may not be available in all regions, they may have usage limitations, they may be blocked by your internet service provider, or they may be blocked by the website you're trying to access.
+    When using [public proxies](#public-proxy), be aware that they may be unreliable and slow. It's recommended to use a [private proxy](#private-proxy) for more consistent performance. Also, keep in mind that public proxies may not be available in all regions, they may have usage limitations, they may be blocked by your internet service provider, or they may be blocked by the website you're trying to access.
 
 ## How to Set a Proxy
 Learn how to set a proxy for the needs and context of your automation workflow with Browserist.
