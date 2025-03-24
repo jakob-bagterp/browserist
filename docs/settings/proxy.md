@@ -25,9 +25,10 @@ By understanding these use cases, you can determine whether using a proxy server
 ## Types of Proxies
 There are two types of proxy servers:
 
-| 1. Public proxy                                                                            | 2. Private proxy                                   |
-| :----------------------------------------------------------------------------------------: | :------------------------------------------------: |
-| These are accessible from the internet and are usually free to use without authentication. | These are usually paid and require authentication. |
+| Type              | Description                                                                                |
+| :---------------- | :----------------------------------------------------------------------------------------- |
+| **Public Proxy**  | These are accessible from the internet and are usually free to use without authentication. |
+| **Private Proxy** | These are usually paid and require authentication.                                         |
 
 !!! tip
     When using [public proxies](#public-proxy), be aware that they may be unreliable and slow. It's recommended to use a [private proxy](#private-proxy) for more consistent performance. Also, keep in mind that public proxies may not be available in all regions, they may have usage limitations, they may be blocked by your internet service provider, or they may be blocked by the website you're trying to access.
