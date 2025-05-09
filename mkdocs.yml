@@ -312,6 +312,9 @@ plugins:
         reference/settings.md: reference/configuration/browser-settings.md
         reference/browser-settings.md: reference/configuration/browser-settings.md
 
+exclude_docs: |
+  /requirements.txt
+
 watch:
   - src
 
