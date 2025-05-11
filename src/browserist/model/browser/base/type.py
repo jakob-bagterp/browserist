@@ -9,7 +9,7 @@ class BrowserType(Enum):
         BrowserType.CHROME (Enum): Chrome browser. Default browser (except on Windows).
         BrowserType.EDGE (Enum): Edge browser. Default on Windows.
         BrowserType.FIREFOX (Enum): Firefox browser.
-        BrowserType.Enum (Enum): Internet Explorer browser.
+        BrowserType.INTERNET_EXPLORER (Enum): Internet Explorer browser.
         BrowserType.SAFARI (Enum): Safari browser.
 
 
