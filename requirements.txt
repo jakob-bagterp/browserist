@@ -1,4 +1,3 @@
-chromedriver==109.0.5414.74
 lxml==5.4.0
 pillow==11.2.1
 requests==2.32.3
