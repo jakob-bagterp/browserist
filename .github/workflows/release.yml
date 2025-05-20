@@ -23,7 +23,7 @@ on:
 
 env:
   PACKAGE_NAME: browserist
-  DOWNLOAD_PACKAGE_NAME: index_now_for_python
+  DOWNLOAD_PACKAGE_NAME: browserist
 
 jobs:
   details:
