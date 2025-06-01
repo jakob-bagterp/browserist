@@ -26,7 +26,7 @@ brew install chromedriver
 More info [here](https://chromedriver.chromium.org).
 
 ## Troubleshooting and Tips
-If you need to use different browser types, find more info [here](../../settings/browser-types.md).
+If you are planning to use different browsers, please refer to the [guide on options for browser types](../../settings/browser-types.md).
 
 !!! tip
     Always keep your browser and driver up to date. The ChromeDriver version should usually match the browser version, otherwise Browserist might throw an error.

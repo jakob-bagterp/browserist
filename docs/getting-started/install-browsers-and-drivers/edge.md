@@ -14,7 +14,7 @@ Edge is a free, open-source web browser developed by Microsoft. Download the lat
 More info and download [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
 
 ## Troubleshooting and Tips
-If you need to use different browser types, find more info [here](../../settings/browser-types.md).
+If you are planning to use different browsers, please refer to the [guide on options for browser types](../../settings/browser-types.md).
 
 !!! tip
     Always keep your browser and driver up to date. The EdgeDriver version should usually match the browser version, otherwise Browserist might throw an error.
