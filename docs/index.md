@@ -1,5 +1,5 @@
 ---
-title: Get Started with Web Scraping and Browser Automation
+title: Get Started with Web Scraping & Browser Automation
 description: Browserist is the easy way to do web scraping and browser automation with Python and as an extension for the Selenium web driver.
 ---
 
