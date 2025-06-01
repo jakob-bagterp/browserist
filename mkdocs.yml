@@ -97,15 +97,15 @@ nav:
       - TimeoutSettings: reference/configuration/timeout-settings.md
       - ProxySettings: reference/configuration/proxy-settings.md
     - Browser:
-      - __main__: reference/browser/__main__.md
-      - check_if: reference/browser/check_if.md
+      - __main__: reference/browser/main.md
+      - check_if: reference/browser/check-if.md
       - click: reference/browser/click.md
       - combo:
         - cookie_banner: reference/browser/combo/cookie-banner.md
         - log_in: reference/browser/combo/log-in.md
         - search: reference/browser/combo/search.md
       - get:
-        - __main__: reference/browser/get/__main__.md
+        - __main__: reference/browser/get/main.md
         - attribute: reference/browser/get/attribute.md
         - html: reference/browser/get/html.md
         - url: reference/browser/get/url.md
@@ -116,8 +116,8 @@ nav:
       - prompt: reference/browser/prompt.md
       - screenshot: reference/browser/screenshot.md
       - scroll:
-        - __main__: reference/browser/scroll/__main__.md
-        - check_if: reference/browser/scroll/check_if.md
+        - __main__: reference/browser/scroll/main.md
+        - check_if: reference/browser/scroll/check-if.md
         - get: reference/browser/scroll/get.md
         - page: reference/browser/scroll/page.md
       - tool: reference/browser/tool.md
@@ -126,30 +126,30 @@ nav:
         - get: reference/browser/viewport/get.md
         - set: reference/browser/viewport/set.md
       - wait:
-        - __main__: reference/browser/wait/__main__.md
+        - __main__: reference/browser/wait/main.md
         - until:
-          - __main__: reference/browser/wait/until/__main__.md
+          - __main__: reference/browser/wait/until/main.md
           - download_file: reference/browser/wait/until/download_file.md
-          - page_title: reference/browser/wait/until/page_title.md
+          - page_title: reference/browser/wait/until/page-title.md
           - text: reference/browser/wait/until/text.md
           - url: reference/browser/wait/until/url.md
       - window:
-        - __main__: reference/browser/window/__main__.md
+        - __main__: reference/browser/window/main.md
         - get: reference/browser/window/get.md
         - handle: reference/browser/window/handle.md
         - open: reference/browser/window/open.md
         - set: reference/browser/window/set.md
     - Viewport:
       - common_devices:
-        - Apple: reference/viewport/common_devices/apple.md
-        - Google: reference/viewport/common_devices/google.md
-        - Huawei: reference/viewport/common_devices/huawei.md
-        - Microsoft: reference/viewport/common_devices/microsoft.md
-        - OnePlus: reference/viewport/common_devices/oneplus.md
-        - Oppo: reference/viewport/common_devices/oppo.md
-        - Samsung: reference/viewport/common_devices/samsung.md
-        - Vivo: reference/viewport/common_devices/vivo.md
-        - Xiaomi: reference/viewport/common_devices/xiaomi.md
+        - Apple: reference/viewport/common-devices/apple.md
+        - Google: reference/viewport/common-devices/google.md
+        - Huawei: reference/viewport/common-devices/huawei.md
+        - Microsoft: reference/viewport/common-devices/microsoft.md
+        - OnePlus: reference/viewport/common-devices/oneplus.md
+        - Oppo: reference/viewport/common-devices/oppo.md
+        - Samsung: reference/viewport/common-devices/samsung.md
+        - Vivo: reference/viewport/common-devices/vivo.md
+        - Xiaomi: reference/viewport/common-devices/xiaomi.md
 
 theme:
   name: material
@@ -314,6 +314,25 @@ plugins:
         xpath/tips-and-tricks/index.md: xpath/tips-and-tricks/target-attributes.md
         reference/settings.md: reference/configuration/browser-settings.md
         reference/browser-settings.md: reference/configuration/browser-settings.md
+        reference/browser/get/__main__.md: reference/browser/get/main.md
+        reference/browser/scroll/__main__.md: reference/browser/scroll/main.md
+        reference/browser/wait/__main__.md: reference/browser/wait/main.md
+        reference/browser/wait/until/__main__.md: reference/browser/wait/until/main.md
+        reference/browser/wait/until/download_file.md: reference/browser/wait/until/download-file.md
+        reference/browser/wait/until/page_title.md: reference/browser/wait/until/page-title.md
+        reference/browser/window/__main__.md: reference/browser/window/main.md
+        reference/browser/__main__.md: reference/browser/main.md
+        reference/browser/check_if.md: reference/browser/check-if.md
+        reference/browser/user_agent.md: reference/browser/user-agent.md
+        reference/viewport/common_devices/apple.md: reference/viewport/common-devices/apple.md
+        reference/viewport/common_devices/google.md: reference/viewport/common-devices/google.md
+        reference/viewport/common_devices/huawei.md: reference/viewport/common-devices/huawei.md
+        reference/viewport/common_devices/microsoft.md: reference/viewport/common-devices/microsoft.md
+        reference/viewport/common_devices/oneplus.md: reference/viewport/common-devices/oneplus.md
+        reference/viewport/common_devices/oppo.md: reference/viewport/common-devices/oppo.md
+        reference/viewport/common_devices/samsung.md: reference/viewport/common-devices/samsung.md
+        reference/viewport/common_devices/vivo.md: reference/viewport/common-devices/vivo.md
+        reference/viewport/common_devices/xiaomi.md: reference/viewport/common-devices/xiaomi.md
 
 exclude_docs: |
   /requirements.txt
