@@ -23,7 +23,7 @@ With [Homebrew](https://brew.sh):
 brew install chromedriver
 ```
 
-More info [here](https://chromedriver.chromium.org).
+Google also provides a guide on how to [install and download the ChromeDriver for Chrome](https://chromedriver.chromium.org).
 
 ## Troubleshooting and Tips
 If you are planning to use different browsers, please refer to the [guide on options for browser types](../../settings/browser-types.md).

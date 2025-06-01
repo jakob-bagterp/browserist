@@ -21,7 +21,7 @@ User agents come in many forms and can look like this:
 Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0
 ```
 
-Learn more [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent).
+Learn more about [user agents and what they can do](https://www.whatismybrowser.com/detect/user-agent-parser).
 
 ## How to Set User Agent
 !!! note

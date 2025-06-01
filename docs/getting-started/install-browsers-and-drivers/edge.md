@@ -11,7 +11,7 @@ tags:
 Edge is a free, open-source web browser developed by Microsoft. Visit their website to find out more and [download the latest version of Edge](https://www.microsoft.com/edge).
 
 ## Install Microsoft Edge WebDriver
-More info and download [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
+Microsoft also provides a guide on how to [install and download the WebDriver for Microsoft Edge](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).
 
 ## Troubleshooting and Tips
 If you are planning to use different browsers, please refer to the [guide on options for browser types](../../settings/browser-types.md).

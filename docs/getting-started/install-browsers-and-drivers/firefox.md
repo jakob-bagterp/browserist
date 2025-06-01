@@ -17,7 +17,7 @@ With [Homebrew](https://brew.sh):
 brew install geckodriver
 ```
 
-More info [here](https://github.com/mozilla/geckodriver).
+Mozilla also provides a guide on how to [install and download the Geckodriver for Firefox](https://github.com/mozilla/geckodriver).
 
 ## Troubleshooting and Tips
 If you are planning to use different browsers, please refer to the [guide on options for browser types](../../settings/browser-types.md).

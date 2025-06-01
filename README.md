@@ -36,7 +36,7 @@ brew tap jakob-bagterp/browserist
 brew install browserist
 ```
 
-Find more installation details [here](https://jakob-bagterp.github.io/browserist/getting-started/installation/).
+Do you need more information? Please refer to the [installation details](https://jakob-bagterp.github.io/browserist/getting-started/installation/).
 
 ## Getting Started
 You're now ready to go:
@@ -79,7 +79,7 @@ with Browser() as browser:
 ```
 
 ## Documentation
-Find tutorials, code examples, list of all methods and much more [here](https://jakob-bagterp.github.io/browserist).
+For in-depth documentation, visit the website with [tutorials, code examples, a list of all methods, and much more](https://jakob-bagterp.github.io/browserist).
 
 ## Become a Sponsor 🏅
 If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
