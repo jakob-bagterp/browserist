@@ -25,7 +25,7 @@ Learn more about [user agents and what they can do](https://developer.mozilla.or
 
 ## How to Set User Agent
 !!! note
-    Few browsers allow you to set the `User-Agent` on the fly, but most allow you to set it at the start of a session. [See below](#supported-browsers) for details.
+    Few browsers allow you to set the `User-Agent` on the fly, but most allow you to set it at the start of a session. See the [table of supported browsers](#supported-browsers) below for details.
 
 ### For a Session
 How to set the user agent in the beginning of a session:
