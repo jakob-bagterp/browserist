@@ -1,5 +1,5 @@
 ---
-title: Documentation for Login Combo Method
+title: Documentation of Login Combo Method
 description: Learn how to use the login settings and combo method in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation

@@ -1,5 +1,5 @@
 ---
-title: Documentation for Timeout Settings
+title: Documentation of Timeout Settings
 description: Learn how to use the timeout settings in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation

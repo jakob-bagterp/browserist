@@ -1,5 +1,5 @@
 ---
-title: Documentation for Get HTML Methods
+title: Documentation of Get HTML Methods
 description: Learn how to use the get HTML and page source methods in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation

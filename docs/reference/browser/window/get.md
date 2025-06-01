@@ -1,5 +1,5 @@
 ---
-title: Documentation for Get Window Dimensions and Position
+title: Documentation of Get Window Dimensions and Position
 description: Learn how to get the window size, height, width, and position in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation

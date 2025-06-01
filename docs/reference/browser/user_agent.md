@@ -1,5 +1,5 @@
 ---
-title: Documentation for User Agent Methods
+title: Documentation of User Agent Methods
 description: Learn how to get and set the user agent in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation

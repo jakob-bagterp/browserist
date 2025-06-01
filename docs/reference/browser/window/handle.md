@@ -1,5 +1,5 @@
 ---
-title: Documentation for Window Handle Methods
+title: Documentation of Window Handle Methods
 description: Learn how to get window handles in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation

@@ -1,5 +1,5 @@
 ---
-title: Documentation for Get URL Methods
+title: Documentation of Get URL Methods
 description: Learn how to use methods for getting the URL from the current page or elements in Browserist. Includes code examples for beginners and advanced users for web scraping and browser automation.
 tags:
     - Documentation
