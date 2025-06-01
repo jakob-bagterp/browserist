@@ -32,10 +32,29 @@ With Browserist as an extension to Selenium, you get:
 
 :white_check_mark: &nbsp;&nbsp;Efficient development workflow with IntelliSense and type hints
 
+## Example
+Imagine you want to fill out a form on a website. Here's how easy it is with Browserist: We open an automated browser session, access the website, fill out the form, and then submit it. The browser will hereafter close automatically:
+
+```python linenums="1"
+from browserist import Browser
+
+with Browser() as browser:
+    browser.open.url("https://example.com")
+
+    browser.input.value("//xpath/to/input/name", "My Name")
+    browser.input.value("//xpath/to/input/email", "contact@example.com")
+    browser.input.value("//xpath/to/input/phone", "123-456-7890")
+    browser.input.value("//xpath/to/input/address", "123 Main St, Anytown USA")
+
+    browser.click.button("//xpath/to/button/submit")
+```
+
+If you're new to XPath — a powerful query language used to target elements of a web page — don't worry. You can find out more in the [XPath basics tutorial](xpath/basics.md).
+
 ## Next Steps
 Ready to try? [Let's get started](getting-started/index.md).
 
-Or learn more about how Browserist is [different from Selenium](difference-from-selenium.md).
+For Selenium users, learn more about how [Browserist is different from Selenium](difference-from-selenium.md).
 
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
