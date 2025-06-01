@@ -30,3 +30,18 @@ If you need to use different browser types, find more info [here](../../settings
 
 !!! tip
     Always keep your browser and driver up to date. The ChromeDriver version should usually match the browser version, otherwise Browserist might throw an error.
+
+## How to Use Chrome with Browserist
+Once you have successfully installed the Chrome browser and its ChromeDriver, you can start using them with Browserist. Here is an example of how to automate Chrome using Browserist. Simply select Chrome as the browser type in the `BrowserSettings` configuration:
+
+```python linenums="1" hl_lines="3 5"
+from browserist import Browser, BrowserSettings, BrowserType
+
+settings = BrowserSettings(type=BrowserType.CHROME)
+
+with Browser(settings) as browser:
+    browser.open.url("https://example.com")
+    browser.wait.seconds(5)
+```
+
+Lean more about [how to use different browser types](../../settings/browser-types.md).
