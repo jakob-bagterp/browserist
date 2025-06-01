@@ -292,6 +292,7 @@ plugins:
       css_files:
           - css/timeago.css
           - assets/_mkdocstrings.css
+          - assets/stylesheets/tables.css
   - redirects:
       redirect_maps:
         getting-started/browser-drivers.md: getting-started/recommended-drivers.md
