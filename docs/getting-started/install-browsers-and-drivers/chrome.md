@@ -8,7 +8,7 @@ tags:
 
 # How to Install Chrome and the ChromeDriver
 ## Install Google Chrome
-Google Chrome is a free, open-source web browser developed by Google. Download the latest version [here](https://www.google.com/chrome/).
+Google Chrome is a free, open-source web browser developed by Google. Visit their website to find out more and [download the latest version of Chrome](https://www.google.com/chrome/).
 
 ## Install ChromeDriver
 With [PyPI](https://pypi.org/project/chromedriver/):

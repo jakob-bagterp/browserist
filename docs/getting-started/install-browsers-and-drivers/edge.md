@@ -8,7 +8,7 @@ tags:
 
 # How to Install Edge and the Microsoft Edge WebDriver
 ## Install Microsoft Edge
-Edge is a free, open-source web browser developed by Microsoft. Download the latest version [here](https://www.microsoft.com/edge).
+Edge is a free, open-source web browser developed by Microsoft. Visit their website to find out more and [download the latest version of Edge](https://www.microsoft.com/edge).
 
 ## Install Microsoft Edge WebDriver
 More info and download [here](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/).

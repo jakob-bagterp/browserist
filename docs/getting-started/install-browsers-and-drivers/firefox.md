@@ -8,7 +8,7 @@ tags:
 
 # How to Install Firefox and the GeckoDriver
 ## Install Mozilla Firefox
-Firefox is a free, open-source web browser developed by Mozilla. Download the latest version [here](https://www.mozilla.org/firefox/new/).
+Firefox is a free, open-source web browser developed by Mozilla. Visit their website to find out more and [download the latest version of Firefox](https://www.mozilla.org/firefox/new/).
 
 ## Install GeckoDriver
 With [Homebrew](https://brew.sh):
