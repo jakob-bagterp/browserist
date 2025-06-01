@@ -1,5 +1,5 @@
 ---
-title: How to Run Several Browsers in Multi-Processing Mode
+title: How to Run Browsers in Multi-Processing Mode
 description: Learn how to speed up your web scraping and browser automation with Browserist by running multiple browsers in parallel using multi-processing methods. Includes code examples.
 tags:
     - Tutorial
