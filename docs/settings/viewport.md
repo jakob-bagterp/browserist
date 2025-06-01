@@ -42,10 +42,10 @@ And you can later change the viewport to another device:
 ### Available Common Devices
 Browserist provides a pre-defined collection of common devices, covering tablets and mobile phones from the most popular manufacturers. Find more information in the reference documentation and source code:
 
-* [Apple](../reference/viewport/common_devices/apple.md)
-* [Google](../reference/viewport/common_devices/google.md)
-* [Microsoft](../reference/viewport/common_devices/microsoft.md)
-* [Samsung](../reference/viewport/common_devices/samsung.md)
+* [Apple](../reference/viewport/common-devices/apple.md)
+* [Google](../reference/viewport/common-devices/google.md)
+* [Microsoft](../reference/viewport/common-devices/microsoft.md)
+* [Samsung](../reference/viewport/common-devices/samsung.md)
 
 ### Create Custom Devices
 You can also define custom device sizes for viewport emulation with the `DeviceViewportSize` class. Example:
