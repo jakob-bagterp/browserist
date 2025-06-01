@@ -121,7 +121,7 @@ nav:
         - get: reference/browser/scroll/get.md
         - page: reference/browser/scroll/page.md
       - tool: reference/browser/tool.md
-      - user_agent: reference/browser/user_agent.md
+      - user_agent: reference/browser/user-agent.md
       - viewport:
         - get: reference/browser/viewport/get.md
         - set: reference/browser/viewport/set.md
@@ -129,7 +129,7 @@ nav:
         - __main__: reference/browser/wait/main.md
         - until:
           - __main__: reference/browser/wait/until/main.md
-          - download_file: reference/browser/wait/until/download_file.md
+          - download_file: reference/browser/wait/until/download-file.md
           - page_title: reference/browser/wait/until/page-title.md
           - text: reference/browser/wait/until/text.md
           - url: reference/browser/wait/until/url.md
