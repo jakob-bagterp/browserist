@@ -41,12 +41,12 @@ from browserist import Browser
 with Browser() as browser:
     browser.open.url("https://example.com")
 
-    browser.input.value("//xpath/to/input/name", "My Name")
-    browser.input.value("//xpath/to/input/email", "contact@example.com")
-    browser.input.value("//xpath/to/input/phone", "123-456-7890")
-    browser.input.value("//xpath/to/input/address", "123 Main St, Anytown USA")
+    browser.input.value("//xpath/to/name_field", "My Name")
+    browser.input.value("//xpath/to/email_field", "contact@example.com")
+    browser.input.value("//xpath/to/phone_field", "123-456-7890")
+    browser.input.value("//xpath/to/address_field", "123 Main St, Anytown USA")
 
-    browser.click.button("//xpath/to/button/submit")
+    browser.click.button("//xpath/to/submit_button")
 ```
 
 If you're new to XPath — a powerful query language used to target elements of a web page — don't worry. You can find out more in the [XPath basics tutorial](xpath/basics.md).
