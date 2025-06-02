@@ -4,11 +4,11 @@ description: If you find Browserist helpful, please consider supporting its deve
 ---
 
 # Donations
-This project is a community-driven initiative, developed without commercial interests and shared freely for anyone to use, improve, and build upon. What began as a simple idea has grown beyond expectations, with downloads far surpassing our initial goals:
+This project is a community-driven open-source initiative, developed without commercial interests and shared freely for anyone to use, improve, and build upon. What began as a simple idea has grown beyond expectations, with downloads far surpassing our initial goals:
 
 [![Downloads](https://static.pepy.tech/badge/browserist)](https://pepy.tech/project/browserist)
 
-Your support—whether through contributions, feedback, or simply spreading the word—is vital to help us maintain and continue enhancing the project for everyone.
+Your support – whether through contributions, feedback, or simply spreading the word – is vital to help us maintain and continue enhancing the project for everyone.
 
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
