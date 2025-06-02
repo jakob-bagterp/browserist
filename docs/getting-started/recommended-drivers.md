@@ -51,3 +51,8 @@ Since Browserist is based on the [Selenium](https://www.selenium.dev) web driver
 While a browser is needed to render the content and graphics of a web page, including communicating with the web page server, it needs a driver to tell it what to do. The driver is responsible for controlling the behaviour of the browser and interacting with the web page.
 
 In other words, the driver replaces your mouse and keyboard with a program that controls the browser.
+
+!!! info
+    Default browser driver is [Chrome](install-browsers-and-drivers/chrome.md), except for Windows where [Edge](install-browsers-and-drivers/edge.md) is the default browser.
+
+    Optional browsers: [Firefox](install-browsers-and-drivers/firefox.md), Safari, Internet Explorer.
