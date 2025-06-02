@@ -21,6 +21,9 @@ Find tutorials, tips and tricks in this section. For more info about configurati
 * [Log in](combo-methods/log-in.md)
 * [Search](combo-methods/search.md)
 
+## Support the Project
+If you have already downloaded and tried the package, perhaps you would like to support its development?
+
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
 
