@@ -45,3 +45,14 @@ with Browser(settings) as browser:
 ```
 
 Lean more about [how to use different browser types](../../settings/browser-types.md).
+
+!!! info "Default Browser"
+    Chrome is the default browser type for Browserist – except when using Windows where [Edge](edge.md) is the default browser. Therefore, in most cases, there is no need to specify the browser type in the `BrowserSettings` configuration, which simplifies your code:
+
+    ```python linenums="1" hl_lines="3"
+    from browserist import Browser
+
+    with Browser() as browser:
+        browser.open.url("https://example.com")
+        browser.wait.seconds(5)
+    ```
