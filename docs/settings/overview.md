@@ -65,7 +65,7 @@ Use `BrowserSettings` with the following options:
 | `proxy`              | `ProxySettings` or  IP address `str` | `None` | Enable a custom [proxy server](proxy.md) for the browser. If not using `ProxySettings`, use a string containing IP address and port number. For example, `http://127.0.0.1:8080` for a public proxy or `http://username:password@127.0.0.1:8080` for a private proxy that requires authentication. |
 
 ## Support the Project
-If you have already downloaded and tried the package, perhaps you would like to support its development?
+If you have already downloaded and tried the package – maybe even used it in a production environment – perhaps you would like to support its development?
 
 !!! tip "Become a Sponsor"
     If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
