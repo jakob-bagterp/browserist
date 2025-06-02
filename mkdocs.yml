@@ -316,6 +316,7 @@ plugins:
         reference/browser-settings.md: reference/configuration/browser-settings.md
         reference/browser/get/__main__.md: reference/browser/get/main.md
         reference/browser/scroll/__main__.md: reference/browser/scroll/main.md
+        reference/browser/scroll/check_if.md: reference/browser/scroll/check-if.md
         reference/browser/wait/__main__.md: reference/browser/wait/main.md
         reference/browser/wait/until/__main__.md: reference/browser/wait/until/main.md
         reference/browser/wait/until/download_file.md: reference/browser/wait/until/download-file.md
