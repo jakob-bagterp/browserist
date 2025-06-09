@@ -1,4 +1,4 @@
 lxml==5.4.0
 pillow==11.2.1
-requests==2.32.3
+requests==2.32.4
 selenium==4.33.0
