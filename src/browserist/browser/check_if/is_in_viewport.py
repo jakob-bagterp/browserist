@@ -6,7 +6,7 @@ from ..tool.execute_script import tool_execute_script
 def check_if_is_in_viewport(browser_driver: BrowserDriver, xpath: str) -> bool:
     def get_script(xpath: XPath) -> str:
         return f"""
-            var element = document.evaluate("{xpath}", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+            var element = document.evaluate('{xpath}', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 
             if (!element) return false;
             if (1 !== element.nodeType) return false;
