@@ -20,13 +20,13 @@ class GetAttributeDriverMethods(DriverMethods):
             Value of the attribute. If the attribute does not exist, `None` is returned.
 
         Example:
-            Use `"src"` as attribute to get the source URL from an `<img>` image element.
+            Use `src` as attribute to get the source URL from an `<img>` image element.
 
             ```python title=""
             image_url = browser.get.attribute.value("//xpath/to/img", "src")
             ```
 
-            Use `"href"` as attribute to get the URL from an `<a>` link element.
+            Use `href` as attribute to get the URL from an `<a>` link element.
 
             ```python title=""
             link_url = browser.get.attribute.value("//xpath/to/a", "href")
@@ -55,13 +55,13 @@ class GetAttributeDriverMethods(DriverMethods):
             Values of the attribute. If an attribute does not exist, `None` is added to the list.
 
         Example:
-            Use `"src"` as attribute to get the source URL from `<img>` image elements.
+            Use `src` as attribute to get the source URL from `<img>` image elements.
 
             ```python title=""
             image_urls = browser.get.attribute.values("//img", "src")
             ```
 
-            Use `"href"` as attribute to get the URL from `<a>` link elements.
+            Use `href` as attribute to get the URL from `<a>` link elements.
 
             ```python title=""
             link_urls = browser.get.attribute.values("//a", "href")
