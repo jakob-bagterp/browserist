@@ -32,19 +32,19 @@ with Browser(settings) as browser:
 ## Methods
 There are two main methods you can use to download files:
 
-| Method | Description |
-| ------ | ----------- |
-| [`click.download()`](#simple-download) | Download file as background task or await completion |
-| [`click.download_and_get_file_path()`](#get-the-path-to-the-downloaded-file) | Download file and return its path after completion |
+| Method                                                                       | Description                                          |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [`click.download()`](#simple-download)                                       | Download file as background task or await completion |
+| [`click.download_and_get_file_path()`](#get-the-path-to-the-downloaded-file) | Download file and return its path after completion.  |
 
 ### Simple Download
 Use the `click.download()` method for simple file downloads, either as a background task or await the download to complete. Options:
 
-| Parameters | Background Task | Advantage | Disadvantage |
-| ------ | --------------- | ------- | ------------ |
-| `"//xpath/to/button"` | :material-check: | Faster | If the browser closes during a download, the download may be aborted or left incomplete |
-| ...<br>`await_download=True` | :material-close: | Stable download as we wait for download to complete | This will attempt to guess the file name, which may be slower |
-| ...<br>`expected_file_name="file.zip"` | :material-close: | Stable download as we wait for download to complete | Slower than background task, yet faster if you know the file name |
+| Parameters                             | Background Task  | Advantage                                           | Disadvantage                                                                            |
+| -------------------------------------- | ---------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| `//xpath/to/button`                    | :material-check: | Faster                                              | If the browser closes during a download, the download may be aborted or left incomplete |
+| ...<br>`await_download=True`           | :material-close: | Stable download as we wait for download to complete | This will attempt to guess the file name, which may be slower                           |
+| ...<br>`expected_file_name="file.zip"` | :material-close: | Stable download as we wait for download to complete | Slower than background task, yet faster if you know the file name                       |
 
 Examples in context:
 
