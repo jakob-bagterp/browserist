@@ -10,6 +10,5 @@ def input_value(browser_driver: BrowserDriver, xpath: str, value: str, timeout: 
     wait_for_element(browser_driver, xpath, timeout)
     driver = browser_driver.get_webdriver()
     input_field = driver.find_element(By.XPATH, xpath)
-    # Always clear input field before entering value:
-    input_field.clear()
+    input_field.clear()  # Always clear input field before entering value.
     input_field.send_keys(value)

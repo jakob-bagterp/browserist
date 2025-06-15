@@ -34,7 +34,7 @@ class ClickDriverMethods(DriverMethods):
 
         Args:
             xpath (str): XPath of the button element.
-            regex (str): Regular expression or text to search for. The condition works for both ordinary text (e.g. `"Submit"`) or regular expression (e.g. `r"colou?r"`). Note it's a search for text, not a strict text match.
+            regex (str): Regular expression or text to search for. The condition works for both ordinary text (e.g. `Submit`) or regular expression (e.g. `r"colou?r"`). Note it's a search for text, not a strict text match.
             ignore_case (bool, optional): Ignore case when searching for text.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 

@@ -36,7 +36,7 @@ class WaitUntilUrlDriverMethods(DriverMethods):
         """Wait until the browser URL contains a specified text fragment, e.g. after a redirect or updated query string.
 
         Args:
-            url_fragment (str):  The URL variable can contain both a fragment (e.g. `"?login=true"`) or a full URL (e.g. `"https://example.com?login=true"`).
+            url_fragment (str):  The URL variable can contain both a fragment (e.g. `?login=true`) or a full URL (e.g. `https://example.com?login=true`).
             timeout (float | None, optional): In seconds. Timeout to wait for URL to contain the specified fragment. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:

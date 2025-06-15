@@ -85,16 +85,16 @@ def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: b
 
     Args:
         url (str | URL): URL to compile to a regular expression pattern.
-        ignore_trailing_slash (bool): Ignore whether the URL is `"https://example.com"` or `"https://example.com/"`.
-        ignore_parameters (bool): Ignore parameters in the URL, e.g. `?page=1` in `"https://example.com/articles?page=1"`.
-        ignore_https (bool): Ignore whether the URL is `"http://example.com"` or `"https://example.com"`.
+        ignore_trailing_slash (bool): Ignore whether the URL is `https://example.com` or `https://example.com/`.
+        ignore_parameters (bool): Ignore parameters in the URL, e.g. `?page=1` in `https://example.com/articles?page=1`.
+        ignore_https (bool): Ignore whether the URL is `http://example.com` or `https://example.com`.
 
     Returns:
         re.Pattern[str]: Intended to be used for comparison with other URLs, e.g. `url_pattern.fullmatch(url_to_compare)`
     """
 
     def handle_ignore_trailing_slash(url: str, ignore_trailing_slash: bool) -> str:
-        """Makes trailing slash optional, e.g. `"some/page/?"`, if needed. Note that the input URL should be without parameters."""
+        """Makes trailing slash optional, e.g. `some/page/?`, if needed. Note that the input URL should be without parameters."""
 
         if ignore_trailing_slash:
             if url.endswith("/"):
@@ -104,7 +104,7 @@ def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: b
         return url
 
     def handle_ignore_https(url: str, ignore_https: bool) -> str:
-        """Makes HTTPS optional, e.g. `"https?://example.com"`. Note that the input URL should be without parameters."""
+        """Makes HTTPS optional, e.g. `https?://example.com`. Note that the input URL should be without parameters."""
 
         if ignore_https:
             if url.startswith(HTTP):
