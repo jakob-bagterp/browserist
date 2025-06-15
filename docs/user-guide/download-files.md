@@ -40,6 +40,8 @@ There are two main methods you can use to download files:
 ### Simple Download
 Use the `click.download()` method for simple file downloads, either as a background task or await the download to complete. Options:
 
+<div id="download-methods-table"></div>
+
 | Parameters                             | Background Task  | Advantage                                           | Disadvantage                                                                            |
 | -------------------------------------- | ---------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `//xpath/to/button`                    | :material-check: | Faster                                              | If the browser closes during a download, the download may be aborted or left incomplete |

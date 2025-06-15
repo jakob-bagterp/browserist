@@ -65,3 +65,12 @@
 #proxy-settings-browser-support-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(n+4) {
     color: var(--material-deep-orange);
 }
+
+#download-methods-table + div > div table > tbody > tr:nth-child(1) > td:nth-child(2) {
+    color: var(--material-green);
+}
+
+#download-methods-table + div > div table > tbody > tr:nth-child(2) > td:nth-child(2),
+#download-methods-table + div > div table > tbody > tr:nth-child(3) > td:nth-child(2) {
+    color: var(--material-deep-orange);
+}
