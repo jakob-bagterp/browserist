@@ -90,7 +90,7 @@ class GetDriverMethods(DriverMethods):
         """"Get multiple `WebElement`s by HTML tag. Assumes that the XPath targets multiple elements.
 
         Args:
-            tag (str): HTML tag of the elements. For example, `"img"` as tag for all `<img>` images, `"a"` for all `<a>` links, etc.
+            tag (str): HTML tag of the elements. For example, `img` as tag for all `<img>` images, `a` for all `<a>` links, etc.
             timeout (float | None, optional): In seconds. Timeout to wait for element. If `None`, the global timeout setting is used (default 5 seconds).
 
         Returns:
