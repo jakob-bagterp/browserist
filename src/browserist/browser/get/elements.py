@@ -13,7 +13,7 @@ def get_elements(browser_driver: BrowserDriver, xpath: str, timeout: float) -> l
 
 
 def get_elements_without_wait(browser_driver: BrowserDriver, xpath: XPath) -> list[WebElement]:
-    """Variation of the get_elements() method for internal use only. It assumes that the XPath has already been validated."""
+    """Variation of the `get_elements()` method for internal use only. It assumes that the XPath has already been validated."""
 
     driver = browser_driver.get_webdriver()
     return driver.find_elements(By.XPATH, xpath)
