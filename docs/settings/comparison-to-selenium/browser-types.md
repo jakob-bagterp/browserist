@@ -49,7 +49,7 @@ For Firefox or Edge, just replace `BrowserType.CHROME` with `BrowserType.FIREFOX
 Let's imagine another example where we want to do the same task, but with different browser types.
 
 ### With Browserist
-Because the configuration class is separate from the web driver and consistent across browser types, Browserist often scales with less code compared to Selenium:
+Because the configuration class is separate from the web driver and consistent across browser types, Browserist is slightly different than Selenium:
 
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
@@ -70,20 +70,11 @@ With Selenium, the above example could be rewritten like this:
 ```python linenums="1"
 from selenium import webdriver
 
-def do_something(driver)
-    driver.get("https://example.com")
-    driver.implicitly_wait(5)
-    # Do someting
-    driver.quit()
-
-chrome_driver = webdriver.Chrome()
-do_something(chrome_driver)
-
-edge_driver = webdriver.Edge()
-do_something(edge_driver)
-
-firefox_driver = webdriver.Firefox()
-do_something(firefox_driver)
+for browser in (webdriver.Chrome, webdriver.Edge, webdriver.Firefox):
+    with browser() as driver:
+        driver.get("https://example.com")
+        driver.implicitly_wait(5)
+        # Do something
 ```
 
 ### Selenium Mixed with Browserist
