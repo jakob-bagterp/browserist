@@ -11,19 +11,13 @@ tags:
 Google Chrome is a free, open-source web browser developed by Google. Visit their website to find out more and [download the latest version of Chrome](https://www.google.com/chrome/).
 
 ## Install ChromeDriver
-With [PyPI](https://pypi.org/project/chromedriver/):
-
-```shell title=""
-pip install chromedriver
-```
-
 With [Homebrew](https://brew.sh):
 
 ```shell title=""
 brew install chromedriver
 ```
 
-Google also provides a guide on how to [install and download the ChromeDriver for Chrome](https://chromedriver.chromium.org).
+Google also provides a guide on how to [install and download the ChromeDriver for Chrome](https://developer.chrome.com/docs/chromedriver/).
 
 ## Troubleshooting and Tips
 If you are planning to use different browsers, please refer to the [guide on options for browser types](../../settings/browser-types.md).
