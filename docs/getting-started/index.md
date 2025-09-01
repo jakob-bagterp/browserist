@@ -20,11 +20,7 @@ pip install browserist
 ```
 
 ## 2. Install Browser Driver
-Assuming that [Chrome](https://www.google.com/chrome/) is already installed, you also need a driver that automates the Chrome browser:
-
-```shell title=""
-pip install chromedriver
-```
+Assuming that [Chrome](https://www.google.com/chrome/) is already installed, you also need a driver that automates the browser. Google provides a guide on how to [install and download the ChromeDriver for Chrome](https://developer.chrome.com/docs/chromedriver/).
 
 ## 3. First Script
 You're now ready to go:
