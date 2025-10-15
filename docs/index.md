@@ -4,7 +4,7 @@ description: Browserist is the easy way to do web scraping and browser automatio
 ---
 
 [![Latest version](https://img.shields.io/static/v1?label=version&message=1.7.10&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
-[![Python 3.11 | 3.12 | 3.13+](https://img.shields.io/static/v1?label=python&message=3.11%20|%203.12%20|%203.13%2B&color=blueviolet)](https://www.python.org)
+[![Python 3.11 | 3.12 | 3.13 | 3.14+](https://img.shields.io/static/v1?label=python&message=3.11%20|%203.12%20|%203.13%20|%203.14%2B&color=blueviolet)](https://www.python.org)
 [![Apache 2.0 license](https://img.shields.io/static/v1?label=license&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
 [![Codecov](https://codecov.io/gh/jakob-bagterp/browserist/branch/master/graph/badge.svg?token=1JL65T099J)](https://codecov.io/gh/jakob-bagterp/browserist)
 [![CodeQL](https://github.com/jakob-bagterp/browserist/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/github-code-scanning/codeql)
