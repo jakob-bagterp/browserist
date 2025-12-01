@@ -82,7 +82,7 @@ with Browser() as browser:
 For in-depth documentation, visit the website with [tutorials, code examples, a list of all methods, and much more](https://jakob-bagterp.github.io/browserist).
 
 ## Become a Sponsor 🏅
-If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution, no matter the size, makes a difference.
+If you find this project helpful, please consider supporting its development. Your donations will help keep it alive and growing. Every contribution makes a difference, whether you buy a coffee or support with a monthly donation. Find your tier here:
 
 [Donate on GitHub Sponsors](https://github.com/sponsors/jakob-bagterp)
 
