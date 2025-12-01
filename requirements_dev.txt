@@ -4,7 +4,7 @@ keyring==25.6.0
 lxml==6.0.2
 mypy==1.17.1
 pillow==11.3.0
-pre-commit==4.3.0
+pre-commit==4.5.0
 pytest==8.4.2
 pytest-cov==6.2.1
 tox==4.32.0
