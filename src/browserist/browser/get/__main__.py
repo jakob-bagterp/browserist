@@ -24,7 +24,7 @@ class GetDriverMethods(DriverMethods):
         self.url: GetUrlDriverMethods = GetUrlDriverMethods(browser_driver)
 
     def dimensions(self, xpath: str, timeout: float | None = None) -> tuple[int, int]:  # type: ignore
-        """Get width and height of element in pixels.
+        """Get width and height of element on the current page in pixels.
 
         Args:
             xpath (str): XPath of the element.
@@ -44,7 +44,7 @@ class GetDriverMethods(DriverMethods):
             return get_dimensions(self._browser_driver, xpath, timeout)
 
     def element(self, xpath: str, timeout: float | None = None) -> WebElement:  # type: ignore
-        """Get single `WebElement` by XPath.
+        """Get single `WebElement` on the current page by XPath.
 
         Args:
             xpath (str): XPath of the element.
@@ -65,7 +65,7 @@ class GetDriverMethods(DriverMethods):
             return get_element(self._browser_driver, xpath, timeout)
 
     def elements(self, xpath: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """Get multiple `WebElement`s by XPath. Assumes that the XPath targets multiple elements.
+        """Get multiple `WebElement`s on the current page by XPath. Assumes that the XPath targets multiple elements.
 
         Args:
             xpath (str): XPath of the elements.
@@ -87,7 +87,7 @@ class GetDriverMethods(DriverMethods):
             return get_elements(self._browser_driver, xpath, timeout)
 
     def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """"Get multiple `WebElement`s by HTML tag. Assumes that the XPath targets multiple elements.
+        """"Get multiple `WebElement`s on the current page by HTML tag. Assumes that the XPath targets multiple elements.
 
         Args:
             tag (str): HTML tag of the elements. For example, `img` as tag for all `<img>` images, `a` for all `<a>` links, etc.
@@ -114,7 +114,7 @@ class GetDriverMethods(DriverMethods):
         """Get page title of the current page.
 
         Returns:
-            Page title.
+            Page title of the current page.
 
         Example:
             ```python title="" linenums="1"
@@ -127,7 +127,7 @@ class GetDriverMethods(DriverMethods):
             return get_page_title(self._browser_driver)
 
     def text(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
-        """Get text from element.
+        """Get text from element on the current page.
 
         Note:
             This method assumes that the text field shouldn't be empty and therefore will retry to get the text (for better support of single-page apps with extended loading time).
@@ -151,7 +151,7 @@ class GetDriverMethods(DriverMethods):
             return get_text(self._browser_driver, xpath, timeout)
 
     def texts(self, xpath: str, timeout: float | None = None) -> list[str]:  # type: ignore
-        """Get array of texts from elements. Assumes that the XPath targets multiple elements.
+        """Get array of texts from elements on the current page. Assumes that the XPath targets multiple elements.
 
         Args:
             xpath (str): XPath of the elements.

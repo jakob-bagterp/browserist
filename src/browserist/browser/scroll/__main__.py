@@ -40,7 +40,7 @@ class ScrollDriverMethods(DriverMethods):
             scroll_by(self._browser_driver, x, y, delay_seconds)
 
     def down_by(self, pixels: int, delay_seconds: float = 1) -> None:
-        """If possible, scroll down by Y pixels. Horisontal position is unchanged.
+        """If possible, scroll down by Y pixels on the current page. Horisontal position is unchanged.
 
         Args:
             pixels (int): Amount to scroll down as relative to current position.
@@ -56,7 +56,7 @@ class ScrollDriverMethods(DriverMethods):
             scroll_down_by(self._browser_driver, pixels, delay_seconds)
 
     def into_view(self, xpath: str, timeout: float | None = None, delay_seconds: float = 1) -> None:
-        """Find element and scroll up or down until element is visible.
+        """Find element on the current page and scroll up or down until element is visible.
 
         Args:
             xpath (str): XPath of the element.

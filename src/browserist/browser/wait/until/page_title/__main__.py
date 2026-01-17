@@ -10,7 +10,7 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def changes(self, baseline_text: str, timeout: float | None = None) -> None:
-        """Wait until the page title changes compared to a baseline text, e.g. after a page reload or update.
+        """Wait until the page title of the current page changes compared to a baseline text, e.g. after a page reload or update.
 
         Args:
             baseline_text (str): Baseline text to compare current page title against. It's evaluated as any change.
@@ -33,7 +33,7 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
             wait_until_page_title_changes(self._browser_driver, baseline_text, timeout)
 
     def contains(self, page_title_fragment: str, timeout: float | None = None) -> None:
-        """Wait until the page title contains a specified text fragment, e.g. after a redirect or update.
+        """Wait until the page title of the current page contains a specified text fragment, e.g. after a redirect or update.
 
         Args:
             page_title_fragment (str): The input can contain both a fragment or the full page title.
@@ -54,7 +54,7 @@ class WaitUntilPageTitleDriverMethods(DriverMethods):
             wait_until_page_title_contains(self._browser_driver, page_title_fragment, timeout)
 
     def equals(self, page_title: str, timeout: float | None = None) -> None:
-        """Wait until the page title has changed to a specific text, e.g. after a redirect or update.
+        """Wait until the page title of the current page has changed to a specific text, e.g. after a redirect or update.
 
         Args:
             page_title (str): Full page title to compare the new current page title against. Evaluated as an exact match.

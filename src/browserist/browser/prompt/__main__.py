@@ -9,7 +9,7 @@ class PromptDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def input_value(self, xpath: str, prompt_message: str, validate_input_regex: str | None = None, timeout: float | None = None) -> None:
-        """Prompt user for value through the terminal and insert this value into form field.
+        """Prompt user for value through the terminal and insert this value into form field on the current page.
 
         Args:
             xpath (str): XPath of form field to insert value into.

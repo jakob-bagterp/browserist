@@ -11,7 +11,7 @@ class InputDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def clear(self, xpath: str, timeout: float | None = None) -> None:
-        """Clear any text input from form field.
+        """Clear any text input from form field on the current page.
 
         Args:
             xpath (str): XPath of the input field.
@@ -28,7 +28,7 @@ class InputDriverMethods(DriverMethods):
             clear_input_field(self._browser_driver, xpath, timeout)
 
     def select(self, xpath: str, timeout: float | None = None) -> None:
-        """Select input field, similar to clicking the mouse on a form field.
+        """Select input field on the current page, similar to clicking the mouse on a form field.
 
         Args:
             xpath (str): XPath of the input field.
@@ -62,7 +62,7 @@ class InputDriverMethods(DriverMethods):
             select_input_field(self._browser_driver, xpath, timeout)
 
     def value(self, xpath: str, value: str, timeout: float | None = None) -> None:
-        """Input value into form field.
+        """Input value into form field on the current page.
 
         Args:
             xpath (str): XPath of the element.

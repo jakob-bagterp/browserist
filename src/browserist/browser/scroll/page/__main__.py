@@ -35,7 +35,7 @@ class ScrollPageDriverMethods(DriverMethods):
             scroll_page_down(self._browser_driver, pages, delay_seconds)
 
     def to_end(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll to end of page.
+        """If possible, scroll to end of the current page.
 
         Args:
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.
@@ -50,7 +50,7 @@ class ScrollPageDriverMethods(DriverMethods):
             scroll_to_end_of_page(self._browser_driver, delay_seconds)
 
     def to_top(self, delay_seconds: float = 1) -> None:
-        """If possible, scroll to top of page.
+        """If possible, scroll to top of the current page.
 
         Args:
             delay_seconds (float, optional): Option to add custom delay in seconds to ensure the view is updated after scroll.

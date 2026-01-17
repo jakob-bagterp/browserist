@@ -9,7 +9,7 @@ class GetAttributeDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def value(self, xpath: str, attribute: str, timeout: float | None = None) -> str | None:  # type: ignore
-        """Get value from an attribute of an element.
+        """Get value from an attribute of an element on the current page.
 
         Args:
             xpath (str): XPath of the element.
@@ -44,7 +44,7 @@ class GetAttributeDriverMethods(DriverMethods):
             return get_attribute_value(self._browser_driver, xpath, attribute, timeout)
 
     def values(self, xpath: str, attribute: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
-        """Get values from an attribute of multiple elements. Assumes that the XPath targets multiple links.
+        """Get values from an attribute of multiple elements on the current page. Assumes that the XPath targets multiple links.
 
         Args:
             xpath (str): XPath of the elements.

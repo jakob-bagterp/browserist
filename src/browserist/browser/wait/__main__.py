@@ -14,7 +14,7 @@ class WaitDriverMethods(DriverMethods):
         self.until: WaitUntilDriverMethods = WaitUntilDriverMethods(browser_driver)
 
     def for_element(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element is ready in the DOM and/or on the screen.
+        """Wait until element on the current page is ready in the DOM and/or on the screen.
 
         Args:
             xpath (str): XPath of the element.

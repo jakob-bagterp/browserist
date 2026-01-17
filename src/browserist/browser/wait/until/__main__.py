@@ -22,7 +22,7 @@ class WaitUntilDriverMethods(DriverMethods):
         self.url: WaitUntilUrlDriverMethods = WaitUntilUrlDriverMethods(browser_driver)
 
     def contains_any_text(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element contains any text, e.g. an element in a single-page application that loads later than first page paint.
+        """Wait until element on the current page contains any text, e.g. an element in a single-page application that loads later than first page paint.
 
         Args:
             xpath (str): XPath of the element.
@@ -43,7 +43,7 @@ class WaitUntilDriverMethods(DriverMethods):
             wait_until_element_contains_any_text(self._browser_driver, xpath, timeout)
 
     def element_disappears(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element doesn't exist.
+        """Wait until element on the current page doesn't exist.
 
         Args:
             xpath (str): XPath of the element.
@@ -66,7 +66,7 @@ class WaitUntilDriverMethods(DriverMethods):
             wait_until_element_disappears(self._browser_driver, xpath, timeout)
 
     def images_have_loaded(self, xpath: str = "//img", timeout: float | None = None) -> None:
-        """Wait until the image(s) on the page have loaded.
+        """Wait until the image(s) on the current page have loaded.
 
         Args:
             xpath (str): XPath of the element. Can target one or more images. If `None`, all `<img>` image elements are targeted.
@@ -101,7 +101,7 @@ class WaitUntilDriverMethods(DriverMethods):
             wait_until_images_have_loaded(self._browser_driver, xpath, timeout)
 
     def is_clickable(self, xpath: str, timeout: float | None = None) -> None:
-        """Wait until element is clickable.
+        """Wait until element on the current page is clickable.
 
         Args:
             xpath (str): XPath of the element.
