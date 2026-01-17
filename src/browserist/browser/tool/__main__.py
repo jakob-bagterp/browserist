@@ -100,7 +100,7 @@ class ToolDriverMethods(DriverMethods):
             return helper.xpath.is_valid(xpath)
 
     def count_elements(self, xpath: str, timeout: float | None = None) -> int:  # type: ignore
-        """Count number of elements.
+        """Count number of elements on the current page.
 
         Args:
             xpath (str): XPath of the elements.

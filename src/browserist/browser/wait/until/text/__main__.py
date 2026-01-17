@@ -10,7 +10,7 @@ class WaitUntilTextDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def changes(self, xpath: str, baseline_text: str, timeout: float | None = None) -> None:
-        """Wait until the text of an element changes compared to a baseline text, e.g. after a form action.
+        """Wait until the text of an element on the current page changes compared to a baseline text, e.g. after a form action.
 
         Args:
             xpath (str): XPath of the text element.
@@ -34,7 +34,7 @@ class WaitUntilTextDriverMethods(DriverMethods):
             wait_until_text_changes(self._browser_driver, xpath, baseline_text, timeout)
 
     def contains(self, xpath: str, regex: str, timeout: float | None = None) -> None:
-        """Wait until the text of an element contains a specified text fragment, e.g. after a form action.
+        """Wait until the text of an element on the current page contains a specified text fragment, e.g. after a form action.
 
         Args:
             xpath (str): XPath of the text element.
@@ -56,12 +56,12 @@ class WaitUntilTextDriverMethods(DriverMethods):
             wait_until_text_contains(self._browser_driver, xpath, regex, timeout)
 
     def equals(self, xpath: str, regex: str, timeout: float | None = None) -> None:
-        """Wait until the text of an element has changed to a specific text, e.g. after a form action.
+        """Wait until the text of an element on the current page has changed to a specific text, e.g. after a form action.
 
         Args:
             xpath (str): XPath of the text element.
             regex (str): Regular expression to compare the text element against. Case sensitive and is evaluated as an exact match.
-            timeout (float | None, optional): In seconds. Timeout to wait for text jn element to match the condition. If `None`, the global timeout setting is used (default 5 seconds).
+            timeout (float | None, optional): In seconds. Timeout to wait for text in element to match the condition. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
             ```python title="" linenums="1" hl_lines="5"

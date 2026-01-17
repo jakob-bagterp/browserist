@@ -17,7 +17,7 @@ class CheckIfDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def contains_any_text(self, xpath: str) -> bool:  # type: ignore
-        """Check if element contains any text.
+        """Check if element on the current page contains any text.
 
         Args:
             xpath (str): XPath of the element.
@@ -36,7 +36,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_contains_any_text(self._browser_driver, xpath)
 
     def contains_text(self, xpath: str, regex: str, ignore_case: bool = True) -> bool:  # type: ignore
-        """Check if element contains text.
+        """Check if element on the current page contains text.
 
         Args:
             xpath (str): XPath of the element.
@@ -66,7 +66,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_contains_text(self._browser_driver, xpath, regex, ignore_case)
 
     def does_exist(self, xpath: str) -> bool:  # type: ignore
-        """Check if element exists.
+        """Check if element on the current page exists.
 
         Args:
             xpath (str): XPath of the element.
@@ -85,7 +85,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_does_exist(self._browser_driver, xpath)
 
     def is_clickable(self, xpath: str) -> bool:  # type: ignore
-        """Check if element is clickable.
+        """Check if element on the current page is clickable.
 
         Args:
             xpath (str): XPath of the element.
@@ -106,7 +106,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_is_clickable(self._browser_driver, xpath)
 
     def is_disabled(self, xpath: str) -> bool:  # type: ignore
-        """Check if element is disabled.
+        """Check if element on the current page is disabled.
 
         Args:
             xpath (str): XPath of the element.
@@ -125,7 +125,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_is_disabled(self._browser_driver, xpath)
 
     def is_displayed(self, xpath: str) -> bool:  # type: ignore
-        """Check visibility status of an element.
+        """Check visibility status of an element on the current page.
 
         Args:
             xpath (str): XPath of the element.
@@ -144,7 +144,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_is_displayed(self._browser_driver, xpath)
 
     def is_enabled(self, xpath: str) -> bool:  # type: ignore
-        """Check if element is enabled.
+        """Check if element on the current page is enabled.
 
         Args:
             xpath (str): XPath of the element.
@@ -163,7 +163,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_is_enabled(self._browser_driver, xpath)
 
     def is_image_loaded(self, xpath: str) -> bool:  # type: ignore
-        """Check is image is loaded and ready in the DOM.
+        """Check is image on the current page is loaded and ready in the DOM.
 
         Args:
             xpath (str): XPath of the element.
@@ -183,7 +183,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_is_image_loaded(self._browser_driver, xpath)
 
     def is_in_viewport(self, xpath: str) -> bool:  # type: ignore
-        """Check if an element is visible in the current viewport.
+        """Check if an element on the current page is visible in the current viewport.
 
         Args:
             xpath (str): XPath of the element.
@@ -203,7 +203,7 @@ class CheckIfDriverMethods(DriverMethods):
             return check_if_is_in_viewport(self._browser_driver, xpath)
 
     def is_selected(self, xpath: str) -> bool:  # type: ignore
-        """Check if element is selected, e.g. checkbox or radio button.
+        """Check if element on the current page is selected, e.g. checkbox or radio button.
 
         Args:
             xpath (str): XPath of the element.

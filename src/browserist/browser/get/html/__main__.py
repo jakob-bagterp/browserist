@@ -10,7 +10,7 @@ class GetHtmlDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def element_inner(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
-        """Get inner HTML of an element by XPath.
+        """Get inner HTML of an element on the current page by XPath.
 
         Args:
             xpath (str): XPath of the element.
@@ -33,7 +33,7 @@ class GetHtmlDriverMethods(DriverMethods):
             return get_element_inner_html(self._browser_driver, xpath, timeout)
 
     def element_outer(self, xpath: str, timeout: float | None = None) -> str:  # type: ignore
-        """Get outer HTML of an element by XPath.
+        """Get outer HTML of an element on the current page by XPath.
 
         Args:
             xpath (str): XPath of the element.

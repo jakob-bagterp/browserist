@@ -57,7 +57,7 @@ class GetUrlDriverMethods(DriverMethods):
             return get_current_domain(self._browser_driver)
 
     def from_image(self, xpath: str, timeout: float | None = None) -> str | None:  # type: ignore
-        """Get the source URL of an `<img>` image element.
+        """Get the source URL of an `<img>` image element on the current page.
 
         Note:
             This method targets the `src` attribute of an `<img>` image element. And it assumes that the image isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
@@ -81,7 +81,7 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_image(self._browser_driver, xpath, timeout)
 
     def from_images(self, xpath: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
-        """Get list of source URLs of a group of `<img>` image elements.
+        """Get list of source URLs of a group of `<img>` image elements on the current page.
 
         Note:
             This method targets the `src` attribute of the `<img>` image elements. And it assumes that the XPath targets multiple images.
@@ -106,7 +106,7 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_images(self._browser_driver, xpath, timeout)
 
     def from_link(self, xpath: str, timeout: float | None = None) -> str | None:  # type: ignore
-        """Get the source URL of an `<a>` link element.
+        """Get the source URL of an `<a>` link element on the current page.
 
         Note:
             This method targets the `href` attribute of the `<a>` link element. And it assumes that the link isn't empty and therefore will retry to get the URL (for better support of single-page apps with extended loading time).
@@ -130,7 +130,7 @@ class GetUrlDriverMethods(DriverMethods):
             return get_url_from_link(self._browser_driver, xpath, timeout)
 
     def from_links(self, xpath: str, timeout: float | None = None) -> list[str | None]:  # type: ignore
-        """Get list of source URLs of a group of `<a>` link elements.
+        """Get list of source URLs of a group of `<a>` link elements on the current page.
 
         Note:
             This method targets the `href` attribute of the `<a>` link elements. And it assumes that the XPath targets multiple links.

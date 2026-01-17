@@ -13,7 +13,7 @@ class ClickDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def button(self, xpath: str, timeout: float | None = None) -> None:
-        """Click button.
+        """Click button on the current page.
 
         Args:
             xpath (str): XPath of the button element.
@@ -30,7 +30,7 @@ class ClickDriverMethods(DriverMethods):
             click_button(self._browser_driver, xpath, timeout)
 
     def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None) -> None:
-        """Click button if it contains certain text.
+        """Click button on the current page if it contains certain text.
 
         Args:
             xpath (str): XPath of the button element.
@@ -57,7 +57,7 @@ class ClickDriverMethods(DriverMethods):
             click_button_if_contains_text(self._browser_driver, xpath, regex, ignore_case, timeout)
 
     def download(self, xpath: str, timeout: float | None = None, await_download: bool = False, expected_file_name: str | None = None, idle_download_timeout: float | None = None) -> None:
-        """Click button and download file.
+        """Click button on the current page and download file.
 
         Args:
             xpath (str): XPath of the download button element.
@@ -109,7 +109,7 @@ class ClickDriverMethods(DriverMethods):
             click_download_button(self._browser_driver, xpath, timeout, await_download, expected_file_name, idle_download_timeout)
 
     def download_and_get_file_path(self, xpath: str, timeout: float | None = None, idle_download_timeout: float | None = None) -> Path:  # type: ignore
-        """Click button to download file and get file path once download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand.
+        """Click button on the current page to download file and get file path once download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand.
 
         Args:
             xpath (str): XPath of the download button element.

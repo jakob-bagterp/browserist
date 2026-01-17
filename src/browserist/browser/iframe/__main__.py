@@ -9,7 +9,7 @@ class IframeDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def switch_to(self, xpath: str, timeout: float | None = None) -> None:
-        """Switch to iframe.
+        """Switch to iframe on the current page.
 
         Args:
             xpath (str): XPath of the iframe.

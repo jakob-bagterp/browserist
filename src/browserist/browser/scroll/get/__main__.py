@@ -10,7 +10,7 @@ class ScrollGetDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def position(self) -> tuple[int, int]:  # type: ignore
-        """Get scroll position of the X and Y axis.
+        """Get scroll position of the X and Y axis of the current page.
 
         Returns:
             Scroll position of the X and Y axis. In pixels.
@@ -25,7 +25,7 @@ class ScrollGetDriverMethods(DriverMethods):
             return get_scroll_position(self._browser_driver)
 
     def total_height(self) -> int:  # type: ignore
-        """Get total scroll height.
+        """Get total scroll height of the current page.
 
         Returns:
             Total scroll height.
@@ -40,7 +40,7 @@ class ScrollGetDriverMethods(DriverMethods):
             return get_total_scroll_height(self._browser_driver)
 
     def total_width(self) -> int:  # type: ignore
-        """Get total scroll width.
+        """Get total scroll width of the current page.
 
         Returns:
             Total scroll width.
