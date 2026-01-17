@@ -1,5 +1,7 @@
 from selenium.webdriver.remote.webelement import WebElement
 
+from browserist.browser.get.meta_description import get_meta_description
+
 from ...model.browser.base.driver import BrowserDriver
 from ...model.driver_methods import DriverMethods
 from .attribute.__main__ import GetAttributeDriverMethods
@@ -109,6 +111,22 @@ class GetDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             return get_elements_by_tag(self._browser_driver, tag, timeout)
+
+    def meta_description(self) -> str:   # type: ignore
+        """Get meta description of the current page.
+
+        Returns:
+            The meta description content of the current page. If no meta description is found, an empty string is returned.
+
+        Example:
+            ```python title="" linenums="1"
+            meta_description = browser.get.meta_description()
+            print(meta_description)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            return get_meta_description(self._browser_driver)
 
     def page_title(self) -> str:  # type: ignore
         """Get page title of the current page.

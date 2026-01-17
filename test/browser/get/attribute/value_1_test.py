@@ -9,7 +9,7 @@ from browserist import Browser
 
 @pytest.mark.parametrize("url, xpath, attribute, expected_attribute", [
     (internal_url.MINI_SITE_HOMEPAGE, MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "href", internal_url.MINI_SITE_FEATURE_1),
-    (internal_url.MINI_SITE_HOMEPAGE, "/html/head/meta[2]", "name", "viewport"),
+    (internal_url.MINI_SITE_HOMEPAGE, "/html/head/meta[3]", "name", "viewport"),
     (internal_url.MINI_SITE_FEATURE_1, MINI_SITE_FEATURE_1_IMAGE_1_XPATH, "src", internal_url.MINI_SITE_IMAGE_LAB_SAMPLES),
     (internal_url.MINI_SITE_FEATURE_1, "/html/head/link[1]", "rel", "stylesheet"),
     (internal_url.MINI_SITE_FEATURE_1, "/html/body/section[1]/div", "class", "hero__text-box"),
