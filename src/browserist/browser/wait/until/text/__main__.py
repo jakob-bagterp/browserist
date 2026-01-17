@@ -61,7 +61,7 @@ class WaitUntilTextDriverMethods(DriverMethods):
         Args:
             xpath (str): XPath of the text element.
             regex (str): Regular expression to compare the text element against. Case sensitive and is evaluated as an exact match.
-            timeout (float | None, optional): In seconds. Timeout to wait for text jn element to match the condition. If `None`, the global timeout setting is used (default 5 seconds).
+            timeout (float | None, optional): In seconds. Timeout to wait for text in element to match the condition. If `None`, the global timeout setting is used (default 5 seconds).
 
         Example:
             ```python title="" linenums="1" hl_lines="5"
