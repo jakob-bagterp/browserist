@@ -17,7 +17,7 @@ class GetUrlDriverMethods(DriverMethods):
         """If any, get canonical URL of the current page, e.g. `https://example.com/some_page`.
 
         Returns:
-            Canonical URL of the current page, e.g. `https://example.com/some_page`. If the canonical URL is not specified or available, `None` is returned.
+            Canonical URL of the current page. For example, if a page has `<link rel="canonical" href="https://example.com/some_page">` in the header, this will return the `https://example.com/some_page` part. If the canonical URL is not specified or available, `None` is returned.
 
         Example:
             This will output the canonical URL `https://example.com/some_page` in the terminal:
