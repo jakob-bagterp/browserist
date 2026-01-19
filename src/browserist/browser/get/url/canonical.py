@@ -8,6 +8,6 @@ CANONICAL_URL_XPATH = XPath("/html/head/link[@rel='canonical']")
 def get_canonical_url(browser_driver: BrowserDriver) -> str | None:
     try:
         element = get_element_without_wait(browser_driver, CANONICAL_URL_XPATH)
+        return str(element.get_attribute("href")) if element else None
     except Exception:
         return None
-    return str(element.get_attribute("href")) if element else None
