@@ -130,10 +130,10 @@ class GetDriverMethods(DriverMethods):
             return get_meta_description(self._browser_driver)
 
     def meta_robots(self) -> str:   # type: ignore
-        """Get confiugration of meta robots of the current page.
+        """Get meta robots configuration of the current page.
 
         Returns:
-            The content of meta robots of the current page, If a page has `<meta name="robots" content="nofollow, noindex">` in the header, this will return the `nofollow, noindex` part. If no meta robots definition is found, an empty string is returned.
+            The content of meta robots of the current page. For example, if a page has `<meta name="robots" content="nofollow, noindex">` in the header, this will return the `nofollow, noindex` part. If no meta robots definition is found, an empty string is returned.
 
         Example:
             ```python title="" linenums="1"
