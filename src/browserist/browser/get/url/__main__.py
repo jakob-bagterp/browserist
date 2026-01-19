@@ -14,7 +14,7 @@ class GetUrlDriverMethods(DriverMethods):
         super().__init__(browser_driver)
 
     def canonical(self) -> str | None:  # type: ignore
-        """If any, get the canonical URL of the current page, e.g. `https://example.com/some_page`.
+        """If any, get canonical URL of the current page, e.g. `https://example.com/some_page`.
 
         Returns:
             Canonical URL of the current page, e.g. `https://example.com/some_page`. If the canonical URL is not specified or available, `None` is returned.
