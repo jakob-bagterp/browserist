@@ -8,7 +8,7 @@ from browserist import Browser
 @pytest.mark.parametrize("url, expected_meta_description", [
     (internal_url.MINI_SITE_HOMEPAGE, "Discover the best products for your needs"),
     (internal_url.MINI_SITE_FEATURE_1, "Feature 1"),
-    (internal_url.SEARCH, ""),
+    (internal_url.SEARCH, ""),  # Doesn't have any meta description.
 ])
 def test_get_meta_description(url: str, expected_meta_description: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
