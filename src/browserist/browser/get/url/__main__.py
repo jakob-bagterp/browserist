@@ -1,5 +1,6 @@
 from ....model.browser.base.driver import BrowserDriver
 from ....model.driver_methods import DriverMethods
+from .canonical import get_canonical_url
 from .current import get_current_url
 from .current_domain import get_current_domain
 from .from_image import get_url_from_image
@@ -11,6 +12,28 @@ from .from_links import get_url_from_links
 class GetUrlDriverMethods(DriverMethods):
     def __init__(self, browser_driver: BrowserDriver) -> None:
         super().__init__(browser_driver)
+
+    def canonical(self) -> str | None:  # type: ignore
+        """If any, get canonical URL of the current page, e.g. `https://example.com/some_page`.
+
+        Returns:
+            Canonical URL of the current page. For example, if a page has `<link rel="canonical" href="https://example.com/some_page">` in the header, this will return the `https://example.com/some_page` part. If the canonical URL is not specified or available, `None` is returned.
+
+        Example:
+            This will output the canonical URL `https://example.com/some_page` in the terminal:
+
+            ```python title="" linenums="1" hl_lines="5"
+            from browserist import Browser
+
+            with Browser() as browser:
+                browser.open.url("https://example.com/some_page)
+                canonical_url = browser.get.url.canonical()
+                print(canonical_url)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            return get_canonical_url(self._browser_driver)
 
     def current(self) -> str:  # type: ignore
         """Get URL of the current page, e.g. `https://example.com`.
