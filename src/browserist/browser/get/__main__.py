@@ -10,6 +10,7 @@ from .element import get_element
 from .elements import get_elements
 from .elements_by_tag import get_elements_by_tag
 from .html.__main__ import GetHtmlDriverMethods
+from .meta_robots import get_meta_robots
 from .page_title import get_page_title
 from .text import get_text
 from .texts import get_texts
@@ -127,6 +128,22 @@ class GetDriverMethods(DriverMethods):
 
         if self._timeout_should_continue():
             return get_meta_description(self._browser_driver)
+
+    def meta_robots(self) -> str:   # type: ignore
+        """Get meta robots configuration of the current page.
+
+        Returns:
+            The content of meta robots of the current page. For example, if a page has `<meta name="robots" content="nofollow, noindex">` in the header, this will return the `nofollow, noindex` part. If no meta robots definition is found, an empty string is returned.
+
+        Example:
+            ```python title="" linenums="1"
+            meta_robots = browser.get.meta_robots()
+            print(meta_robots)
+            ```
+        """
+
+        if self._timeout_should_continue():
+            return get_meta_robots(self._browser_driver)
 
     def page_title(self) -> str:  # type: ignore
         """Get page title of the current page.
