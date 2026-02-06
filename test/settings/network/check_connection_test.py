@@ -4,6 +4,7 @@ from typing import Any
 
 import pytest
 from _fixture.internet_connection import NetworkDisabler
+from selenium.common.exceptions import WebDriverException
 from urllib3.exceptions import ProtocolError
 
 from browserist import Browser, BrowserSettings
@@ -27,6 +28,6 @@ BROWSER_SETTINGS_WITHOUT_CHECK_CONNECTION = BrowserSettings(
 ])
 def test_check_connection_exception_handling_without_internet(browser_settings: BrowserSettings, expectation: Any) -> None:
     with NetworkDisabler():
-        with contextlib.suppress(ProtocolError, OSError):  # Now that we have disabled the network in the socket, we need to ignore ProtocolError when making connection requests.
+        with contextlib.suppress(ProtocolError, OSError, WebDriverException):  # Now that we have disabled the network in the socket, we need to ignore ProtocolError when making connection requests.
             with expectation:
                 _ = Browser(browser_settings) is not None
