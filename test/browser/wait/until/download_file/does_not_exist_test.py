@@ -16,6 +16,7 @@ from browserist.model.type.path import FilePath
     (True, pytest.raises(RetryTimeoutException)),
     (False, does_not_raise()),
 ])
+@pytest.mark.xdist_group(name="serial_screenshot_tests")
 def test_wait_until_download_file_does_not_exist(has_file: bool, expectation: Any, tmpdir: Path) -> None:
     download_dir, file_name, file_path = _helper.file.download_dir_and_file_path_controller(has_file, str(tmpdir))
     assert helper.file.exists(FilePath(file_path)) == has_file

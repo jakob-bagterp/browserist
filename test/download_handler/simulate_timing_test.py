@@ -77,6 +77,7 @@ class DownloadHandlerThread(Thread):
     (0.2, 1),
 ])
 @pytest.mark.filterwarnings("error::pytest.PytestUnhandledThreadExceptionWarning")
+@pytest.mark.xdist_group(name="serial_download_tests")
 def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(preliminary_temporary_file_time: float, temporary_file_time: float, tmpdir: Path) -> None:
     """Test behaviour of `DownloadHandler` concurrently with simulation of the download file when it changes from preliminary to temporary to final file."""
 

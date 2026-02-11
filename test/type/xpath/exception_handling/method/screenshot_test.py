@@ -13,6 +13,7 @@ from browserist.model.type.callable import BrowserMethodWith4ArgumentsCallable
 @pytest.mark.parametrize("method", [
     get_screenshot_of_element,
 ])
+@pytest.mark.xdist_group(name="serial_screenshot_tests")
 def test_xpath_exception_handling_for_screenshot_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith4ArgumentsCallable,
