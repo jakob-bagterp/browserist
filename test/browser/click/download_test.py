@@ -20,6 +20,7 @@ from browserist.helper import operating_system
     (True, download_page.EXPECTED_FILE_NAME),
 ])
 @pytest.mark.skipif(operating_system.is_windows(), reason="This test is not supported on Windows.")
+@pytest.mark.xdist_group(name="serial_download_tests")
 def test_click_download(await_download: bool, expected_file_name: str, tmpdir: Path) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)

@@ -1,8 +1,10 @@
+import pytest
 from _helper.timeout import reset_to_not_timed_out
 
 from browserist import Browser
 
 
+@pytest.mark.xdist_group(name="serial_window_tests")
 def test_get_all_window_handles(browser_default_headless_scope_function: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     assert len(browser.window.handle.all(selenium=True)) == len(browser.window.handle.all(selenium=False)) == 1

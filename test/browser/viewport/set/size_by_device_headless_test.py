@@ -21,6 +21,7 @@ from browserist.helper import operating_system
     common_devices.Vivo.Y20,
     common_devices.Xiaomi.MI_10_PRO,
 ])
+@pytest.mark.xdist_group(name="serial_viewport_tests")
 def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

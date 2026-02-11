@@ -9,6 +9,7 @@ from browserist import Browser
     (500, 600),
     (800, 700),
 ])
+@pytest.mark.xdist_group(name="serial_window_tests")
 def test_window_set_width(width1: int, width2: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

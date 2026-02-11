@@ -9,6 +9,7 @@ from browserist import Browser
     (1024, 600),
     (666, 666),
 ])
+@pytest.mark.xdist_group(name="serial_viewport_tests")
 def test_set_viewport_non_headless(width: int, height: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

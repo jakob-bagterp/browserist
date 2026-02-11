@@ -9,6 +9,7 @@ from browserist import Browser
     (internal_url.MINI_SITE_HOMEPAGE, None),
     (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1),
 ])
+@pytest.mark.xdist_group(name="serial_window_tests")
 def test_open_new_tab_in_window(url1: str, url2: str) -> None:
     with Browser(default.HEADLESS) as browser:
         browser.open.url(url1)

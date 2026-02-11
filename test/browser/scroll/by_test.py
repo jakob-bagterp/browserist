@@ -10,6 +10,7 @@ from browserist import Browser
     (0, 200),
     (0, 100),
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_by(x: int, y: int, browser_default_headless_scope_function: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
