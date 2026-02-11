@@ -54,11 +54,11 @@ jobs:
           --ignore=test/browser/wait/seconds_test.py
           --ignore=test/browser/check_if/is_image_loaded_test.py
           --ignore=test/browser/get/dimensions_1_test.py
-          --ignore=test/browser/set_viewport_test.py
           --ignore=test/browser/scroll/check_if/is_end_of_page_flow_test.py
           --ignore=test/browser/wait/until/images_have_loaded_test.py
           --ignore=test/helper/image/is_element_loaded_test.py
           --ignore=test/settings/download_dir/is_file_downloaded_test.py
+          --ignore=test/settings/viewport/set_viewport_test.py
           --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
           --ignore=test/settings/proxy/set_proxy_test.py
       - name: Upload coverage report to CodeCov
