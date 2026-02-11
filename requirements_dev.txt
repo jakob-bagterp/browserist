@@ -1,4 +1,5 @@
 coverage==7.13.1
+filelock==3.20.3
 flake8==7.3.0
 keyring==25.7.0
 lxml==6.0.2
