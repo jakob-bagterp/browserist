@@ -38,6 +38,7 @@ browser = Browser(browser_settings)
     (browser, browser.wait.until.url.changes, [internal_url.MINI_SITE_HOMEPAGE, timeout.VERY_SHORT]),
     (browser, browser.wait.until.url.equals, [does_not_exist.URL, timeout.VERY_SHORT]),
 ])
+@pytest.mark.xdist_group(name="serial_timeout_tests")
 def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     browser = reset_to_not_timed_out(browser)
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
@@ -49,6 +50,7 @@ def test_set_timeout(browser: Browser, browser_function: BrowserCallable, args: 
 @pytest.mark.parametrize("browser, browser_function, args", [
     (browser, browser.scroll.page.to_end, []),
 ])
+@pytest.mark.xdist_group(name="serial_timeout_tests")
 def test_set_timeout_for_page_without_body(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     browser = reset_to_not_timed_out(browser)
     browser.open.url(internal_url.NO_BODY)
