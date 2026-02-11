@@ -1,8 +1,8 @@
 from collections.abc import Generator
+from pathlib import Path
 
 import pytest
 from _config.browser_settings import default
-from py.path import local
 
 from browserist import Browser, BrowserSettings
 from browserist.model.browser.base.type import BrowserType
@@ -42,7 +42,7 @@ def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
 
 
 @pytest.fixture(scope="function")
-def browser_default_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
+def browser_default_headless_screenshot(tmpdir: Path) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
         headless=True,
         screenshot_dir=str(tmpdir),
@@ -53,7 +53,7 @@ def browser_default_headless_screenshot(tmpdir: local) -> Generator[Browser, Non
 
 
 @pytest.fixture(scope="function")
-def browser_firefox_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
+def browser_firefox_headless_screenshot(tmpdir: Path) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
         type=BrowserType.FIREFOX,
         headless=True,

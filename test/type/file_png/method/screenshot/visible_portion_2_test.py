@@ -1,11 +1,12 @@
+from pathlib import Path
+
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.file_png.test_set_1 import FILE_PNG_TEST_SET_DEFAULT
-from py.path import local
 
 from browserist import Browser
 
 
-def test_file_png_exception_handling_for_screenshot_visible_portion_method(browser_default_headless: Browser, tmpdir: local) -> None:
+def test_file_png_exception_handling_for_screenshot_visible_portion_method(browser_default_headless: Browser, tmpdir: Path) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     for test in FILE_PNG_TEST_SET_DEFAULT.tests:
         browser.open.url(test.url)

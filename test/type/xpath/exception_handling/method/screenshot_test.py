@@ -1,8 +1,9 @@
+from pathlib import Path
+
 import pytest
 from _helper import directory
 from _mock_data.screenshot import CUSTOM_SCREENSHOT_DIRECTORY, CUSTOM_SCREENSHOT_FILENAME
 from _mock_data.xpath.method_3 import exception_handling_for_screenshot_methods
-from py.path import local
 
 from browserist import Browser
 from browserist.browser.screenshot.element import get_screenshot_of_element
@@ -15,7 +16,7 @@ from browserist.model.type.callable import BrowserMethodWith4ArgumentsCallable
 def test_xpath_exception_handling_for_screenshot_methods(
     browser_default_headless: Browser,
     method: BrowserMethodWith4ArgumentsCallable,
-    tmpdir: local,
+    tmpdir: Path,
 ) -> None:
     temp_dir = directory.create_and_get_temporary(tmpdir, CUSTOM_SCREENSHOT_DIRECTORY)
     exception_handling_for_screenshot_methods(browser_default_headless, method, CUSTOM_SCREENSHOT_FILENAME, temp_dir)

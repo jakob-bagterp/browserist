@@ -1,13 +1,13 @@
 import os
+from pathlib import Path
 
 import _helper
-from py.path import local
 
 from browserist import helper
 from browserist.model.type.path import FilePath
 
 
-def test_helper_file_get_all_from_directory(tmpdir: local) -> None:
+def test_helper_file_get_all_from_directory(tmpdir: Path) -> None:
     NUMBER_OF_DIRECTORIES = 3
     NUMBER_OF_XYZ_FILES = 2
     NUMBER_OF_TXT_FILES = 4

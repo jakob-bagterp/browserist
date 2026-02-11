@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import pytest
 from _constant import download_page
@@ -6,7 +7,6 @@ from _helper import directory
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 from _mock_data.xpath.download_page import DONWLOAD_BUTTON_XPATH
-from py.path import local
 
 from browserist import Browser, BrowserSettings
 from browserist.constant import idle_timeout
@@ -20,7 +20,7 @@ from browserist.helper import operating_system
     (True, download_page.EXPECTED_FILE_NAME),
 ])
 @pytest.mark.skipif(operating_system.is_windows(), reason="This test is not supported on Windows.")
-def test_click_download(await_download: bool, expected_file_name: str, tmpdir: local) -> None:
+def test_click_download(await_download: bool, expected_file_name: str, tmpdir: Path) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
     with Browser(browser_settings) as browser:
