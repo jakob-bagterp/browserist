@@ -14,6 +14,7 @@ SEARCH_RESULTS_XPATH = "//*[@id='search-results']/div[@class='search-result-item
     ("fruits", 7, "Apple"),
     ("no results", 1, "No results found"),
 ])
+@pytest.mark.xdist_group(name="serial_combo_search_tests")
 def test_combo_search(
     term: str,
     expected_result_elements: int,

@@ -23,6 +23,7 @@ from browserist.exception.timeout import WaitForElementTimeoutException
     (LOGIN_CREDENTIALS_VALID, SUCCESS_LANDING_PAGE),
     (LOGIN_CREDENTIALS_INVALID, ERROR_LANDING_PAGE),
 ])
+@pytest.mark.xdist_group(name="serial_combo_log_in_tests")
 def test_combo_log_in_1_step(
     login_credentials: LoginCredentials,
     expected_landing_page: str,
@@ -42,6 +43,7 @@ def test_combo_log_in_1_step(
     (LOGIN_CREDENTIALS_INVALID_USERNAME, ERROR_LANDING_PAGE, pytest.raises(WaitForElementTimeoutException)),
     (LOGIN_CREDENTIALS_INVALID_PASSWORD, ERROR_LANDING_PAGE, expectation_of_no_exceptions_raised()),
 ])
+@pytest.mark.xdist_group(name="serial_combo_log_in_tests")
 def test_combo_log_in_2_steps(
     login_credentials: LoginCredentials,
     expected_landing_page: str,
@@ -61,6 +63,7 @@ def test_combo_log_in_2_steps(
     (internal_url.LOG_IN_1_STEP, LOGIN_FORM_1_STEP),
     (internal_url.LOG_IN_2_STEPS, LOGIN_FORM_2_STEPS),
 ])
+@pytest.mark.xdist_group(name="serial_combo_log_in_tests")
 def test_combo_log_in_post_login_wait_seconds(
     url: str,
     login_form: LoginForm1Step | LoginForm2Steps,
@@ -97,6 +100,7 @@ def test_combo_log_in_post_login_wait_seconds(
     (LOGIN_FORM_2_STEPS_WITH_RETURN_BOOL_AND_POST_LOGIN_ELEMENT, LOGIN_CREDENTIALS_VALID, True),
     (LOGIN_FORM_2_STEPS_WITH_RETURN_BOOL_AND_BOTH_POST_LOGIN_ATTRIBUTES, LOGIN_CREDENTIALS_INVALID_PASSWORD, False),
 ])
+@pytest.mark.xdist_group(name="serial_combo_log_in_tests")
 def test_combo_log_in_state(
     login_form: LoginForm1Step | LoginForm2Steps,
     login_credentials: LoginCredentials,

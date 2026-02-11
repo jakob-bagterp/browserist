@@ -19,6 +19,7 @@ from browserist import Browser, CookieBannerSettings
     (COOKIE_BANNER_SETTINGS_WITH_IFRAME),
     (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME),
 ])
+@pytest.mark.xdist_group(name="serial_combo_cookie_banner_tests")
 def test_combo_cookie_banner(
     cookie_banner_settings: CookieBannerSettings,
     browser_default_headless_disable_images: Browser
@@ -33,6 +34,7 @@ PAGE_HEADER_TEXT = "Welcome to the Cookie Banner Test Website"
 PAGE_HEADER_XPATH = "/html/body/main/h1"
 
 
+@pytest.mark.xdist_group(name="serial_combo_cookie_banner_tests")
 def test_combo_cookie_banner_return_iframe_to_origin(
     browser_default_headless_disable_images: Browser
 ) -> None:
@@ -48,6 +50,7 @@ def test_combo_cookie_banner_return_iframe_to_origin(
     (COOKIE_BANNER_SETTINGS_WITH_IFRAME),
     (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME),
 ])
+@pytest.mark.xdist_group(name="serial_combo_cookie_banner_tests")
 def test_combo_cookie_banner_has_loaded_wait_seconds(
     cookie_banner_settings: CookieBannerSettings,
     browser_default_headless_disable_images: Browser
@@ -75,6 +78,7 @@ def test_combo_cookie_banner_has_loaded_wait_seconds(
     (COOKIE_BANNER_SETTINGS_WITH_IFRAME),
     (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME),
 ])
+@pytest.mark.xdist_group(name="serial_combo_cookie_banner_tests")
 def test_combo_cookie_banner_has_disappeared_wait_seconds(
     cookie_banner_settings: CookieBannerSettings,
     browser_default_headless_disable_images: Browser
@@ -104,6 +108,7 @@ def test_combo_cookie_banner_has_disappeared_wait_seconds(
     (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_SUCCESS_STATE, True),
     (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME_WITH_RETURN_BOOL_AND_ERROR_STATE, False),
 ])
+@pytest.mark.xdist_group(name="serial_combo_cookie_banner_tests")
 def test_combo_cookie_banner_state(
     cookie_banner_settings: CookieBannerSettings,
     expected_state: bool,
