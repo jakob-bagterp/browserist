@@ -1,9 +1,7 @@
 from collections.abc import Generator
-from pathlib import Path
 
 import pytest
 from _config.browser_settings import default
-from filelock import FileLock
 from py.path import local
 
 from browserist import Browser, BrowserSettings
@@ -43,20 +41,18 @@ def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
         yield browser
 
 
-@pytest.fixture(scope="function", autouse=True)
+@pytest.fixture(scope="function")
 def browser_default_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
         headless=True,
         screenshot_dir=str(tmpdir),
         check_connection=False
     )
-    lock_file = Path(tmpdir).parent / "browser_default_headless_screenshot.lock"
-    with FileLock(str(lock_file)):
-        with Browser(browser_settings) as browser:
-            yield browser
+    with Browser(browser_settings) as browser:
+        yield browser
 
 
-@pytest.fixture(scope="function", autouse=True)
+@pytest.fixture(scope="function")
 def browser_firefox_headless_screenshot(tmpdir: local) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
         type=BrowserType.FIREFOX,
@@ -64,7 +60,5 @@ def browser_firefox_headless_screenshot(tmpdir: local) -> Generator[Browser, Non
         screenshot_dir=str(tmpdir),
         check_connection=False
     )
-    lock_file = Path(tmpdir).parent / "browser_firefox_headless_screenshot.lock"
-    with FileLock(str(lock_file)):
-        with Browser(browser_settings) as browser:
-            yield browser
+    with Browser(browser_settings) as browser:
+        yield browser

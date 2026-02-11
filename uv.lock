@@ -58,7 +58,6 @@ version = "1.7.16"
 source = { editable = "." }
 dependencies = [
     { name = "coverage" },
-    { name = "filelock" },
     { name = "flake8" },
     { name = "keyring" },
     { name = "lxml" },
@@ -84,7 +83,6 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "coverage", specifier = "==7.13.1" },
-    { name = "filelock", specifier = ">=3.20.3" },
     { name = "flake8", specifier = "==7.3.0" },
     { name = "keyring", specifier = "==25.7.0" },
     { name = "lxml", specifier = "==6.0.2" },
