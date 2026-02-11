@@ -27,7 +27,7 @@ jobs:
       - name: Generate coverage report
         # The list of "--ignore=..." arguments should be identical to the exclusion list in Tox.ini, though without comments:
         run: >
-          pytest --numprocesses=auto --cov=./ --cov-report=xml -vv -rA
+          pytest --numprocesses=auto --dist=loadfile --cov=./ --cov-report=xml -vv -rA
           --ignore=test/browser/input/select_1_test.py
           --ignore=test/browser/input/select_headless_exception_test.py
           --ignore=test/browser/viewport/get/height_non_headless_1_test.py
