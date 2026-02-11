@@ -1,3 +1,4 @@
+import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
@@ -10,6 +11,7 @@ LEFT_BY_20_PIXELS: int = 20
 DIFFERENCE_BETWEEN_LEFT_AND_RIGHT: int = abs(RIGHT_BY_100_PIXELS - LEFT_BY_20_PIXELS)
 
 
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_left_and_right_by(browser_default_headless_scope_function: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(internal_url.SCROLL_CANVAS)

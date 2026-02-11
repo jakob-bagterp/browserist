@@ -1,14 +1,15 @@
 import os
 import time
 from contextlib import nullcontext as expectation_of_no_exceptions_raised
+from pathlib import Path
 
 import _helper
+import pytest
 from _constant import download_page
 from _helper import directory
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 from _mock_data.xpath.download_page import DONWLOAD_BUTTON_XPATH
-from py.path import local
 
 from browserist import Browser, BrowserSettings
 from browserist.constant import idle_timeout
@@ -16,7 +17,8 @@ from browserist.constant import idle_timeout
 FILE_NAME = "file.txt"
 
 
-def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local) -> None:
+@pytest.mark.xdist_group(name="serial_download_tests")
+def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: Path) -> None:
     """Assume that it's always faster to await a non-existing file (the iteration will break early if no file exists) than an existing, static file that does not increase in size."""
 
     def get_time_for_wait_until_download_file_size_does_not_increase(browser: Browser) -> float:
@@ -38,7 +40,8 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: local
         assert time_without_file < time_with_file
 
 
-def test_wait_until_download_file_size_does_not_increase(tmpdir: local) -> None:
+@pytest.mark.xdist_group(name="serial_download_tests")
+def test_wait_until_download_file_size_does_not_increase(tmpdir: Path) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
     with expectation_of_no_exceptions_raised():

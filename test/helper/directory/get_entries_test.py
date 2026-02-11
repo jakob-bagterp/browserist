@@ -1,13 +1,13 @@
 import os
+from pathlib import Path
 
 import _helper
-from py.path import local
 
 from browserist import helper
 from browserist.model.type.path import FilePath
 
 
-def test_helper_directory_get_entries(tmpdir: local) -> None:
+def test_helper_directory_get_entries(tmpdir: Path) -> None:
     NUMBER_OF_DIRECTORIES = 4
     NUMBER_OF_FILES = 3
     download_dir = FilePath(os.path.join(str(tmpdir), "downloads"))

@@ -16,6 +16,7 @@ from browserist.exception.scroll import PageValueError
     4,
     5,
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_page_down(pages: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
@@ -35,6 +36,7 @@ def test_scroll_page_down(pages: int, browser_default_headless: Browser) -> None
     ("2", pytest.raises(PageValueError)),
     (3.14, pytest.raises(PageValueError)),
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_page_down_exceptions(pages: int, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:

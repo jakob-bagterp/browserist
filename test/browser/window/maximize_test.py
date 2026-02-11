@@ -1,9 +1,11 @@
+import pytest
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
 
 
+@pytest.mark.xdist_group(name="serial_window_tests")
 def test_window_maximize(browser_default: Browser) -> None:
     """This test may fail if tested on a multiple screens setup."""
 

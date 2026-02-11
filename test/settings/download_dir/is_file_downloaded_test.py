@@ -1,12 +1,12 @@
 import os
 import time
+from pathlib import Path
 
 import pytest
 from _constant import download_page
 from _helper import directory
 from _mock_data.url import internal_url
 from _mock_data.xpath.download_page import DONWLOAD_BUTTON_XPATH
-from py.path import local
 
 from browserist import Browser, BrowserSettings
 
@@ -14,7 +14,7 @@ from browserist import Browser, BrowserSettings
 @pytest.mark.parametrize("download_dir", [
     "downloads",
 ])
-def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: local) -> None:
+def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: Path) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
         timeout_seconds = 5
         interval_seconds = 0.1

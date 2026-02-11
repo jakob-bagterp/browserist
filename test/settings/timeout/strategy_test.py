@@ -68,6 +68,7 @@ METHODS_WITH_RETURN_VALUES: list[tuple[Browser, Any, list[str]]] = [
 
 
 @pytest.mark.parametrize("browser, browser_function, args", METHODS_WITH_RETURN_VALUES)
+@pytest.mark.xdist_group(name="serial_timeout_strategy_tests")
 def test_timeout_strategy_stop(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     """Ensure that methods with return values are skipped when the timeout is set to stop."""
 
@@ -80,6 +81,7 @@ def test_timeout_strategy_stop(browser: Browser, browser_function: BrowserCallab
 
 
 @pytest.mark.parametrize("browser, browser_function, args", METHODS_WITH_RETURN_VALUES)
+@pytest.mark.xdist_group(name="serial_timeout_strategy_tests")
 def test_timeout_strategy_continue(browser: Browser, browser_function: BrowserCallable, args: Any) -> None:
     """Ensure that methods with return values aren't skipped when the timeout is set to continue."""
 

@@ -9,6 +9,7 @@ from browserist import Browser
     (520, 520),  # 500 is minimum width and height for Chrome, 513 on Edge.
     (600, 600),
 ])
+@pytest.mark.xdist_group(name="serial_window_tests")
 def test_window_get_size(width: int, height: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

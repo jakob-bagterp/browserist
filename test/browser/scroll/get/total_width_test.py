@@ -10,6 +10,7 @@ from browserist import Browser
     (internal_url.NOT_SCROLLABLE, 900),
     (internal_url.SCROLL_WIDE_HORIZONTAL, 10000),
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_get_total_scroll_width(url: str, expected_total_scroll_width: int, browser_default_headless_scope_function: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(url)

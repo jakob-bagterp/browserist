@@ -1,8 +1,6 @@
 import os
 from pathlib import Path
 
-from py.path import local
-
 
 def create(dir_path: str) -> None:
     """Create directory."""
@@ -24,13 +22,13 @@ def get_path_for_web_mock_data() -> str:
     return f"{path_of_static_directory}/_mock_data/web"
 
 
-def create_and_get_temporary(tmpdir: local, dir_name: str) -> str:
+def create_and_get_temporary(tmpdir: Path, dir_name: str) -> str:
     """Create temporary directory with `tmpdir` fixture and return path."""
 
     return str(tmpdir.mkdir(dir_name))
 
 
-def create_and_get_temporary_download_dir(tmpdir: local) -> str:
+def create_and_get_temporary_download_dir(tmpdir: Path) -> str:
     """Create temporary download directory with `tmpdir` fixture and return path."""
 
     return create_and_get_temporary(tmpdir, "downloads")

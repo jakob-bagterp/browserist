@@ -19,6 +19,7 @@ from browserist.exception.timeout import WaitForElementTimeoutException
     ("//*[@id='main']/h2[2]"),
     ("//footer"),
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_into_view(xpath: str, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.MINI_SITE_FEATURE_1)
@@ -34,6 +35,7 @@ def test_scroll_into_view(xpath: str, browser_default_headless: Browser) -> None
     (MINI_SITE_FEATURE_1_IMAGE_1_XPATH, does_not_raise()),
     (does_not_exist.XPATH, pytest.raises(WaitForElementTimeoutException)),
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_into_view_timeout(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:

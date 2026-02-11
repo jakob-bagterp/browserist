@@ -9,6 +9,7 @@ from browserist import Browser, BrowserSettings, DeviceViewportSize
     ((375, 667), 375, 667),
     (None, 800, 600),
 ])
+@pytest.mark.xdist_group(name="serial_viewport_tests")
 def test_set_viewport_on_init(viewport: DeviceViewportSize | tuple[int, int] | None, expected_width: int, expected_height: int) -> None:
     settings = BrowserSettings(viewport=viewport, headless=True, check_connection=False)
     with Browser(settings) as browser:

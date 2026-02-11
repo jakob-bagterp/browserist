@@ -19,6 +19,7 @@ from browserist.helper import operating_system
     4,
     5,
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
     # TODO: Remove this once we have a fix for this exception:
     if operating_system.is_macos() and any([is_python_version(3, 11), is_python_version(3, 12), is_python_version(3, 13), is_python_version(3, 14)]):
@@ -50,6 +51,7 @@ def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
     ("2", pytest.raises(PageValueError)),
     (3.14, pytest.raises(PageValueError)),
 ])
+@pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_page_up_exceptions(pages: int, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:

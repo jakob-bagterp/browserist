@@ -8,7 +8,6 @@ from _fixture.download_handler import get as get_download_handler
 from _helper import directory, file
 from _helper.python import is_python_version
 from _helper.timeout import reset_to_not_timed_out
-from py.path import local
 
 from browserist import Browser, BrowserSettings, BrowserType
 from browserist.helper import operating_system
@@ -78,7 +77,8 @@ class DownloadHandlerThread(Thread):
     (0.2, 1),
 ])
 @pytest.mark.filterwarnings("error::pytest.PytestUnhandledThreadExceptionWarning")
-def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(preliminary_temporary_file_time: float, temporary_file_time: float, tmpdir: local) -> None:
+@pytest.mark.xdist_group(name="serial_download_tests")
+def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(preliminary_temporary_file_time: float, temporary_file_time: float, tmpdir: Path) -> None:
     """Test behaviour of `DownloadHandler` concurrently with simulation of the download file when it changes from preliminary to temporary to final file."""
 
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)

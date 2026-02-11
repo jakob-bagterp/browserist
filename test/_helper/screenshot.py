@@ -1,14 +1,13 @@
 import os
+from pathlib import Path
 
-from py.path import local
 
-
-def image_has_minimum_file_size(directory: str | local, file_name: str, minimum_file_size: int) -> bool:
+def image_has_minimum_file_size(directory: str | Path, file_name: str, minimum_file_size: int) -> bool:
     file_path = os.path.join(str(directory), file_name)
     return os.path.getsize(file_path) > minimum_file_size
 
 
-def images_have_minimum_file_size(directory: str | local, minimum_file_size: int) -> bool:
+def images_have_minimum_file_size(directory: str | Path, minimum_file_size: int) -> bool:
     def absolute_path(file: str) -> str:
         return os.path.join(directory, file)
 
