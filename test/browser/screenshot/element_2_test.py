@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import pytest
 from _helper import directory, screenshot
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.screenshot import CUSTOM_SCREENSHOT_DIRECTORY, CUSTOM_SCREENSHOT_FILENAME
@@ -12,6 +13,7 @@ MINIMUM_FILE_SIZE = 1_000
 MINI_SITE_HOMEPAGE_HERO_XPATH = "/html/body/section[1]"
 
 
+@pytest.mark.xdist_group(name="serial_screenshot_tests")
 def test_get_screenshot_of_element_1_with_default_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: Path) -> None:
     """Test of browser.screenshot.element("//xpath/to/element") with default file name and destination."""
 
@@ -21,6 +23,7 @@ def test_get_screenshot_of_element_1_with_default_file_name_and_default_destinat
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
 
+@pytest.mark.xdist_group(name="serial_screenshot_tests")
 def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: Path) -> None:
     """Test of browser.screenshot.element("//xpath/to/element", "image.png") with custom file name and default destination."""
 
@@ -30,6 +33,7 @@ def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destinati
     assert screenshot.images_have_minimum_file_size(tmpdir, MINIMUM_FILE_SIZE)
 
 
+@pytest.mark.xdist_group(name="serial_screenshot_tests")
 def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: Path) -> None:
     """Test of browser.screenshot.element("//xpath/to/element", "image.png", "/screenshots/folder") with custom file name and destination."""
 
@@ -40,6 +44,7 @@ def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destinatio
     assert screenshot.image_has_minimum_file_size(temp_dir, CUSTOM_SCREENSHOT_FILENAME, MINIMUM_FILE_SIZE)
 
 
+@pytest.mark.xdist_group(name="serial_screenshot_tests")
 def test_get_screenshot_of_element_4_with_default_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: Path) -> None:
     """Test of browser.screenshot.element("//xpath/to/element", destination_dir="/screenshots/folder") with default file name and custom destination."""
 
