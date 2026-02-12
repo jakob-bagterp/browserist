@@ -26,6 +26,7 @@ dependencies = [
     "requests==2.32.5",
     "selenium==4.40.0",
     "tox==4.34.1",
+    "uv-build>=0.10.2",
 ]
 
 [build-system]
