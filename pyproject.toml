@@ -24,9 +24,11 @@ classifiers = [
 
 dependencies = [
     "lxml==6.0.2",
+    "lxml-stubs==0.5.1",
     "pillow==12.1.1",
     "requests==2.32.5",
     "selenium==4.40.0",
+    "types-requests==2.32.4.20260107",
 ]
 
 [project.urls]
