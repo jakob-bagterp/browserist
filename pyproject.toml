@@ -1,6 +1,6 @@
 [project]
 name = "browserist"
-version = "1.7.16"
+version = "1.7.17"
 description = "Extension for the Selenium web driver that makes browser automation even easier"
 authors = [
   { name = "Jakob Bagterp", email = "jakob_bagterp@hotmail.com" }
