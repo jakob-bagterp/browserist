@@ -1,7 +1,7 @@
 from ..helper import operating_system
 
 if operating_system.is_windows():
-    from winreg import HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ, CloseKey, OpenKey, SetValueEx
+    from winreg import HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ, CloseKey, OpenKey, SetValueEx  # type: ignore
 
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.type import BrowserType
