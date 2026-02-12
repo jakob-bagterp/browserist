@@ -15,19 +15,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
+
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
           python-version: "3.14"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+
       - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r ./requirements.txt
-          pip install -r ./requirements_dev.txt
+        run: uv sync --frozen --group dev
+
       - name: Generate coverage report
-        # The list of "--ignore=..." arguments should be identical to the exclusion list in Tox.ini, though without comments:
+        # The list of "--ignore=..." arguments should be identical to the exclusion list in tox.ini, though without comments:
         run: >
-          pytest --numprocesses=3 --cov=./ --cov-report=xml -vv -rA
+          uv run pytest --numprocesses=3 --cov=./ --cov-report=xml -vv -rA
           --ignore=test/browser/input/select_1_test.py
           --ignore=test/browser/input/select_headless_exception_test.py
           --ignore=test/browser/viewport/get/height_non_headless_1_test.py
@@ -61,6 +64,7 @@ jobs:
           --ignore=test/settings/viewport/set_viewport_test.py
           --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
           --ignore=test/settings/proxy/set_proxy_test.py
+
       - name: Upload coverage report to CodeCov
         uses: codecov/codecov-action@v5
         with:
