@@ -32,8 +32,29 @@ from .window.__main__ import WindowDriverMethods
 class Browser:
     """Main class of Browserist that sets the Selenium web driver and contains all helper functions."""
 
-    __slots__ = ["_browser_driver", "driver", "ie", "safari",
-                 "check_if", "click", "combo", "get", "iframe", "input", "mouse", "open", "prompt", "screenshot", "scroll", "select", "tool", "user_agent", "viewport", "wait", "window"]
+    __slots__ = [
+        "_browser_driver",
+        "driver",
+        "ie",
+        "safari",
+        "check_if",
+        "click",
+        "combo",
+        "get",
+        "iframe",
+        "input",
+        "mouse",
+        "open",
+        "prompt",
+        "screenshot",
+        "scroll",
+        "select",
+        "tool",
+        "user_agent",
+        "viewport",
+        "wait",
+        "window",
+    ]
 
     def __init__(self, settings: BrowserSettings | None = None) -> None:
         """How to initiate the browser driver:
@@ -103,7 +124,9 @@ class Browser:
     def __enter__(self) -> Browser:
         return self
 
-    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+    def __exit__(
+        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None
+    ) -> None:
         self.quit()
 
     def back(self) -> None:

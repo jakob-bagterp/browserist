@@ -26,7 +26,9 @@ class OpenDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             open_url(self._browser_driver, url)
 
-    def url_if_not_current(self, url: str, ignore_trailing_slash: bool = True, ignore_parameters: bool = False, ignore_https: bool = False) -> None:
+    def url_if_not_current(
+        self, url: str, ignore_trailing_slash: bool = True, ignore_parameters: bool = False, ignore_https: bool = False
+    ) -> None:
         """Open a URL if it isn't already the current URL.
 
         Tip:

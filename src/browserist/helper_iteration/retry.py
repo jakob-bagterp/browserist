@@ -16,9 +16,10 @@ def calculate_number_of_retries(total_time: int | float, interval: int | float) 
 
 def get_text(
     browser_driver: BrowserDriver,
-    input: str, func: DriverGetTextCallable,
+    input: str,
+    func: DriverGetTextCallable,
     timeout: float = timeout.DEFAULT,
-    wait_interval_seconds: float = interval.DEFAULT
+    wait_interval_seconds: float = interval.DEFAULT,
 ) -> str | None:
     text = func(browser_driver, input)
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
@@ -34,10 +35,7 @@ def get_text(
 
 
 def retry_iteration(
-    browser_driver: BrowserDriver,
-    retries_left: int,
-    wait_interval_seconds: float,
-    func: DriverGetBoolCallable
+    browser_driver: BrowserDriver, retries_left: int, wait_interval_seconds: float, func: DriverGetBoolCallable
 ) -> int:
     time.sleep(wait_interval_seconds)
     retries_left -= 1
@@ -50,11 +48,12 @@ def retry_iteration(
 
 def until_condition_is_true_or_false(
     browser_driver: BrowserDriver,
-    *args: Any, func: DriverGetBoolCallable,
+    *args: Any,
+    func: DriverGetBoolCallable,
     timeout: float,
     wait_interval_seconds: float,
     condition: bool,
-    func_uses_browser_driver: bool
+    func_uses_browser_driver: bool,
 ) -> None:
     retries_left = calculate_number_of_retries(timeout, wait_interval_seconds)
     if func_uses_browser_driver:
@@ -71,10 +70,17 @@ def until_condition_is_true(
     func: DriverGetBoolCallable,
     timeout: float = timeout.DEFAULT,
     wait_interval_seconds: float = interval.DEFAULT,
-    func_uses_browser_driver: bool = True
+    func_uses_browser_driver: bool = True,
 ) -> None:
-    until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
-                                     wait_interval_seconds=wait_interval_seconds, condition=True, func_uses_browser_driver=func_uses_browser_driver)
+    until_condition_is_true_or_false(
+        browser_driver,
+        *args,
+        func=func,
+        timeout=timeout,
+        wait_interval_seconds=wait_interval_seconds,
+        condition=True,
+        func_uses_browser_driver=func_uses_browser_driver,
+    )
 
 
 def until_condition_is_false(
@@ -83,7 +89,14 @@ def until_condition_is_false(
     func: DriverGetBoolCallable,
     timeout: float = timeout.DEFAULT,
     wait_interval_seconds: float = interval.DEFAULT,
-    func_uses_browser_driver: bool = True
+    func_uses_browser_driver: bool = True,
 ) -> None:
-    until_condition_is_true_or_false(browser_driver, *args, func=func, timeout=timeout,
-                                     wait_interval_seconds=wait_interval_seconds, condition=False, func_uses_browser_driver=func_uses_browser_driver)
+    until_condition_is_true_or_false(
+        browser_driver,
+        *args,
+        func=func,
+        timeout=timeout,
+        wait_interval_seconds=wait_interval_seconds,
+        condition=False,
+        func_uses_browser_driver=func_uses_browser_driver,
+    )

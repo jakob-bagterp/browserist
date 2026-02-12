@@ -13,14 +13,17 @@ from browserist.exception.retry import RetryTimeoutException
 from browserist.exception.timeout import WaitForElementTimeoutException
 
 
-@pytest.mark.parametrize("xpath, regex, expectation", [
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "Learn more", does_not_raise()),
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "LeARn mOrE", pytest.raises(RetryTimeoutException)),
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "more", pytest.raises(RetryTimeoutException)),
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, r"^more", pytest.raises(RetryTimeoutException)),
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "no valid text", pytest.raises(RetryTimeoutException)),
-    (does_not_exist.XPATH, "element doesn't exist", pytest.raises(WaitForElementTimeoutException)),
-])
+@pytest.mark.parametrize(
+    "xpath, regex, expectation",
+    [
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "Learn more", does_not_raise()),
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "LeARn mOrE", pytest.raises(RetryTimeoutException)),
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "more", pytest.raises(RetryTimeoutException)),
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, r"^more", pytest.raises(RetryTimeoutException)),
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "no valid text", pytest.raises(RetryTimeoutException)),
+        (does_not_exist.XPATH, "element doesn't exist", pytest.raises(WaitForElementTimeoutException)),
+    ],
+)
 def test_wait_until_text_equals(xpath: str, regex: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:

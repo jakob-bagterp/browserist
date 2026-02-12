@@ -15,7 +15,7 @@ from ..model.download.safari import SafariDownloadHandler
 
 
 def browser_driver(settings: BrowserSettings) -> BrowserDriver:
-    match(settings.type):
+    match settings.type:
         case BrowserType.CHROME:
             return ChromeBrowserDriver(settings)
         case BrowserType.EDGE:
@@ -30,8 +30,10 @@ def browser_driver(settings: BrowserSettings) -> BrowserDriver:
             raise ValueError(settings.type)
 
 
-def download_handler(browser_driver: BrowserDriver, download_dir_entries_before_download: list[str], idle_download_timeout: float) -> DownloadHandler:
-    match(browser_driver.settings.type):
+def download_handler(
+    browser_driver: BrowserDriver, download_dir_entries_before_download: list[str], idle_download_timeout: float
+) -> DownloadHandler:
+    match browser_driver.settings.type:
         case BrowserType.CHROME:
             return ChromeDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case BrowserType.EDGE:
@@ -39,7 +41,9 @@ def download_handler(browser_driver: BrowserDriver, download_dir_entries_before_
         case BrowserType.FIREFOX:
             return FirefoxDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case BrowserType.INTERNET_EXPLORER:
-            return InternetExplorerDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
+            return InternetExplorerDownloadHandler(
+                browser_driver, download_dir_entries_before_download, idle_download_timeout
+            )
         case BrowserType.SAFARI:
             return SafariDownloadHandler(browser_driver, download_dir_entries_before_download, idle_download_timeout)
         case _:

@@ -8,10 +8,10 @@ from pytest import MonkeyPatch
 from browserist import Browser
 
 
-@pytest.mark.parametrize("user_input, validate_input_regex", [
-    ("user input", r"."),
-])
-def test_prompt_input_value(user_input: str, validate_input_regex: str, browser_default_headless: Browser, monkeypatch: MonkeyPatch) -> None:
+@pytest.mark.parametrize("user_input, validate_input_regex", [("user input", r".")])
+def test_prompt_input_value(
+    user_input: str, validate_input_regex: str, browser_default_headless: Browser, monkeypatch: MonkeyPatch
+) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.MINI_SITE_CONTACT)
     assert browser.get.attribute.value(MINI_SITE_CONTACT_INPUT_SUBJECT_XPATH, "value") == EMPTY_STRING

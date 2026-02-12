@@ -11,10 +11,10 @@ from browserist.constant import timeout
 from browserist.exception.headless import MethodNotSupportedInHeadlessModeException
 
 
-@pytest.mark.parametrize("browser_settings, expectation", [
-    (default.DEFAULT, does_not_raise()),
-    (default.HEADLESS, pytest.raises(MethodNotSupportedInHeadlessModeException)),
-])
+@pytest.mark.parametrize(
+    "browser_settings, expectation",
+    [(default.DEFAULT, does_not_raise()), (default.HEADLESS, pytest.raises(MethodNotSupportedInHeadlessModeException))],
+)
 def test_headless_mode_in_select_input_field_exceptions(browser_settings: BrowserSettings, expectation: Any) -> None:
     with Browser(browser_settings) as browser:
         with expectation:

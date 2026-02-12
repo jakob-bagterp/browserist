@@ -15,9 +15,21 @@ from ..type.path import FilePath
 class DownloadHandler(ABC):
     """Abstract class that contains the download handler methods for various browser types."""
 
-    __slots__ = ["_browser_driver", "_download_dir", "_download_dir_entries_before_download", "_idle_download_timeout", "_temporary_file", "_final_file"]
+    __slots__ = [
+        "_browser_driver",
+        "_download_dir",
+        "_download_dir_entries_before_download",
+        "_idle_download_timeout",
+        "_temporary_file",
+        "_final_file",
+    ]
 
-    def __init__(self, browser_driver: BrowserDriver, download_dir_entries_before_download: list[str], idle_download_timeout: float) -> None:
+    def __init__(
+        self,
+        browser_driver: BrowserDriver,
+        download_dir_entries_before_download: list[str],
+        idle_download_timeout: float,
+    ) -> None:
         self._browser_driver: BrowserDriver = browser_driver
         self._download_dir: FilePath = browser_driver.settings._download_dir
         self._download_dir_entries_before_download: list[str] = download_dir_entries_before_download
@@ -89,10 +101,17 @@ class DownloadHandler(ABC):
             download_dir_entries = get_directory_entries(self._download_dir)
             if self._has_no_new_files_in_download_directory(download_dir_entries):
                 return False
-            download_dir_entries_difference = [file for file in download_dir_entries if file not in self._download_dir_entries_before_download]
+            download_dir_entries_difference = [
+                file for file in download_dir_entries if file not in self._download_dir_entries_before_download
+            ]
             return any(self._is_preliminary_temporary_file(file) for file in download_dir_entries_difference)
 
-        helper_iteration.retry.until_condition_is_false(self._browser_driver, func=has_any_new_preliminary_temporary_files, timeout=self._idle_download_timeout, func_uses_browser_driver=False)
+        helper_iteration.retry.until_condition_is_false(
+            self._browser_driver,
+            func=has_any_new_preliminary_temporary_files,
+            timeout=self._idle_download_timeout,
+            func_uses_browser_driver=False,
+        )
 
     def _attempt_to_get_temporary_file(self) -> FilePath | None:
         """Attempt to get the name of the temporary file of the current download."""
@@ -118,7 +137,9 @@ class DownloadHandler(ABC):
 
         def get_final_file_candidates() -> list[str]:
             current_download_dir_entries = get_directory_entries(self._download_dir)
-            return [file for file in current_download_dir_entries if file not in self._download_dir_entries_before_download]
+            return [
+                file for file in current_download_dir_entries if file not in self._download_dir_entries_before_download
+            ]
 
         def get_final_file_candidate() -> str | None:
             file_candidates = get_final_file_candidates()
@@ -146,12 +167,16 @@ class DownloadHandler(ABC):
         if file_candidate is None:
             self._final_file = None
             return self._final_file
-        if self._is_temporary_file(file_candidate):  # In esoteric cases where the temporary file has passed through earlier checks, the final file candidate may be a temporary file.
+        if self._is_temporary_file(
+            file_candidate
+        ):  # In esoteric cases where the temporary file has passed through earlier checks, the final file candidate may be a temporary file.
             if self._temporary_file_predicts_final_file and self._temporary_file is not None:
                 file_candidate = self._get_temporary_file_without_extension()
             else:
                 temporary_file = file_candidate
-                wait_until_download_file_size_does_not_increase(self._browser_driver, temporary_file, self._idle_download_timeout)
+                wait_until_download_file_size_does_not_increase(
+                    self._browser_driver, temporary_file, self._idle_download_timeout
+                )
                 file_candidate = get_final_file_candidate()
                 if file_candidate is None:
                     self._final_file = None
@@ -173,7 +198,12 @@ class DownloadHandler(ABC):
 
         number_of_download_dir_entries_before_download = len(get_directory_entries(self._download_dir))
         helper_iteration.retry.until_condition_is_true(
-            self._browser_driver, number_of_download_dir_entries_before_download, func=has_files_in_download_dir, timeout=self._idle_download_timeout, func_uses_browser_driver=False)
+            self._browser_driver,
+            number_of_download_dir_entries_before_download,
+            func=has_files_in_download_dir,
+            timeout=self._idle_download_timeout,
+            func_uses_browser_driver=False,
+        )
 
     def wait_for_expected_file(self, expected_file_name: str) -> None:
         """Wait for the expected file to be downloaded. If not found, an exception is raised."""
@@ -182,7 +212,9 @@ class DownloadHandler(ABC):
             """If it's a small, fast download, the temporary file may only be short-lived, or maybe the final file is already ready, and so let's check for the final file first for quick return."""
 
             if file_exists(expected_file_path):
-                wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+                wait_until_download_file_size_does_not_increase(
+                    self._browser_driver, expected_file_name, self._idle_download_timeout
+                )
                 return True
             else:
                 return False
@@ -190,8 +222,12 @@ class DownloadHandler(ABC):
         def temporary_file_yields_final_file_then_await_download(expected_file_name: str) -> bool:
             if self._temporary_file_predicts_final_file:
                 expected_temporary_file_name = self._get_temporary_file_from_expected_file(expected_file_name)
-                wait_until_download_file_size_does_not_increase(self._browser_driver, expected_temporary_file_name, self._idle_download_timeout)
-                wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+                wait_until_download_file_size_does_not_increase(
+                    self._browser_driver, expected_temporary_file_name, self._idle_download_timeout
+                )
+                wait_until_download_file_size_does_not_increase(
+                    self._browser_driver, expected_file_name, self._idle_download_timeout
+                )
                 return True if file_exists(expected_file_path) else False
             else:
                 return False
@@ -199,8 +235,12 @@ class DownloadHandler(ABC):
         def temporary_file_is_found_then_await_download_of_final_file(expected_file_name: str) -> bool:
             if not self._temporary_file_predicts_final_file:
                 if self._attempt_to_get_temporary_file() and self._temporary_file is not None:
-                    wait_until_download_file_size_does_not_increase(self._browser_driver, self._temporary_file.name, self._idle_download_timeout)
-                wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+                    wait_until_download_file_size_does_not_increase(
+                        self._browser_driver, self._temporary_file.name, self._idle_download_timeout
+                    )
+                wait_until_download_file_size_does_not_increase(
+                    self._browser_driver, expected_file_name, self._idle_download_timeout
+                )
                 return True if file_exists(expected_file_path) else False
             else:
                 return False
@@ -216,7 +256,9 @@ class DownloadHandler(ABC):
         elif temporary_file_is_found_then_await_download_of_final_file(expected_file_name):
             return
         wait_until_download_file_exists(self._browser_driver, expected_file_name, self._idle_download_timeout)
-        wait_until_download_file_size_does_not_increase(self._browser_driver, expected_file_name, self._idle_download_timeout)
+        wait_until_download_file_size_does_not_increase(
+            self._browser_driver, expected_file_name, self._idle_download_timeout
+        )
 
     def await_and_get_final_file(self) -> Path:
         """Await the download to finish and return the file path."""
@@ -225,7 +267,9 @@ class DownloadHandler(ABC):
         self._await_no_preliminary_temporary_file()
         self._attempt_to_get_temporary_file()
         if self._temporary_file is not None:
-            wait_until_download_file_size_does_not_increase(self._browser_driver, self._temporary_file.name, self._idle_download_timeout)
+            wait_until_download_file_size_does_not_increase(
+                self._browser_driver, self._temporary_file.name, self._idle_download_timeout
+            )
         self._attempt_to_get_final_file()
         if self._final_file is not None:
             self.wait_for_expected_file(self._final_file)

@@ -13,12 +13,17 @@ from browserist.exception.retry import RetryTimeoutException
 from browserist.exception.timeout import WaitForElementTimeoutException
 
 
-@pytest.mark.parametrize("xpath, baseline_text, expectation", [
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "changed text", does_not_raise()),
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "Learn more", pytest.raises(RetryTimeoutException)),
-    (does_not_exist.XPATH, "element doesn't exist", pytest.raises(WaitForElementTimeoutException)),
-])
-def test_wait_until_text_changes(xpath: str, baseline_text: str, expectation: Any, browser_default_headless: Browser) -> None:
+@pytest.mark.parametrize(
+    "xpath, baseline_text, expectation",
+    [
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "changed text", does_not_raise()),
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, "Learn more", pytest.raises(RetryTimeoutException)),
+        (does_not_exist.XPATH, "element doesn't exist", pytest.raises(WaitForElementTimeoutException)),
+    ],
+)
+def test_wait_until_text_changes(
+    xpath: str, baseline_text: str, expectation: Any, browser_default_headless: Browser
+) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
         browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

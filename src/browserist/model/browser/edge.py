@@ -11,9 +11,7 @@ class EdgeBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.EDGE
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(
-            service=self.edge_service,
-            options=self.edge_options)
+        return WebDriver(service=self.edge_service, options=self.edge_options)
 
     def disable_images(self) -> None:
         self = factory.chromium.disable_images(self)  # type: ignore

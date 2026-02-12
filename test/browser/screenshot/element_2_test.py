@@ -14,7 +14,9 @@ MINI_SITE_HOMEPAGE_HERO_XPATH = "/html/body/section[1]"
 
 
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
-def test_get_screenshot_of_element_1_with_default_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: Path) -> None:
+def test_get_screenshot_of_element_1_with_default_file_name_and_default_destination(
+    browser_default_headless_screenshot: Browser, tmpdir: Path
+) -> None:
     """Test of browser.screenshot.element("//xpath/to/element") with default file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
@@ -24,7 +26,9 @@ def test_get_screenshot_of_element_1_with_default_file_name_and_default_destinat
 
 
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
-def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destination(browser_default_headless_screenshot: Browser, tmpdir: Path) -> None:
+def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destination(
+    browser_default_headless_screenshot: Browser, tmpdir: Path
+) -> None:
     """Test of browser.screenshot.element("//xpath/to/element", "image.png") with custom file name and default destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless_screenshot)
@@ -34,7 +38,9 @@ def test_get_screenshot_of_element_2_with_custom_file_name_and_default_destinati
 
 
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
-def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: Path) -> None:
+def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destination(
+    browser_default_headless: Browser, tmpdir: Path
+) -> None:
     """Test of browser.screenshot.element("//xpath/to/element", "image.png", "/screenshots/folder") with custom file name and destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)
@@ -45,7 +51,9 @@ def test_get_screenshot_of_element_3_with_custom_file_name_and_custom_destinatio
 
 
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
-def test_get_screenshot_of_element_4_with_default_file_name_and_custom_destination(browser_default_headless: Browser, tmpdir: Path) -> None:
+def test_get_screenshot_of_element_4_with_default_file_name_and_custom_destination(
+    browser_default_headless: Browser, tmpdir: Path
+) -> None:
     """Test of browser.screenshot.element("//xpath/to/element", destination_dir="/screenshots/folder") with default file name and custom destination."""
 
     browser = reset_to_not_timed_out(browser_default_headless)

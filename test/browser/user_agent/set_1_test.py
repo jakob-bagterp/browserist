@@ -10,11 +10,18 @@ from browserist.exception.user_agent import ChangeUserAgentOnTheFlyNotSupportedE
 from browserist.helper import operating_system
 
 
-@pytest.mark.parametrize("browser_settings, user_agent, expectation", [
-    (BrowserSettings(type=BrowserType.CHROME, headless=True), "test", does_not_raise()),
-    (BrowserSettings(type=BrowserType.EDGE, headless=True), "test", does_not_raise()),
-    (BrowserSettings(type=BrowserType.FIREFOX, headless=True), "test", pytest.raises(ChangeUserAgentOnTheFlyNotSupportedException)),
-])
+@pytest.mark.parametrize(
+    "browser_settings, user_agent, expectation",
+    [
+        (BrowserSettings(type=BrowserType.CHROME, headless=True), "test", does_not_raise()),
+        (BrowserSettings(type=BrowserType.EDGE, headless=True), "test", does_not_raise()),
+        (
+            BrowserSettings(type=BrowserType.FIREFOX, headless=True),
+            "test",
+            pytest.raises(ChangeUserAgentOnTheFlyNotSupportedException),
+        ),
+    ],
+)
 def test_user_agent_set_on_the_fly(browser_settings: BrowserSettings, user_agent: str, expectation: Any) -> None:
     if operating_system.is_macos() and browser_settings.type is BrowserType.EDGE:
         pytest.skip("Microsoft Edge is not supported on macOS.")
@@ -22,7 +29,10 @@ def test_user_agent_set_on_the_fly(browser_settings: BrowserSettings, user_agent
     with Browser(browser_settings) as browser:
         browser.open.url(internal_url.MINI_SITE_HOMEPAGE)
         user_agent_default = browser.user_agent.get()
-        assert any(expected_user_agent_snippet in user_agent_default for expected_user_agent_snippet in DEFAULT_USER_AGENT_SNIPPETS)
+        assert any(
+            expected_user_agent_snippet in user_agent_default
+            for expected_user_agent_snippet in DEFAULT_USER_AGENT_SNIPPETS
+        )
         with expectation:
             browser.user_agent.set(user_agent)
             user_agent_custom = browser.user_agent.get()

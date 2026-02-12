@@ -36,7 +36,8 @@ class LoginForm1Step:
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.submit_button_xpath = XPath(self.submit_button_xpath)
         self.post_login_element_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(
-            self.post_login_element_xpath)
+            self.post_login_element_xpath
+        )
 
 
 @dataclass(kw_only=True, slots=True)
@@ -74,4 +75,5 @@ class LoginForm2Steps:
         self.password_input_xpath = XPath(self.password_input_xpath)
         self.password_submit_button_xpath = XPath(self.password_submit_button_xpath)
         self.post_login_element_xpath = helper.xpath.mediate_conversion_to_tiny_type_or_none(
-            self.post_login_element_xpath)
+            self.post_login_element_xpath
+        )

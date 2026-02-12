@@ -12,5 +12,5 @@ def prompt_proceed_yes_or_no() -> bool:
             valid_choice = True
             return False
         else:
-            print("Please respond with \"Y\" or \"N\". Try again...")
+            print('Please respond with "Y" or "N". Try again...')
     return False

@@ -5,10 +5,10 @@ from _mock_data.url import internal_url
 from browserist import Browser
 
 
-@pytest.mark.parametrize("url1, url2", [
-    (internal_url.MINI_SITE_HOMEPAGE, None),
-    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1),
-])
+@pytest.mark.parametrize(
+    "url1, url2",
+    [(internal_url.MINI_SITE_HOMEPAGE, None), (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1)],
+)
 @pytest.mark.xdist_group(name="serial_window_tests")
 def test_open_new_window(url1: str, url2: str) -> None:
     with Browser(default.HEADLESS) as browser:

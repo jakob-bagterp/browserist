@@ -74,13 +74,15 @@ def split_url_and_parameters(url: str | URL) -> tuple[str, str]:
 
 
 def get_domain_from_url(url: str | URL) -> str:
-    return (urlparse(url).netloc)
+    return urlparse(url).netloc
 
 
 HTTP_OR_HTTPS_REGEX_PATTERN = "https?:"
 
 
-def compile_comparison_to_regex_pattern(url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool) -> re.Pattern[str]:
+def compile_comparison_to_regex_pattern(
+    url: str | URL, ignore_trailing_slash: bool, ignore_parameters: bool, ignore_https: bool
+) -> re.Pattern[str]:
     """Compile a URL to a regular expression pattern with optionals for comparison.
 
     Args:

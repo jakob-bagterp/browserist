@@ -18,12 +18,17 @@ def test_user_agent_set_on_initiation_with_default_browser() -> None:
         assert user_agent_checked == USER_AGENT_TEST
 
 
-@pytest.mark.parametrize("browser_settings, expectation", [
-    (BrowserSettings(type=BrowserType.CHROME, headless=True, user_agent=USER_AGENT_TEST), does_not_raise()),
-    (BrowserSettings(type=BrowserType.EDGE, headless=True, user_agent=USER_AGENT_TEST), does_not_raise()),
-    (BrowserSettings(type=BrowserType.FIREFOX, headless=True, user_agent=USER_AGENT_TEST), does_not_raise()),
-])
-def test_user_agent_set_on_initiation_with_various_browsers(browser_settings: BrowserSettings, expectation: Any) -> None:
+@pytest.mark.parametrize(
+    "browser_settings, expectation",
+    [
+        (BrowserSettings(type=BrowserType.CHROME, headless=True, user_agent=USER_AGENT_TEST), does_not_raise()),
+        (BrowserSettings(type=BrowserType.EDGE, headless=True, user_agent=USER_AGENT_TEST), does_not_raise()),
+        (BrowserSettings(type=BrowserType.FIREFOX, headless=True, user_agent=USER_AGENT_TEST), does_not_raise()),
+    ],
+)
+def test_user_agent_set_on_initiation_with_various_browsers(
+    browser_settings: BrowserSettings, expectation: Any
+) -> None:
     if operating_system.is_macos() and browser_settings.type is BrowserType.EDGE:
         pytest.skip("Microsoft Edge is not supported on macOS.")
         return

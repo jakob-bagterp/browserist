@@ -28,8 +28,16 @@ class ScreenshotType(Enum):
 class ScreenshotTempDataHandler:
     """Class to handle iteration details and general data for screenshot of complete page, e.g. file and directory names."""
 
-    __slots__ = ["file_name", "destination_dir",
-                 "_all_temp_file_paths", "_destination_file_path", "_iteration", "_screenshot", "_temp_dir", "_temp_file_prefix"]
+    __slots__ = [
+        "file_name",
+        "destination_dir",
+        "_all_temp_file_paths",
+        "_destination_file_path",
+        "_iteration",
+        "_screenshot",
+        "_temp_dir",
+        "_temp_file_prefix",
+    ]
 
     file_name: FilePNG
     destination_dir: FilePath
@@ -58,7 +66,7 @@ class ScreenshotTempDataHandler:
         """Merge a screenshot iteration incrementally into the complete page screenshot in RAM (instead of merging all screenshots at the end)."""
 
         index = self._iteration - 1
-        match (self._iteration):
+        match self._iteration:
             case 1:  # First screenshot is copied to the image base as preparation for the final screenshot.
                 self._screenshot = helper.image.open(self._all_temp_file_paths[index])
             case _:  # Second and later screenshots are merged with the base image.

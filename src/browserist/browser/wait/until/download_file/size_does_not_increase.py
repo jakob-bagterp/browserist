@@ -9,7 +9,9 @@ from .....helper_iteration.retry import calculate_number_of_retries
 from .....model.browser.base.driver import BrowserDriver
 
 
-def wait_until_download_file_size_does_not_increase(browser_driver: BrowserDriver, file_name: str, idle_download_timeout: float) -> None:
+def wait_until_download_file_size_does_not_increase(
+    browser_driver: BrowserDriver, file_name: str, idle_download_timeout: float
+) -> None:
     file_path = helper_download.get_file_path(browser_driver, file_name)
 
     def reset_retries() -> int:

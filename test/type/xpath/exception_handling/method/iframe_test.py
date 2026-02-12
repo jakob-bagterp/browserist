@@ -8,13 +8,10 @@ from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 
 
-@pytest.mark.parametrize("method, timeout", [
-    (switch_to_iframe, timeout.VERY_SHORT),
-])
+@pytest.mark.parametrize("method, timeout", [(switch_to_iframe, timeout.VERY_SHORT)])
 def test_xpath_exception_handling_for_iframe_methods(
-    browser_default_headless: Browser,
-    method: BrowserMethodWith3ArgumentsCallable,
-    timeout: float
+    browser_default_headless: Browser, method: BrowserMethodWith3ArgumentsCallable, timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_COOKIE_BANNER_IFRAME)
+        browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_COOKIE_BANNER_IFRAME
+    )

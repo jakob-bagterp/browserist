@@ -10,16 +10,16 @@ from browserist import Browser
 SEARCH_RESULTS_XPATH = "//*[@id='search-results']/div[@class='search-result-item']"
 
 
-@pytest.mark.parametrize("term, expected_result_elements, expected_first_result_starts_with", [
-    ("fruits", 7, "Apple"),
-    ("no results", 1, "No results found"),
-])
+@pytest.mark.parametrize(
+    "term, expected_result_elements, expected_first_result_starts_with",
+    [("fruits", 7, "Apple"), ("no results", 1, "No results found")],
+)
 @pytest.mark.xdist_group(name="serial_combo_search_tests")
 def test_combo_search(
     term: str,
     expected_result_elements: int,
     expected_first_result_starts_with: str,
-    browser_default_headless_disable_images: Browser
+    browser_default_headless_disable_images: Browser,
 ) -> None:
     with expectation_of_no_exceptions_raised():
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)

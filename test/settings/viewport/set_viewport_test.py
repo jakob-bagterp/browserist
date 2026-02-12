@@ -4,13 +4,14 @@ from _mock_data.url import internal_url
 from browserist import Browser, BrowserSettings, DeviceViewportSize
 
 
-@pytest.mark.parametrize("viewport, expected_width, expected_height", [
-    (DeviceViewportSize(666, 420), 666, 420),
-    ((375, 667), 375, 667),
-    (None, 800, 600),
-])
+@pytest.mark.parametrize(
+    "viewport, expected_width, expected_height",
+    [(DeviceViewportSize(666, 420), 666, 420), ((375, 667), 375, 667), (None, 800, 600)],
+)
 @pytest.mark.xdist_group(name="serial_viewport_tests")
-def test_set_viewport_on_init(viewport: DeviceViewportSize | tuple[int, int] | None, expected_width: int, expected_height: int) -> None:
+def test_set_viewport_on_init(
+    viewport: DeviceViewportSize | tuple[int, int] | None, expected_width: int, expected_height: int
+) -> None:
     settings = BrowserSettings(viewport=viewport, headless=True, check_connection=False)
     with Browser(settings) as browser:
         browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

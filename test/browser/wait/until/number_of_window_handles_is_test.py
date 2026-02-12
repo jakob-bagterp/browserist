@@ -9,16 +9,25 @@ from browserist.constant import timeout
 from browserist.exception.timeout import WaitForWindowTimeoutException
 
 
-@pytest.mark.parametrize("open_new_tabs, open_new_windows, expected_handles, expected_exception", [
-    (1, 1, 3, does_not_raise()),
-    (0, 1, 2, does_not_raise()),
-    (1, 0, 2, does_not_raise()),
-    (1, 1, 1, pytest.raises(WaitForWindowTimeoutException)),
-    (0, 1, 1, pytest.raises(WaitForWindowTimeoutException)),
-    (1, 0, 1, pytest.raises(WaitForWindowTimeoutException)),
-    (0, 0, -1, pytest.raises(ValueError)),
-])
-def test_wait_until_number_of_window_handles_is(open_new_tabs: int, open_new_windows: int, expected_handles: int, expected_exception: Any, browser_default_headless_scope_function: Browser) -> None:
+@pytest.mark.parametrize(
+    "open_new_tabs, open_new_windows, expected_handles, expected_exception",
+    [
+        (1, 1, 3, does_not_raise()),
+        (0, 1, 2, does_not_raise()),
+        (1, 0, 2, does_not_raise()),
+        (1, 1, 1, pytest.raises(WaitForWindowTimeoutException)),
+        (0, 1, 1, pytest.raises(WaitForWindowTimeoutException)),
+        (1, 0, 1, pytest.raises(WaitForWindowTimeoutException)),
+        (0, 0, -1, pytest.raises(ValueError)),
+    ],
+)
+def test_wait_until_number_of_window_handles_is(
+    open_new_tabs: int,
+    open_new_windows: int,
+    expected_handles: int,
+    expected_exception: Any,
+    browser_default_headless_scope_function: Browser,
+) -> None:
     """As the browser already has one tab open by default, we test the number of new windows or tabs plus 1."""
 
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)

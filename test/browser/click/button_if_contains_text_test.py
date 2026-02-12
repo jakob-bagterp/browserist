@@ -6,10 +6,7 @@ from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_BUTTON_FEATUR
 from browserist import Browser
 
 
-@pytest.mark.parametrize("text, ignore_case", [
-    ("Learn more", False),
-    ("lEArN MoRE", True),
-])
+@pytest.mark.parametrize("text, ignore_case", [("Learn more", False), ("lEArN MoRE", True)])
 def test_click_button_if_contains_text(text: str, ignore_case: bool, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

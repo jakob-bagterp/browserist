@@ -21,7 +21,20 @@ from .type import BrowserType
 class BrowserDriver(ABC):
     """Abstract class that contains the Selenium web driver based on browser type and configuration."""
 
-    __slots__ = ["settings", "chrome_options", "chrome_service", "edge_options", "edge_service", "firefox_options", "firefox_service", "ie_options", "ie_service", "safari_options", "safari_service", "webdriver"]
+    __slots__ = [
+        "settings",
+        "chrome_options",
+        "chrome_service",
+        "edge_options",
+        "edge_service",
+        "firefox_options",
+        "firefox_service",
+        "ie_options",
+        "ie_service",
+        "safari_options",
+        "safari_service",
+        "webdriver",
+    ]
 
     def __init__(self, settings: BrowserSettings) -> None:
         """Initiates basic properties of the Selenium web driver."""
@@ -32,7 +45,7 @@ class BrowserDriver(ABC):
         helper.directory.create_if_not_exists(self.settings._download_dir)
         helper.directory.create_if_not_exists(self.settings._screenshot_dir)
 
-        match(self.settings.type):
+        match self.settings.type:
             case BrowserType.CHROME:
                 self.chrome_options: ChromeOptions = ChromeOptions()
                 self.chrome_service: ChromeService = self.set_service()  # type: ignore

@@ -56,7 +56,9 @@ class TimeoutSettings:
 
     __slots__ = ["strategy", "seconds", "idle_download_seconds", "_is_timed_out"]
 
-    def __init__(self, strategy: TimeoutStrategy = TimeoutStrategy.STOP, seconds: float = 5, idle_download_seconds: float = 3) -> None:
+    def __init__(
+        self, strategy: TimeoutStrategy = TimeoutStrategy.STOP, seconds: float = 5, idle_download_seconds: float = 3
+    ) -> None:
         self.strategy: TimeoutStrategy = strategy
         self.seconds: float = seconds
         self.idle_download_seconds: float = idle_download_seconds

@@ -10,11 +10,16 @@ from browserist.constant import timeout
 from browserist.exception.timeout import WaitForPageTitleToChangeTimeoutException
 
 
-@pytest.mark.parametrize("url, page_title_fragment, expectation", [
-    (internal_url.MINI_SITE_HOMEPAGE, "Homepage", does_not_raise()),
-    (internal_url.MINI_SITE_HOMEPAGE, "no match", pytest.raises(WaitForPageTitleToChangeTimeoutException)),
-])
-def test_wait_until_page_title_contains(url: str, page_title_fragment: str, expectation: Any, browser_default_headless: Browser) -> None:
+@pytest.mark.parametrize(
+    "url, page_title_fragment, expectation",
+    [
+        (internal_url.MINI_SITE_HOMEPAGE, "Homepage", does_not_raise()),
+        (internal_url.MINI_SITE_HOMEPAGE, "no match", pytest.raises(WaitForPageTitleToChangeTimeoutException)),
+    ],
+)
+def test_wait_until_page_title_contains(
+    url: str, page_title_fragment: str, expectation: Any, browser_default_headless: Browser
+) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
         browser.open.url(url)

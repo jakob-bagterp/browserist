@@ -10,10 +10,10 @@ from browserist.constant import timeout
 from browserist.exception.retry import RetryTimeoutException
 
 
-@pytest.mark.parametrize("baseline_text, expectation", [
-    ("Not the current page title", does_not_raise()),
-    ("Homepage", pytest.raises(RetryTimeoutException)),
-])
+@pytest.mark.parametrize(
+    "baseline_text, expectation",
+    [("Not the current page title", does_not_raise()), ("Homepage", pytest.raises(RetryTimeoutException))],
+)
 def test_wait_until_text_changes(baseline_text: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:

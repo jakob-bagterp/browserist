@@ -13,12 +13,10 @@ from browserist.constant import idle_timeout
 from browserist.helper import operating_system
 
 
-@pytest.mark.parametrize("await_download, expected_file_name", [
-    (False, None),
-    (False, download_page.EXPECTED_FILE_NAME),
-    (True, None),
-    (True, download_page.EXPECTED_FILE_NAME),
-])
+@pytest.mark.parametrize(
+    "await_download, expected_file_name",
+    [(False, None), (False, download_page.EXPECTED_FILE_NAME), (True, None), (True, download_page.EXPECTED_FILE_NAME)],
+)
 @pytest.mark.skipif(operating_system.is_windows(), reason="This test is not supported on Windows.")
 @pytest.mark.xdist_group(name="serial_download_tests")
 def test_click_download(await_download: bool, expected_file_name: str, tmpdir: Path) -> None:
@@ -31,7 +29,7 @@ def test_click_download(await_download: bool, expected_file_name: str, tmpdir: P
             DONWLOAD_BUTTON_XPATH,
             await_download=await_download,
             expected_file_name=expected_file_name,
-            idle_download_timeout=idle_timeout.VERY_SHORT
+            idle_download_timeout=idle_timeout.VERY_SHORT,
         )
         if not await_download:
             browser.wait.until.download_file.exists(download_page.EXPECTED_FILE_NAME)

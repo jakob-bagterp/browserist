@@ -14,7 +14,9 @@ from ..wait.for_element import wait_for_element
 from ..wait.until.element_disappears import wait_until_element_disappears
 
 
-def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBannerSettings, timeout: float) -> bool | None:
+def combo_cookie_banner(
+    driver_method: DriverMethods, cookie_banner: CookieBannerSettings, timeout: float
+) -> bool | None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
     browser_driver = driver_method._browser_driver
     handling_state = ComboHandlingState()
@@ -54,7 +56,9 @@ def combo_cookie_banner(driver_method: DriverMethods, cookie_banner: CookieBanne
     def wait_for_cookie_banner_to_disappear_by_element_and_handle_return_bool() -> None:
         if timeout_should_continue():
             wait_until_element_disappears(browser_driver, cookie_banner.button_xpath, timeout)
-            if handling_state.get() is not IsComboHandled.NOT_STARTED and not check_if_is_displayed(browser_driver, cookie_banner.button_xpath):
+            if handling_state.get() is not IsComboHandled.NOT_STARTED and not check_if_is_displayed(
+                browser_driver, cookie_banner.button_xpath
+            ):
                 handling_state.set(IsComboHandled.YES_AND_WITH_SUCCESS)
 
     def reset_cookie_banner_iframe_if_needed() -> None:

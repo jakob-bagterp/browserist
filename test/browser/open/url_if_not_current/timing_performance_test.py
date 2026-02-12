@@ -10,12 +10,15 @@ from browserist import Browser
 MAX_TIME_TO_OPEN_INTERNAL_PAGE = 10_000_000  # Nanoseconds.
 
 
-@pytest.mark.parametrize("url1, url2", [
-    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE),
-    (internal_url.MINI_SITE_HOMEPAGE, external_url.EXAMPLE_COM),
-    (internal_url.MINI_SITE_FEATURE_1, internal_url.MINI_SITE_FEATURE_1),
-    (internal_url.MINI_SITE_FEATURE_1, external_url.EXAMPLE_COM),
-])
+@pytest.mark.parametrize(
+    "url1, url2",
+    [
+        (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_HOMEPAGE),
+        (internal_url.MINI_SITE_HOMEPAGE, external_url.EXAMPLE_COM),
+        (internal_url.MINI_SITE_FEATURE_1, internal_url.MINI_SITE_FEATURE_1),
+        (internal_url.MINI_SITE_FEATURE_1, external_url.EXAMPLE_COM),
+    ],
+)
 def test_open_url_if_not_current_by_timing_performance(url1: str, url2: str, browser_default_headless: Browser) -> None:
     """Ensure that not re-opening an existing URL is more efficient than reloading the page.
 

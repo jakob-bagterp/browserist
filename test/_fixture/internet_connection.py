@@ -14,7 +14,9 @@ class NetworkDisabler:
     def __enter__(self):
         socket.socket.connect = self._no_internet_connection
 
-    def __exit__(self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None) -> None:
+    def __exit__(
+        self, exc_type: type[BaseException] | None, exc_value: BaseException | None, traceback: TracebackType | None
+    ) -> None:
         socket.socket.connect = self._original_socket_connection
 
     def _no_internet_connection(*args, **kwargs) -> None:

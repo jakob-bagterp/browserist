@@ -8,10 +8,10 @@ from browserist.exception.xpath import XPathSyntaxError
 from browserist.model.type.xpath import XPath
 
 
-@pytest.mark.parametrize("xpath, expectation, is_valid_expectation", [
-    (VALID_XPATH, does_not_raise(), True),
-    (INVALID_XPATH, pytest.raises(XPathSyntaxError), False),
-])
+@pytest.mark.parametrize(
+    "xpath, expectation, is_valid_expectation",
+    [(VALID_XPATH, does_not_raise(), True), (INVALID_XPATH, pytest.raises(XPathSyntaxError), False)],
+)
 def test_xpath_type_is_valid(xpath: str, expectation: Any, is_valid_expectation: bool) -> None:
     with expectation:
         xpath = XPath(xpath)

@@ -7,6 +7,8 @@ from selenium.webdriver.safari.options import Options as SafariOptions
 from ..model.browser.base.driver import BrowserDriver
 
 
-def page_load_strategy(browser_driver: BrowserDriver, options: ChromeOptions | EdgeOptions | FirefoxOptions | IEOptions | SafariOptions) -> ChromeOptions | EdgeOptions | FirefoxOptions | IEOptions | SafariOptions:
+def page_load_strategy(
+    browser_driver: BrowserDriver, options: ChromeOptions | EdgeOptions | FirefoxOptions | IEOptions | SafariOptions
+) -> ChromeOptions | EdgeOptions | FirefoxOptions | IEOptions | SafariOptions:
     options.page_load_strategy = browser_driver.settings.page_load_strategy.value
     return options

@@ -151,8 +151,9 @@ class BrowserSettings:
     proxy: str | ProxySettings | None = None
 
     def __post_init__(self) -> None:
-        self._path_to_executable: FilePath | None = None if self.path_to_executable is None else FilePath(
-            self.path_to_executable)
+        self._path_to_executable: FilePath | None = (
+            None if self.path_to_executable is None else FilePath(self.path_to_executable)
+        )
         self._download_dir: FilePath = FilePath(self.download_dir)
         self._screenshot_dir: FilePath = FilePath(self.screenshot_dir)
         self._proxy_url: str | None = self.proxy.get_url() if isinstance(self.proxy, ProxySettings) else self.proxy

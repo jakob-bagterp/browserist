@@ -16,7 +16,7 @@ class IsComboHandled(Enum):
     YES_AND_WITH_SUCCESS = True
 
 
-class ComboHandlingState():
+class ComboHandlingState:
     """Class to define handling state of combo methods."""
 
     __slots__ = ["current", "current_value"]

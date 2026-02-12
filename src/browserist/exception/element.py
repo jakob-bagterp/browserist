@@ -19,7 +19,7 @@ class NoElementFoundWithTextConditionException(Exception):
 
     def __init__(self, browser_driver: BrowserDriver, xpath: str, text_condition: str) -> None:
         current_url = get_current_url(browser_driver)
-        self.message = f"On page {current_url}, an element that contains \"{text_condition}\" could not be found: {xpath}"
+        self.message = f'On page {current_url}, an element that contains "{text_condition}" could not be found: {xpath}'
         super().__init__(self.message)
 
     def __str__(self) -> str:
