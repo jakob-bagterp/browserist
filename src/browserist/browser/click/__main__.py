@@ -121,7 +121,7 @@ class ClickDriverMethods(DriverMethods):
 
     def download_and_get_file_path(
         self, xpath: str, timeout: float | None = None, idle_download_timeout: float | None = None
-    ) -> Path:  # type: ignore
+    ) -> Path:
         """Click button on the current page to download file and get file path once download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand.
 
         Args:
