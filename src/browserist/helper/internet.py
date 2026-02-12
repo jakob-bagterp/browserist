@@ -12,7 +12,7 @@ def check_connection(url: URL, requests_session: Session, timeout: float = timeo
     """Check if there is an internet connection by pinging a server."""
 
     try:
-        ssl._create_default_https_context = ssl._create_unverified_context
+        ssl._create_default_https_context = ssl._create_unverified_context  # type: ignore
         _ = requests_session.get(url, timeout=timeout)
         return True
     except (ConnectionError, Exception):
