@@ -62,7 +62,12 @@ class ComboDriverMethods(DriverMethods):
             return_bool_value = combo_cookie_banner(self, settings, timeout)
         return return_bool_value
 
-    def log_in(self, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float | None = None) -> bool | None:
+    def log_in(
+        self,
+        login_credentials: LoginCredentials,
+        login_form: LoginForm1Step | LoginForm2Steps,
+        timeout: float | None = None,
+    ) -> bool | None:
         """Standardised combination of methods to log in.
 
         Note:

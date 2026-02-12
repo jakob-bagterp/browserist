@@ -5,10 +5,7 @@ from _mock_data.url import internal_url
 from browserist import Browser
 
 
-@pytest.mark.parametrize("height", [
-    600,
-    666,
-])
+@pytest.mark.parametrize("height", [600, 666])
 @pytest.mark.xdist_group(name="serial_viewport_tests")
 def test_set_viewport_height_headless(height: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)

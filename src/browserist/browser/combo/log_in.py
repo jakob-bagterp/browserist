@@ -15,7 +15,12 @@ from ..wait.for_element import wait_for_element
 from ..wait.until.url.contains import wait_until_url_contains
 
 
-def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentials, login_form: LoginForm1Step | LoginForm2Steps, timeout: float) -> bool | None:
+def combo_log_in(
+    driver_method: DriverMethods,
+    login_credentials: LoginCredentials,
+    login_form: LoginForm1Step | LoginForm2Steps,
+    timeout: float,
+) -> bool | None:
     timeout_should_continue: TimeoutShouldContinueCallable = driver_method._timeout_should_continue
     browser_driver = driver_method._browser_driver
     handling_state = ComboHandlingState()
@@ -63,7 +68,9 @@ def combo_log_in(driver_method: DriverMethods, login_credentials: LoginCredentia
                 return False
 
         post_login_flow(login_form)
-        if handling_state.get() is not IsComboHandled.NOT_STARTED and any([does_post_login_url_contain(), is_post_login_element_displayed()]):
+        if handling_state.get() is not IsComboHandled.NOT_STARTED and any(
+            [does_post_login_url_contain(), is_post_login_element_displayed()]
+        ):
             handling_state.set(IsComboHandled.YES_AND_WITH_SUCCESS)
 
     def flow_login_form_1_step_without_return_bool(login_form: LoginForm1Step) -> None:

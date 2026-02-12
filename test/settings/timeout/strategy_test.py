@@ -2,20 +2,23 @@ from typing import Any
 
 import pytest
 from _config.timeout_strategy import BrowserCallable
-from _helper.timeout import (reset_to_not_timed_out, set_timeout_strategy_to_continue, set_timeout_strategy_to_stop,
-                             set_to_timed_out)
+from _helper.timeout import (
+    reset_to_not_timed_out,
+    set_timeout_strategy_to_continue,
+    set_timeout_strategy_to_stop,
+    set_to_timed_out,
+)
 from _mock_data import does_not_exist
 from _mock_data.url import internal_url
-from _mock_data.xpath.mini_site.feature_1 import (MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH,
-                                                  MINI_SITE_FEATURE_1_IMAGE_1_XPATH)
+from _mock_data.xpath.mini_site.feature_1 import (
+    MINI_SITE_FEATURE_1_HEADLINE_H1_XPATH,
+    MINI_SITE_FEATURE_1_IMAGE_1_XPATH,
+)
 
 from browserist import Browser, BrowserSettings, TimeoutSettings
 
 browser_settings = BrowserSettings(
-    headless=True,
-    disable_images=True,
-    timeout=TimeoutSettings(seconds=1),
-    check_connection=False
+    headless=True, disable_images=True, timeout=TimeoutSettings(seconds=1), check_connection=False
 )
 
 browser = Browser(browser_settings)

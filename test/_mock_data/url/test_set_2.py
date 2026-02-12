@@ -11,8 +11,5 @@ INVALID_URL = "https:/invalid-url"
 
 
 URL_TEST_SET_DEFAULT = URLTestSet(
-    tests=[
-        URLExpectation(VALID_URL, does_not_raise()),
-        URLExpectation(INVALID_URL, pytest.raises(URLSyntaxError)),
-    ]
+    tests=[URLExpectation(VALID_URL, does_not_raise()), URLExpectation(INVALID_URL, pytest.raises(URLSyntaxError))]
 )

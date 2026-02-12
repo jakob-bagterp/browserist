@@ -3,14 +3,18 @@ from browserist.constant import idle_timeout
 from browserist.model.download.handler import DownloadHandler
 
 
-def get(browser: Browser, download_dir_entries_before_download: list[str], uses_temporary_file: bool) -> DownloadHandler:
-    def ensure_uses_temporary_file_is_set_predictably(download_handler: DownloadHandler, value: bool) -> DownloadHandler:
+def get(
+    browser: Browser, download_dir_entries_before_download: list[str], uses_temporary_file: bool
+) -> DownloadHandler:
+    def ensure_uses_temporary_file_is_set_predictably(
+        download_handler: DownloadHandler, value: bool
+    ) -> DownloadHandler:
         """As not all browsers support temporary files, let's ensure that the `_uses_temporary_file` value is set as predicted by the test."""
 
         property(
             fget=lambda value: value,
             fset=setattr(download_handler, "_uses_temporary_file.setter", lambda: value),
-            fdel=None
+            fdel=None,
         )
         return download_handler
 

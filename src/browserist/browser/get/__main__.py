@@ -90,7 +90,7 @@ class GetDriverMethods(DriverMethods):
             return get_elements(self._browser_driver, xpath, timeout)
 
     def elements_by_tag(self, tag: str, timeout: float | None = None) -> list[WebElement]:  # type: ignore
-        """"Get multiple `WebElement`s on the current page by HTML tag. Assumes that the XPath targets multiple elements.
+        """ "Get multiple `WebElement`s on the current page by HTML tag. Assumes that the XPath targets multiple elements.
 
         Args:
             tag (str): HTML tag of the elements. For example, `img` as tag for all `<img>` images, `a` for all `<a>` links, etc.
@@ -113,7 +113,7 @@ class GetDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             return get_elements_by_tag(self._browser_driver, tag, timeout)
 
-    def meta_description(self) -> str:   # type: ignore
+    def meta_description(self) -> str:  # type: ignore
         """Get meta description of the current page.
 
         Returns:
@@ -129,7 +129,7 @@ class GetDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             return get_meta_description(self._browser_driver)
 
-    def meta_robots(self) -> str:   # type: ignore
+    def meta_robots(self) -> str:  # type: ignore
         """Get meta robots configuration of the current page.
 
         Returns:

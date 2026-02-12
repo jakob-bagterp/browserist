@@ -17,23 +17,29 @@ def return_bool(_: object, input: str) -> bool:
     return input == TRUE
 
 
-@pytest.mark.parametrize("input, expectation", [
-    (FALSE, pytest.raises(RetryTimeoutException)),
-    (TRUE, does_not_raise()),
-])
+@pytest.mark.parametrize(
+    "input, expectation", [(FALSE, pytest.raises(RetryTimeoutException)), (TRUE, does_not_raise())]
+)
 def test_helper_retry_until_condition_is_true(input: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
-        _ = helper_iteration.retry.until_condition_is_true(
-            browser._browser_driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
+        _ = (
+            helper_iteration.retry.until_condition_is_true(
+                browser._browser_driver, input, func=return_bool, timeout=timeout.VERY_SHORT
+            )
+            is not None
+        )
 
 
-@pytest.mark.parametrize("input, expectation", [
-    (FALSE, does_not_raise()),
-    (TRUE, pytest.raises(RetryTimeoutException)),
-])
+@pytest.mark.parametrize(
+    "input, expectation", [(FALSE, does_not_raise()), (TRUE, pytest.raises(RetryTimeoutException))]
+)
 def test_helper_retry_until_condition_is_false(input: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
-        _ = helper_iteration.retry.until_condition_is_false(
-            browser._browser_driver, input, func=return_bool, timeout=timeout.VERY_SHORT) is not None
+        _ = (
+            helper_iteration.retry.until_condition_is_false(
+                browser._browser_driver, input, func=return_bool, timeout=timeout.VERY_SHORT
+            )
+            is not None
+        )

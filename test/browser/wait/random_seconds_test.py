@@ -7,10 +7,7 @@ from _helper.timeout import reset_to_not_timed_out
 from browserist import Browser
 
 
-@pytest.mark.parametrize("min_seconds, max_seconds", [
-    (1, 2),
-    (2, 4),
-])
+@pytest.mark.parametrize("min_seconds, max_seconds", [(1, 2), (2, 4)])
 def test_wait_random_seconds(min_seconds: int, max_seconds: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     start_time_ns = time.perf_counter_ns()

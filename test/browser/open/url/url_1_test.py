@@ -5,11 +5,14 @@ from _mock_data.url import external_url, internal_url
 from browserist import Browser, helper
 
 
-@pytest.mark.parametrize("url1, url2", [
-    (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1),
-    (internal_url.MINI_SITE_FEATURE_1, external_url.EXAMPLE_COM),
-    (external_url.EXAMPLE_COM, external_url.IANA_ORG_RESERVED_DOMAINS),
-])
+@pytest.mark.parametrize(
+    "url1, url2",
+    [
+        (internal_url.MINI_SITE_HOMEPAGE, internal_url.MINI_SITE_FEATURE_1),
+        (internal_url.MINI_SITE_FEATURE_1, external_url.EXAMPLE_COM),
+        (external_url.EXAMPLE_COM, external_url.IANA_ORG_RESERVED_DOMAINS),
+    ],
+)
 def test_open_url(url1: str, url2: str, browser_default_headless: Browser) -> None:
     url1 = helper.url.ensure_trailing_slash(url1)
     url2 = helper.url.ensure_trailing_slash(url2)

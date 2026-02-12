@@ -6,7 +6,7 @@ def disable_images(browser_driver: BrowserDriver) -> BrowserDriver:
     if browser_driver.settings.disable_images:
         preferences = {
             "profile.managed_default_content_settings.images": 2,
-            "profile.default_content_settings.images": 2
+            "profile.default_content_settings.images": 2,
         }
         match browser_driver.settings.type:
             case BrowserType.CHROME:
@@ -24,7 +24,7 @@ def set_download_directory(browser_driver: BrowserDriver) -> BrowserDriver:
         preferences = {
             "download.default_directory": browser_driver.settings._download_dir,
             "download.directory_upgrade": True,
-            "download.prompt_for_download": False
+            "download.prompt_for_download": False,
         }
         match browser_driver.settings.type:
             case BrowserType.CHROME:

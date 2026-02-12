@@ -43,11 +43,7 @@ def browser_default_headless_scope_function() -> Generator[Browser, None, None]:
 
 @pytest.fixture(scope="function")
 def browser_default_headless_screenshot(tmpdir: Path) -> Generator[Browser, None, None]:
-    browser_settings = BrowserSettings(
-        headless=True,
-        screenshot_dir=str(tmpdir),
-        check_connection=False
-    )
+    browser_settings = BrowserSettings(headless=True, screenshot_dir=str(tmpdir), check_connection=False)
     with Browser(browser_settings) as browser:
         yield browser
 
@@ -55,10 +51,7 @@ def browser_default_headless_screenshot(tmpdir: Path) -> Generator[Browser, None
 @pytest.fixture(scope="function")
 def browser_firefox_headless_screenshot(tmpdir: Path) -> Generator[Browser, None, None]:
     browser_settings = BrowserSettings(
-        type=BrowserType.FIREFOX,
-        headless=True,
-        screenshot_dir=str(tmpdir),
-        check_connection=False
+        type=BrowserType.FIREFOX, headless=True, screenshot_dir=str(tmpdir), check_connection=False
     )
     with Browser(browser_settings) as browser:
         yield browser

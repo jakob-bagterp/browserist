@@ -48,4 +48,9 @@ def test_wait_until_download_file_size_does_not_increase(tmpdir: Path) -> None:
         with Browser(browser_settings) as browser:
             browser.open.url(internal_url.DOWNLOAD)
             browser.click.button(DONWLOAD_BUTTON_XPATH)
-            _ = browser.wait.until.download_file.size_does_not_increase(download_page.EXPECTED_FILE_NAME, idle_timeout.VERY_SHORT) is not None
+            _ = (
+                browser.wait.until.download_file.size_does_not_increase(
+                    download_page.EXPECTED_FILE_NAME, idle_timeout.VERY_SHORT
+                )
+                is not None
+            )

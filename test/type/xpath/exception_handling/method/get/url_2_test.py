@@ -11,27 +11,23 @@ from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable
 
 
-@pytest.mark.parametrize("method, timeout", [
-    (get_url_from_link, timeout.VERY_SHORT),
-    (get_url_from_links, timeout.VERY_SHORT),
-])
+@pytest.mark.parametrize(
+    "method, timeout", [(get_url_from_link, timeout.VERY_SHORT), (get_url_from_links, timeout.VERY_SHORT)]
+)
 def test_xpath_exception_handling_for_get_url_methods_1(
-    browser_default_headless: Browser,
-    method: BrowserMethodWith3ArgumentsCallable,
-    timeout: float
+    browser_default_headless: Browser, method: BrowserMethodWith3ArgumentsCallable, timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK)
+        browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK
+    )
 
 
-@pytest.mark.parametrize("method, timeout", [
-    (get_url_from_image, timeout.VERY_SHORT),
-    (get_url_from_images, timeout.VERY_SHORT),
-])
+@pytest.mark.parametrize(
+    "method, timeout", [(get_url_from_image, timeout.VERY_SHORT), (get_url_from_images, timeout.VERY_SHORT)]
+)
 def test_xpath_exception_handling_for_get_url_methods_2(
-    browser_default_headless: Browser,
-    method: BrowserMethodWith3ArgumentsCallable,
-    timeout: float
+    browser_default_headless: Browser, method: BrowserMethodWith3ArgumentsCallable, timeout: float
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_MINI_SITE_FEATURE_1_IMAGE)
+        browser_default_headless, method, timeout, test_set=XPATH_TEST_SET_MINI_SITE_FEATURE_1_IMAGE
+    )

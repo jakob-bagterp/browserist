@@ -11,16 +11,17 @@ from _mock_data.xpath.download_page import DONWLOAD_BUTTON_XPATH
 from browserist import Browser, BrowserSettings
 
 
-@pytest.mark.parametrize("download_dir", [
-    "downloads",
-])
+@pytest.mark.parametrize("download_dir", ["downloads"])
 def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: Path) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:
         timeout_seconds = 5
         interval_seconds = 0.1
         total_attempts = int(timeout_seconds / interval_seconds)
         attempt = 0
-        while get_directory_items_count(browser_settings._download_dir) == directory_items_before_download and attempt < total_attempts:
+        while (
+            get_directory_items_count(browser_settings._download_dir) == directory_items_before_download
+            and attempt < total_attempts
+        ):
             time.sleep(interval_seconds)
             attempt += 1
 
@@ -35,9 +36,7 @@ def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: Path) 
         return len(get_directory_items(path))
 
     browser_settings: BrowserSettings = BrowserSettings(
-        headless=True,
-        download_dir=directory.create_and_get_temporary(tmpdir, download_dir),
-        check_connection=False
+        headless=True, download_dir=directory.create_and_get_temporary(tmpdir, download_dir), check_connection=False
     )
 
     with Browser(browser_settings) as browser:

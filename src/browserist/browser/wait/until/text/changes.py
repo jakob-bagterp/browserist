@@ -12,4 +12,5 @@ def wait_until_text_changes(browser_driver: BrowserDriver, xpath: str, baseline_
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
     helper_iteration.retry.until_condition_is_true(
-        browser_driver, baseline_text, func=has_text_changed, timeout=timeout)
+        browser_driver, baseline_text, func=has_text_changed, timeout=timeout
+    )

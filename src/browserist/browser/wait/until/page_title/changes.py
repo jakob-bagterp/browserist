@@ -8,4 +8,5 @@ def wait_until_page_title_changes(browser_driver: BrowserDriver, baseline_text: 
         return get_page_title(browser_driver) != baseline_text
 
     helper_iteration.retry.until_condition_is_true(
-        browser_driver, baseline_text, func=has_page_title_changed, timeout=timeout)
+        browser_driver, baseline_text, func=has_page_title_changed, timeout=timeout
+    )

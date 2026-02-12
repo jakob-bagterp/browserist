@@ -15,4 +15,5 @@ def wait_until_text_contains(browser_driver: BrowserDriver, xpath: str, regex: s
     xpath = XPath(xpath)
     wait_for_element(browser_driver, xpath, timeout)
     helper_iteration.retry.until_condition_is_true(
-        browser_driver, xpath, regex, func=does_element_text_contain, timeout=timeout)
+        browser_driver, xpath, regex, func=does_element_text_contain, timeout=timeout
+    )

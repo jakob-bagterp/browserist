@@ -1,8 +1,13 @@
 from ... import helper
 from ...browser.window.handle.current import get_current_window_handle
-from ...exception.window_handle import (WindowHandleIdNotFoundError, WindowHandleIdNotUniqueError,
-                                        WindowHandleIdNotValidError, WindowHandleNameNotFoundError,
-                                        WindowHandleNameNotUniqueError, WindowHandleNameNotValidError)
+from ...exception.window_handle import (
+    WindowHandleIdNotFoundError,
+    WindowHandleIdNotUniqueError,
+    WindowHandleIdNotValidError,
+    WindowHandleNameNotFoundError,
+    WindowHandleNameNotUniqueError,
+    WindowHandleNameNotValidError,
+)
 from ..browser.base.driver import BrowserDriver
 from .handle import WindowHandle
 
@@ -14,10 +19,8 @@ class WindowHandleController:
         self._counter: int = 1
         self._original_window_name = str(self._counter)
         self._window_handles: list[WindowHandle] = [
-            WindowHandle(
-                name=self._original_window_name,
-                id=get_current_window_handle(browser_driver),
-            )]
+            WindowHandle(name=self._original_window_name, id=get_current_window_handle(browser_driver))
+        ]
 
     def add_handle(self, id: str, name: str | None = None) -> None:
         """Add new window handle to list. The name is optional."""

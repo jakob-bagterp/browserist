@@ -43,14 +43,18 @@ class SimulateFileDownloadInStagesThread(Thread):
 
 
 class DownloadHandlerThread(Thread):
-    def __init__(self, browser: Browser, download_dir_entries_before_download: list[str], uses_temporary_file: bool) -> None:
+    def __init__(
+        self, browser: Browser, download_dir_entries_before_download: list[str], uses_temporary_file: bool
+    ) -> None:
         Thread.__init__(self)
         self.browser = browser
         self.download_dir_entries_before_download = download_dir_entries_before_download
         self.uses_temporary_file = uses_temporary_file
 
     def run(self) -> None:
-        download_handler = get_download_handler(self.browser, self.download_dir_entries_before_download, self.uses_temporary_file)
+        download_handler = get_download_handler(
+            self.browser, self.download_dir_entries_before_download, self.uses_temporary_file
+        )
         _ = download_handler.await_and_get_final_file()
         assert download_handler._final_file is not None
         assert download_handler._final_file.name == FINAL_FILE_NAME
@@ -58,35 +62,46 @@ class DownloadHandlerThread(Thread):
             assert download_handler._temporary_file.name == TEMPORARY_FILE_NAME
 
 
-@pytest.mark.parametrize("preliminary_temporary_file_time, temporary_file_time", [
-    (0, 0),
-    (0, 0.1),
-    (0, 0.2),
-    (0, 1),
-    (0.01, 0),
-    (0.01, 0.1),
-    (0.01, 0.2),
-    (0.01, 1),
-    (0.1, 0),
-    (0.1, 0.1),
-    (0.1, 0.2),
-    (0.1, 1),
-    (0.2, 0),
-    (0.2, 0.1),
-    (0.2, 0.2),
-    (0.2, 1),
-])
+@pytest.mark.parametrize(
+    "preliminary_temporary_file_time, temporary_file_time",
+    [
+        (0, 0),
+        (0, 0.1),
+        (0, 0.2),
+        (0, 1),
+        (0.01, 0),
+        (0.01, 0.1),
+        (0.01, 0.2),
+        (0.01, 1),
+        (0.1, 0),
+        (0.1, 0.1),
+        (0.1, 0.2),
+        (0.1, 1),
+        (0.2, 0),
+        (0.2, 0.1),
+        (0.2, 0.2),
+        (0.2, 1),
+    ],
+)
 @pytest.mark.filterwarnings("error::pytest.PytestUnhandledThreadExceptionWarning")
 @pytest.mark.xdist_group(name="serial_download_tests")
-def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(preliminary_temporary_file_time: float, temporary_file_time: float, tmpdir: Path) -> None:
+def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(
+    preliminary_temporary_file_time: float, temporary_file_time: float, tmpdir: Path
+) -> None:
     """Test behaviour of `DownloadHandler` concurrently with simulation of the download file when it changes from preliminary to temporary to final file."""
 
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)
     if browser_settings.type not in [BrowserType.CHROME, BrowserType.EDGE]:
-        pytest.skip(f"Timing tests for DownloadHandler are only supported by Chrome and Edge, not {browser_settings.type}.")
-    if operating_system.is_windows() and is_python_version(3, 13):  # TODO: Remove this once we have a fix for this exception.
-        pytest.skip("When Python 3.13 runs on Windows there are inconstencies in the timing of temporary and final file names.")
+        pytest.skip(
+            f"Timing tests for DownloadHandler are only supported by Chrome and Edge, not {browser_settings.type}."
+        )
+    if operating_system.is_windows() and is_python_version(
+        3, 13
+    ):  # TODO: Remove this once we have a fix for this exception.
+        pytest.skip(
+            "When Python 3.13 runs on Windows there are inconstencies in the timing of temporary and final file names."
+        )
 
     with Browser(browser_settings) as browser:
         with expectation_of_no_exceptions_raised():
@@ -96,11 +111,15 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(pr
 
             if browser_settings.type is BrowserType.EDGE:
                 preliminary_temporary_file_time = 0  # Edge does not create a preliminary temporary file, which otherwise may create issues in the download file simulation.
-            simulate_file_download_thread = SimulateFileDownloadInStagesThread(download_dir, preliminary_temporary_file_time, temporary_file_time)
+            simulate_file_download_thread = SimulateFileDownloadInStagesThread(
+                download_dir, preliminary_temporary_file_time, temporary_file_time
+            )
             simulate_file_download_thread.start()
             threads.append(simulate_file_download_thread)
 
-            download_handler_thread = DownloadHandlerThread(browser, download_dir_entries_before_download, uses_temporary_file=True)
+            download_handler_thread = DownloadHandlerThread(
+                browser, download_dir_entries_before_download, uses_temporary_file=True
+            )
             download_handler_thread.start()
             threads.append(download_handler_thread)
 

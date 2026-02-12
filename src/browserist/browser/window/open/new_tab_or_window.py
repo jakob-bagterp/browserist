@@ -8,12 +8,14 @@ from ..handle.count import count_window_handles
 from ..handle.current import get_current_window_handle
 
 
-def open_new_tab_or_window(browser_driver: BrowserDriver,
-                           controller: WindowHandleController,
-                           tab_or_window: TabOrWindow,
-                           timeout: float,
-                           url: str | None = None,
-                           name: str | None = None) -> None:
+def open_new_tab_or_window(
+    browser_driver: BrowserDriver,
+    controller: WindowHandleController,
+    tab_or_window: TabOrWindow,
+    timeout: float,
+    url: str | None = None,
+    name: str | None = None,
+) -> None:
     url = helper.url.mediate_conversion_to_tiny_type_or_none(url)
     current_number_of_window_handles = count_window_handles(browser_driver, controller, selenium=True)
     driver = browser_driver.get_webdriver()

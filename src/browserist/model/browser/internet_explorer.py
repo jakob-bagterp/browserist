@@ -14,9 +14,7 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.INTERNET_EXPLORER
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(
-            service=self.ie_service,
-            options=self.ie_options)
+        return WebDriver(service=self.ie_service, options=self.ie_options)
 
     def disable_images(self) -> None:
         factory.internet_explorer.disable_images(self)

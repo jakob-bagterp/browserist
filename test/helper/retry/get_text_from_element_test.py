@@ -13,12 +13,11 @@ def return_input(_: object, input: str) -> str:
     return input
 
 
-@pytest.mark.parametrize("input, expectation", [
-    ("text", does_not_raise()),
-    ("", pytest.raises(RetryTimeoutException)),
-])
+@pytest.mark.parametrize("input, expectation", [("text", does_not_raise()), ("", pytest.raises(RetryTimeoutException))])
 def test_helper_retry_get_text(input: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
-        _ = helper_iteration.retry.get_text(browser._browser_driver, input,
-                                            return_input, timeout.VERY_SHORT) is not None
+        _ = (
+            helper_iteration.retry.get_text(browser._browser_driver, input, return_input, timeout.VERY_SHORT)
+            is not None
+        )

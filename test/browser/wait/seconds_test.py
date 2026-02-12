@@ -9,10 +9,7 @@ from browserist import Browser
 TIMING_MARGIN = 20 / 100  # 20%
 
 
-@pytest.mark.parametrize("seconds", [
-    1,
-    5.5,
-])
+@pytest.mark.parametrize("seconds", [1, 5.5])
 def test_wait_seconds(seconds: float, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     start_time_ns = time.perf_counter_ns()

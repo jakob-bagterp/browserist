@@ -12,10 +12,13 @@ from browserist.constant import timeout
 from browserist.exception.timeout import WaitForElementTimeoutException
 
 
-@pytest.mark.parametrize("xpath, expectation", [
-    (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, does_not_raise()),
-    (does_not_exist.XPATH, pytest.raises(WaitForElementTimeoutException)),
-])
+@pytest.mark.parametrize(
+    "xpath, expectation",
+    [
+        (MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH, does_not_raise()),
+        (does_not_exist.XPATH, pytest.raises(WaitForElementTimeoutException)),
+    ],
+)
 def test_wait_for_element(xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     browser.open.url(internal_url.MINI_SITE_HOMEPAGE)

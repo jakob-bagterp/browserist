@@ -1,7 +1,7 @@
 from ..helper import operating_system
 
 if operating_system.is_windows():
-    from winreg import CloseKey, OpenKey, SetValueEx, HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ
+    from winreg import HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ, CloseKey, OpenKey, SetValueEx
 
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.type import BrowserType
@@ -28,4 +28,6 @@ def enable_images(browser_driver: BrowserDriver) -> None:
 
 def set_download_directory(browser_driver: BrowserDriver) -> None:
     if browser_driver.settings._download_dir is not None:
-        set_internet_explorer_options_in_registry(browser_driver, "Default Download Directory", browser_driver.settings._download_dir)
+        set_internet_explorer_options_in_registry(
+            browser_driver, "Default Download Directory", browser_driver.settings._download_dir
+        )

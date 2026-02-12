@@ -13,9 +13,7 @@ class FirefoxBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.FIREFOX
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(
-            service=self.firefox_service,
-            options=self.firefox_options)
+        return WebDriver(service=self.firefox_service, options=self.firefox_options)
 
     def disable_images(self) -> None:
         if self.settings.disable_images:
@@ -49,8 +47,10 @@ class FirefoxBrowserDriver(BrowserDriver):
             if not isinstance(self.settings.proxy, ProxySettings):
                 raise ShouldUseProxySettingsException(self.settings.type)
             self.firefox_options.set_preference("network.proxy.type", 1)
-            proxy_url_partial = helper.proxy.get_url_from_proxy_settings(self.settings.proxy, add_protocol=False, add_port=False)
-            match(self.settings.proxy.type):
+            proxy_url_partial = helper.proxy.get_url_from_proxy_settings(
+                self.settings.proxy, add_protocol=False, add_port=False
+            )
+            match self.settings.proxy.type:
                 case ProxyProtocol.HTTP:
                     self.firefox_options.set_preference("network.proxy.http", proxy_url_partial)
                     self.firefox_options.set_preference("network.proxy.http_port", self.settings.proxy.port)

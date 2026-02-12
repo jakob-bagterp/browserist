@@ -5,11 +5,9 @@ from _mock_data.url import internal_url
 from browserist import Browser
 
 
-@pytest.mark.parametrize("width1, height1, width2, height2", [
-    (100, 100, 200, 200),
-    (100, 100, 100, 200),
-    (100, 100, 200, 100),
-])
+@pytest.mark.parametrize(
+    "width1, height1, width2, height2", [(100, 100, 200, 200), (100, 100, 100, 200), (100, 100, 200, 100)]
+)
 @pytest.mark.xdist_group(name="serial_window_tests")
 def test_window_set_size(width1: int, height1: int, width2: int, height2: int, browser_default: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default)

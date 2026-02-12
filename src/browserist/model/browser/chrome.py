@@ -11,9 +11,7 @@ class ChromeBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.CHROME
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(
-            service=self.chrome_service,
-            options=self.chrome_options)
+        return WebDriver(service=self.chrome_service, options=self.chrome_options)
 
     def disable_images(self) -> None:
         self = factory.chromium.disable_images(self)  # type: ignore

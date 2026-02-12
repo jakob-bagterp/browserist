@@ -12,10 +12,9 @@ from browserist.exception.retry import RetryTimeoutException
 from browserist.model.type.path import FilePath
 
 
-@pytest.mark.parametrize("has_file, expectation", [
-    (True, does_not_raise()),
-    (False, pytest.raises(RetryTimeoutException)),
-])
+@pytest.mark.parametrize(
+    "has_file, expectation", [(True, does_not_raise()), (False, pytest.raises(RetryTimeoutException))]
+)
 @pytest.mark.xdist_group(name="serial_download_tests")
 def test_wait_until_download_file_exists(has_file: bool, expectation: Any, tmpdir: Path) -> None:
     download_dir, file_name, file_path = _helper.file.download_dir_and_file_path_controller(has_file, str(tmpdir))

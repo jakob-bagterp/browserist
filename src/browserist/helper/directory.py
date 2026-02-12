@@ -36,4 +36,8 @@ def get_entries(path: FilePath) -> list[str]:
 
 
 def update_path_format_if_windows(path: str) -> str:
-    return ensure_windows_file_path_format_encoding_as_url(path) if operating_system.is_windows() else encode_path_as_url(path)
+    return (
+        ensure_windows_file_path_format_encoding_as_url(path)
+        if operating_system.is_windows()
+        else encode_path_as_url(path)
+    )

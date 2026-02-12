@@ -8,7 +8,9 @@ from browserist import Browser
 
 
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
-def test_file_png_exception_handling_for_screenshot_complete_page_method(browser_default_headless: Browser, tmpdir: Path) -> None:
+def test_file_png_exception_handling_for_screenshot_complete_page_method(
+    browser_default_headless: Browser, tmpdir: Path
+) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     for test in FILE_PNG_TEST_SET_DEFAULT.tests:
         browser.open.url(test.url)

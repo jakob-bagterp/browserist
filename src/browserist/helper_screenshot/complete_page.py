@@ -18,7 +18,9 @@ def firefox(browser_driver: BrowserDriver, file_name: FilePNG, destination_dir: 
     driver.get_full_page_screenshot_as_file(destination_file_path)  # type: ignore
 
 
-async def default(browser_driver: BrowserDriver, file_name: FilePNG, destination_dir: FilePath, delay_seconds: float) -> None:
+async def default(
+    browser_driver: BrowserDriver, file_name: FilePNG, destination_dir: FilePath, delay_seconds: float
+) -> None:
     async def async_scroll_to_top_of_page(browser_driver: BrowserDriver, delay_seconds: float) -> None:
         scroll_to_top_of_page(browser_driver, delay_seconds=0)
         # Instead of a blocking wait/delay in the above method, let's release the working thread to do something else:
@@ -34,11 +36,13 @@ async def default(browser_driver: BrowserDriver, file_name: FilePNG, destination
         # Instead of a blocking wait/delay in the above method, let's release the working thread to do something else:
         await asyncio.sleep(delay_seconds)
 
-    async def get_screenshot_of_visible_portion_and_scroll_down(browser_driver: BrowserDriver, handler: ScreenshotTempDataHandler, delay_seconds: float) -> None:
+    async def get_screenshot_of_visible_portion_and_scroll_down(
+        browser_driver: BrowserDriver, handler: ScreenshotTempDataHandler, delay_seconds: float
+    ) -> None:
         await asyncio.gather(
             handler.save_temp_screenshot(browser_driver),
             async_scroll_page_down(browser_driver, delay_seconds),
-            handler.incremental_merge_temp_screenshots()
+            handler.incremental_merge_temp_screenshots(),
         )
         handler.increment_iteration()
 
@@ -48,8 +52,7 @@ async def default(browser_driver: BrowserDriver, file_name: FilePNG, destination
     # Prepare for iteration from the top of the page.
     _, handler = await asyncio.gather(
         async_scroll_to_top_of_page(browser_driver, delay_seconds),
-        asyncio.to_thread(
-            ScreenshotTempDataHandler, file_name=file_name, destination_dir=destination_dir)
+        asyncio.to_thread(ScreenshotTempDataHandler, file_name=file_name, destination_dir=destination_dir),
     )
 
     # Take screenshots of the visible portion until we reach the end of the page.
@@ -61,5 +64,5 @@ async def default(browser_driver: BrowserDriver, file_name: FilePNG, destination
     await asyncio.gather(
         async_scroll_to_position(browser_driver, x_inital, y_initial, delay_seconds),
         handler.save_complete_page_screenshot(),
-        handler.remove_temp_files()
+        handler.remove_temp_files(),
     )

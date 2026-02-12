@@ -29,7 +29,9 @@ class ClickDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             click_button(self._browser_driver, xpath, timeout)
 
-    def button_if_contains_text(self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None) -> None:
+    def button_if_contains_text(
+        self, xpath: str, regex: str, ignore_case: bool = True, timeout: float | None = None
+    ) -> None:
         """Click button on the current page if it contains certain text.
 
         Args:
@@ -56,7 +58,14 @@ class ClickDriverMethods(DriverMethods):
             timeout = self._mediate_timeout(timeout)
             click_button_if_contains_text(self._browser_driver, xpath, regex, ignore_case, timeout)
 
-    def download(self, xpath: str, timeout: float | None = None, await_download: bool = False, expected_file_name: str | None = None, idle_download_timeout: float | None = None) -> None:
+    def download(
+        self,
+        xpath: str,
+        timeout: float | None = None,
+        await_download: bool = False,
+        expected_file_name: str | None = None,
+        idle_download_timeout: float | None = None,
+    ) -> None:
         """Click button on the current page and download file.
 
         Args:
@@ -106,9 +115,13 @@ class ClickDriverMethods(DriverMethods):
         if self._timeout_should_continue():
             timeout = self._mediate_timeout(timeout)
             idle_download_timeout = self._mediate_idle_download_timeout(idle_download_timeout)
-            click_download_button(self._browser_driver, xpath, timeout, await_download, expected_file_name, idle_download_timeout)
+            click_download_button(
+                self._browser_driver, xpath, timeout, await_download, expected_file_name, idle_download_timeout
+            )
 
-    def download_and_get_file_path(self, xpath: str, timeout: float | None = None, idle_download_timeout: float | None = None) -> Path:  # type: ignore
+    def download_and_get_file_path(
+        self, xpath: str, timeout: float | None = None, idle_download_timeout: float | None = None
+    ) -> Path:  # type: ignore
         """Click button on the current page to download file and get file path once download is complete. As downloads are automatically handled by the browser, this is useful if you don't know the file name beforehand.
 
         Args:

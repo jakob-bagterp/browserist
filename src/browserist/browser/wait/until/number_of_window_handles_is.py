@@ -7,7 +7,9 @@ from ....helper.timeout import set_is_timed_out, should_continue
 from ....model.browser.base.driver import BrowserDriver
 
 
-def wait_until_number_of_window_handles_is(browser_driver: BrowserDriver, expected_handles: int, timeout: float) -> None:
+def wait_until_number_of_window_handles_is(
+    browser_driver: BrowserDriver, expected_handles: int, timeout: float
+) -> None:
     if expected_handles < 0:
         raise ValueError("Expected handles must be greater than or equal to 0.")
     try:

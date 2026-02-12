@@ -13,11 +13,16 @@ from browserist.constant import timeout
 from browserist.exception.timeout import WaitForElementTimeoutException
 
 
-@pytest.mark.parametrize("url, xpath, expectation", [
-    (internal_url.MINI_SITE_CONTACT, MINI_SITE_CONTACT_INPUT_SUBJECT_XPATH, does_not_raise()),
-    (internal_url.MINI_SITE_CONTACT, does_not_exist.XPATH, pytest.raises(WaitForElementTimeoutException)),
-])
-def test_clear_input_field_exceptions(url: str, xpath: str, expectation: Any, browser_default_headless: Browser) -> None:
+@pytest.mark.parametrize(
+    "url, xpath, expectation",
+    [
+        (internal_url.MINI_SITE_CONTACT, MINI_SITE_CONTACT_INPUT_SUBJECT_XPATH, does_not_raise()),
+        (internal_url.MINI_SITE_CONTACT, does_not_exist.XPATH, pytest.raises(WaitForElementTimeoutException)),
+    ],
+)
+def test_clear_input_field_exceptions(
+    url: str, xpath: str, expectation: Any, browser_default_headless: Browser
+) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
         browser.open.url(url)

@@ -9,25 +9,23 @@ from browserist.constant import timeout
 from browserist.model.type.callable import BrowserMethodWith3ArgumentsCallable, BrowserMethodWith5ArgumentsCallable
 
 
-@pytest.mark.parametrize("method", [
-    click_button,
-])
+@pytest.mark.parametrize("method", [click_button])
 def test_xpath_exception_handling_for_click_methods_1(
-    browser_default_headless: Browser,
-    method: BrowserMethodWith3ArgumentsCallable
+    browser_default_headless: Browser, method: BrowserMethodWith3ArgumentsCallable
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(browser_default_headless, method, timeout.VERY_SHORT)
 
 
-@pytest.mark.parametrize("method, text, ignore_case, timeout", [
-    (click_button_if_contains_text, "Learn more", True, timeout.VERY_SHORT),
-])
+@pytest.mark.parametrize(
+    "method, text, ignore_case, timeout", [(click_button_if_contains_text, "Learn more", True, timeout.VERY_SHORT)]
+)
 def test_xpath_exception_handling_for_click_methods_2(
     browser_default_headless: Browser,
     method: BrowserMethodWith5ArgumentsCallable,
     text: str,
     ignore_case: bool,
-    timeout: float
+    timeout: float,
 ) -> None:
     exception_handling_for_methods_with_3_arguments_or_more(
-        browser_default_headless, method, text, ignore_case, timeout, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK)
+        browser_default_headless, method, text, ignore_case, timeout, test_set=XPATH_TEST_SET_MINI_SITE_HOMEPAGE_LINK
+    )
