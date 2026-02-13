@@ -1,14 +1,15 @@
-from ..helper import operating_system
-
-if operating_system.is_windows():
-    from winreg import HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ, CloseKey, OpenKey, SetValueEx  # type: ignore
+import sys
 
 from ..model.browser.base.driver import BrowserDriver
 from ..model.browser.base.type import BrowserType
 
 
 def set_internet_explorer_options_in_registry(browser_driver: BrowserDriver, value_name: str, value: str) -> None:
-    if browser_driver.settings.type is BrowserType.INTERNET_EXPLORER and operating_system.is_windows():
+    if (
+        browser_driver.settings.type is BrowserType.INTERNET_EXPLORER and sys.platform.startswith("win32")
+    ):  # Using local import as exception as MyPy somehow doesn't recognize "operating_system.is_windows()", althought it's the same mechanism:
+        from winreg import HKEY_CURRENT_USER, KEY_ALL_ACCESS, REG_SZ, CloseKey, OpenKey, SetValueEx
+
         key = OpenKey(HKEY_CURRENT_USER, r"Software\Microsoft\Internet Explorer\Main", 0, KEY_ALL_ACCESS)
         SetValueEx(key, value_name, 0, REG_SZ, value)
         CloseKey(key)
