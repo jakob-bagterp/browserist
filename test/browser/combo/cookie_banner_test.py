@@ -69,7 +69,7 @@ def test_combo_cookie_banner_has_loaded_wait_seconds(
         assert time_measured_a < time_measured_b
         time_difference_a_b = _helper.time.get_difference(has_loaded_wait_seconds_a, has_loaded_wait_seconds_b)
         time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
-        assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 30)
+        assert time_difference_measured_a_b >= _helper.tolerance.deduct_percent(time_difference_a_b, 30)
 
 
 @pytest.mark.parametrize(
@@ -103,7 +103,7 @@ def test_combo_cookie_banner_has_disappeared_wait_seconds(
             has_disappeared_wait_seconds_a, has_disappeared_wait_seconds_b
         )
         time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
-        assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 30)
+        assert time_difference_measured_a_b >= _helper.tolerance.deduct_percent(time_difference_a_b, 30)
 
 
 @pytest.mark.parametrize(

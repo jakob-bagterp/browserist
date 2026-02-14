@@ -31,11 +31,11 @@ def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_def
     browser.viewport.set.size_by_device(device)
     width_check, height_check = browser.viewport.get.size()
     if operating_system.is_macos() or operating_system.is_windows():
-        minimum_width = _helper.tolerance.deduct(device.width, 50)
-        maximum_width = _helper.tolerance.add(device.width, 70)
+        minimum_width = _helper.tolerance.deduct_percent(device.width, 50)
+        maximum_width = _helper.tolerance.add_percent(device.width, 70)
         assert minimum_width < width_check < maximum_width
-        minimum_height = _helper.tolerance.deduct(device.height, 50)
-        maximum_height = _helper.tolerance.add(device.height, 50)
+        minimum_height = _helper.tolerance.deduct_percent(device.height, 50)
+        maximum_height = _helper.tolerance.add_percent(device.height, 50)
         assert minimum_height < height_check < maximum_height
     else:
         assert device.width == width_check

@@ -96,7 +96,7 @@ def test_combo_log_in_post_login_wait_seconds(
         assert time_measured_a < time_measured_b
         time_difference_a_b = _helper.time.get_difference(post_login_wait_seconds_a, post_login_wait_seconds_b)
         time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
-        assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 20)
+        assert time_difference_measured_a_b >= _helper.tolerance.deduct_percent(time_difference_a_b, 20)
 
 
 @pytest.mark.parametrize(

@@ -35,8 +35,8 @@ def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
         case _ if operating_system.is_windows():
             assert y_page_up < y_end
         case _ if operating_system.is_macos():
-            assert y_page_up <= _helper.tolerance.add(expected_exact_position, 10)
-            assert y_page_up >= _helper.tolerance.deduct(expected_exact_position, 10)
+            assert y_page_up <= _helper.tolerance.add_percent(expected_exact_position, 10)
+            assert y_page_up >= _helper.tolerance.deduct_percent(expected_exact_position, 10)
         case _:
             assert y_page_up == expected_exact_position
 

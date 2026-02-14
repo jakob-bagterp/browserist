@@ -18,6 +18,6 @@ def test_get_total_scroll_height(
     browser.open.url(url)
     total_scroll_height = browser.scroll.get.total_height()
     # Various browsers may calculate the height differently, e.g. due to differient default widths, so we add a safety margin:
-    minimum_height = _helper.tolerance.deduct(expected_total_scroll_height, 50)
-    maximum_height = _helper.tolerance.add(expected_total_scroll_height, 50)
+    minimum_height = _helper.tolerance.deduct_percent(expected_total_scroll_height, 50)
+    maximum_height = _helper.tolerance.add_percent(expected_total_scroll_height, 50)
     assert minimum_height < total_scroll_height < maximum_height
