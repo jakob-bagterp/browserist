@@ -38,18 +38,23 @@ class BrowserDriver(ABC):
 
         match self.settings.type:
             case BrowserType.CHROME:
+                # TODO: Consider refactoring .chrome_options to .options and so on for other browsers for consistency and simplicity:
                 self.chrome_options: ChromeOptions = ChromeOptions()
                 self.service = self.set_service()
             case BrowserType.EDGE:
+                # TODO: Consider refactoring .edge_options to .options and so on for other browsers for consistency and simplicity:
                 self.edge_options: EdgeOptions = EdgeOptions()
                 self.service = self.set_service()
             case BrowserType.FIREFOX:
+                # TODO: Consider refactoring .firefox_options to .options and so on for other browsers for consistency and simplicity:
                 self.firefox_options: FirefoxOptions = FirefoxOptions()
                 self.service = self.set_service()
             case BrowserType.INTERNET_EXPLORER:
+                # TODO: Consider refactoring .ie_options to .options and so on for other browsers for consistency and simplicity:
                 self.ie_options: IEOptions = IEOptions()
                 self.service = self.set_service()
             case BrowserType.SAFARI:
+                # TODO: Consider refactoring .safari_options to .options and so on for other browsers for consistency and simplicity:
                 self.safari_options: SafariOptions = SafariOptions()
                 self.service = self.set_service()
 
