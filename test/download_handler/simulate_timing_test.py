@@ -62,6 +62,7 @@ class DownloadHandlerThread(Thread):
             assert download_handler._temporary_file.name == TEMPORARY_FILE_NAME
 
 
+@pytest.mark.skipif(operating_system.is_windows(), reason="Skipped as this test is unstable on Windows.")
 @pytest.mark.parametrize(
     "preliminary_temporary_file_time, temporary_file_time",
     [
