@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import contextlib
 from types import TracebackType
 
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -209,24 +208,4 @@ class Browser:
             pass
         finally:
             # Explicitly force the background driver service to stop, ensuring no orphaned .exe files hold the stdout pipes open and cause hanging issues (especially on Windows):
-            match self._settings.type:
-                case BrowserType.CHROME:
-                    with contextlib.suppress(Exception):
-                        # TODO: Consider refactoring .chrome_service.stop to .service.stop() to avoid the need for the match statement:
-                        self._browser_driver.chrome_service.stop()
-                case BrowserType.SAFARI:
-                    with contextlib.suppress(Exception):
-                        # TODO: Consider refactoring .safari_service.stop to .service.stop() to avoid the need for the match statement:
-                        self._browser_driver.safari_service.stop()
-                case BrowserType.EDGE:
-                    with contextlib.suppress(Exception):
-                        # TODO: Consider refactoring .edge_service.stop to .service.stop() to avoid the need for the match statement:
-                        self._browser_driver.edge_service.stop()
-                case BrowserType.FIREFOX:
-                    with contextlib.suppress(Exception):
-                        # TODO: Consider refactoring .firefox_service.stop to .service.stop() to avoid the need for the match statement:
-                        self._browser_driver.firefox_service.stop()
-                case BrowserType.INTERNET_EXPLORER:
-                    with contextlib.suppress(Exception):
-                        # TODO: Consider refactoring .ie_service.stop to .service.stop() to avoid the need for the match statement:
-                        self._browser_driver.ie_service.stop()
+            self._browser_driver.service.stop()
