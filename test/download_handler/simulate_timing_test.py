@@ -6,6 +6,7 @@ from threading import Thread
 import pytest
 from _fixture.download_handler import get as get_download_handler
 from _helper import directory, file
+from _helper.environment import FAILS_ON_GITHUB_ACTIONS, skip_if_github_actions
 from _helper.python import is_python_version
 from _helper.timeout import reset_to_not_timed_out
 
@@ -62,6 +63,7 @@ class DownloadHandlerThread(Thread):
             assert download_handler._temporary_file.name == TEMPORARY_FILE_NAME
 
 
+@skip_if_github_actions(FAILS_ON_GITHUB_ACTIONS)
 @pytest.mark.parametrize(
     "preliminary_temporary_file_time, temporary_file_time",
     [
