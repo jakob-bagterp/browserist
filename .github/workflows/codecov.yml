@@ -31,17 +31,6 @@ jobs:
         # The list of "--ignore=..." arguments should be identical to the exclusion list in tox.ini, though without comments:
         run: >
           uv run pytest --numprocesses=3 --cov=./ --cov-report=xml -vv -rA
-          --ignore=test/browser/window/get/height_1_test.py
-          --ignore=test/browser/window/get/position_1_test.py
-          --ignore=test/browser/window/get/size_1_test.py
-          --ignore=test/browser/window/get/width_1_test.py
-          --ignore=test/browser/window/set/height_2_test.py
-          --ignore=test/browser/window/set/position_2_test.py
-          --ignore=test/browser/window/set/size_2_test.py
-          --ignore=test/browser/window/set/width_2_test.py
-          --ignore=test/browser/window/fullscreen_test.py
-          --ignore=test/browser/window/maximize_test.py
-          --ignore=test/browser/window/minimize_test.py
           --ignore=test/browser/open/url_if_not_current/ignore_https_test.py
           --ignore=test/browser/open/url_if_not_current/timing_performance_test.py
           --ignore=test/browser/wait/random_seconds_test.py
@@ -54,7 +43,6 @@ jobs:
           --ignore=test/settings/download_dir/is_file_downloaded_test.py
           --ignore=test/settings/viewport/set_viewport_test.py
           --ignore=test/type/xpath/exception_handling/method/wait_until_images_have_loaded_test.py
-          --ignore=test/settings/proxy/set_proxy_test.py
 
       - name: Upload coverage report to CodeCov
         uses: codecov/codecov-action@v5

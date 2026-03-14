@@ -1,10 +1,12 @@
 import pytest
+from _helper.environment import skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize("width1, width2", [(500, 600), (800, 700)])
 @pytest.mark.xdist_group(name="serial_window_tests")
 def test_window_set_width(width1: int, width2: int, browser_default: Browser) -> None:

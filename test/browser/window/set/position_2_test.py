@@ -1,10 +1,12 @@
 import pytest
+from _helper.environment import skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize("x1, y1, x2, y2", [(0, 0, 30, 60), (10, 30, 0, 70)])
 @pytest.mark.xdist_group(name="serial_window_tests")
 def test_window_set_position(x1: int, y1: int, x2: int, y2: int, browser_default: Browser) -> None:

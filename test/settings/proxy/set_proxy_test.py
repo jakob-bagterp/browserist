@@ -4,6 +4,7 @@ from re import Match
 from typing import Any
 
 import pytest
+from _helper.environment import skip_if_github_actions
 from _mock_data.url import internal_url
 
 from browserist import Browser, BrowserSettings, BrowserType, ProxyProtocol, ProxySettings
@@ -20,6 +21,7 @@ ORIGIN_IP_ADDRESS_PATTERN = re.compile(
 )  # This is the pattern of the response from httpbin.io/ip, e.g. '"origin": "127.0.0.1:8000"'.
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize(
     "browser_type, proxy",
     [
@@ -52,6 +54,7 @@ def test_set_proxy(browser_type: BrowserType, proxy: ProxySettings | str) -> Non
     )  # Asserting that the IP address should be different when using a proxy.
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize(
     "browser_type, proxy, expectation",
     [
