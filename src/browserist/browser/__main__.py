@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import contextlib
 from types import TracebackType
 
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -208,4 +209,10 @@ class Browser:
             pass
         finally:
             # Explicitly force the background driver service to stop, ensuring no orphaned .exe files hold the stdout pipes open and cause hanging issues (especially on Windows):
-            self._browser_driver.service.stop()
+            service = self._browser_driver.service
+            if service.process and service.process.poll() is None:
+                with contextlib.suppress(Exception):
+                    service.process.kill()
+            elif service:
+                with contextlib.suppress(Exception):
+                    service.stop()
