@@ -29,7 +29,7 @@ jobs:
 
       - name: Generate coverage report
         # The list of "--ignore=..." arguments should be identical to the exclusion list in tox.ini, though without comments:
-        run: uv run pytest --numprocesses=3 --cov=./ --cov-report=xml -vv -rA
+        run: uv run pytest --ignore-glob="*non_headless*" --numprocesses=3 --cov=./ --cov-report=xml -vv -rA
       - name: Upload coverage report to CodeCov
         uses: codecov/codecov-action@v5
         with:
