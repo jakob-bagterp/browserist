@@ -1,4 +1,5 @@
 import pytest
+from _helper.environment import FAILS_ON_GITHUB_ACTIONS, skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 
 from browserist import Browser
@@ -7,6 +8,7 @@ URL_WITHOUT_HTTPS = "http://httpbin.org/"
 URL_WITH_HTTPS = "https://httpbin.org/"
 
 
+@skip_if_github_actions(FAILS_ON_GITHUB_ACTIONS)
 @pytest.mark.parametrize(
     "url1, url2, ignore_https, expected_url",
     [

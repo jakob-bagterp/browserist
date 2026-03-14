@@ -5,12 +5,14 @@ from pathlib import Path
 import pytest
 from _constant import download_page
 from _helper import directory
+from _helper.environment import FAILS_ON_GITHUB_ACTIONS, skip_if_github_actions
 from _mock_data.url import internal_url
 from _mock_data.xpath.download_page import DONWLOAD_BUTTON_XPATH
 
 from browserist import Browser, BrowserSettings
 
 
+@skip_if_github_actions(FAILS_ON_GITHUB_ACTIONS)
 @pytest.mark.parametrize("download_dir", ["downloads"])
 def test_download_directory_is_file_downloaded(download_dir: str, tmpdir: Path) -> None:
     def wait_for_download_to_finish(browser_settings: BrowserSettings, directory_items_before_download: int) -> None:

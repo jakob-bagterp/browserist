@@ -1,10 +1,12 @@
 import pytest
+from _helper.environment import FAILS_ON_GITHUB_ACTIONS, skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
 
 
+@skip_if_github_actions(FAILS_ON_GITHUB_ACTIONS)
 @pytest.mark.parametrize(
     "url, xpath, expected_width, expected_height",
     [

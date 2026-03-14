@@ -2,6 +2,7 @@ import time
 
 import _helper
 import pytest
+from _helper.environment import SKIP_TIMING_PERFORMANCE_TESTS, skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import external_url, internal_url
 
@@ -10,6 +11,7 @@ from browserist import Browser
 MAX_TIME_TO_OPEN_INTERNAL_PAGE = 10_000_000  # Nanoseconds.
 
 
+@skip_if_github_actions(SKIP_TIMING_PERFORMANCE_TESTS)
 @pytest.mark.parametrize(
     "url1, url2",
     [

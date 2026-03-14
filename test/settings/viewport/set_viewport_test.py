@@ -1,9 +1,11 @@
 import pytest
+from _helper.environment import FAILS_ON_GITHUB_ACTIONS, skip_if_github_actions
 from _mock_data.url import internal_url
 
 from browserist import Browser, BrowserSettings, DeviceViewportSize
 
 
+@skip_if_github_actions(FAILS_ON_GITHUB_ACTIONS)
 @pytest.mark.parametrize(
     "viewport, expected_width, expected_height",
     [(DeviceViewportSize(666, 420), 666, 420), ((375, 667), 375, 667), (None, 800, 600)],

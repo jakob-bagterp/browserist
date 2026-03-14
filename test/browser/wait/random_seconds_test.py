@@ -2,11 +2,13 @@ import time
 
 import pytest
 from _constant.time import NANOSECONDS_PER_SECOND
+from _helper.environment import SKIP_TIMING_PERFORMANCE_TESTS, skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 
 from browserist import Browser
 
 
+@skip_if_github_actions(SKIP_TIMING_PERFORMANCE_TESTS)
 @pytest.mark.parametrize("min_seconds, max_seconds", [(1, 2), (2, 4)])
 def test_wait_random_seconds(min_seconds: int, max_seconds: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
