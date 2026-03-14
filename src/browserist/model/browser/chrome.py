@@ -1,3 +1,5 @@
+from typing import cast
+
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.webdriver import WebDriver
 
@@ -11,7 +13,7 @@ class ChromeBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.CHROME
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(service=self.chrome_service, options=self.chrome_options)
+        return WebDriver(service=cast(ChromeService, self.service), options=self.chrome_options)
 
     def disable_images(self) -> None:
         self = factory.chromium.disable_images(self)  # type: ignore

@@ -1,3 +1,5 @@
+from typing import cast
+
 from selenium.webdriver.ie.service import Service as IEService
 from selenium.webdriver.ie.webdriver import WebDriver
 
@@ -14,7 +16,7 @@ class InternetExplorerBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.INTERNET_EXPLORER
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(service=self.ie_service, options=self.ie_options)
+        return WebDriver(service=cast(IEService, self.service), options=self.ie_options)
 
     def disable_images(self) -> None:
         factory.internet_explorer.disable_images(self)

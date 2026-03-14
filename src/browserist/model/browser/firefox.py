@@ -1,3 +1,5 @@
+from typing import cast
+
 from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.firefox.webdriver import WebDriver
 
@@ -13,7 +15,7 @@ class FirefoxBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.FIREFOX
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(service=self.firefox_service, options=self.firefox_options)
+        return WebDriver(service=cast(FirefoxService, self.service), options=self.firefox_options)
 
     def disable_images(self) -> None:
         if self.settings.disable_images:
