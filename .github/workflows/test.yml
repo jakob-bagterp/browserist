@@ -38,3 +38,4 @@ jobs:
 
       - name: Run tests with Tox
         run: tox
+        timeout-minutes: 45
