@@ -34,6 +34,7 @@ class Browser:
 
     __slots__ = [
         "_browser_driver",
+        "_settings",
         "driver",
         "ie",
         "safari",
@@ -81,10 +82,10 @@ class Browser:
             ```
         """
 
-        if settings is None:
-            settings = BrowserSettings()  # Use default settings if no custom settings are given.
+        # Fall back to default settings if no custom settings are given:
+        self._settings = BrowserSettings() if settings is None else settings
 
-        self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
+        self._browser_driver: BrowserDriver = factory.get.browser_driver(self._settings)
         self.driver: WebDriver = self._browser_driver.get_webdriver()
 
         self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver)
@@ -104,16 +105,16 @@ class Browser:
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
 
-        match settings.viewport:
+        match self._settings.viewport:
             case DeviceViewportSize():
-                self.viewport.set.size_by_device(settings.viewport)
+                self.viewport.set.size_by_device(self._settings.viewport)
             case tuple():
-                width, height = settings.viewport
+                width, height = self._settings.viewport
                 self.viewport.set.size(width, height)
             case _:
                 pass
 
-        match settings.type:
+        match self._settings.type:
             case BrowserType.INTERNET_EXPLORER:
                 self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
             case BrowserType.SAFARI:
