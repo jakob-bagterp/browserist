@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 from _config.browser_settings import default
+from _helper.environment import skip_if_github_actions
 
 from browserist import Browser, BrowserSettings
 from browserist.model.browser.base.type import BrowserType
@@ -13,6 +14,7 @@ from browserist.model.browser.base.type import BrowserType
 
 @pytest.fixture(scope="session")
 def browser_default() -> Generator[Browser, None, None]:
+    skip_if_github_actions()
     with Browser(default.DEFAULT) as browser:
         yield browser
 
