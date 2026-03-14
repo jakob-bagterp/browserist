@@ -3,6 +3,7 @@ from typing import Any
 
 import _helper
 import pytest
+from _helper.environment import skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
@@ -11,6 +12,7 @@ from browserist.exception.scroll import PageValueError
 from browserist.helper import operating_system
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize("pages", [1, 2, 3, 4, 5])
 @pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
