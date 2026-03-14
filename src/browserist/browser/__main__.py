@@ -230,7 +230,3 @@ class Browser:
                     with contextlib.suppress(Exception):
                         # TODO: Consider refactoring .ie_service.stop to .service.stop() to avoid the need for the match statement:
                         self._browser_driver.ie_service.stop()
-                case _:
-                    if hasattr(self.driver, "service") and getattr(self.driver.service, "process", None):
-                        with contextlib.suppress(Exception):
-                            self.driver.service.stop()
