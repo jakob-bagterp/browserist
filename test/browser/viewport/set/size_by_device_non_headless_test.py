@@ -1,4 +1,5 @@
 import pytest
+from _helper.environment import skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.device_viewport import DEVICE_520_666, DEVICE_666_420
 from _mock_data.url import internal_url
@@ -6,6 +7,7 @@ from _mock_data.url import internal_url
 from browserist import Browser, DeviceViewportSize
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize("device", [DEVICE_520_666, DEVICE_666_420])
 @pytest.mark.xdist_group(name="serial_viewport_tests")
 def test_set_viewport_by_device_headless(device: DeviceViewportSize, browser_default: Browser) -> None:

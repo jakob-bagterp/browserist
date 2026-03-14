@@ -3,6 +3,7 @@ from typing import Any
 
 import pytest
 from _config.browser_settings import default
+from _helper.environment import skip_if_github_actions
 from _mock_data.url import internal_url
 from _mock_data.xpath.mini_site.homepage import MINI_SITE_HOMEPAGE_BUTTON_FEATURE_1_XPATH
 
@@ -11,6 +12,7 @@ from browserist.constant import timeout
 from browserist.exception.headless import MethodNotSupportedInHeadlessModeException
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize(
     "browser_settings, expectation",
     [(default.DEFAULT, does_not_raise()), (default.HEADLESS, pytest.raises(MethodNotSupportedInHeadlessModeException))],

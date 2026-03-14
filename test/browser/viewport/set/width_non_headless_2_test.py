@@ -1,10 +1,12 @@
 import pytest
+from _helper.environment import skip_if_github_actions
 from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
 
 
+@skip_if_github_actions()
 @pytest.mark.parametrize("width", [1024, 666])
 @pytest.mark.xdist_group(name="serial_viewport_tests")
 def test_set_viewport_width_non_headless(width: int, browser_default: Browser) -> None:
