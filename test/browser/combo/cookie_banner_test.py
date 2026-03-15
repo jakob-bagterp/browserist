@@ -58,7 +58,7 @@ def test_combo_cookie_banner_has_loaded_wait_seconds(
         start_time = time.perf_counter()
         browser.combo.cookie_banner(cookie_banner_settings)
         stop_time = time.perf_counter()
-        return _helper.time.get_difference(start_time, stop_time)
+        return stop_time - start_time
 
     with expectation_of_no_exceptions_raised():
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
@@ -67,8 +67,8 @@ def test_combo_cookie_banner_has_loaded_wait_seconds(
         time_measured_a = accept_cookie_banner_and_get_time(browser, cookie_banner_settings, has_loaded_wait_seconds_a)
         time_measured_b = accept_cookie_banner_and_get_time(browser, cookie_banner_settings, has_loaded_wait_seconds_b)
         assert time_measured_a < time_measured_b
-        time_difference_a_b = _helper.time.get_difference(has_loaded_wait_seconds_a, has_loaded_wait_seconds_b)
-        time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
+        time_difference_a_b = has_loaded_wait_seconds_b - has_loaded_wait_seconds_a
+        time_difference_measured_a_b = time_measured_b - time_measured_a
         assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 30)
 
 
@@ -86,7 +86,7 @@ def test_combo_cookie_banner_has_disappeared_wait_seconds(
         start_time = time.perf_counter()
         browser.combo.cookie_banner(cookie_banner_settings)
         stop_time = time.perf_counter()
-        return _helper.time.get_difference(start_time, stop_time)
+        return stop_time - start_time
 
     with expectation_of_no_exceptions_raised():
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
@@ -99,10 +99,8 @@ def test_combo_cookie_banner_has_disappeared_wait_seconds(
             browser, cookie_banner_settings, has_disappeared_wait_seconds_b
         )
         assert time_measured_a < time_measured_b
-        time_difference_a_b = _helper.time.get_difference(
-            has_disappeared_wait_seconds_a, has_disappeared_wait_seconds_b
-        )
-        time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
+        time_difference_a_b = has_disappeared_wait_seconds_b - has_disappeared_wait_seconds_a
+        time_difference_measured_a_b = time_measured_b - time_measured_a
         assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 30)
 
 
