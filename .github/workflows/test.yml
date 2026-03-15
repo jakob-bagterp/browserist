@@ -37,7 +37,5 @@ jobs:
           uv tool install tox --with tox-uv --with tox-gh-actions
 
       - name: Run tests with Tox
-        env:
-          PYTEST_XDIST_WORKERS: ${{ matrix.os == 'windows-latest' && 0 || 3 }}
         run: tox
         timeout-minutes: 60
