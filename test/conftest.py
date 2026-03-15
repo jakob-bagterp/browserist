@@ -5,7 +5,7 @@ import sys
 import pytest
 
 
-def pytest_session_cleanup(session: pytest.Session, exitstatus: int | pytest.ExitCode) -> None:
+def pytest_sessionfinish(session: pytest.Session, exitstatus: int | pytest.ExitCode) -> None:
     """If a session hangs due to background threads or file locks, this forces the Python process to exit immediately with the correct status, including skipping thread joins and garbage collection of orphaned browser processes."""
 
     def kill_process(process: str) -> None:
