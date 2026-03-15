@@ -1,3 +1,5 @@
+from typing import cast
+
 from selenium.webdriver.safari.service import Service as SafariService
 from selenium.webdriver.safari.webdriver import WebDriver
 
@@ -13,7 +15,7 @@ class SafariBrowserDriver(BrowserDriver):
         self.settings.type = BrowserType.SAFARI
 
     def set_webdriver(self) -> WebDriver:
-        return WebDriver(service=self.safari_service, options=self.safari_options)
+        return WebDriver(service=cast(SafariService, self.service), options=self.safari_options)
 
     def disable_images(self) -> None:
         factory.safari.disable_images(self)
