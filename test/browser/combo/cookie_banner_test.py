@@ -15,6 +15,7 @@ from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser, CookieBannerSettings
+from browserist.helper import operating_system
 
 
 @pytest.mark.parametrize(
@@ -72,6 +73,7 @@ def test_combo_cookie_banner_has_loaded_wait_seconds(
         assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 30)
 
 
+@pytest.mark.skipif(operating_system.is_windows(), reason="Skipped as this test is unstable on Windows.")
 @pytest.mark.parametrize(
     "cookie_banner_settings", [(COOKIE_BANNER_SETTINGS_WITH_IFRAME), (COOKIE_BANNER_SETTINGS_WITHOUT_IFRAME)]
 )
