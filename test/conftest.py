@@ -1,9 +1,8 @@
 import contextlib
 import subprocess
+import sys
 
 import pytest
-
-from browserist.helper import operating_system
 
 
 def pytest_session_cleanup(session: pytest.Session, exitstatus: int | pytest.ExitCode) -> None:
@@ -18,7 +17,7 @@ def pytest_session_cleanup(session: pytest.Session, exitstatus: int | pytest.Exi
     if hasattr(session.config, "workerinput"):
         return
 
-    if operating_system.is_windows():
+    if sys.platform.startswith("win32"):
         browser_processes = [
             "chromedriver.exe",
             "chrome.exe",
