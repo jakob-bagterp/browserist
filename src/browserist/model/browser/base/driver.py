@@ -1,17 +1,12 @@
 from abc import ABC, abstractmethod
 
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.service import Service
 from selenium.webdriver.edge.options import Options as EdgeOptions
-from selenium.webdriver.edge.service import Service as EdgeService
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.ie.options import Options as IEOptions
-from selenium.webdriver.ie.service import Service as IEService
 from selenium.webdriver.remote.webdriver import BaseWebDriver, WebDriver
 from selenium.webdriver.safari.options import Options as SafariOptions
-from selenium.webdriver.safari.service import Service as SafariService
 
 from .... import helper
 from .settings import BrowserSettings
@@ -24,15 +19,11 @@ class BrowserDriver(ABC):
     __slots__ = [
         "settings",
         "chrome_options",
-        "chrome_service",
         "edge_options",
-        "edge_service",
         "firefox_options",
-        "firefox_service",
         "ie_options",
-        "ie_service",
         "safari_options",
-        "safari_service",
+        "service",
         "webdriver",
     ]
 
@@ -47,20 +38,25 @@ class BrowserDriver(ABC):
 
         match self.settings.type:
             case BrowserType.CHROME:
+                # TODO: Consider refactoring .chrome_options to .options and so on for other browsers for consistency and simplicity:
                 self.chrome_options: ChromeOptions = ChromeOptions()
-                self.chrome_service: ChromeService = self.set_service()  # type: ignore
+                self.service = self.set_service()
             case BrowserType.EDGE:
+                # TODO: Consider refactoring .edge_options to .options and so on for other browsers for consistency and simplicity:
                 self.edge_options: EdgeOptions = EdgeOptions()
-                self.edge_service: EdgeService = self.set_service()  # type: ignore
+                self.service = self.set_service()
             case BrowserType.FIREFOX:
+                # TODO: Consider refactoring .firefox_options to .options and so on for other browsers for consistency and simplicity:
                 self.firefox_options: FirefoxOptions = FirefoxOptions()
-                self.firefox_service: FirefoxService = self.set_service()  # type: ignore
+                self.service = self.set_service()
             case BrowserType.INTERNET_EXPLORER:
+                # TODO: Consider refactoring .ie_options to .options and so on for other browsers for consistency and simplicity:
                 self.ie_options: IEOptions = IEOptions()
-                self.ie_service: IEService = self.set_service()  # type: ignore
+                self.service = self.set_service()
             case BrowserType.SAFARI:
+                # TODO: Consider refactoring .safari_options to .options and so on for other browsers for consistency and simplicity:
                 self.safari_options: SafariOptions = SafariOptions()
-                self.safari_service: SafariService = self.set_service()  # type: ignore
+                self.service = self.set_service()
 
         self.ensure_browser_type()
         self.set_options_and_profile()

@@ -22,10 +22,10 @@ def test_wait_until_download_file_size_does_not_increase_by_timing(tmpdir: Path)
     """Assume that it's always faster to await a non-existing file (the iteration will break early if no file exists) than an existing, static file that does not increase in size."""
 
     def get_time_for_wait_until_download_file_size_does_not_increase(browser: Browser) -> float:
-        start_time = time.perf_counter_ns()
+        start_time = time.perf_counter()
         browser.wait.until.download_file.size_does_not_increase(FILE_NAME)
-        stop_time = time.perf_counter_ns()
-        return _helper.time.get_difference(start_time, stop_time)
+        stop_time = time.perf_counter()
+        return stop_time - start_time
 
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
     browser_settings = BrowserSettings(headless=True, download_dir=download_dir, check_connection=False)

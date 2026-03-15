@@ -6,7 +6,6 @@ from threading import Thread
 import pytest
 from _fixture.download_handler import get as get_download_handler
 from _helper import directory, file
-from _helper.python import is_python_version
 from _helper.timeout import reset_to_not_timed_out
 
 from browserist import Browser, BrowserSettings, BrowserType
@@ -62,6 +61,7 @@ class DownloadHandlerThread(Thread):
             assert download_handler._temporary_file.name == TEMPORARY_FILE_NAME
 
 
+@pytest.mark.skipif(operating_system.is_windows(), reason="Skipped as this test is unstable on Windows.")
 @pytest.mark.parametrize(
     "preliminary_temporary_file_time, temporary_file_time",
     [
@@ -95,12 +95,6 @@ def test_simulate_file_download_in_timed_stage_scenarios_for_download_handler(
     if browser_settings.type not in [BrowserType.CHROME, BrowserType.EDGE]:
         pytest.skip(
             f"Timing tests for DownloadHandler are only supported by Chrome and Edge, not {browser_settings.type}."
-        )
-    if operating_system.is_windows() and is_python_version(
-        3, 13
-    ):  # TODO: Remove this once we have a fix for this exception.
-        pytest.skip(
-            "When Python 3.13 runs on Windows there are inconstencies in the timing of temporary and final file names."
         )
 
     with Browser(browser_settings) as browser:

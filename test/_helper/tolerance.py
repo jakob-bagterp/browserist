@@ -1,3 +1,6 @@
+# TODO: Consider refactoring these methods to pytest.approx() for consistency and simplicity:
+
+
 def add(value: float, tolerance_percent: float) -> float:
     return value * (1 + convert_percent_to_float(tolerance_percent))
 

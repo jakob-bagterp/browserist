@@ -84,7 +84,7 @@ def test_combo_log_in_post_login_wait_seconds(
         start_time = time.perf_counter()
         browser.combo.log_in(LOGIN_CREDENTIALS_VALID, login_form)
         stop_time = time.perf_counter()
-        return _helper.time.get_difference(start_time, stop_time)
+        return stop_time - start_time
 
     with expectation_of_no_exceptions_raised():
         browser = reset_to_not_timed_out(browser_default_headless_disable_images)
@@ -94,8 +94,8 @@ def test_combo_log_in_post_login_wait_seconds(
         time_measured_a = log_in_and_get_time(browser, url, login_form, post_login_wait_seconds_a)
         time_measured_b = log_in_and_get_time(browser, url, login_form, post_login_wait_seconds_b)
         assert time_measured_a < time_measured_b
-        time_difference_a_b = _helper.time.get_difference(post_login_wait_seconds_a, post_login_wait_seconds_b)
-        time_difference_measured_a_b = _helper.time.get_difference(time_measured_a, time_measured_b)
+        time_difference_a_b = post_login_wait_seconds_b - post_login_wait_seconds_a
+        time_difference_measured_a_b = time_measured_b - time_measured_a
         assert time_difference_measured_a_b >= _helper.tolerance.deduct(time_difference_a_b, 20)
 
 

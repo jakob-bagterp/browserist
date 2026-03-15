@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import contextlib
 from types import TracebackType
 
 from selenium.webdriver.remote.webdriver import WebDriver
@@ -34,6 +35,7 @@ class Browser:
 
     __slots__ = [
         "_browser_driver",
+        "_settings",
         "driver",
         "ie",
         "safari",
@@ -81,10 +83,10 @@ class Browser:
             ```
         """
 
-        if settings is None:
-            settings = BrowserSettings()  # Use default settings if no custom settings are given.
+        # Fall back to default settings if no custom settings are given:
+        self._settings = BrowserSettings() if settings is None else settings
 
-        self._browser_driver: BrowserDriver = factory.get.browser_driver(settings)
+        self._browser_driver: BrowserDriver = factory.get.browser_driver(self._settings)
         self.driver: WebDriver = self._browser_driver.get_webdriver()
 
         self.check_if: CheckIfDriverMethods = CheckIfDriverMethods(self._browser_driver)
@@ -104,16 +106,16 @@ class Browser:
         self.wait: WaitDriverMethods = WaitDriverMethods(self._browser_driver)
         self.window: WindowDriverMethods = WindowDriverMethods(self._browser_driver)
 
-        match settings.viewport:
+        match self._settings.viewport:
             case DeviceViewportSize():
-                self.viewport.set.size_by_device(settings.viewport)
+                self.viewport.set.size_by_device(self._settings.viewport)
             case tuple():
-                width, height = settings.viewport
+                width, height = self._settings.viewport
                 self.viewport.set.size(width, height)
             case _:
                 pass
 
-        match settings.type:
+        match self._settings.type:
             case BrowserType.INTERNET_EXPLORER:
                 self.ie: InternetExplorerBrowserExtension = InternetExplorerBrowserExtension(self._browser_driver)
             case BrowserType.SAFARI:
@@ -200,4 +202,17 @@ class Browser:
             ```
         """
 
-        self.driver.quit()
+        try:
+            self.driver.quit()
+        except Exception:
+            # Suppress any exceptions (e.g. ConnectionRefusedError or WebDriverException), so they don't interrupt the rest of the teardown process:
+            pass
+        finally:
+            # Explicitly force the background driver service to stop, ensuring no orphaned .exe files hold the stdout pipes open and cause hanging issues (especially on Windows):
+            service = self._browser_driver.service
+            if service.process and service.process.poll() is None:
+                with contextlib.suppress(Exception):
+                    service.process.kill()
+            elif service:
+                with contextlib.suppress(Exception):
+                    service.stop()
