@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "lxml==6.0.2",
+    "lxml==6.1.0",
     "lxml-stubs==0.5.1",
     "pillow==12.2.0",
     "requests==2.33.1",
