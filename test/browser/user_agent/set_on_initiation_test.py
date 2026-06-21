@@ -29,8 +29,8 @@ def test_user_agent_set_on_initiation_with_default_browser() -> None:
 def test_user_agent_set_on_initiation_with_various_browsers(
     browser_settings: BrowserSettings, expectation: Any
 ) -> None:
-    if operating_system.is_macos() and browser_settings.type is BrowserType.EDGE:
-        pytest.skip("Microsoft Edge is not supported on macOS.")
+    if (operating_system.is_macos() or operating_system.is_linux()) and browser_settings.type == BrowserType.EDGE:
+        pytest.skip("Microsoft Edge is not supported on macOS or Linux.")
         return
     with expectation:
         with Browser(browser_settings) as browser:
