@@ -70,6 +70,10 @@ SEARCH: str = update_path_format_if_windows(f"file://{_web_mock_data_directory}/
 
 SCROLL_CANVAS: str = update_path_format_if_windows(f"file://{_web_mock_data_directory}/scroll/canvas/page.html")
 
+SCROLL_VERTICAL_MEDIUM: str = update_path_format_if_windows(
+    f"file://{_web_mock_data_directory}/scroll/vertical_medium/page.html"
+)
+
 SCROLL_VERTICAL_LONG: str = update_path_format_if_windows(
     f"file://{_web_mock_data_directory}/scroll/vertical_long/page.html"
 )
