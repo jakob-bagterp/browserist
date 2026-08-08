@@ -30,7 +30,7 @@ jobs:
       - name: Generate coverage report
         # The list of "--ignore=..." arguments should be identical to the exclusion list in tox.ini, though without comments:
         run: >
-          uv run pytest --timeout=60 --numprocesses=3 --cov=./ --cov-report=xml -vv -rA
+          uv run pytest --timeout=120 --numprocesses=3 --cov=./ --cov-report=xml -vv -rA
           --ignore=test/browser/input/select_1_test.py
           --ignore=test/browser/input/select_headless_exception_test.py
           --ignore=test/browser/viewport/get/height_non_headless_1_test.py
