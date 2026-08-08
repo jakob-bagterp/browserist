@@ -18,7 +18,7 @@ def test_get_total_scroll_height(
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(url)
     total_scroll_height = browser.scroll.get.total_height()
-    TOLERANCE_PIXELS = 60 if operating_system.is_windows() else 10
-    minimum_height = _helper.tolerance.deduct(expected_total_scroll_height, TOLERANCE_PIXELS)
-    maximum_height = _helper.tolerance.add(expected_total_scroll_height, TOLERANCE_PIXELS)
+    TOLERANCE_HEIGHT_PERCENT = 60 if operating_system.is_windows() else 10
+    minimum_height = _helper.tolerance.deduct(expected_total_scroll_height, TOLERANCE_HEIGHT_PERCENT)
+    maximum_height = _helper.tolerance.add(expected_total_scroll_height, TOLERANCE_HEIGHT_PERCENT)
     assert minimum_height < total_scroll_height < maximum_height
