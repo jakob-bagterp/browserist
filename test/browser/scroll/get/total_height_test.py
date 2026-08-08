@@ -8,7 +8,7 @@ from browserist import Browser
 
 @pytest.mark.parametrize(
     "url, expected_total_scroll_height",
-    [(internal_url.NOT_SCROLLABLE, 600), (internal_url.SCROLL_LONG_VERTICAL, 40802)],
+    [(internal_url.NOT_SCROLLABLE, 600), (internal_url.SCROLL_VERTICAL_LONG, 40802)],
 )
 @pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_get_total_scroll_height(

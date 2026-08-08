@@ -15,7 +15,7 @@ from browserist.helper import operating_system
 @pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
+    browser.open.url(internal_url.SCROLL_VERTICAL_LONG)
     browser.scroll.page.to_end()
     _, y_end = browser.scroll.get.position()
     y_screen_height = browser.viewport.get.height()
@@ -47,5 +47,5 @@ def test_scroll_page_up(pages: int, browser_default_headless: Browser) -> None:
 def test_scroll_page_up_exceptions(pages: int, expectation: Any, browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
     with expectation:
-        browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
+        browser.open.url(internal_url.SCROLL_VERTICAL_LONG)
         browser.scroll.page.up(pages)

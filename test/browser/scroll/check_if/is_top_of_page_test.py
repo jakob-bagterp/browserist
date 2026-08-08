@@ -8,9 +8,9 @@ from browserist import Browser
 @pytest.mark.parametrize(
     "url, y_position, expected",
     [
-        (internal_url.SCROLL_LONG_VERTICAL, 0, True),
-        (internal_url.SCROLL_LONG_VERTICAL, 1, False),
-        (internal_url.SCROLL_LONG_VERTICAL, 20, False),
+        (internal_url.SCROLL_VERTICAL_LONG, 0, True),
+        (internal_url.SCROLL_VERTICAL_LONG, 1, False),
+        (internal_url.SCROLL_VERTICAL_LONG, 20, False),
     ],
 )
 @pytest.mark.xdist_group(name="serial_scroll_tests")
