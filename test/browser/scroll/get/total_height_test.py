@@ -4,6 +4,7 @@ from _helper.timeout import reset_to_not_timed_out
 from _mock_data.url import internal_url
 
 from browserist import Browser
+from browserist.helper import operating_system
 
 
 @pytest.mark.parametrize(
@@ -17,7 +18,7 @@ def test_get_total_scroll_height(
     browser = reset_to_not_timed_out(browser_default_headless_scope_function)
     browser.open.url(url)
     total_scroll_height = browser.scroll.get.total_height()
-    # Various browsers may calculate the height differently, e.g. due to differient default widths, so we add a safety margin:
-    minimum_height = _helper.tolerance.deduct(expected_total_scroll_height, 50)
-    maximum_height = _helper.tolerance.add(expected_total_scroll_height, 50)
+    TOLERANCE_PIXELS = 60 if operating_system.is_windows() else 10
+    minimum_height = _helper.tolerance.deduct(expected_total_scroll_height, TOLERANCE_PIXELS)
+    maximum_height = _helper.tolerance.add(expected_total_scroll_height, TOLERANCE_PIXELS)
     assert minimum_height < total_scroll_height < maximum_height
