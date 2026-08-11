@@ -8,7 +8,7 @@ from browserist import Browser
 @pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_scroll_to_top_of_page(browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
+    browser.open.url(internal_url.SCROLL_VERTICAL_LONG)
     total_srcroll_height = browser.scroll.get.total_height()
     assert total_srcroll_height > 0
     browser.scroll.page.to_end()

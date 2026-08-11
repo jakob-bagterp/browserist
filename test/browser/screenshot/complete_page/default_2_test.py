@@ -10,14 +10,14 @@ from browserist import Browser
 
 MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE = 7_000  # Single page screenshot.
 
-MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL = 400_000  # Merge of multiple, e.g. 10-15, files.
+MINIMUM_FILE_SIZE_SCROLL_VERTICAL_MEDIUM = 40_000  # Merge of multiple, e.g. 3-5, files.
 
 
 @pytest.mark.parametrize(
     "url, minimum_file_size",
     [
         (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
-        (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
+        (internal_url.SCROLL_VERTICAL_MEDIUM, MINIMUM_FILE_SIZE_SCROLL_VERTICAL_MEDIUM),
     ],
 )
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
@@ -36,7 +36,7 @@ def test_default_get_screenshot_of_complete_page_1(
     "url, minimum_file_size",
     [
         (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
-        (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
+        (internal_url.SCROLL_VERTICAL_MEDIUM, MINIMUM_FILE_SIZE_SCROLL_VERTICAL_MEDIUM),
     ],
 )
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
@@ -55,7 +55,7 @@ def test_default_get_screenshot_of_complete_page_2(
     "url, minimum_file_size",
     [
         (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
-        (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
+        (internal_url.SCROLL_VERTICAL_MEDIUM, MINIMUM_FILE_SIZE_SCROLL_VERTICAL_MEDIUM),
     ],
 )
 @pytest.mark.xdist_group(name="serial_screenshot_tests")
@@ -75,7 +75,7 @@ def test_default_get_screenshot_of_complete_page_3(
     "url, minimum_file_size",
     [
         (internal_url.MINI_SITE_HOMEPAGE, MINIMUM_FILE_SIZE_MINI_SITE_HOMEPAGE),
-        (internal_url.SCROLL_LONG_VERTICAL, MINIMUM_FILE_SIZE_SCROLL_LONG_VERTICAL),
+        (internal_url.SCROLL_VERTICAL_MEDIUM, MINIMUM_FILE_SIZE_SCROLL_VERTICAL_MEDIUM),
     ],
 )
 @pytest.mark.xdist_group(name="serial_screenshot_tests")

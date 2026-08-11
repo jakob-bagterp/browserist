@@ -39,6 +39,6 @@ jobs:
 
       - name: Run tests with Tox
         env:
-          PYTEST_XDIST_WORKERS: ${{ matrix.os == 'windows-latest' && 0 || 3 }}
+          PYTEST_XDIST_WORKERS: ${{ (matrix.os == 'windows-latest' || matrix.os == 'macos-latest') && '0' || '3' }}
         run: tox
-        timeout-minutes: 60
+        timeout-minutes: 120

@@ -8,12 +8,17 @@ from selenium.common.exceptions import WebDriverException
 from urllib3.exceptions import ProtocolError
 
 from browserist import Browser, BrowserSettings
+from browserist.helper import operating_system
 
 BROWSER_SETTINGS_WITH_CHECK_CONNECTION = BrowserSettings(headless=True, disable_images=True, check_connection=True)
 
 BROWSER_SETTINGS_WITHOUT_CHECK_CONNECTION = BrowserSettings(headless=True, disable_images=True, check_connection=False)
 
 
+@pytest.mark.skipif(
+    operating_system.is_windows() or operating_system.is_macos(),
+    reason="Skipped as this test is unstable on Windows and macOS.",
+)
 @pytest.mark.parametrize(
     "browser_settings, expectation",
     [

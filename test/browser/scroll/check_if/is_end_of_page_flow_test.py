@@ -8,7 +8,7 @@ from browserist import Browser
 @pytest.mark.xdist_group(name="serial_scroll_tests")
 def test_check_if_scroll_is_end_of_page_flow(browser_default_headless: Browser) -> None:
     browser = reset_to_not_timed_out(browser_default_headless)
-    browser.open.url(internal_url.SCROLL_LONG_VERTICAL)
+    browser.open.url(internal_url.SCROLL_VERTICAL_LONG)
     # Let's scroll all the way to the bottom of the page:
     browser.scroll.page.to_end()
     assert browser.scroll.check_if.is_end_of_page() is True
