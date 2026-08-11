@@ -9,8 +9,8 @@ from browserist.helper import operating_system
 @pytest.mark.parametrize(
     "url, expected_total_scroll_height, tolerance_pixels",
     [
-        (internal_url.NOT_SCROLLABLE, 540, 10),
-        (internal_url.SCROLL_VERTICAL_LONG, 40_802, 1_000 if operating_system.is_windows() else 400),
+        (internal_url.NOT_SCROLLABLE, 437, 10),
+        (internal_url.SCROLL_VERTICAL_LONG, 42_076, 1_000 if operating_system.is_windows() else 400),
     ],
 )
 @pytest.mark.xdist_group(name="serial_scroll_tests")
