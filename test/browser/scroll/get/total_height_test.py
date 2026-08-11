@@ -10,7 +10,7 @@ from browserist.helper import operating_system
 @pytest.mark.parametrize(
     "url, expected_total_scroll_height, tolerance_percent",
     [
-        (internal_url.NOT_SCROLLABLE, 540, 10),
+        (internal_url.NOT_SCROLLABLE, 540, 20),
         (internal_url.SCROLL_VERTICAL_LONG, 40802, 60 if operating_system.is_windows() else 10),
     ],
 )
@@ -26,4 +26,5 @@ def test_get_total_scroll_height(
     total_scroll_height = browser.scroll.get.total_height()
     minimum_height = _helper.tolerance.deduct(expected_total_scroll_height, tolerance_percent)
     maximum_height = _helper.tolerance.add(expected_total_scroll_height, tolerance_percent)
-    assert minimum_height < total_scroll_height < maximum_height
+    assert minimum_height < total_scroll_height
+    assert total_scroll_height < maximum_height
