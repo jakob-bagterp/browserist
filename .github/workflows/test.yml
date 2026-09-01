@@ -38,7 +38,7 @@ jobs:
           uv tool install tox --with tox-uv --with tox-gh-actions
 
       - name: Set up ChromeDriver
-        uses: nanasess/setup-chromedriver@v3
+        uses: nanasess/setup-chromedriver@v3.0.0
 
       - name: Run tests with Tox
         env:
