@@ -39,6 +39,9 @@ jobs:
 
       - name: Set up ChromeDriver
         uses: nanasess/setup-chromedriver@v3.0.0
+        with:
+          chromedriver-version: latest
+      - run: chromedriver --version
 
       - name: Run tests with Tox
         env:
