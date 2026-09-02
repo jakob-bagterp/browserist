@@ -37,13 +37,6 @@ jobs:
           uv sync --frozen --all-extras
           uv tool install tox --with tox-uv --with tox-gh-actions
 
-      - name: Set up Chrome browser and corresponding ChromeDriver version
-        uses: browser-actions/setup-chrome@v2.2.0
-        with:
-          chrome-version: stable
-          install-dependencies: true
-          install-chromedriver: true
-
       - name: Run tests with Tox
         env:
           PYTEST_XDIST_WORKERS: ${{ (matrix.os == 'windows-latest' || matrix.os == 'macos-latest') && '0' || '3' }}
