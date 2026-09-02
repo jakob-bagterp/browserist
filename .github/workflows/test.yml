@@ -41,6 +41,7 @@ jobs:
         uses: browser-actions/setup-chrome@v2.2.0
         with:
           chrome-version: stable
+          install-dependencies: true
           install-chromedriver: true
 
       - name: Run tests with Tox
