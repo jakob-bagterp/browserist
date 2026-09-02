@@ -44,9 +44,16 @@ jobs:
 
       - name: Set up Chrome and matching ChromeDriver for macOS
         if: runner.os == 'macOS'
-        uses: browser-actions/setup-chrome@v2
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v2.2.0
         with:
           install-chromedriver: true
+
+      - name: Set up Chrome path for macOS
+        if: runner.os == 'macOS'
+        run: |
+          echo "CHROME_BIN=${{ steps.setup-chrome.outputs.chrome-path }}" >> $GITHUB_ENV
+          echo "CHROME_PATH=${{ steps.setup-chrome.outputs.chrome-path }}" >> $GITHUB_ENV
 
       - name: Run tests with Tox
         env:
