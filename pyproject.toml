@@ -28,7 +28,7 @@ dependencies = [
     "pillow==12.3.0",
     "requests==2.34.2",
     "selenium==4.48.0",
-    "types-requests==2.33.0.20260518",
+    "types-requests==2.33.0.20260712",
 ]
 
 [project.urls]
