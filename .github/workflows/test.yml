@@ -29,6 +29,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
@@ -36,6 +37,22 @@ jobs:
         run: |
           uv sync --frozen --all-extras
           uv tool install tox --with tox-uv --with tox-gh-actions
+
+      # This is a workaround for https://github.com/jakob-bagterp/browserist/pull/1026. It can be removed once the issue is fixed, including a skipif for macOS in the test_click_download_and_get_file_path() test.
+      - name: Set up Chrome as "Chrome for Testing" and the matching ChromeDriver for macOS.
+        if: runner.os == 'macOS'
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v2.2.0
+        with:
+          install-chromedriver: true
+
+      # This is a workaround for https://github.com/jakob-bagterp/browserist/pull/1026. It can be removed once the issue is fixed, including a skipif for macOS in the test_click_download_and_get_file_path() test.
+      - name: Set up Chrome path for macOS and force system to use "Chrome for Testing" instead of default "Google Chrome"
+        if: runner.os == 'macOS'
+        run: |
+          echo "CHROME_BIN=${{ steps.setup-chrome.outputs.chrome-path }}" >> $GITHUB_ENV
+          echo "CHROME_PATH=${{ steps.setup-chrome.outputs.chrome-path }}" >> $GITHUB_ENV
+          sudo ln -sf "${{ steps.setup-chrome.outputs.chrome-path }}" "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
       - name: Run tests with Tox
         env:
