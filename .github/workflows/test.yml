@@ -35,7 +35,11 @@ jobs:
         with:
           chrome-version: stable
           install-chromedriver: true
-      - run: |
+        env:
+          SE_BROWSER_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
+
+      - name: Verify Chrome and ChromeDriver setup
+        run: |
           ${{ steps.setup-chrome.outputs.chrome-path }} --version
           ${{ steps.setup-chrome.outputs.chromedriver-path }} --version
 
