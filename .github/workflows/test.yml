@@ -37,11 +37,11 @@ jobs:
           uv sync --frozen --all-extras
           uv tool install tox --with tox-uv --with tox-gh-actions
 
-      - name: Set up ChromeDriver
-        uses: nanasess/setup-chromedriver@v3.0.0
+      - name: Set up Chrome browser and corresponding ChromeDriver version
+        uses: browser-actions/setup-chrome@v2.2.0
         with:
-          chromedriver-version: '152.0.7977.65'
-      - run: chromedriver --version
+          chrome-version: stable
+          install-chromedriver: true
 
       - name: Run tests with Tox
         env:
