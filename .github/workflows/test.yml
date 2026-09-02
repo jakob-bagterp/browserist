@@ -42,11 +42,11 @@ jobs:
         if: runner.os != 'macOS'
         uses: nanasess/setup-chromedriver@v3.0.0
 
-      - name: Set up ChromeDriver for macOS
+      - name: Set up Chrome and matching ChromeDriver for macOS
         if: runner.os == 'macOS'
-        uses: nanasess/setup-chromedriver@v3.0.0
+        uses: browser-actions/setup-chrome@v2
         with:
-          chromedriver-version: '152.0.7977.75'
+          install-chromedriver: true
 
       - name: Run tests with Tox
         env:
