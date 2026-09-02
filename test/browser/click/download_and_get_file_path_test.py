@@ -13,7 +13,7 @@ from browserist.helper import operating_system
 
 
 @pytest.mark.skipif(operating_system.is_windows(), reason="This test is not supported on Windows.")
-@pytest.mark.skipif(operating_system.is_macos(), reason="This test fails on macOS when using a non-default version of Chrome.")
+@pytest.mark.skipif(operating_system.is_macos(), reason="This test fails on macOS when using a non-default version of Chrome via the browser-actions/setup-chrome GitHub Action.")
 @pytest.mark.xdist_group(name="serial_download_tests")
 def test_click_download_and_get_file_path(tmpdir: Path) -> None:
     download_dir = directory.create_and_get_temporary_download_dir(tmpdir)
