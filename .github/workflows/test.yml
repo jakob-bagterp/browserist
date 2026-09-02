@@ -29,14 +29,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Set up Chrome and ChromeDriver
-        uses: browser-actions/setup-chrome@v2.2.0
-        id: setup-chrome
-        with:
-          chrome-version: stable
-          install-chromedriver: true
-        env:
-          SE_BROWSER_PATH: ${{ steps.setup-chrome.outputs.chrome-path }}
 
       - name: Install uv
         uses: astral-sh/setup-uv@v7
@@ -45,6 +37,11 @@ jobs:
         run: |
           uv sync --frozen --all-extras
           uv tool install tox --with tox-uv --with tox-gh-actions
+
+      - name: Set up Chrome and ChromeDriver
+        uses: nanasess/setup-chromedriver@v3.0.0
+        with:
+          chromeapp: google-chrome-stable
 
       - name: Run tests with Tox
         env:
