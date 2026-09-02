@@ -38,18 +38,14 @@ jobs:
           uv sync --frozen --all-extras
           uv tool install tox --with tox-uv --with tox-gh-actions
 
-      - name: Set up ChromeDriver for non-macOS
-        if: runner.os != 'macOS'
-        uses: nanasess/setup-chromedriver@v3.0.0
-
-      - name: Set up Chrome and matching ChromeDriver for macOS
+      - name: Set up Chrome as "Chrome for Testing" and the matching ChromeDriver for macOS.
         if: runner.os == 'macOS'
         id: setup-chrome
         uses: browser-actions/setup-chrome@v2.2.0
         with:
           install-chromedriver: true
 
-      - name: Set up Chrome path for macOS and force system to use Chrome for Testing
+      - name: Set up Chrome path for macOS and force system to use "Chrome for Testing" instead of default "Google Chrome"
         if: runner.os == 'macOS'
         run: |
           echo "CHROME_BIN=${{ steps.setup-chrome.outputs.chrome-path }}" >> $GITHUB_ENV
