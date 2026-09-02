@@ -40,8 +40,6 @@ jobs:
 
       - name: Set up Chrome and ChromeDriver
         uses: nanasess/setup-chromedriver@v3.0.0
-        with:
-          chromeapp: google-chrome-stable
 
       - name: Run tests with Tox
         env:
