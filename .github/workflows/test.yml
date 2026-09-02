@@ -36,8 +36,8 @@ jobs:
           chrome-version: stable
           install-chromedriver: true
       - run: |
-        ${{ steps.setup-chrome.outputs.chrome-path }} --version
-        ${{ steps.setup-chrome.outputs.chromedriver-path }} --version
+          ${{ steps.setup-chrome.outputs.chrome-path }} --version
+          ${{ steps.setup-chrome.outputs.chromedriver-path }} --version
 
       - name: Install uv
         uses: astral-sh/setup-uv@v7
