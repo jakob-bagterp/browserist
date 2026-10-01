@@ -42,7 +42,7 @@ dependencies = [
 dev = [
     "coverage==7.14.1",
     "keyring==25.7.0",
-    "mypy==2.1.0",
+    "mypy==2.3.1",
     "pre-commit==4.6.2",
     "pytest==9.1.1",
     "pytest-cov==7.1.0",
