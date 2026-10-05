@@ -73,9 +73,7 @@ For example:
 ```python linenums="1" hl_lines="3-5"
 from browserist import Browser, BrowserSettings
 
-settings = BrowserSettings(
-    headless=True,
-    disable_images=True)
+settings = BrowserSettings(headless=True, disable_images=True)
 
 with Browser(settings) as browser:
     print("1. Opening X browser")

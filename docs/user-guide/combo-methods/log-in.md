@@ -33,15 +33,14 @@ Getting started:
 ```python linenums="1"
 from browserist import Browser, LoginForm1Step, LoginCredentials
 
-login_credentials = LoginCredentials(
-    username="some_username",
-    password="some_password")
+login_credentials = LoginCredentials(username="some_username", password="some_password")
 
 login_form = LoginForm1Step(
     url="https://example.com/login",
     username_input_xpath="//xpath/to/username_field",
     password_input_xpath="//xpath/to/password_field",
-    submit_button_xpath="//xpath/to/login_button")
+    submit_button_xpath="//xpath/to/login_button",
+)
 
 with Browser() as browser:
     browser.combo.log_in(login_credentials, login_form)
@@ -55,9 +54,7 @@ Sometimes it's useful to let a flow be dependent of succesfull handling of the l
 ```python linenums="1"
 from browserist import Browser, LoginForm1Step, LoginCredentials
 
-login_credentials = LoginCredentials(
-    username="some_username",
-    password="some_password")
+login_credentials = LoginCredentials(username="some_username", password="some_password")
 
 login_form = LoginForm1Step(
     url="https://example.com/login",
@@ -66,7 +63,8 @@ login_form = LoginForm1Step(
     submit_button_xpath="//xpath/to/login_button",
     post_login_url_contains="https://example.com/successfull_logged_in_page",
     post_login_element_xpath="//xpath/to/successfull_logged_in_element",
-    return_bool=True)
+    return_bool=True,
+)
 
 with Browser() as browser:
     if browser.combo.log_in(login_credentials, login_form):
@@ -82,19 +80,16 @@ Firstly, let's define the settings classes:
 ```python linenums="1"
 from browserist import Browser, LoginForm1Step, LoginCredentials
 
-user_admin = LoginCredentials(
-    username="admin",
-    password="admin_password")
+user_admin = LoginCredentials(username="admin", password="admin_password")
 
-user_author = LoginCredentials(
-    username="author",
-    password="author_password")
+user_author = LoginCredentials(username="author", password="author_password")
 
 login_form = LoginForm1Step(
     url="https://example.com/login",
     username_input_xpath="//xpath/to/username_field",
     password_input_xpath="//xpath/to/password_field",
-    submit_button_xpath="//xpath/to/login_button")
+    submit_button_xpath="//xpath/to/login_button",
+)
 ```
 
 After the the settings classes are defined, let's attempt to log both users in:

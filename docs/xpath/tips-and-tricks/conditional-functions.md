@@ -73,8 +73,10 @@ All in all, how to apply this for web scraping and browser automation using Brow
 ```python linenums="1" hl_lines="3-4 9"
 from browserist import Browser
 
+
 def get_xpath_for_calendar_date(date: int) -> str:
     return f"//ul[@class='dates']/li[text()='{date}']"
+
 
 with Browser() as browser:
     browser.open.url("https://example.com")

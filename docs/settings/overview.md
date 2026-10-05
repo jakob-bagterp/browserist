@@ -36,11 +36,7 @@ from browserist import Browser, BrowserSettings, BrowserType, common_devices
 
 iphone_se = common_devices.Apple.IPHONE_SE
 
-settings = BrowserSettings(
-    type=BrowserType.FIREFOX,
-    headless=True,
-    disable_images=True,
-    viewport=iphone_se)
+settings = BrowserSettings(type=BrowserType.FIREFOX, headless=True, disable_images=True, viewport=iphone_se)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")

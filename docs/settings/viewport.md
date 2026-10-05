@@ -21,9 +21,7 @@ from browserist import Browser, BrowserSettings, common_devices
 
 iphone_se = common_devices.Apple.IPHONE_SE
 
-settings = BrowserSettings(
-    headless=True,
-    viewport=iphone_se)
+settings = BrowserSettings(headless=True, viewport=iphone_se)
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")
@@ -72,9 +70,7 @@ Alternatively, simply specify the viewport size in pixels as tuple for width and
 ```python linenums="1" hl_lines="5"
 from browserist import Browser, BrowserSettings
 
-settings = BrowserSettings(
-    headless=True,
-    viewport=(1024, 768))
+settings = BrowserSettings(headless=True, viewport=(1024, 768))
 
 with Browser(settings) as browser:
     browser.open.url("https://example.com")

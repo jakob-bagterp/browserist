@@ -57,10 +57,7 @@ If you want to use the `ProxySettings` configuration class instead, here's how:
 ```python linenums="1" hl_lines="3-6"
 from browserist import Browser, BrowserSettings, ProxySettings, ProxyProtocol
 
-proxy_settings = ProxySettings(
-    ip="127.0.0.1",
-    port=8080,
-    protocol=ProxyProtocol.HTTP)
+proxy_settings = ProxySettings(ip="127.0.0.1", port=8080, protocol=ProxyProtocol.HTTP)
 
 settings = BrowserSettings(proxy=proxy_settings)
 

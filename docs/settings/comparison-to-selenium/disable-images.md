@@ -24,10 +24,7 @@ With Selenium, each browser type has its own configuration:
     from selenium.webdriver.chrome.options import Options as ChromeOptions
 
     chrome_options = ChromeOptions()
-    preferences = {
-        "profile.managed_default_content_settings.images": 2,
-        "profile.default_content_settings.images": 2
-    }
+    preferences = {"profile.managed_default_content_settings.images": 2, "profile.default_content_settings.images": 2}
     chrome_options.add_experimental_option("prefs", preferences)
 
     driver = webdriver.Chrome(options=chrome_options)
@@ -40,10 +37,7 @@ With Selenium, each browser type has its own configuration:
 
     edge_options = EdgeOptions()
     edge_options.use_chromium = True
-    preferences = {
-        "profile.managed_default_content_settings.images": 2,
-        "profile.default_content_settings.images": 2
-    }
+    preferences = {"profile.managed_default_content_settings.images": 2, "profile.default_content_settings.images": 2}
     edge_options.add_experimental_option("prefs", preferences)
 
     driver = webdriver.Edge(options=edge_options)

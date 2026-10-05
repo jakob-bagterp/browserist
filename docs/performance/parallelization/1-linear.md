@@ -13,12 +13,14 @@ Example of how to run multiple browsers sequentially after each other and not in
 ```python linenums="1"
 from browserist import Browser, BrowserSettings, BrowserType
 
+
 def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
         browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         print(f"3. Closing {settings.type.name} browser")
+
 
 def main():
     chrome = BrowserSettings(type=BrowserType.CHROME)
@@ -27,6 +29,7 @@ def main():
 
     for browser_settings in [chrome, edge, firefox]:
         open_website_with(browser_settings)
+
 
 if __name__ == "__main__":
     main()

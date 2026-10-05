@@ -113,11 +113,7 @@ Example:
 import random
 from browserist import Browser, BrowserSettings
 
-USER_AGENTS = [
-    "MyUserAgent1",
-    "MyUserAgent2",
-    "MyUserAgent3",
-]
+USER_AGENTS = ["MyUserAgent1", "MyUserAgent2", "MyUserAgent3"]
 
 user_agent = random.choice(USER_AGENTS)
 settings = BrowserSettings(user_agent=user_agent)
@@ -133,11 +129,7 @@ Example:
 import random
 from browserist import Browser
 
-USER_AGENTS = [
-    "MyUserAgent1",
-    "MyUserAgent2",
-    "MyUserAgent3",
-]
+USER_AGENTS = ["MyUserAgent1", "MyUserAgent2", "MyUserAgent3"]
 
 with Browser() as browser:
     user_agent = random.choice(USER_AGENTS)
