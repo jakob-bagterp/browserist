@@ -14,15 +14,13 @@ Example of how to run multiple browsers in asynchronous mode:
 import asyncio
 from browserist import Browser, BrowserSettings, BrowserType
 
-
 async def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
         browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(.1)
         print(f"3. Closing {settings.type.name} browser")
-
 
 async def main():
     chrome = BrowserSettings(type=BrowserType.CHROME)
@@ -33,7 +31,6 @@ async def main():
         task_group.create_task(open_website_with(chrome))
         task_group.create_task(open_website_with(edge))
         task_group.create_task(open_website_with(firefox))
-
 
 if __name__ == "__main__":
     asyncio.run(main())

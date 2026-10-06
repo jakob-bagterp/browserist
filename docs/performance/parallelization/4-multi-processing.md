@@ -14,14 +14,12 @@ Example of how to run multiple browsers in multi-processing mode:
 import multiprocessing
 from browserist import Browser, BrowserSettings, BrowserType
 
-
 def open_website_with(settings: BrowserSettings):
     with Browser(settings) as browser:
         print(f"1. Opening {settings.type.name} browser")
         browser.open.url("https://example.com")
         print(f"2. Page loaded with {settings.type.name} browser")
         print(f"3. Closing {settings.type.name} browser")
-
 
 def main():
     chrome = BrowserSettings(type=BrowserType.CHROME)
@@ -33,7 +31,6 @@ def main():
 
     with multiprocessing.Pool(number_of_processes) as pool:
         pool.map(open_website_with, browser_settings)
-
 
 if __name__ == "__main__":
     main()

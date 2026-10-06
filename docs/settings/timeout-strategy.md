@@ -18,7 +18,9 @@ Learn how to set the best timeout strategy for the needs and context of your aut
 ```python linenums="1" hl_lines="3-5"
 from browserist import TimeoutSettings, TimeoutStrategy
 
-timeout_settings = TimeoutSettings(strategy=TimeoutStrategy.CONTINUE, seconds=10)
+timeout_settings = TimeoutSettings(
+    strategy=TimeoutStrategy.CONTINUE,
+    seconds=10)
 ```
 
 !!! tip
@@ -44,7 +46,9 @@ How to define a general strategy and timeout of 10 seconds for all functions, wh
 ```python linenums="1" hl_lines="11"
 from browserist import Browser, BrowserSettings, TimeoutSettings, TimeoutStrategy
 
-timeout_settings = TimeoutSettings(strategy=TimeoutStrategy.CONTINUE, seconds=10)
+timeout_settings = TimeoutSettings(
+    strategy=TimeoutStrategy.CONTINUE,
+    seconds=10)
 
 settings = BrowserSettings(timeout=timeout_settings)
 

@@ -43,7 +43,9 @@ More information about [installation of browser drivers](../getting-started/reco
     ```python linenums="1" hl_lines="5"
     from browserist import Browser, BrowserSettings, BrowserType
 
-    settings = BrowserSettings(type=BrowserType.FIREFOX, path_to_executable="/path/to/executable/firefox.exe")
+    settings = BrowserSettings(
+        type=BrowserType.FIREFOX,
+        path_to_executable="/path/to/executable/firefox.exe")
 
     with Browser(settings) as browser:
         browser.open.url("https://example.com")

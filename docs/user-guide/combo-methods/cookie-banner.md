@@ -20,8 +20,9 @@ Gettning started:
 from browserist import Browser, CookieBannerSettings
 
 accept_cookies = CookieBannerSettings(
-    url="https://example.com", has_loaded_xpath="//xpath/to/cookie_banner", button_xpath="//xpath/to/accept_button"
-)
+    url="https://example.com",
+    has_loaded_xpath="//xpath/to/cookie_banner",
+    button_xpath="//xpath/to/accept_button")
 
 with Browser() as browser:
     browser.combo.cookie_banner(accept_cookies)
@@ -38,8 +39,7 @@ accept_cookies = CookieBannerSettings(
     url="https://example.com",
     has_loaded_xpath="//xpath/to/cookie_banner",
     button_xpath="//xpath/to/accept_button",
-    return_bool=True,
-)
+    return_bool=True)
 
 with Browser() as browser:
     if browser.combo.cookie_banner(accept_cookies):
@@ -54,12 +54,14 @@ Let's expand the examples and imagine that a website can personalise the content
 from browserist import Browser, CookieBannerSettings
 
 accept_cookies = CookieBannerSettings(
-    url="https://example.com", has_loaded_xpath="//xpath/to/cookie_banner", button_xpath="//xpath/to/accept_button"
-)
+    url="https://example.com",
+    has_loaded_xpath="//xpath/to/cookie_banner",
+    button_xpath="//xpath/to/accept_button")
 
 decline_cookies = CookieBannerSettings(
-    url="https://example.com", has_loaded_xpath="//xpath/to/cookie_banner", button_xpath="//xpath/to/decline_button"
-)
+    url="https://example.com",
+    has_loaded_xpath="//xpath/to/cookie_banner",
+    button_xpath="//xpath/to/decline_button")
 
 with Browser() as browser:
     browser.combo.cookie_banner(accept_cookies)
