@@ -77,6 +77,7 @@ include = ["/src"]
 
 [tool.uv]
 package = true
+required-version = ">=0.12"
 
 [tool.mypy]
 files = ["src"]
