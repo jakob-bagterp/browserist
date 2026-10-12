@@ -33,10 +33,11 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
+      # Install tox on the Python version of the matrix entry, as tox-gh-actions selects the tox environment by the Python version that tox runs on:
       - name: Install dependencies
         run: |
           uv sync --frozen --all-extras
-          uv tool install tox --with tox-uv --with tox-gh-actions
+          uv tool install tox --python ${{ matrix.python-version }} --with tox-uv --with tox-gh-actions
 
       # This is a workaround for https://github.com/jakob-bagterp/browserist/pull/1026. It can be removed once the issue is fixed, including a skipif for macOS in the test_click_download_and_get_file_path() test.
       - name: Set up Chrome as "Chrome for Testing" and the matching ChromeDriver for macOS.
@@ -56,6 +57,8 @@ jobs:
 
       - name: Run tests with Tox
         env:
+          # Lets a test verify that the job tests the Python version of its matrix entry:
+          EXPECTED_PYTHON_VERSION: ${{ matrix.python-version }}
           PYTEST_XDIST_WORKERS: ${{ (matrix.os == 'windows-latest' || matrix.os == 'macos-latest') && '0' || '3' }}
         run: tox
         timeout-minutes: 120
