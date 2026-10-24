@@ -10,15 +10,10 @@ from browserist.helper import operating_system
     "url, expected_total_scroll_height, tolerance_pixels",
     [
         (
-            internal_url.NOT_SCROLLABLE,
-            437,
-            30 if (operating_system.is_windows() or operating_system.is_macos()) else 10,
-        ),
-        (
             internal_url.SCROLL_VERTICAL_LONG,
             42_076,
             2_000 if (operating_system.is_windows() or operating_system.is_macos()) else 400,
-        ),
+        )
     ],
 )
 @pytest.mark.xdist_group(name="serial_scroll_tests")
@@ -32,3 +27,13 @@ def test_get_total_scroll_height(
     assert minimum_height < total_scroll_height
     maximum_height = expected_total_scroll_height + tolerance_pixels
     assert total_scroll_height < maximum_height
+
+
+@pytest.mark.xdist_group(name="serial_scroll_tests")
+def test_get_total_scroll_height_of_not_scrollable_page_equals_viewport_height(
+    browser_default_headless_scope_function: Browser,
+) -> None:
+    # The default viewport height of headless browsers differs across browser versions and operating systems, so compare with the actual viewport height instead of a fixed number of pixels.
+    browser = reset_to_not_timed_out(browser_default_headless_scope_function)
+    browser.open.url(internal_url.NOT_SCROLLABLE)
+    assert browser.scroll.get.total_height() == browser.viewport.get.height()
