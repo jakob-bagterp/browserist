@@ -1,5 +1,5 @@
 [![Latest version](https://img.shields.io/static/v1?label=Version&message=1.7.23&color=yellowgreen)](https://github.com/jakob-bagterp/browserist/releases/latest)
-[![Python 3.11 | 3.12 | 3.13 | 3.14+](https://img.shields.io/static/v1?label=Python&message=3.11%20|%203.12%20|%203.13%20|%203.14%2B&color=blueviolet)](https://www.python.org)
+[![Python 3.11 | 3.12 | 3.13 | 3.14 | 3.15+](https://img.shields.io/static/v1?label=Python&message=3.11%20|%203.12%20|%203.13%20|%203.14%20|%203.15%2B&color=blueviolet)](https://www.python.org)
 [![Apache 2.0 license](https://img.shields.io/static/v1?label=License&message=Apache%202.0&color=blue)](https://github.com/jakob-bagterp/browserist/blob/master/LICENSE.md)
 [![Codecov](https://codecov.io/gh/jakob-bagterp/browserist/branch/master/graph/badge.svg?token=1JL65T099J)](https://codecov.io/gh/jakob-bagterp/browserist)
 [![CodeQL](https://github.com/jakob-bagterp/browserist/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/jakob-bagterp/browserist/actions/workflows/github-code-scanning/codeql)
