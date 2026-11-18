@@ -44,6 +44,8 @@ jobs:
         id: setup-chrome
         uses: browser-actions/setup-chrome@v2.2.0
         with:
+          # Pin Chrome to 157, as tabs crash on the macOS runners with Chrome 158 ("tab crashed" and "invalid session id"):
+          chrome-version: 157.0.8103.78
           install-chromedriver: true
 
       # This is a workaround for https://github.com/jakob-bagterp/browserist/pull/1026. It can be removed once the issue is fixed, including a skipif for macOS in the test_click_download_and_get_file_path() test.
