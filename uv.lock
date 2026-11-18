@@ -113,7 +113,7 @@ wheels = [
 
 [[package]]
 name = "browserist"
-version = "1.7.24"
+version = "1.7.25"
 source = { editable = "." }
 dependencies = [
     { name = "lxml" },
